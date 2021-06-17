@@ -16,3 +16,10 @@ What I'd like to do is to create a tree of entities, which in turn support name/
 Operations on entities would be via messages sent via Clojure's async package. The first two concerns
 here are (1) there will may well be too many entities (10,000+) to dedicate a channel to each 
 entity. And (2) operations on both entities and entity sub-trees should be atomic.
+
+## Entities
+
+At its heart, an entity is a data structure which has an unchanging name. An entity can have one
+or more ordered sets of child entite. 
+
+Operations are applied atomically to an entity and any number of its child entities, recursively.
