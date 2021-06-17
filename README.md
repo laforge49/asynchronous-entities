@@ -19,8 +19,8 @@ entity. And (2) operations on both entities and entity sub-trees should be atomi
 
 ## Entities
 
-At its heart, an entity is a data structure which has an unchanging name. An entity can have one
-or more ordered sets of child entite. 
+At its heart, an entity is a data structure which has an unchanging name unique to the context it is embeded in. 
+An entity can have one or more ordered sets of child entite. 
 
 Operations are applied atomically to an entity and any number of its child entities, recursively.
 
