@@ -33,4 +33,4 @@ the request, creating a channel as needed. By this means we can limit the number
 
 When a request is to be processed by a subtree of entities, the child sends a acquire message to the appropriate child entities. 
 The acquire message does nothing, which blocks any further requests.
-On completion of the parent request, the request channel of the parent and all the acquired children are closed and replaced with nil in the entity vectors.
+On completion of the parent request, the request channel of the parent and all the acquired children are closed and reset to nil in the entity atoms.
