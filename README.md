@@ -24,7 +24,7 @@ An entity can have one or more ordered sets of child entite.
 
 Operations are applied atomically to an entity and any number of its child entities, recursively.
 
-An entity is implemented as a vector of 2 items: (1) an atom holding an asynchronous channel for requests (or nil) and (2) a volatile holding a map with the sets of 
+An entity is implemented as a vector of 2 items: (1) an atom holding an asynchronous channel for requests (or nil) and (2) a volatile holding a persistent map with the sets of 
 child entities, the entity's content (name/value pairs), metadata and other internal data.
 
 The entity's atom will, at least initially, be nil except while a request is being processed. To keep things simple at first, every
@@ -38,13 +38,13 @@ On completion of the parent request, the request channel of the parent and all t
 
 ## Contexts
 
-A context is an entity with an entry in its map with a key of :ENTITIES and whose value is a map of entities. 
+A context is an entity with an entry in its persistent map with a key of :ENTITIES and whose value is a persistent map of entities. 
 
-The map of an entity has an entry with a key of :NAME and a value which is the name of the entity, while the 
-keys of the entities map are encoded kewords derived from the names of the entities.
-The map of an entity also has an entry with a key of :PARENTS and a value which is a vector of the names of the entities which 
+The persistent map of an entity has an entry with a key of :NAME and a value which is the name of the entity, while the 
+keys of the entities persistent map are encoded kewords derived from the names of the entities.
+The persistent map of an entity also has an entry with a key of :PARENTS and a value which is a vector of the names of the entities which 
 have that entity as a child. 
-Further, the map of an entity has an entry with a key of CONTEXTS and a value which is a vector of the name of the contexts for which 
+Further, the persistent map of an entity has an entry with a key of CONTEXTS and a value which is a vector of the name of the contexts for which 
 that entity is a member.
 
 When a parent/child relation is broken and that child has no other parents, then the parent/child relation of that child and its children are also broken
@@ -53,3 +53,11 @@ and the child is removed from the contexts for which it is a member.
 Note that the value of a entity is the same reguardless of the context by which it is accessed.
 
 There is a further restriction that the child entity must be a member of the same context as its parents.
+
+## Environments
+
+An environment is an atom holding a persistent map. One of the entries in this persistent map has a key of :CONTEXTS and a value which is a persistent map
+holding all contexts, the keys being the unique names of those contexts.
+
+Functions which modify state require an environment parameter. Multiple environments may be present, allowing different versions of the environment to be
+operated on at the same time.
