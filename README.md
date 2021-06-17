@@ -24,7 +24,7 @@ An entity can have one or more ordered sets of child entite.
 
 Operations are applied atomically to an entity and any number of its child entities, recursively.
 
-An entity is implemented as a vector of 2 items: (1) an atom holding an asynchronous channel for requests (or nil) and (2) a map holding the sets of 
+An entity is implemented as a vector of 2 items: (1) an atom holding an asynchronous channel for requests (or nil) and (2) a volatile holding a map with the sets of 
 child entities, the entity's content (name/value pairs), metadata and other internal data.
 
 The entity's atom will, at least initially, be nil except while a request is being processed. To keep things simple at first, every
@@ -35,3 +35,11 @@ request.)
 When a request is to be processed by a subtree of entities, the child sends a acquire message to the appropriate child entities. 
 The acquire message does nothing, which blocks any further requests.
 On completion of the parent request, the request channel of the parent and all the acquired children are closed and the entity atoms are reset to nil.
+
+## Contexts
+
+A context is an entity with an entry in its map with a key of :ENTITIES and whose value is a map of entities. 
+The map of an entity has an entry with a key of :NAME and a value which is the name of the entity, while the 
+keys of the entities map are encoded kewords derived from the names of an entities.
+The map of an entity also has an entry with a key of :CONTEXTS and a value which is a vector of the names of the contexts which hold a reference to
+the entity. Note that the value of a entity is the same reguardless of the context by which it is accessed.
