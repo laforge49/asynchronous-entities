@@ -41,5 +41,9 @@ On completion of the parent request, the request channel of the parent and all t
 A context is an entity with an entry in its map with a key of :ENTITIES and whose value is a map of entities. 
 The map of an entity has an entry with a key of :NAME and a value which is the name of the entity, while the 
 keys of the entities map are encoded kewords derived from the names of an entities.
-The map of an entity also has an entry with a key of :CONTEXTS and a value which is a vector of the names of the contexts which hold a reference to
-the entity. Note that the value of a entity is the same reguardless of the context by which it is accessed.
+The map of an entity also has an entry with a key of :PARENTS and a value which is a vector of the names of the entities which 
+have that entity as a child. 
+
+Note that the value of a entity is the same reguardless of the context by which it is accessed.
+
+There is a further restriction that the child entity must be a member of the same context as its parents.
