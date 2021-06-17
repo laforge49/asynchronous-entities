@@ -20,7 +20,7 @@ entity. And (2) operations on both entities and entity sub-trees should be atomi
 ## Entities
 
 At its heart, an entity is a data structure which has an unchanging name unique to the context it is embeded in. 
-An entity can have one or more ordered sets of child entite. 
+An entity can have one or more ordered sets of child entities. 
 
 Operations are applied atomically to an entity and any number of its child entities, recursively.
 
@@ -36,23 +36,24 @@ When a request is to be processed by a subtree of entities, the child sends a ac
 The acquire message does nothing, which blocks any further requests.
 On completion of the parent request, the request channel of the parent and all the acquired children are closed and the entity atoms are reset to nil.
 
+The persistent map of an entity has an entry with a key of :NAME and a value which is the name of the entity, while the 
+keys of the entities persistent map are encoded kewords derived from the names of the entities.
+The persistent map of an entity also has an entry with a key of :PARENT and a value which is the names of the entity which 
+has that entity as a child. 
+
 ## Contexts
 
 A context is an entity with an entry in its persistent map with a key of :ENTITIES and whose value is a persistent map of entities. 
 
-The persistent map of an entity has an entry with a key of :NAME and a value which is the name of the entity, while the 
-keys of the entities persistent map are encoded kewords derived from the names of the entities.
-The persistent map of an entity also has an entry with a key of :PARENTS and a value which is a vector of the names of the entities which 
-have that entity as a child. 
-Further, the persistent map of an entity has an entry with a key of CONTEXTS and a value which is a vector of the name of the contexts for which 
+The persistent map of an entity has an entry with a key of CONTEXTS and a value which is a vector of the name of the contexts for which 
 that entity is a member.
 
-When a parent/child relation is broken and that child has no other parents, then the parent/child relation of that child and its children are also broken
-and the child is removed from the contexts for which it is a member.
+When a parent/child relation is broken, then the child is removed from the contexts for which it is a member, along with all the children
+of that child entity recursively.
 
 Note that the value of a entity is the same reguardless of the context by which it is accessed.
 
-There is a further restriction that the child entity must be a member of the same context as its parents.
+There is a further restriction that the child entity must be a member of the same context as its parent.
 
 ## Environments
 
