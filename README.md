@@ -60,8 +60,9 @@ A context is not a child of another entity.
 The persistent map of an entity has a map entry with a key of :CONTEXTS and a value which is a vector of the key of the 
 contexts for which that entity is a member.
 
-When a parent/child relation is broken, then the child is removed from the contexts for which it is a member, along with 
-all the children of that child entity recursively.
+When a parent/child relation is broken and the child only has one parent, 
+then the child is removed from the contexts for which it is a member, 
+along with all the children of that child entity recursively.
 
 Note that the value of a entity is the same reguardless of the context by which it is accessed.
 
