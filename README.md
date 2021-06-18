@@ -47,6 +47,8 @@ the key of the ordered set in the parent which connects the parent to the child.
 A context is an entity with an entry in its persistent map with a key of :ENTITIES and whose value is a persistent map of entities. 
 A persistent map rather than an ordered set is used here for scaling considerations.
 
+A context is not a child of another entity.
+
 The persistent map of an entity has an entry with a key of :CONTEXTS and a value which is a vector of the key of the contexts for which 
 that entity is a member.
 
