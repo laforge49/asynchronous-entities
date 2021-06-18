@@ -26,6 +26,8 @@ Operations are applied atomically to an entity and any number of its child entit
 
 An entity is implemented as a vector of 2 items: (1) an asynchronous channel for incoming requests and (2) a volatile holding a persistent map with the sets of 
 child entities, the entity's content (name/value pairs), metadata and other internal data.
+On creation of an entity in memory, a go block is started which reads and processes requests from the entity's channel. A read loop is used to process successive
+requests, exiting only when the channel is closed or when an acquire message is received.
 
 When a request is to be processed by a subtree of entities, the child sends a acquire message to the appropriate child entities. 
 The acquire message exits the go block without issuing a subsequent read, which blocks any further requests.
