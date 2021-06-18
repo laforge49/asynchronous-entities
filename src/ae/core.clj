@@ -9,5 +9,7 @@
   (let [main-context
         [(chan) (volatile! {})]
         env
-        (atom {})])
-  (println "I'm a little teapot!"))
+        (atom {})]
+    (swap! env assoc :CONTEXTS {:CONTEXT_MAIN main-context})
+    (println (pr-str @(second (:CONTEXT_MAIN (:CONTEXTS @env)))))
+    ))
