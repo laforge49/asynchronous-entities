@@ -57,7 +57,7 @@ A persistent map rather than an ordered set is used here for scaling considerati
 
 A context is not a child of another entity.
 
-The persistent map of an entity has a map entry with a key of :CONTEXTS and a value which is a vector of the key of the 
+The persistent map of an entity has a map entry with a key of :CONTEXTS and a value which is a vector of the keys of the 
 contexts for which that entity is a member.
 
 When a parent/child relation is broken and the child only has one parent, 
