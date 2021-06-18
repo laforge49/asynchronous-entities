@@ -42,11 +42,12 @@ and the next request for the entity can be read.
 
 The persistent map of an entity has a map entry with a key of :NAME and a value which is the name of the entity, while 
 the keys of the entities persistent map are encoded kewords derived from the names of the entities.
-The persistent map of an entity has a map entry with a key of :CHILDREN and a value which is
-a persistent map whose values are vectors holding the keys of selected children.
-The persistent map of an entity also has a map entry with a key of :PARENTS and a value which is
-a vector of vectors holding both the key of the entity which has that entity as a child and
-the key of the vector in the parent which connects the parent to the child. 
+
+The persistent map of an entity may have a map entry with a key of :CHILDVECTORS and a value which is
+a persistent map whose values are vectors holding the keys of various children.
+
+The persistent map of an entity may also have a map entry with a key of :PARENTVECTORS and a value which is
+a persistent map whose values are vectors of various parents. 
 
 ## Contexts
 
