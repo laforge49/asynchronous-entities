@@ -38,14 +38,15 @@ On completion of the parent request, the request channel of the parent and all t
 
 The persistent map of an entity has an entry with a key of :NAME and a value which is the name of the entity, while the 
 keys of the entities persistent map are encoded kewords derived from the names of the entities.
-The persistent map of an entity also has an entry with a key of :PARENT and a value which is the names of the entity which 
-has that entity as a child. 
+The persistent map of an entity also has an entry with a key of :PARENT and a value which is
+a vector holding both the key of the entity which has that entity as a child and
+the key of the child set in the parent which connects the parent to the child. 
 
 ## Contexts
 
 A context is an entity with an entry in its persistent map with a key of :ENTITIES and whose value is a persistent map of entities. 
 
-The persistent map of an entity has an entry with a key of CONTEXTS and a value which is a vector of the name of the contexts for which 
+The persistent map of an entity has an entry with a key of :CONTEXTS and a value which is a vector of the key of the contexts for which 
 that entity is a member.
 
 When a parent/child relation is broken, then the child is removed from the contexts for which it is a member, along with all the children
@@ -61,4 +62,5 @@ An environment is an atom holding a persistent map. One of the entries in this p
 holding all contexts, the keys being the unique names of those contexts.
 
 Functions which modify state require an environment parameter. Multiple environments may be present, allowing different versions of the environment to be
-operated on at the same time.
+operated on at the same time. It is best perhaps to think of an environment as a view into the state, as the same entity can be accessed via multiple
+environments, with updates applied to an entity accessed by one context will be visible when accessed via another environment.
