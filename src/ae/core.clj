@@ -6,7 +6,9 @@
 
 (defn -main
   [& args]
-  (let [main-context
+  (let [simple1
+        [(chan) (volatile! {})]
+        main-context
         [(chan) (volatile! {})]
         env
         (atom {})]
@@ -14,8 +16,14 @@
     (vswap! (second main-context) (fn [old]
                                     (let [context-value
                                           (-> old
-                                              (assoc :NAME :CONTEXT_MAIN)
-                                              (assoc :ENTITIES {}))]
+                                              (assoc :NAME "CONTEXT_MAIN")
+                                              (assoc :ENTITIES {:SIMPLE_1 simple1}))]
                                       context-value)))
-    (println (pr-str @(second (:CONTEXT_MAIN (:CONTEXTS @env)))))
+    (vswap! (second simple1) (fn [old]
+                                    (let [context-value
+                                          (-> old
+                                              (assoc :NAME "SIMPLE_1")
+                                              (assoc :CONTEXTS [:CONTEXT_MAIN]))]
+                                      context-value)))
+    (println (pr-str @(second (:SIMPLE_1 (get-in @(second (get-in @env [:CONTEXTS :CONTEXT_MAIN])) [:ENTITIES])))))
     ))
