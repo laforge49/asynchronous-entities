@@ -20,12 +20,12 @@ by always acquiring the applicable entities in the same order before operating o
 ## Entities
 
 At its heart, an entity is a data structure which has an unchanging name unique to the context it is embeded in. 
-An entity can have one or more ordered sets of child entities. 
+An entity can have one or more vectors of child entities. 
 
 Operations are applied atomically to an entity and any number of its child entities, recursively.
 
 An entity is implemented as a vector of 2 items: (1) an asynchronous channel for incoming requests and (2) a volatile 
-holding a persistent map with the sets of 
+holding a persistent map with the vectors of 
 child entities, the entity's content (name/value pairs), metadata and other internal data.
 On creation of an entity in memory, a go block is started which reads and processes requests from the entity's channel. 
 A read loop is used to process successive
@@ -42,9 +42,11 @@ and the next request for the entity can be read.
 
 The persistent map of an entity has a map entry with a key of :NAME and a value which is the name of the entity, while 
 the keys of the entities persistent map are encoded kewords derived from the names of the entities.
-The persistent map of an entity also has a map entry with a key of :PARENT and a value which is
-a vector holding both the key of the entity which has that entity as a child and
-the key of the ordered set in the parent which connects the parent to the child. 
+The persistent map of an entity has a map entry with a key of :CHILDREN and a value which is
+a persistent map whose values are vectors holding the keys of selected children.
+The persistent map of an entity also has a map entry with a key of :PARENTS and a value which is
+a vector of vectors holding both the key of the entity which has that entity as a child and
+the key of the vector in the parent which connects the parent to the child. 
 
 ## Contexts
 
