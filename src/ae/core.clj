@@ -1,4 +1,4 @@
-(ns asynchronous-entities.core
+(ns ae.core
   (:gen-class))
 
 (defn -main
