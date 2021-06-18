@@ -13,9 +13,9 @@ in a tree built using persistent maps with something under a million name/value 
 It feels wrong, especially if I want to support swing or multi-threading in general.
 
 What I'd like to do is to create a tree of entities, which in turn support name/value pairs.
-Operations on entities would be via messages sent using Clojure's async package. The first two concerns
-here are (1) there may well be too many entities (10,000+) to dedicate a channel to each 
-entity. And (2) operations on both entities and entity sub-trees should be atomic.
+Operations on entities would be via messages sent using Clojure's async package. The first concern
+is that operations on multiple entities may need to be atomic. To avoid deadlocks, this will be done
+by always acquiring the applicable entities in the same order before operating on them.
 
 ## Entities
 
@@ -24,21 +24,19 @@ An entity can have one or more ordered sets of child entities.
 
 Operations are applied atomically to an entity and any number of its child entities, recursively.
 
-An entity is implemented as a vector of 2 items: (1) an atom holding an asynchronous channel for requests (or nil) and (2) a volatile holding a persistent map with the sets of 
+An entity is implemented as a vector of 2 items: (1) an asynchronous channel for incoming requests and (2) a volatile holding a persistent map with the sets of 
 child entities, the entity's content (name/value pairs), metadata and other internal data.
 
-The entity's atom will, at least initially, be nil except while a request is being processed. To keep things simple at first, every
-request will be sent via a new channel. (When a request is completed, the channel will be closed. Any pending requests will then fail and the requestor 
-can resend the request, creating a new channel as needed. By this means we can limit the number of open channels to just those which are processing a
-request.)
-
 When a request is to be processed by a subtree of entities, the child sends a acquire message to the appropriate child entities. 
-The acquire message does nothing, which blocks any further requests.
-On completion of the parent request, the request channel of the parent and all the acquired children are closed and the entity atoms are reset to nil.
+The acquire message exits the go block without issuing a subsequent read, which blocks any further requests.
+When the child reads the acquire message, the sender receives control indicating that the child is acquired. And once
+all the child entities are acquired, the operation designated by the original request can proceed.
+On completion of the top-level request, a new go block for processing requests is initiated for each of the acquired entities
+and the next request for the entity can be read.
 
-The persistent map of an entity has an entry with a key of :NAME and a value which is the name of the entity, while the 
+The persistent map of an entity has a map entry with a key of :NAME and a value which is the name of the entity, while the 
 keys of the entities persistent map are encoded kewords derived from the names of the entities.
-The persistent map of an entity also has an entry with a key of :PARENT and a value which is
+The persistent map of an entity also has a map entry with a key of :PARENT and a value which is
 a vector holding both the key of the entity which has that entity as a child and
 the key of the child set in the parent which connects the parent to the child. 
 
