@@ -62,7 +62,8 @@ contexts for which that entity is a member.
 
 When a parent/child relation is broken and the child only has one parent, 
 then the child is removed from the contexts for which it is a member, 
-along with all the children of that child entity recursively.
+along with all the children of that child entity recursively, 
+again, so long as those children only have a single parent.
 
 Note that the value of a entity is the same reguardless of the context by which it is accessed.
 
