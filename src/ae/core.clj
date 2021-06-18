@@ -6,6 +6,8 @@
 
 (defn -main
   [& args]
-  (let [env
+  (let [main-context
+        [(chan) (volatile! {})]
+        env
         (atom {})])
   (println "I'm a little teapot!"))
