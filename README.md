@@ -43,8 +43,9 @@ Entries in the persistent map of an entity may have the following entry keys and
 
 * [:NAME, The name of the entity.]
   (When a name is converted to a keyword, illegal characters like space are encoded.)
+* [:OPERATIONS, A persistent map with requests for key and operation ids as values.]
 * [:CHILDVECTORS, A persistent map whose values are vectors holding the keys of various children.]
-* [:PARENTVECTORS, A persistent map whose values are vectors of the keys of various parents.] 
+* [:PARENTVECTORS, A persistent map whose values are vectors of the keys of various parents.]
 
 ## Contexts
 
@@ -53,12 +54,13 @@ A context is a specialized entity in which other entities are embedded.
 Entries in the persistent map of a context may have the following entry keys and values:
 
 * [:NAME, The name of the context.]
+* [:OPERATIONS, A persistent map with requests for key and operation ids as values.]
 * [:ENTITIES, A persistent map of entities.]
   (A persistent map rather than an ordered set is used here for scaling considerations.)
 
 A context is not a child of another entity, nor is it a parent.
 
-When a parent/child relation is broken and the child only has one parent, 
+When an entity parent/child relation is broken and the child only has one parent, 
 then the child is removed from the context of which it is a member, 
 along with all the children of that child entity recursively, 
 again, so long as those children only have a single parent.

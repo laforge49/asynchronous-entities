@@ -1,20 +1,18 @@
 (ns ae.core
-  (:require [clojure.core.async
-             :as a
-             :refer [>! <! >!! <!! go chan buffer close! thread
-                     alts! alts!! timeout]]))
+  (:require [clojure.core.async :as a]
+            [ae.kernel :as k]))
 
 (defn -main
   [& args]
   (let [simple1
-        [(chan) (volatile! {})]
+        [(a/chan) (volatile! {})]
         simple2
-        [(chan) (volatile! {})]
+        [(a/chan) (volatile! {})]
         main-context
-        [(chan) (volatile! {})]
+        [(a/chan) (volatile! {})]
         env
         {:CONTEXTS {:CONTEXT/MAIN main-context}
-         :PARAMS {}}
+         :PARAMS   {}}
         ]
     (vswap! (second main-context) (fn [old]
                                     (let [context-value
@@ -22,12 +20,14 @@
                                               (assoc :NAME "CONTEXT/MAIN")
                                               (assoc :ENTITIES {:MAIN/SIMPLE_1 simple1
                                                                 :MAIN/SIMPLE_2 simple2})
+                                              (assoc :OPERATIONS {})
                                               )]
                                       context-value)))
     (vswap! (second simple1) (fn [old]
                                (let [context-value
                                      (-> old
                                          (assoc :NAME "MAIN/SIMPLE_1")
+                                         (assoc :OPERATIONS {})
                                          (assoc :CHILDVECTORS {:PLAIN [:MAIN/SIMPLE_2]})
                                          )]
                                  context-value)))
@@ -35,6 +35,7 @@
                                (let [context-value
                                      (-> old
                                          (assoc :NAME "MAIN/SIMPLE_2")
+                                         (assoc :OPERATIONS {})
                                          (assoc :PARENTVECTORS {:PLAIN [:MAIN/SIMPLE_1]})
                                          )]
                                  context-value)))
