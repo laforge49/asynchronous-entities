@@ -34,45 +34,34 @@ requests, exiting only when the channel is closed or when an acquire message is 
 When a request is to be processed by a subtree of entities, the child sends a acquire message to the appropriate child 
 entities. 
 The acquire message exits the go block without issuing a subsequent read, which blocks any further requests.
-When the child reads the acquire message, the sender receives control indicating that the child is acquired. And once
-all the child entities are acquired, the operation designated by the original request can proceed.
+When the child reads the acquire message, the sender receives control indicating that the child is acquired. 
+And once all the child entities are acquired, the operation designated by the original request can proceed.
 On completion of the top-level request, a new go block for processing requests is initiated for each of the acquired 
-entities
-and the next request for the entity can be read.
+entities and the next request for the entity can be read.
 
-The persistent map of an entity has a map entry with a key of :NAME and a value which is the name of the entity, while 
-the keys of the entities persistent map are encoded kewords derived from the names of the entities.
-
-The persistent map of an entity may have a map entry with a key of :CHILDVECTORS and a value which is
-a persistent map whose values are vectors holding the keys of various children.
-
-The persistent map of an entity may also have a map entry with a key of :PARENTVECTORS and a value which is
-a persistent map whose values are vectors of various parents. 
+Entries in the persistent map of an entity may have the following entry keys and values:
+* :NAME, The name of the entity.
+  (When a name is converted to a keyword, illegal characters like space are encoded.)
+* :CHILDVECTORS, A persistent map whose values are vectors holding the keys of various children.
+* :PARENTVECTORS, A persistent map whose values are vectors of the keys of various parents. 
 
 ## Contexts
 
 A context is an entity with a map entry in its persistent map with a key of :ENTITIES and whose value is a persistent 
 map of entities. 
-A persistent map rather than an ordered set is used here for scaling considerations.
+(A persistent map rather than an ordered set is used here for scaling considerations.)
 
 A context is not a child of another entity.
 
-The persistent map of an entity has a map entry with a key of :CONTEXTS and a value which is a vector of the keys of the 
-contexts for which that entity is a member.
-
 When a parent/child relation is broken and the child only has one parent, 
-then the child is removed from the contexts for which it is a member, 
+then the child is removed from the context of which it is a member, 
 along with all the children of that child entity recursively, 
 again, so long as those children only have a single parent.
-
-Note that the value of a entity is the same reguardless of the context by which it is accessed.
-
-There is a further restriction that the child entity must be a member of the same context as its parent.
 
 ## Environments
 
 An environment is an atom holding a persistent map. One of the map entries in this persistent map has a key of :CONTEXTS 
-and a value which is a persistent map holding all contexts, the keys being the names of those contexts.
+and a value which is a persistent map holding all contexts.
 
 Functions which modify state require an environment parameter. 
 Multiple environments may be present, allowing different versions of the environment to be
