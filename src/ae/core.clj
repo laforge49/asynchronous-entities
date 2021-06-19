@@ -13,8 +13,9 @@
         main-context
         [(chan) (volatile! {})]
         env
-        (atom {})]
-    (swap! env assoc :CONTEXTS {:CONTEXT/MAIN main-context})
+        {:CONTEXTS {:CONTEXT/MAIN main-context}
+         :PARAMS {}}
+        ]
     (vswap! (second main-context) (fn [old]
                                     (let [context-value
                                           (-> old
@@ -37,5 +38,5 @@
                                          (assoc :PARENTVECTORS {:PLAIN [:MAIN/SIMPLE_1]})
                                          )]
                                  context-value)))
-    (println (pr-str @(second (:MAIN/SIMPLE_1 (get-in @(second (get-in @env [:CONTEXTS :CONTEXT/MAIN])) [:ENTITIES])))))
+    (println (pr-str @(second (:MAIN/SIMPLE_1 (get-in @(second (get-in env [:CONTEXTS :CONTEXT/MAIN])) [:ENTITIES])))))
     ))
