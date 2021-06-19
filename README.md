@@ -60,7 +60,7 @@ again, so long as those children only have a single parent.
 
 ## Environments
 
-An environment is an atom holding a persistent map. One of the map entries in this persistent map has a key of :CONTEXTS 
+An environment is a persistent map. One of the map entries in this persistent map has a key of :CONTEXTS 
 and a value which is a persistent map holding all contexts.
 
 Functions which modify state require an environment parameter. 
