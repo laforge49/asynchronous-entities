@@ -6,6 +6,6 @@
 
 (defn create-operation-port
   [operation-kw env]
-  (let [port (chan)]
+  (let [port (a/chan)]
     ((swap! operation-ports assoc operation-kw port))
     port))
