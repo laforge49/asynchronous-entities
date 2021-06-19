@@ -40,18 +40,23 @@ On completion of the top-level request, a new go block for processing requests i
 entities and the next request for the entity can be read.
 
 Entries in the persistent map of an entity may have the following entry keys and values:
-* :NAME, The name of the entity.
+
+* [:NAME, The name of the entity.]
   (When a name is converted to a keyword, illegal characters like space are encoded.)
-* :CHILDVECTORS, A persistent map whose values are vectors holding the keys of various children.
-* :PARENTVECTORS, A persistent map whose values are vectors of the keys of various parents. 
+* [:CHILDVECTORS, A persistent map whose values are vectors holding the keys of various children.]
+* [:PARENTVECTORS, A persistent map whose values are vectors of the keys of various parents.] 
 
 ## Contexts
 
-A context is an entity with a map entry in its persistent map with a key of :ENTITIES and whose value is a persistent 
-map of entities. 
-(A persistent map rather than an ordered set is used here for scaling considerations.)
+A context is a specialized entity in which other entities are embedded.
 
-A context is not a child of another entity.
+Entries in the persistent map of a context may have the following entry keys and values:
+
+* [:NAME, The name of the context.]
+* [:ENTITIES, A persistent map of entities.]
+  (A persistent map rather than an ordered set is used here for scaling considerations.)
+
+A context is not a child of another entity, nor is it a parent.
 
 When a parent/child relation is broken and the child only has one parent, 
 then the child is removed from the context of which it is a member, 
@@ -60,17 +65,8 @@ again, so long as those children only have a single parent.
 
 ## Environments
 
-An environment is a persistent map. One of the map entries in this persistent map has a key of :CONTEXTS 
-and a value which is a persistent map holding all contexts.
+An environment is a persistent map. 
+Entries in the persistent map of an environment may have the following entry keys and values:
 
-Functions which modify state require an environment parameter. 
-Multiple environments may be present, allowing different versions of the environment to be
-operated on at the same time. 
-It is best perhaps to think of an environment as a view into the state, as the same entity can be accessed via multiple
-environments, with updates applied to an entity accessed by one context will be visible when accessed via another 
-environment.
-
-Another map entry in the persistent map of an environment has a key of :PARAMS and a value which is a persistent map of 
-name/value pairs. 
-This mechanism allows for the passing of paramaters to a function instead of passing positional parameters, 
-with the added advantage of transparently passing parameters to subfunctions.
+* [:CONTEXTS, A persistent map holding all contexts.]
+* [:PARAMS, A persistent map of parameters being passed lower-level functions and sub-functions.]
