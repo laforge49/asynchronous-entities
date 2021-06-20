@@ -49,4 +49,5 @@
         (a/chan)]
     (a-main main-in)
     (a/>!! main-in main-out)
-    (println (a/<!! main-out))))
+    (println (a/<!! main-out))
+    ))

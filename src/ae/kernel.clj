@@ -13,8 +13,29 @@
     ((swap! operation-ports assoc operation-kw port))
     port))
 
+(defn operation-dispatcher
+  [entity]
+  (let [entity-port
+        (first entity)
+        entity-map
+        (@(second entity))
+        operations
+        (:OPERATIONS entity-map)]
+    (a/go
+      (let [env
+            (a/<! entity-port)]
+        (println :got (pr-str env)))))
+  )
+
 (defn create-entity
   [env]
-  (let [entity-map (get-in env [:PARAMS :entity-map])]
-    [(a/chan)
-     (volatile! entity-map)]))
+  (let [entity-port
+        (a/chan)
+        entity-volatile
+        (volatile! (get-in env [:PARAMS :entity-map]))
+        new-entity
+        [entity-port entity-volatile]
+        ]
+    (operation-dispatcher new-entity)
+    new-entity
+    ))
