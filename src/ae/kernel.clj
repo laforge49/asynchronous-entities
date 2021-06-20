@@ -20,17 +20,26 @@
         (:PARAMS env)
         master-entity
         (:master-entity params)
-        request
-        (:request params)
         entity-port
         (first master-entity)
-        entity-map
-        @(second master-entity)
-        operations
-        (:OPERATIONS entity-map)]
+        ]
     (a/go
-      (let [[request-out request env]
-            (a/<! entity-port)]
+      (let [entity-map
+            @(second master-entity)
+            operations
+            (:OPERATIONS entity-map)
+            env
+            (a/<! entity-port)
+            params
+            (:PARAMS env)
+            request
+            (:request params)
+            operation-port
+            (request operations)
+            env
+            (assoc env :master-entity master-entity)
+            ]
+        (a/>! operation-port env)
         )))
   )
 
@@ -60,6 +69,7 @@
         (volatile! entity-map)
         new-entity
         [entity-port entity-volatile]
+        _ (operation-dispatcher (assoc env :PARAMS {:master-entity new-entity}))
         contexts-atom
         (:CONTEXTS env)
         ]
@@ -67,13 +77,15 @@
       (do
         (swap! contexts-atom assoc name-kw new-entity)
         new-entity)
-      #_(let [return-port
-              (a/chan)
-              ]
-          (operation-dispatcher (assoc env :PARAMS {:master-entity (context-kw @contexts-atom)
-                                                    :request       :REGISTER-ENTITY
-                                                    :new-entity    new-entity
-                                                    :name-kw       name-kw
-                                                    :return-port   return-port}))
-          (a/<! return-port))
+      (let [return-port
+            (a/chan)
+            context-entity
+            (context-kw @contexts-atom)
+            ]
+        (a/>! entity-port (assoc env :PARAMS {:master-entity context-entity
+                                              :request       :REGISTER-ENTITY
+                                              :new-entity    new-entity
+                                              :name-kw       name-kw
+                                              :return-port   return-port}))
+        (a/<! return-port))
       )))
