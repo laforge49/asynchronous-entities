@@ -47,6 +47,9 @@ Entries in the persistent map of an entity may have the following entry keys and
 * [:CHILDVECTORS, A persistent map whose values are vectors holding the keys of various children.]
 * [:PARENTVECTORS, A persistent map whose values are vectors of the keys of various parents.]
 
+As an entity can have multiple parents and children bound in different relationships, bush
+structures are supported. But not cyclic graphs.
+
 ## Contexts
 
 A context is a specialized entity in which other entities are embedded.
