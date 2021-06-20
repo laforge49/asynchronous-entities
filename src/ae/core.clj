@@ -5,7 +5,7 @@
 (defn entity-registration-operation
   [env]
   (let [entity-registration-port
-        (k/create-operation-port (assoc-in env [:PARAMS :operation-kw] :REGISTER-ENTITY))]
+        (k/create-operation-port (assoc env :PARAMS {:operation-kw :REGISTER-ENTITY-PORT}))]
     (a/go
       (let [[context-entity env]
             (a/<! entity-registration-port)
@@ -42,10 +42,10 @@
              contexts-atom
              }
             _ (create-operations env)
-            _ (k/create-entity (assoc env :PARAMS {:name          "CONTEXT/MAIN"
-                                                   :operations    {}
-                                                   :childvectors  {}
-                                                   :parentvectors {}
+            _ (k/create-entity (assoc env :PARAMS {:name             "CONTEXT/MAIN"
+                                                   :operations-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT}
+                                                   :childvectors     {}
+                                                   :parentvectors    {}
                                                    }))
             ;simple1
             ;(k/create-entity (assoc-in env [:PARAMS :NAME] "MAIN/SIMPLE_1"))
