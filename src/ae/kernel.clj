@@ -14,11 +14,11 @@
     port))
 
 (defn operation-dispatcher
-  [entity]
+  [new-entity]
   (let [entity-port
-        (first entity)
+        (first new-entity)
         entity-map
-        (@(second entity))
+        @(second new-entity)
         operations
         (:OPERATIONS entity-map)]
     (a/go
