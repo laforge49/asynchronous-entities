@@ -5,12 +5,10 @@
 (defn entity-registration-operation
   [entity-registration-port]
   (a/go
-    (let [env
+    (let [[context-entity env]
           (a/<! entity-registration-port)
           params
           (:PARAMS env)
-          context-entity
-          (:master-entity params)
           context-volatile
           @(second context-entity)
           new-entity
@@ -21,7 +19,7 @@
           (:request-out params)
           ]
       (swap! context-volatile assoc-in [:ENTITIES name-kw] new-entity)
-      (a/>! request-out :done)
+      (a/>! request-out new-entity)
       )))
 
 (defn create-operations
@@ -35,26 +33,27 @@
     (a/go
       (let [main-out
             (a/<! main-in)
+            contexts
+            (atom {})
             env
-            {:CONTEXTS {}
+            {:CONTEXTS contexts
              :PARAMS   {:entity-map {:OPERATIONS    {}
                                      :CHILDVECTORS  {}
                                      :PARENTVECTORS {}}}}
             simple1
-            (k/create-entity (assoc-in env [:PARAMS :entity-map :NAME] "MAIN/SIMPLE_1"))
+            (k/create-entity (assoc-in env [:PARAMS :NAME] "MAIN/SIMPLE_1"))
             simple2
-            (k/create-entity (assoc-in env [:PARAMS :entity-map :NAME] "MAIN/SIMPLE_2"))
+            (k/create-entity (assoc-in env [:PARAMS :NAME] "MAIN/SIMPLE_2"))
             main-context
             (k/create-entity (-> env
-                                 (assoc-in [:PARAMS :entity-map :NAME] "MAIN")
+                                 (assoc-in [:PARAMS :NAME] "MAIN")
                                  (assoc-in [:PARAMS :entity-map :ENTITIES :MAIN/SIMPLE_1] simple1)
                                  (assoc-in [:PARAMS :entity-map :ENTITIES :MAIN/SIMPLE_2] simple2)
                                  ))
-            env
-            (assoc-in env [:CONTEXTS :CONTEXT/MAIN] main-context)
             request-out
             (a/chan)
             ]
+        (swap! contexts assoc :CONTEXT/MAIN main-context)
         (a/>! (first main-context) [request-out
                                     :REGISTER-ENTITY
                                     (assoc env :PARAMS {:new-entity simple1
