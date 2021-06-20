@@ -24,7 +24,7 @@
       (a/>! request-out :done)
       )))
 
-(defn register-operations
+(defn create-operations
   [env]
   (let [entity-registration-port
         (k/create-operation-port (assoc-in env [:PARAMS :operation-kw] :REGISTER-ENTITY))]
@@ -72,7 +72,7 @@
                                              (assoc-in [:PARENTVECTORS :PLAIN] [:MAIN/SIMPLE_1])
                                              )]
                                      context-value)))
-        (register-operations env)
+        (create-operations env)
         (a/>! main-out (pr-str @(second (:MAIN/SIMPLE_1 (get-in @(second (get-in env [:CONTEXTS :CONTEXT/MAIN])) [:ENTITIES])))))
         )))
 
