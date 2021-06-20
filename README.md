@@ -47,8 +47,15 @@ Entries in the persistent map of an entity may have the following entry keys and
 * [:CHILDVECTORS, A persistent map whose values are vectors holding the keys of various children.]
 * [:PARENTVECTORS, A persistent map whose values are vectors of the keys of various parents.]
 
+Each vector of children or of parents implements a different relationship. And the key identifying
+the relationship must be the same when navigating from parent to child and back to parent.
+For example, a female child might have both father/daughter relaionship and a mother/daughter relationship but
+a parent would generally have only father/daughter and father/son relationships or mother/daughter
+and mother/son relationships.
+
 As an entity can have multiple parents and children bound in different relationships, bush
-structures are supported. But not cyclic graphs.
+structures are supported. But not cyclic graphs. So while this is a very rich 
+system for relationships between entities, there are limits
 
 ## Contexts
 
