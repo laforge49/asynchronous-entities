@@ -55,7 +55,7 @@ and mother/son relationships.
 
 As an entity can have multiple parents and children bound in different relationships, bush
 structures are supported. But not cyclic graphs. So while this is a very rich 
-system for relationships between entities, there are limits
+system for relationships between entities, there are limits.
 
 ## Contexts
 
