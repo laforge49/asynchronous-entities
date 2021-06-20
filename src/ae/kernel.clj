@@ -22,9 +22,13 @@
         operations
         (:OPERATIONS entity-map)]
     (a/go
-      (let [env
-            (a/<! entity-port)]
-        (println :got (pr-str env)))))
+      (let [[request-out env]
+            (a/<! entity-port)
+            request
+            (get-in env [:PARAMS :request])]
+        (println :got (pr-str (get env :PARAMS)))
+        (a/>! request-out :!!!)
+        )))
   )
 
 (defn create-entity

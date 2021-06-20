@@ -9,8 +9,8 @@
           (a/<! main-in)
           env
           {:CONTEXTS {}
-           :PARAMS   {:entity-map {:OPERATIONS {}
-                                   :CHILDVECTORS {}
+           :PARAMS   {:entity-map {:OPERATIONS    {}
+                                   :CHILDVECTORS  {}
                                    :PARENTVECTORS {}}}}
           simple1
           (k/create-entity (assoc-in env [:PARAMS :entity-map :NAME] "MAIN/SIMPLE_1"))
@@ -24,7 +24,14 @@
                                ))
           env
           (assoc-in env [:CONTEXTS :CONTEXT/MAIN] main-context)
+          request-out
+          (a/chan)
           ]
+      (a/>! (first main-context) [request-out
+                                  (-> env
+                                      (assoc-in [:PARAMS :request] :REGISTER-ENTITY)
+                                      (assoc-in [:PARAMS :entity] simple1))])
+      (println :request-got (a/<! request-out))
       (vswap! (second simple1) (fn [old]
                                  (let [context-value
                                        (-> old
