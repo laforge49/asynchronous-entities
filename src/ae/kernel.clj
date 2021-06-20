@@ -22,10 +22,8 @@
         operations
         (:OPERATIONS entity-map)]
     (a/go
-      (let [[request-out env]
-            (a/<! entity-port)
-            request
-            (get-in env [:PARAMS :request])]
+      (let [[request-out request env]
+            (a/<! entity-port)]
         (println :got (pr-str (get env :PARAMS)))
         (a/>! request-out :!!!)
         )))
