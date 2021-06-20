@@ -10,15 +10,15 @@
         (get-in env [:PARAMS :operation-kw])
         port
         (a/chan)]
-    ((swap! operation-ports assoc operation-kw port))
+    (swap! operation-ports assoc operation-kw port)
     port))
 
 (defn operation-dispatcher
-  [new-entity]
+  [master-entity]
   (let [entity-port
-        (first new-entity)
+        (first master-entity)
         entity-map
-        @(second new-entity)
+        @(second master-entity)
         operations
         (:OPERATIONS entity-map)]
     (a/go
