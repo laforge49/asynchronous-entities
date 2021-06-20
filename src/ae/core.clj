@@ -29,7 +29,9 @@
     (entity-registration-operation entity-registration-port)))
 
 (defn a-main
-  [main-in]
+  []
+  (let [main-in
+        (a/chain)]
   (a/go
     (let [main-out
           (a/<! main-in)
@@ -74,16 +76,17 @@
       #_ (create-operations env)
       #_ (a/>! main-out (pr-str @(second (:MAIN/SIMPLE_1 (get-in @(second (get-in env [:CONTEXTS :CONTEXT/MAIN])) [:ENTITIES])))))
       (a/>! main-out :ribit)
-      )))
+      )
+    )
+  main-in))
 
 (defn -main
   [& args]
   (println "go!")
   (let [main-in
-        (a/chan)
+        (a-main)
         main-out
         (a/chan)]
-    (a-main main-in)
     (a/>!! main-in main-out)
     (println (a/<!! main-out))
     ))
