@@ -41,13 +41,17 @@
         params
         (:PARAMS env)
         name
-        (:NAME params)
+        (:name params)
         slashindex
-        (s/index-of name \")
+        (s/index-of name "/")
         context-name
         (subs name 0 slashindex)
         context-kw
         (keyword context-name)
+        base-name
+        (subs name (inc slashindex))
+        name-kw
+        (keyword context-name base-name)
         entity-map
         (:entity-map params)
         entity-map
@@ -61,18 +65,15 @@
         ]
     (if (= context-name "CONTEXT")
       (do
-        (swap! contexts-atom assoc context-kw context-name)
+        (swap! contexts-atom assoc name-kw new-entity)
         new-entity)
-      (let [base-name
-            (subs name (inc slashindex))
-            name-kw
-            (keyword context-name base-name)
-            return-port
-            (a/chan)
-            ]
-        (operation-dispatcher (assoc env :PARAMS {:master-entity (context-kw @contexts-atom)
-                                                  :request :REGISTER-ENTITY
-                                                  :new-entity    new-entity
-                                                  :name-kw       name-kw
-                                                  :return-port   return-port}))
-        (a/<! return-port)))))
+      #_(let [return-port
+              (a/chan)
+              ]
+          (operation-dispatcher (assoc env :PARAMS {:master-entity (context-kw @contexts-atom)
+                                                    :request       :REGISTER-ENTITY
+                                                    :new-entity    new-entity
+                                                    :name-kw       name-kw
+                                                    :return-port   return-port}))
+          (a/<! return-port))
+      )))
