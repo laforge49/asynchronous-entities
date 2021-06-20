@@ -28,9 +28,8 @@
           (a/chan)
           ]
       (a/>! (first main-context) [request-out
-                                  (-> env
-                                      (assoc-in [:PARAMS :request] :REGISTER-ENTITY)
-                                      (assoc-in [:PARAMS :entity] simple1))])
+                                  (assoc env :PARAMS {:request :REGISTER-ENTITY
+                                                      :entity  simple1})])
       (println :request-got (a/<! request-out))
       (vswap! (second simple1) (fn [old]
                                  (let [context-value
