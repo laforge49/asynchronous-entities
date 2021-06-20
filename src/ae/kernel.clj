@@ -1,5 +1,5 @@
 (ns ae.kernel
-  (:require [[clojure.core.async :as a]]))
+  (:require [clojure.core.async :as a]))
 
 (def operation-ports
   (atom {}))
