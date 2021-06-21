@@ -23,24 +23,32 @@
         entity-port
         (first master-entity)
         ]
-    (a/go
+    (a/go-loop []
       (let [entity-map
             @(second master-entity)
             operations
             (:OPERATIONS entity-map)
             env
             (a/<! entity-port)
+            env
+            (assoc env :master-entity master-entity)
             params
             (:PARAMS env)
             request
             (:request params)
             operation-port
             (request operations)
-            env
-            (assoc env :master-entity master-entity)
+            operation-return-port
+            (a/chan)
             ]
-        (a/>! operation-port env)
-        )))
+        (a/>! operation-port (assoc env :return-port operation-return-port))
+        (let [return-value
+              (a/<! operation-return-port)
+              return-port
+              (:return-port env)]
+          (a/>! return-port return-value)
+          (if (not= return-value :stop)
+            (recur))))))
   )
 
 (defn create-entity
