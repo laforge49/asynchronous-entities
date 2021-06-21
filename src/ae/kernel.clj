@@ -64,57 +64,64 @@
         ]
     [name-kw context-name base-name]))
 
-  (defn create-entity
-    [env]
-    (let [entity-port
-          (a/chan)
-          params
-          (:PARAMS env)
-          name
-          (:name params)
-          entity-map
-          (:entity-map params)
-          entity-map
-          (assoc entity-map :NAME name)
-          entity-volatile
-          (volatile! entity-map)
-          new-entity
-          [entity-port entity-volatile]
-          _ (operation-dispatcher (assoc env :PARAMS {:master-entity new-entity}))
-          ]
-      #_(if (= context-name "CONTEXT")
-          (do
-            (swap! contexts-atom assoc name-kw new-entity)
-            new-entity)
-          (let [return-port
-                (a/chan)
-                context-entity
-                (context-kw @contexts-atom)
-                ]
-            (a/>! entity-port (assoc env :PARAMS {:master-entity context-entity
-                                                  :request       :REGISTER-ENTITY
-                                                  :new-entity    new-entity
-                                                  :name-kw       name-kw
-                                                  :return-port   return-port}))
-            (a/<! return-port))
-          )
-      new-entity
-      ))
-
+(defn create-entity
+  [env]
+  (let [entity-port
+        (a/chan)
+        params
+        (:PARAMS env)
+        name
+        (:name params)
+        entity-map
+        (:entity-map params)
+        entity-map
+        (assoc entity-map :NAME name)
+        entity-volatile
+        (volatile! entity-map)
+        new-entity
+        [entity-port entity-volatile]
+        _ (operation-dispatcher (assoc env :PARAMS {:master-entity new-entity}))
+        ]
+    #_(if (= context-name "CONTEXT")
+        (do
+          (swap! contexts-atom assoc name-kw new-entity)
+          new-entity)
+        (let [return-port
+              (a/chan)
+              context-entity
+              (context-kw @contexts-atom)
+              ]
+          (a/>! entity-port (assoc env :PARAMS {:master-entity context-entity
+                                                :request       :REGISTER-ENTITY
+                                                :new-entity    new-entity
+                                                :name-kw       name-kw
+                                                :return-port   return-port}))
+          (a/<! return-port))
+        )
+    new-entity
+    ))
+(defn register-entity
+  [env]
+  (let [name
+        (get-in env [:PARAMS :name])
+        new-entity
+        (create-entity (assoc env :PARAMS {:name name}))]
+    ))
 
 (defn register-context
   [env]
   (let [name
         (get-in env [:PARAMS :name])
+        new-context
+        (create-entity (assoc env :PARAMS {:name             name
+                                           :operations-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT}
+                                           :childvectors     {}
+                                           :parentvectors    {}
+                                           }))
+        [name-kw context-name base-name]
+        (name-as-keyword name)
         contexts-atom
         (:CONTEXTS-ATOM env)
-        context
-        (create-entity (assoc env :PARAMS {:name             name
-                                             :operations-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT}
-                                             :childvectors     {}
-                                             :parentvectors    {}
-                                             }))
-        [name-kw context-name base-name]
-        (name-as-keyword name)]
-    (swap! contexts-atom assoc name-kw context)
+        ]
+    (swap! contexts-atom assoc name-kw new-context)
     ))

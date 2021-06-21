@@ -43,7 +43,6 @@
             {:CONTEXTS-ATOM
              contexts-atom
              }
-            ;_ (k/create-entity (assoc-in env [:PARAMS :name] "MAIN/SIMPLE_1"))
             ;simple2
             ;(k/create-entity (assoc-in env [:PARAMS :name] "MAIN/SIMPLE_2"))
             ;main-context
@@ -75,6 +74,7 @@
         #_(a/>! main-out (pr-str @(second (:MAIN/SIMPLE_1 (get-in @(second (get-in env [:CONTEXTS :CONTEXT/MAIN])) [:ENTITIES])))))
         (create-operations env)
         (k/register-context (assoc-in env [:PARAMS :name] "CONTEXT/MAIN"))
+        (k/register-entity (assoc-in env [:PARAMS :name] "MAIN/SIMPLE_1"))
         (a/>! main-out :ribit)
         )
       )
