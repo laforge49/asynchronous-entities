@@ -47,7 +47,7 @@
         (let [return-value
               (a/<! operation-return-port)
               return-port
-              (:return-port env)]
+              (:return-port params)]
           (if (not= return-value :BLOCK-CLIENT)
             (a/>! return-port return-value))
           (if (not= return-value :BLOCK-SERVICE)
@@ -85,23 +85,23 @@
         [entity-port entity-volatile]
         ]
     (create-operation-dispatcher (assoc env :PARAMS {:master-entity new-entity}))
-    entity-port
+    new-entity
     ))
 
 (defn register-context
   [env]
   (let [name
         (get-in env [:PARAMS :name])
-        new-context-port
+        new-context
         (create-entity (assoc env :PARAMS {:name             name
                                            :operation-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT}
                                            }))
         [name-kw context-name base-name]
         (name-as-keyword name)
-        context-ports-atom
-        (:CONTEXT-PORTS-ATOM env)
+        contexts-atom
+        (:CONTEXTS-ATOM env)
         ]
-    (swap! context-ports-atom assoc name-kw new-context-port)
-    new-context-port
+    (swap! contexts-atom assoc name-kw new-context)
+    new-context
     ))
 
