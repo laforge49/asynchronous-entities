@@ -81,8 +81,6 @@
           new-entity
           [entity-port entity-volatile]
           _ (operation-dispatcher (assoc env :PARAMS {:master-entity new-entity}))
-          contexts-atom
-          (:CONTEXTS env)
           ]
       #_(if (= context-name "CONTEXT")
           (do
@@ -102,3 +100,21 @@
           )
       new-entity
       ))
+
+
+(defn register-context
+  [env]
+  (let [name
+        (get-in env [:PARAMS :name])
+        contexts-atom
+        (:CONTEXTS-ATOM env)
+        context
+        (create-entity (assoc env :PARAMS {:name             name
+                                             :operations-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT}
+                                             :childvectors     {}
+                                             :parentvectors    {}
+                                             }))
+        [name-kw context-name base-name]
+        (name-as-keyword name)]
+    (swap! contexts-atom assoc name-kw context)
+    ))
