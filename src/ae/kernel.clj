@@ -2,7 +2,7 @@
   (:require [clojure.core.async :as a]
             [clojure.string :as s]))
 
-(def operation-ports
+(def operation-ports-atom
   (atom {}))
 
 (defn create-operation-port
@@ -11,7 +11,7 @@
         (get-in env [:PARAMS :operation-kw])
         port
         (a/chan)]
-    (swap! operation-ports assoc operation-kw port)
+    (swap! operation-ports-atom assoc operation-kw port)
     port))
 
 (defn create-operation-dispatcher
@@ -27,7 +27,7 @@
       (let [entity-map
             @(second master-entity)
             operations
-            (:OPERATIONS entity-map)
+            (:OPERATION-PORTS entity-map)
             env
             (a/<! entity-port)
             env
@@ -36,8 +36,10 @@
             (:PARAMS env)
             request
             (:request params)
-            operation-port
+            operation-port-id
             (request operations)
+            operation-port
+            (operation-port-id @operation-ports-atom)
             operation-return-port
             (a/chan)
             ]
@@ -70,12 +72,13 @@
         (a/chan)
         params
         (:PARAMS env)
-        name
-        (:name params)
         entity-map
-        (:entity-map params)
-        entity-map
-        (assoc entity-map :NAME name)
+        (-> {}
+            (assoc :NAME (:name params))
+            (assoc :OPERATION-PORTS (:operation-ports params))
+            (assoc :CHILDVECTORS {})
+            (assoc :PARENTVECTORS {})
+            )
         entity-volatile
         (volatile! entity-map)
         new-entity
@@ -91,9 +94,7 @@
         (get-in env [:PARAMS :name])
         new-context-port
         (create-entity (assoc env :PARAMS {:name             name
-                                           :operations-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT}
-                                           :childvectors     {}
-                                           :parentvectors    {}
+                                           :operation-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT}
                                            }))
         [name-kw context-name base-name]
         (name-as-keyword name)
@@ -103,3 +104,4 @@
     (swap! context-ports-atom assoc name-kw new-context-port)
     new-context-port
     ))
+

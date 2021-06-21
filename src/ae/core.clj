@@ -24,20 +24,24 @@
                                    ;                     (assoc-in [:PARAMS :entity-map :ENTITIES :MAIN/SIMPLE_1] simple1)
                                    ;                     (assoc-in [:PARAMS :entity-map :ENTITIES :MAIN/SIMPLE_2] simple2)
                                    ))
-            ;request-out
-            ;(a/chan)
             _ (o/create-operations env)
             main-context-port
             (k/register-context (assoc-in env [:PARAMS :name] "CONTEXT/MAIN"))
+            ;return-port
+            ;(a/chan)
+            ;_
+            #_ (a/>! main-context-port (assoc env :PARAMS {:name        "MAIN/SIMPLE_1"
+                                                          :request     :REGISTER-ENTITY-REQUEST
+                                                          :return-port return-port}))
             ;simple1-port
-            ;(o/register-entity (assoc-in env [:PARAMS :name] "MAIN/SIMPLE_1"))
+            ;(a/<! return-port)
             ]
         (a/>! main-out :ribit)
-        #_(a/>! (first main-context) [request-out
+        #_(a/>! (first main-context) [return-port
                                       :REGISTER-ENTITY
                                       (assoc env :PARAMS {:new-entity simple1
                                                           :name-kw    :MAIN/SIMPLE_1})])
-        #_(println :request-got (a/<! request-out))
+        #_(println :request-got (a/<! return-port))
         #_(vswap! (second simple1) (fn [old]
                                      (let [context-value
                                            (-> old

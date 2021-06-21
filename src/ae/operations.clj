@@ -19,14 +19,12 @@
             (get-in env [:PARAMS :name])
             [name-kw context-name base-name]
             (k/name-as-keyword name)
-            new-entity
-            (k/create-entity (assoc env :PARAMS {:name name}))
             new-entity-port
-            (first new-entity)
+            (k/create-entity (assoc env :PARAMS {:name name}))
             operation-return-port
             (:operation-return-port params)
             ]
-        (swap! context-volatile assoc-in [:ENTITIES name-kw] new-entity)
+        (swap! context-volatile assoc-in [:ENTITIES name-kw] new-entity-port)
         (a/>! operation-return-port new-entity-port)
         ))))
 
