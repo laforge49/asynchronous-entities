@@ -51,49 +51,54 @@
           (if (not= return-value :BLOCK-SERVICE)
             (recur)))))))
 
-(defn create-entity
-  [env]
-  (let [entity-port
-        (a/chan)
-        params
-        (:PARAMS env)
-        name
-        (:name params)
-        slashindex
+(defn name-as-keyword
+  [name]
+  (let [slashindex
         (s/index-of name "/")
-        context-name
-        (subs name 0 slashindex)
-        context-kw
-        (keyword context-name)
         base-name
         (subs name (inc slashindex))
+        context-name
+        (subs name 0 slashindex)
         name-kw
         (keyword context-name base-name)
-        entity-map
-        (:entity-map params)
-        entity-map
-        (assoc entity-map :NAME name)
-        entity-volatile
-        (volatile! entity-map)
-        new-entity
-        [entity-port entity-volatile]
-        _ (operation-dispatcher (assoc env :PARAMS {:master-entity new-entity}))
-        contexts-atom
-        (:CONTEXTS env)
         ]
-    (if (= context-name "CONTEXT")
-      (do
-        (swap! contexts-atom assoc name-kw new-entity)
-        new-entity)
-      (let [return-port
-            (a/chan)
-            context-entity
-            (context-kw @contexts-atom)
-            ]
-        (a/>! entity-port (assoc env :PARAMS {:master-entity context-entity
-                                              :request       :REGISTER-ENTITY
-                                              :new-entity    new-entity
-                                              :name-kw       name-kw
-                                              :return-port   return-port}))
-        (a/<! return-port))
-      )))
+    [name-kw context-name base-name]))
+
+  (defn create-entity
+    [env]
+    (let [entity-port
+          (a/chan)
+          params
+          (:PARAMS env)
+          name
+          (:name params)
+          entity-map
+          (:entity-map params)
+          entity-map
+          (assoc entity-map :NAME name)
+          entity-volatile
+          (volatile! entity-map)
+          new-entity
+          [entity-port entity-volatile]
+          _ (operation-dispatcher (assoc env :PARAMS {:master-entity new-entity}))
+          contexts-atom
+          (:CONTEXTS env)
+          ]
+      #_(if (= context-name "CONTEXT")
+          (do
+            (swap! contexts-atom assoc name-kw new-entity)
+            new-entity)
+          (let [return-port
+                (a/chan)
+                context-entity
+                (context-kw @contexts-atom)
+                ]
+            (a/>! entity-port (assoc env :PARAMS {:master-entity context-entity
+                                                  :request       :REGISTER-ENTITY
+                                                  :new-entity    new-entity
+                                                  :name-kw       name-kw
+                                                  :return-port   return-port}))
+            (a/<! return-port))
+          )
+      new-entity
+      ))

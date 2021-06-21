@@ -44,11 +44,15 @@
              contexts-atom
              }
             _ (create-operations env)
-            _ (k/create-entity (assoc env :PARAMS {:name             "CONTEXT/MAIN"
+            main-context
+            (k/create-entity (assoc env :PARAMS {:name             "CONTEXT/MAIN"
                                                    :operations-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT}
                                                    :childvectors     {}
                                                    :parentvectors    {}
                                                    }))
+            [name-kw context-name base-name]
+            (k/name-as-keyword "CONTEXT/MAIN")
+            _ (swap! contexts-atom assoc name-kw main-context)
             ;_ (k/create-entity (assoc-in env [:PARAMS :name] "MAIN/SIMPLE_1"))
             ;simple2
             ;(k/create-entity (assoc-in env [:PARAMS :name] "MAIN/SIMPLE_2"))
