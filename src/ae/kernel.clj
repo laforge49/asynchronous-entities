@@ -41,7 +41,7 @@
             operation-return-port
             (a/chan)
             ]
-        (a/>! operation-port (assoc env :operation-return-port operation-return-port))
+        (a/>! operation-port (assoc-in env [:PARAMS :operation-return-port] operation-return-port))
         (let [return-value
               (a/<! operation-return-port)
               return-port
@@ -49,8 +49,7 @@
           (if (not= return-value :NO-RETURN)
             (a/>! return-port return-value))
           (if (not= return-value :STOP)
-            (recur))))))
-  )
+            (recur)))))))
 
 (defn create-entity
   [env]
