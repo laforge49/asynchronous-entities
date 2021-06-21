@@ -71,7 +71,6 @@
                                                (assoc-in [:PARENTVECTORS :PLAIN] [:MAIN/SIMPLE_1])
                                                )]
                                        context-value)))
-        #_(a/>! main-out (pr-str @(second (:MAIN/SIMPLE_1 (get-in @(second (get-in env [:CONTEXTS :CONTEXT/MAIN])) [:ENTITIES])))))
         (create-operations env)
         (k/register-context (assoc-in env [:PARAMS :name] "CONTEXT/MAIN"))
         (k/register-entity (assoc-in env [:PARAMS :name] "MAIN/SIMPLE_1"))
