@@ -1,34 +1,7 @@
 (ns ae.core
   (:require [clojure.core.async :as a]
-            [ae.kernel :as k]))
-
-(defn entity-registration-operation
-  [env]
-  (let [entity-registration-port
-        (k/create-operation-port (assoc env :PARAMS {:operation-kw :REGISTER-ENTITY-PORT}))]
-    (a/go
-      (let [env
-            (a/<! entity-registration-port)
-            params
-            (:PARAMS env)
-            context-entity
-            (:master-entity env)
-            context-volatile
-            @(second context-entity)
-            new-entity
-            (:new-entity params)
-            name-kw
-            (:name-kw params)
-            operation-return-port
-            (:operation-return-port params)
-            ]
-        (swap! context-volatile assoc-in [:ENTITIES name-kw] new-entity)
-        (a/>! operation-return-port new-entity)
-        ))))
-
-(defn create-operations
-  [env]
-  (entity-registration-operation env))
+            [ae.kernel :as k]
+            [ae.operations :as o]))
 
 (defn a-main
   []
@@ -53,7 +26,7 @@
                                    ))
             ;request-out
             ;(a/chan)
-            _ (create-operations env)
+            _ (o/create-operations env)
             main-context
             (k/register-context (assoc-in env [:PARAMS :name] "CONTEXT/MAIN"))
             ]

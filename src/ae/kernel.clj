@@ -85,32 +85,6 @@
     new-entity
     ))
 
-(defn register-entity
-  [env]
-  (let [name
-        (get-in env [:PARAMS :name])
-        [name-kw context-name base-name]
-        (name-as-keyword name)
-        context-kw
-        (keyword context-name)
-        contexts-atom
-        (:CONTEXTS-ATOM env)
-        context-entity
-        (context-kw @contexts-atom)
-        new-entity
-        (create-entity (assoc env :PARAMS {:name name}))
-        new-entity-port
-        (first new-entity)]
-    (let [return-port
-          (a/chan)
-          ]
-      (a/>! new-entity-port (assoc env :PARAMS {:master-entity context-entity
-                                            :request       :REGISTER-ENTITY
-                                            :new-entity    new-entity
-                                            :name-kw       name-kw
-                                            :return-port   return-port}))
-      (a/<! return-port))))
-
 (defn register-context
   [env]
   (let [name
