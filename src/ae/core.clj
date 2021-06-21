@@ -49,13 +49,12 @@
                                                    :childvectors     {}
                                                    :parentvectors    {}
                                                    }))
-            ;simple1
-            ;(k/create-entity (assoc-in env [:PARAMS :NAME] "MAIN/SIMPLE_1"))
+            ;_ (k/create-entity (assoc-in env [:PARAMS :name] "MAIN/SIMPLE_1"))
             ;simple2
-            ;(k/create-entity (assoc-in env [:PARAMS :NAME] "MAIN/SIMPLE_2"))
+            ;(k/create-entity (assoc-in env [:PARAMS :name] "MAIN/SIMPLE_2"))
             ;main-context
             #_(k/create-entity (-> env
-                                   (assoc-in [:PARAMS :NAME] "MAIN")
+                                   (assoc-in [:PARAMS :name] "MAIN")
                                    ;                     (assoc-in [:PARAMS :entity-map :ENTITIES :MAIN/SIMPLE_1] simple1)
                                    ;                     (assoc-in [:PARAMS :entity-map :ENTITIES :MAIN/SIMPLE_2] simple2)
                                    ))

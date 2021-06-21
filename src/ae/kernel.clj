@@ -46,9 +46,9 @@
               (a/<! operation-return-port)
               return-port
               (:return-port env)]
-          (if (not= return-value :NO-RETURN)
+          (if (not= return-value :BLOCK-CLIENT)
             (a/>! return-port return-value))
-          (if (not= return-value :STOP)
+          (if (not= return-value :BLOCK-SERVICE)
             (recur)))))))
 
 (defn create-entity
