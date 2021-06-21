@@ -14,7 +14,7 @@
     (swap! operation-ports assoc operation-kw port)
     port))
 
-(defn operation-dispatcher
+(defn create-operation-dispatcher
   [env]
   (let [params
         (:PARAMS env)
@@ -80,9 +80,9 @@
         (volatile! entity-map)
         new-entity
         [entity-port entity-volatile]
-        _ (operation-dispatcher (assoc env :PARAMS {:master-entity new-entity}))
         ]
-    new-entity
+    (create-operation-dispatcher (assoc env :PARAMS {:master-entity new-entity}))
+    entity-port
     ))
 
 (defn register-context

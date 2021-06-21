@@ -27,10 +27,10 @@
             ;request-out
             ;(a/chan)
             _ (o/create-operations env)
-            main-context
+            main-context-port
             (k/register-context (assoc-in env [:PARAMS :name] "CONTEXT/MAIN"))
             ]
-        ;(k/register-entity (assoc-in env [:PARAMS :name] "MAIN/SIMPLE_1"))
+        ;(o/register-entity (assoc-in env [:PARAMS :name] "MAIN/SIMPLE_1"))
         (a/>! main-out :ribit)
         #_(a/>! (first main-context) [request-out
                                       :REGISTER-ENTITY
