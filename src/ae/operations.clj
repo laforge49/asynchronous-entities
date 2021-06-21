@@ -2,7 +2,7 @@
   (:require [clojure.core.async :as a]
             [ae.kernel :as k]))
 
-(defn entity-registration-operation
+(defn create-entity-registration-operation
   [env]
   (let [entity-registration-port
         (k/create-operation-port (assoc env :PARAMS {:operation-kw :REGISTER-ENTITY-PORT}))]
@@ -32,4 +32,4 @@
 
 (defn create-operations
   [env]
-  (entity-registration-operation env))
+  (create-entity-registration-operation env))
