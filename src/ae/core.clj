@@ -10,11 +10,11 @@
     (a/go
       (let [main-out
             (a/<! main-in)
-            contexts-atom
+            context-ports-atom
             (atom {})
             env
-            {:CONTEXTS-ATOM
-             contexts-atom
+            {:CONTEXT-PORTS-ATOM
+             context-ports-atom
              }
             ;simple2
             ;(k/create-entity (assoc-in env [:PARAMS :name] "MAIN/SIMPLE_2"))
@@ -29,8 +29,9 @@
             _ (o/create-operations env)
             main-context-port
             (k/register-context (assoc-in env [:PARAMS :name] "CONTEXT/MAIN"))
+            ;simple1-port
+            ;(o/register-entity (assoc-in env [:PARAMS :name] "MAIN/SIMPLE_1"))
             ]
-        ;(o/register-entity (assoc-in env [:PARAMS :name] "MAIN/SIMPLE_1"))
         (a/>! main-out :ribit)
         #_(a/>! (first main-context) [request-out
                                       :REGISTER-ENTITY

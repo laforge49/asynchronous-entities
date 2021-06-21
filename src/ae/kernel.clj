@@ -89,7 +89,7 @@
   [env]
   (let [name
         (get-in env [:PARAMS :name])
-        new-context
+        new-context-port
         (create-entity (assoc env :PARAMS {:name             name
                                            :operations-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT}
                                            :childvectors     {}
@@ -97,9 +97,9 @@
                                            }))
         [name-kw context-name base-name]
         (name-as-keyword name)
-        contexts-atom
-        (:CONTEXTS-ATOM env)
+        context-ports-atom
+        (:CONTEXT-PORTS-ATOM env)
         ]
-    (swap! contexts-atom assoc name-kw new-context)
-    new-context
+    (swap! context-ports-atom assoc name-kw new-context-port)
+    new-context-port
     ))
