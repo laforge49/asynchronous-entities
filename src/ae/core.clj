@@ -53,7 +53,12 @@
                                    ))
             ;request-out
             ;(a/chan)
+            _ (create-operations env)
+            main-context
+            (k/register-context (assoc-in env [:PARAMS :name] "CONTEXT/MAIN"))
             ]
+        ;(k/register-entity (assoc-in env [:PARAMS :name] "MAIN/SIMPLE_1"))
+        (a/>! main-out :ribit)
         #_(a/>! (first main-context) [request-out
                                       :REGISTER-ENTITY
                                       (assoc env :PARAMS {:new-entity simple1
@@ -71,10 +76,6 @@
                                                (assoc-in [:PARENTVECTORS :PLAIN] [:MAIN/SIMPLE_1])
                                                )]
                                        context-value)))
-        (create-operations env)
-        (k/register-context (assoc-in env [:PARAMS :name] "CONTEXT/MAIN"))
-        (k/register-entity (assoc-in env [:PARAMS :name] "MAIN/SIMPLE_1"))
-        (a/>! main-out :ribit)
         )
       )
     main-in))
