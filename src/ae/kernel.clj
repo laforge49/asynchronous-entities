@@ -41,13 +41,14 @@
             operation-return-port
             (a/chan)
             ]
-        (a/>! operation-port (assoc env :return-port operation-return-port))
+        (a/>! operation-port (assoc env :operation-return-port operation-return-port))
         (let [return-value
               (a/<! operation-return-port)
               return-port
               (:return-port env)]
-          (a/>! return-port return-value)
-          (if (not= return-value :stop)
+          (if (not= return-value :NO-RETURN)
+            (a/>! return-port return-value))
+          (if (not= return-value :STOP)
             (recur))))))
   )
 

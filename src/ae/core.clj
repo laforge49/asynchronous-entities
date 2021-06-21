@@ -19,11 +19,11 @@
             (:new-entity params)
             name-kw
             (:name-kw params)
-            return-port
-            (:return-port params)
+            operation-return-port
+            (:operation-return-port params)
             ]
         (swap! context-volatile assoc-in [:ENTITIES name-kw] new-entity)
-        (a/>! return-port new-entity)
+        (a/>! operation-return-port new-entity)
         ))))
 
 (defn create-operations
