@@ -31,13 +31,16 @@ On creation of an entity in memory, a go block is started which reads and proces
 A read loop is used to process successive
 requests, exiting only when the channel is closed or when an acquire message is received.
 
-When a request is to be processed by a subtree of entities, the child sends a :PUSH-REQUEST-PORT-STACK message to the appropriate child 
-entities. 
-By changing the active request port, only requests from the new port will be processed, leaving any 
+When a request is to be processed by a subtree of entities, the child sends a :PUSH-REQUEST-PORT message to the 
+applicable child entities. 
+By changing the active request port on a child, only requests from the new port will be processed, leaving any 
 requests on the public port pending.
 And once all the child entities are acquired, the operation designated by the original request can proceed.
-On completion of the top-level request, a :POP-REQUEST-PORT-STACK message is sent to each of the acquired 
+On completion of the top-level request, a :POP-REQUEST-PORT message is sent to each of the acquired 
 entities and the acquired entities can resume processing from their public port.
+
+Reversing the changes made to a child entity in a federated request is as easy as sending an :ABORT-REQUEST.
+The request must include a :saved-entity-map parameter set to the response from an eariler :PUSH-REQUEST-PORT message.
 
 Entries in the persistent map of an entity may have the following entry keys and values:
 
@@ -80,5 +83,5 @@ again, so long as those children only have a single parent.
 An environment is a persistent map. 
 Entries in the persistent map of an environment may have the following entry keys and values:
 
-* [:CONTEXTS, A persistent map holding all contexts.]
+* [:CONTEXTS-ATOM, An atom holding a persistent map of all contexts.]
 * [:PARAMS, A persistent map of parameters being passed lower-level functions and sub-functions.]

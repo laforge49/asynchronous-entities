@@ -60,11 +60,11 @@
                     (:new-request-port params)
                     saved-entity-map
                     @entity-map-volatile]
-                (vswap! entity-map-volatile assoc :REQUEST-PORT-STACK (conj request-port-stack new-request-port))
+                (vswap! entity-map-volatile assoc :REQUEST-PORT (conj request-port-stack new-request-port))
                 saved-entity-map)
               :POP-REQUEST-PORT
               (let []
-                (vswap! entity-map-volatile assoc :REQUEST-PORT-STACK (pop request-port-stack))
+                (vswap! entity-map-volatile assoc :REQUEST-PORT (pop request-port-stack))
                 true)
               :ABORT-REQUEST
               (let [saved-entity-map
