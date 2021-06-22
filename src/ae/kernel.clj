@@ -53,10 +53,6 @@
             (:request params)
             operation-port-id
             (request operations)
-            operation-port
-            (operation-port-id @operation-ports-atom)
-            operation-return-port
-            (a/chan)
             return-value
             (case request
               :PUSH-REQUEST-PORT
@@ -74,7 +70,11 @@
               (let [saved-entity-map
                     (:saved-entity-map params)]
                 (vreset! entity-map-volatile saved-entity-map))
-              (let []
+              (let [operation-port
+                    (operation-port-id @operation-ports-atom)
+                    operation-return-port
+                    (a/chan)
+                    ]
                 (a/>! operation-port (assoc-in env [:PARAMS :operation-return-port] operation-return-port))
                 (a/<! operation-return-port)))
             ]
