@@ -14,45 +14,6 @@
     (swap! operation-ports-atom assoc operation-kw port)
     port))
 
-(defn create-operation-dispatcher
-  [env]
-  (let [params
-        (:PARAMS env)
-        master-entity
-        (:master-entity params)
-        entity-port
-        (first master-entity)
-        ]
-    (a/go-loop []
-      (let [entity-map
-            @(second master-entity)
-            operations
-            (:OPERATION-PORTS entity-map)
-            env
-            (a/<! entity-port)
-            env
-            (assoc env :master-entity master-entity)
-            params
-            (:PARAMS env)
-            request
-            (:request params)
-            operation-port-id
-            (request operations)
-            operation-port
-            (operation-port-id @operation-ports-atom)
-            operation-return-port
-            (a/chan)
-            ]
-        (a/>! operation-port (assoc-in env [:PARAMS :operation-return-port] operation-return-port))
-        (let [return-value
-              (a/<! operation-return-port)
-              return-port
-              (:return-port params)]
-          (if (not= return-value :BLOCK-CLIENT)
-            (a/>! return-port return-value))
-          (if (not= return-value :BLOCK-SERVICE)
-            (recur)))))))
-
 (defn name-as-keyword
   [name]
   (let [slashindex
@@ -66,9 +27,55 @@
         ]
     [name-kw context-name base-name]))
 
+(defn create-operation-dispatcher
+  [env]
+  (let [params
+        (:PARAMS env)
+        master-entity
+        (:master-entity params)
+        entity-map-volatile
+        (second master-entity)
+        ]
+    (a/go-loop []
+      (let [request-port-stack
+            (:REQUEST-PORT-STACK @entity-map-volatile)
+            request-port
+            (peek request-port-stack)
+            operations
+            (:OPERATION-PORTS @entity-map-volatile)
+            env
+            (a/<! request-port)
+            env
+            (assoc env :master-entity master-entity)
+            params
+            (:PARAMS env)
+            request
+            (:request params)
+            operation-port-id
+            (request operations)
+            operation-port
+            (operation-port-id @operation-ports-atom)
+            operation-return-port
+            (a/chan)
+            ]
+        (if (= request :PUSH-REQUEST-PORT)
+          (let [new-request-port
+                (:new-request-port params)]
+            (vswap! entity-map-volatile assoc :REQUEST-PORT-STACK (conj request-port-stack new-request-port)))
+          (if (= request :POP-REQUEST-PORT)
+            (vswap! entity-map-volatile assoc :REQUEST-PORT-STACK (pop request-port-stack))
+            (let []
+              (a/>! operation-port (assoc-in env [:PARAMS :operation-return-port] operation-return-port)))))
+        (let [return-value
+              (a/<! operation-return-port)
+              return-port
+              (:return-port params)]
+          (a/>! return-port return-value)
+          (recur))))))
+
 (defn create-entity
   [env]
-  (let [entity-port
+  (let [request-port
         (a/chan)
         params
         (:PARAMS env)
@@ -78,11 +85,12 @@
             (assoc :OPERATION-PORTS (:operation-ports params))
             (assoc :CHILDVECTORS {})
             (assoc :PARENTVECTORS {})
+            (assoc :REQUEST-PORT-STACK [request-port])
             )
-        entity-volatile
+        entity-map-volatile
         (volatile! entity-map)
         new-entity
-        [entity-port entity-volatile]
+        [request-port entity-map-volatile]
         ]
     (create-operation-dispatcher (assoc env :PARAMS {:master-entity new-entity}))
     new-entity
@@ -93,7 +101,7 @@
   (let [name
         (get-in env [:PARAMS :name])
         new-context
-        (create-entity (assoc env :PARAMS {:name             name
+        (create-entity (assoc env :PARAMS {:name            name
                                            :operation-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT}
                                            }))
         [name-kw context-name base-name]

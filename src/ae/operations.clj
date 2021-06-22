@@ -6,7 +6,7 @@
   [env]
   (let [entity-registration-port
         (k/create-operation-port (assoc env :PARAMS {:operation-kw :REGISTER-ENTITY-PORT}))]
-    (a/go
+    (a/go-loop []
       (let [env
             (a/<! entity-registration-port)
             params
@@ -26,6 +26,7 @@
             ]
         (vswap! context-volatile assoc-in [:ENTITIES name-kw] new-entity)
         (a/>! operation-return-port new-entity)
+        (recur)
         ))))
 
 (defn create-operations

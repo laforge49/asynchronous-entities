@@ -36,6 +36,11 @@
                                                           :return-port return-port}))
             simple1
             (a/<! return-port)
+            _ (a/>! main-context-port (assoc env :PARAMS {:name        "MAIN/SIMPLE_2"
+                                                          :request     :REGISTER-ENTITY-REQUEST
+                                                          :return-port return-port}))
+            simple2
+            (a/<! return-port)
             ]
         (a/>! main-out :ribit)
         #_(a/>! (first main-context) [return-port
