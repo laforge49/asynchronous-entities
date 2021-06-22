@@ -31,13 +31,13 @@ On creation of an entity in memory, a go block is started which reads and proces
 A read loop is used to process successive
 requests, exiting only when the channel is closed or when an acquire message is received.
 
-When a request is to be processed by a subtree of entities, the child sends a acquire message to the appropriate child 
+When a request is to be processed by a subtree of entities, the child sends a :PUSH-REQUEST-PORT-STACK message to the appropriate child 
 entities. 
-The acquire message exits the go block without issuing a subsequent read, which blocks any further requests.
-When the child reads the acquire message, the sender receives control indicating that the child is acquired. 
+By changing the active request port, only requests from the new port will be processed, leaving any 
+requests on the public port pending.
 And once all the child entities are acquired, the operation designated by the original request can proceed.
-On completion of the top-level request, a new go block for processing requests is initiated for each of the acquired 
-entities and the next request for the entity can be read.
+On completion of the top-level request, a :POP-REQUEST-PORT-STACK message is sent to each of the acquired 
+entities and the acquired entities can resume processing from their public port.
 
 Entries in the persistent map of an entity may have the following entry keys and values:
 

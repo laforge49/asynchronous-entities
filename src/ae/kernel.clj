@@ -57,18 +57,28 @@
             (operation-port-id @operation-ports-atom)
             operation-return-port
             (a/chan)
+            return-value
+            (case request
+              :PUSH-REQUEST-PORT
+              (let [new-request-port
+                    (:new-request-port params)
+                    saved-entity-map
+                    @entity-map-volatile]
+                (vswap! entity-map-volatile assoc :REQUEST-PORT-STACK (conj request-port-stack new-request-port))
+                saved-entity-map)
+              :POP-REQUEST-PORT
+              (let []
+                (vswap! entity-map-volatile assoc :REQUEST-PORT-STACK (pop request-port-stack))
+                true)
+              :ABORT-REQUEST
+              (let [saved-entity-map
+                    (:saved-entity-map params)]
+                (vreset! entity-map-volatile saved-entity-map))
+              (let []
+                (a/>! operation-port (assoc-in env [:PARAMS :operation-return-port] operation-return-port))
+                (a/<! operation-return-port)))
             ]
-        (if (= request :PUSH-REQUEST-PORT)
-          (let [new-request-port
-                (:new-request-port params)]
-            (vswap! entity-map-volatile assoc :REQUEST-PORT-STACK (conj request-port-stack new-request-port)))
-          (if (= request :POP-REQUEST-PORT)
-            (vswap! entity-map-volatile assoc :REQUEST-PORT-STACK (pop request-port-stack))
-            (let []
-              (a/>! operation-port (assoc-in env [:PARAMS :operation-return-port] operation-return-port)))))
-        (let [return-value
-              (a/<! operation-return-port)
-              return-port
+        (let [return-port
               (:return-port params)]
           (a/>! return-port return-value)
           (recur))))))
