@@ -39,7 +39,7 @@ And once all the child entities are acquired, the operation designated by the or
 On completion of the top-level request, a :POP-REQUEST-PORT message is sent to each of the acquired 
 entities and the acquired entities can resume processing from their public port.
 
-Reversing the changes made to a child entity in a federated request is as easy as sending an :ABORT-REQUEST.
+Reversing the changes made to a child entity in a federated request is as easy as sending an :ABORT request.
 The request must include a :saved-entity-map parameter set to the response from an eariler :PUSH-REQUEST-PORT message.
 
 Entries in the persistent map of an entity may have the following entry keys and values:
@@ -59,6 +59,12 @@ and mother/son relationships.
 As an entity can have multiple parents and children bound in different relationships, bush
 structures are supported. But not cyclic graphs. So while this is a very rich 
 system for relationships between entities, there are limits.
+
+Federated requests may cause deadlocks if not properly done. To avoid this, 
+(1) never implement a cyclic graph of entities, 
+(2) an entity may only include decendents in a federated request,
+(3) the :PUSH-REQUEST-PORT request must be sent to those decendents in entity name order and
+(4) a :POP-REQUEST-PORT or :ABORT request must be sent to all entities to which a :PUSH-REQUEST-PORT had been sent.
 
 ## Contexts
 
