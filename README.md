@@ -46,6 +46,7 @@ Entries in the persistent map of an entity may have the following entry keys and
 
 * [:NAME, The name of the entity.]
   (When a name is converted to a keyword, illegal characters like space are encoded.)
+* [:REQUEST-PORT-STACK, A stack of request ports used in federated requests.]
 * [:OPERATIONS, A persistent map with requests for key and operation ids as values.]
 * [:CHILDVECTORS, A persistent map whose values are vectors holding the keys of various children.]
 * [:PARENTVECTORS, A persistent map whose values are vectors of the keys of various parents.]
@@ -73,6 +74,7 @@ A context is a specialized entity in which other entities are embedded.
 Entries in the persistent map of a context may have the following entry keys and values:
 
 * [:NAME, The name of the context.]
+* [:REQUEST-PORT-STACK, A stack of request ports used in federated requests.]
 * [:OPERATIONS, A persistent map with requests for key and operation ids as values.]
 * [:ENTITIES, A persistent map of entities.]
   (A persistent map rather than an ordered set is used here for scaling considerations.)
