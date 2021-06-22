@@ -61,6 +61,12 @@ As an entity can have multiple parents and children bound in different relations
 structures are supported. But not cyclic graphs. So while this is a very rich 
 system for relationships between entities, there are limits.
 
+There are several built-in requests:
+* :SNAPSHOT - returns the entity's persistent map.
+* :PUSH-REQUEST-PORT - pushes the :new-request-port parameter onto the :REQUEST-PORT-STACK and returns the entity's persistent map.
+* :POP-REQUEST-PORT - pops the :REQUEST-PORT-STACK.
+* :ABORT - resets the entity's volatile map to the :saved-entity-map parameter.
+
 Federated requests may cause deadlocks if not properly done. To avoid this, 
 (1) never implement a cyclic graph of entities, 
 (2) an entity may only include decendents in a federated request,

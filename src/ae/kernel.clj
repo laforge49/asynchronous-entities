@@ -43,6 +43,8 @@
             (request operations)
             return-value
             (case request
+              :SNAPSHOT
+              @entity-map-volatile
               :PUSH-REQUEST-PORT
               (let [new-request-port
                     (:new-request-port params)
