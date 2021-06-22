@@ -1,6 +1,7 @@
 (ns ae.operations
   (:require [clojure.core.async :as a]
-            [ae.kernel :as k]))
+            [ae.kernel :as k]
+            [ae.keywords :as kw]))
 
 (defn create-entity-registration-operation
   [env]
@@ -18,7 +19,7 @@
             name
             (get-in env [:PARAMS :name])
             [name-kw context-name base-name]
-            (k/name-as-keyword name)
+            (kw/name-as-keyword name)
             new-entity
             (k/create-entity (assoc env :PARAMS {:name name}))
             operation-return-port

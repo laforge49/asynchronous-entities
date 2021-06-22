@@ -1,6 +1,7 @@
 (ns ae.kernel
   (:require [clojure.core.async :as a]
-            [clojure.string :as s]))
+            [clojure.string :as s]
+            [ae.keywords :as kw]))
 
 (def operation-ports-atom
   (atom {}))
@@ -13,19 +14,6 @@
         (a/chan)]
     (swap! operation-ports-atom assoc operation-kw port)
     port))
-
-(defn name-as-keyword
-  [name]
-  (let [slashindex
-        (s/index-of name "/")
-        base-name
-        (subs name (inc slashindex))
-        context-name
-        (subs name 0 slashindex)
-        name-kw
-        (keyword context-name base-name)
-        ]
-    [name-kw context-name base-name]))
 
 (defn create-operation-dispatcher
   [env]
@@ -115,7 +103,7 @@
                                            :operation-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT}
                                            }))
         [name-kw context-name base-name]
-        (name-as-keyword name)
+        (kw/name-as-keyword name)
         contexts-atom
         (:CONTEXTS-ATOM env)
         ]
