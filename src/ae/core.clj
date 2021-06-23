@@ -30,10 +30,6 @@
             (a/<! return-port)
             _ (println (pr-str @(second main-context)))
             #_(
-                main-context
-                (k/register-context (assoc-in env [:PARAMS :name] "CONTEXT/MAIN"))
-                main-context-port
-                (first main-context)
                 _ (a/>! main-context-port (assoc env :PARAMS {:name        "MAIN/SIMPLE_1"
                                                               :request     :REGISTER-ENTITY-REQUEST
                                                               :return-port return-port}))

@@ -12,7 +12,6 @@
             (a/<! context-registration-port)
             params
             (:PARAMS env)
-            _ (println 1 (pr-str params))
             contexts-entity
             (:master-entity env)
             contexts-volatile
