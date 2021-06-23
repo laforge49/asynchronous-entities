@@ -39,10 +39,7 @@
             _ (a/>! (first main-context)
                     (assoc env :PARAMS {:request         :REGISTER-ENTITY-REQUEST
                                         :name            "MAIN/SIMPLE_1"
-                                        :operation-ports {}
-                                        :return-port     return-port}))
-            simple1-entity
-            (a/<! return-port)
+                                        :operation-ports {}}))
             _ (a/>! (first main-context)
                     (assoc env :PARAMS {:request         :REGISTER-ENTITY-REQUEST
                                         :name            "MAIN/SIMPLE_2"

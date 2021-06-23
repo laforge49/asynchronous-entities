@@ -70,7 +70,8 @@
             ]
         (let [return-port
               (:return-port params)]
-          (a/>! return-port return-value)
+          (if (some? return-port)
+            (a/>! return-port return-value))
           (recur))))))
 
 (defn create-entity
