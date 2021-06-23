@@ -1,4 +1,4 @@
-(ns ae.operations
+(ns ae.operations.context-operations
   (:require [clojure.core.async :as a]
             [ae.kernel :as k]
             [ae.keywords :as kw]))
