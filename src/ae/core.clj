@@ -24,23 +24,32 @@
             _ (a/>! (first contexts)
                     (assoc env :PARAMS {:request         :REGISTER-CONTEXT-REQUEST
                                         :name            "CONTEXT/MAIN"
-                                        :operation-ports {}
+                                        :operation-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT}
                                         :return-port     return-port}))
             main-context
             (a/<! return-port)
-            _ (println (pr-str @(second main-context)))
+            _ (a/>! (first main-context)
+                    (assoc env :PARAMS {:request         :REGISTER-ENTITY-REQUEST
+                                        :name            "MAIN/SIMPLE_1"
+                                        :operation-ports {}
+                                        :return-port     return-port}))
+            simple1-entity
+            (a/<! return-port)
+            _ (a/>! (first main-context)
+                    (assoc env :PARAMS {:request         :REGISTER-ENTITY-REQUEST
+                                        :name            "MAIN/SIMPLE_2"
+                                        :operation-ports {}
+                                        :return-port     return-port}))
+            simple2-entity
+            (a/<! return-port)
+            _ (println (pr-str @(second simple2-entity)))
             #_(
-                _ (a/>! main-context-port (assoc env :PARAMS {:name        "MAIN/SIMPLE_1"
-                                                              :request     :REGISTER-ENTITY-REQUEST
-                                                              :return-port return-port}))
-                simple1-entity
-                (a/<! return-port)
                 _ (a/>! main-context-port (assoc env :PARAMS {:name        "MAIN/SIMPLE_2"
                                                               :request     :REGISTER-ENTITY-REQUEST
                                                               :return-port return-port}))
-                simple2-entity
-                (a/<! return-port)
-                )
+                  simple2-entity
+                  (a/<! return-port)
+                  )
             ]
         (a/>! main-out :Ribit!)
         )
