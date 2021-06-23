@@ -10,14 +10,16 @@
     (a/go
       (let [main-out
             (a/<! main-in)
+            env
+            {}
+            _ (o/create-operations env)
+            contexts
+            (k/create-entity (assoc env :PARAMS {:name            "ROOT/CONTEXTS"
+                                                 :operation-ports {:REGISTER-CONTEXT-REQUEST :REGISTER-CONTEXT-PORT}
+                                                 }))
+            env
+            (assoc env :CONTEXTS-ENTITY contexts)
             #_(
-                contexts-atom
-                (atom {})
-                env
-                {:CONTEXTS-ATOM
-                 contexts-atom
-                 }
-                _ (o/create-operations env)
                 main-context
                 (k/register-context (assoc-in env [:PARAMS :name] "CONTEXT/MAIN"))
                 main-context-port
@@ -36,7 +38,7 @@
                 (a/<! return-port)
                 )
             ]
-        (a/>! main-out :ribit)
+        (a/>! main-out env)
         )
       )
     main-in))
@@ -49,5 +51,5 @@
         main-out
         (a/chan)]
     (a/>!! main-in main-out)
-    (println (a/<!! main-out))
+    (println (pr-str (a/<!! main-out)))
     ))

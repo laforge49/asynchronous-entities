@@ -6,13 +6,13 @@
 (def operation-ports-atom
   (atom {}))
 
-(defn create-operation-port
+(defn register-operation-port
   [env]
-  (let [operation-kw
-        (get-in env [:PARAMS :operation-kw])
+  (let [operation-port-kw
+        (get-in env [:PARAMS :operation-port-kw])
         port
         (a/chan)]
-    (swap! operation-ports-atom assoc operation-kw port)
+    (swap! operation-ports-atom assoc operation-port-kw port)
     port))
 
 (defn create-operation-dispatcher
@@ -94,22 +94,5 @@
         ]
     (create-operation-dispatcher (assoc env :PARAMS {:master-entity new-entity}))
     new-entity
-    ))
-
-(defn register-context
-  [env]
-  (let [name
-        (get-in env [:PARAMS :name])
-        new-context
-        (create-entity (assoc env :PARAMS {:name            name
-                                           :operation-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT}
-                                           }))
-        [name-kw context-name base-name]
-        (kw/name-as-keyword name)
-        contexts-atom
-        (:CONTEXTS-ATOM env)
-        ]
-    (swap! contexts-atom assoc name-kw new-context)
-    new-context
     ))
 

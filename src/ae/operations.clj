@@ -3,33 +3,33 @@
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
-(defn create-entity-registration-operation
+(defn create-context-registration-operation
   [env]
-  (let [entity-registration-port
-        (k/create-operation-port (assoc env :PARAMS {:operation-kw :REGISTER-ENTITY-PORT}))]
+  (let [context-registration-port
+        (k/register-operation-port (assoc env :PARAMS {:operation-port-kw :REGISTER-CONTEXT-PORT}))]
     (a/go-loop []
       (let [env
-            (a/<! entity-registration-port)
+            (a/<! context-registration-port)
             params
             (:PARAMS env)
-            context-entity
+            contexts-entity
             (:master-entity env)
-            context-volatile
-            (second context-entity)
-            name
+            contexts-volatile
+            (second contexts-entity)
+            context-name
             (get-in env [:PARAMS :name])
-            [name-kw context-name base-name]
-            (kw/name-as-keyword name)
-            new-entity
-            (k/create-entity (assoc env :PARAMS {:name name}))
+            [context-name-kw _ _]
+            (kw/name-as-keyword context-name)
+            new-context
+            (k/create-entity (assoc env :PARAMS {:name context-name}))
             operation-return-port
             (:operation-return-port params)
             ]
-        (vswap! context-volatile assoc-in [:ENTITIES name-kw] new-entity)
-        (a/>! operation-return-port new-entity)
+        (vswap! contexts-volatile assoc-in [:CONTEXTS context-name-kw] new-context)
+        (a/>! operation-return-port new-context)
         (recur)
         ))))
 
 (defn create-operations
   [env]
-  (create-entity-registration-operation env))
+  (create-context-registration-operation env))
