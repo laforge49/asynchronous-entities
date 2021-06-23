@@ -3,6 +3,10 @@
             [ae.kernel :as k]
             [ae.operations :as o]))
 
+(defn create-operations
+  [env]
+  (o/create-operations env))
+
 (defn a-main
   []
   (let [main-in
@@ -12,7 +16,7 @@
             (a/<! main-in)
             env
             {}
-            _ (o/create-operations env)
+            _ (create-operations env)
             contexts
             (k/create-entity (assoc env :PARAMS {:name            "ROOT/CONTEXTS"
                                                  :operation-ports {:REGISTER-CONTEXT-REQUEST :REGISTER-CONTEXT-PORT}
@@ -43,13 +47,6 @@
             simple2-entity
             (a/<! return-port)
             _ (println (pr-str @(second simple2-entity)))
-            #_(
-                _ (a/>! main-context-port (assoc env :PARAMS {:name        "MAIN/SIMPLE_2"
-                                                              :request     :REGISTER-ENTITY-REQUEST
-                                                              :return-port return-port}))
-                  simple2-entity
-                  (a/<! return-port)
-                  )
             ]
         (a/>! main-out :Ribit!)
         )
