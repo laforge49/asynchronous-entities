@@ -10,48 +10,33 @@
     (a/go
       (let [main-out
             (a/<! main-in)
-            contexts-atom
-            (atom {})
-            env
-            {:CONTEXTS-ATOM
-             contexts-atom
-             }
-            _ (o/create-operations env)
-            main-context
-            (k/register-context (assoc-in env [:PARAMS :name] "CONTEXT/MAIN"))
-            main-context-port
-            (first main-context)
-            return-port
-            (a/chan)
-            _ (a/>! main-context-port (assoc env :PARAMS {:name        "MAIN/SIMPLE_1"
-                                                          :request     :REGISTER-ENTITY-REQUEST
-                                                          :return-port return-port}))
-            simple1-entity
-            (a/<! return-port)
-            _ (a/>! main-context-port (assoc env :PARAMS {:name        "MAIN/SIMPLE_2"
-                                                          :request     :REGISTER-ENTITY-REQUEST
-                                                          :return-port return-port}))
-            simple2-entity
-            (a/<! return-port)
+            #_(
+                contexts-atom
+                (atom {})
+                env
+                {:CONTEXTS-ATOM
+                 contexts-atom
+                 }
+                _ (o/create-operations env)
+                main-context
+                (k/register-context (assoc-in env [:PARAMS :name] "CONTEXT/MAIN"))
+                main-context-port
+                (first main-context)
+                return-port
+                (a/chan)
+                _ (a/>! main-context-port (assoc env :PARAMS {:name        "MAIN/SIMPLE_1"
+                                                              :request     :REGISTER-ENTITY-REQUEST
+                                                              :return-port return-port}))
+                simple1-entity
+                (a/<! return-port)
+                _ (a/>! main-context-port (assoc env :PARAMS {:name        "MAIN/SIMPLE_2"
+                                                              :request     :REGISTER-ENTITY-REQUEST
+                                                              :return-port return-port}))
+                simple2-entity
+                (a/<! return-port)
+                )
             ]
         (a/>! main-out :ribit)
-        #_(a/>! (first main-context) [return-port
-                                      :REGISTER-ENTITY
-                                      (assoc env :PARAMS {:new-entity simple1-entity
-                                                          :name-kw    :MAIN/SIMPLE_1})])
-        #_(println :request-got (a/<! return-port))
-        #_(vswap! (second simple1-entity) (fn [old]
-                                     (let [context-value
-                                           (-> old
-                                               (assoc-in [:CHILDVECTORS :PLAIN] [:MAIN/SIMPLE_2])
-                                               )]
-                                       context-value)))
-        #_(vswap! (second simple2-entity) (fn [old]
-                                     (let [context-value
-                                           (-> old
-                                               (assoc-in [:PARENTVECTORS :PLAIN] [:MAIN/SIMPLE_1])
-                                               )]
-                                       context-value)))
         )
       )
     main-in))
