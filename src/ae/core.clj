@@ -1,11 +1,15 @@
 (ns ae.core
   (:require [clojure.core.async :as a]
             [ae.kernel :as k]
-            [ae.operations.context-operations :as co]))
+            [ae.operations.contexts-operations :as cso]
+            [ae.operations.context-operations :as co]
+            ))
 
 (defn create-operations
   [env]
-  (co/create-operations env))
+  (cso/create-contexts-operations env)
+  (co/create-context-operations env)
+  )
 
 (defn a-main
   []
