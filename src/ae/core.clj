@@ -19,13 +19,21 @@
                                                  }))
             env
             (assoc env :CONTEXTS-ENTITY contexts)
+            return-port
+            (a/chan)
+            _ (a/>! (first contexts)
+                    (assoc env :PARAMS {:request         :REGISTER-CONTEXT-REQUEST
+                                        :name            "CONTEXT/MAIN"
+                                        :operation-ports {}
+                                        :return-port     return-port}))
+            main-context
+            (a/<! return-port)
+            _ (println (pr-str @(second main-context)))
             #_(
                 main-context
                 (k/register-context (assoc-in env [:PARAMS :name] "CONTEXT/MAIN"))
                 main-context-port
                 (first main-context)
-                return-port
-                (a/chan)
                 _ (a/>! main-context-port (assoc env :PARAMS {:name        "MAIN/SIMPLE_1"
                                                               :request     :REGISTER-ENTITY-REQUEST
                                                               :return-port return-port}))
@@ -38,7 +46,7 @@
                 (a/<! return-port)
                 )
             ]
-        (a/>! main-out env)
+        (a/>! main-out :Ribit!)
         )
       )
     main-in))
