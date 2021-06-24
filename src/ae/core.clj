@@ -12,7 +12,7 @@
   )
 
 (defn script1
-  [return-port]
+  [env]
   [{:request         :REGISTER-CONTEXT-REQUEST
     :name            "CONTEXT/MAIN"
     :operation-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
@@ -23,7 +23,7 @@
     :target-context-name "CONTEXT/MAIN"
     :name                "MAIN/SIMPLE_1"
     :operation-ports     {}
-    :return-port         return-port
+    :return-port         (get-in env [:PARAMS :return-port])
     }
    ])
 
@@ -47,7 +47,7 @@
             return-port
             (a/chan)
             ]
-        (doseq [request-params (script1 return-port)]
+        (doseq [request-params (script1 (assoc env :PARAMS {:return-port return-port}))]
           (a/>! (first contexts)
                 (assoc env :PARAMS request-params)))
         (a/>! main-out @(second (a/<! return-port)))
