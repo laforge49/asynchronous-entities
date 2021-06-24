@@ -70,7 +70,8 @@
             ]
         (let [return-port
               (:return-port params)]
-          (if (some? return-port)
+          (if (and (some? return-port)
+                   (not= return-value :NO-RETURN))
             (a/>! return-port return-value))
           (recur))))))
 
