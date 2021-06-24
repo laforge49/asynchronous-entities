@@ -11,6 +11,22 @@
   (co/create-context-operations env)
   )
 
+(defn script1
+  [return-port]
+  [{:request         :REGISTER-CONTEXT-REQUEST
+    :name            "CONTEXT/MAIN"
+    :operation-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
+                      }
+    }
+   {:request             :ROUTE-TO-CONTEXT-REQUEST
+    :target-request      :REGISTER-ENTITY-REQUEST
+    :target-context-name "CONTEXT/MAIN"
+    :name            "MAIN/SIMPLE_1"
+    :operation-ports {}
+    :return-port         return-port
+    }
+   ])
+
 (defn a-main
   []
   (let [main-in
@@ -35,30 +51,14 @@
                                         :name            "CONTEXT/MAIN"
                                         :operation-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
                                                           }
-                                        :return-port     return-port
                                         }))
-            main-context
-            (a/<! return-port)
             _ (a/>! (first contexts)
                     (assoc env :PARAMS {:request             :ROUTE-TO-CONTEXT-REQUEST
                                         :target-request      :REGISTER-ENTITY-REQUEST
                                         :target-context-name "CONTEXT/MAIN"
                                         :name            "MAIN/SIMPLE_1"
                                         :operation-ports {}
-                                        :return-port         return-port
                                         }))
-            simple1-entity
-            (a/<! return-port)
-            _ (a/>! (first contexts)
-                    (assoc env :PARAMS {:request             :ROUTE-TO-CONTEXT-REQUEST
-                                        :target-request      :REGISTER-ENTITY-REQUEST
-                                        :target-context-name "CONTEXT/MAIN"
-                                        :name                "MAIN/SIMPLE_2"
-                                        :operation-ports     {}
-                                        :return-port         return-port
-                                        }))
-            simple2-entity
-            (a/<! return-port)
             ]
         (a/>! main-out :Ribit!)
         )
