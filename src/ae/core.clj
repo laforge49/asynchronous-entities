@@ -21,8 +21,8 @@
    {:request             :ROUTE-TO-CONTEXT-REQUEST
     :target-request      :REGISTER-ENTITY-REQUEST
     :target-context-name "CONTEXT/MAIN"
-    :name            "MAIN/SIMPLE_1"
-    :operation-ports {}
+    :name                "MAIN/SIMPLE_1"
+    :operation-ports     {}
     :return-port         return-port
     }
    ])
@@ -46,21 +46,11 @@
             (assoc env :CONTEXTS-ENTITY contexts)
             return-port
             (a/chan)
-            _ (a/>! (first contexts)
-                    (assoc env :PARAMS {:request         :REGISTER-CONTEXT-REQUEST
-                                        :name            "CONTEXT/MAIN"
-                                        :operation-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
-                                                          }
-                                        }))
-            _ (a/>! (first contexts)
-                    (assoc env :PARAMS {:request             :ROUTE-TO-CONTEXT-REQUEST
-                                        :target-request      :REGISTER-ENTITY-REQUEST
-                                        :target-context-name "CONTEXT/MAIN"
-                                        :name            "MAIN/SIMPLE_1"
-                                        :operation-ports {}
-                                        }))
             ]
-        (a/>! main-out :Ribit!)
+        (doseq [request-params (script1 return-port)]
+          (a/>! (first contexts)
+                (assoc env :PARAMS request-params)))
+        (a/>! main-out @(second (a/<! return-port)))
         )
       )
     main-in))
