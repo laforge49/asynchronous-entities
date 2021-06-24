@@ -65,8 +65,6 @@
                     operation-return-port
                     (a/chan)
                     ]
-                (println 33333 (pr-str operation-port))
-                (Thread/sleep 1000)
                 (a/>! operation-port (assoc-in env [:PARAMS :operation-return-port] operation-return-port))
                 (a/<! operation-return-port)))
             ]

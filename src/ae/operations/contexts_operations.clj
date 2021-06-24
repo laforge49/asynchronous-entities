@@ -34,10 +34,8 @@
   (let [route-to-context-port
         (k/register-operation-port (assoc env :PARANS {:operation-port-kw :ROUTE-TO-CONTEXT-PORT}))]
     (a/go-loop []
-      (println 111111111 (pr-str route-to-context-port))
       (let [env
             (a/<! route-to-context-port)
-            _ (println 222222222)
             params
             (:PARAMS env)
             contexts-entity
@@ -55,7 +53,6 @@
             target-request
             (:target-request params)
             ]
-        (println 2468 (pr-str (first context-entity)))
         (a/>! (first context-entity) (assoc-in env [:PARAMS :request] target-request))
         (recur)))))
 

@@ -47,7 +47,6 @@
                                         }))
             simple1-entity
             (a/<! return-port)
-            _ (println 123245)
             #_ (a/>! (first contexts)
                     (assoc env :PARAMS {:request             :ROUTE-TO-CONTEXT-REQUEST
                                         :target-request      :REGISTER-ENTITY-REQUEST
