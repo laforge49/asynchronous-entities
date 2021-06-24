@@ -13,7 +13,7 @@
             params
             (:PARAMS env)
             contexts-entity
-            (:master-entity env)
+            (:this-entity env)
             contexts-volatile
             (second contexts-entity)
             context-name
@@ -42,7 +42,7 @@
             (:operation-return-port params)
             - (a/>! operation-return-port :NO-RETURN)
             contexts-entity
-            (:master-entity env)
+            (:this-entity env)
             contexts-volatile
             (second contexts-entity)
             context-name

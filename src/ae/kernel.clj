@@ -19,10 +19,10 @@
   [env]
   (let [params
         (:PARAMS env)
-        master-entity
-        (:master-entity params)
+        this-entity
+        (:this-entity params)
         entity-map-volatile
-        (second master-entity)
+        (second this-entity)
         ]
     (a/go-loop []
       (let [request-port-stack
@@ -34,7 +34,7 @@
             env
             (a/<! request-port)
             env
-            (assoc env :master-entity master-entity)
+            (assoc env :this-entity this-entity)
             params
             (:PARAMS env)
             request
@@ -77,24 +77,24 @@
 
 (defn create-entity
   [env]
-  (let [request-port
+  (let [new-request-port
         (a/chan)
         params
         (:PARAMS env)
-        entity-map
+        new-entity-map
         (-> {}
             (assoc :NAME (:name params))
             (assoc :OPERATION-PORTS (:operation-ports params))
             (assoc :CHILDVECTORS {})
             (assoc :PARENTVECTORS {})
-            (assoc :REQUEST-PORT-STACK [request-port])
+            (assoc :REQUEST-PORT-STACK [new-request-port])
             )
-        entity-map-volatile
-        (volatile! entity-map)
+        new-entity-map-volatile
+        (volatile! new-entity-map)
         new-entity
-        [request-port entity-map-volatile]
+        [new-request-port new-entity-map-volatile]
         ]
-    (create-operation-dispatcher (assoc env :PARAMS {:master-entity new-entity}))
+    (create-operation-dispatcher (assoc env :PARAMS {:this-entity new-entity}))
     new-entity
     ))
 

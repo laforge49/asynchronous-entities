@@ -13,7 +13,7 @@
             params
             (:PARAMS env)
             context-entity
-            (:master-entity env)
+            (:this-entity env)
             context-volatile
             (second context-entity)
             entity-name
