@@ -18,14 +18,14 @@
             (second context-entity)
             entity-name
             (get-in env [:PARAMS :name])
-            [entity-name-kw _ _]
+            [entity-kw _ _]
             (kw/name-as-keyword entity-name)
             new-entity
             (k/create-entity env)
             operation-return-port
             (:operation-return-port params)
             ]
-        (vswap! context-volatile assoc-in [:ENTITIES entity-name-kw] new-entity)
+        (vswap! context-volatile assoc-in [:ENTITIES entity-kw] new-entity)
         (a/>! operation-return-port new-entity)
         (recur)))))
 
