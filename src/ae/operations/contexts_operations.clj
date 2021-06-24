@@ -38,6 +38,9 @@
             (a/<! route-to-context-port)
             params
             (:PARAMS env)
+            operation-return-port
+            (:operation-return-port params)
+            - (a/>! operation-return-port :NO-RETURN)
             contexts-entity
             (:master-entity env)
             contexts-volatile
