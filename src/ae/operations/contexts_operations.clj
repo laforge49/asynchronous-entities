@@ -32,7 +32,7 @@
 (defn create-route-to-context-operation
   [env]
   (let [route-to-context-port
-        (k/register-operation-port (assoc env :PARANS {:operation-port-kw :ROUTE-TO-CONTEXT-PORT}))]
+        (k/register-operation-port (assoc env :PARAMS {:operation-port-kw :ROUTE-TO-CONTEXT-PORT}))]
     (a/go-loop []
       (let [env
             (a/<! route-to-context-port)

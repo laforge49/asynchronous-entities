@@ -39,15 +39,17 @@
                                         }))
             main-context
             (a/<! return-port)
-            _ (a/>! (first main-context)
-                    (assoc env :PARAMS {:request         :REGISTER-ENTITY-REQUEST
+            _ (a/>! (first contexts)
+                    (assoc env :PARAMS {:request             :ROUTE-TO-CONTEXT-REQUEST
+                                        :target-request      :REGISTER-ENTITY-REQUEST
+                                        :target-context-name "CONTEXT/MAIN"
                                         :name            "MAIN/SIMPLE_1"
                                         :operation-ports {}
                                         :return-port         return-port
                                         }))
             simple1-entity
             (a/<! return-port)
-            #_ (a/>! (first contexts)
+            _ (a/>! (first contexts)
                     (assoc env :PARAMS {:request             :ROUTE-TO-CONTEXT-REQUEST
                                         :target-request      :REGISTER-ENTITY-REQUEST
                                         :target-context-name "CONTEXT/MAIN"
@@ -55,9 +57,8 @@
                                         :operation-ports     {}
                                         :return-port         return-port
                                         }))
-            ;simple2-entity
-            ;(a/<! return-port)
-            ;_ (println (pr-str @(second simple2-entity)))
+            simple2-entity
+            (a/<! return-port)
             ]
         (a/>! main-out :Ribit!)
         )
