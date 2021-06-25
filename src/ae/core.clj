@@ -10,6 +10,7 @@
   [env]
   (cso/create-contexts-operations env)
   (co/create-context-operations env)
+  (eo/create-entity-operations env)
   )
 
 (defn script1
