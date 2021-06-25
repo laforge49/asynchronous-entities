@@ -29,12 +29,8 @@
             (peek this-request-port-stack)
             this-operation-ports
             (:OPERATION-PORTS @this-volatile-map)
-            blob
-            (a/<! this-request-port)
             [env params]
-            (if (vector? blob)
-              blob
-              [blob (:PARAMS blob)])
+            (a/<! this-request-port)
             env
             (assoc env :this-entity this-entity)
             request
