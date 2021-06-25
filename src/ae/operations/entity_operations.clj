@@ -2,3 +2,7 @@
   (:require [clojure.core.async :as a]
             [ae.kernel :as k]
             [ae.keywords :as kw]))
+
+(defn create-entity-operations
+  [env]
+  )
