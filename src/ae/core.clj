@@ -67,11 +67,11 @@
             simple2
             (a/<! return-port2)
             _ (a/>! (first simple2)
-                    (assoc env :PARAMS {:request            :ADD-PARENT-REQUEST
-                                        :relationship       :BASIC
-                                        :parent-entity-name "MAIN/SIMPLE_1"
-                                        :return-port        return-port3
-                                        }))
+                    [env {:request            :ADD-PARENT-REQUEST
+                          :relationship       :BASIC
+                          :parent-entity-name "MAIN/SIMPLE_1"
+                          :return-port        return-port3
+                          }])
             ]
         (a/<! return-port3)
         (a/>! main-out @(second simple2))
