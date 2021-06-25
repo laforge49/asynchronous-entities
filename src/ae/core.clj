@@ -23,6 +23,12 @@
     :target-context-name "CONTEXT/MAIN"
     :name                "MAIN/SIMPLE_1"
     :operation-ports     {}
+    }
+   {:request             :ROUTE-TO-CONTEXT-REQUEST
+    :target-request      :REGISTER-ENTITY-REQUEST
+    :target-context-name "CONTEXT/MAIN"
+    :name                "MAIN/SIMPLE_2"
+    :operation-ports     {}
     :return-port         (get-in env [:PARAMS :return-port])
     }
    ])
