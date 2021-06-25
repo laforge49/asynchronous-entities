@@ -85,10 +85,10 @@
          :CHILDVECTORS {}
          :PARENTVECTORS {}
          :REQUEST-PORT-STACK [new-request-port]}
-        new-entity-map-volatile
+        new-entity-volatile-map
         (volatile! new-entity-map)
         new-entity
-        [new-request-port new-entity-map-volatile]
+        [new-request-port new-entity-volatile-map]
         ]
     (create-operation-dispatcher (assoc env :PARAMS {:this-entity new-entity}))
     new-entity
