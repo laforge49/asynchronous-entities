@@ -16,10 +16,8 @@
     port))
 
 (defn create-operation-dispatcher
-  [env]
-  (let [params
-        (:PARAMS env)
-        this-entity
+  [env params]
+  (let [this-entity
         (:this-entity params)
         this-volatile-map
         (second this-entity)
@@ -90,7 +88,7 @@
         new-entity
         [new-request-port new-entity-volatile-map]
         ]
-    (create-operation-dispatcher (assoc env :PARAMS {:this-entity new-entity}))
+    (create-operation-dispatcher env {:this-entity new-entity})
     new-entity
     ))
 
