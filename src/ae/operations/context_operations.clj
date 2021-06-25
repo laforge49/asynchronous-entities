@@ -6,7 +6,7 @@
 (defn create-entity-registration-operation
   [env]
   (let [entity-registration-port
-        (k/register-operation-port (assoc env :PARAMS {:operation-port-kw :REGISTER-ENTITY-PORT}))]
+        (k/register-operation-port env {:operation-port-kw :REGISTER-ENTITY-PORT})]
     (a/go-loop []
       (let [env
             (a/<! entity-registration-port)

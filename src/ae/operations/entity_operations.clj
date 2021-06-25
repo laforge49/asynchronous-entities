@@ -6,7 +6,7 @@
 (defn create-add-parent-operation
   [env]
   (let [add-parent-port
-        (k/register-operation-port (assoc env :PARAMS {:operation-port-kw :ADD-PARENT-PORT}))]
+        (k/register-operation-port env {:operation-port-kw :ADD-PARENT-PORT})]
     (a/go-loop []
       (let [env
             (a/<! add-parent-port)

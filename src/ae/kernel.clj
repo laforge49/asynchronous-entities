@@ -7,9 +7,9 @@
   (atom {}))
 
 (defn register-operation-port
-  [env]
+  [env params]
   (let [operation-port-kw
-        (get-in env [:PARAMS :operation-port-kw])
+        (:operation-port-kw params)
         port
         (a/chan)]
     (swap! operation-ports-atom assoc operation-port-kw port)
