@@ -80,13 +80,11 @@
   (let [new-request-port
         (a/chan)
         new-entity-map
-        (-> {}
-            (assoc :NAME (:name params))
-            (assoc :OPERATION-PORTS (:operation-ports params))
-            (assoc :CHILDVECTORS {})
-            (assoc :PARENTVECTORS {})
-            (assoc :REQUEST-PORT-STACK [new-request-port])
-            )
+        {:NAME (:name params)
+         :OPERATION-PORTS (:operation-ports params)
+         :CHILDVECTORS {}
+         :PARENTVECTORS {}
+         :REQUEST-PORT-STACK [new-request-port]}
         new-entity-map-volatile
         (volatile! new-entity-map)
         new-entity
