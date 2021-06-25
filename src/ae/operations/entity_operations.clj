@@ -16,8 +16,8 @@
             (:this-entity env)
             this-volatile-map
             (second this-entity)
-            parent-entity
-            (:parent-entity params)
+            parent-entity-name
+            (:parent-entity-name params)
             relationship
             (:relationship params)
             operation-return-port
@@ -25,7 +25,7 @@
             ]
         (vswap! this-volatile-map (fn [old]
                                     (let [relationship-parents
-                                          (conj (get-in this-entity [:PARENTVECTORS relationship] []) parent-entity)]
+                                          (conj (get-in this-entity [:PARENTVECTORS relationship] []) parent-entity-name)]
                                       (assoc-in old [:PARENTVECTORS relationship] relationship-parents))))
         (a/>! operation-return-port this-entity)
         (recur)))))

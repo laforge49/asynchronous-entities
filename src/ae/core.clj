@@ -57,6 +57,8 @@
             (a/chan)
             return-port2
             (a/chan)
+            return-port3
+            (a/chan)
             _ (doseq [request-params (script1 (assoc env :PARAMS {:return-port1 return-port1 :return-port2 return-port2}))]
                 (a/>! (first contexts)
                       (assoc env :PARAMS request-params)))
@@ -64,12 +66,14 @@
             (a/<! return-port1)
             simple2
             (a/<! return-port2)
-            #_ (a/>! (first simple2)
-                    (assoc env :PARAMS {:request :ADD-PARENT-REQUEST
-                                        :relationship :BASIC
-                                        :parent-entity simple1
+            _ (a/>! (first simple2)
+                    (assoc env :PARAMS {:request            :ADD-PARENT-REQUEST
+                                        :relationship       :BASIC
+                                        :parent-entity-name "MAIN/SIMPLE_1"
+                                        :return-port        return-port3
                                         }))
             ]
+        (a/<! return-port3)
         (a/>! main-out @(second simple2))
         )
       )
