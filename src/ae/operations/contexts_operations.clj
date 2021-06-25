@@ -47,12 +47,12 @@
             (kw/name-as-keyword target-context-name)
             context-entities
             (:CONTEXT-ENTITIES @this-volatile-map)
-            context-entity
+            target-context-entity
             (target-contex-kw context-entities)
             target-request
             (:target-request params)
             ]
-        (a/>! (first context-entity) [env
+        (a/>! (first target-context-entity) [env
                                       (assoc params :request target-request)])
         (recur)))))
 
