@@ -23,8 +23,11 @@
             operation-return-port
             (:operation-return-port params)
             ]
-
-        (a/>! operation-return-port true)
+        (vswap! this-volatile-map (fn [old]
+                                    (let [relationship-parents
+                                          (conj (get-in this-entity [:PARENTVECTORS relationship] []) parent-entity)]
+                                      (assoc-in old [:PARENTVECTORS relationship] relationship-parents))))
+        (a/>! operation-return-port this-entity)
         (recur)))))
 
 (defn create-entity-operations

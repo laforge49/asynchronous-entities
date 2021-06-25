@@ -25,13 +25,14 @@
     :target-context-name "CONTEXT/MAIN"
     :name                "MAIN/SIMPLE_1"
     :operation-ports     {}
+    :return-port         (get-in env [:PARAMS :return-port1])
     }
    {:request             :ROUTE-TO-CONTEXT-REQUEST
     :target-request      :REGISTER-ENTITY-REQUEST
     :target-context-name "CONTEXT/MAIN"
     :name                "MAIN/SIMPLE_2"
-    :operation-ports     {}
-    :return-port         (get-in env [:PARAMS :return-port])
+    :operation-ports     {:ADD-PARENT-REQUEST :ADD-PARENT-PORT}
+    :return-port         (get-in env [:PARAMS :return-port2])
     }
    ])
 
@@ -52,13 +53,24 @@
                                                  }))
             env
             (assoc env :CONTEXTS-ENTITY contexts)
-            return-port
+            return-port1
             (a/chan)
+            return-port2
+            (a/chan)
+            _ (doseq [request-params (script1 (assoc env :PARAMS {:return-port1 return-port1 :return-port2 return-port2}))]
+                (a/>! (first contexts)
+                      (assoc env :PARAMS request-params)))
+            simple1
+            (a/<! return-port1)
+            simple2
+            (a/<! return-port2)
+            #_ (a/>! (first simple2)
+                    (assoc env :PARAMS {:request :ADD-PARENT-REQUEST
+                                        :relationship :BASIC
+                                        :parent-entity simple1
+                                        }))
             ]
-        (doseq [request-params (script1 (assoc env :PARAMS {:return-port return-port}))]
-          (a/>! (first contexts)
-                (assoc env :PARAMS request-params)))
-        (a/>! main-out @(second (a/<! return-port)))
+        (a/>! main-out @(second simple2))
         )
       )
     main-in))
