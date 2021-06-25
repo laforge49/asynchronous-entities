@@ -21,18 +21,18 @@
         (:PARAMS env)
         this-entity
         (:this-entity params)
-        entity-map-volatile
+        this-volatile-map
         (second this-entity)
         ]
     (a/go-loop []
-      (let [request-port-stack
-            (:REQUEST-PORT-STACK @entity-map-volatile)
-            request-port
-            (peek request-port-stack)
-            operations
-            (:OPERATION-PORTS @entity-map-volatile)
+      (let [this-request-port-stack
+            (:REQUEST-PORT-STACK @this-volatile-map)
+            this-request-port
+            (peek this-request-port-stack)
+            this-operation-ports
+            (:OPERATION-PORTS @this-volatile-map)
             env
-            (a/<! request-port)
+            (a/<! this-request-port)
             env
             (assoc env :this-entity this-entity)
             params
@@ -40,26 +40,26 @@
             request
             (:request params)
             operation-port-id
-            (request operations)
+            (request this-operation-ports)
             return-value
             (case request
               :SNAPSHOT
-              @entity-map-volatile
+              @this-volatile-map
               :PUSH-REQUEST-PORT
               (let [new-request-port
                     (:new-request-port params)
                     saved-entity-map
-                    @entity-map-volatile]
-                (vswap! entity-map-volatile assoc :REQUEST-PORT (conj request-port-stack new-request-port))
+                    @this-volatile-map]
+                (vswap! this-volatile-map assoc :REQUEST-PORT (conj this-request-port-stack new-request-port))
                 saved-entity-map)
               :POP-REQUEST-PORT
               (let []
-                (vswap! entity-map-volatile assoc :REQUEST-PORT (pop request-port-stack))
+                (vswap! this-volatile-map assoc :REQUEST-PORT (pop this-request-port-stack))
                 true)
               :ABORT
               (let [saved-entity-map
                     (:saved-entity-map params)]
-                (vreset! entity-map-volatile saved-entity-map))
+                (vreset! this-volatile-map saved-entity-map))
               (let [operation-port
                     (operation-port-id @operation-ports-atom)
                     operation-return-port
