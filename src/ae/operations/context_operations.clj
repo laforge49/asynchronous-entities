@@ -15,7 +15,7 @@
             this-volatile-map
             (second this-entity)
             new-entity-name
-            (get-in env [:PARAMS :name])
+            (:name params)
             [new-entity-kw _ _]
             (kw/name-as-keyword new-entity-name)
             new-entity

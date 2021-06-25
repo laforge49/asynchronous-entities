@@ -61,8 +61,7 @@
             (a/chan)
             _ (doseq [request-params (script1 env {:return-port1 return-port1
                                                    :return-port2 return-port2})]
-                (a/>! (first contexts)
-                      (assoc env :PARAMS request-params)))
+                (a/>! (first contexts) [env request-params]))
             simple1
             (a/<! return-port1)
             simple2

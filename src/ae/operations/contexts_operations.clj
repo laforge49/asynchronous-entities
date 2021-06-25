@@ -15,7 +15,7 @@
             this-volatile-map
             (second this-entity)
             new-context-name
-            (get-in env [:PARAMS :name])
+            (:name params)
             [new-context-kw _ _]
             (kw/name-as-keyword new-context-name)
             new-context
@@ -42,7 +42,7 @@
             this-volatile-map
             (second this-entity)
             target-context-name
-            (get-in env [:PARAMS :target-context-name])
+            (:target-context-name params)
             [target-contex-kw _ _]
             (kw/name-as-keyword target-context-name)
             context-entities
