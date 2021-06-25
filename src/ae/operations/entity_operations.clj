@@ -8,10 +8,8 @@
   (let [add-parent-port
         (k/register-operation-port env {:operation-port-kw :ADD-PARENT-PORT})]
     (a/go-loop []
-      (let [env
+      (let [[env params]
             (a/<! add-parent-port)
-            params
-            (:PARAMS env)
             this-entity
             (:this-entity env)
             this-volatile-map

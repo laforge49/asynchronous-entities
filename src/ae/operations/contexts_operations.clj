@@ -8,10 +8,8 @@
   (let [context-registration-port
         (k/register-operation-port env {:operation-port-kw :REGISTER-CONTEXT-PORT})]
     (a/go-loop []
-      (let [env
+      (let [[env params]
             (a/<! context-registration-port)
-            params
-            (:PARAMS env)
             this-entity
             (:this-entity env)
             this-volatile-map
@@ -34,10 +32,8 @@
   (let [route-to-context-port
         (k/register-operation-port env {:operation-port-kw :ROUTE-TO-CONTEXT-PORT})]
     (a/go-loop []
-      (let [env
+      (let [[env params]
             (a/<! route-to-context-port)
-            params
-            (:PARAMS env)
             operation-return-port
             (:operation-return-port params)
             - (a/>! operation-return-port :NO-RETURN)

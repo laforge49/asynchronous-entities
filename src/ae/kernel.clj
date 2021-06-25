@@ -29,12 +29,14 @@
             (peek this-request-port-stack)
             this-operation-ports
             (:OPERATION-PORTS @this-volatile-map)
-            env
+            blob
             (a/<! this-request-port)
+            [env params]
+            (if (vector? blob)
+              blob
+              [blob (:PARAMS blob)])
             env
             (assoc env :this-entity this-entity)
-            params
-            (:PARAMS env)
             request
             (:request params)
             operation-port-id
@@ -63,7 +65,7 @@
                     operation-return-port
                     (a/chan)
                     ]
-                (a/>! operation-port (assoc-in env [:PARAMS :operation-return-port] operation-return-port))
+                (a/>! operation-port [env (assoc params :operation-return-port operation-return-port)])
                 (a/<! operation-return-port)))
             ]
         (let [return-port

@@ -8,10 +8,8 @@
   (let [entity-registration-port
         (k/register-operation-port env {:operation-port-kw :REGISTER-ENTITY-PORT})]
     (a/go-loop []
-      (let [env
+      (let [[env params]
             (a/<! entity-registration-port)
-            params
-            (:PARAMS env)
             this-entity
             (:this-entity env)
             this-volatile-map
