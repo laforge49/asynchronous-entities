@@ -52,7 +52,8 @@
             target-request
             (:target-request params)
             ]
-        (a/>! (first context-entity) (assoc-in env [:PARAMS :request] target-request))
+        (a/>! (first context-entity) [env
+                                      (assoc params :request target-request)])
         (recur)))))
 
 (defn create-contexts-operations
