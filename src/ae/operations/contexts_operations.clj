@@ -12,20 +12,20 @@
             (a/<! context-registration-port)
             params
             (:PARAMS env)
-            contexts-entity
+            this-entity
             (:this-entity env)
-            contexts-volatile
-            (second contexts-entity)
-            context-name
+            this-volatile-map
+            (second this-entity)
+            new-context-name
             (get-in env [:PARAMS :name])
-            [context-kw _ _]
-            (kw/name-as-keyword context-name)
+            [new-context-kw _ _]
+            (kw/name-as-keyword new-context-name)
             new-context
             (k/create-entity env)
             operation-return-port
             (:operation-return-port params)
             ]
-        (vswap! contexts-volatile assoc-in [:CONTEXT-ENTITIES context-kw] new-context)
+        (vswap! this-volatile-map assoc-in [:CONTEXT-ENTITIES new-context-kw] new-context)
         (a/>! operation-return-port new-context)
         (recur)))))
 
@@ -41,18 +41,18 @@
             operation-return-port
             (:operation-return-port params)
             - (a/>! operation-return-port :NO-RETURN)
-            contexts-entity
+            this-entity
             (:this-entity env)
-            contexts-volatile
-            (second contexts-entity)
-            context-name
+            this-volatile-map
+            (second this-entity)
+            target-context-name
             (get-in env [:PARAMS :target-context-name])
-            [contex-kw _ _]
-            (kw/name-as-keyword context-name)
+            [target-contex-kw _ _]
+            (kw/name-as-keyword target-context-name)
             context-entities
-            (:CONTEXT-ENTITIES @contexts-volatile)
+            (:CONTEXT-ENTITIES @this-volatile-map)
             context-entity
-            (contex-kw context-entities)
+            (target-contex-kw context-entities)
             target-request
             (:target-request params)
             ]
