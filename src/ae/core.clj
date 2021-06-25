@@ -17,7 +17,8 @@
   [env params]
   [{:request         :REGISTER-CONTEXT-REQUEST
     :name            "CONTEXT/MAIN"
-    :operation-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT}
+    :operation-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
+                      :ROUTE-TO-ENTITY-REQUEST :ROUTE-TO-ENTITY-PORT}
     :return-port     (:return-port0 params)
     }
    {:request             :ROUTE-TO-CONTEXT-REQUEST
@@ -71,8 +72,10 @@
             (a/<! return-port1)
             simple2
             (a/<! return-port2)
-            _ (a/>! (first simple2)
-                    [env {:request            :ADD-PARENT-REQUEST
+            _ (a/>! (first main-context)
+                    [env {:request            :ROUTE-TO-ENTITY-REQUEST
+                          :target-request     :ADD-PARENT-REQUEST
+                          :target-entity-name "MAIN/SIMPLE_2"
                           :relationship       :BASIC
                           :parent-entity-name "MAIN/SIMPLE_1"
                           :return-port        return-port3
