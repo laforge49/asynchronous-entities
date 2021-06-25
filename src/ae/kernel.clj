@@ -76,11 +76,9 @@
           (recur))))))
 
 (defn create-entity
-  [env]
+  [env params]
   (let [new-request-port
         (a/chan)
-        params
-        (:PARAMS env)
         new-entity-map
         (-> {}
             (assoc :NAME (:name params))

@@ -21,7 +21,7 @@
             [new-context-kw _ _]
             (kw/name-as-keyword new-context-name)
             new-context
-            (k/create-entity env)
+            (k/create-entity env params)
             operation-return-port
             (:operation-return-port params)
             ]
