@@ -3,6 +3,7 @@
             [ae.kernel :as k]
             [ae.operations.contexts-operations :as cso]
             [ae.operations.context-operations :as co]
+            [ae.operations.entity-operations :as eo]
             ))
 
 (defn create-operations
