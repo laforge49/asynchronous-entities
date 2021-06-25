@@ -17,9 +17,8 @@
   [env params]
   [{:request         :REGISTER-CONTEXT-REQUEST
     :name            "CONTEXT/MAIN"
-    :operation-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
-                      :return-port         (:return-port0 params)
-                      }
+    :operation-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT}
+    :return-port     (:return-port0 params)
     }
    {:request             :ROUTE-TO-CONTEXT-REQUEST
     :target-request      :REGISTER-ENTITY-REQUEST
@@ -62,10 +61,12 @@
             (a/chan)
             return-port3
             (a/chan)
-            _ (doseq [request-params (script1 env {:return-port0 return-port1
+            _ (doseq [request-params (script1 env {:return-port0 return-port0
                                                    :return-port1 return-port1
                                                    :return-port2 return-port2})]
                 (a/>! (first contexts) [env request-params]))
+            main-context
+            (a/<! return-port0)
             simple1
             (a/<! return-port1)
             simple2
