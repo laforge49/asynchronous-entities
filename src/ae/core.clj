@@ -18,7 +18,7 @@
   [{:request         :REGISTER-CONTEXT-REQUEST
     :name            "CONTEXT/MAIN"
     :operation-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
-                      :ROUTE-TO-ENTITY-REQUEST :ROUTE-TO-ENTITY-PORT}
+                      :ROUTE-TO-ENTITY-REQUEST :ROUTE-CONTEXT-TO-ENTITY-PORT}
     :return-port     (:return-port0 params)
     }
    {:request             :ROUTE-TO-CONTEXT-REQUEST
@@ -50,7 +50,8 @@
             contexts
             (k/create-entity env {:name            "ROOT/CONTEXTS"
                                   :operation-ports {:REGISTER-CONTEXT-REQUEST :REGISTER-CONTEXT-PORT
-                                                    :ROUTE-TO-CONTEXT-REQUEST :ROUTE-TO-CONTEXT-PORT}
+                                                    :ROUTE-TO-CONTEXT-REQUEST :ROUTE-TO-CONTEXT-PORT
+                                                    :ROUTE-TO-ENTITY-REQUEST :ROUTE-TO-ENTITY-PORT}
                                   })
             env
             (assoc env :CONTEXTS-ENTITY contexts)
