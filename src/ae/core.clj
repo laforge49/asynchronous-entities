@@ -63,9 +63,10 @@
             (assoc env :CONTEXTS-ENTITY contexts)
             return-port0
             (a/chan)
-            _ (doseq [request-params (script1 return-port0)]
+            _ (doseq [request-params (script1 nil)]
                 (a/>! (first contexts) [env request-params])
-                (a/<! return-port0))
+                ;(a/<! return-port0)
+                )
             return-port4
             (a/chan)
             _ (a/>! (first contexts) [env {:request            :ROUTE-TO-ENTITY-REQUEST
