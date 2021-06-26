@@ -53,11 +53,43 @@
             (:target-request params)
             ]
         (a/>! (first target-context-entity) [env
-                                      (assoc params :request target-request)])
+                                             (assoc params :request target-request)])
+        (recur)))))
+
+(defn create-route-to-entity-operation
+  [env]
+  (let [route-to-entity-port
+        (k/register-operation-port env {:operation-port-kw :ROUTE-TO-ENTITY-PORT})]
+    (a/go-loop []
+      (let [[env params]
+            (a/<! route-to-entity-port)
+            operation-return-port
+            (:operation-return-port params)
+            - (a/>! operation-return-port :NO-RETURN)
+            this-contexts-entity
+            (:this-entity env)
+            this-volatile-map
+            (second this-contexts-entity)
+            target-entity-name
+            (:target-entity-name params)
+            [_ target-context-base-name _]
+            (kw/name-as-keyword target-entity-name)
+            target-context-entity-kw
+            (keyword "CONTEXT" target-context-base-name)
+            context-entities
+            (:CONTEXT-ENTITIES @this-volatile-map)
+            target-context-entity
+            (target-context-entity-kw context-entities)
+            target-request
+            (:target-request params)
+            ]
+        (a/>! (first target-context-entity) [env
+                                             (assoc params :request :ROUTE-TO-ENTITY-REQUEST)])
         (recur)))))
 
 (defn create-contexts-operations
   [env]
   (create-context-registration-operation env)
   (create-route-to-context-operation env)
+  (create-route-to-entity-operation env)
   )

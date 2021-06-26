@@ -10,11 +10,11 @@
       (recur (str (subs s 0 j) e (subs s (inc j))) (+ j 3) d e))))
 
 (defn keyword-encode
-  [context-name base-name]
-  (keyword context-name (-> base-name
-                  (keyword-encode- 0 " " "$$s")
-                  (keyword-encode- 0 "(" "$$l")
-                  (keyword-encode- 0 ")" "$$r"))))
+  [context-base-name base-name]
+  (keyword context-base-name (-> base-name
+                                 (keyword-encode- 0 " " "$$s")
+                                 (keyword-encode- 0 "(" "$$l")
+                                 (keyword-encode- 0 ")" "$$r"))))
 
 (defn name-as-keyword
   [name]
@@ -22,12 +22,12 @@
         (s/index-of name "/")
         base-name
         (subs name (inc slashindex))
-        context-name
+        context-base-name
         (subs name 0 slashindex)
         name-kw
-        (keyword-encode context-name base-name)
+        (keyword-encode context-base-name base-name)
         ]
-    [name-kw context-name base-name]))
+    [name-kw context-base-name base-name]))
 
 (defn keyword-decode-
   [s i e d]
@@ -39,7 +39,7 @@
 
 (defn keyword-as-name
   [kw]
-  (let [context-name
+  (let [context-base-name
         (namespace kw)
         base-name
         (-> (name kw)
@@ -47,9 +47,9 @@
             (keyword-decode- 0 "$$l" "(")
             (keyword-decode- 0 "$$r" ")"))
         name
-        (str context-name
+        (str context-base-name
              "/"
              base-name)
         ]
-    [name context-name base-name]
-  ))
+    [name context-base-name base-name]
+    ))

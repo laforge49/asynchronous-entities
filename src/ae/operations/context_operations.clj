@@ -37,10 +37,10 @@
             operation-return-port
             (:operation-return-port params)
             - (a/>! operation-return-port :NO-RETURN)
-            this-entity
+            this-context-entity
             (:this-entity env)
             this-volatile-map
-            (second this-entity)
+            (second this-context-entity)
             target-entity-name
             (:target-entity-name params)
             [target-entity-kw _ _]
