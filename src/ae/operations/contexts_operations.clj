@@ -56,13 +56,13 @@
                                              (assoc params :request target-request)])
         (recur)))))
 
-(defn create-route-to-entity-operation
+(defn create-route-contexts-to-entity-operation
   [env]
-  (let [route-to-entity-port
-        (k/register-operation-port env {:operation-port-kw :ROUTE-TO-ENTITY-PORT})]
+  (let [route-contexts-to-entity-port
+        (k/register-operation-port env {:operation-port-kw :ROUTE-CONTEXTS-TO-ENTITY-PORT})]
     (a/go-loop []
       (let [[env params]
-            (a/<! route-to-entity-port)
+            (a/<! route-contexts-to-entity-port)
             operation-return-port
             (:operation-return-port params)
             - (a/>! operation-return-port :NO-RETURN)
@@ -91,5 +91,5 @@
   [env]
   (create-context-registration-operation env)
   (create-route-to-context-operation env)
-  (create-route-to-entity-operation env)
+  (create-route-contexts-to-entity-operation env)
   )

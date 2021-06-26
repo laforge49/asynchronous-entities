@@ -51,7 +51,7 @@
             (k/create-entity env {:name            "ROOT/CONTEXTS"
                                   :operation-ports {:REGISTER-CONTEXT-REQUEST :REGISTER-CONTEXT-PORT
                                                     :ROUTE-TO-CONTEXT-REQUEST :ROUTE-TO-CONTEXT-PORT
-                                                    :ROUTE-TO-ENTITY-REQUEST :ROUTE-TO-ENTITY-PORT}
+                                                    :ROUTE-TO-ENTITY-REQUEST :ROUTE-CONTEXTS-TO-ENTITY-PORT}
                                   })
             env
             (assoc env :CONTEXTS-ENTITY contexts)
