@@ -29,11 +29,11 @@
 
 (defn create-route-to-entity-operation
   [env]
-  (let [route-to-context-port
+  (let [route-to-entity-port
         (k/register-operation-port env {:operation-port-kw :ROUTE-TO-ENTITY-PORT})]
     (a/go-loop []
       (let [[env params]
-            (a/<! route-to-context-port)
+            (a/<! route-to-entity-port)
             operation-return-port
             (:operation-return-port params)
             - (a/>! operation-return-port :NO-RETURN)
