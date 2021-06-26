@@ -73,7 +73,7 @@
 (defn create-entity
   [env params]
   (let [new-request-port
-        (a/chan 10)
+        (a/chan)
         new-entity-map
         {:NAME               (:name params)
          :OPERATION-PORTS    (:operation-ports params)
