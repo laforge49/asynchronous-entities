@@ -14,35 +14,34 @@
   )
 
 (defn script1
-  [env params]
+  [return-port]
   [{:request         :REGISTER-CONTEXT-REQUEST
     :name            "CONTEXT/MAIN"
     :operation-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
                       :ROUTE-TO-ENTITY-REQUEST :ROUTE-CONTEXT-TO-ENTITY-PORT}
-    :return-port     (:return-port0 params)
+    :return-port     return-port
     }
    {:request             :ROUTE-TO-CONTEXT-REQUEST
     :target-request      :REGISTER-ENTITY-REQUEST
     :target-context-name "CONTEXT/MAIN"
     :name                "MAIN/SIMPLE_1"
     :operation-ports     {}
-    :return-port         (:return-port1 params)
+    :return-port         return-port
     }
    {:request             :ROUTE-TO-CONTEXT-REQUEST
     :target-request      :REGISTER-ENTITY-REQUEST
     :target-context-name "CONTEXT/MAIN"
     :name                "MAIN/SIMPLE_2"
     :operation-ports     {:ADD-PARENT-REQUEST :ADD-PARENT-PORT}
-    :return-port         (:return-port2 params)
+    :return-port         return-port
     }
    {:request            :ROUTE-TO-ENTITY-REQUEST
     :target-request     :ADD-PARENT-REQUEST
     :target-entity-name "MAIN/SIMPLE_2"
     :relationship       :BASIC
     :parent-entity-name "MAIN/SIMPLE_1"
-    :return-port        (:return-port3 params)
-    }
-   ])
+    :return-port        return-port
+    }])
 
 (defn a-main
   []
@@ -64,27 +63,11 @@
             (assoc env :CONTEXTS-ENTITY contexts)
             return-port0
             (a/chan)
-            return-port1
-            (a/chan)
-            return-port2
-            (a/chan)
-            return-port3
-            (a/chan)
+            _ (doseq [request-params (script1 return-port0)]
+                (a/>! (first contexts) [env request-params])
+                (a/<! return-port0))
             return-port4
             (a/chan)
-            _ (doseq [request-params (script1 env {:return-port0 return-port0
-                                                   :return-port1 return-port1
-                                                   :return-port2 return-port2
-                                                   :return-port3 return-port3})]
-                (a/>! (first contexts) [env request-params]))
-            main-context
-            (a/<! return-port0)
-            simple1
-            (a/<! return-port1)
-            simple2
-            (a/<! return-port2)
-            simple2
-            (a/<! return-port3)
             _ (a/>! (first contexts) [env {:request            :ROUTE-TO-ENTITY-REQUEST
                                            :target-request     :SNAPSHOT
                                            :target-entity-name "MAIN/SIMPLE_2"
