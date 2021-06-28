@@ -27,8 +27,10 @@
             (:REQUEST-PORT-STACK @this-volatile-map)
             this-request-port
             (peek this-request-port-stack)
+            descriptors
+            (:DESCRIPTORS @this-volatile-map)
             this-operation-ports
-            (:OPERATION-PORTS @this-volatile-map)]
+            (:OPERATION-PORTS descriptors)]
         (let [[env params]
               (a/<! this-request-port)]
           (let [env
@@ -84,7 +86,8 @@
           (conj request-port-stack initialization-port))
         new-entity-map
         {:NAME               (:name params)
-         :OPERATION-PORTS    (:operation-ports params)
+         :DESCRIPTORS        {:OPERATION-PORTS (:operation-ports params)}
+         :CLASSIFIERS        {}
          :CHILDVECTORS       {}
          :PARENTVECTORS      {}
          :REQUEST-PORT-STACK request-port-stack}
