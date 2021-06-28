@@ -17,7 +17,7 @@
   [return-port]
   [{:request     :REGISTER-CONTEXT-REQUEST
     :name        "CONTEXT/MAIN"
-    :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
+    :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST       :REGISTER-ENTITY-PORT
                                     :ROUTE-TO-LOCAL-ENTITY-REQUEST :ROUTE-TO-LOCAL-ENTITY-PORT}}
     :classifiers {}
     :return-port return-port
@@ -70,7 +70,8 @@
             _ (create-operations env)
             contexts
             (k/create-entity env {:name        "ROOT/CONTEXTS"
-                                  :descriptors {:OPERATION-PORTS {:REGISTER-CONTEXT-REQUEST        :REGISTER-CONTEXT-PORT
+                                  :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST         :REGISTER-ENTITY-PORT
+                                                                  :REGISTER-CONTEXT-REQUEST        :REGISTER-CONTEXT-PORT
                                                                   :ROUTE-TO-CONTEXT-REQUEST        :ROUTE-TO-CONTEXT-PORT
                                                                   :ROUTE-TO-CONTEXT-ENTITY-REQUEST :ROUTE-TO-CONTEXT-ENTITY-PORT}}
                                   :classifiers {}
