@@ -86,8 +86,8 @@
           (conj request-port-stack initialization-port))
         new-entity-map
         {:NAME               (:name params)
-         :DESCRIPTORS        {:OPERATION-PORTS (:operation-ports params)}
-         :CLASSIFIERS        {}
+         :DESCRIPTORS        (:descriptors params)
+         :CLASSIFIERS        (:classifiers params)
          :CHILDVECTORS       {}
          :PARENTVECTORS      {}
          :REQUEST-PORT-STACK request-port-stack}

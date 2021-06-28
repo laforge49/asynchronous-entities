@@ -15,35 +15,38 @@
 
 (defn script1
   [return-port]
-  [{:request         :REGISTER-CONTEXT-REQUEST
-    :name            "CONTEXT/MAIN"
-    :operation-ports {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
-                      :ROUTE-TO-ENTITY-REQUEST :ROUTE-CONTEXT-TO-ENTITY-PORT}
-    :return-port     return-port
+  [{:request     :REGISTER-CONTEXT-REQUEST
+    :name        "CONTEXT/MAIN"
+    :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
+                                    :ROUTE-TO-ENTITY-REQUEST :ROUTE-CONTEXT-TO-ENTITY-PORT}}
+    :classifiers {}
+    :return-port return-port
     }
    {:request             :ROUTE-TO-CONTEXT-REQUEST
     :target-request      :REGISTER-ENTITY-REQUEST
     :target-context-name "CONTEXT/MAIN"
     :name                "MAIN/SIMPLE_1"
-    :operation-ports     {:ADD-PARENT-REQUEST :ADD-PARENT-PORT
-                          :ADD-RELATIONSHIP-REQUEST :ADD-RELATIONSHIP-PORT
+    :descriptors         {:OPERATION-PORTS {:ADD-PARENT-REQUEST       :ADD-PARENT-PORT
+                                            :ADD-RELATIONSHIP-REQUEST :ADD-RELATIONSHIP-PORT}
                           }
+    :classifiers         {}
     :return-port         return-port
     }
    {:request             :ROUTE-TO-CONTEXT-REQUEST
     :target-request      :REGISTER-ENTITY-REQUEST
     :target-context-name "CONTEXT/MAIN"
     :name                "MAIN/SIMPLE_2"
-    :operation-ports     {:ADD-PARENT-REQUEST :ADD-PARENT-PORT
-                          :ADD-RELATIONSHIP-REQUEST :ADD-RELATIONSHIP-PORT
-                          }
+    :descriptors         {:OPERATION-PORTS {:ADD-PARENT-REQUEST       :ADD-PARENT-PORT
+                                            :ADD-RELATIONSHIP-REQUEST :ADD-RELATIONSHIP-PORT
+                                            }}
+    :classifiers         {}
     :return-port         return-port
     }
    {:request            :ROUTE-TO-ENTITY-REQUEST
     :target-request     :ADD-RELATIONSHIP-REQUEST
     :target-entity-name "MAIN/SIMPLE_1"
     :relationship       :BASIC
-    :child-entity-name "MAIN/SIMPLE_2"
+    :child-entity-name  "MAIN/SIMPLE_2"
     :return-port        return-port
     }
    {:request            :ROUTE-TO-ENTITY-REQUEST
@@ -66,10 +69,11 @@
             {}
             _ (create-operations env)
             contexts
-            (k/create-entity env {:name            "ROOT/CONTEXTS"
-                                  :operation-ports {:REGISTER-CONTEXT-REQUEST :REGISTER-CONTEXT-PORT
-                                                    :ROUTE-TO-CONTEXT-REQUEST :ROUTE-TO-CONTEXT-PORT
-                                                    :ROUTE-TO-ENTITY-REQUEST  :ROUTE-CONTEXTS-TO-ENTITY-PORT}
+            (k/create-entity env {:name        "ROOT/CONTEXTS"
+                                  :descriptors {:OPERATION-PORTS {:REGISTER-CONTEXT-REQUEST :REGISTER-CONTEXT-PORT
+                                                                  :ROUTE-TO-CONTEXT-REQUEST :ROUTE-TO-CONTEXT-PORT
+                                                                  :ROUTE-TO-ENTITY-REQUEST  :ROUTE-CONTEXTS-TO-ENTITY-PORT}}
+                                  :classifiers {}
                                   })
             env
             (assoc env :CONTEXTS-ENTITY contexts)
