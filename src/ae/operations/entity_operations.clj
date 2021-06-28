@@ -61,7 +61,7 @@
         (a/>! (first contexts) [env
                                 {:request            :ROUTE-TO-CONTEXT-ENTITY-REQUEST
                                  :target-request     :ADD-PARENT-REQUEST
-                                 :target-entity-name child-entity-name
+                                 :target-name        child-entity-name
                                  :relationship       :BASIC
                                  :parent-entity-name this-entity-name
                                  :return-port        add-parent-return-port

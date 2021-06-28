@@ -22,36 +22,36 @@
     :classifiers {}
     :return-port return-port
     }
-   {:request             :ROUTE-TO-CONTEXT-REQUEST
-    :target-request      :REGISTER-ENTITY-REQUEST
-    :target-context-name "CONTEXT/MAIN"
-    :name                "MAIN/SIMPLE_1"
-    :descriptors         {:OPERATION-PORTS {:ADD-PARENT-REQUEST       :ADD-PARENT-PORT
+   {:request        :ROUTE-TO-CONTEXT-REQUEST
+    :target-request :REGISTER-ENTITY-REQUEST
+    :target-name    "CONTEXT/MAIN"
+    :name           "MAIN/SIMPLE_1"
+    :descriptors    {:OPERATION-PORTS {:ADD-PARENT-REQUEST       :ADD-PARENT-PORT
                                             :ADD-RELATIONSHIP-REQUEST :ADD-RELATIONSHIP-PORT}
                           }
-    :classifiers         {}
-    :return-port         return-port
+    :classifiers    {}
+    :return-port    return-port
     }
-   {:request             :ROUTE-TO-CONTEXT-REQUEST
-    :target-request      :REGISTER-ENTITY-REQUEST
-    :target-context-name "CONTEXT/MAIN"
-    :name                "MAIN/SIMPLE_2"
-    :descriptors         {:OPERATION-PORTS {:ADD-PARENT-REQUEST       :ADD-PARENT-PORT
+   {:request        :ROUTE-TO-CONTEXT-REQUEST
+    :target-request :REGISTER-ENTITY-REQUEST
+    :target-name    "CONTEXT/MAIN"
+    :name           "MAIN/SIMPLE_2"
+    :descriptors    {:OPERATION-PORTS {:ADD-PARENT-REQUEST       :ADD-PARENT-PORT
                                             :ADD-RELATIONSHIP-REQUEST :ADD-RELATIONSHIP-PORT
                                             }}
-    :classifiers         {}
-    :return-port         return-port
+    :classifiers    {}
+    :return-port    return-port
     }
-   {:request            :ROUTE-TO-CONTEXT-ENTITY-REQUEST
-    :target-request     :ADD-RELATIONSHIP-REQUEST
-    :target-entity-name "MAIN/SIMPLE_1"
-    :relationship       :BASIC
-    :child-entity-name  "MAIN/SIMPLE_2"
-    :return-port        return-port
+   {:request           :ROUTE-TO-CONTEXT-ENTITY-REQUEST
+    :target-request    :ADD-RELATIONSHIP-REQUEST
+    :target-name       "MAIN/SIMPLE_1"
+    :relationship      :BASIC
+    :child-entity-name "MAIN/SIMPLE_2"
+    :return-port       return-port
     }
    {:request            :ROUTE-TO-CONTEXT-ENTITY-REQUEST
     :target-request     :ADD-PARENT-REQUEST
-    :target-entity-name "MAIN/SIMPLE_2"
+    :target-name        "MAIN/SIMPLE_2"
     :relationship       :BASIC
     :parent-entity-name "MAIN/SIMPLE_1"
     :return-port        return-port
@@ -86,20 +86,26 @@
                 )
             return-port4
             (a/chan)
-            _ (a/>! (first contexts) [env {:request            :ROUTE-TO-CONTEXT-ENTITY-REQUEST
-                                           :target-request     :SNAPSHOT
-                                           :target-entity-name "MAIN/SIMPLE_1"
-                                           :return-port        return-port4}])
+            _ (a/>! (first contexts) [env {:request        :ROUTE-TO-CONTEXT-REQUEST
+                                           :target-request :SNAPSHOT
+                                           :target-name    "CONTEXT/MAIN"
+                                           :return-port    return-port4}])
+            context-snap
+            (a/<! return-port4)
+            _ (a/>! (first contexts) [env {:request        :ROUTE-TO-CONTEXT-ENTITY-REQUEST
+                                           :target-request :SNAPSHOT
+                                           :target-name    "MAIN/SIMPLE_1"
+                                           :return-port    return-port4}])
             simple1-snap
             (a/<! return-port4)
-            _ (a/>! (first contexts) [env {:request            :ROUTE-TO-CONTEXT-ENTITY-REQUEST
-                                           :target-request     :SNAPSHOT
-                                           :target-entity-name "MAIN/SIMPLE_2"
-                                           :return-port        return-port4}])
+            _ (a/>! (first contexts) [env {:request        :ROUTE-TO-CONTEXT-ENTITY-REQUEST
+                                           :target-request :SNAPSHOT
+                                           :target-name    "MAIN/SIMPLE_2"
+                                           :return-port    return-port4}])
             simple2-snap
             (a/<! return-port4)
             ]
-        (a/>! main-out [simple1-snap simple2-snap])
+        (a/>! main-out [context-snap simple1-snap simple2-snap])
         )
       )
     main-in))

@@ -42,7 +42,7 @@
             this-volatile-map
             (second this-entity)
             target-context-name
-            (:target-context-name params)
+            (:target-name params)
             [target-contex-kw _ _]
             (kw/name-as-keyword target-context-name)
             context-entities
@@ -71,7 +71,7 @@
             this-volatile-map
             (second this-contexts-entity)
             target-entity-name
-            (:target-entity-name params)
+            (:target-name params)
             [_ target-context-base-name _]
             (kw/name-as-keyword target-entity-name)
             target-context-entity-kw
