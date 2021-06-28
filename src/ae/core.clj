@@ -15,7 +15,14 @@
 
 (defn script1
   [return-port]
-  [{:request     :REGISTER-CONTEXT-REQUEST
+  [{:request     :REGISTER-ENTITY-REQUEST
+    :name        "ROOT/CONTEXT-PROTOTYPE"
+    :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST       :REGISTER-ENTITY-PORT
+                                    :ROUTE-TO-LOCAL-ENTITY-REQUEST :ROUTE-TO-LOCAL-ENTITY-PORT}}
+    :classifiers {}
+    :return-port return-port
+    }
+   {:request     :REGISTER-CONTEXT-REQUEST
     :name        "CONTEXT/MAIN"
     :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST       :REGISTER-ENTITY-PORT
                                     :ROUTE-TO-LOCAL-ENTITY-REQUEST :ROUTE-TO-LOCAL-ENTITY-PORT}}
