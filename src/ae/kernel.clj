@@ -74,12 +74,20 @@
   [env params]
   (let [new-request-port
         (a/chan)
+        request-port-stack
+        [new-request-port]
+        initialization-port
+        (:initialization-port params)
+        request-port-stack
+        (if (nil? initialization-port)
+          request-port-stack
+          (conj request-port-stack initialization-port))
         new-entity-map
         {:NAME               (:name params)
          :OPERATION-PORTS    (:operation-ports params)
          :CHILDVECTORS       {}
          :PARENTVECTORS      {}
-         :REQUEST-PORT-STACK [new-request-port]}
+         :REQUEST-PORT-STACK request-port-stack}
         new-entity-volatile-map
         (volatile! new-entity-map)
         new-entity
