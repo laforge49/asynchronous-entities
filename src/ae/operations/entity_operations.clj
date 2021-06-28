@@ -59,7 +59,7 @@
                                           (conj (get-in this-entity [:CHILDVECTORS relationship] []) child-entity-name)]
                                       (assoc-in old [:CHILDVECTORS relationship] relationship-children))))
         (a/>! (first contexts) [env
-                                {:request            :ROUTE-TO-ENTITY-REQUEST
+                                {:request            :ROUTE-TO-CONTEXT-ENTITY-REQUEST
                                  :target-request     :ADD-PARENT-REQUEST
                                  :target-entity-name child-entity-name
                                  :relationship       :BASIC
