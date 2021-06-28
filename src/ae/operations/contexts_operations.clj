@@ -84,7 +84,7 @@
             (:target-request params)
             ]
         (a/>! (first target-context-entity) [env
-                                             (assoc params :request :ROUTE-TO-ENTITY-REQUEST)])
+                                             (assoc params :request :ROUTE-TO-LOCAL-ENTITY-REQUEST)])
         (recur)))))
 
 (defn create-contexts-operations

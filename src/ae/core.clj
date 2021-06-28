@@ -18,7 +18,7 @@
   [{:request     :REGISTER-CONTEXT-REQUEST
     :name        "CONTEXT/MAIN"
     :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
-                                    :ROUTE-TO-ENTITY-REQUEST :ROUTE-TO-LOCAL-ENTITY-PORT}}
+                                    :ROUTE-TO-LOCAL-ENTITY-REQUEST :ROUTE-TO-LOCAL-ENTITY-PORT}}
     :classifiers {}
     :return-port return-port
     }
