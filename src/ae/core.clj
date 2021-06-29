@@ -34,8 +34,7 @@
     :target-name    "CONTEXT/MAIN"
     :name           "MAIN/SIMPLE_1"
     :descriptors    {:OPERATION-PORTS {:ADD-PARENT-REQUEST       :ADD-PARENT-PORT
-                                            :ADD-RELATIONSHIP-REQUEST :ADD-RELATIONSHIP-PORT}
-                          }
+                                       :ADD-RELATIONSHIP-REQUEST :ADD-RELATIONSHIP-PORT}}
     :classifiers    {}
     :return-port    return-port
     }
@@ -44,8 +43,7 @@
     :target-name    "CONTEXT/MAIN"
     :name           "MAIN/SIMPLE_2"
     :descriptors    {:OPERATION-PORTS {:ADD-PARENT-REQUEST       :ADD-PARENT-PORT
-                                            :ADD-RELATIONSHIP-REQUEST :ADD-RELATIONSHIP-PORT
-                                            }}
+                                       :ADD-RELATIONSHIP-REQUEST :ADD-RELATIONSHIP-PORT}}
     :classifiers    {}
     :return-port    return-port
     }
@@ -80,6 +78,7 @@
                                   :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST         :REGISTER-ENTITY-PORT
                                                                   :REGISTER-CONTEXT-REQUEST        :REGISTER-CONTEXT-PORT
                                                                   :ROUTE-TO-CONTEXT-REQUEST        :ROUTE-TO-CONTEXT-PORT
+                                                                  :ROUTE-TO-LOCAL-ENTITY-REQUEST   :ROUTE-TO-LOCAL-ENTITY-PORT
                                                                   :ROUTE-TO-CONTEXT-ENTITY-REQUEST :ROUTE-TO-CONTEXT-ENTITY-PORT}}
                                   :classifiers {}
                                   })
@@ -93,6 +92,12 @@
                 )
             return-port4
             (a/chan)
+            _ (a/>! (first contexts) [env {:request        :ROUTE-TO-LOCAL-ENTITY-REQUEST
+                                           :target-request :SNAPSHOT
+                                           :target-name    "ROOT/CONTEXT-PROTOTYPE"
+                                           :return-port    return-port4}])
+            context-prototype-snap
+            (a/<! return-port4)
             _ (a/>! (first contexts) [env {:request        :ROUTE-TO-CONTEXT-REQUEST
                                            :target-request :SNAPSHOT
                                            :target-name    "CONTEXT/MAIN"
@@ -112,7 +117,7 @@
             simple2-snap
             (a/<! return-port4)
             ]
-        (a/>! main-out [context-snap simple1-snap simple2-snap])
+        (a/>! main-out [context-prototype-snap context-snap simple1-snap simple2-snap])
         )
       )
     main-in))
