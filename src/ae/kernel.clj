@@ -54,7 +54,7 @@
                   (let []
                     (vswap! this-volatile-map assoc :REQUEST-PORT (pop this-request-port-stack))
                     true)
-                  :ABORT
+                  :RESET
                   (let [saved-entity-map
                         (:saved-entity-map params)]
                     (vreset! this-volatile-map saved-entity-map))
