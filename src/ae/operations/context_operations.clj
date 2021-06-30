@@ -27,10 +27,10 @@
         (a/>! operation-return-port new-entity)
         (recur)))))
 
-(defn create-route-to-entity-operation
+(defn create-route-operation
   [env]
   (let [route-to-local-entity-port
-        (k/register-operation-port env {:operation-port-kw :ROUTE-TO-ENTITY-PORT})]
+        (k/register-operation-port env {:operation-port-kw :ROUTE-PORT})]
     (a/go-loop []
       (let [[env params]
             (a/<! route-to-local-entity-port)
@@ -75,5 +75,5 @@
 (defn create-context-operations
   [env]
   (create-register-entity-operation env)
-  (create-route-to-entity-operation env)
+  (create-route-operation env)
   )

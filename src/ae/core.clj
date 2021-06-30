@@ -1,14 +1,12 @@
 (ns ae.core
   (:require [clojure.core.async :as a]
             [ae.kernel :as k]
-            [ae.operations.contexts-operations :as cso]
             [ae.operations.context-operations :as co]
             [ae.operations.entity-operations :as eo]
             ))
 
 (defn create-operations
   [env]
-  (cso/create-contexts-operations env)
   (co/create-context-operations env)
   (eo/create-entity-operations env)
   )
@@ -18,7 +16,7 @@
   [{:request     :REGISTER-ENTITY-REQUEST
     :name        "CONTEXTS/CONTEXT-PROTOTYPE"
     :descriptors {:PROTOTYPE-DESCRIPTORS {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
-                                                            :ROUTE-TO-ENTITY-REQUEST :ROUTE-TO-ENTITY-PORT}}
+                                                            :ROUTE-TO-ENTITY-REQUEST :ROUTE-PORT}}
                   :PROTOTYPE-CLASSIFIERS {}}
     :classifiers {}
     :return-port return-port
@@ -26,11 +24,11 @@
    {:request     :REGISTER-ENTITY-REQUEST
     :name        "CONTEXTS/MAIN"
     :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
-                                    :ROUTE-TO-ENTITY-REQUEST :ROUTE-TO-ENTITY-PORT}}
+                                    :ROUTE-TO-ENTITY-REQUEST :ROUTE-PORT}}
     :classifiers {}
     :return-port return-port
     }
-   {:request        :ROUTE-TO-CONTEXT-REQUEST
+   {:request        :ROUTE-TO-ENTITY-REQUEST
     :target-request :REGISTER-ENTITY-REQUEST
     :target-name    "CONTEXTS/MAIN"
     :name           "MAIN/SIMPLE_1"
@@ -39,7 +37,7 @@
     :classifiers    {}
     :return-port    return-port
     }
-   {:request        :ROUTE-TO-CONTEXT-REQUEST
+   {:request        :ROUTE-TO-ENTITY-REQUEST
     :target-request :REGISTER-ENTITY-REQUEST
     :target-name    "CONTEXTS/MAIN"
     :name           "MAIN/SIMPLE_2"
@@ -78,7 +76,7 @@
             (k/create-entity env {:name        "ROOT/CONTEXTS"
                                   :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST  :REGISTER-ENTITY-PORT
                                                                   :ROUTE-TO-CONTEXT-REQUEST :ROUTE-TO-CONTEXT-PORT
-                                                                  :ROUTE-TO-ENTITY-REQUEST  :ROUTE-TO-ENTITY-PORT}}
+                                                                  :ROUTE-TO-ENTITY-REQUEST  :ROUTE-PORT}}
                                   :classifiers {}
                                   })
             env
@@ -97,7 +95,7 @@
                                            :return-port    return-port4}])
             context-prototype-snap
             (a/<! return-port4)
-            _ (a/>! (first contexts) [env {:request        :ROUTE-TO-CONTEXT-REQUEST
+            _ (a/>! (first contexts) [env {:request        :ROUTE-TO-ENTITY-REQUEST
                                            :target-request :SNAPSHOT
                                            :target-name    "CONTEXTS/MAIN"
                                            :return-port    return-port4}])
