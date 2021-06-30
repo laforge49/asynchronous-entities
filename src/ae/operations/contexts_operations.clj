@@ -3,7 +3,7 @@
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
-(defn create-context-registration-operation
+(defn create-register-context-operation
   [env]
   (let [context-registration-port
         (k/register-operation-port env {:operation-port-kw :REGISTER-CONTEXT-PORT})]
@@ -58,6 +58,6 @@
 
 (defn create-contexts-operations
   [env]
-  (create-context-registration-operation env)
+  (create-register-context-operation env)
   (create-route-to-context-operation env)
   )
