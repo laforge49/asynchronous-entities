@@ -23,7 +23,7 @@
             operation-return-port
             (:operation-return-port params)
             ]
-        (vswap! this-volatile-map assoc-in [:CONTEXT-ENTITIES new-context-kw] new-context)
+        (vswap! this-volatile-map assoc-in [:ENTITIES new-context-kw] new-context)
         (a/>! operation-return-port new-context)
         (recur)))))
 
@@ -46,7 +46,7 @@
             [target-contex-kw _ _]
             (kw/name-as-keyword target-context-name)
             context-entities
-            (:CONTEXT-ENTITIES @this-volatile-map)
+            (:ENTITIES @this-volatile-map)
             target-context-entity
             (target-contex-kw context-entities)
             target-request

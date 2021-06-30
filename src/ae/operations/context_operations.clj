@@ -64,7 +64,7 @@
           (let [target-context-entity-kw
                 (keyword "CONTEXT" target-context-base-name)
                 context-entities
-                (:CONTEXT-ENTITIES @this-volatile-map)
+                (:ENTITIES @this-volatile-map)
                 target-context-entity
                 (target-context-entity-kw context-entities)
                 ]
