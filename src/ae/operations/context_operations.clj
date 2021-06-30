@@ -59,7 +59,7 @@
                 target-request
                 (:target-request params)
                 ]
-            (a/>! (first target-entity) [env
+            (a/>! (k/entity-request-port target-entity) [env
                                          (assoc params :request target-request)]))
           (let [target-context-entity-kw
                 (keyword this-base-name target-context-base-name)
@@ -68,7 +68,7 @@
                 target-context-entity
                 (target-context-entity-kw context-entities)
                 ]
-            (a/>! (first target-context-entity) [env
+            (a/>! (k/entity-request-port target-context-entity) [env
                                                  (assoc params :request :ROUTE-REQUEST)])))
         (recur)))))
 
