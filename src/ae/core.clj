@@ -17,8 +17,9 @@
   [return-port]
   [{:request     :REGISTER-ENTITY-REQUEST
     :name        "CONTEXTS/CONTEXT-PROTOTYPE"
-    :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
-                                    :ROUTE-TO-ENTITY-REQUEST :ROUTE-TO-ENTITY-PORT}}
+    :descriptors {:PROTOTYPE-DESCRIPTORS {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
+                                                            :ROUTE-TO-ENTITY-REQUEST :ROUTE-TO-ENTITY-PORT}}
+                  :PROTOTYPE-CLASSIFIERS {}}
     :classifiers {}
     :return-port return-port
     }
