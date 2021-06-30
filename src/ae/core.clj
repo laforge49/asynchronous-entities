@@ -16,7 +16,7 @@
 (defn script1
   [return-port]
   [{:request     :REGISTER-ENTITY-REQUEST
-    :name        "ROOT/CONTEXT-PROTOTYPE"
+    :name        "CONTEXTS/CONTEXT-PROTOTYPE"
     :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST       :REGISTER-ENTITY-PORT
                                     :ROUTE-TO-LOCAL-ENTITY-REQUEST :ROUTE-TO-LOCAL-ENTITY-PORT}}
     :classifiers {}
@@ -94,7 +94,7 @@
             (a/chan)
             _ (a/>! (first contexts) [env {:request        :ROUTE-TO-LOCAL-ENTITY-REQUEST
                                            :target-request :SNAPSHOT
-                                           :target-name    "ROOT/CONTEXT-PROTOTYPE"
+                                           :target-name    "CONTEXTS/CONTEXT-PROTOTYPE"
                                            :return-port    return-port4}])
             context-prototype-snap
             (a/<! return-port4)
