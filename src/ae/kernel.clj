@@ -3,6 +3,10 @@
             [clojure.string :as s]
             [ae.keywords :as kw]))
 
+(defn entity-request-port
+  [entity]
+  (first entity))
+
 (def operation-ports-atom
   (atom {}))
 

@@ -79,29 +79,29 @@
             _ (doseq [request-params (script1)]
                 (let [request-params
                       (assoc request-params :return-port return-port0)]
-                  (a/>! (first contexts) [env request-params])
+                  (a/>! (k/entity-request-port contexts) [env request-params])
                   (a/<! return-port0)))
             return-port4
             (a/chan)
-            _ (a/>! (first contexts) [env {:request        :ROUTE-REQUEST
+            _ (a/>! (k/entity-request-port contexts) [env {:request        :ROUTE-REQUEST
                                            :target-request :SNAPSHOT
                                            :target-name    "CONTEXTS/CONTEXT-PROTOTYPE"
                                            :return-port    return-port4}])
             context-prototype-snap
             (a/<! return-port4)
-            _ (a/>! (first contexts) [env {:request        :ROUTE-REQUEST
+            _ (a/>! (k/entity-request-port contexts) [env {:request        :ROUTE-REQUEST
                                            :target-request :SNAPSHOT
                                            :target-name    "CONTEXTS/MAIN"
                                            :return-port    return-port4}])
             context-snap
             (a/<! return-port4)
-            _ (a/>! (first contexts) [env {:request        :ROUTE-REQUEST
+            _ (a/>! (k/entity-request-port contexts) [env {:request        :ROUTE-REQUEST
                                            :target-request :SNAPSHOT
                                            :target-name    "MAIN/SIMPLE_1"
                                            :return-port    return-port4}])
             simple1-snap
             (a/<! return-port4)
-            _ (a/>! (first contexts) [env {:request        :ROUTE-REQUEST
+            _ (a/>! (k/entity-request-port contexts) [env {:request        :ROUTE-REQUEST
                                            :target-request :SNAPSHOT
                                            :target-name    "MAIN/SIMPLE_2"
                                            :return-port    return-port4}])
