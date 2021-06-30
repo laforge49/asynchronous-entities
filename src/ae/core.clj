@@ -18,14 +18,14 @@
   [{:request     :REGISTER-ENTITY-REQUEST
     :name        "CONTEXTS/CONTEXT-PROTOTYPE"
     :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST       :REGISTER-ENTITY-PORT
-                                    :ROUTE-TO-LOCAL-ENTITY-REQUEST :ROUTE-TO-LOCAL-ENTITY-PORT}}
+                                    :ROUTE-TO-LOCAL-ENTITY-REQUEST :ROUTE-TO-ENTITY-PORT}}
     :classifiers {}
     :return-port return-port
     }
    {:request     :REGISTER-CONTEXT-REQUEST
     :name        "CONTEXT/MAIN"
     :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST       :REGISTER-ENTITY-PORT
-                                    :ROUTE-TO-LOCAL-ENTITY-REQUEST :ROUTE-TO-LOCAL-ENTITY-PORT}}
+                                    :ROUTE-TO-LOCAL-ENTITY-REQUEST :ROUTE-TO-ENTITY-PORT}}
     :classifiers {}
     :return-port return-port
     }
@@ -78,8 +78,8 @@
                                   :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST         :REGISTER-ENTITY-PORT
                                                                   :REGISTER-CONTEXT-REQUEST        :REGISTER-CONTEXT-PORT
                                                                   :ROUTE-TO-CONTEXT-REQUEST        :ROUTE-TO-CONTEXT-PORT
-                                                                  :ROUTE-TO-LOCAL-ENTITY-REQUEST   :ROUTE-TO-LOCAL-ENTITY-PORT
-                                                                  :ROUTE-TO-CONTEXT-ENTITY-REQUEST :ROUTE-TO-CONTEXT-ENTITY-PORT}}
+                                                                  :ROUTE-TO-LOCAL-ENTITY-REQUEST   :ROUTE-TO-ENTITY-PORT
+                                                                  :ROUTE-TO-CONTEXT-ENTITY-REQUEST :ROUTE-TO-ENTITY-PORT}}
                                   :classifiers {}
                                   })
             env

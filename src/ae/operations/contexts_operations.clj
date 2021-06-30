@@ -56,45 +56,8 @@
                                              (assoc params :request target-request)])
         (recur)))))
 
-(defn create-route-to-context-entity-operation
-  [env]
-  (let [route-to-context-entity-port
-        (k/register-operation-port env {:operation-port-kw :ROUTE-TO-CONTEXT-ENTITY-PORT})]
-    (a/go-loop []
-      (let [[env params]
-            (a/<! route-to-context-entity-port)
-            operation-return-port
-            (:operation-return-port params)
-            - (a/>! operation-return-port :NO-RETURN)
-            this-entity
-            (:this-entity env)
-            this-volatile-map
-            (second this-entity)
-            this-map
-            @this-volatile-map
-            this-name
-            (:NAME this-map)
-            [_ _ this-base-name]
-            (kw/name-as-keyword this-name)
-            target-entity-name
-            (:target-name params)
-            [target-entity-kw target-context-base-name _]
-            (kw/name-as-keyword target-entity-name)]
-        (if (not= this-base-name target-context-base-name)
-        (let [target-context-entity-kw
-              (keyword "CONTEXT" target-context-base-name)
-              context-entities
-              (:CONTEXT-ENTITIES @this-volatile-map)
-              target-context-entity
-              (target-context-entity-kw context-entities)
-              ]
-          (a/>! (first target-context-entity) [env
-                                               (assoc params :request :ROUTE-TO-LOCAL-ENTITY-REQUEST)])))
-        (recur)))))
-
 (defn create-contexts-operations
   [env]
   (create-context-registration-operation env)
   (create-route-to-context-operation env)
-  (create-route-to-context-entity-operation env)
   )
