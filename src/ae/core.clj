@@ -17,15 +17,15 @@
   [return-port]
   [{:request     :REGISTER-ENTITY-REQUEST
     :name        "CONTEXTS/CONTEXT-PROTOTYPE"
-    :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST       :REGISTER-ENTITY-PORT
-                                    :ROUTE-TO-LOCAL-ENTITY-REQUEST :ROUTE-TO-ENTITY-PORT}}
+    :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
+                                    :ROUTE-TO-ENTITY-REQUEST :ROUTE-TO-ENTITY-PORT}}
     :classifiers {}
     :return-port return-port
     }
    {:request     :REGISTER-CONTEXT-REQUEST
     :name        "CONTEXT/MAIN"
-    :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST       :REGISTER-ENTITY-PORT
-                                    :ROUTE-TO-LOCAL-ENTITY-REQUEST :ROUTE-TO-ENTITY-PORT}}
+    :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
+                                    :ROUTE-TO-ENTITY-REQUEST :ROUTE-TO-ENTITY-PORT}}
     :classifiers {}
     :return-port return-port
     }
@@ -47,14 +47,14 @@
     :classifiers    {}
     :return-port    return-port
     }
-   {:request           :ROUTE-TO-CONTEXT-ENTITY-REQUEST
+   {:request           :ROUTE-TO-ENTITY-REQUEST
     :target-request    :ADD-RELATIONSHIP-REQUEST
     :target-name       "MAIN/SIMPLE_1"
     :relationship      :BASIC
     :child-entity-name "MAIN/SIMPLE_2"
     :return-port       return-port
     }
-   {:request            :ROUTE-TO-CONTEXT-ENTITY-REQUEST
+   {:request            :ROUTE-TO-ENTITY-REQUEST
     :target-request     :ADD-PARENT-REQUEST
     :target-name        "MAIN/SIMPLE_2"
     :relationship       :BASIC
@@ -75,11 +75,10 @@
             _ (create-operations env)
             contexts
             (k/create-entity env {:name        "ROOT/CONTEXTS"
-                                  :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST         :REGISTER-ENTITY-PORT
-                                                                  :REGISTER-CONTEXT-REQUEST        :REGISTER-CONTEXT-PORT
-                                                                  :ROUTE-TO-CONTEXT-REQUEST        :ROUTE-TO-CONTEXT-PORT
-                                                                  :ROUTE-TO-LOCAL-ENTITY-REQUEST   :ROUTE-TO-ENTITY-PORT
-                                                                  :ROUTE-TO-CONTEXT-ENTITY-REQUEST :ROUTE-TO-ENTITY-PORT}}
+                                  :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST  :REGISTER-ENTITY-PORT
+                                                                  :REGISTER-CONTEXT-REQUEST :REGISTER-CONTEXT-PORT
+                                                                  :ROUTE-TO-CONTEXT-REQUEST :ROUTE-TO-CONTEXT-PORT
+                                                                  :ROUTE-TO-ENTITY-REQUEST  :ROUTE-TO-ENTITY-PORT}}
                                   :classifiers {}
                                   })
             env
@@ -92,7 +91,7 @@
                 )
             return-port4
             (a/chan)
-            _ (a/>! (first contexts) [env {:request        :ROUTE-TO-LOCAL-ENTITY-REQUEST
+            _ (a/>! (first contexts) [env {:request        :ROUTE-TO-ENTITY-REQUEST
                                            :target-request :SNAPSHOT
                                            :target-name    "CONTEXTS/CONTEXT-PROTOTYPE"
                                            :return-port    return-port4}])
@@ -104,13 +103,13 @@
                                            :return-port    return-port4}])
             context-snap
             (a/<! return-port4)
-            _ (a/>! (first contexts) [env {:request        :ROUTE-TO-CONTEXT-ENTITY-REQUEST
+            _ (a/>! (first contexts) [env {:request        :ROUTE-TO-ENTITY-REQUEST
                                            :target-request :SNAPSHOT
                                            :target-name    "MAIN/SIMPLE_1"
                                            :return-port    return-port4}])
             simple1-snap
             (a/<! return-port4)
-            _ (a/>! (first contexts) [env {:request        :ROUTE-TO-CONTEXT-ENTITY-REQUEST
+            _ (a/>! (first contexts) [env {:request        :ROUTE-TO-ENTITY-REQUEST
                                            :target-request :SNAPSHOT
                                            :target-name    "MAIN/SIMPLE_2"
                                            :return-port    return-port4}])
