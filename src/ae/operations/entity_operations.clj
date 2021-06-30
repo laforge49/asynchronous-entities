@@ -58,7 +58,7 @@
                                     (let [relationship-children
                                           (conj (get-in this-entity [:CHILDVECTORS relationship] []) child-entity-name)]
                                       (assoc-in old [:CHILDVECTORS relationship] relationship-children))))
-        (a/>! (k/entity-request-port contexts) [env
+        (a/>! (k/request-port contexts) [env
                                 {:request            :ROUTE-REQUEST
                                  :target-request     :ADD-PARENT-REQUEST
                                  :target-name        child-entity-name

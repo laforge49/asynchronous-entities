@@ -3,7 +3,7 @@
             [clojure.string :as s]
             [ae.keywords :as kw]))
 
-(defn entity-request-port
+(defn request-port
   [entity]
   (first entity))
 
