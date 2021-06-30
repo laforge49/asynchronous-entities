@@ -41,20 +41,25 @@
             (:this-entity env)
             this-volatile-map
             (second this-entity)
+            this-map
+            @this-volatile-map
+            this-name
+            (:NAME this-map)
+            [_ _ this-base-name]
+            (kw/name-as-keyword this-name)
             target-entity-name
             (:target-name params)
             [target-entity-kw target-context-base-name _]
-            (kw/name-as-keyword target-entity-name)
-
-            entities
-            (:ENTITIES @this-volatile-map)
-            target-entity
-            (target-entity-kw entities)
-            target-request
-            (:target-request params)
-            ]
-        (a/>! (first target-entity) [env
-                                      (assoc params :request target-request)])
+            (kw/name-as-keyword target-entity-name)]
+        (let [entities
+              (:ENTITIES @this-volatile-map)
+              target-entity
+              (target-entity-kw entities)
+              target-request
+              (:target-request params)
+              ]
+          (a/>! (first target-entity) [env
+                                       (assoc params :request target-request)]))
         (recur)))))
 
 (defn create-context-operations
