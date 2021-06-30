@@ -51,6 +51,8 @@
             (:operation-return-port params)
             contexts
             (:CONTEXTS-ENTITY env)
+            contexts-request-port
+            (k/request-port contexts)
             add-parent-return-port
             (a/chan)
             ]
@@ -58,14 +60,14 @@
                                     (let [relationship-children
                                           (conj (get-in this-entity [:CHILDVECTORS relationship] []) child-entity-name)]
                                       (assoc-in old [:CHILDVECTORS relationship] relationship-children))))
-        (a/>! (k/request-port contexts) [env
-                                {:request            :ROUTE-REQUEST
-                                 :target-request     :ADD-PARENT-REQUEST
-                                 :target-name        child-entity-name
-                                 :relationship       :BASIC
-                                 :parent-entity-name this-entity-name
-                                 :return-port        add-parent-return-port
-                                 }])
+        (a/>! contexts-request-port [env
+                                     {:request            :ROUTE-REQUEST
+                                      :target-request     :ADD-PARENT-REQUEST
+                                      :target-name        child-entity-name
+                                      :relationship       :BASIC
+                                      :parent-entity-name this-entity-name
+                                      :return-port        add-parent-return-port
+                                      }])
         (a/<! add-parent-return-port)
         (a/>! operation-return-port this-entity)
         (recur)))))
