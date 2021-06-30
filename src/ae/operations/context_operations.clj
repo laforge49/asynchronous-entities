@@ -56,20 +56,24 @@
                 (:ENTITIES @this-volatile-map)
                 target-entity
                 (target-entity-kw entities)
+                target-entity-request-port
+                (k/request-port target-entity)
                 target-request
                 (:target-request params)
                 ]
-            (a/>! (k/request-port target-entity) [env
-                                         (assoc params :request target-request)]))
+            (a/>! target-entity-request-port [env
+                                              (assoc params :request target-request)]))
           (let [target-context-entity-kw
                 (keyword this-base-name target-context-base-name)
                 context-entities
                 (:ENTITIES @this-volatile-map)
                 target-context-entity
                 (target-context-entity-kw context-entities)
+                target-context-entity-request-port
+                (k/request-port target-context-entity)
                 ]
-            (a/>! (k/request-port target-context-entity) [env
-                                                 (assoc params :request :ROUTE-REQUEST)])))
+            (a/>! target-context-entity-request-port [env
+                                                      (assoc params :request :ROUTE-REQUEST)])))
         (recur)))))
 
 (defn create-context-operations
