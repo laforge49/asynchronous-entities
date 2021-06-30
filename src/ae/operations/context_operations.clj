@@ -51,15 +51,25 @@
             (:target-name params)
             [target-entity-kw target-context-base-name _]
             (kw/name-as-keyword target-entity-name)]
-        (let [entities
-              (:ENTITIES @this-volatile-map)
-              target-entity
-              (target-entity-kw entities)
-              target-request
-              (:target-request params)
-              ]
-          (a/>! (first target-entity) [env
-                                       (assoc params :request target-request)]))
+        (if (= this-base-name target-context-base-name)
+          (let [entities
+                (:ENTITIES @this-volatile-map)
+                target-entity
+                (target-entity-kw entities)
+                target-request
+                (:target-request params)
+                ]
+            (a/>! (first target-entity) [env
+                                         (assoc params :request target-request)]))
+          (let [target-context-entity-kw
+                (keyword "CONTEXT" target-context-base-name)
+                context-entities
+                (:CONTEXT-ENTITIES @this-volatile-map)
+                target-context-entity
+                (target-context-entity-kw context-entities)
+                ]
+            (a/>! (first target-context-entity) [env
+                                                 (assoc params :request :ROUTE-TO-LOCAL-ENTITY-REQUEST)])))
         (recur)))))
 
 (defn create-context-operations

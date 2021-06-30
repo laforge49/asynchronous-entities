@@ -80,6 +80,7 @@
             (:target-name params)
             [target-entity-kw target-context-base-name _]
             (kw/name-as-keyword target-entity-name)]
+        (if (not= this-base-name target-context-base-name)
         (let [target-context-entity-kw
               (keyword "CONTEXT" target-context-base-name)
               context-entities
@@ -88,7 +89,7 @@
               (target-context-entity-kw context-entities)
               ]
           (a/>! (first target-context-entity) [env
-                                               (assoc params :request :ROUTE-TO-LOCAL-ENTITY-REQUEST)]))
+                                               (assoc params :request :ROUTE-TO-LOCAL-ENTITY-REQUEST)])))
         (recur)))))
 
 (defn create-contexts-operations
