@@ -23,7 +23,7 @@
     :return-port return-port
     }
    {:request     :REGISTER-CONTEXT-REQUEST
-    :name        "CONTEXT/MAIN"
+    :name        "CONTEXTS/MAIN"
     :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
                                     :ROUTE-TO-ENTITY-REQUEST :ROUTE-TO-ENTITY-PORT}}
     :classifiers {}
@@ -31,7 +31,7 @@
     }
    {:request        :ROUTE-TO-CONTEXT-REQUEST
     :target-request :REGISTER-ENTITY-REQUEST
-    :target-name    "CONTEXT/MAIN"
+    :target-name    "CONTEXTS/MAIN"
     :name           "MAIN/SIMPLE_1"
     :descriptors    {:OPERATION-PORTS {:ADD-PARENT-REQUEST       :ADD-PARENT-PORT
                                        :ADD-RELATIONSHIP-REQUEST :ADD-RELATIONSHIP-PORT}}
@@ -40,7 +40,7 @@
     }
    {:request        :ROUTE-TO-CONTEXT-REQUEST
     :target-request :REGISTER-ENTITY-REQUEST
-    :target-name    "CONTEXT/MAIN"
+    :target-name    "CONTEXTS/MAIN"
     :name           "MAIN/SIMPLE_2"
     :descriptors    {:OPERATION-PORTS {:ADD-PARENT-REQUEST       :ADD-PARENT-PORT
                                        :ADD-RELATIONSHIP-REQUEST :ADD-RELATIONSHIP-PORT}}
@@ -99,7 +99,7 @@
             (a/<! return-port4)
             _ (a/>! (first contexts) [env {:request        :ROUTE-TO-CONTEXT-REQUEST
                                            :target-request :SNAPSHOT
-                                           :target-name    "CONTEXT/MAIN"
+                                           :target-name    "CONTEXTS/MAIN"
                                            :return-port    return-port4}])
             context-snap
             (a/<! return-port4)

@@ -62,7 +62,7 @@
             (a/>! (first target-entity) [env
                                          (assoc params :request target-request)]))
           (let [target-context-entity-kw
-                (keyword "CONTEXT" target-context-base-name)
+                (keyword this-base-name target-context-base-name)
                 context-entities
                 (:ENTITIES @this-volatile-map)
                 target-context-entity
