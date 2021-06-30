@@ -66,22 +66,21 @@
             operation-return-port
             (:operation-return-port params)
             - (a/>! operation-return-port :NO-RETURN)
-            this-contexts-entity
+            this-entity
             (:this-entity env)
             this-volatile-map
-            (second this-contexts-entity)
+            (second this-entity)
             target-entity-name
             (:target-name params)
-            [_ target-context-base-name _]
+            [target-entity-kw target-context-base-name _]
             (kw/name-as-keyword target-entity-name)
+
             target-context-entity-kw
             (keyword "CONTEXT" target-context-base-name)
             context-entities
             (:CONTEXT-ENTITIES @this-volatile-map)
             target-context-entity
             (target-context-entity-kw context-entities)
-            target-request
-            (:target-request params)
             ]
         (a/>! (first target-context-entity) [env
                                              (assoc params :request :ROUTE-TO-LOCAL-ENTITY-REQUEST)])
