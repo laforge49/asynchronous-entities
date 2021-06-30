@@ -3,7 +3,7 @@
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
-(defn create-registration-entity-operation
+(defn create-register-entity-operation
   [env]
   (let [entity-registration-port
         (k/register-operation-port env {:operation-port-kw :REGISTER-ENTITY-PORT})]
@@ -74,6 +74,6 @@
 
 (defn create-context-operations
   [env]
-  (create-registration-entity-operation env)
+  (create-register-entity-operation env)
   (create-route-to-entity-operation env)
   )
