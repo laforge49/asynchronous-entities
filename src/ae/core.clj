@@ -75,7 +75,6 @@
             contexts
             (k/create-entity env {:name        "ROOT/CONTEXTS"
                                   :descriptors {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST  :REGISTER-ENTITY-PORT
-                                                                  :ROUTE-TO-CONTEXT-REQUEST :ROUTE-TO-CONTEXT-PORT
                                                                   :ROUTE-REQUEST  :ROUTE-PORT}}
                                   :classifiers {}
                                   })
