@@ -38,6 +38,8 @@
             (a/chan)
             _ (doseq [request-params s1/script1]
                 (let [request-params
+                      (assoc request-params :request :ROUTE-REQUEST)
+                      request-params
                       (assoc request-params :return-port return-port0)]
                   (a/>! contexts-request-port [env request-params])
                   (a/<! return-port0)))
