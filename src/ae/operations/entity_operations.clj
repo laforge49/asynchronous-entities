@@ -70,8 +70,51 @@
         (a/>! operation-return-port this-entity)
         (recur)))))
 
+(defn create-clone-operation
+  [env]
+  (let [clone-port
+        (k/register-operation-port env {:operation-port-kw :CLONE-PORT})]
+    (a/go-loop []
+      (let [[env params]
+            (a/<! clone-port)
+            operation-return-port
+            (:operation-return-port params)
+            - (a/>! operation-return-port :NO-RETURN)
+            new-entity-name
+            (:name params)
+            [_ new-entity-context-base-name _]
+            (kw/name-as-keyword new-entity-name)
+            this-entity
+            (:this-entity env)
+            this-volatile-map
+            (k/volatile-map this-entity)
+            this-map
+            @this-volatile-map
+            this-descriptors
+            (:DESCRIPTORS this-map)
+            prototype-descriptors
+            (:PROTOTYPE-DESCRIPTORS this-descriptors)
+            prototype-classifiers
+            (:PROTOTYPE-CLASSIFIERS this-descriptors)
+            target-name
+            (if (= new-entity-context-base-name "CONTEXTS")
+              (str "ROOT/CONTEXTS")
+              (str "CONTEXTS/" new-entity-context-base-name))
+            contexts-request-port
+            (:CONTEXTS-REQUEST-PORT env)
+            ]
+        (a/>! contexts-request-port (-> params
+                                        (assoc :request :ROUTE-REQUEST)
+                                        (assoc :target-request :REGISTER-ENTITY-REQUEST)
+                                        (assoc :target-name target-name)
+                                        (assoc :descriptors prototype-descriptors)
+                                        (assoc :classifiers prototype-classifiers)
+                                        ))
+        (recur)))))
+
 (defn create-entity-operations
   [env]
   (create-add-parent-operation env)
   (create-add-relationship-operation env)
+  (create-clone-operation env)
   )
