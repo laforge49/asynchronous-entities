@@ -34,7 +34,6 @@
     (a/go-loop []
       (let [[env params]
             (a/<! route-to-local-entity-port)
-            _ (println (prn-str :route params))
             operation-return-port
             (:operation-return-port params)
             - (a/>! operation-return-port :NO-RETURN)

@@ -37,8 +37,10 @@
             (:REQUEST-PORT-STACK @this-volatile-map)
             this-request-port
             (peek this-request-port-stack)
-            [env params]
+            env-params
             (a/<! this-request-port)
+            [env params]
+            env-params
             descriptors
             (:DESCRIPTORS @this-volatile-map)
             this-operation-ports

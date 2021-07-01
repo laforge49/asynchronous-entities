@@ -10,7 +10,7 @@
                      :PROTOTYPE-CLASSIFIERS {}}
     :classifiers    {}
     }
-   #_{:target-request :CLONE-REQUEST
+   {:target-request :CLONE-REQUEST
       :target-name    "CONTEXTS/CONTEXT-PROTOTYPE"
       :name           "CONTENTS/FUDGE"
       }

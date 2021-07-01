@@ -110,7 +110,7 @@
                 (assoc :descriptors prototype-descriptors)
                 (assoc :classifiers prototype-classifiers)
                 )]
-        (a/>! contexts-request-port params)
+        (a/>! contexts-request-port [env params])
         (recur)))))
 
 (defn create-entity-operations
