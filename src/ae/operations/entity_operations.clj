@@ -49,10 +49,8 @@
             (:relationship params)
             operation-return-port
             (:operation-return-port params)
-            contexts
-            (:CONTEXTS-ENTITY env)
             contexts-request-port
-            (k/request-port contexts)
+            (:CONTEXTS-REQUEST-PORT env)
             add-parent-return-port
             (a/chan)
             ]

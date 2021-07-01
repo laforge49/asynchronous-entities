@@ -76,6 +76,8 @@
             (k/request-port contexts)
             env
             (assoc env :CONTEXTS-ENTITY contexts)
+            env
+            (assoc env :CONTEXTS-REQUEST-PORT contexts-request-port)
             return-port0
             (a/chan)
             _ (doseq [request-params (script1)]
