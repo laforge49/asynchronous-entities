@@ -13,7 +13,7 @@
             this-entity
             (:this-entity env)
             this-volatile-map
-            (second this-entity)
+            (k/volatile-map this-entity)
             new-entity-name
             (:name params)
             [new-entity-kw _ _]
@@ -40,7 +40,7 @@
             this-entity
             (:this-entity env)
             this-volatile-map
-            (second this-entity)
+            (k/volatile-map this-entity)
             this-map
             @this-volatile-map
             this-name

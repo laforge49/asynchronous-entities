@@ -7,6 +7,10 @@
   [entity]
   (first entity))
 
+(defn volatile-map
+  [entity]
+  (second entity))
+
 (def operation-ports-atom
   (atom {}))
 
@@ -24,7 +28,7 @@
   (let [this-entity
         (:this-entity params)
         this-volatile-map
-        (second this-entity)
+        (volatile-map this-entity)
         ]
     (a/go-loop []
       (let [this-request-port-stack
