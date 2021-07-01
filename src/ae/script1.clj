@@ -1,12 +1,18 @@
 (ns ae.script1)
 
 (def script1
-  [{:request     :REGISTER-ENTITY-REQUEST
-    :name        "CONTEXTS/CONTEXT-PROTOTYPE"
-    :descriptors {:PROTOTYPE-DESCRIPTORS {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
-                                                            :ROUTE-REQUEST           :ROUTE-PORT}}
-                  :PROTOTYPE-CLASSIFIERS {}}
-    :classifiers {}
+  [{:request               :REGISTER-ENTITY-REQUEST
+    :name                  "CONTEXTS/CONTEXT-PROTOTYPE"
+    :descriptors           {:OPERATION-PORTS {:CLONE-REQUEST :CLONE-PORT}
+                            :PROTOTYPE-DESCRIPTORS {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
+                                                                      :ROUTE-REQUEST           :ROUTE-PORT}}
+                            :PROTOTYPE-CLASSIFIERS {}}
+    :classifiers           {}
+    }
+   #_ {:request        :ROUTE-REQUEST
+    :target-request :CLONE-REQUEST
+    :target-name    "CONTEXTS/CONTEXT-PROTOTYPE"
+    :name           "CONTENTS/FUDGE"
     }
    {:request     :REGISTER-ENTITY-REQUEST
     :name        "CONTEXTS/MAIN"

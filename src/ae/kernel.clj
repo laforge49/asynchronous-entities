@@ -29,56 +29,59 @@
         (:this-entity params)
         this-volatile-map
         (volatile-map this-entity)
+        this-name
+        (:NAME @this-volatile-map)
         ]
     (a/go-loop []
       (let [this-request-port-stack
             (:REQUEST-PORT-STACK @this-volatile-map)
             this-request-port
             (peek this-request-port-stack)
+            [env params]
+            (a/<! this-request-port)
             descriptors
             (:DESCRIPTORS @this-volatile-map)
             this-operation-ports
-            (:OPERATION-PORTS descriptors)]
-        (let [[env params]
-              (a/<! this-request-port)]
-          (let [env
-                (assoc env :this-entity this-entity)
-                request
-                (:request params)
-                operation-port-id
-                (request this-operation-ports)
-                return-value
-                (case request
-                  :SNAPSHOT
-                  @this-volatile-map
-                  :PUSH-REQUEST-PORT
-                  (let [new-request-port
-                        (:new-request-port params)
-                        saved-entity-map
-                        @this-volatile-map]
-                    (vswap! this-volatile-map assoc :REQUEST-PORT (conj this-request-port-stack new-request-port))
-                    saved-entity-map)
-                  :POP-REQUEST-PORT
-                  (let []
-                    (vswap! this-volatile-map assoc :REQUEST-PORT (pop this-request-port-stack))
-                    true)
-                  :RESET
-                  (let [saved-entity-map
-                        (:saved-entity-map params)]
-                    (vreset! this-volatile-map saved-entity-map))
-                  (let [operation-port
-                        (operation-port-id @operation-ports-atom)
-                        operation-return-port
-                        (a/chan)
-                        ]
-                    (a/>! operation-port [env (assoc params :operation-return-port operation-return-port)])
-                    (a/<! operation-return-port)))
-                return-port
-                (:return-port params)]
-            (if (and (some? return-port)
-                     (not= return-value :NO-RETURN))
-              (a/>! return-port return-value))
-            (recur)))))))
+            (:OPERATION-PORTS descriptors)
+            ]
+        (let [env
+              (assoc env :this-entity this-entity)
+              request
+              (:request params)
+              operation-port-id
+              (request this-operation-ports)
+              return-value
+              (case request
+                :SNAPSHOT
+                @this-volatile-map
+                :PUSH-REQUEST-PORT
+                (let [new-request-port
+                      (:new-request-port params)
+                      saved-entity-map
+                      @this-volatile-map]
+                  (vswap! this-volatile-map assoc :REQUEST-PORT (conj this-request-port-stack new-request-port))
+                  saved-entity-map)
+                :POP-REQUEST-PORT
+                (let []
+                  (vswap! this-volatile-map assoc :REQUEST-PORT (pop this-request-port-stack))
+                  true)
+                :RESET
+                (let [saved-entity-map
+                      (:saved-entity-map params)]
+                  (vreset! this-volatile-map saved-entity-map))
+                (let [operation-port
+                      (operation-port-id @operation-ports-atom)
+                      operation-return-port
+                      (a/chan)
+                      ]
+                  (a/>! operation-port [env (assoc params :operation-return-port operation-return-port)])
+                  (a/<! operation-return-port)))
+              return-port
+              (:return-port params)]
+          (if (and (some? return-port)
+                   (not= return-value :NO-RETURN))
+            (a/>! return-port return-value))
+          (recur))))))
 
 (defn create-entity
   [env params]

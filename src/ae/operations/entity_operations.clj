@@ -97,19 +97,20 @@
             prototype-classifiers
             (:PROTOTYPE-CLASSIFIERS this-descriptors)
             target-name
-            (if (= new-entity-context-base-name "CONTEXTS")
+            (if (= new-entity-context-base-name "CONTENTS")
               (str "ROOT/CONTEXTS")
               (str "CONTEXTS/" new-entity-context-base-name))
             contexts-request-port
             (:CONTEXTS-REQUEST-PORT env)
-            ]
-        (a/>! contexts-request-port (-> params
-                                        (assoc :request :ROUTE-REQUEST)
-                                        (assoc :target-request :REGISTER-ENTITY-REQUEST)
-                                        (assoc :target-name target-name)
-                                        (assoc :descriptors prototype-descriptors)
-                                        (assoc :classifiers prototype-classifiers)
-                                        ))
+            params
+            (-> params
+                (assoc :request :ROUTE-REQUEST)
+                (assoc :target-request :REGISTER-ENTITY-REQUEST)
+                (assoc :target-name target-name)
+                (assoc :descriptors prototype-descriptors)
+                (assoc :classifiers prototype-classifiers)
+                )]
+        (a/>! contexts-request-port params)
         (recur)))))
 
 (defn create-entity-operations
