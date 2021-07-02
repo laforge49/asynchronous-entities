@@ -1,42 +1,42 @@
 (ns ae.script1)
 
 (def script1
-  [{:target-request :REGISTER-ENTITY-REQUEST
+  [{:target-request :REGISTER-ENTITY-REQUESTID
     :target-name    "ROOT/CONTEXTS"
     :name           "CONTEXTS/CONTEXT-PROTOTYPE"
-    :descriptors    {:OPERATION-PORTS       {:INSTANTIATE-REQUEST :INSTANTIATE-PORT}
-                     :PROTOTYPE-DESCRIPTORS {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
-                                                               :ROUTE-REQUEST           :ROUTE-PORT}}
+    :descriptors    {:OPERATION-PORTS       {:INSTANTIATE-REQUESTID :INSTANTIATE-PORT}
+                     :PROTOTYPE-DESCRIPTORS {:OPERATION-PORTS {:REGISTER-ENTITY-REQUESTID :REGISTER-ENTITY-PORT
+                                                               :ROUTE-REQUESTID           :ROUTE-PORT}}
                      :PROTOTYPE-CLASSIFIERS {}}
     :classifiers    {}
     }
-   {:target-request :INSTANTIATE-REQUEST
+   {:target-request :INSTANTIATE-REQUESTID
     :target-name    "CONTEXTS/CONTEXT-PROTOTYPE"
     :name           "CONTEXTS/MAIN"
     }
-   {:target-request :REGISTER-ENTITY-REQUEST
+   {:target-request :REGISTER-ENTITY-REQUESTID
     :target-name    "CONTEXTS/MAIN"
     :name           "MAIN/SIMPLE-PROTOTYPE"
-    :descriptors    {:OPERATION-PORTS       {:INSTANTIATE-REQUEST :INSTANTIATE-PORT}
-                     :PROTOTYPE-DESCRIPTORS {:OPERATION-PORTS {:ADD-PARENT-REQUEST       :ADD-PARENT-PORT
-                                                               :ADD-RELATIONSHIP-REQUEST :ADD-RELATIONSHIP-PORT}}
+    :descriptors    {:OPERATION-PORTS       {:INSTANTIATE-REQUESTID :INSTANTIATE-PORT}
+                     :PROTOTYPE-DESCRIPTORS {:OPERATION-PORTS {:ADD-PARENT-REQUESTID       :ADD-PARENT-PORT
+                                                               :ADD-RELATIONSHIP-REQUESTID :ADD-RELATIONSHIP-PORT}}
                      :PROTOTYPE-CLASSIFIERS {}}
     :classifiers    {}
     }
-   {:target-request :INSTANTIATE-REQUEST
+   {:target-request :INSTANTIATE-REQUESTID
     :target-name    "MAIN/SIMPLE-PROTOTYPE"
     :name           "MAIN/SIMPLE_1"
     }
-   {:target-request :INSTANTIATE-REQUEST
+   {:target-request :INSTANTIATE-REQUESTID
     :target-name    "MAIN/SIMPLE-PROTOTYPE"
     :name           "MAIN/SIMPLE_2"
     }
-   {:target-request    :ADD-RELATIONSHIP-REQUEST
+   {:target-request    :ADD-RELATIONSHIP-REQUESTID
     :target-name       "MAIN/SIMPLE_1"
     :relationship      :BASIC
     :child-entity-name "MAIN/SIMPLE_2"
     }
-   {:target-request     :ADD-PARENT-REQUEST
+   {:target-request     :ADD-PARENT-REQUESTID
     :target-name        "MAIN/SIMPLE_2"
     :relationship       :BASIC
     :parent-entity-name "MAIN/SIMPLE_1"

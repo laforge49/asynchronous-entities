@@ -49,7 +49,7 @@
         (let [env
               (assoc env :this-entity this-entity)
               request
-              (:request params)
+              (:requestid params)
               operation-port-id
               (request this-operation-ports)
               return-value

@@ -59,7 +59,7 @@
                 (:target-request params)
                 ]
             (a/>! this-entity-request-port [env
-                                            (assoc params :request target-request)]))
+                                            (assoc params :requestid target-request)]))
           (if (= this-base-name target-context-base-name)
             (let [entities
                   (:ENTITIES @this-volatile-map)
@@ -71,7 +71,7 @@
                   (:target-request params)
                   ]
               (a/>! target-entity-request-port [env
-                                                (assoc params :request target-request)]))
+                                                (assoc params :requestid target-request)]))
             (let [target-context-entity-kw
                   (keyword this-base-name target-context-base-name)
                   context-entities
@@ -82,7 +82,7 @@
                   (k/request-port target-context-entity)
                   ]
               (a/>! target-context-entity-request-port [env
-                                                        (assoc params :request :ROUTE-REQUEST)]))))
+                                                        (assoc params :requestid :ROUTE-REQUESTID)]))))
         (recur)))))
 
 (defn create-context-operations

@@ -59,8 +59,8 @@
                                           (conj (get-in this-entity [:CHILDVECTORS relationship] []) child-entity-name)]
                                       (assoc-in old [:CHILDVECTORS relationship] relationship-children))))
         (a/>! contexts-request-port [env
-                                     {:request            :ROUTE-REQUEST
-                                      :target-request     :ADD-PARENT-REQUEST
+                                     {:requestid            :ROUTE-REQUESTID
+                                      :target-request     :ADD-PARENT-REQUESTID
                                       :target-name        child-entity-name
                                       :relationship       :BASIC
                                       :parent-entity-name this-entity-name
@@ -104,8 +104,8 @@
             (:CONTEXTS-REQUEST-PORT env)
             params
             (-> params
-                (assoc :request :ROUTE-REQUEST)
-                (assoc :target-request :REGISTER-ENTITY-REQUEST)
+                (assoc :requestid :ROUTE-REQUESTID)
+                (assoc :target-request :REGISTER-ENTITY-REQUESTID)
                 (assoc :target-name target-name)
                 (assoc :descriptors prototype-descriptors)
                 (assoc :classifiers prototype-classifiers)
