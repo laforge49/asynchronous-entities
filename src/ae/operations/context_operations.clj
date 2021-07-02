@@ -6,7 +6,7 @@
 (defn create-register-entity-operation
   [env]
   (let [entity-registration-port
-        (k/register-operation-port env {:operation-port-kw :REGISTER-ENTITY-PORT})]
+        (k/register-operation-port env {:operation-portid :REGISTER-ENTITY-PORT})]
     (a/go-loop []
       (let [[env params]
             (a/<! entity-registration-port)
@@ -30,7 +30,7 @@
 (defn create-route-operation
   [env]
   (let [route-to-local-entity-port
-        (k/register-operation-port env {:operation-port-kw :ROUTE-PORT})]
+        (k/register-operation-port env {:operation-portid :ROUTE-PORT})]
     (a/go-loop []
       (let [[env params]
             (a/<! route-to-local-entity-port)

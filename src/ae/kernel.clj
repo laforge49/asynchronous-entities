@@ -16,11 +16,11 @@
 
 (defn register-operation-port
   [env params]
-  (let [operation-port-kw
-        (:operation-port-kw params)
+  (let [operation-portid
+        (:operation-portid params)
         port
         (a/chan)]
-    (swap! operation-ports-atom assoc operation-port-kw port)
+    (swap! operation-ports-atom assoc operation-portid port)
     port))
 
 (defn create-operation-dispatcher
