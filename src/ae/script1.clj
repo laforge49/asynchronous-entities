@@ -23,19 +23,13 @@
                      :PROTOTYPE-CLASSIFIERS {}}
     :classifiers    {}
     }
-   {:target-request :REGISTER-ENTITY-REQUEST
-    :target-name    "CONTEXTS/MAIN"
+   {:target-request :INSTANTIATE-REQUEST
+    :target-name    "MAIN/SIMPLE-PROTOTYPE"
     :name           "MAIN/SIMPLE_1"
-    :descriptors    {:OPERATION-PORTS {:ADD-PARENT-REQUEST       :ADD-PARENT-PORT
-                                       :ADD-RELATIONSHIP-REQUEST :ADD-RELATIONSHIP-PORT}}
-    :classifiers    {}
     }
-   {:target-request :REGISTER-ENTITY-REQUEST
-    :target-name    "CONTEXTS/MAIN"
+   {:target-request :INSTANTIATE-REQUEST
+    :target-name    "MAIN/SIMPLE-PROTOTYPE"
     :name           "MAIN/SIMPLE_2"
-    :descriptors    {:OPERATION-PORTS {:ADD-PARENT-REQUEST       :ADD-PARENT-PORT
-                                       :ADD-RELATIONSHIP-REQUEST :ADD-RELATIONSHIP-PORT}}
-    :classifiers    {}
     }
    {:target-request    :ADD-RELATIONSHIP-REQUEST
     :target-name       "MAIN/SIMPLE_1"
