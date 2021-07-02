@@ -16,6 +16,15 @@
     }
    {:target-request :REGISTER-ENTITY-REQUEST
     :target-name    "CONTEXTS/MAIN"
+    :name           "MAIN/SIMPLE-PROTOTYPE"
+    :descriptors    {:OPERATION-PORTS       {:INSTANTIATE-REQUEST :INSTANTIATE-PORT}
+                     :PROTOTYPE-DESCRIPTORS {:OPERATION-PORTS {:ADD-PARENT-REQUEST       :ADD-PARENT-PORT
+                                                               :ADD-RELATIONSHIP-REQUEST :ADD-RELATIONSHIP-PORT}}
+                     :PROTOTYPE-CLASSIFIERS {}}
+    :classifiers    {}
+    }
+   {:target-request :REGISTER-ENTITY-REQUEST
+    :target-name    "CONTEXTS/MAIN"
     :name           "MAIN/SIMPLE_1"
     :descriptors    {:OPERATION-PORTS {:ADD-PARENT-REQUEST       :ADD-PARENT-PORT
                                        :ADD-RELATIONSHIP-REQUEST :ADD-RELATIONSHIP-PORT}}

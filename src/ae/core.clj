@@ -65,6 +65,12 @@
             (a/<! return-port4)
             _ (a/>! contexts-request-port [env {:request        :ROUTE-REQUEST
                                                 :target-request :SNAPSHOT
+                                                :target-name    "MAIN/SIMPLE-PROTOTYPE"
+                                                :return-port    return-port4}])
+            simple-prototype
+            (a/<! return-port4)
+            _ (a/>! contexts-request-port [env {:request        :ROUTE-REQUEST
+                                                :target-request :SNAPSHOT
                                                 :target-name    "MAIN/SIMPLE_1"
                                                 :return-port    return-port4}])
             simple1-snap
@@ -76,7 +82,12 @@
             simple2-snap
             (a/<! return-port4)
             ]
-        (a/>! main-out [contexts-snap context-prototype-snap context-snap simple1-snap simple2-snap])
+        (a/>! main-out [contexts-snap
+                        context-prototype-snap
+                        context-snap
+                        simple-prototype
+                        simple1-snap
+                        simple2-snap])
         )
       )
     main-in))
