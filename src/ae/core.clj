@@ -47,6 +47,12 @@
             (a/chan)
             _ (a/>! contexts-request-port [env {:request        :ROUTE-REQUEST
                                                 :target-request :SNAPSHOT
+                                                :target-name    "ROOT/CONTEXTS"
+                                                :return-port    return-port4}])
+            contexts-snap
+            (a/<! return-port4)
+            _ (a/>! contexts-request-port [env {:request        :ROUTE-REQUEST
+                                                :target-request :SNAPSHOT
                                                 :target-name    "CONTEXTS/CONTEXT-PROTOTYPE"
                                                 :return-port    return-port4}])
             context-prototype-snap
@@ -70,7 +76,7 @@
             simple2-snap
             (a/<! return-port4)
             ]
-        (a/>! main-out [context-prototype-snap context-snap simple1-snap simple2-snap])
+        (a/>! main-out [contexts-snap context-prototype-snap context-snap simple1-snap simple2-snap])
         )
       )
     main-in))

@@ -97,7 +97,7 @@
             prototype-classifiers
             (:PROTOTYPE-CLASSIFIERS this-descriptors)
             target-name
-            (if (= new-entity-context-base-name "CONTENTS")
+            (if (= new-entity-context-base-name "CONTEXTS")
               (str "ROOT/CONTEXTS")
               (str "CONTEXTS/" new-entity-context-base-name))
             contexts-request-port

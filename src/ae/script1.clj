@@ -12,15 +12,8 @@
     }
    {:target-request :CLONE-REQUEST
       :target-name    "CONTEXTS/CONTEXT-PROTOTYPE"
-      :name           "CONTENTS/FUDGE"
+      :name           "CONTEXTS/MAIN"
       }
-   {:target-request :REGISTER-ENTITY-REQUEST
-    :target-name    "ROOT/CONTEXTS"
-    :name           "CONTEXTS/MAIN"
-    :descriptors    {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
-                                       :ROUTE-REQUEST           :ROUTE-PORT}}
-    :classifiers    {}
-    }
    {:target-request :REGISTER-ENTITY-REQUEST
     :target-name    "CONTEXTS/MAIN"
     :name           "MAIN/SIMPLE_1"
