@@ -4,13 +4,13 @@
   [{:target-request :REGISTER-ENTITY-REQUEST
     :target-name    "ROOT/CONTEXTS"
     :name           "CONTEXTS/CONTEXT-PROTOTYPE"
-    :descriptors    {:OPERATION-PORTS       {:CLONE-REQUEST :CLONE-PORT}
+    :descriptors    {:OPERATION-PORTS       {:INSTANTIATE-REQUEST :INSTANTIATE-PORT}
                      :PROTOTYPE-DESCRIPTORS {:OPERATION-PORTS {:REGISTER-ENTITY-REQUEST :REGISTER-ENTITY-PORT
                                                                :ROUTE-REQUEST           :ROUTE-PORT}}
                      :PROTOTYPE-CLASSIFIERS {}}
     :classifiers    {}
     }
-   {:target-request :CLONE-REQUEST
+   {:target-request :INSTANTIATE-REQUEST
       :target-name    "CONTEXTS/CONTEXT-PROTOTYPE"
       :name           "CONTEXTS/MAIN"
       }

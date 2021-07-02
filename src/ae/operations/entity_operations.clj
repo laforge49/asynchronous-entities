@@ -70,13 +70,13 @@
         (a/>! operation-return-port this-entity)
         (recur)))))
 
-(defn create-clone-operation
+(defn create-instantiate-operation
   [env]
-  (let [clone-port
-        (k/register-operation-port env {:operation-port-kw :CLONE-PORT})]
+  (let [instantiate-port
+        (k/register-operation-port env {:operation-port-kw :INSTANTIATE-PORT})]
     (a/go-loop []
       (let [[env params]
-            (a/<! clone-port)
+            (a/<! instantiate-port)
             operation-return-port
             (:operation-return-port params)
             - (a/>! operation-return-port :NO-RETURN)
@@ -117,5 +117,5 @@
   [env]
   (create-add-parent-operation env)
   (create-add-relationship-operation env)
-  (create-clone-operation env)
+  (create-instantiate-operation env)
   )
