@@ -11,9 +11,9 @@
     :classifiers    {}
     }
    {:target-request :INSTANTIATE-REQUEST
-      :target-name    "CONTEXTS/CONTEXT-PROTOTYPE"
-      :name           "CONTEXTS/MAIN"
-      }
+    :target-name    "CONTEXTS/CONTEXT-PROTOTYPE"
+    :name           "CONTEXTS/MAIN"
+    }
    {:target-request :REGISTER-ENTITY-REQUEST
     :target-name    "CONTEXTS/MAIN"
     :name           "MAIN/SIMPLE_1"
