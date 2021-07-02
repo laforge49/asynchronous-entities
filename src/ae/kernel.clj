@@ -44,7 +44,7 @@
             descriptors
             (:DESCRIPTORS @this-volatile-map)
             this-operation-portid-map
-            (:OPERATION-PORTS descriptors)
+            (:OPERATION-PORTIDS descriptors)
             ]
         (let [env
               (assoc env :this-entity this-entity)
