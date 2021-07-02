@@ -11,7 +11,7 @@
   [entity]
   (second entity))
 
-(def operation-ports-atom
+(def operation-port-map-atom
   (atom {}))
 
 (defn register-operation-port
@@ -20,7 +20,7 @@
         (:operation-portid params)
         port
         (a/chan)]
-    (swap! operation-ports-atom assoc operation-portid port)
+    (swap! operation-port-map-atom assoc operation-portid port)
     port))
 
 (defn create-operation-dispatcher
@@ -43,7 +43,7 @@
             env-params
             descriptors
             (:DESCRIPTORS @this-volatile-map)
-            this-operation-ports
+            this-operation-portid-map
             (:OPERATION-PORTS descriptors)
             ]
         (let [env
@@ -51,7 +51,7 @@
               request
               (:requestid params)
               operation-port-id
-              (request this-operation-ports)
+              (request this-operation-portid-map)
               return-value
               (case request
                 :SNAPSHOT
@@ -72,7 +72,7 @@
                       (:saved-entity-map params)]
                   (vreset! this-volatile-map saved-entity-map))
                 (let [operation-port
-                      (operation-port-id @operation-ports-atom)
+                      (operation-port-id @operation-port-map-atom)
                       operation-return-port
                       (a/chan)
                       ]

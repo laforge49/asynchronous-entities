@@ -56,7 +56,7 @@
           (let [this-entity-request-port
                 (k/request-port this-entity)
                 target-request
-                (:target-request params)
+                (:target-requestid params)
                 ]
             (a/>! this-entity-request-port [env
                                             (assoc params :requestid target-request)]))
@@ -68,7 +68,7 @@
                   target-entity-request-port
                   (k/request-port target-entity)
                   target-request
-                  (:target-request params)
+                  (:target-requestid params)
                   ]
               (a/>! target-entity-request-port [env
                                                 (assoc params :requestid target-request)]))

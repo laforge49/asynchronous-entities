@@ -60,7 +60,7 @@
                                       (assoc-in old [:CHILDVECTORS relationship] relationship-children))))
         (a/>! contexts-request-port [env
                                      {:requestid          :ROUTE-REQUESTID
-                                      :target-request     :ADD-PARENT-REQUESTID
+                                      :target-requestid   :ADD-PARENT-REQUESTID
                                       :target-name        child-entity-name
                                       :relationship       :BASIC
                                       :parent-entity-name this-entity-name
@@ -105,7 +105,7 @@
             params
             (-> params
                 (assoc :requestid :ROUTE-REQUESTID)
-                (assoc :target-request :REGISTER-ENTITY-REQUESTID)
+                (assoc :target-requestid :REGISTER-ENTITY-REQUESTID)
                 (assoc :target-name target-name)
                 (assoc :descriptors prototype-descriptors)
                 (assoc :classifiers prototype-classifiers)
