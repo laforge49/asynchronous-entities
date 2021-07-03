@@ -59,9 +59,12 @@
                 :PUSH-REQUEST-PORT
                 (let [new-request-port
                       (:new-request-port params)
+                      federated-entity-request-ports
+                      (:federated-entity-request-ports params)
                       saved-entity-map
                       @this-volatile-map]
                   (vswap! this-volatile-map assoc :REQUEST-PORT-STACK (conj this-request-port-stack new-request-port))
+                  (vswap! this-volatile-map assoc :FEDERATED-ENTITY-REQUEST-PORTS federated-entity-request-ports)
                   saved-entity-map)
                 :POP-REQUEST-PORT
                 (let []
