@@ -61,12 +61,12 @@
                       (:new-request-port params)
                       saved-entity-map
                       @this-volatile-map]
-                  (vswap! this-volatile-map assoc :REQUEST-PORT (conj this-request-port-stack new-request-port))
+                  (vswap! this-volatile-map assoc :REQUEST-PORT-STACK (conj this-request-port-stack new-request-port))
                   saved-entity-map)
                 :POP-REQUEST-PORT
                 (let []
-                  (vswap! this-volatile-map assoc :REQUEST-PORT (pop this-request-port-stack))
-                  true)
+                  (vswap! this-volatile-map assoc :REQUEST-PORT-STACK (pop this-request-port-stack))
+                  @this-volatile-map)
                 :RESET
                 (let [saved-entity-map
                       (:saved-entity-map params)]
