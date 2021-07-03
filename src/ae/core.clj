@@ -30,8 +30,8 @@
                                   })
             contexts-request-port
             (k/request-port contexts)
-            env
-            (assoc env :CONTEXTS-ENTITY contexts)
+            ;env
+            ;(assoc env :CONTEXTS-ENTITY contexts)
             env
             (assoc env :CONTEXTS-REQUEST-PORT contexts-request-port)
             return-port0
