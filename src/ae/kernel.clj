@@ -116,3 +116,12 @@
     new-entity
     ))
 
+(defn exception-check
+  [return-value]
+  (if (not (vector? return-value))
+    (throw (Exception. (prn-str "Return value is not a vector " return-value)))
+    (let [[ex val]
+          return-value]
+      (if (some? ex)
+        (throw ex)
+        val))))
