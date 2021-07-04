@@ -1,6 +1,7 @@
 (ns ae.kernel
   (:require [clojure.core.async :as a]
             [clojure.string :as s]
+            [clojure.stacktrace :as stacktrace]
             [ae.keywords :as kw]))
 
 (defn exception-check
@@ -49,6 +50,8 @@
             (peek this-request-port-stack)
             env-params
             (a/<! this-request-port)
+            _ (if (not (vector? env-params))
+                (stacktrace/print-stack-trace (Exception. (prn-str "Request is not a vector: " env-params))))
             [env params]
             env-params
             return-port
