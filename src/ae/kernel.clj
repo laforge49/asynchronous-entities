@@ -38,15 +38,14 @@
             this-request-port
             (peek this-request-port-stack)
             env-params
-            (a/<! this-request-port)
-            [env params]
-            env-params
-            descriptors
-            (:DESCRIPTORS @this-volatile-map)
-            this-operation-portid-map
-            (:OPERATION-PORTIDS descriptors)
-            ]
-        (let [env
+            (a/<! this-request-port)]
+        (let [[env params]
+              env-params
+              descriptors
+              (:DESCRIPTORS @this-volatile-map)
+              this-operation-portid-map
+              (:OPERATION-PORTIDS descriptors)
+              env
               (assoc env :this-entity this-entity)
               request
               (:requestid params)
