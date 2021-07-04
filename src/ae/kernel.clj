@@ -55,7 +55,7 @@
               return-value
               (case request
                 :SNAPSHOT
-                @this-volatile-map
+                [nil @this-volatile-map]
                 :PUSH-REQUEST-PORT
                 (let [new-request-port
                       (:new-request-port params)
