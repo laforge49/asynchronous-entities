@@ -25,7 +25,7 @@
                                     (let [relationship-parents
                                           (conj (get-in this-entity [:PARENTVECTORS relationship] []) parent-entity-name)]
                                       (assoc-in old [:PARENTVECTORS relationship] relationship-parents))))
-        (a/>! operation-return-port this-entity)
+        (a/>! operation-return-port [nil this-entity])
         (recur)))))
 
 (defn create-add-relationship-operation
@@ -67,7 +67,7 @@
                                       :return-port        add-parent-return-port
                                       }])
         (k/exception-check (a/<! add-parent-return-port))
-        (a/>! operation-return-port this-entity)
+        (a/>! operation-return-port [nil this-entity])
         (recur)))))
 
 (defn create-instantiate-operation
@@ -79,7 +79,7 @@
             (a/<! instantiate-port)
             operation-return-port
             (:operation-return-port params)
-            - (a/>! operation-return-port :NO-RETURN)
+            - (a/>! operation-return-port [nil :NO-RETURN])
             new-entity-name
             (:name params)
             [_ new-entity-context-base-name _]

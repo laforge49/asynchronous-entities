@@ -91,8 +91,7 @@
                         operation-return-port
                         (a/chan)]
                     (a/>! operation-port [env (assoc params :operation-return-port operation-return-port)])
-                    (a/<! operation-return-port)))
-                ]
+                    (exception-check (a/<! operation-return-port))))]
             (if (not= return-value :NO-RETURN)
               (a/>! return-port [nil return-value])))
           (catch Exception e

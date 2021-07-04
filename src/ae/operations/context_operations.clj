@@ -24,7 +24,7 @@
             (:operation-return-port params)
             ]
         (vswap! this-volatile-map assoc-in [:ENTITIES new-entity-kw] new-entity)
-        (a/>! operation-return-port new-entity)
+        (a/>! operation-return-port [nil new-entity])
         (recur)))))
 
 (defn create-route-operation
@@ -37,7 +37,7 @@
             ;_ (println (prn-str :route params))
             operation-return-port
             (:operation-return-port params)
-            - (a/>! operation-return-port :NO-RETURN)
+            - (a/>! operation-return-port [nil :NO-RETURN])
             this-entity
             (:this-entity env)
             this-volatile-map
