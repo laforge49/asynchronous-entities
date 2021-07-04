@@ -66,7 +66,7 @@
                                       :parent-entity-name this-entity-name
                                       :return-port        add-parent-return-port
                                       }])
-        (a/<! add-parent-return-port)
+        (k/exception-check (a/<! add-parent-return-port))
         (a/>! operation-return-port this-entity)
         (recur)))))
 
