@@ -3,6 +3,16 @@
             [clojure.string :as s]
             [ae.keywords :as kw]))
 
+(defn exception-check
+  [return-value]
+  (if (not (vector? return-value))
+    (throw (Exception. (prn-str "Return value is not a vector " return-value)))
+    (let [[ex val]
+          return-value]
+      (if (some? ex)
+        (throw ex)
+        val))))
+
 (defn request-port
   [entity]
   (first entity))
@@ -81,7 +91,8 @@
                         operation-return-port
                         (a/chan)]
                     (a/>! operation-port [env (assoc params :operation-return-port operation-return-port)])
-                    (a/<! operation-return-port)))]
+                    (a/<! operation-return-port)))
+                ]
             (if (not= return-value :NO-RETURN)
               (a/>! return-port [nil return-value])))
           (catch Exception e
@@ -115,13 +126,3 @@
     (create-operation-dispatcher env {:this-entity new-entity})
     new-entity
     ))
-
-(defn exception-check
-  [return-value]
-  (if (not (vector? return-value))
-    (throw (Exception. (prn-str "Return value is not a vector " return-value)))
-    (let [[ex val]
-          return-value]
-      (if (some? ex)
-        (throw ex)
-        val))))
