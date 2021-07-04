@@ -55,7 +55,7 @@
               return-value
               (case request
                 :SNAPSHOT
-                [nil @this-volatile-map]
+                @this-volatile-map
                 :PUSH-REQUEST-PORT
                 (let [new-request-port
                       (:new-request-port params)
@@ -85,7 +85,7 @@
               (:return-port params)]
           (if (and (some? return-port)
                    (not= return-value :NO-RETURN))
-            (a/>! return-port return-value))
+            (a/>! return-port [nil return-value]))
           (recur))))))
 
 (defn create-entity

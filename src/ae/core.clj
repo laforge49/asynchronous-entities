@@ -44,7 +44,7 @@
                           request-params
                           (assoc request-params :return-port return-port0)]
                       (a/>! contexts-request-port [env request-params])
-                      (a/<! return-port0)))
+                      (k/exception-check (a/<! return-port0))))
                 return-port4
                 (a/chan)
                 _ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
