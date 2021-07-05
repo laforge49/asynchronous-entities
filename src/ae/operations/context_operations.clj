@@ -21,16 +21,16 @@
             new-entity-name
             (:name params)
             [new-entity-kw _ _]
-            (kw/name-as-keyword new-entity-name)]
-        (if (some? (get-in this-map [:ENTITIES new-entity-kw]))
-          (throw (Exception. (str "Entity " new-entity-name " already exists in " this-name))))
-        (let [new-entity
-              (k/create-entity env params)
-              operation-return-port
-              (:operation-return-port params)]
-          (vswap! this-volatile-map assoc-in [:ENTITIES new-entity-kw] new-entity)
-          (a/>! operation-return-port [nil new-entity])
-          (recur))))))
+            (kw/name-as-keyword new-entity-name)
+            _ (if (some? (get-in this-map [:ENTITIES new-entity-kw]))
+                (throw (Exception. (str "Entity " new-entity-name " already exists in " this-name))))
+            new-entity
+            (k/create-entity env params)
+            operation-return-port
+            (:operation-return-port params)]
+        (vswap! this-volatile-map assoc-in [:ENTITIES new-entity-kw] new-entity)
+        (a/>! operation-return-port [nil new-entity])
+        (recur)))))
 
 (defn create-route-operation
   [env]
