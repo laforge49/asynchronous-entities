@@ -36,9 +36,4 @@
     :relationship      :BASIC
     :child-entity-name "MAIN/SIMPLE_2"
     }
-   {:target-requestid   :ADD-PARENT-REQUESTID
-    :target-name        "MAIN/SIMPLE_2"
-    :relationship       :BASIC
-    :parent-entity-name "MAIN/SIMPLE_1"
-    }
    ])
