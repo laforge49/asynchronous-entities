@@ -70,6 +70,8 @@
                   (:ENTITIES @this-volatile-map)
                   target-entity
                   (target-entity-kw entities)
+                  _ (if (nil? target-entity)
+                      (throw (Exception. (str "Entity " target-entity-name " is not registered in " this-name))))
                   target-entity-request-port
                   (k/request-port target-entity)
                   target-request
