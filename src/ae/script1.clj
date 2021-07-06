@@ -10,7 +10,7 @@
                        :PROTOTYPE-CLASSIFIERS {}}
     :classifiers      {}
     }
-   #_ {:target-requestid :INSTANTIATE-REQUESTID
+   {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/CONTEXT-PROTOTYPE"
     :name             "CONTEXTS/MAIN"
     }
