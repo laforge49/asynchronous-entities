@@ -79,7 +79,7 @@
         (a/>! operation-return-port [nil this-entity])
         (recur)))))
 
-#_ (defn create-instantiate-operation
+(defn create-instantiate-operation
   [env]
   (let [instantiate-port
         (k/register-operation-port env {:operation-portid :INSTANTIATE-PORTID})]
@@ -126,5 +126,5 @@
   [env]
   ;(create-add-parent-operation env)
   ;(create-add-relationship-operation env)
-  ;(create-instantiate-operation env)
+  (create-instantiate-operation env)
   )
