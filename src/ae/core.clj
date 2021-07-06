@@ -23,22 +23,22 @@
         (try
           (let [env
                 {}
-                #_ (create-operations env)
+                #_(create-operations env)
                 ;contexts
-                #_ (k/create-entity env {:name        "ROOT/CONTEXTS"
-                                      :descriptors {:OPERATION-PORTIDS {:REGISTER-ENTITY-REQUESTID :REGISTER-ENTITY-PORTID
-                                                                        :ROUTE-REQUESTID           :ROUTE-PORTID}}
-                                      :classifiers {}
-                                      })
+                #_(k/create-entity env {:name        "ROOT/CONTEXTS"
+                                        :descriptors {:OPERATION-PORTIDS {:REGISTER-ENTITY-REQUESTID :REGISTER-ENTITY-PORTID
+                                                                          :ROUTE-REQUESTID           :ROUTE-PORTID}}
+                                        :classifiers {}
+                                        })
                 ;contexts-request-port
-                #_ (k/request-port contexts)
+                #_(k/request-port contexts)
                 ;env
                 ;(assoc env :CONTEXTS-ENTITY contexts)
                 ;env
-                #_ (assoc env :CONTEXTS-REQUEST-PORT contexts-request-port)
+                #_(assoc env :CONTEXTS-REQUEST-PORT contexts-request-port)
                 return-port0
                 (a/chan)
-                #_ (doseq [request-params s1/script1]
+                #_(doseq [request-params s1/script1]
                     (let [request-params
                           (assoc request-params :requestid :ROUTE-REQUESTID)
                           request-params
@@ -47,42 +47,42 @@
                       (k/request-exception-check (a/<! return-port0))))
                 return-port4
                 (a/chan)
-                #_ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
+                #_(a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
                                                     :target-requestid :SNAPSHOT
                                                     :target-name      "ROOT/CONTEXTS"
                                                     :return-port      return-port4}])
                 ;contexts-snap
-                #_ (k/request-exception-check (a/<! return-port4))
-                #_ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
+                #_(k/request-exception-check (a/<! return-port4))
+                #_(a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
                                                     :target-requestid :SNAPSHOT
                                                     :target-name      "CONTEXTS/CONTEXT-PROTOTYPE"
                                                     :return-port      return-port4}])
                 ;context-prototype-snap
-                #_ (k/request-exception-check (a/<! return-port4))
-                #_ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
+                #_(k/request-exception-check (a/<! return-port4))
+                #_(a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
                                                     :target-requestid :SNAPSHOT
                                                     :target-name      "CONTEXTS/MAIN"
                                                     :return-port      return-port4}])
                 ;context-snap
-                #_ (k/request-exception-check (a/<! return-port4))
-                #_ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
+                #_(k/request-exception-check (a/<! return-port4))
+                #_(a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
                                                     :target-requestid :SNAPSHOT
                                                     :target-name      "MAIN/SIMPLE-PROTOTYPE"
                                                     :return-port      return-port4}])
                 ;simple-prototype
-                #_ (k/request-exception-check (a/<! return-port4))
-                #_ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
+                #_(k/request-exception-check (a/<! return-port4))
+                #_(a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
                                                     :target-requestid :SNAPSHOT
                                                     :target-name      "MAIN/SIMPLE_1"
                                                     :return-port      return-port4}])
                 ;simple1-snap
-                #_ (k/request-exception-check (a/<! return-port4))
-                #_ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
+                #_(k/request-exception-check (a/<! return-port4))
+                #_(a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
                                                     :target-requestid :SNAPSHOT
                                                     :target-name      "MAIN/SIMPLE_2"
                                                     :return-port      return-port4}])
                 ;simple2-snap
-                #_ (k/request-exception-check (a/<! return-port4))
+                #_(k/request-exception-check (a/<! return-port4))
                 ]
             (a/>! main-out [nil [;contexts-snap
                                  ;context-prototype-snap

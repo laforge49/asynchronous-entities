@@ -24,10 +24,6 @@
         (throw ex)
         val))))
 
-(defn request-port
-  [entity]
-  (first entity))
-
 (defn volatile-map
   [entity]
   (second entity))
@@ -45,71 +41,66 @@
     port))
 
 (defn create-operation-dispatcher
-  [env params]
-  (let [this-entity
-        (:this-entity params)
-        this-volatile-map
-        (volatile-map this-entity)
-        this-name
-        (:NAME @this-volatile-map)
-        ]
-    (a/go-loop []
-      (let [this-request-port-stack
-            (:REQUEST-PORT-STACK @this-volatile-map)
-            this-request-port
-            (peek this-request-port-stack)
-            env-params
-            (a/<! this-request-port)
-            _ (if (not (vector? env-params))
-                (stacktrace/print-stack-trace (Exception. (prn-str "Request is not a vector: " env-params))))
-            [env params]
-            env-params
-            return-port
-            (:return-port params)]
-        (try
-          (let [descriptors
-                (:DESCRIPTORS @this-volatile-map)
-                this-operation-portid-map
-                (:OPERATION-PORTIDS descriptors)
-                env
-                (assoc env :this-entity this-entity)
-                request
-                (:requestid params)
-                operation-port-id
-                (request this-operation-portid-map)
-                return-value
-                (case request
-                  :SNAPSHOT
-                  @this-volatile-map
-                  :PUSH-REQUEST-PORT
-                  (let [new-request-port
-                        (:new-request-port params)
-                        federated-entity-request-ports
-                        (:federated-entity-request-ports params)
-                        saved-entity-map
-                        @this-volatile-map]
-                    (vswap! this-volatile-map assoc :REQUEST-PORT-STACK (conj this-request-port-stack new-request-port))
-                    (vswap! this-volatile-map assoc :FEDERATED-ENTITY-REQUEST-PORTS federated-entity-request-ports)
-                    saved-entity-map)
-                  :POP-REQUEST-PORT
-                  (let []
-                    (vswap! this-volatile-map assoc :REQUEST-PORT-STACK (pop this-request-port-stack))
-                    @this-volatile-map)
-                  :RESET
-                  (let [saved-entity-map
-                        (:saved-entity-map params)]
-                    (vreset! this-volatile-map saved-entity-map))
-                  (let [operation-port
-                        (operation-port-id @operation-port-map-atom)
-                        operation-return-port
-                        (a/chan)]
-                    (a/>! operation-port [env (assoc params :operation-return-port operation-return-port)])
-                    (operation-exception-check (a/<! operation-return-port))))]
-            (if (not= return-value :NO-RETURN)
-              (a/>! return-port [nil return-value])))
-          (catch Exception e
-            (a/>! return-port [e nil])))
-        (recur)))))
+  [this-map]
+  (a/go-loop [this-map this-map]
+    (let [this-request-port-stack
+          (:REQUEST-PORT-STACK this-map)
+          this-request-port
+          (peek this-request-port-stack)
+          env-params
+          (a/<! this-request-port)
+          _ (if (not (vector? env-params))
+              (stacktrace/print-stack-trace (Exception. (prn-str "Request is not a vector: " env-params))))
+          [env params]
+          env-params
+          return-port
+          (:return-port params)
+          descriptors
+          (:DESCRIPTORS this-map)
+          this-operation-portid-map
+          (:OPERATION-PORTIDS descriptors)
+          env
+          (assoc env :this-map this-map)
+          requestid
+          (:requestid params)
+          operation-port-id
+          (requestid this-operation-portid-map)
+          [this-map return-value]
+          (case requestid
+            :SNAPSHOT
+            [this-map this-map]
+            :PUSH-REQUEST-PORT
+            (let [new-request-port
+                  (:new-request-port params)
+                  federated-entity-request-ports
+                  (:federated-entity-request-ports params)
+                  saved-map
+                  this-map
+                  this-map
+                  (assoc this-map :REQUEST-PORT-STACK (conj this-request-port-stack new-request-port))
+                  this-map
+                  (assoc this-map :FEDERATED-ENTITY-REQUEST-PORTS federated-entity-request-ports)]
+              [this-map saved-map])
+            :POP-REQUEST-PORT
+            (let [this-map
+                  (assoc this-map :REQUEST-PORT-STACK (pop this-request-port-stack))]
+              [this-map this-map])
+            :RESET
+            (let [this-map
+                  (:saved-map params)]
+              [this-map this-map])
+            (let [operation-port
+                  (operation-port-id @operation-port-map-atom)
+                  operation-return-port
+                  (a/chan)]
+              (a/>! operation-port [env (assoc params :operation-return-port operation-return-port)])
+              (try
+                (operation-exception-check (a/<! operation-return-port))
+                (catch Exception e
+                  (a/>! return-port [e nil])))))]
+      (if (not= return-value :NO-RETURN)
+        (a/>! return-port [nil return-value]))
+      (recur this-map))))
 
 (defn create-entity
   [env params]
@@ -130,11 +121,6 @@
          :CHILDVECTORS       {}
          :PARENTVECTORS      {}
          :REQUEST-PORT-STACK request-port-stack}
-        new-entity-volatile-map
-        (volatile! new-entity-map)
-        new-entity
-        [new-request-port new-entity-volatile-map]
         ]
-    (create-operation-dispatcher env {:this-entity new-entity})
-    new-entity
-    ))
+    (create-operation-dispatcher new-entity-map)
+    new-request-port))
