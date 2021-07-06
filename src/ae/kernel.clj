@@ -24,10 +24,6 @@
         (throw ex)
         val))))
 
-(defn volatile-map
-  [entity]
-  (second entity))
-
 (def operation-port-map-atom
   (atom {}))
 
