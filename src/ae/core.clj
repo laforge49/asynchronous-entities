@@ -67,25 +67,25 @@
                                                     :return-port      return-port4}])
                 simple-prototype
                 (k/request-exception-check (a/<! return-port4))
-                #_ (a/>! contexts-public-request-port [env {:requestid        :ROUTE-REQUESTID
+                _ (a/>! contexts-public-request-port [env {:requestid        :ROUTE-REQUESTID
                                                     :target-requestid :SNAPSHOT
                                                     :target-name      "MAIN/SIMPLE_1"
                                                     :return-port      return-port4}])
-                ;simple1-snap
-                #_ (k/request-exception-check (a/<! return-port4))
-                #_ (a/>! contexts-public-request-port [env {:requestid        :ROUTE-REQUESTID
+                simple1-snap
+                (k/request-exception-check (a/<! return-port4))
+                _ (a/>! contexts-public-request-port [env {:requestid        :ROUTE-REQUESTID
                                                     :target-requestid :SNAPSHOT
                                                     :target-name      "MAIN/SIMPLE_2"
                                                     :return-port      return-port4}])
-                ;simple2-snap
-                #_ (k/request-exception-check (a/<! return-port4))
+                simple2-snap
+                (k/request-exception-check (a/<! return-port4))
                 ]
             (a/>! main-out [nil [contexts-snap
                                  context-prototype-snap
                                  context-snap
                                  simple-prototype
-                                 ;simple1-snap
-                                 ;simple2-snap
+                                 simple1-snap
+                                 simple2-snap
                                  ]]))
           (catch Exception e
             (a/>! main-out [e nil])))))

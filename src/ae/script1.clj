@@ -23,11 +23,11 @@
                        :PROTOTYPE-CLASSIFIERS {}}
     :classifiers      {}
     }
-   #_ {:target-requestid :INSTANTIATE-REQUESTID
+   {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "MAIN/SIMPLE-PROTOTYPE"
     :name             "MAIN/SIMPLE_1"
     }
-   #_ {:target-requestid :INSTANTIATE-REQUESTID
+   {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "MAIN/SIMPLE-PROTOTYPE"
     :name             "MAIN/SIMPLE_2"
     }
