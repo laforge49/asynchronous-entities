@@ -55,9 +55,9 @@
             [target-entity-kw target-context-base-name _]
             (kw/name-as-keyword target-entity-name)]
         (if (= this-name target-entity-name)
-          (let [- (a/>! operation-return-port [this-map nil :NO-RETURN])
-                target-request
+          (let [target-request
                 (:target-requestid params)]
+            (a/>! operation-return-port [this-map nil :NO-RETURN])
             (a/>! active-request-port [env
                                        (assoc params :requestid target-request)]))
           (if (= this-base-name target-context-base-name)
