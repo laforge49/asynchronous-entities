@@ -14,7 +14,7 @@
     :target-name      "CONTEXTS/CONTEXT-PROTOTYPE"
     :name             "CONTEXTS/MAIN"
     }
-   #_ {:target-requestid :REGISTER-ENTITY-REQUESTID
+   {:target-requestid :REGISTER-ENTITY-REQUESTID
     :target-name      "CONTEXTS/MAIN"
     :name             "MAIN/SIMPLE-PROTOTYPE"
     :descriptors      {:OPERATION-PORTIDS     {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}
