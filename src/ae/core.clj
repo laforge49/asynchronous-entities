@@ -49,12 +49,12 @@
                                                     :return-port      return-port4}])
                 contexts-snap
                 (k/request-exception-check (a/<! return-port4))
-                #_ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
+                _ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
                                                     :target-requestid :SNAPSHOT
                                                     :target-name      "CONTEXTS/CONTEXT-PROTOTYPE"
                                                     :return-port      return-port4}])
-                ;context-prototype-snap
-                #_ (k/request-exception-check (a/<! return-port4))
+                context-prototype-snap
+                (k/request-exception-check (a/<! return-port4))
                 #_ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
                                                     :target-requestid :SNAPSHOT
                                                     :target-name      "CONTEXTS/MAIN"
@@ -81,7 +81,7 @@
                 #_ (k/request-exception-check (a/<! return-port4))
                 ]
             (a/>! main-out [nil [contexts-snap
-                                 ;context-prototype-snap
+                                 context-prototype-snap
                                  ;context-snap
                                  ;simple-prototype
                                  ;simple1-snap
