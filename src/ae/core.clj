@@ -23,22 +23,22 @@
         (try
           (let [env
                 {}
-                _ (create-operations env)
-                contexts
-                (k/create-entity env {:name        "ROOT/CONTEXTS"
+                #_ (create-operations env)
+                ;contexts
+                #_ (k/create-entity env {:name        "ROOT/CONTEXTS"
                                       :descriptors {:OPERATION-PORTIDS {:REGISTER-ENTITY-REQUESTID :REGISTER-ENTITY-PORTID
                                                                         :ROUTE-REQUESTID           :ROUTE-PORTID}}
                                       :classifiers {}
                                       })
-                contexts-request-port
-                (k/request-port contexts)
+                ;contexts-request-port
+                #_ (k/request-port contexts)
                 ;env
                 ;(assoc env :CONTEXTS-ENTITY contexts)
-                env
-                (assoc env :CONTEXTS-REQUEST-PORT contexts-request-port)
+                ;env
+                #_ (assoc env :CONTEXTS-REQUEST-PORT contexts-request-port)
                 return-port0
                 (a/chan)
-                _ (doseq [request-params s1/script1]
+                #_ (doseq [request-params s1/script1]
                     (let [request-params
                           (assoc request-params :requestid :ROUTE-REQUESTID)
                           request-params
