@@ -31,7 +31,7 @@
     :target-name      "MAIN/SIMPLE-PROTOTYPE"
     :name             "MAIN/SIMPLE_2"
     }
-   #_ {:target-requestid  :ADD-RELATIONSHIP-REQUESTID
+   {:target-requestid  :ADD-RELATIONSHIP-REQUESTID
     :target-name       "MAIN/SIMPLE_1"
     :relationship      :BASIC
     :child-entity-name "MAIN/SIMPLE_2"
