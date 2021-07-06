@@ -5,24 +5,16 @@
             [ae.keywords :as kw]))
 
 (defn request-exception-check
-  [return-value]
-  (if (not (vector? return-value))
-    (throw (Exception. (prn-str "Return value is not a vector " return-value)))
-    (let [[ex val]
-          return-value]
-      (if (some? ex)
-        (throw ex)
-        val))))
-
-(defn operation-exception-check
-  [return-value]
-  (if (not (vector? return-value))
-    (throw (Exception. (prn-str "Return value is not a vector " return-value)))
-    (let [[ex val]
-          return-value]
-      (if (some? ex)
-        (throw ex)
-        val))))
+  [request-return-value]
+  (if (not (vector? request-return-value))
+    (throw (Exception. (prn-str "Request return value is not a vector " request-return-value)))
+    (if (not= (count request-return-value) 2)
+      (throw (Exception. (prn-str "Request return value is not a 2-tuple " request-return-value)))
+      (let [[ex val]
+            request-return-value]
+        (if (some? ex)
+          (throw ex)
+          val)))))
 
 (def operation-port-map-atom
   (atom {}))
@@ -41,8 +33,12 @@
   (a/go-loop [this-map this-map]
     (let [this-request-port-stack
           (:REQUEST-PORT-STACK this-map)
+          _ (if (nil? this-request-port-stack)
+              (stacktrace/print-stack-trace (Exception. "This request port stack is nil")))
           this-request-port
           (peek this-request-port-stack)
+          _ (if (nil? this-request-port)
+              (stacktrace/print-stack-trace (Exception. "This request port is nil")))
           request
           (a/<! this-request-port)
           _ (if (not (vector? request))
@@ -61,10 +57,10 @@
           (assoc env :this-map this-map)
           requestid
           (:requestid params)
-          [this-map return-value]
+          [this-map e return-value]
           (case requestid
             :SNAPSHOT
-            [this-map this-map]
+            [this-map nil this-map]
             :PUSH-REQUEST-PORT
             (let [new-request-port
                   (:new-request-port params)
@@ -76,39 +72,47 @@
                   (assoc this-map :REQUEST-PORT-STACK (conj this-request-port-stack new-request-port))
                   this-map
                   (assoc this-map :FEDERATED-ENTITY-REQUEST-PORTS federated-entity-request-ports)]
-              [this-map saved-map])
+              [this-map nil saved-map])
             :POP-REQUEST-PORT
             (let [this-map
                   (assoc this-map :REQUEST-PORT-STACK (pop this-request-port-stack))]
-              [this-map this-map])
+              [this-map nil this-map])
             :RESET
             (let [this-map
                   (:saved-map params)]
-              [this-map this-map])
+              [this-map nil this-map])
             ;;DEFAULT
             (let [operation-port-id
                   (requestid this-operation-portid-map)
                   operation-port
                   (operation-port-id @operation-port-map-atom)
                   operation-return-port
-                  (a/chan)]
-              (if (nil? operation-port-id)
-                (a/>! return-port [(Exception. (str "Operation port id is nil for params " params))
-                                   nil])
-                (if (nil? operation-port)
-                  (a/>! return-port [(Exception. (str "Operation port is nil for params " params))
-                                     nil])
-                  (a/>! operation-port [env (assoc params :operation-return-port operation-return-port)])))
-              (println (prn-str 123)
-                       (try
-                         (operation-exception-check (a/<! operation-return-port))
-                         (catch Exception e
-                           (a/>! return-port [e nil])
-                           )
-                         ))
-              ))]
-      (if (not= return-value :NO-RETURN)
-        (a/>! return-port [nil return-value]))
+                  (a/chan)
+                  [this-map e return-value]
+                  (if (nil? operation-port-id)
+                    [this-map
+                     (Exception. (str "Operation port id is nil for params " params))
+                     nil]
+                    (if (nil? operation-port)
+                      [this-map
+                       (Exception. (str "Operation port is nil for params " params))
+                       nil]
+                      (let [- (a/>! operation-port [env (assoc params :operation-return-port operation-return-port)])
+                            operation-return-value
+                            (a/<! operation-return-port)]
+                        (if (not (vector? operation-return-value))
+                          [this-map
+                           (Exception. (str "Operation return value is not a vector: " operation-return-value))
+                           nil]
+                          (if (not= (count operation-return-value) 3)
+                            [this-map
+                             (Exception. (str "Operation return value is not a 3-tuple: " operation-return-value))
+                             nil]
+                          operation-return-value)))))]))]
+      (if (some? e)
+        (a/>! return-port [e nil])
+        (if (not= return-value :NO-RETURN)
+          (a/>! return-port [nil return-value])))
       (recur this-map))))
 
 (defn create-entity
