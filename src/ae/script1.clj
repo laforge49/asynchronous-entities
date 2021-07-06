@@ -1,7 +1,7 @@
 (ns ae.script1)
 
 (def script1
-  [#_ {:target-requestid :REGISTER-ENTITY-REQUESTID
+  [{:target-requestid :REGISTER-ENTITY-REQUESTID
     :target-name      "ROOT/CONTEXTS"
     :name             "CONTEXTS/CONTEXT-PROTOTYPE"
     :descriptors      {:OPERATION-PORTIDS     {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}

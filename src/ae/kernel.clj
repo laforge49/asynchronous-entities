@@ -43,14 +43,16 @@
           (:REQUEST-PORT-STACK this-map)
           this-request-port
           (peek this-request-port-stack)
-          env-params
+          request
           (a/<! this-request-port)
-          _ (if (not (vector? env-params))
-              (stacktrace/print-stack-trace (Exception. (prn-str "Request is not a vector: " env-params))))
+          _ (if (not (vector? request))
+              (stacktrace/print-stack-trace (Exception. (prn-str "Request is not a vector: " request))))
           [env params]
-          env-params
+          request
           return-port
           (:return-port params)
+          _ (if (nil? return-port)
+              (stacktrace/print-stack-trace (Exception. (prn-str "Return port is nil for params: " params))))
           descriptors
           (:DESCRIPTORS this-map)
           this-operation-portid-map
@@ -59,8 +61,6 @@
           (assoc env :this-map this-map)
           requestid
           (:requestid params)
-          operation-port-id
-          (requestid this-operation-portid-map)
           [this-map return-value]
           (case requestid
             :SNAPSHOT
@@ -85,15 +85,28 @@
             (let [this-map
                   (:saved-map params)]
               [this-map this-map])
-            (let [operation-port
+            ;;DEFAULT
+            (let [operation-port-id
+                  (requestid this-operation-portid-map)
+                  operation-port
                   (operation-port-id @operation-port-map-atom)
                   operation-return-port
                   (a/chan)]
-              (a/>! operation-port [env (assoc params :operation-return-port operation-return-port)])
-              (try
-                (operation-exception-check (a/<! operation-return-port))
-                (catch Exception e
-                  (a/>! return-port [e nil])))))]
+              (if (nil? operation-port-id)
+                (a/>! return-port [(Exception. (str "Operation port id is nil for params " params))
+                                   nil])
+                (if (nil? operation-port)
+                  (a/>! return-port [(Exception. (str "Operation port is nil for params " params))
+                                     nil])
+                  (a/>! operation-port [env (assoc params :operation-return-port operation-return-port)])))
+              (println (prn-str 123)
+                       (try
+                         (operation-exception-check (a/<! operation-return-port))
+                         (catch Exception e
+                           (a/>! return-port [e nil])
+                           )
+                         ))
+              ))]
       (if (not= return-value :NO-RETURN)
         (a/>! return-port [nil return-value]))
       (recur this-map))))
