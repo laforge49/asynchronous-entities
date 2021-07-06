@@ -27,7 +27,7 @@
         (a/>! operation-return-port [this-map nil this-map])
         (recur)))))
 
-#_ (defn create-add-relationship-operation
+(defn create-add-relationship-operation
   [env]
   (let [add-relationship-port
         (k/register-operation-port env {:operation-portid :ADD-RELATIONSHIP-PORTID})]
@@ -117,6 +117,6 @@
 (defn create-entity-operations
   [env]
   (create-add-parent-operation env)
-  ;(create-add-relationship-operation env)
+  (create-add-relationship-operation env)
   (create-instantiate-operation env)
   )
