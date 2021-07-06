@@ -3,32 +3,28 @@
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
-#_ (defn create-add-parent-operation
+(defn create-add-parent-operation
   [env]
   (let [add-parent-port
         (k/register-operation-port env {:operation-portid :ADD-PARENT-PORTID})]
     (a/go-loop []
       (let [[env params]
             (a/<! add-parent-port)
-            this-entity
-            (:this-entity env)
-            this-volatile-map
-            (k/volatile-map this-entity)
-            this-name
-            (:NAME @this-volatile-map)
+            this-map
+            (:this-map env)
             parent-entity-name
             (:parent-entity-name params)
             relationship
             (:relationship params)
             operation-return-port
-            (:operation-return-port params)]
-        (vswap! this-volatile-map (fn [old]
-                                    (let [relationship-parents
-                                          (get-in this-entity [:PARENTVECTORS relationship] [])
-                                          relationship-parents
-                                          (conj relationship-parents parent-entity-name)]
-                                      (assoc-in old [:PARENTVECTORS relationship] relationship-parents))))
-        (a/>! operation-return-port [nil this-entity])
+            (:operation-return-port params)
+            relationship-parents
+            (get-in this-map [:PARENTVECTORS relationship] [])
+            relationship-parents
+            (conj relationship-parents parent-entity-name)
+            this-map
+            (assoc-in this-map [:PARENTVECTORS relationship] relationship-parents)]
+        (a/>! operation-return-port [this-map nil this-map])
         (recur)))))
 
 #_ (defn create-add-relationship-operation
@@ -120,7 +116,7 @@
 
 (defn create-entity-operations
   [env]
-  ;(create-add-parent-operation env)
+  (create-add-parent-operation env)
   ;(create-add-relationship-operation env)
   (create-instantiate-operation env)
   )
