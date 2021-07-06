@@ -44,52 +44,53 @@
                           request-params
                           (assoc request-params :return-port return-port0)]
                       (a/>! contexts-request-port [env request-params])
-                      (k/exception-check (a/<! return-port0))))
+                      (k/request-exception-check (a/<! return-port0))))
                 return-port4
                 (a/chan)
-                _ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
+                #_ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
                                                     :target-requestid :SNAPSHOT
                                                     :target-name      "ROOT/CONTEXTS"
                                                     :return-port      return-port4}])
-                contexts-snap
-                (k/exception-check (a/<! return-port4))
-                _ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
+                ;contexts-snap
+                #_ (k/request-exception-check (a/<! return-port4))
+                #_ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
                                                     :target-requestid :SNAPSHOT
                                                     :target-name      "CONTEXTS/CONTEXT-PROTOTYPE"
                                                     :return-port      return-port4}])
-                context-prototype-snap
-                (k/exception-check (a/<! return-port4))
-                _ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
+                ;context-prototype-snap
+                #_ (k/request-exception-check (a/<! return-port4))
+                #_ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
                                                     :target-requestid :SNAPSHOT
                                                     :target-name      "CONTEXTS/MAIN"
                                                     :return-port      return-port4}])
-                context-snap
-                (k/exception-check (a/<! return-port4))
-                _ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
+                ;context-snap
+                #_ (k/request-exception-check (a/<! return-port4))
+                #_ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
                                                     :target-requestid :SNAPSHOT
                                                     :target-name      "MAIN/SIMPLE-PROTOTYPE"
                                                     :return-port      return-port4}])
-                simple-prototype
-                (k/exception-check (a/<! return-port4))
-                _ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
+                ;simple-prototype
+                #_ (k/request-exception-check (a/<! return-port4))
+                #_ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
                                                     :target-requestid :SNAPSHOT
                                                     :target-name      "MAIN/SIMPLE_1"
                                                     :return-port      return-port4}])
-                simple1-snap
-                (k/exception-check (a/<! return-port4))
-                _ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
+                ;simple1-snap
+                #_ (k/request-exception-check (a/<! return-port4))
+                #_ (a/>! contexts-request-port [env {:requestid        :ROUTE-REQUESTID
                                                     :target-requestid :SNAPSHOT
                                                     :target-name      "MAIN/SIMPLE_2"
                                                     :return-port      return-port4}])
-                simple2-snap
-                (k/exception-check (a/<! return-port4))
+                ;simple2-snap
+                #_ (k/request-exception-check (a/<! return-port4))
                 ]
-            (a/>! main-out [nil [contexts-snap
-                                 context-prototype-snap
-                                 context-snap
-                                 simple-prototype
-                                 simple1-snap
-                                 simple2-snap]]))
+            (a/>! main-out [nil [;contexts-snap
+                                 ;context-prototype-snap
+                                 ;context-snap
+                                 ;simple-prototype
+                                 ;simple1-snap
+                                 ;simple2-snap
+                                 ]]))
           (catch Exception e
             (a/>! main-out [e nil])))))
     main-in))
@@ -103,7 +104,7 @@
           main-out
           (a/chan)]
       (a/>!! main-in main-out)
-      (doseq [s (k/exception-check (a/<!! main-out))]
+      (doseq [s (k/request-exception-check (a/<!! main-out))]
         (println "\n" (pr-str s))))
     (catch Exception e
       (stacktrace/print-stack-trace e))))

@@ -4,7 +4,17 @@
             [clojure.stacktrace :as stacktrace]
             [ae.keywords :as kw]))
 
-(defn exception-check
+(defn request-exception-check
+  [return-value]
+  (if (not (vector? return-value))
+    (throw (Exception. (prn-str "Return value is not a vector " return-value)))
+    (let [[ex val]
+          return-value]
+      (if (some? ex)
+        (throw ex)
+        val))))
+
+(defn operation-exception-check
   [return-value]
   (if (not (vector? return-value))
     (throw (Exception. (prn-str "Return value is not a vector " return-value)))
@@ -94,7 +104,7 @@
                         operation-return-port
                         (a/chan)]
                     (a/>! operation-port [env (assoc params :operation-return-port operation-return-port)])
-                    (exception-check (a/<! operation-return-port))))]
+                    (operation-exception-check (a/<! operation-return-port))))]
             (if (not= return-value :NO-RETURN)
               (a/>! return-port [nil return-value])))
           (catch Exception e

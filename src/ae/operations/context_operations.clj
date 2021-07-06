@@ -3,7 +3,7 @@
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
-(defn create-register-entity-operation
+#_ (defn create-register-entity-operation
   [env]
   (let [entity-registration-port
         (k/register-operation-port env {:operation-portid :REGISTER-ENTITY-PORTID})]
@@ -32,7 +32,7 @@
         (a/>! operation-return-port [nil new-entity])
         (recur)))))
 
-(defn create-route-operation
+#_ (defn create-route-operation
   [env]
   (let [route-to-local-entity-port
         (k/register-operation-port env {:operation-portid :ROUTE-PORTID})]
@@ -85,6 +85,8 @@
                   (:ENTITIES @this-volatile-map)
                   target-context-entity
                   (target-context-entity-kw context-entities)
+                  _ (if (nil? target-context-entity)
+                      (throw (Exception. (str "Entity " this-base-name "/" target-context-base-name " is not registered in " this-name))))
                   target-context-entity-request-port
                   (k/request-port target-context-entity)
                   ]
@@ -94,6 +96,6 @@
 
 (defn create-context-operations
   [env]
-  (create-register-entity-operation env)
-  (create-route-operation env)
+  ;(create-register-entity-operation env)
+  ;(create-route-operation env)
   )

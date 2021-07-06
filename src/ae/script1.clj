@@ -1,7 +1,7 @@
 (ns ae.script1)
 
 (def script1
-  [{:target-requestid :REGISTER-ENTITY-REQUESTID
+  [#_ {:target-requestid :REGISTER-ENTITY-REQUESTID
     :target-name      "ROOT/CONTEXTS"
     :name             "CONTEXTS/CONTEXT-PROTOTYPE"
     :descriptors      {:OPERATION-PORTIDS     {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}
@@ -10,11 +10,11 @@
                        :PROTOTYPE-CLASSIFIERS {}}
     :classifiers      {}
     }
-   {:target-requestid :INSTANTIATE-REQUESTID
+   #_ {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/CONTEXT-PROTOTYPE"
     :name             "CONTEXTS/MAIN"
     }
-   {:target-requestid :REGISTER-ENTITY-REQUESTID
+   #_ {:target-requestid :REGISTER-ENTITY-REQUESTID
     :target-name      "CONTEXTS/MAIN"
     :name             "MAIN/SIMPLE-PROTOTYPE"
     :descriptors      {:OPERATION-PORTIDS     {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}
@@ -23,15 +23,20 @@
                        :PROTOTYPE-CLASSIFIERS {}}
     :classifiers      {}
     }
-   {:target-requestid :INSTANTIATE-REQUESTID
+   #_ {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "MAIN/SIMPLE-PROTOTYPE"
     :name             "MAIN/SIMPLE_1"
     }
-   {:target-requestid :INSTANTIATE-REQUESTID
+   #_ {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "MAIN/SIMPLE-PROTOTYPE"
     :name             "MAIN/SIMPLE_2"
     }
-   {:target-requestid  :ADD-RELATIONSHIP-REQUESTID
+   #_ {:target-requestid  :ADD-RELATIONSHIP-REQUESTID
+    :target-name       "MAIN/SIMPLE_1"
+    :relationship      :BASIC
+    :child-entity-name "MAIN/SIMPLE_2"
+    }
+   #_ {:target-requestid  :ADD-RELATIONSHIP-REQUESTID
     :target-name       "MAIN/SIMPLE_1"
     :relationship      :BASIC
     :child-entity-name "MAIN/SIMPLE_2"
