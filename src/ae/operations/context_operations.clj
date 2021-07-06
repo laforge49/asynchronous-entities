@@ -65,24 +65,26 @@
                   (:ENTITY-PUBLIC-REQUEST-PORTS this-map)
                   target-entity-request-port
                   (target-entity-kw entity-public-request-ports)
-                  _ (a/>! operation-return-port [this-map
-                                                 (if (nil? target-entity-request-port)
-                                                   (Exception. (str "Entity " target-entity-name " is not registered in " this-name))
-                                                   nil)
-                                                 :NO-RETURN])
                   target-requestid
                   (:target-requestid params)]
+              (a/>! operation-return-port [this-map
+                                           (if (nil? target-entity-request-port)
+                                             (Exception. (str "Entity " target-entity-name " is not registered in " this-name))
+                                             nil)
+                                           :NO-RETURN])
               (a/>! target-entity-request-port [env
                                                 (assoc params :requestid target-requestid)]))
-            (let [- (a/>! operation-return-port [this-map nil :NO-RETURN])
-                  target-context-entity-kw
+            (let [target-context-entity-kw
                   (keyword this-base-name target-context-base-name)
                   entity-public-request-ports
                   (:ENTITY-PUBLIC-REQUEST-PORTS this-map)
                   target-entity-request-port
-                  (target-context-entity-kw entity-public-request-ports)
-                  _ (if (nil? target-entity-request-port)
-                      (throw (Exception. (str "Entity " this-base-name "/" target-context-base-name " is not registered in " this-name))))]
+                  (target-context-entity-kw entity-public-request-ports)]
+              (a/>! operation-return-port [this-map
+                                           (if (nil? target-entity-request-port)
+                                             (Exception. (str "Entity " this-base-name "/" target-context-base-name " is not registered in " this-name))
+                                             nil)
+                                           :NO-RETURN])
               (a/>! target-entity-request-port [env
                                                 (assoc params :requestid :ROUTE-REQUESTID)]))))
         (recur)))))
