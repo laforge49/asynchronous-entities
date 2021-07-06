@@ -44,7 +44,6 @@
             (:operation-return-port params)
             this-map
             (:this-map env)
-            - (a/>! operation-return-port [this-map nil :NO-RETURN])
             active-request-port
             (:active-request-port env)
             this-name
@@ -56,7 +55,8 @@
             [target-entity-kw target-context-base-name _]
             (kw/name-as-keyword target-entity-name)]
         (if (= this-name target-entity-name)
-          (let [target-request
+          (let [- (a/>! operation-return-port [this-map nil :NO-RETURN])
+                target-request
                 (:target-requestid params)]
             (a/>! active-request-port [env
                                        (assoc params :requestid target-request)]))
@@ -65,13 +65,17 @@
                   (:ENTITY-PUBLIC-REQUEST-PORTS this-map)
                   target-entity-request-port
                   (target-entity-kw entity-public-request-ports)
-                  _ (if (nil? target-entity-request-port)
-                      (throw (Exception. (str "Entity " target-entity-name " is not registered in " this-name))))
+                  _ (a/>! operation-return-port [this-map
+                                                 (if (nil? target-entity-request-port)
+                                                   (Exception. (str "Entity " target-entity-name " is not registered in " this-name))
+                                                   nil)
+                                                 :NO-RETURN])
                   target-requestid
                   (:target-requestid params)]
               (a/>! target-entity-request-port [env
                                                 (assoc params :requestid target-requestid)]))
-            (let [target-context-entity-kw
+            (let [- (a/>! operation-return-port [this-map nil :NO-RETURN])
+                  target-context-entity-kw
                   (keyword this-base-name target-context-base-name)
                   entity-public-request-ports
                   (:ENTITY-PUBLIC-REQUEST-PORTS this-map)
