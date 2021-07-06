@@ -3,34 +3,35 @@
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
-#_(defn create-register-entity-operation
-    [env]
-    (let [entity-registration-port
-          (k/register-operation-port env {:operation-portid :REGISTER-ENTITY-PORTID})]
-      (a/go-loop []
-        (let [[env params]
-              (a/<! entity-registration-port)
-              this-entity
-              (:this-entity env)
-              this-volatile-map
-              (k/volatile-map this-entity)
-              this-map
-              @this-volatile-map
-              this-name
-              (:NAME this-map)
-              new-entity-name
-              (:name params)
-              [new-entity-kw _ _]
-              (kw/name-as-keyword new-entity-name)
-              _ (if (some? (get-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw]))
-                  (throw (Exception. (str "Entity " new-entity-name " already exists in " this-name))))
-              new-entity
-              (k/create-entity env params)
-              operation-return-port
-              (:operation-return-port params)]
-          (vswap! this-volatile-map assoc-in [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw] new-entity)
-          (a/>! operation-return-port [nil new-entity])
-          (recur)))))
+(defn create-register-entity-operation
+  [env]
+  (let [entity-registration-port
+        (k/register-operation-port env {:operation-portid :REGISTER-ENTITY-PORTID})]
+    (a/go-loop []
+      (let [[env params]
+            (a/<! entity-registration-port)
+            operation-return-port
+            (:operation-return-port params)
+            this-map
+            (:this-map env)
+            this-name
+            (:NAME this-map)
+            new-entity-name
+            (:name params)
+            [new-entity-kw _ _]
+            (kw/name-as-keyword new-entity-name)]
+        (if (some? (get-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw]))
+          (a/>! operation-return-port [this-map
+                                       (Exception. (str "Entity " new-entity-name " already exists in " this-name))
+                                       nil])
+          (let [new-entity-public-request-port
+                (k/create-entity env params)
+                this-map
+                (assoc-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw] new-entity-public-request-port)]
+            (a/>! operation-return-port [this-map
+                                         nil
+                                         new-entity-public-request-port])
+            (recur)))))))
 
 (defn create-route-operation
   [env]
@@ -91,6 +92,6 @@
 
 (defn create-context-operations
   [env]
-  ;(create-register-entity-operation env)
+  (create-register-entity-operation env)
   (create-route-operation env)
   )

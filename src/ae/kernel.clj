@@ -45,9 +45,6 @@
                     (stacktrace/print-stack-trace (Exception. (prn-str "Request is not a vector: " request))))
                 [env params]
                 request
-
-                _ (println (prn-str :dispatch-a-request params))
-
                 return-port
                 (:return-port params)
                 _ (if (nil? return-port)
