@@ -120,10 +120,10 @@
 
 (defn create-entity
   [env params]
-  (let [new-request-port
+  (let [new-public-request-port
         (a/chan)
         request-port-stack
-        [new-request-port]
+        [new-public-request-port]
         initialization-port
         (:initialization-port params)
         request-port-stack
@@ -139,4 +139,4 @@
          :REQUEST-PORT-STACK request-port-stack}
         ]
     (create-operation-dispatcher new-entity-map)
-    new-request-port))
+    new-public-request-port))

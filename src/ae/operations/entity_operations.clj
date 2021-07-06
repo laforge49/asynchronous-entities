@@ -53,7 +53,7 @@
             operation-return-port
             (:operation-return-port params)
             contexts-request-port
-            (:CONTEXTS-REQUEST-PORT env)
+            (:CONTEXTS-PUBLIC-REQUEST-PORT env)
             add-parent-return-port
             (a/chan)]
         (println :??????)
@@ -88,17 +88,13 @@
             (a/<! instantiate-port)
             operation-return-port
             (:operation-return-port params)
-            - (a/>! operation-return-port [nil :NO-RETURN])
+            this-map
+            (:this-map env)
+            - (a/>! operation-return-port [this-map nil :NO-RETURN])
             new-entity-name
             (:name params)
             [_ new-entity-context-base-name _]
             (kw/name-as-keyword new-entity-name)
-            this-entity
-            (:this-entity env)
-            this-volatile-map
-            (k/volatile-map this-entity)
-            this-map
-            @this-volatile-map
             this-descriptors
             (:DESCRIPTORS this-map)
             prototype-descriptors
@@ -109,8 +105,8 @@
             (if (= new-entity-context-base-name "CONTEXTS")
               (str "ROOT/CONTEXTS")
               (str "CONTEXTS/" new-entity-context-base-name))
-            contexts-request-port
-            (:CONTEXTS-REQUEST-PORT env)
+            contexts-public-request-port
+            (:CONTEXTS-PUBLIC-REQUEST-PORT env)
             params
             (-> params
                 (assoc :requestid :ROUTE-REQUESTID)
@@ -119,7 +115,7 @@
                 (assoc :descriptors prototype-descriptors)
                 (assoc :classifiers prototype-classifiers)
                 )]
-        (a/>! contexts-request-port [env params])
+        (a/>! contexts-public-request-port [env params])
         (recur)))))
 
 (defn create-entity-operations
