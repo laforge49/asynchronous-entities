@@ -58,6 +58,8 @@
                 (:OPERATION-PORTIDS descriptors)
                 env
                 (assoc env :this-map this-map)
+                env
+                (assoc env :active-request-port this-request-port)
                 requestid
                 (:requestid params)
                 [this-map e return-value]
