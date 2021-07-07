@@ -5,9 +5,7 @@
     :target-name      "ROOT/CONTEXTS"
     :name             "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :descriptors      {:OPERATION-PORTIDS     {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}
-                       :READ-ONLY true
-                       :PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}
-                                               :READ-ONLY true}}
+                       :PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"

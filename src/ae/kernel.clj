@@ -7,9 +7,6 @@
 (def operation-port-map-atom
   (atom {}))
 
-(def read-only-entity-set-atom
-  (atom #{}))
-
 (defn request-exception-check
   [request-return-value]
   (if (not (vector? request-return-value))
@@ -144,7 +141,5 @@
          :PARENTVECTORS      {}
          :REQUEST-PORT-STACK request-port-stack}
         ]
-    (if (:READ-ONLY descriptors)
-      (swap! read-only-entity-set-atom conj name))
     (create-operation-dispatcher new-entity-map)
     new-public-request-port))
