@@ -4,6 +4,12 @@
             [clojure.stacktrace :as stacktrace]
             [ae.keywords :as kw]))
 
+(def operation-port-map-atom
+  (atom {}))
+
+(def read-only-entity-set-atom
+  (atom #{}))
+
 (defn request-exception-check
   [request-return-value]
   (if (not (vector? request-return-value))
@@ -15,9 +21,6 @@
         (if (some? ex)
           (throw ex)
           val)))))
-
-(def operation-port-map-atom
-  (atom {}))
 
 (defn register-operation-port
   [env params]
@@ -130,13 +133,18 @@
         (if (nil? initialization-port)
           request-port-stack
           (conj request-port-stack initialization-port))
+        descriptors
+        (:descriptors params)
+        name
+        (:name params)
         new-entity-map
-        {:NAME               (:name params)
-         :DESCRIPTORS        (:descriptors params)
-         :CLASSIFIERS        (:classifiers params)
+        {:NAME               name
+         :DESCRIPTORS        descriptors
          :CHILDVECTORS       {}
          :PARENTVECTORS      {}
          :REQUEST-PORT-STACK request-port-stack}
         ]
+    (if (:READ-ONLY descriptors)
+      (swap! read-only-entity-set-atom conj name))
     (create-operation-dispatcher new-entity-map)
     new-public-request-port))

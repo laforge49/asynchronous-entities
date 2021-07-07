@@ -5,9 +5,9 @@
     :target-name      "ROOT/CONTEXTS"
     :name             "CONTEXTS/CONTEXT-PROTOTYPE"
     :descriptors      {:OPERATION-PORTIDS     {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}
+                       :READ-ONLY true
                        :PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:REGISTER-ENTITY-REQUESTID :REGISTER-ENTITY-PORTID
-                                                                   :ROUTE-REQUESTID           :ROUTE-PORTID}}
-                       :PROTOTYPE-CLASSIFIERS {}}
+                                                                   :ROUTE-REQUESTID           :ROUTE-PORTID}}}
     :classifiers      {}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
@@ -18,9 +18,9 @@
     :target-name      "CONTEXTS/MAIN"
     :name             "MAIN/SIMPLE-PROTOTYPE"
     :descriptors      {:OPERATION-PORTIDS     {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}
+                       :READ-ONLY true
                        :PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:ADD-PARENT-REQUESTID       :ADD-PARENT-PORTID
-                                                                   :ADD-RELATIONSHIP-REQUESTID :ADD-RELATIONSHIP-PORTID}}
-                       :PROTOTYPE-CLASSIFIERS {}}
+                                                                   :ADD-RELATIONSHIP-REQUESTID :ADD-RELATIONSHIP-PORTID}}}
     :classifiers      {}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
