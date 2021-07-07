@@ -3,12 +3,17 @@
 (def script1
   [{:target-requestid :REGISTER-ENTITY-REQUESTID
     :target-name      "ROOT/CONTEXTS"
-    :name             "CONTEXTS/CONTEXT-PROTOTYPE"
+    :name             "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :descriptors      {:OPERATION-PORTIDS     {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}
                        :READ-ONLY true
-                       :PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:REGISTER-ENTITY-REQUESTID :REGISTER-ENTITY-PORTID
+                       :PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}
+                                               :READ-ONLY true}}
+    }
+   {:target-requestid :INSTANTIATE-REQUESTID
+    :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
+    :name             "CONTEXTS/CONTEXT-PROTOTYPE"
+    :descriptors      {:PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:REGISTER-ENTITY-REQUESTID :REGISTER-ENTITY-PORTID
                                                                    :ROUTE-REQUESTID           :ROUTE-PORTID}}}
-    :classifiers      {}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/CONTEXT-PROTOTYPE"
@@ -21,7 +26,6 @@
                        :READ-ONLY true
                        :PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:ADD-PARENT-REQUESTID       :ADD-PARENT-PORTID
                                                                    :ADD-RELATIONSHIP-REQUESTID :ADD-RELATIONSHIP-PORTID}}}
-    :classifiers      {}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "MAIN/SIMPLE-PROTOTYPE"

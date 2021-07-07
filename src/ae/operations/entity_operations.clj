@@ -95,6 +95,8 @@
             (:PROTOTYPE-DESCRIPTORS this-descriptors)
             prototype-descriptors
             (assoc prototype-descriptors :PROTOTYPE this-name)
+            prototype-descriptors
+            (into prototype-descriptors (:descriptors params))
             target-name
             (if (= new-entity-context-base-name "CONTEXTS")
               (str "ROOT/CONTEXTS")

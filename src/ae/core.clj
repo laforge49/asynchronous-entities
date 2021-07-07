@@ -44,10 +44,16 @@
                 return-port4
                 (a/chan)
                 _ (a/>! contexts-public-request-port [env {:requestid        :ROUTE-REQUESTID
-                                                    :target-requestid :SNAPSHOT
-                                                    :target-name      "ROOT/CONTEXTS"
-                                                    :return-port      return-port4}])
+                                                           :target-requestid :SNAPSHOT
+                                                           :target-name      "ROOT/CONTEXTS"
+                                                           :return-port      return-port4}])
                 contexts-snap
+                (k/request-exception-check (a/<! return-port4))
+                _ (a/>! contexts-public-request-port [env {:requestid        :ROUTE-REQUESTID
+                                                           :target-requestid :SNAPSHOT
+                                                           :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
+                                                           :return-port      return-port4}])
+                prototype-prototype-snap
                 (k/request-exception-check (a/<! return-port4))
                 _ (a/>! contexts-public-request-port [env {:requestid        :ROUTE-REQUESTID
                                                     :target-requestid :SNAPSHOT
@@ -81,6 +87,7 @@
                 (k/request-exception-check (a/<! return-port4))
                 ]
             (a/>! main-out [nil [contexts-snap
+                                 prototype-prototype-snap
                                  context-prototype-snap
                                  context-snap
                                  simple-prototype
