@@ -82,6 +82,8 @@
             (:operation-return-port params)
             this-map
             (:this-map env)
+            this-name
+            (:NAME this-map)
             - (a/>! operation-return-port [this-map nil :NO-RETURN])
             new-entity-name
             (:name params)
@@ -91,8 +93,8 @@
             (:DESCRIPTORS this-map)
             prototype-descriptors
             (:PROTOTYPE-DESCRIPTORS this-descriptors)
-            prototype-classifiers
-            (:PROTOTYPE-CLASSIFIERS this-descriptors)
+            prototype-descriptors
+            (assoc prototype-descriptors :PROTOTYPE this-name)
             target-name
             (if (= new-entity-context-base-name "CONTEXTS")
               (str "ROOT/CONTEXTS")
@@ -105,7 +107,6 @@
                 (assoc :target-requestid :REGISTER-ENTITY-REQUESTID)
                 (assoc :target-name target-name)
                 (assoc :descriptors prototype-descriptors)
-                (assoc :classifiers prototype-classifiers)
                 )]
         (a/>! contexts-public-request-port [env params])
         (recur)))))
