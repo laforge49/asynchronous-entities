@@ -23,6 +23,10 @@
     :name             "CONTEXTS/MAIN"
     }
    {:target-requestid :INSTANTIATE-REQUESTID
+    :target-name      "CONTEXTS/FEDERATOR-PROTOTYPE"
+    :name             "MAIN/FEDERATOR_1"
+    }
+   {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :name             "MAIN/SIMPLE-PROTOTYPE"
     :descriptors      {:PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:ADD-PARENT-REQUESTID       :ADD-PARENT-PORTID

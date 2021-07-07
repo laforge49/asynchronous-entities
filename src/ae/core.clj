@@ -74,10 +74,16 @@
                 context-snap
                 (k/request-exception-check (a/<! return-port4))
                 _ (a/>! contexts-public-request-port [env {:requestid        :ROUTE-REQUESTID
-                                                    :target-requestid :SNAPSHOT
-                                                    :target-name      "MAIN/SIMPLE-PROTOTYPE"
-                                                    :return-port      return-port4}])
-                simple-prototype
+                                                           :target-requestid :SNAPSHOT
+                                                           :target-name      "MAIN/FEDERATOR_1"
+                                                           :return-port      return-port4}])
+                federator1-snap
+                (k/request-exception-check (a/<! return-port4))
+                _ (a/>! contexts-public-request-port [env {:requestid        :ROUTE-REQUESTID
+                                                           :target-requestid :SNAPSHOT
+                                                           :target-name      "MAIN/SIMPLE-PROTOTYPE"
+                                                           :return-port      return-port4}])
+                simple-prototype-snap
                 (k/request-exception-check (a/<! return-port4))
                 _ (a/>! contexts-public-request-port [env {:requestid        :ROUTE-REQUESTID
                                                     :target-requestid :SNAPSHOT
@@ -97,7 +103,8 @@
                                  context-prototype-snap
                                  federator-prototype-snap
                                  context-snap
-                                 simple-prototype
+                                 federator1-snap
+                                 simple-prototype-snap
                                  simple1-snap
                                  simple2-snap
                                  ]]))
