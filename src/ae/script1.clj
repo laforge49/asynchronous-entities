@@ -14,6 +14,11 @@
                                                                    :ROUTE-REQUESTID               :ROUTE-PORTID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
+    :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
+    :name             "CONTEXTS/FEDERATOR-PROTOTYPE"
+    :descriptors      {:PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {}}}
+    }
+   {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/CONTEXT-PROTOTYPE"
     :name             "CONTEXTS/MAIN"
     }
