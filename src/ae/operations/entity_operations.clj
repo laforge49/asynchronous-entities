@@ -106,7 +106,7 @@
             params
             (-> params
                 (assoc :requestid :ROUTE-REQUESTID)
-                (assoc :target-requestid :REGISTER-ENTITY-REQUESTID)
+                (assoc :target-requestid :REGISTER-NEW-ENTITY-REQUESTID)
                 (assoc :target-name target-name)
                 (assoc :descriptors prototype-descriptors)
                 )]

@@ -26,8 +26,8 @@
                 _ (create-operations env)
                 contexts-public-request-port
                 (k/create-entity env {:name        "ROOT/CONTEXTS"
-                                      :descriptors {:OPERATION-PORTIDS {:REGISTER-ENTITY-REQUESTID :REGISTER-ENTITY-PORTID
-                                                                        :ROUTE-REQUESTID           :ROUTE-PORTID}}
+                                      :descriptors {:OPERATION-PORTIDS {:REGISTER-NEW-ENTITY-REQUESTID :REGISTER-NEW-ENTITY-PORTID
+                                                                        :ROUTE-REQUESTID               :ROUTE-PORTID}}
                                       :classifiers {}
                                       })
                 env

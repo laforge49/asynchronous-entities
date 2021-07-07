@@ -3,13 +3,13 @@
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
-(defn create-register-entity-operation
+(defn create-register-new-entity-operation
   [env]
-  (let [entity-registration-port
-        (k/register-operation-port env {:operation-portid :REGISTER-ENTITY-PORTID})]
+  (let [new-entity-registration-port
+        (k/register-operation-port env {:operation-portid :REGISTER-NEW-ENTITY-PORTID})]
     (a/go-loop []
       (let [[env params]
-            (a/<! entity-registration-port)
+            (a/<! new-entity-registration-port)
             operation-return-port
             (:operation-return-port params)
             this-map
@@ -92,6 +92,6 @@
 
 (defn create-context-operations
   [env]
-  (create-register-entity-operation env)
+  (create-register-new-entity-operation env)
   (create-route-operation env)
   )
