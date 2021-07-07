@@ -44,8 +44,8 @@
             (:relationship params)
             operation-return-port
             (:operation-return-port params)
-            contexts-public-request-port
-            (:CONTEXTS-PUBLIC-REQUEST-PORT env)
+            contexts-request-port
+            (:ENTITY-REQUEST-PORTS env)
             add-parent-return-port
             (a/chan)
             relationship-children
@@ -58,7 +58,7 @@
                 (conj relationship-children child-entity-name)
                 this-map
                 (assoc-in this-map [:CHILDVECTORS relationship] relationship-children)
-                _ (a/>! contexts-public-request-port [env
+                _ (a/>! contexts-request-port [env
                                                       {:requestid          :ROUTE-REQUESTID
                                                        :target-requestid   :ADD-PARENT-REQUESTID
                                                        :target-name        child-entity-name
@@ -101,8 +101,8 @@
             (if (= new-entity-context-base-name "CONTEXTS")
               (str "ROOT/CONTEXTS")
               (str "CONTEXTS/" new-entity-context-base-name))
-            contexts-public-request-port
-            (:CONTEXTS-PUBLIC-REQUEST-PORT env)
+            contexts-request-port
+            (:ENTITY-REQUEST-PORTS env)
             params
             (-> params
                 (assoc :requestid :ROUTE-REQUESTID)
@@ -110,7 +110,7 @@
                 (assoc :target-name target-name)
                 (assoc :descriptors prototype-descriptors)
                 )]
-        (a/>! contexts-public-request-port [env params])
+        (a/>! contexts-request-port [env params])
         (recur)))))
 
 (defn create-entity-operations

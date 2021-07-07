@@ -31,7 +31,7 @@
                                       :classifiers {}
                                       })
                 env
-                (assoc env :CONTEXTS-PUBLIC-REQUEST-PORT contexts-public-request-port)
+                (assoc env :ENTITY-REQUEST-PORTS contexts-public-request-port)
                 return-port0
                 (a/chan)
                 _ (doseq [request-params s1/script1]
