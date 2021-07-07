@@ -23,10 +23,6 @@
     :name             "CONTEXTS/MAIN"
     }
    {:target-requestid :INSTANTIATE-REQUESTID
-    :target-name      "CONTEXTS/FEDERATOR-PROTOTYPE"
-    :name             "MAIN/FEDERATOR_1"
-    }
-   {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :name             "MAIN/SIMPLE-PROTOTYPE"
     :descriptors      {:PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:ADD-PARENT-REQUESTID       :ADD-PARENT-PORTID
@@ -39,6 +35,12 @@
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "MAIN/SIMPLE-PROTOTYPE"
     :name             "MAIN/SIMPLE_2"
+    }
+   {:target-requestid :INSTANTIATE-REQUESTID
+    :target-name      "CONTEXTS/FEDERATOR-PROTOTYPE"
+    :name             "MAIN/FEDERATOR_1"
+    :descriptors      {:PROTOTYPE-DESCRIPTORS {:FEDERATED-ENTITY-NAMES ["MAIN/SIMPLE_1"
+                                                                        "MAIN/SIMPLE_2"]}}
     }
    {:target-requestid  :ADD-RELATIONSHIP-REQUESTID
     :target-name       "MAIN/SIMPLE_1"
