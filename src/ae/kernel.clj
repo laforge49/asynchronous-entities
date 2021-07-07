@@ -124,12 +124,6 @@
         (a/chan)
         request-port-stack
         [new-public-request-port]
-        initialization-port
-        (:initialization-port params)
-        request-port-stack
-        (if (nil? initialization-port)
-          request-port-stack
-          (conj request-port-stack initialization-port))
         descriptors
         (:descriptors params)
         name
