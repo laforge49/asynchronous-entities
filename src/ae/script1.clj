@@ -40,10 +40,10 @@
     :target-name      "CONTEXTS/FEDERATOR-PROTOTYPE"
     :name             "MAIN/FEDERATOR_1"
     :descriptors      {:PROTOTYPE-DESCRIPTORS {:FEDERATED-ENTITY-NAMES ["MAIN/SIMPLE_1"
-                                                                        "MAIN/SIMPLE_2"]}}
-    }
-   {:target-requestid  :ADD-RELATIONSHIP-REQUESTID
-    :target-name       "MAIN/SIMPLE_1"
-    :relationship      :BASIC
-    :child-entity-name "MAIN/SIMPLE_2"
+                                                                        "MAIN/SIMPLE_2"]
+                                               :SCRIPT [{:target-requestid  :ADD-RELATIONSHIP-REQUESTID
+                                                         :target-name       "MAIN/SIMPLE_1"
+                                                         :relationship      :BASIC
+                                                         :child-entity-name "MAIN/SIMPLE_2"
+                                                         }]}}
     }])
