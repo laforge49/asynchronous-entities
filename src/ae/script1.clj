@@ -19,12 +19,10 @@
     :target-name      "CONTEXTS/CONTEXT-PROTOTYPE"
     :name             "CONTEXTS/MAIN"
     }
-   {:target-requestid :REGISTER-ENTITY-REQUESTID
-    :target-name      "CONTEXTS/MAIN"
+   {:target-requestid :INSTANTIATE-REQUESTID
+    :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :name             "MAIN/SIMPLE-PROTOTYPE"
-    :descriptors      {:OPERATION-PORTIDS     {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}
-                       :READ-ONLY true
-                       :PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:ADD-PARENT-REQUESTID       :ADD-PARENT-PORTID
+    :descriptors      {:PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:ADD-PARENT-REQUESTID       :ADD-PARENT-PORTID
                                                                    :ADD-RELATIONSHIP-REQUESTID :ADD-RELATIONSHIP-PORTID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
