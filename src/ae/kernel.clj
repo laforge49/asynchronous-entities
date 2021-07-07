@@ -66,14 +66,10 @@
                   :PUSH-REQUEST-PORT
                   (let [new-request-port
                         (:new-request-port params)
-                        federated-entity-request-ports
-                        (:federated-entity-request-ports params)
                         saved-map
                         this-map
                         this-map
-                        (assoc this-map :REQUEST-PORT-STACK (conj this-request-port-stack new-request-port))
-                        this-map
-                        (assoc this-map :FEDERATED-ENTITY-REQUEST-PORTS federated-entity-request-ports)]
+                        (assoc this-map :REQUEST-PORT-STACK (conj this-request-port-stack new-request-port))]
                     [this-map nil saved-map])
                   :POP-REQUEST-PORT
                   (let [this-map
