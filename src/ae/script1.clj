@@ -45,5 +45,10 @@
                                                          :target-name       "MAIN/SIMPLE_1"
                                                          :relationship      :BASIC
                                                          :child-entity-name "MAIN/SIMPLE_2"
-                                                         }]}}
-    }])
+                                                         }]
+                                               :OPERATION-PORTIDS {:RUN-FEDERATION-REQUESTID :RUN-FEDERATION-PORTID}}}
+    }
+   #_ {:target-requestid :RUN-FEDERATION-REQUESTID
+
+    }
+   ])
