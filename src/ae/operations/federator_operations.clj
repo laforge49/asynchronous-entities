@@ -13,7 +13,13 @@
             operation-return-port
             (:operation-return-port params)
             this-map
-            (:this-map env)]
+            (:this-map env)
+            descriptors
+            (:DESCRIPTORS this-map)
+            federated-entity-names
+            (:FEDERATED-ENTITY-NAMES descriptors)
+            script
+            (:SCRIPT descriptors)]
         (a/>! operation-return-port [this-map
                                      nil
                                      this-map]))
