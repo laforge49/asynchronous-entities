@@ -4,6 +4,7 @@
             [ae.kernel :as k]
             [ae.operations.context-operations :as co]
             [ae.operations.entity-operations :as eo]
+            [ae.operations.federator-operations :as fo]
             [ae.script1 :as s1]
             ))
 
@@ -11,6 +12,7 @@
   [env]
   (co/create-context-operations env)
   (eo/create-entity-operations env)
+  (fo/create-federator-operations env)
   )
 
 (defn a-main
