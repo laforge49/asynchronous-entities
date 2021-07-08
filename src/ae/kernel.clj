@@ -86,6 +86,9 @@
                         (operation-port-id @operation-port-map-atom)
                         operation-return-port
                         (a/chan)
+
+                        #_ (println (prn-str :???? params))
+
                         [this-map e return-value]
                         (if (nil? operation-port-id)
                           [this-map

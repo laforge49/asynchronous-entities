@@ -14,7 +14,9 @@
             (:operation-return-port params)
             this-map
             (:this-map env)]
-        )
+        (a/>! operation-return-port [this-map
+                                     nil
+                                     this-map]))
       (recur))))
 
 (defn create-federator-operations
