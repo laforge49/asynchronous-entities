@@ -19,7 +19,10 @@
             federated-entity-names
             (:FEDERATED-ENTITY-NAMES descriptors)
             script
-            (:SCRIPT descriptors)]
+            (:SCRIPT descriptors)
+            subrequest-return-port
+            (a/chan)]
+
         (a/>! operation-return-port [this-map
                                      nil
                                      this-map]))
