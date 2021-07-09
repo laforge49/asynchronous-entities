@@ -1,5 +1,6 @@
 (ns ae.operations.context-operations
   (:require [clojure.core.async :as a]
+            [clojure.string :as s]
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
@@ -17,21 +18,27 @@
             this-name
             (:NAME this-map)
             new-entity-name
-            (:name params)
-            [new-entity-kw _ _]
-            (kw/name-as-keyword new-entity-name)]
-        (if (some? (get-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw]))
-          (a/>! operation-return-port [this-map
-                                       (Exception. (str "Entity " new-entity-name " already exists in " this-name))
-                                       nil])
+            (:name params)]
+        (if (s/blank? new-entity-name)
           (let [new-entity-public-request-port
-                (k/create-entity env params)
-                this-map
-                (assoc-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw] new-entity-public-request-port)]
+                (k/create-entity env params)]
             (a/>! operation-return-port [this-map
                                          nil
-                                         new-entity-public-request-port])
-            (recur)))))))
+                                         new-entity-public-request-port]))
+          (let [[new-entity-kw _ _]
+                (kw/name-as-keyword new-entity-name)]
+            (if (some? (get-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw]))
+              (a/>! operation-return-port [this-map
+                                           (Exception. (str "Entity " new-entity-name " already exists in " this-name))
+                                           nil])
+              (let [new-entity-public-request-port
+                    (k/create-entity env params)
+                    this-map
+                    (assoc-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw] new-entity-public-request-port)]
+                (a/>! operation-return-port [this-map
+                                             nil
+                                             new-entity-public-request-port])
+                (recur)))))))))
 
 (defn create-route-operation
   [env]
