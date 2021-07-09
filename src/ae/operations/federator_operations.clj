@@ -29,7 +29,7 @@
                                                          :target-requestid :INSTANTIATE-REQUESTID
                                                          :target-name      "CONTEXTS/FEDERATION-CONTEXT-PROTOTYPE"
                                                          :return-port      subrequest-return-port
-                                                         :name             "CONTEXTS/FEDERATION-CONTEXT_1"}])
+                                                         :name             nil}])
                 federation-context-request-port
                 (k/request-exception-check (a/<! subrequest-return-port))
                 _ (a/>! federation-context-request-port [env {:requestid   :SNAPSHOT

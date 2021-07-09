@@ -1,5 +1,6 @@
 (ns ae.operations.entity-operations
   (:require [clojure.core.async :as a]
+            [clojure.string :as s]
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
@@ -59,13 +60,13 @@
                 this-map
                 (assoc-in this-map [:CHILDVECTORS relationship] relationship-children)
                 _ (a/>! context-request-port [env
-                                                      {:requestid          :ROUTE-REQUESTID
-                                                       :target-requestid   :ADD-PARENT-REQUESTID
-                                                       :target-name        child-entity-name
-                                                       :relationship       :BASIC
-                                                       :parent-entity-name this-name
-                                                       :return-port        add-parent-return-port
-                                                       }])
+                                              {:requestid          :ROUTE-REQUESTID
+                                               :target-requestid   :ADD-PARENT-REQUESTID
+                                               :target-name        child-entity-name
+                                               :relationship       :BASIC
+                                               :parent-entity-name this-name
+                                               :return-port        add-parent-return-port
+                                               }])
                 [e _]
                 (a/<! add-parent-return-port)]
             (a/>! operation-return-port [this-map e this-map])))
@@ -84,11 +85,13 @@
             (:this-map env)
             this-name
             (:NAME this-map)
-            - (a/>! operation-return-port [this-map nil :NO-RETURN])
+            _ (a/>! operation-return-port [this-map nil :NO-RETURN])
             new-entity-name
             (:name params)
             [_ new-entity-context-base-name _]
-            (kw/name-as-keyword new-entity-name)
+            (if (s/blank? new-entity-name)
+              [nil "" nil]
+              (kw/name-as-keyword new-entity-name))
             this-descriptors
             (:DESCRIPTORS this-map)
             prototype-descriptors
@@ -98,9 +101,11 @@
             prototype-descriptors
             (into prototype-descriptors (:descriptors params))
             target-name
-            (if (= new-entity-context-base-name "CONTEXTS")
-              (str "ROOT/CONTEXTS")
-              (str "CONTEXTS/" new-entity-context-base-name))
+            (if (s/blank? new-entity-name)
+              "ROOT/CONTEXTS"
+              (if (= new-entity-context-base-name "CONTEXTS")
+                (str "ROOT/CONTEXTS")
+                (str "CONTEXTS/" new-entity-context-base-name)))
             context-request-port
             (:CONTEXT-REQUEST-PORT env)
             params
