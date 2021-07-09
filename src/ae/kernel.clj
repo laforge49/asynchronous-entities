@@ -80,8 +80,11 @@
                         (:saved-map params)]
                     [this-map nil this-map])
                   ;;DEFAULT
-                  (let [operation-port-id
+                  (let [
+                        operation-port-id
                         (requestid this-operation-portid-map)
+                        _ (if (nil? operation-port-id)
+                            (throw (Exception. (prn-str "Operation portid is nil for this-map, params:" this-map params))))
                         operation-port
                         (operation-port-id @operation-port-map-atom)
                         operation-return-port

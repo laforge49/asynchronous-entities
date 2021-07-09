@@ -19,8 +19,8 @@
                 (:CONTEXT-REQUEST-PORT env)
                 descriptors
                 (:DESCRIPTORS this-map)
-                federated-entity-names
-                (:FEDERATED-ENTITY-NAMES descriptors)
+                federation-names
+                (:FEDERATION-NAMES descriptors)
                 script
                 (:SCRIPT descriptors)
                 subrequest-return-port
@@ -32,6 +32,12 @@
                                                          :name             nil}])
                 federation-context-request-port
                 (k/request-exception-check (a/<! subrequest-return-port))
+                _ (a/>! federation-context-request-port [env {:requestid :ACQUIRE-REQUESTID
+                                                              :federation-names federation-names
+                                                              :return-port      subrequest-return-port}])
+                _ (k/request-exception-check (a/<! subrequest-return-port))
+
+
                 _ (a/>! federation-context-request-port [env {:requestid   :SNAPSHOT
                                                               :return-port subrequest-return-port}])
                 federation-context-snap
