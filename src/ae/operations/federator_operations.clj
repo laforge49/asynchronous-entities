@@ -29,10 +29,15 @@
                                                    :target-name      "CONTEXTS/FEDERATION-CONTEXT-PROTOTYPE"
                                                    :return-port      subrequest-return-port
                                                    :name             "CONTEXTS/FEDERATION-CONTEXT_1"}])
-            federation-context-request-port
+            [e1 federation-context-request-port]
+            (a/<! subrequest-return-port)
+            _ (println 123 e1 federation-context-request-port)
+            _ (a/>! federation-context-request-port [env {:requestid :SNAPSHOT
+                                                        :return-port subrequest-return-port}])
+            [e2 federation-context-snap]
             (a/<! subrequest-return-port)
             ]
-        (println (prn-str :??? federation-context-request-port))
+        (println (prn-str :??? e2 federation-context-snap))
         (a/>! operation-return-port [this-map
                                      nil
                                      this-map]))
