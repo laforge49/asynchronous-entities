@@ -10,6 +10,8 @@
     (a/go-loop []
       (let [[env params]
             (a/<! new-run-federation-port)
+            root-contexts-request-port
+            (:CONTEXT-REQUEST-PORT env)
             operation-return-port
             (:operation-return-port params)
             this-map
@@ -21,8 +23,16 @@
             script
             (:SCRIPT descriptors)
             subrequest-return-port
-            (a/chan)]
-
+            (a/chan)
+            _ (a/>! root-contexts-request-port [env {:requestid        :ROUTE-REQUESTID
+                                                   :target-requestid :INSTANTIATE-REQUESTID
+                                                   :target-name      "CONTEXTS/FEDERATION-CONTEXT-PROTOTYPE"
+                                                   :return-port      subrequest-return-port
+                                                   :name             "CONTEXTS/FEDERATION-CONTEXT_1"}])
+            federation-context-request-port
+            (a/<! subrequest-return-port)
+            ]
+        (println (prn-str :??? federation-context-request-port))
         (a/>! operation-return-port [this-map
                                      nil
                                      this-map]))
