@@ -31,7 +31,8 @@
               (a/>! operation-return-port [this-map
                                            (Exception. (str "Entity " new-entity-name " already exists in " this-name))
                                            nil])
-              (let [new-entity-public-request-port
+              (let [
+                    new-entity-public-request-port
                     (k/create-entity env params)
                     this-map
                     (assoc-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw] new-entity-public-request-port)]
