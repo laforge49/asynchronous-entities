@@ -53,6 +53,6 @@
                                            }]}
     }
    {:target-requestid :RUN-FEDERATION-REQUESTID
-      :target-name      "MAIN/FEDERATOR_1"
-      }
+    :target-name      "MAIN/FEDERATOR_1"
+    }
    ])

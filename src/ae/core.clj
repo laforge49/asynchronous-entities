@@ -87,18 +87,18 @@
                                                    :return-port      return-port4}])
                 simple-prototype-snap
                 (k/request-exception-check (a/<! return-port4))
-                _ (a/>! context-request-port [env {:requestid        :ROUTE-REQUESTID
+                #_ (a/>! context-request-port [env {:requestid        :ROUTE-REQUESTID
                                                    :target-requestid :SNAPSHOT
                                                    :target-name      "MAIN/SIMPLE_1"
                                                    :return-port      return-port4}])
-                simple1-snap
-                (k/request-exception-check (a/<! return-port4))
-                _ (a/>! context-request-port [env {:requestid        :ROUTE-REQUESTID
+                ;simple1-snap
+                ;(k/request-exception-check (a/<! return-port4))
+                #_ (a/>! context-request-port [env {:requestid        :ROUTE-REQUESTID
                                                    :target-requestid :SNAPSHOT
                                                    :target-name      "MAIN/SIMPLE_2"
                                                    :return-port      return-port4}])
-                simple2-snap
-                (k/request-exception-check (a/<! return-port4))
+                ;simple2-snap
+                ;(k/request-exception-check (a/<! return-port4))
                 _ (a/>! context-request-port [env {:requestid        :ROUTE-REQUESTID
                                                    :target-requestid :SNAPSHOT
                                                    :target-name      "MAIN/FEDERATOR_1"
@@ -113,8 +113,8 @@
                                  federation-context-prototype-snap
                                  context-snap
                                  simple-prototype-snap
-                                 simple1-snap
-                                 simple2-snap
+                                 ;simple1-snap
+                                 ;simple2-snap
                                  federator1-snap
                                  ]]))
           (catch Exception e
