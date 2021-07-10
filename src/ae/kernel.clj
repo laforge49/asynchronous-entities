@@ -64,15 +64,21 @@
                        requestid
                        (:requestid params)
                        _ (if (nil? requestid)
-                           (throw (Exception. (prn-str "Requestid port is nil for params: " params))))
+                           (throw (Exception. (str "Requestid port is nil\n"
+                                                   (prn-str params)
+                                                   (prn-str this-map)))))
                        this-descriptors
                        (:DESCRIPTORS this-map)
                        _ (if (nil? this-descriptors)
-                           (throw (Exception. (prn-str "Descriptors is nil"))))
+                           (throw (Exception. (str "Descriptors is nil\n"
+                                                   (prn-str params)
+                                                   (prn-str this-map)))))
                        this-operation-portids
                        (:OPERATION-PORTIDS this-descriptors)
                        _ (if (nil? this-operation-portids)
-                           (throw (Exception. (prn-str "Operation portids is nil"))))
+                           (throw (Exception. (str "Operation portids is nil\n"
+                                                       (prn-str params)
+                                                       (prn-str this-map)))))
                        [this-map return-value]
                        (case requestid
 
@@ -102,22 +108,34 @@
                          (let [operation-port-id
                                (requestid this-operation-portids)
                                _ (if (nil? operation-port-id)
-                                   (throw (Exception. (prn-str "Operation portid is nil for this-map, params:" this-map params))))
+                                   (throw (Exception. (str "Operation portid is nil\n"
+                                                           (prn-str params)
+                                                           (prn-str this-map)))))
                                operation-port
                                (operation-port-id @operation-port-map-atom)
                                operation-return-port
                                (a/chan)
                                _ (if (nil? operation-port-id)
-                                   (throw (Exception. (str "Operation port id is nil for params " params))))
+                                   (throw (Exception. (str "Operation port id is nil\n"
+                                                           (prn-str params)
+                                                           (prn-str this-map)))))
                                _ (if (nil? operation-port)
-                                   (throw (Exception. (str "Operation port is nil for params " params))))
+                                   (throw (Exception. (str "Operation port is nil\n"
+                                                           (prn-str params)
+                                                           (prn-str this-map)))))
                                _ (a/>! operation-port [env (assoc params :operation-return-port operation-return-port)])
                                operation-return-value
                                (a/<! operation-return-port)
                                _ (if (not (vector? operation-return-value))
-                                   (throw (Exception. (str "Operation return value is not a vector: " operation-return-value))))
+                                   (throw (Exception. (str "Operation return value is not a vector\n"
+                                                           (prn-str operation-return-value)
+                                                           (prn-str params)
+                                                           (prn-str this-map)))))
                                _ (if (not= (count operation-return-value) 3)
-                                   (throw (Exception. (str "Operation return value is not a 3-tuple: " operation-return-value))))
+                                   (throw (Exception. (str "Operation return value is not a 3-tuple\n"
+                                                           (prn-str operation-return-value)
+                                                           (prn-str params)
+                                                           (prn-str this-map)))))
                                [this-map e return-value]
                                operation-return-value]
                            (if (some? e)
