@@ -108,13 +108,18 @@
             operation-return-port
             (:operation-return-port params)
             this-map
-            (:this-map env)
-            [this-map return-value]
-            (try
-              [this-map this-map]
-              (catch Exception e
-                (a/>! operation-return-port [this-map e nil])))]
-        (a/>! operation-return-port [this-map nil return-value])
+            (:this-map env)]
+        (try
+          (let [federation-names
+                (:federation-names params)
+                federation-names-set
+                (into (sorted-set) federation-names)
+                this-map
+                (assoc this-map :federation-names-set federation-names-set)
+                ]
+            (a/>! operation-return-port [this-map nil this-map]))
+          (catch Exception e
+            (a/>! operation-return-port [this-map e nil])))
         (recur)))))
 
 (defn create-context-operations
