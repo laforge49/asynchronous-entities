@@ -114,9 +114,18 @@
                 (:federation-names params)
                 federation-names-set
                 (into (sorted-set) federation-names)
+                federation-vecs
+                (reduce
+                  (fn [federation-vecs federation-name]
+                    (let [new-request-port
+                          (a/chan)
+                          snap
+                          nil]
+                    (assoc federation-vecs federation-name [snap new-request-port])))
+                  (sorted-map)
+                  federation-names-set)
                 this-map
-                (assoc this-map :federation-names-set federation-names-set)
-                ]
+                (assoc this-map :FEDERATION-VECS federation-vecs)]
             (a/>! operation-return-port [this-map nil this-map]))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil])))
