@@ -98,8 +98,28 @@
                                                 (assoc params :requestid :ROUTE-REQUESTID)]))))
         (recur)))))
 
+(defn create-acquire-operation
+  [env]
+  (let [acquire-port
+        (k/register-operation-port env {:operation-portid :ACQUIRE-PORTID})]
+    (a/go-loop []
+      (let [[env params]
+            (a/<! acquire-port)
+            operation-return-port
+            (:operation-return-port params)
+            this-map
+            (:this-map env)
+            [this-map return-value]
+            (try
+              [this-map this-map]
+              (catch Exception e
+                (a/>! operation-return-port [this-map e nil])))]
+        (a/>! operation-return-port [this-map nil return-value])
+        (recur)))))
+
 (defn create-context-operations
   [env]
   (create-register-new-entity-operation env)
   (create-route-operation env)
+  (create-acquire-operation env)
   )
