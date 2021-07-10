@@ -98,6 +98,41 @@
                                                 (assoc params :requestid :ROUTE-REQUESTID)]))))
         (recur)))))
 
+(defn acquire-loop
+  [root-contexts-request-port env federation-names]
+  (let [return-port
+        (a/chan)]
+    (a/go-loop [federation-names-vec (reverse (sort federation-names))
+                federation-map (sorted-map)]
+      (if (some? federation-names-vec)
+        (if (empty? federation-names-vec)
+          (a/>! return-port [nil federation-map])
+          (let [federation-name
+                (peek federation-names-vec)
+                federation-names-vec
+                (pop federation-names-vec)
+                [federation-names-vec federation-map]
+                (try
+                  (let [new-request-port
+                        (a/chan)
+                        subrequest-return-port
+                        (a/chan)
+                        _ (a/>! root-contexts-request-port [env {:requestid        :ROUTE-REQUESTID
+                                                                 :target-requestid :PUSH-REQUEST-PORT
+                                                                 :target-name      federation-name
+                                                                 :new-request-port new-request-port
+                                                                 :return-port      subrequest-return-port}])
+                        snap
+                        (k/request-exception-check (a/<! subrequest-return-port))
+                        federation-map
+                        (assoc federation-map federation-name [snap new-request-port])]
+                    [federation-names-vec federation-map])
+                  (catch Exception e
+                    (a/>! return-port [e nil])
+                    [nil nil]))]
+            (recur federation-names-vec federation-map)))))
+    return-port))
+
 (defn create-acquire-operation
   [env]
   (let [acquire-port
@@ -112,20 +147,14 @@
         (try
           (let [federation-names
                 (:federation-names params)
-                federation-names-set
-                (into (sorted-set) federation-names)
-                federation-vecs
-                (reduce
-                  (fn [federation-vecs federation-name]
-                    (let [new-request-port
-                          (a/chan)
-                          snap
-                          nil]
-                    (assoc federation-vecs federation-name [snap new-request-port])))
-                  (sorted-map)
-                  federation-names-set)
+                root-contexts-request-port
+                (:CONTEXT-REQUEST-PORT env)
+                acquire-loop-port
+                (acquire-loop root-contexts-request-port env federation-names)
+                federation-map
+                (k/request-exception-check (a/<! acquire-loop-port))
                 this-map
-                (assoc this-map :FEDERATION-VECS federation-vecs)]
+                (assoc this-map :FEDERATION-MAP federation-map)]
             (a/>! operation-return-port [this-map nil this-map]))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil])))
