@@ -35,21 +35,27 @@
              (let [this-request-port-stack
                    (:REQUEST-PORT-STACK this-map)
                    _ (if (nil? this-request-port-stack)
-                       (throw (Exception. "This request port stack is nil")))
+                       (throw (Exception. (str "This request port stack is nil\n"
+                                               (prn-str this-map)))))
                    this-request-port
                    (peek this-request-port-stack)
                    _ (if (nil? this-request-port)
-                       (throw (Exception. "This request port is nil")))
+                       (throw (Exception. (str "This request port is nil\n"
+                                               (prn-str this-map)))))
                    request
                    (a/<! this-request-port)
                    _ (if (not (vector? request))
-                       (throw (Exception. (prn-str "Request is not a vector: " request))))
+                       (throw (Exception. (str "Request is not a vector\n"
+                                               (prn-str request)
+                                               (prn-str this-map)))))
                    [env params]
                    request
                    return-port
                    (:return-port params)
                    _ (if (nil? return-port)
-                       (throw (Exception. (prn-str "Return port is nil for params: " params))))]
+                       (throw (Exception. (str "Return port is nil\n"
+                                               (prn-str params)
+                                               (prn-str this-map)))))]
                (try
                  (let [env
                        (assoc env :this-map this-map)
