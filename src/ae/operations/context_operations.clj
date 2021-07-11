@@ -103,7 +103,7 @@
   (let [return-port
         (a/chan)]
     (a/go-loop [federation-names-vec (reverse (sort federation-names))
-                federation-map (sorted-map)]
+                federation-map {}]
       (if (some? federation-names-vec)
         (if (empty? federation-names-vec)
           (a/>! return-port [nil federation-map])
@@ -160,6 +160,34 @@
             (a/>! operation-return-port [this-map e nil])))
         (recur)))))
 
+(defn release-loop
+  [env federation-map]
+  (let [return-port
+        (a/chan)]
+    (a/go-loop [federation-names-vec (into [] (sort (keys federation-map)))
+                federation-map federation-map]
+      (if (some? federation-names-vec)
+        (if (empty? federation-names-vec)
+          (a/>! return-port [nil true])
+          (let [federation-name
+                (peek federation-names-vec)
+                federation-names-vec
+                (pop federation-names-vec)
+                [federation-names-vec federation-map]
+                (try
+                  (let [entity-request-port
+                        (last (get federation-map federation-name))
+                        subrequest-return-port
+                        (a/chan)
+                        _ (a/>! entity-request-port [env {:requestid   :POP-REQUEST-PORT
+                                                          :return-port subrequest-return-port}])]
+                    [federation-names-vec federation-map])
+                  (catch Exception e
+                    (a/>! return-port [e nil])
+                    [nil nil]))]
+            (recur federation-names-vec federation-map)))))
+    return-port))
+
 (defn create-release-operation
   [env]
   (let [release-port
@@ -174,9 +202,11 @@
         (try
           (let [root-contexts-request-port
                 (:CONTEXT-REQUEST-PORT env)
-                ;release-loop-port
-                ;(release-loop root-contexts-request-port env)
-                ;_ (k/request-exception-check (a/<! release-loop-port))
+                federation-map
+                (:FEDERATION-MAP this-map)
+                release-loop-port
+                (release-loop env federation-map)
+                _ (k/request-exception-check (a/<! release-loop-port))
                 ]
             (a/>! operation-return-port [this-map nil this-map]))
           (catch Exception e
