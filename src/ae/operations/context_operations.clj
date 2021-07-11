@@ -181,6 +181,7 @@
                         (a/chan)
                         _ (a/>! entity-request-port [env {:requestid   :POP-REQUEST-PORT
                                                           :return-port subrequest-return-port}])]
+                    (k/request-exception-check (a/<! subrequest-return-port))
                     [federation-names-vec federation-map])
                   (catch Exception e
                     (a/>! return-port [e nil])
