@@ -21,7 +21,8 @@
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :name             "CONTEXTS/FEDERATION-CONTEXT-PROTOTYPE"
-    :descriptors      {:PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:ACQUIRE-REQUESTID :ACQUIRE-PORTID}}}
+    :descriptors      {:PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:ACQUIRE-REQUESTID :ACQUIRE-PORTID
+                                                                   :RELEASE-REQUESTID :RELEASE-PORTID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/CONTEXT-PROTOTYPE"

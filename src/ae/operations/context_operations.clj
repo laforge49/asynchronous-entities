@@ -160,9 +160,33 @@
             (a/>! operation-return-port [this-map e nil])))
         (recur)))))
 
+(defn create-release-operation
+  [env]
+  (let [release-port
+        (k/register-operation-port env {:operation-portid :RELEASE-PORTID})]
+    (a/go-loop []
+      (let [[env params]
+            (a/<! release-port)
+            operation-return-port
+            (:operation-return-port params)
+            this-map
+            (:this-map env)]
+        (try
+          (let [root-contexts-request-port
+                (:CONTEXT-REQUEST-PORT env)
+                ;release-loop-port
+                ;(release-loop root-contexts-request-port env)
+                ;_ (k/request-exception-check (a/<! release-loop-port))
+                ]
+            (a/>! operation-return-port [this-map nil this-map]))
+          (catch Exception e
+            (a/>! operation-return-port [this-map e nil])))
+        (recur)))))
+
 (defn create-context-operations
   [env]
   (create-register-new-entity-operation env)
   (create-route-operation env)
   (create-acquire-operation env)
+  (create-release-operation env)
   )

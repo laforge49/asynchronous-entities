@@ -37,7 +37,9 @@
                                                               :return-port      subrequest-return-port}])
                 _ (k/request-exception-check (a/<! subrequest-return-port))
 
-
+                _ (a/>! federation-context-request-port [env {:requestid :RELEASE-REQUESTID
+                                                              :return-port      subrequest-return-port}])
+                _ (k/request-exception-check (a/<! subrequest-return-port))
                 _ (a/>! federation-context-request-port [env {:requestid   :SNAPSHOT
                                                               :return-port subrequest-return-port}])
                 federation-context-snap
