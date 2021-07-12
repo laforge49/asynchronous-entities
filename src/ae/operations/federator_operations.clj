@@ -36,7 +36,11 @@
                                                               :federation-names federation-names
                                                               :return-port      subrequest-return-port}])
                 _ (k/request-exception-check (a/<! subrequest-return-port))
+                env
+                (assoc env :CONTEXT-REQUEST-PORT federation-context-request-port)
 
+                env
+                (assoc env :CONTEXT-REQUEST-PORT root-contexts-request-port)
                 _ (a/>! federation-context-request-port [env {:requestid :RELEASE-REQUESTID
                                                               :return-port      subrequest-return-port}])
                 _ (k/request-exception-check (a/<! subrequest-return-port))
