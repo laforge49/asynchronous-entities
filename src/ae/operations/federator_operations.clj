@@ -38,7 +38,7 @@
                 (assoc env :CONTEXT-REQUEST-PORT federation-context-request-port)
                 script
                 (:SCRIPT descriptors)
-                _ (doseq [script-item script]
+                #_ (doseq [script-item script]
                     (let [script-item
                           (assoc script-item :requestid :ROUTE-REQUESTID)
                           script-item
