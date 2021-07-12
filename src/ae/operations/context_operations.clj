@@ -98,6 +98,35 @@
                                                 (assoc params :requestid :ROUTE-REQUESTID)]))))
         (recur)))))
 
+(defn create-federation-route-operation
+  [env]
+  (let [federation-route-port
+        (k/register-operation-port env {:operation-portid :FEDERATION-ROUTE-PORTID})]
+    (a/go-loop []
+      (let [[env params]
+            (a/<! federation-route-port)
+            operation-return-port
+            (:operation-return-port params)
+            this-map
+            (:this-map env)]
+        (try
+          (let [federation-map
+                (:FEDERATION-MAP this-map)
+                target-entity-name
+                (:target-name params)
+                target-entity-request-port
+                (get federation-map target-entity-name)
+                _ (if (nil? target-entity-request-port)
+                    (throw (Exception. (str "Entity " target-entity-name " is not federated"))))
+                target-requestid
+                (:target-requestid params)]
+            (a/>! operation-return-port [this-map nil :NO-RETURN])
+            (a/>! target-entity-request-port [env
+                                              (assoc params :requestid target-requestid)]))
+          (catch Exception e
+            (a/>! operation-return-port [this-map e nil]))))
+      (recur))))
+
 (defn federation-acquire-loop
   [root-contexts-request-port env federation-names]
   (let [return-port
@@ -194,6 +223,7 @@
   [env]
   (create-register-new-entity-operation env)
   (create-route-operation env)
+  (create-federation-route-operation env)
   (create-federation-acquire-operation env)
   (create-federation-release-operation env)
   )
