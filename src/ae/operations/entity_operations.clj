@@ -11,22 +11,31 @@
     (a/go-loop []
       (let [[env params]
             (a/<! add-parent-port)
-            this-map
-            (:this-map env)
-            parent-entity-name
-            (:parent-entity-name params)
-            relationship
-            (:relationship params)
             operation-return-port
             (:operation-return-port params)
-            relationship-parents
-            (get-in this-map [:PARENTVECTORS relationship] [])
-            relationship-parents
-            (conj relationship-parents parent-entity-name)
             this-map
-            (assoc-in this-map [:PARENTVECTORS relationship] relationship-parents)]
-        (a/>! operation-return-port [this-map nil this-map])
-        (recur)))))
+            (:this-map env)]
+        (try
+          (let [this-name
+                (:NAME params)
+                parent-entity-name
+                (:parent-entity-name params)
+                _ (if (not (k/federated? this-map))
+                    (throw (Exception. (str "Entity " this-name
+                                            " is not federated and so can not add a relationship to "
+                                            parent-entity-name))))
+                relationship
+                (:relationship params)
+                relationship-parents
+                (get-in this-map [:PARENTVECTORS relationship] [])
+                relationship-parents
+                (conj relationship-parents parent-entity-name)
+                this-map
+                (assoc-in this-map [:PARENTVECTORS relationship] relationship-parents)]
+            (a/>! operation-return-port [this-map nil this-map]))
+          (catch Exception e
+            (a/>! operation-return-port [this-map e nil]))))
+      (recur))))
 
 (defn create-add-relationship-operation
   [env]
