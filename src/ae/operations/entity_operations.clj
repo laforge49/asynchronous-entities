@@ -51,25 +51,32 @@
             (a/chan)
             relationship-children
             (get-in this-map [:CHILDVECTORS relationship] [])]
-        (if (> (.indexOf relationship-children child-entity-name) -1)
+        (if (not (k/federated? this-map))
           (a/>! operation-return-port [this-map
-                                       (Exception. (str "Entity " child-entity-name " is already a " relationship " child of " this-name))
+                                       (Exception. (str "Entity " this-name
+                                                        " is not federated and so can not add a relationship to "
+                                                        child-entity-name))
                                        nil])
-          (let [relationship-children
-                (conj relationship-children child-entity-name)
-                this-map
-                (assoc-in this-map [:CHILDVECTORS relationship] relationship-children)
-                _ (a/>! context-request-port [env
-                                              {:requestid          :ROUTE-REQUESTID
-                                               :target-requestid   :ADD-PARENT-REQUESTID
-                                               :target-name        child-entity-name
-                                               :relationship       :BASIC
-                                               :parent-entity-name this-name
-                                               :return-port        add-parent-return-port
-                                               }])
-                [e _]
-                (a/<! add-parent-return-port)]
-            (a/>! operation-return-port [this-map e this-map])))
+          (if (> (.indexOf relationship-children child-entity-name) -1)
+            (a/>! operation-return-port [this-map
+                                         (Exception. (str "Entity " child-entity-name " is already a " relationship
+                                                          " child of " this-name))
+                                         nil])
+            (let [relationship-children
+                  (conj relationship-children child-entity-name)
+                  this-map
+                  (assoc-in this-map [:CHILDVECTORS relationship] relationship-children)
+                  _ (a/>! context-request-port [env
+                                                {:requestid          :ROUTE-REQUESTID
+                                                 :target-requestid   :ADD-PARENT-REQUESTID
+                                                 :target-name        child-entity-name
+                                                 :relationship       :BASIC
+                                                 :parent-entity-name this-name
+                                                 :return-port        add-parent-return-port
+                                                 }])
+                  [e _]
+                  (a/<! add-parent-return-port)]
+              (a/>! operation-return-port [this-map e this-map]))))
         (recur)))))
 
 (defn create-instantiate-operation

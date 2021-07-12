@@ -28,6 +28,12 @@
     (swap! operation-port-map-atom assoc operation-portid port)
     port))
 
+(defn federated?
+  [this-map]
+  (let [this-request-port-stack
+        (:REQUEST-PORT-STACK this-map)]
+    (> (count this-request-port-stack) 0)))
+
 (defn create-operation-dispatcher
   [this-map]
   (a/go-loop [this-map this-map]
