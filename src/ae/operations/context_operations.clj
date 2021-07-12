@@ -125,7 +125,7 @@
                         snap
                         (k/request-exception-check (a/<! subrequest-return-port))
                         federation-map
-                        (assoc federation-map federation-name [snap new-request-port])]
+                        (assoc federation-map federation-name new-request-port)]
                     [federation-names-vec federation-map])
                   (catch Exception e
                     (a/>! return-port [e nil])
@@ -172,18 +172,14 @@
             this-map
             (:this-map env)]
         (try
-          (let [root-contexts-request-port
-                (:CONTEXT-REQUEST-PORT env)
-                federation-map
+          (let [federation-map
                 (:FEDERATION-MAP this-map)
                 subrequest-return-port
                 (a/chan)
                 ]
             (doseq [en federation-map]
-              (let [v
-                    (val en)
-                    entity-request-port
-                    (second v)]
+              (let [entity-request-port
+                    (val en)]
                 (a/>! entity-request-port [env {:requestid   :POP-REQUEST-PORT
                                                 :return-port subrequest-return-port}])
                 ))
