@@ -21,8 +21,6 @@
                 (:DESCRIPTORS this-map)
                 federation-names
                 (:FEDERATION-NAMES descriptors)
-                script
-                (:SCRIPT descriptors)
                 subrequest-return-port
                 (a/chan)
                 _ (a/>! root-contexts-request-port [env {:requestid        :ROUTE-REQUESTID
@@ -32,17 +30,25 @@
                                                          :name             nil}])
                 federation-context-request-port
                 (k/request-exception-check (a/<! subrequest-return-port))
-                _ (a/>! federation-context-request-port [env {:requestid :ACQUIRE-REQUESTID
+                _ (a/>! federation-context-request-port [env {:requestid        :ACQUIRE-REQUESTID
                                                               :federation-names federation-names
                                                               :return-port      subrequest-return-port}])
                 _ (k/request-exception-check (a/<! subrequest-return-port))
                 env
                 (assoc env :CONTEXT-REQUEST-PORT federation-context-request-port)
-
+                script
+                (:SCRIPT descriptors)
+                _ (doseq [script-item script]
+                    (let [script-item
+                          (assoc script-item :requestid :ROUTE-REQUESTID)
+                          script-item
+                          (assoc script-item :return-port subrequest-return-port)]
+                      (a/>! federation-context-request-port [env script-item])
+                      (k/request-exception-check (a/<! subrequest-return-port))))
                 env
                 (assoc env :CONTEXT-REQUEST-PORT root-contexts-request-port)
-                _ (a/>! federation-context-request-port [env {:requestid :RELEASE-REQUESTID
-                                                              :return-port      subrequest-return-port}])
+                _ (a/>! federation-context-request-port [env {:requestid   :RELEASE-REQUESTID
+                                                              :return-port subrequest-return-port}])
                 _ (k/request-exception-check (a/<! subrequest-return-port))
                 _ (a/>! federation-context-request-port [env {:requestid   :SNAPSHOT
                                                               :return-port subrequest-return-port}])
