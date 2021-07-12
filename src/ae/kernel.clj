@@ -99,11 +99,6 @@
                                (assoc this-map :REQUEST-PORT-STACK (pop this-request-port-stack))]
                            [this-map this-map])
 
-                         :RESET
-                         (let [this-map
-                               (:saved-map params)]
-                           [this-map this-map])
-
                          ;;DEFAULT
                          (let [operation-port-id
                                (requestid this-operation-portids)
