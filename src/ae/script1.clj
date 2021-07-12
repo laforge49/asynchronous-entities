@@ -22,7 +22,8 @@
     :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :name             "CONTEXTS/FEDERATION-CONTEXT-PROTOTYPE"
     :descriptors      {:PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:ACQUIRE-REQUESTID :ACQUIRE-PORTID
-                                                                   :RELEASE-REQUESTID :RELEASE-PORTID}}}
+                                                                   :RELEASE-REQUESTID :RELEASE-PORTID
+                                                                   :ROUTE-REQUESTID   :FEDERATED-ROUTE-PORTID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/CONTEXT-PROTOTYPE"
