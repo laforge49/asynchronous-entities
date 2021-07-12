@@ -28,6 +28,9 @@
                 (:relationship params)
                 relationship-parents
                 (get-in this-map [:PARENTVECTORS relationship] [])
+                _ (if (> (.indexOf relationship-parents parent-entity-name) -1)
+                    (throw (Exception. (str "Entity " parent-entity-name " is already a " relationship
+                                            " parent of " this-name))))
                 relationship-parents
                 (conj relationship-parents parent-entity-name)
                 this-map
