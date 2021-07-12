@@ -98,7 +98,7 @@
                                                 (assoc params :requestid :ROUTE-REQUESTID)]))))
         (recur)))))
 
-(defn acquire-loop
+(defn federation-acquire-loop
   [root-contexts-request-port env federation-names]
   (let [return-port
         (a/chan)]
@@ -133,13 +133,13 @@
             (recur federation-names-vec federation-map)))))
     return-port))
 
-(defn create-acquire-operation
+(defn create-federation-acquire-operation
   [env]
-  (let [acquire-port
-        (k/register-operation-port env {:operation-portid :ACQUIRE-PORTID})]
+  (let [federation-acquire-port
+        (k/register-operation-port env {:operation-portid :FEDERATION-ACQUIRE-PORTID})]
     (a/go-loop []
       (let [[env params]
-            (a/<! acquire-port)
+            (a/<! federation-acquire-port)
             operation-return-port
             (:operation-return-port params)
             this-map
@@ -150,7 +150,7 @@
                 root-contexts-request-port
                 (:CONTEXT-REQUEST-PORT env)
                 acquire-loop-port
-                (acquire-loop root-contexts-request-port env federation-names)
+                (federation-acquire-loop root-contexts-request-port env federation-names)
                 federation-map
                 (k/request-exception-check (a/<! acquire-loop-port))
                 this-map
@@ -160,13 +160,13 @@
             (a/>! operation-return-port [this-map e nil])))
         (recur)))))
 
-(defn create-release-operation
+(defn create-federation-release-operation
   [env]
-  (let [release-port
-        (k/register-operation-port env {:operation-portid :RELEASE-PORTID})]
+  (let [federation-release-port
+        (k/register-operation-port env {:operation-portid :FEDERATION-RELEASE-PORTID})]
     (a/go-loop []
       (let [[env params]
-            (a/<! release-port)
+            (a/<! federation-release-port)
             operation-return-port
             (:operation-return-port params)
             this-map
@@ -194,6 +194,6 @@
   [env]
   (create-register-new-entity-operation env)
   (create-route-operation env)
-  (create-acquire-operation env)
-  (create-release-operation env)
+  (create-federation-acquire-operation env)
+  (create-federation-release-operation env)
   )
