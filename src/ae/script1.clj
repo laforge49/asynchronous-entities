@@ -4,9 +4,9 @@
   [{:target-requestid :REGISTER-NEW-ENTITY-REQUESTID
     :target-name      "ROOT/CONTEXTS"
     :name             "CONTEXTS/PROTOTYPE-PROTOTYPE"
-    :descriptors      {:INVARIANT true
+    :descriptors      {:INVARIANT             true
                        :OPERATION-PORTIDS     {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}
-                       :PROTOTYPE-DESCRIPTORS {:INVARIANT true
+                       :PROTOTYPE-DESCRIPTORS {:INVARIANT         true
                                                :OPERATION-PORTIDS {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
@@ -35,7 +35,8 @@
     :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :name             "MAIN/SIMPLE-PROTOTYPE"
     :descriptors      {:PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:ADD-PARENT-REQUESTID       :ADD-PARENT-PORTID
-                                                                   :ADD-RELATIONSHIP-REQUESTID :ADD-RELATIONSHIP-PORTID}}}
+                                                                   :ADD-RELATIONSHIP-REQUESTID :ADD-RELATIONSHIP-PORTID
+                                                                   :ADD-NEW-CHILD-REQUESTID    :ADD-NEW-CHILD-PORTID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "MAIN/SIMPLE-PROTOTYPE"
@@ -58,5 +59,11 @@
     }
    {:target-requestid :RUN-FEDERATION-REQUESTID
     :target-name      "MAIN/FEDERATOR_1"
+    }
+   {:target-requestid  :ADD-NEW-CHILD-REQUESTID
+    :target-name       "MAIN/SIMPLE_1"
+    :relationship      :BASIC
+    :child-entity-name "MAIN/SIMPLE_3"
+    :prototype         :MAIN/SIMPLE-PROTOTYPE
     }
    ])

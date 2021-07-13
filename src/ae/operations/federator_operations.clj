@@ -54,7 +54,6 @@
                                                               :return-port subrequest-return-port}])
                 federation-context-snap
                 (k/request-exception-check (a/<! subrequest-return-port))
-                _ (println (prn-str :??? federation-context-snap))
                 _ (a/>! operation-return-port [this-map
                                                nil
                                                this-map])])
