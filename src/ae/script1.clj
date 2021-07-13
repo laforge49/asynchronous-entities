@@ -4,8 +4,10 @@
   [{:target-requestid :REGISTER-NEW-ENTITY-REQUESTID
     :target-name      "ROOT/CONTEXTS"
     :name             "CONTEXTS/PROTOTYPE-PROTOTYPE"
-    :descriptors      {:OPERATION-PORTIDS     {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}
-                       :PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}}}
+    :descriptors      {:INVARIANT true
+                       :OPERATION-PORTIDS     {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}
+                       :PROTOTYPE-DESCRIPTORS {:INVARIANT true
+                                               :OPERATION-PORTIDS {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
