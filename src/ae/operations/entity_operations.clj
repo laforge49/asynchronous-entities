@@ -89,6 +89,66 @@
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
 
+(defn create-add-new-child-operation
+  [env]
+  (let [add-new-child-port
+        (k/register-operation-port env {:operation-portid :ADD-NEW-CHILD-PORTID})]
+    (a/go-loop []
+      (let [[env params]
+            (a/<! add-new-child-port)
+            operation-return-port
+            (:operation-return-port params)
+            this-map
+            (:this-map env)]
+        (try
+          (let [this-name
+                (:NAME this-map)
+                child-entity-name
+                (:child-entity-name params)
+                #_(if (not (k/federated? this-map))
+                    (throw (Exception. (str "Entity " this-name
+                                            " is not federated and so can not add a relationship to "
+                                            child-entity-name))))
+                relationship
+                (:relationship params)
+                relationship-children
+                (get-in this-map [:CHILDVECTORS relationship] [])
+                _ (if (> (.indexOf relationship-children child-entity-name) -1)
+                    (throw (Exception. (str "Entity " child-entity-name " is already a " relationship
+                                            " child of " this-name))))
+                prototype
+                (:prototype params)
+                instantiate-return-port
+                (a/chan)
+                context-request-port
+                (:CONTEXT-REQUEST-PORT env)
+                _ (a/>! context-request-port [env
+                                              {:requestid          :ROUTE-REQUESTID
+                                               :target-requestid   :INSTANTIATE-REQUESTID
+                                               :target-entity-name prototype
+                                               :name               child-entity-name
+                                               :return-port        instantiate-return-port}])
+                _ (k/request-exception-check (a/<! instantiate-return-port))
+                relationship-children
+                (conj relationship-children child-entity-name)
+                this-map
+                (assoc-in this-map [:CHILDVECTORS relationship] relationship-children)
+                add-parent-return-port
+                (a/chan)]
+            (a/>! context-request-port [env
+                                        {:requestid          :ROUTE-REQUESTID
+                                         :target-requestid   :ADD-PARENT-REQUESTID
+                                         :target-name        child-entity-name
+                                         :relationship       :BASIC
+                                         :parent-entity-name this-name
+                                         :return-port        add-parent-return-port
+                                         }])
+            (k/request-exception-check (a/<! add-parent-return-port))
+            (a/>! operation-return-port [this-map nil this-map]))
+          (catch Exception e
+            (a/>! operation-return-port [this-map e nil]))))
+      (recur))))
+
 (defn create-instantiate-operation
   [env]
   (let [instantiate-port
@@ -139,5 +199,6 @@
   [env]
   (create-add-parent-operation env)
   (create-add-relationship-operation env)
+  (create-add-new-child-operation env)
   (create-instantiate-operation env)
   )
