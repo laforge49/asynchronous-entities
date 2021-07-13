@@ -83,8 +83,8 @@
                        (:OPERATION-PORTIDS this-descriptors)
                        _ (if (nil? this-operation-portids)
                            (throw (Exception. (str "Operation portids is nil\n"
-                                                       (prn-str params)
-                                                       (prn-str this-map)))))
+                                                   (prn-str params)
+                                                   (prn-str this-map)))))
                        [this-map return-value]
                        (case requestid
 
@@ -92,18 +92,22 @@
                          [this-map this-map]
 
                          :PUSH-REQUEST-PORT
-                         (let [new-request-port
-                               (:new-request-port params)
-                               saved-map
-                               this-map
-                               this-map
-                               (assoc this-map :REQUEST-PORT-STACK (conj this-request-port-stack new-request-port))]
-                           [this-map saved-map])
+                         (if (:INVARIANT this-descriptors)
+                           [this-map this-map]
+                           (let [new-request-port
+                                 (:new-request-port params)
+                                 saved-map
+                                 this-map
+                                 this-map
+                                 (assoc this-map :REQUEST-PORT-STACK (conj this-request-port-stack new-request-port))]
+                             [this-map saved-map]))
 
                          :POP-REQUEST-PORT
-                         (let [this-map
-                               (assoc this-map :REQUEST-PORT-STACK (pop this-request-port-stack))]
-                           [this-map this-map])
+                         (if (:INVARIANT this-descriptors)
+                           [this-map this-map]
+                           (let [this-map
+                                 (assoc this-map :REQUEST-PORT-STACK (pop this-request-port-stack))]
+                             [this-map this-map]))
 
                          ;;DEFAULT
                          (let [operation-port-id
