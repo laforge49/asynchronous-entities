@@ -75,10 +75,10 @@
                       (target-entity-kw entity-public-request-ports)
                       target-requestid
                       (:target-requestid params)]
+                  (if (nil? target-entity-request-port)
+                    (throw (Exception. (str "Entity " target-entity-name " is not registered in " this-name))))
                   (a/>! operation-return-port [this-map
-                                               (if (nil? target-entity-request-port)
-                                                 (Exception. (str "Entity " target-entity-name " is not registered in " this-name))
-                                                 nil)
+                                               nil
                                                :NO-RETURN])
                   (a/>! target-entity-request-port [env
                                                     (assoc params :requestid target-requestid)]))
