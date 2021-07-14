@@ -88,10 +88,10 @@
                       (:ENTITY-PUBLIC-REQUEST-PORTS this-map)
                       target-entity-request-port
                       (target-context-entity-kw entity-public-request-ports)]
+                  (if (nil? target-entity-request-port)
+                    (throw (Exception. (str "Entity " this-base-name "/" target-context-base-name " is not registered in " this-name))))
                   (a/>! operation-return-port [this-map
-                                               (if (nil? target-entity-request-port)
-                                                 (Exception. (str "Entity " this-base-name "/" target-context-base-name " is not registered in " this-name))
-                                                 nil)
+                                               nil
                                                :NO-RETURN])
                   (a/>! target-entity-request-port [env
                                                     (assoc params :requestid :ROUTE-REQUESTID)])))))
