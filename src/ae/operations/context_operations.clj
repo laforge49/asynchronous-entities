@@ -56,10 +56,28 @@
                 (:active-request-port env)
                 this-name
                 (:NAME this-map)
+                _ (if (nil? this-name)
+                    (throw (Exception. (str ":NAME is nil\n"
+                                            (prn-str params)
+                                            (prn-str this-map)))))
+                _ (if (not (string? this-name))
+                    (throw (Exception. (str ":NAME is not a string\n"
+                                            (prn this-name)
+                                            (prn-str params)
+                                            (prn-str this-map)))))
                 [_ _ this-base-name]
                 (kw/name-as-keyword this-name)
                 target-entity-name
                 (:target-name params)
+                _ (if (nil? target-entity-name)
+                    (throw (Exception. (str ":target-name is nil\n"
+                                            (prn-str params)
+                                            (prn-str this-map)))))
+                _ (if (not (string? target-entity-name))
+                    (throw (Exception. (str ":target-name is not a string\n"
+                                            (prn-str target-entity-name)
+                                            (prn-str params)
+                                            (prn-str this-map)))))
                 [target-entity-kw target-context-base-name _]
                 (kw/name-as-keyword target-entity-name)]
             (if (= this-name target-entity-name)

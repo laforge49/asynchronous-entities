@@ -123,11 +123,11 @@
                 context-request-port
                 (:CONTEXT-REQUEST-PORT env)
                 _ (a/>! context-request-port [env
-                                              {:requestid          :ROUTE-REQUESTID
-                                               :target-requestid   :INSTANTIATE-REQUESTID
-                                               :target-entity-name prototype
-                                               :name               child-entity-name
-                                               :return-port        instantiate-return-port}])
+                                              {:requestid        :ROUTE-REQUESTID
+                                               :target-requestid :INSTANTIATE-REQUESTID
+                                               :target-name      prototype
+                                               :name             child-entity-name
+                                               :return-port      instantiate-return-port}])
                 _ (k/request-exception-check (a/<! instantiate-return-port))
                 relationship-children
                 (conj relationship-children child-entity-name)
