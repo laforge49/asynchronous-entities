@@ -83,14 +83,6 @@
                            (throw (Exception. (str "Requestid port is nil\n"
                                                    (prn-str params)
                                                    (prn-str this-map)))))
-                       this-descriptors
-                       (thisDescriptors this-map params)
-                       this-requestid-map
-                       (:REQUESTID-MAP this-descriptors)
-                       _ (if (nil? this-requestid-map)
-                           (throw (Exception. (str "requestid map is nil\n"
-                                                   (prn-str params)
-                                                   (prn-str this-map)))))
                        [this-map return-value]
                        (case requestid
 
@@ -98,25 +90,37 @@
                          [this-map this-map]
 
                          :PUSH-REQUEST-PORT
-                         (if (:INVARIANT this-descriptors)
-                           [this-map this-map]
-                           (let [new-request-port
-                                 (:new-request-port params)
-                                 saved-map
-                                 this-map
-                                 this-map
-                                 (assoc this-map :REQUEST-PORT-STACK (conj this-request-port-stack new-request-port))]
-                             [this-map saved-map]))
+                         (let [this-descriptors
+                               (thisDescriptors this-map params)]
+                           (if (:INVARIANT this-descriptors)
+                             [this-map this-map]
+                             (let [new-request-port
+                                   (:new-request-port params)
+                                   saved-map
+                                   this-map
+                                   this-map
+                                   (assoc this-map :REQUEST-PORT-STACK (conj this-request-port-stack new-request-port))]
+                               [this-map saved-map])))
 
                          :POP-REQUEST-PORT
+                         (let [this-descriptors
+                               (thisDescriptors this-map params)]
                          (if (:INVARIANT this-descriptors)
                            [this-map this-map]
                            (let [this-map
                                  (assoc this-map :REQUEST-PORT-STACK (pop this-request-port-stack))]
-                             [this-map this-map]))
+                             [this-map this-map])))
 
                          ;;DEFAULT
-                         (let [operationid
+                         (let [this-descriptors
+                               (thisDescriptors this-map params)
+                               this-requestid-map
+                               (:REQUESTID-MAP this-descriptors)
+                               _ (if (nil? this-requestid-map)
+                                   (throw (Exception. (str "requestid map is nil\n"
+                                                           (prn-str params)
+                                                           (prn-str this-map)))))
+                               operationid
                                (requestid this-requestid-map)
                                _ (if (nil? operationid)
                                    (throw (Exception. (str "Operationid is nil\n"
