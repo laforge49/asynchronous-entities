@@ -5,9 +5,9 @@
     :target-name      "ROOT/CONTEXTS"
     :name             "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :descriptors      {:INVARIANT             true
-                       :REQUESTID-MAP     {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}
-                       :PROTOTYPE-DESCRIPTORS {:INVARIANT         true
-                                               :REQUESTID-MAP {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}}}
+                       :REQUESTID-MAP         {:INSTANTIATE-REQUESTID :INSTANTIATE-OPERATIONID}
+                       :PROTOTYPE-DESCRIPTORS {:INVARIANT     true
+                                               :REQUESTID-MAP {:INSTANTIATE-REQUESTID :INSTANTIATE-OPERATIONID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
@@ -34,9 +34,9 @@
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :name             "MAIN/SIMPLE-PROTOTYPE"
-    :descriptors      {:PROTOTYPE-DESCRIPTORS {:REQUESTID-MAP {:ADD-PARENT-REQUESTID       :ADD-PARENT-PORTID
-                                                                   :ADD-RELATIONSHIP-REQUESTID :ADD-RELATIONSHIP-PORTID
-                                                                   :ADD-NEW-CHILD-REQUESTID    :ADD-NEW-CHILD-PORTID}}}
+    :descriptors      {:PROTOTYPE-DESCRIPTORS {:REQUESTID-MAP {:ADD-PARENT-REQUESTID       :ADD-PARENT-OPERATIONID
+                                                               :ADD-RELATIONSHIP-REQUESTID :ADD-RELATIONSHIP-OPERATIONID
+                                                               :ADD-NEW-CHILD-REQUESTID    :ADD-NEW-CHILD-OPERATIONID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "MAIN/SIMPLE-PROTOTYPE"
