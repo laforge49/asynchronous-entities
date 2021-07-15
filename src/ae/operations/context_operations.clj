@@ -5,7 +5,7 @@
             [ae.keywords :as kw]))
 
 (defn register-new-entity-function
-  [env params this-map]
+  [env this-map params]
   (let [this-name
         (:NAME this-map)
         new-entity-name
@@ -40,7 +40,7 @@
             this-map
             (:this-map env)]
         (try
-          (a/>! operation-return-port (register-new-entity-function env params this-map))
+          (a/>! operation-return-port (register-new-entity-function env this-map params))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
