@@ -12,7 +12,7 @@
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :name             "CONTEXTS/CONTEXT-PROTOTYPE"
-    :descriptors      {:PROTOTYPE-DESCRIPTORS {:REQUESTID-MAP {:REGISTER-NEW-ENTITY-REQUESTID :REGISTER-NEW-ENTITY-PORTID
+    :descriptors      {:PROTOTYPE-DESCRIPTORS {:REQUESTID-MAP {:REGISTER-NEW-ENTITY-REQUESTID :REGISTER-NEW-ENTITY-OPERATIONID
                                                                    :ROUTE-REQUESTID               :ROUTE-PORTID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID

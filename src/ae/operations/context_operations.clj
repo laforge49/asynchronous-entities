@@ -7,7 +7,7 @@
 (defn create-register-new-entity-operation
   [env]
   (let [new-entity-registration-port
-        (k/register-operation-port env {:operationid :REGISTER-NEW-ENTITY-PORTID})]
+        (k/register-operation-port env {:operationid :REGISTER-NEW-ENTITY-OPERATIONID})]
     (a/go-loop []
       (let [[env params]
             (a/<! new-entity-registration-port)
