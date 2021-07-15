@@ -36,6 +36,16 @@
         (:REQUEST-PORT-STACK this-map)]
     (> (count this-request-port-stack) 0)))
 
+(defn thisDescriptors
+  [this-map params]
+  (let [this-descriptors
+        (:DESCRIPTORS this-map)]
+    (if (nil? this-descriptors)
+      (throw (Exception. (str "Descriptors is nil\n"
+                              (prn-str params)
+                              (prn-str this-map)))))
+    this-descriptors))
+
 (defn create-operation-dispatcher
   [this-map]
   (a/go-loop [this-map this-map]
@@ -74,11 +84,7 @@
                                                    (prn-str params)
                                                    (prn-str this-map)))))
                        this-descriptors
-                       (:DESCRIPTORS this-map)
-                       _ (if (nil? this-descriptors)
-                           (throw (Exception. (str "Descriptors is nil\n"
-                                                   (prn-str params)
-                                                   (prn-str this-map)))))
+                       (thisDescriptors this-map params)
                        this-requestid-map
                        (:REQUESTID-MAP this-descriptors)
                        _ (if (nil? this-requestid-map)
