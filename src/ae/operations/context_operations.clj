@@ -21,28 +21,29 @@
             this-map
             (:this-map env)]
         (try
-          (let [this-name
-                (:NAME this-map)
-                new-entity-name
-                (:name params)
-                _ (if (some? (:initialization-port params))
-                    (throw (Exception. (str "An initialization port is not compatible with registration of entity "
-                                            new-entity-name))))
-                rv
-                (if (s/blank? new-entity-name)
-                  (let [new-entity-public-request-port
-                        (k/create-entity env params)]
-                    [this-map nil new-entity-public-request-port])
-                  (let [[new-entity-kw _ _]
-                        (kw/name-as-keyword new-entity-name)
-                        _ (if (some? (get-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw]))
-                            (throw (Exception. (str "Entity " new-entity-name " already exists in " this-name))))
-                        new-entity-public-request-port
-                        (k/create-entity env params)
-                        this-map
-                        (assoc-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw] new-entity-public-request-port)]
-                    [this-map nil new-entity-public-request-port]))]
-            (a/>! operation-return-port rv))
+          (a/>! operation-return-port
+                (let [this-name
+                      (:NAME this-map)
+                      new-entity-name
+                      (:name params)
+                      _ (if (some? (:initialization-port params))
+                          (throw (Exception. (str "An initialization port is not compatible with registration of entity "
+                                                  new-entity-name))))
+                      rv
+                      (if (s/blank? new-entity-name)
+                        (let [new-entity-public-request-port
+                              (k/create-entity env params)]
+                          [this-map nil new-entity-public-request-port])
+                        (let [[new-entity-kw _ _]
+                              (kw/name-as-keyword new-entity-name)
+                              _ (if (some? (get-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw]))
+                                  (throw (Exception. (str "Entity " new-entity-name " already exists in " this-name))))
+                              new-entity-public-request-port
+                              (k/create-entity env params)
+                              this-map
+                              (assoc-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw] new-entity-public-request-port)]
+                          [this-map nil new-entity-public-request-port]))]
+                  rv))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
