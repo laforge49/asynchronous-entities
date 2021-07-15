@@ -6,7 +6,7 @@
 (defn create-run-federation-operation
   [env]
   (let [new-run-federation-port
-        (k/register-operation-port env {:operation-portid :RUN-FEDERATION-PORTID})]
+        (k/register-operation-port env {:operationid :RUN-FEDERATION-PORTID})]
     (a/go-loop []
       (let [[env params]
             (a/<! new-run-federation-port)

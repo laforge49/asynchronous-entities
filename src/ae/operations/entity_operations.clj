@@ -7,7 +7,7 @@
 (defn create-add-parent-operation
   [env]
   (let [add-parent-port
-        (k/register-operation-port env {:operation-portid :ADD-PARENT-PORTID})]
+        (k/register-operation-port env {:operationid :ADD-PARENT-PORTID})]
     (a/go-loop []
       (let [[env params]
             (a/<! add-parent-port)
@@ -43,7 +43,7 @@
 (defn create-add-relationship-operation
   [env]
   (let [add-relationship-port
-        (k/register-operation-port env {:operation-portid :ADD-RELATIONSHIP-PORTID})]
+        (k/register-operation-port env {:operationid :ADD-RELATIONSHIP-PORTID})]
     (a/go-loop []
       (let [[env params]
             (a/<! add-relationship-port)
@@ -92,7 +92,7 @@
 (defn create-add-new-child-operation
   [env]
   (let [add-new-child-port
-        (k/register-operation-port env {:operation-portid :ADD-NEW-CHILD-PORTID})]
+        (k/register-operation-port env {:operationid :ADD-NEW-CHILD-PORTID})]
     (a/go-loop []
       (let [[env params]
             (a/<! add-new-child-port)
@@ -152,7 +152,7 @@
 (defn create-instantiate-operation
   [env]
   (let [instantiate-port
-        (k/register-operation-port env {:operation-portid :INSTANTIATE-PORTID})]
+        (k/register-operation-port env {:operationid :INSTANTIATE-PORTID})]
     (a/go-loop []
       (let [[env params]
             (a/<! instantiate-port)

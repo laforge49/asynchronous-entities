@@ -9,11 +9,11 @@
 
 (defn register-operation-port
   [env params]
-  (let [operation-portid
-        (:operation-portid params)
+  (let [operationid
+        (:operationid params)
         port
         (a/chan)]
-    (swap! operationid-map-atom assoc operation-portid port)
+    (swap! operationid-map-atom assoc operationid port)
     port))
 
 (defn request-exception-check
