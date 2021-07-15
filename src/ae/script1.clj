@@ -23,9 +23,9 @@
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :name             "CONTEXTS/FEDERATION-CONTEXT-PROTOTYPE"
-    :descriptors      {:PROTOTYPE-DESCRIPTORS {:REQUESTID-MAP {:ACQUIRE-REQUESTID :FEDERATION-ACQUIRE-PORTID
-                                                                   :RELEASE-REQUESTID :FEDERATION-RELEASE-PORTID
-                                                                   :ROUTE-REQUESTID   :FEDERATION-ROUTE-PORTID}}}
+    :descriptors      {:PROTOTYPE-DESCRIPTORS {:REQUESTID-MAP {:ACQUIRE-REQUESTID :FEDERATION-ACQUIRE-OPERATIONID
+                                                               :RELEASE-REQUESTID :FEDERATION-RELEASE-OPERATIONID
+                                                               :ROUTE-REQUESTID   :FEDERATION-ROUTE-OPERATIONID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/CONTEXT-PROTOTYPE"

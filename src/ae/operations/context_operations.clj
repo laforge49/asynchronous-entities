@@ -120,7 +120,7 @@
 (defn create-federation-route-operation
   [env]
   (let [federation-route-port
-        (k/register-operation-port env {:operationid :FEDERATION-ROUTE-PORTID})]
+        (k/register-operation-port env {:operationid :FEDERATION-ROUTE-OPERATIONID})]
     (a/go-loop []
       (let [[env params]
             (a/<! federation-route-port)
@@ -184,7 +184,7 @@
 (defn create-federation-acquire-operation
   [env]
   (let [federation-acquire-port
-        (k/register-operation-port env {:operationid :FEDERATION-ACQUIRE-PORTID})]
+        (k/register-operation-port env {:operationid :FEDERATION-ACQUIRE-OPERATIONID})]
     (a/go-loop []
       (let [[env params]
             (a/<! federation-acquire-port)
@@ -211,7 +211,7 @@
 (defn create-federation-release-operation
   [env]
   (let [federation-release-port
-        (k/register-operation-port env {:operationid :FEDERATION-RELEASE-PORTID})]
+        (k/register-operation-port env {:operationid :FEDERATION-RELEASE-OPERATIONID})]
     (a/go-loop []
       (let [[env params]
             (a/<! federation-release-port)
