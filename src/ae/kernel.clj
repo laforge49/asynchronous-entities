@@ -79,9 +79,9 @@
                            (throw (Exception. (str "Descriptors is nil\n"
                                                    (prn-str params)
                                                    (prn-str this-map)))))
-                       this-operation-portids
+                       this-requestid-map
                        (:REQUESTID-MAP this-descriptors)
-                       _ (if (nil? this-operation-portids)
+                       _ (if (nil? this-requestid-map)
                            (throw (Exception. (str "Operation portids is nil\n"
                                                    (prn-str params)
                                                    (prn-str this-map)))))
@@ -111,7 +111,7 @@
 
                          ;;DEFAULT
                          (let [operation-port-id
-                               (requestid this-operation-portids)
+                               (requestid this-requestid-map)
                                _ (if (nil? operation-port-id)
                                    (throw (Exception. (str "Operation portid is nil\n"
                                                            (prn-str params)
