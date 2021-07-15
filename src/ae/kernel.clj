@@ -66,8 +66,6 @@
                                                (prn-str this-map)))))]
                (try
                  (let [env
-                       (assoc env :this-map this-map)
-                       env
                        (assoc env :active-request-port this-request-port)
                        requestid
                        (:requestid params)
@@ -130,7 +128,7 @@
                                    (throw (Exception. (str "Operation port is nil\n"
                                                            (prn-str params)
                                                            (prn-str this-map)))))
-                               _ (a/>! operation-port [env (assoc params :operation-return-port operation-return-port)])
+                               _ (a/>! operation-port [env this-map (assoc params :operation-return-port operation-return-port)])
                                operation-return-value
                                (a/<! operation-return-port)
                                _ (if (not (vector? operation-return-value))

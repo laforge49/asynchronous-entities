@@ -9,12 +9,10 @@
   (let [add-parent-port
         (k/register-operation-port env {:operationid :ADD-PARENT-OPERATIONID})]
     (a/go-loop []
-      (let [[env params]
+      (let [[env this-map params]
             (a/<! add-parent-port)
             operation-return-port
-            (:operation-return-port params)
-            this-map
-            (:this-map env)]
+            (:operation-return-port params)]
         (try
           (let [this-name
                 (:NAME this-map)
@@ -45,12 +43,10 @@
   (let [add-relationship-port
         (k/register-operation-port env {:operationid :ADD-RELATIONSHIP-OPERATIONID})]
     (a/go-loop []
-      (let [[env params]
+      (let [[env this-map params]
             (a/<! add-relationship-port)
             operation-return-port
-            (:operation-return-port params)
-            this-map
-            (:this-map env)]
+            (:operation-return-port params)]
         (try
           (let [this-name
                 (:NAME this-map)
@@ -94,12 +90,10 @@
   (let [add-new-child-port
         (k/register-operation-port env {:operationid :ADD-NEW-CHILD-OPERATIONID})]
     (a/go-loop []
-      (let [[env params]
+      (let [[env this-map params]
             (a/<! add-new-child-port)
             operation-return-port
-            (:operation-return-port params)
-            this-map
-            (:this-map env)]
+            (:operation-return-port params)]
         (try
           (let [this-name
                 (:NAME this-map)
@@ -154,12 +148,10 @@
   (let [instantiate-port
         (k/register-operation-port env {:operationid :INSTANTIATE-OPERATIONID})]
     (a/go-loop []
-      (let [[env params]
+      (let [[env this-map params]
             (a/<! instantiate-port)
             operation-return-port
             (:operation-return-port params)
-            this-map
-            (:this-map env)
             this-name
             (:NAME this-map)
             _ (a/>! operation-return-port [this-map nil :NO-RETURN])

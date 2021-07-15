@@ -33,12 +33,10 @@
         (k/register-operation-port env {:operationid :REGISTER-NEW-ENTITY-OPERATIONID
                                         :function    register-new-entity-function})]
     (a/go-loop []
-      (let [[env params]
+      (let [[env this-map params]
             (a/<! new-entity-registration-port)
             operation-return-port
-            (:operation-return-port params)
-            this-map
-            (:this-map env)]
+            (:operation-return-port params)]
         (try
           (a/>! operation-return-port (register-new-entity-function env this-map params))
           (catch Exception e
@@ -50,12 +48,10 @@
   (let [route-to-local-entity-port
         (k/register-operation-port env {:operationid :ROUTE-OPERATIONID})]
     (a/go-loop []
-      (let [[env params]
+      (let [[env this-map params]
             (a/<! route-to-local-entity-port)
             operation-return-port
-            (:operation-return-port params)
-            this-map
-            (:this-map env)]
+            (:operation-return-port params)]
         (try
           (let [active-request-port
                 (:active-request-port env)
@@ -127,12 +123,10 @@
   (let [federation-route-port
         (k/register-operation-port env {:operationid :FEDERATION-ROUTE-OPERATIONID})]
     (a/go-loop []
-      (let [[env params]
+      (let [[env this-map params]
             (a/<! federation-route-port)
             operation-return-port
-            (:operation-return-port params)
-            this-map
-            (:this-map env)]
+            (:operation-return-port params)]
         (try
           (let [federation-map
                 (:FEDERATION-MAP this-map)
@@ -191,12 +185,10 @@
   (let [federation-acquire-port
         (k/register-operation-port env {:operationid :FEDERATION-ACQUIRE-OPERATIONID})]
     (a/go-loop []
-      (let [[env params]
+      (let [[env this-map params]
             (a/<! federation-acquire-port)
             operation-return-port
-            (:operation-return-port params)
-            this-map
-            (:this-map env)]
+            (:operation-return-port params)]
         (try
           (let [federation-names
                 (:federation-names params)
@@ -218,12 +210,10 @@
   (let [federation-release-port
         (k/register-operation-port env {:operationid :FEDERATION-RELEASE-OPERATIONID})]
     (a/go-loop []
-      (let [[env params]
+      (let [[env this-map params]
             (a/<! federation-release-port)
             operation-return-port
-            (:operation-return-port params)
-            this-map
-            (:this-map env)]
+            (:operation-return-port params)]
         (try
           (let [federation-map
                 (:FEDERATION-MAP this-map)
