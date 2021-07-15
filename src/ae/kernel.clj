@@ -4,8 +4,17 @@
             [clojure.stacktrace :as stacktrace]
             [ae.keywords :as kw]))
 
-(def operation-port-map-atom
+(def operationid-map-atom
   (atom {}))
+
+(defn register-operation-port
+  [env params]
+  (let [operation-portid
+        (:operation-portid params)
+        port
+        (a/chan)]
+    (swap! operationid-map-atom assoc operation-portid port)
+    port))
 
 (defn request-exception-check
   [request-return-value]
@@ -18,15 +27,6 @@
         (if (some? ex)
           (throw ex)
           val)))))
-
-(defn register-operation-port
-  [env params]
-  (let [operation-portid
-        (:operation-portid params)
-        port
-        (a/chan)]
-    (swap! operation-port-map-atom assoc operation-portid port)
-    port))
 
 (defn federated?
   [this-map]
@@ -117,7 +117,7 @@
                                                            (prn-str params)
                                                            (prn-str this-map)))))
                                operation-port
-                               (operation-port-id @operation-port-map-atom)
+                               (operation-port-id @operationid-map-atom)
                                operation-return-port
                                (a/chan)
                                _ (if (nil? operation-port-id)
