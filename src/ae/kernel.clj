@@ -11,9 +11,11 @@
   [env params]
   (let [operationid
         (:operationid params)
+        function
+        (:function params)
         port
         (a/chan)]
-    (swap! operationid-map-atom assoc operationid port)
+    (swap! operationid-map-atom assoc operationid [port function])
     port))
 
 (defn request-exception-check
@@ -117,7 +119,7 @@
                                                            (prn-str params)
                                                            (prn-str this-map)))))
                                operation-port
-                               (operationid @operationid-map-atom)
+                               (first (operationid @operationid-map-atom))
                                operation-return-port
                                (a/chan)
                                _ (if (nil? operationid)
