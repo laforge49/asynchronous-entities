@@ -5,25 +5,25 @@
     :target-name      "ROOT/CONTEXTS"
     :name             "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :descriptors      {:INVARIANT             true
-                       :OPERATION-PORTIDS     {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}
+                       :REQUESTID-MAP     {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}
                        :PROTOTYPE-DESCRIPTORS {:INVARIANT         true
-                                               :OPERATION-PORTIDS {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}}}
+                                               :REQUESTID-MAP {:INSTANTIATE-REQUESTID :INSTANTIATE-PORTID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :name             "CONTEXTS/CONTEXT-PROTOTYPE"
-    :descriptors      {:PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:REGISTER-NEW-ENTITY-REQUESTID :REGISTER-NEW-ENTITY-PORTID
+    :descriptors      {:PROTOTYPE-DESCRIPTORS {:REQUESTID-MAP {:REGISTER-NEW-ENTITY-REQUESTID :REGISTER-NEW-ENTITY-PORTID
                                                                    :ROUTE-REQUESTID               :ROUTE-PORTID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :name             "CONTEXTS/FEDERATOR-PROTOTYPE"
-    :descriptors      {:PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:RUN-FEDERATION-REQUESTID :RUN-FEDERATION-PORTID}}}
+    :descriptors      {:PROTOTYPE-DESCRIPTORS {:REQUESTID-MAP {:RUN-FEDERATION-REQUESTID :RUN-FEDERATION-PORTID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :name             "CONTEXTS/FEDERATION-CONTEXT-PROTOTYPE"
-    :descriptors      {:PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:ACQUIRE-REQUESTID :FEDERATION-ACQUIRE-PORTID
+    :descriptors      {:PROTOTYPE-DESCRIPTORS {:REQUESTID-MAP {:ACQUIRE-REQUESTID :FEDERATION-ACQUIRE-PORTID
                                                                    :RELEASE-REQUESTID :FEDERATION-RELEASE-PORTID
                                                                    :ROUTE-REQUESTID   :FEDERATION-ROUTE-PORTID}}}
     }
@@ -34,7 +34,7 @@
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :name             "MAIN/SIMPLE-PROTOTYPE"
-    :descriptors      {:PROTOTYPE-DESCRIPTORS {:OPERATION-PORTIDS {:ADD-PARENT-REQUESTID       :ADD-PARENT-PORTID
+    :descriptors      {:PROTOTYPE-DESCRIPTORS {:REQUESTID-MAP {:ADD-PARENT-REQUESTID       :ADD-PARENT-PORTID
                                                                    :ADD-RELATIONSHIP-REQUESTID :ADD-RELATIONSHIP-PORTID
                                                                    :ADD-NEW-CHILD-REQUESTID    :ADD-NEW-CHILD-PORTID}}}
     }

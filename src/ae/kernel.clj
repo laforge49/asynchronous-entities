@@ -80,7 +80,7 @@
                                                    (prn-str params)
                                                    (prn-str this-map)))))
                        this-operation-portids
-                       (:OPERATION-PORTIDS this-descriptors)
+                       (:REQUESTID-MAP this-descriptors)
                        _ (if (nil? this-operation-portids)
                            (throw (Exception. (str "Operation portids is nil\n"
                                                    (prn-str params)
