@@ -82,7 +82,7 @@
                        this-requestid-map
                        (:REQUESTID-MAP this-descriptors)
                        _ (if (nil? this-requestid-map)
-                           (throw (Exception. (str "Operation portids is nil\n"
+                           (throw (Exception. (str "requestid map is nil\n"
                                                    (prn-str params)
                                                    (prn-str this-map)))))
                        [this-map return-value]
@@ -110,18 +110,18 @@
                              [this-map this-map]))
 
                          ;;DEFAULT
-                         (let [operation-port-id
+                         (let [operationid
                                (requestid this-requestid-map)
-                               _ (if (nil? operation-port-id)
-                                   (throw (Exception. (str "Operation portid is nil\n"
+                               _ (if (nil? operationid)
+                                   (throw (Exception. (str "Operationid is nil\n"
                                                            (prn-str params)
                                                            (prn-str this-map)))))
                                operation-port
-                               (operation-port-id @operationid-map-atom)
+                               (operationid @operationid-map-atom)
                                operation-return-port
                                (a/chan)
-                               _ (if (nil? operation-port-id)
-                                   (throw (Exception. (str "Operation port id is nil\n"
+                               _ (if (nil? operationid)
+                                   (throw (Exception. (str "Operationid is nil\n"
                                                            (prn-str params)
                                                            (prn-str this-map)))))
                                _ (if (nil? operation-port)
