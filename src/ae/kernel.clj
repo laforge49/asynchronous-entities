@@ -46,6 +46,30 @@
                               (prn-str this-map)))))
     this-descriptors))
 
+(defn thisOperationid
+  [this-map params]
+  (let [requestid
+        (:requestid params)
+        _ (if (nil? requestid)
+            (throw (Exception. (str "Requestid is nil\n"
+                                    (prn-str params)
+                                    (prn-str this-map)))))
+        this-descriptors
+        (thisDescriptors this-map params)
+        this-requestid-map
+        (:REQUESTID-MAP this-descriptors)
+        _ (if (nil? this-requestid-map)
+            (throw (Exception. (str "requestid map is nil\n"
+                                    (prn-str params)
+                                    (prn-str this-map)))))
+        operationid
+        (requestid this-requestid-map)
+        _ (if (nil? operationid)
+            (throw (Exception. (str "Operationid is nil\n"
+                                    (prn-str params)
+                                    (prn-str this-map)))))]
+    operationid))
+
 (defn create-operation-dispatcher
   [this-map]
   (a/go-loop [this-map this-map]
@@ -112,32 +136,16 @@
                              [this-map this-map])))
 
                          ;;DEFAULT
-                         (let [this-descriptors
-                               (thisDescriptors this-map params)
-                               this-requestid-map
-                               (:REQUESTID-MAP this-descriptors)
-                               _ (if (nil? this-requestid-map)
-                                   (throw (Exception. (str "requestid map is nil\n"
-                                                           (prn-str params)
-                                                           (prn-str this-map)))))
-                               operationid
-                               (requestid this-requestid-map)
-                               _ (if (nil? operationid)
-                                   (throw (Exception. (str "Operationid is nil\n"
-                                                           (prn-str params)
-                                                           (prn-str this-map)))))
+                         (let [operationid
+                               (thisOperationid this-map params)
                                operation-port
                                (first (operationid @operationid-map-atom))
-                               operation-return-port
-                               (a/chan)
-                               _ (if (nil? operationid)
-                                   (throw (Exception. (str "Operationid is nil\n"
-                                                           (prn-str params)
-                                                           (prn-str this-map)))))
                                _ (if (nil? operation-port)
                                    (throw (Exception. (str "Operation port is nil\n"
                                                            (prn-str params)
                                                            (prn-str this-map)))))
+                               operation-return-port
+                               (a/chan)
                                _ (a/>! operation-port [env this-map (assoc params :operation-return-port operation-return-port)])
                                operation-return-value
                                (a/<! operation-return-port)
