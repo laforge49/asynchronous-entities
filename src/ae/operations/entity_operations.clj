@@ -143,6 +143,45 @@
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
 
+#_ (defn add-new-child-function
+  [env this-map params]
+  (let [this-name
+        (:NAME this-map)
+        child-entity-name
+        (:child-entity-name params)
+        ]
+    [{:requestid          :ROUTE-REQUESTID
+     :target-requestid   :ADD-PARENT-REQUESTID
+     :target-name        child-entity-name
+     :relationship       :BASIC
+     :parent-entity-name this-name}]))
+
+#_ (defn create-add-new-child-operation
+  [env]
+  (let [add-new-child-port
+        (k/register-operation-port env {:operationid :INSTANTIATE-OPERATIONID
+                                        :function    add-new-child-function})]
+    (a/go-loop []
+      (let [[env this-map params]
+            (a/<! add-new-child-port)
+            operation-return-port
+            (:operation-return-port params)]
+        (try
+          (let [context-request-port
+                (:CONTEXT-REQUEST-PORT env)
+                add-parent-params
+                (add-new-child-function env this-map params)
+                add-parent-return-port
+                (a/chan)
+                [add-parent-params]
+                (assoc add-parent-params :return-port add-parent-return-port)]
+            (a/>! context-request-port [env add-parent-params])
+            (k/request-exception-check (a/<! add-parent-return-port))
+            (a/>! operation-return-port [this-map nil this-map]))
+          (catch Exception e
+            (a/>! operation-return-port [this-map e nil]))))
+      (recur))))
+
 (defn instantiate-function
   [env this-map params]
   (let [new-entity-name
@@ -167,12 +206,10 @@
         (assoc prototype-descriptors :PROTOTYPE this-name)
         prototype-descriptors
         (into prototype-descriptors (:descriptors params))]
-  (-> params
-      (assoc :requestid :ROUTE-REQUESTID)
-      (assoc :target-requestid :REGISTER-NEW-ENTITY-REQUESTID)
-      (assoc :target-name target-name)
-      (assoc :descriptors prototype-descriptors)
-      )))
+    (-> params
+        (assoc :target-requestid :REGISTER-NEW-ENTITY-REQUESTID)
+        (assoc :target-name target-name)
+        (assoc :descriptors prototype-descriptors))))
 
 (defn create-instantiate-operation
   [env]
@@ -187,11 +224,12 @@
         (try
           (let [context-request-port
                 (:CONTEXT-REQUEST-PORT env)
-                params
-                (instantiate-function env this-map params)]
+                route-params
+                (instantiate-function env this-map params)
+                route-params
+                (assoc route-params :requestid :ROUTE-REQUESTID)]
             (a/>! operation-return-port [this-map nil :NO-RETURN])
-            (a/>! context-request-port [env params])
-            )
+            (a/>! context-request-port [env route-params]))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
