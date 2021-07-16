@@ -143,49 +143,58 @@
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
 
+(defn instantiate-function
+  [env this-map params]
+  (let [new-entity-name
+        (:name params)
+        [_ new-entity-context-base-name _]
+        (if (s/blank? new-entity-name)
+          [nil "" nil]
+          (kw/name-as-keyword new-entity-name))
+        target-name
+        (if (s/blank? new-entity-name)
+          "ROOT/CONTEXTS"
+          (if (= new-entity-context-base-name "CONTEXTS")
+            (str "ROOT/CONTEXTS")
+            (str "CONTEXTS/" new-entity-context-base-name)))
+        this-name
+        (:NAME this-map)
+        this-descriptors
+        (:DESCRIPTORS this-map)
+        prototype-descriptors
+        (:PROTOTYPE-DESCRIPTORS this-descriptors)
+        prototype-descriptors
+        (assoc prototype-descriptors :PROTOTYPE this-name)
+        prototype-descriptors
+        (into prototype-descriptors (:descriptors params))]
+  (-> params
+      (assoc :requestid :ROUTE-REQUESTID)
+      (assoc :target-requestid :REGISTER-NEW-ENTITY-REQUESTID)
+      (assoc :target-name target-name)
+      (assoc :descriptors prototype-descriptors)
+      )))
+
 (defn create-instantiate-operation
   [env]
   (let [instantiate-port
-        (k/register-operation-port env {:operationid :INSTANTIATE-OPERATIONID})]
+        (k/register-operation-port env {:operationid :INSTANTIATE-OPERATIONID
+                                        :function    instantiate-function})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! instantiate-port)
             operation-return-port
-            (:operation-return-port params)
-            this-name
-            (:NAME this-map)
-            _ (a/>! operation-return-port [this-map nil :NO-RETURN])
-            new-entity-name
-            (:name params)
-            [_ new-entity-context-base-name _]
-            (if (s/blank? new-entity-name)
-              [nil "" nil]
-              (kw/name-as-keyword new-entity-name))
-            this-descriptors
-            (:DESCRIPTORS this-map)
-            prototype-descriptors
-            (:PROTOTYPE-DESCRIPTORS this-descriptors)
-            prototype-descriptors
-            (assoc prototype-descriptors :PROTOTYPE this-name)
-            prototype-descriptors
-            (into prototype-descriptors (:descriptors params))
-            target-name
-            (if (s/blank? new-entity-name)
-              "ROOT/CONTEXTS"
-              (if (= new-entity-context-base-name "CONTEXTS")
-                (str "ROOT/CONTEXTS")
-                (str "CONTEXTS/" new-entity-context-base-name)))
-            context-request-port
-            (:CONTEXT-REQUEST-PORT env)
-            params
-            (-> params
-                (assoc :requestid :ROUTE-REQUESTID)
-                (assoc :target-requestid :REGISTER-NEW-ENTITY-REQUESTID)
-                (assoc :target-name target-name)
-                (assoc :descriptors prototype-descriptors)
-                )]
-        (a/>! context-request-port [env params])
-        (recur)))))
+            (:operation-return-port params)]
+        (try
+          (let [context-request-port
+                (:CONTEXT-REQUEST-PORT env)
+                params
+                (instantiate-function env this-map params)]
+            (a/>! operation-return-port [this-map nil :NO-RETURN])
+            (a/>! context-request-port [env params])
+            )
+          (catch Exception e
+            (a/>! operation-return-port [this-map e nil]))))
+      (recur))))
 
 (defn create-entity-operations
   [env]
