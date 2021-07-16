@@ -129,11 +129,16 @@
                          :POP-REQUEST-PORT
                          (let [this-descriptors
                                (thisDescriptors this-map params)]
-                         (if (:INVARIANT this-descriptors)
-                           [this-map this-map]
-                           (let [this-map
-                                 (assoc this-map :REQUEST-PORT-STACK (pop this-request-port-stack))]
-                             [this-map this-map])))
+                           (if (:INVARIANT this-descriptors)
+                             [this-map this-map]
+                             (let [this-map
+                                   (assoc this-map :REQUEST-PORT-STACK (pop this-request-port-stack))]
+                               [this-map this-map])))
+
+                         :RESET-REQUEST-PORT
+                         (let [this-map
+                               (:this-map params)]
+                           [this-map this-map])
 
                          ;;DEFAULT
                          (let [operationid
