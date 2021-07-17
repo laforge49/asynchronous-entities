@@ -4,10 +4,27 @@
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
+(defn addParentFunction
+  [env this-map params]
+  (let [this-name
+        (:NAME this-map)
+        parent-name
+        (:parent-name params)
+        relationship
+        (:relationship params) relationship-parents
+        (get-in this-map [:PARENTVECTORS relationship] [])
+        _ (if (> (.indexOf relationship-parents parent-name) -1)
+            (throw (Exception. (str "Entity " parent-name " is already a " relationship
+                                    " parent of " this-name))))
+        relationship-parents
+        (conj relationship-parents parent-name)]
+    (assoc-in this-map [:PARENTVECTORS relationship] relationship-parents)))
+
 (defn create-add-parent-operation
   [env]
   (let [add-parent-port
-        (k/register-operation-port env {:operationid :ADD-PARENT-OPERATIONID})]
+        (k/register-operation-port env {:operationid :ADD-PARENT-OPERATIONID
+                                        :function addParentFunction})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! add-parent-port)
@@ -22,17 +39,8 @@
                     (throw (Exception. (str "Entity " this-name
                                             " is not federated and so can not add a relationship to "
                                             parent-entity-name))))
-                relationship
-                (:relationship params)
-                relationship-parents
-                (get-in this-map [:PARENTVECTORS relationship] [])
-                _ (if (> (.indexOf relationship-parents parent-entity-name) -1)
-                    (throw (Exception. (str "Entity " parent-entity-name " is already a " relationship
-                                            " parent of " this-name))))
-                relationship-parents
-                (conj relationship-parents parent-entity-name)
                 this-map
-                (assoc-in this-map [:PARENTVECTORS relationship] relationship-parents)]
+                (addParentFunction env this-map params)]
             (a/>! operation-return-port [this-map nil this-map]))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))
