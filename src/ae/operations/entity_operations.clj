@@ -24,7 +24,7 @@
   [env]
   (let [add-parent-port
         (k/register-operation-port env {:operationid :ADD-PARENT-OPERATIONID
-                                        :function addParentFunction})]
+                                        :function    addParentFunction})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! add-parent-port)
@@ -48,16 +48,10 @@
 
 (defn addParentParams
   [env this-map params]
-  (let [parent-name
-        (:parent-name params)
-        child-name
-        (:child-name params)
-        relationship
-        (:relationship params)]
-    {:target-requestid :ADD-PARENT-REQUESTID
-     :target-name     child-name
-     :relationship    relationship
-     :parent-name     parent-name}))
+  {:target-requestid :ADD-PARENT-REQUESTID
+   :target-name      (:child-name params)
+   :relationship     (:relationship params)
+   :parent-name      (:parent-name params)})
 
 (defn addChildFunction
   [env this-map params]
@@ -105,8 +99,8 @@
                 add-parent-return-port
                 (a/chan)
                 add-parent-params
-                (into add-parent-params {:requestid        :ROUTE-REQUESTID
-                                         :return-port      add-parent-return-port})
+                (into add-parent-params {:requestid   :ROUTE-REQUESTID
+                                         :return-port add-parent-return-port})
                 context-request-port
                 (:CONTEXT-REQUEST-PORT env)]
             (a/>! context-request-port [env add-parent-params])
@@ -116,15 +110,22 @@
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
 
+(defn addRelationshipParams
+  [env this-map params]
+  {:target-requestid :ADD-RELATIONSHIP-REQUESTID
+   :target-name      "MAIN/SIMPLE_1"
+   :relationship     :BASIC
+   :child-name       "MAIN/SIMPLE_2"})
+
 (defn instantiateParams
   [env this-map params]
-  (let [child-entity-name
+  (let [child-name
         (:child-name params)
         prototype
         (:prototype params)]
     {:target-requestid :INSTANTIATE-REQUESTID
-      :target-name      prototype
-      :name             child-entity-name}))
+     :target-name      prototype
+     :name             child-name}))
 
 (defn create-add-new-child-operation
   [env]
@@ -145,7 +146,7 @@
                 (instantiateParams env this-map params)
                 instantiate-params
                 (into instantiate-params {:return-port instantiate-return-port
-                                          :requestid :ROUTE-REQUESTID})
+                                          :requestid   :ROUTE-REQUESTID})
                 add-parent-return-port
                 (a/chan)
                 add-parent-params
@@ -153,7 +154,7 @@
                 add-parent-params
                 (into add-parent-params {:parent-name (:this-name this-map)
                                          :return-port add-parent-return-port
-                                         :requestid :ROUTE-REQUESTID})]
+                                         :requestid   :ROUTE-REQUESTID})]
             (a/>! context-request-port [env instantiate-params])
             (k/request-exception-check (a/<! instantiate-return-port))
             (a/>! context-request-port [env add-parent-params])
