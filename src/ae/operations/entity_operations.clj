@@ -88,7 +88,7 @@
 (defn addParentParams
   [env this-map params]
   (let [parent-name
-        (:NAME this-map)
+        (:parent-name params)
         child-name
         (:child-name params)
         relationship
@@ -138,7 +138,8 @@
                 add-parent-params
                 (addParentParams env this-map params)
                 add-parent-params
-                (into add-parent-params {:return-port add-parent-return-port
+                (into add-parent-params {:parent-name (:this-name this-map)
+                                         :return-port add-parent-return-port
                                          :requestid :ROUTE-REQUESTID})]
             (a/>! context-request-port [env instantiate-params])
             (k/request-exception-check (a/<! instantiate-return-port))
