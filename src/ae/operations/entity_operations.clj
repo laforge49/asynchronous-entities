@@ -92,35 +92,24 @@
         (try
           (let [this-name
                 (:NAME this-map)
-                child-entity-name
+                child-name
                 (:child-name params)
                 _ (if (not (k/federated? this-map))
                     (throw (Exception. (str "Entity " this-name
                                             " is not federated and so can not add a relationship to "
-                                            child-entity-name))))
-                relationship
-                (:relationship params)
-                relationship-children
-                (get-in this-map [:CHILDVECTORS relationship] [])
-                _ (if (> (.indexOf relationship-children child-entity-name) -1)
-                    (throw (Exception. (str "Entity " child-entity-name " is already a " relationship
-                                            " child of " this-name))))
-                relationship-children
-                (conj relationship-children child-entity-name)
+                                            child-name))))
                 this-map
-                (assoc-in this-map [:CHILDVECTORS relationship] relationship-children)
-                context-request-port
-                (:CONTEXT-REQUEST-PORT env)
+                (addChildFunction env this-map params)
+                add-parent-params
+                (addParentParams env this-map params)
                 add-parent-return-port
-                (a/chan)]
-            (a/>! context-request-port [env
-                                        {:requestid        :ROUTE-REQUESTID
-                                         :target-requestid :ADD-PARENT-REQUESTID
-                                         :target-name      child-entity-name
-                                         :relationship     relationship
-                                         :parent-name      this-name
-                                         :return-port      add-parent-return-port
-                                         }])
+                (a/chan)
+                add-parent-params
+                (into add-parent-params {:requestid        :ROUTE-REQUESTID
+                                         :return-port      add-parent-return-port})
+                context-request-port
+                (:CONTEXT-REQUEST-PORT env)]
+            (a/>! context-request-port [env add-parent-params])
             (k/request-exception-check (a/<! add-parent-return-port))
             (a/>! operation-return-port [this-map nil this-map]))
           (catch Exception e
