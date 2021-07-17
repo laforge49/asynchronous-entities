@@ -51,7 +51,7 @@
   {:target-requestid :ADD-PARENT-REQUESTID
    :target-name      (:child-name params)
    :relationship     (:relationship params)
-   :parent-name      (:parent-name params)})
+   :parent-name      (:this-name params)})
 
 (defn addChildFunction
   [env this-map params]
@@ -113,9 +113,9 @@
 (defn addRelationshipParams
   [env this-map params]
   {:target-requestid :ADD-RELATIONSHIP-REQUESTID
-   :target-name      "MAIN/SIMPLE_1"
-   :relationship     :BASIC
-   :child-name       "MAIN/SIMPLE_2"})
+   :target-name      (:parent-name params)
+   :relationship     (:relationship params)
+   :child-name       (:child-name params)})
 
 (defn instantiateParams
   [env this-map params]
