@@ -53,12 +53,7 @@
         child-name
         (:child-name params)
         relationship
-        (:relationship params)
-        relationship-children
-        (get-in this-map [:CHILDVECTORS relationship] [])
-        _ (if (> (.indexOf relationship-children child-name) -1)
-            (throw (Exception. (str "Entity " child-name " is already a " relationship
-                                    " child of " parent-name))))]
+        (:relationship params)]
     {:target-requestid :ADD-PARENT-REQUESTID
      :target-name     child-name
      :relationship    relationship
