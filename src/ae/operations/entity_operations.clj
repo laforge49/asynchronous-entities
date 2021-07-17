@@ -126,15 +126,13 @@
                 instantiate-return-port
                 (a/chan)
                 instantiate-params
-                (assoc instantiate-params :return-port instantiate-return-port)
-                instantiate-params
-                (assoc instantiate-params :requestid :ROUTE-REQUESTID)
+                (into instantiate-params {:return-port instantiate-return-port
+                                          :requestid :ROUTE-REQUESTID})
                 add-parent-return-port
                 (a/chan)
                 add-parent-params
-                (assoc add-parent-params :return-port add-parent-return-port)
-                add-parent-params
-                (assoc add-parent-params :requestid :ROUTE-REQUESTID)]
+                (into add-parent-params {:return-port add-parent-return-port
+                                         :requestid :ROUTE-REQUESTID})]
             (a/>! context-request-port [env instantiate-params])
             (k/request-exception-check (a/<! instantiate-return-port))
             (a/>! context-request-port [env add-parent-params])
