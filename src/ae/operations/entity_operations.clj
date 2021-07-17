@@ -85,7 +85,7 @@
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
 
-(defn add-new-child-function
+(defn addParentParams
   [env this-map params]
   (let [this-name
         (:NAME this-map)
@@ -97,22 +97,27 @@
         (get-in this-map [:CHILDVECTORS relationship] [])
         _ (if (> (.indexOf relationship-children child-entity-name) -1)
             (throw (Exception. (str "Entity " child-entity-name " is already a " relationship
-                                    " child of " this-name))))
-        prototype
-        (:prototype params)]
-    [{:target-requestid :INSTANTIATE-REQUESTID
-      :target-name      prototype
-      :name             child-entity-name}
-     {:target-requestid   :ADD-PARENT-REQUESTID
+                                    " child of " this-name))))]
+    {:target-requestid   :ADD-PARENT-REQUESTID
       :target-name        child-entity-name
       :relationship       relationship
-      :parent-entity-name this-name}]))
+      :parent-entity-name this-name}))
+
+(defn instantiateParams
+  [env this-map params]
+  (let [child-entity-name
+        (:child-entity-name params)
+        prototype
+        (:prototype params)]
+    {:target-requestid :INSTANTIATE-REQUESTID
+      :target-name      prototype
+      :name             child-entity-name}))
 
 (defn create-add-new-child-operation
   [env]
   (let [add-new-child-port
         (k/register-operation-port env {:operationid :ADD-NEW-CHILD-OPERATIONID
-                                        :function    add-new-child-function})]
+                                        :function    nil})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! add-new-child-port)
@@ -121,15 +126,17 @@
         (try
           (let [context-request-port
                 (:CONTEXT-REQUEST-PORT env)
-                [instantiate-params add-parent-params]
-                (add-new-child-function env this-map params)
                 instantiate-return-port
                 (a/chan)
+                instantiate-params
+                (instantiateParams env this-map params)
                 instantiate-params
                 (into instantiate-params {:return-port instantiate-return-port
                                           :requestid :ROUTE-REQUESTID})
                 add-parent-return-port
                 (a/chan)
+                add-parent-params
+                (addParentParams env this-map params)
                 add-parent-params
                 (into add-parent-params {:return-port add-parent-return-port
                                          :requestid :ROUTE-REQUESTID})]
