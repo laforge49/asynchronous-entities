@@ -51,7 +51,7 @@
           (let [this-name
                 (:NAME this-map)
                 child-entity-name
-                (:child-entity-name params)
+                (:child-name params)
                 _ (if (not (k/federated? this-map))
                     (throw (Exception. (str "Entity " this-name
                                             " is not federated and so can not add a relationship to "
@@ -87,26 +87,26 @@
 
 (defn addParentParams
   [env this-map params]
-  (let [this-name
+  (let [parent-name
         (:NAME this-map)
-        child-entity-name
-        (:child-entity-name params)
+        child-name
+        (:child-name params)
         relationship
         (:relationship params)
         relationship-children
         (get-in this-map [:CHILDVECTORS relationship] [])
-        _ (if (> (.indexOf relationship-children child-entity-name) -1)
-            (throw (Exception. (str "Entity " child-entity-name " is already a " relationship
-                                    " child of " this-name))))]
+        _ (if (> (.indexOf relationship-children child-name) -1)
+            (throw (Exception. (str "Entity " child-name " is already a " relationship
+                                    " child of " parent-name))))]
     {:target-requestid   :ADD-PARENT-REQUESTID
-      :target-name        child-entity-name
+      :target-name        child-name
       :relationship       relationship
-      :parent-entity-name this-name}))
+      :parent-entity-name parent-name}))
 
 (defn instantiateParams
   [env this-map params]
   (let [child-entity-name
-        (:child-entity-name params)
+        (:child-name params)
         prototype
         (:prototype params)]
     {:target-requestid :INSTANTIATE-REQUESTID
