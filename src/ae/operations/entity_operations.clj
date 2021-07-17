@@ -38,6 +38,24 @@
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
 
+(defn addParentParams
+  [env this-map params]
+  (let [parent-name
+        (:parent-name params)
+        child-name
+        (:child-name params)
+        relationship
+        (:relationship params)
+        relationship-children
+        (get-in this-map [:CHILDVECTORS relationship] [])
+        _ (if (> (.indexOf relationship-children child-name) -1)
+            (throw (Exception. (str "Entity " child-name " is already a " relationship
+                                    " child of " parent-name))))]
+    {:target-requestid :ADD-PARENT-REQUESTID
+     :target-name     child-name
+     :relationship    relationship
+     :parent-name     parent-name}))
+
 (defn create-add-relationship-operation
   [env]
   (let [add-relationship-port
@@ -75,7 +93,7 @@
                                         {:requestid        :ROUTE-REQUESTID
                                          :target-requestid :ADD-PARENT-REQUESTID
                                          :target-name      child-entity-name
-                                         :relationship     :BASIC
+                                         :relationship     relationship
                                          :parent-name      this-name
                                          :return-port      add-parent-return-port
                                          }])
@@ -84,24 +102,6 @@
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
-
-(defn addParentParams
-  [env this-map params]
-  (let [parent-name
-        (:parent-name params)
-        child-name
-        (:child-name params)
-        relationship
-        (:relationship params)
-        relationship-children
-        (get-in this-map [:CHILDVECTORS relationship] [])
-        _ (if (> (.indexOf relationship-children child-name) -1)
-            (throw (Exception. (str "Entity " child-name " is already a " relationship
-                                    " child of " parent-name))))]
-    {:target-requestid :ADD-PARENT-REQUESTID
-      :target-name     child-name
-      :relationship    relationship
-      :parent-name     parent-name}))
 
 (defn instantiateParams
   [env this-map params]
