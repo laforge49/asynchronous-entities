@@ -59,6 +59,27 @@
      :relationship    relationship
      :parent-name     parent-name}))
 
+(defn addChildFunction
+  [env this-map params]
+  (let [this-name
+        (:NAME this-map)
+        child-name
+        (:child-name params)
+        _ (if (not (k/federated? this-map))
+            (throw (Exception. (str "Entity " this-name
+                                    " is not federated and so can not add a relationship to "
+                                    child-name))))
+        relationship
+        (:relationship params)
+        relationship-children
+        (get-in this-map [:CHILDVECTORS relationship] [])
+        _ (if (> (.indexOf relationship-children child-name) -1)
+            (throw (Exception. (str "Entity " child-name " is already a " relationship
+                                    " child of " this-name))))
+        relationship-children
+        (conj relationship-children child-name)]
+    (assoc-in this-map [:CHILDVECTORS relationship] relationship-children)))
+
 (defn create-add-relationship-operation
   [env]
   (let [add-relationship-port
