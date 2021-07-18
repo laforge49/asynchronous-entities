@@ -91,9 +91,9 @@
           (let [add-parent-return-port
                 (a/chan)]
             (a/>! (:CONTEXT-REQUEST-PORT env) [env
-                                        (into (addParentParams env this-map params)
-                                              {:requestid   :ROUTE-REQUESTID
-                                               :return-port add-parent-return-port})])
+                                               (into (addParentParams env this-map params)
+                                                     {:requestid   :ROUTE-REQUESTID
+                                                      :return-port add-parent-return-port})])
             (k/request-exception-check (a/<! add-parent-return-port))
             (a/>! operation-return-port [(addChildFunction env this-map params) nil this-map]))
           (catch Exception e
@@ -109,13 +109,9 @@
 
 (defn instantiateParams
   [env this-map params]
-  (let [child-name
-        (:child-name params)
-        prototype
-        (:prototype params)]
-    {:target-requestid :INSTANTIATE-REQUESTID
-     :target-name      prototype
-     :name             child-name}))
+  {:target-requestid :INSTANTIATE-REQUESTID
+   :target-name      (:prototype params)
+   :name             (:child-name params)})
 
 (defn create-add-new-child-operation
   [env]
@@ -132,11 +128,6 @@
                 (:CONTEXT-REQUEST-PORT env)
                 instantiate-return-port
                 (a/chan)
-                instantiate-params
-                (instantiateParams env this-map params)
-                instantiate-params
-                (into instantiate-params {:return-port instantiate-return-port
-                                          :requestid   :ROUTE-REQUESTID})
                 add-parent-return-port
                 (a/chan)
                 add-parent-params
@@ -145,7 +136,8 @@
                 (into add-parent-params {:parent-name (:this-name this-map)
                                          :return-port add-parent-return-port
                                          :requestid   :ROUTE-REQUESTID})]
-            (a/>! context-request-port [env instantiate-params])
+            (a/>! context-request-port [env (into (instantiateParams env this-map params) {:return-port instantiate-return-port
+                                                                      :requestid   :ROUTE-REQUESTID})])
             (k/request-exception-check (a/<! instantiate-return-port))
             (a/>! context-request-port [env add-parent-params])
             (k/request-exception-check (a/<! add-parent-return-port))
