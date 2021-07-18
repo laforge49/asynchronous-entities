@@ -226,11 +226,11 @@
                 (a/chan)
                 ]
             (doseq [en federation-map]
-              (let [entity-request-port
-                    (second (val en))]
-                (a/>! entity-request-port [env {:requestid   :POP-REQUEST-PORT
-                                                :return-port subrequest-return-port}])
-                ))
+              (let [[snap entity-request-port]
+                    (val en)]
+                (a/>! entity-request-port [env {:requestid   :RESET-REQUEST-PORT
+                                                :this-map snap
+                                                :return-port subrequest-return-port}])))
             (doseq [_ federation-map]
               (k/request-exception-check (a/<! subrequest-return-port)))
             (a/>! operation-return-port [this-map nil this-map]))
