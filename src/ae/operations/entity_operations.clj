@@ -33,12 +33,12 @@
         (try
           (let [this-name
                 (:NAME this-map)
-                parent-entity-name
+                parent-name
                 (:parent-name params)
                 _ (if (not (k/federated? this-map))
                     (throw (Exception. (str "Entity " this-name
                                             " is not federated and so can not add a relationship to "
-                                            parent-entity-name))))
+                                            parent-name))))
                 this-map
                 (addParentFunction env this-map params)]
             (a/>! operation-return-port [this-map nil this-map]))
@@ -50,8 +50,8 @@
   [env this-map params]
   {:target-requestid :ADD-PARENT-REQUESTID
    :target-name      (:child-name params)
-   :relationship     (:relationship params)
-   :parent-name      (:this-name params)})
+   :parent-name      (:target-name params)
+   :relationship     (:relationship params)})
 
 (defn addChildFunction
   [env this-map params]
