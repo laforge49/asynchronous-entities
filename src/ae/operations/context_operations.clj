@@ -118,6 +118,11 @@
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
 
+(defn federationRouteFunction
+  [env this-map params]
+  (let []
+    ))
+
 (defn create-federation-route-operation
   [env]
   (let [federation-route-port
@@ -133,7 +138,7 @@
                 target-entity-name
                 (:target-name params)
                 target-entity-request-port
-                (get federation-map target-entity-name)
+                (second (get federation-map target-entity-name))
                 _ (if (nil? target-entity-request-port)
                     (throw (Exception. (str "Entity " target-entity-name " is not federated"))))
                 target-requestid
@@ -172,7 +177,7 @@
                         snap
                         (k/request-exception-check (a/<! subrequest-return-port))
                         federation-map
-                        (assoc federation-map federation-name new-request-port)]
+                        (assoc federation-map federation-name [snap new-request-port])]
                     [federation-names-vec federation-map])
                   (catch Exception e
                     (a/>! return-port [e nil])
@@ -222,7 +227,7 @@
                 ]
             (doseq [en federation-map]
               (let [entity-request-port
-                    (val en)]
+                    (second (val en))]
                 (a/>! entity-request-port [env {:requestid   :POP-REQUEST-PORT
                                                 :return-port subrequest-return-port}])
                 ))
