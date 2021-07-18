@@ -50,7 +50,7 @@
   [env this-map params]
   {:target-requestid :ADD-PARENT-REQUESTID
    :target-name      (:child-name params)
-   :parent-name      (:target-name params)
+   :parent-name      (:NAME this-map)
    :relationship     (:relationship params)})
 
 (defn addChildFunction
