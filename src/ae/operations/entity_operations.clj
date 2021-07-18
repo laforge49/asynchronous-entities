@@ -84,28 +84,18 @@
             operation-return-port
             (:operation-return-port params)]
         (try
-          (let [this-name
-                (:NAME this-map)
-                child-name
-                (:child-name params)
-                _ (if (not (k/federated? this-map))
-                    (throw (Exception. (str "Entity " this-name
-                                            " is not federated and so can not add a relationship to "
-                                            child-name))))
-                this-map
-                (addChildFunction env this-map params)
-                add-parent-params
-                (addParentParams env this-map params)
-                add-parent-return-port
-                (a/chan)
-                add-parent-params
-                (into add-parent-params {:requestid   :ROUTE-REQUESTID
-                                         :return-port add-parent-return-port})
-                context-request-port
-                (:CONTEXT-REQUEST-PORT env)]
-            (a/>! context-request-port [env add-parent-params])
+          (if (not (k/federated? this-map))
+            (throw (Exception. (str "Entity " (:NAME this-map)
+                                    " is not federated and so can not add a relationship to "
+                                    (:child-name params)))))
+          (let [add-parent-return-port
+                (a/chan)]
+            (a/>! (:CONTEXT-REQUEST-PORT env) [env
+                                        (into (addParentParams env this-map params)
+                                              {:requestid   :ROUTE-REQUESTID
+                                               :return-port add-parent-return-port})])
             (k/request-exception-check (a/<! add-parent-return-port))
-            (a/>! operation-return-port [this-map nil this-map]))
+            (a/>! operation-return-port [(addChildFunction env this-map params) nil this-map]))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
