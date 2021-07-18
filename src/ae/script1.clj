@@ -60,7 +60,7 @@
    {:target-requestid :RUN-FEDERATION-REQUESTID
     :target-name      "MAIN/FEDERATOR_1"
     }
-   {:target-requestid :ADD-NEW-CHILD-REQUESTID
+   #_ {:target-requestid :ADD-NEW-CHILD-REQUESTID
     :target-name      "MAIN/SIMPLE_1"
     :relationship     :BASIC
     :child-name       "MAIN/SIMPLE_3"
