@@ -120,13 +120,27 @@
 
 (defn federationRouteFunction
   [env this-map params]
-  (let []
-    ))
+  (let [federation-map
+        (:FEDERATION-MAP this-map)
+        target-name
+        (:target-name params)
+        target-map
+        (first (get federation-map target-name))
+        requestid
+        (:target-requestid params)
+        params
+        (assoc params :requestid requestid)
+        operationid
+        (k/thisOperationid env target-map params)
+        fun
+        (second (operationid @k/operationid-map-atom))]
+    (fun env target-map params)))
 
 (defn create-federation-route-operation
   [env]
   (let [federation-route-port
-        (k/register-operation-port env {:operationid :FEDERATION-ROUTE-OPERATIONID})]
+        (k/register-operation-port env {:operationid :FEDERATION-ROUTE-OPERATIONID
+                                        :function federationRouteFunction})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! federation-route-port)
@@ -135,16 +149,16 @@
         (try
           (let [federation-map
                 (:FEDERATION-MAP this-map)
-                target-entity-name
+                target-name
                 (:target-name params)
-                target-entity-request-port
-                (second (get federation-map target-entity-name))
-                _ (if (nil? target-entity-request-port)
-                    (throw (Exception. (str "Entity " target-entity-name " is not federated"))))
+                target-request-port
+                (second (get federation-map target-name))
+                _ (if (nil? target-request-port)
+                    (throw (Exception. (str "Entity " target-name " is not federated"))))
                 target-requestid
                 (:target-requestid params)]
             (a/>! operation-return-port [this-map nil :NO-RETURN])
-            (a/>! target-entity-request-port [env
+            (a/>! target-request-port [env
                                               (assoc params :requestid target-requestid)]))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))

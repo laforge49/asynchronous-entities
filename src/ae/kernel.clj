@@ -47,7 +47,7 @@
     this-descriptors))
 
 (defn thisOperationid
-  [this-map params]
+  [env this-map params]
   (let [requestid
         (:requestid params)
         _ (if (nil? requestid)
@@ -133,7 +133,7 @@
 
                          ;;DEFAULT
                          (let [operationid
-                               (thisOperationid this-map params)
+                               (thisOperationid env this-map params)
                                operation-port
                                (first (operationid @operationid-map-atom))
                                _ (if (nil? operation-port)
