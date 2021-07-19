@@ -49,12 +49,13 @@
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/FEDERATOR-PROTOTYPE"
     :name             "MAIN/FEDERATOR_1"
-    :descriptors      {:FEDERATION-NAMES ["MAIN/SIMPLE_1"
+    :descriptors      {:FEDERATION-NAMES [; "MAIN/SIMPLE_1"
                                           "MAIN/SIMPLE_2"]
-                       :SCRIPT           [{:target-requestid :ADD-RELATIONSHIP-REQUESTID
-                                           :target-name      "MAIN/SIMPLE_1"
+                       :SCRIPT           [{:target-requestid :ADD-PARENT-REQUESTID ; :ADD-RELATIONSHIP-REQUESTID
+                                           :target-name      "MAIN/SIMPLE_2" ; "MAIN/SIMPLE_1"
                                            :relationship     :BASIC
-                                           :child-name       "MAIN/SIMPLE_2"
+                                           ; :child-name       "MAIN/SIMPLE_2"
+                                           :parent-name      "MAIN/SIMPLE_1"
                                            }]}
     }
    {:target-requestid :RUN-FEDERATION-REQUESTID

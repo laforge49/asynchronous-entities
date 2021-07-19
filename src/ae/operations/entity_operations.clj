@@ -76,7 +76,7 @@
         (conj relationship-children child-name)]
     (assoc-in this-map [:CHILDVECTORS relationship] relationship-children)))
 
-(defn addChildFunction
+(defn addRelationshipFunction
   [env this-map params]
   (let [this-map
         (addChildOperation env this-map params)
@@ -87,7 +87,8 @@
 (defn create-add-relationship-operation
   [env]
   (let [add-relationship-port
-        (k/register-operation-port env {:operationid :ADD-RELATIONSHIP-OPERATIONID})]
+        (k/register-operation-port env {:operationid :ADD-RELATIONSHIP-OPERATIONID
+                                        :function    addRelationshipFunction})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! add-relationship-port)
