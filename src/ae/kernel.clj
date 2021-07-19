@@ -77,7 +77,7 @@
         target-name
         (:target-name params)
         target-map
-        (first (get federation-map target-name))
+        (first @(get federation-map target-name))
         requestid
         (:target-requestid params)
         params
