@@ -7,7 +7,15 @@
 (def operationid-map-atom
   (atom {}))
 
-(defn register-operation-port
+(defn register-function
+  [env params]
+  (let [operationid
+        (:operationid params)
+        function
+        (:function params)]
+    (swap! operationid-map-atom assoc operationid [nil function])))
+
+(defn register-operation
   [env params]
   (let [operationid
         (:operationid params)

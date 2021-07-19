@@ -19,7 +19,7 @@
         relationship-parents
         (conj relationship-parents parent-name)
         this-map
-    (assoc-in this-map [:PARENTVECTORS relationship] relationship-parents)]
+        (assoc-in this-map [:PARENTVECTORS relationship] relationship-parents)]
     [this-map this-map]))
 
 (defn addParentParams
@@ -61,8 +61,8 @@
 (defn create-add-relationship-operation
   [env]
   (let [add-relationship-port
-        (k/register-operation-port env {:operationid :ADD-RELATIONSHIP-OPERATIONID
-                                        :function    addRelationshipFunction})]
+        (k/register-operation env {:operationid :ADD-RELATIONSHIP-OPERATIONID
+                                   :function    addRelationshipFunction})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! add-relationship-port)
@@ -103,8 +103,8 @@
 (defn create-add-new-child-operation
   [env]
   (let [add-new-child-port
-        (k/register-operation-port env {:operationid :ADD-NEW-CHILD-OPERATIONID
-                                        :function    nil})]
+        (k/register-operation env {:operationid :ADD-NEW-CHILD-OPERATIONID
+                                   :function    nil})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! add-new-child-port)
@@ -162,8 +162,8 @@
 (defn create-instantiate-operation
   [env]
   (let [instantiate-port
-        (k/register-operation-port env {:operationid :INSTANTIATE-OPERATIONID
-                                        :function    instantiate-function})]
+        (k/register-operation env {:operationid :INSTANTIATE-OPERATIONID
+                                   :function    instantiate-function})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! instantiate-port)
@@ -184,8 +184,8 @@
 
 (defn create-entity-operations
   [env]
-  (k/register-operation-port env {:operationid :ADD-PARENT-OPERATIONID
-                                  :function    addParentFunction})
+  (k/register-function env {:operationid :ADD-PARENT-OPERATIONID
+                            :function    addParentFunction})
   (create-add-relationship-operation env)
   (create-add-new-child-operation env)
   (create-instantiate-operation env)

@@ -30,8 +30,8 @@
 (defn create-register-new-entity-operation
   [env]
   (let [new-entity-registration-port
-        (k/register-operation-port env {:operationid :REGISTER-NEW-ENTITY-OPERATIONID
-                                        :function    register-new-entity-function})]
+        (k/register-operation env {:operationid   :REGISTER-NEW-ENTITY-OPERATIONID
+                                        :function register-new-entity-function})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! new-entity-registration-port)
@@ -46,7 +46,7 @@
 (defn create-route-operation
   [env]
   (let [route-to-local-entity-port
-        (k/register-operation-port env {:operationid :ROUTE-OPERATIONID})]
+        (k/register-operation env {:operationid :ROUTE-OPERATIONID})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! route-to-local-entity-port)
@@ -121,7 +121,7 @@
 (defn create-federation-route-operation
   [env]
   (let [federation-route-port
-        (k/register-operation-port env {:operationid :FEDERATION-ROUTE-OPERATIONID})]
+        (k/register-operation env {:operationid :FEDERATION-ROUTE-OPERATIONID})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! federation-route-port)
@@ -183,7 +183,7 @@
 (defn create-federation-acquire-operation
   [env]
   (let [federation-acquire-port
-        (k/register-operation-port env {:operationid :FEDERATION-ACQUIRE-OPERATIONID})]
+        (k/register-operation env {:operationid :FEDERATION-ACQUIRE-OPERATIONID})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! federation-acquire-port)
@@ -206,7 +206,7 @@
 (defn create-federation-release-operation
   [env]
   (let [federation-release-port
-        (k/register-operation-port env {:operationid :FEDERATION-RELEASE-OPERATIONID})]
+        (k/register-operation env {:operationid :FEDERATION-RELEASE-OPERATIONID})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! federation-release-port)
