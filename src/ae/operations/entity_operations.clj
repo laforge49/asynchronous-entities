@@ -55,10 +55,6 @@
    :parent-name      (:NAME this-map)
    :relationship     (:relationship params)})
 
-(defn addParentRequest
-  [env this-map params]
-  (k/federationRouteFunction env this-map (addParentParams env this-map params)))
-
 (defn addChildOperation
   [env this-map params]
   (let [this-name
@@ -81,8 +77,12 @@
     (assoc-in this-map [:CHILDVECTORS relationship] relationship-children)))
 
 (defn addChildFunction
-  [env this-map param]
-  )
+  [env this-map params]
+  (let [this-map
+        (addChildOperation env this-map params)
+        [this-map rv]
+        (k/federationRouteFunction env this-map (addParentParams env this-map params))]
+    [this-map this-map]))
 
 (defn create-add-relationship-operation
   [env]
