@@ -134,20 +134,14 @@
                (try
                  (let [this-name
                        (:NAME this-map)
-                       _ (println 7777 (federated? this-map))
-                       _ (println 7778 (prn-str this-map))
-                       _ (println 7878 (prn-str env))
-                       _ (println 8877 (prn-str params))
                        federation-map
                        (:FEDERATION-MAP env)
                        this-map
                        (if (federated? this-map)
                          @(first (get federation-map this-name))
                          this-map)
-                       _ (println 7779 (prn-str this-map))
                        env
                        (assoc env :active-request-port this-request-port)
-                       _ (println 999 (prn-str params))
                        requestid
                        (:requestid params)
                        _ (if (nil? requestid)
@@ -163,7 +157,6 @@
                          :PUSH-REQUEST-PORT
                          (let [this-descriptors
                                (thisDescriptors this-map params)]
-                           _ (println 4444)
                            (if (:INVARIANT this-descriptors)
                              [this-map this-map]
                              (let [new-request-port
@@ -179,7 +172,6 @@
                                (:this-map params)
                                this-map
                                (assoc this-map :REQUEST-PORT-STACK (pop this-request-port-stack))]
-                           _ (println 4455)
                            [this-map this-map])
 
                          ;;DEFAULT
@@ -214,11 +206,8 @@
                              (throw e))
                            [this-map return-value]
                            ))]
-                   (println 17 (prn-str params))
-                   (println 18 (prn-str return-value))
                    (if (not= return-value :NO-RETURN)
                      (a/>! return-port [nil return-value]))
-                   (println 19 (prn-str this-map))
                    this-map)
                  (catch Exception e
                    (a/>! return-port [e nil])
