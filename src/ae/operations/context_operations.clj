@@ -30,8 +30,8 @@
 (defn create-register-new-entity-operation
   [env]
   (let [new-entity-registration-port
-        (k/register-operation env {:operationid   :REGISTER-NEW-ENTITY-OPERATIONID
-                                        :function register-new-entity-function})]
+        (k/register-operation env {:operationid :REGISTER-NEW-ENTITY-OPERATIONID
+                                   :function    register-new-entity-function})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! new-entity-registration-port)
@@ -140,7 +140,7 @@
                 (:target-requestid params)]
             (a/>! operation-return-port [this-map nil :NO-RETURN])
             (a/>! target-request-port [env
-                                              (assoc params :requestid target-requestid)]))
+                                       (assoc params :requestid target-requestid)]))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))

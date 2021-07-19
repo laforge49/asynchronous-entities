@@ -29,7 +29,7 @@
                 context-request-port
                 (k/create-entity env {:name        "ROOT/CONTEXTS"
                                       :descriptors {:REQUESTID-MAP {:REGISTER-NEW-ENTITY-REQUESTID :REGISTER-NEW-ENTITY-OPERATIONID
-                                                                        :ROUTE-REQUESTID               :ROUTE-OPERATIONID}}
+                                                                    :ROUTE-REQUESTID               :ROUTE-OPERATIONID}}
                                       :classifiers {}
                                       })
                 env

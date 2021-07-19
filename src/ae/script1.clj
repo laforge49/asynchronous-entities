@@ -13,7 +13,7 @@
     :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :name             "CONTEXTS/CONTEXT-PROTOTYPE"
     :descriptors      {:PROTOTYPE-DESCRIPTORS {:REQUESTID-MAP {:REGISTER-NEW-ENTITY-REQUESTID :REGISTER-NEW-ENTITY-OPERATIONID
-                                                                   :ROUTE-REQUESTID               :ROUTE-OPERATIONID}}}
+                                                               :ROUTE-REQUESTID               :ROUTE-OPERATIONID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
@@ -61,10 +61,10 @@
    {:target-requestid :RUN-FEDERATION-REQUESTID
     :target-name      "MAIN/FEDERATOR_1"
     }
-   #_ {:target-requestid :ADD-NEW-CHILD-REQUESTID
-    :target-name      "MAIN/SIMPLE_1"
-    :relationship     :BASIC
-    :child-name       "MAIN/SIMPLE_3"
-    :prototype        "MAIN/SIMPLE-PROTOTYPE"
-    }
+   #_{:target-requestid :ADD-NEW-CHILD-REQUESTID
+      :target-name      "MAIN/SIMPLE_1"
+      :relationship     :BASIC
+      :child-name       "MAIN/SIMPLE_3"
+      :prototype        "MAIN/SIMPLE-PROTOTYPE"
+      }
    ])
