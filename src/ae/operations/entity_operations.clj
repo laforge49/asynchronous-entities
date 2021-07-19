@@ -102,7 +102,7 @@
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
 
-(defn instantiate-function
+(defn instantiateOperation
   [env this-map params]
   (let [new-entity-name
         (:name params)
@@ -134,7 +134,7 @@
   [env]
   (let [instantiate-port
         (k/register-operation env {:operationid :INSTANTIATE-OPERATIONID
-                                   :function    instantiate-function})]
+                                   :function    instantiateOperation})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! instantiate-port)
@@ -144,7 +144,7 @@
           (let [context-request-port
                 (:CONTEXT-REQUEST-PORT env)
                 route-params
-                (instantiate-function env this-map params)
+                (instantiateOperation env this-map params)
                 route-params
                 (assoc route-params :requestid :ROUTE-REQUESTID)]
             (a/>! operation-return-port [this-map nil :NO-RETURN])
