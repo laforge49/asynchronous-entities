@@ -76,7 +76,7 @@
         (:NAME this-map)
         federation-map
         (:FEDERATION-MAP env)
-        _ (reset! (first (get federation-map this-name)) federation-map)
+        _ (vreset! (first (get federation-map this-name)) this-map)
         target-name
         (:target-name params)
         target-map
@@ -89,9 +89,12 @@
         (thisOperationid env target-map params)
         fun
         (second (operationid @operationid-map-atom))
-        [this-map rv]
-        (fun env target-map params)]
-    ))
+        [target-map rv]
+        (fun env target-map params)
+        _ (vreset! (first (get federation-map target-name)) target-map)
+        this-map
+        @(first (get federation-map this-name))]
+    [this-map rv]))
 
 (defn create-operation-dispatcher
   [this-map]
