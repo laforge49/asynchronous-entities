@@ -31,7 +31,10 @@
                 _ (a/>! federation-context-request-port [env {:requestid        :ACQUIRE-REQUESTID
                                                               :federation-names federation-names
                                                               :return-port      subrequest-return-port}])
-                _ (k/request-exception-check (a/<! subrequest-return-port))
+                federation-map
+                (k/request-exception-check (a/<! subrequest-return-port))
+                env
+                (assoc env :FEDERATION-MAP federation-map)
                 env
                 (assoc env :CONTEXT-REQUEST-PORT federation-context-request-port)
                 script

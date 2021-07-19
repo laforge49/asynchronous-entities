@@ -73,7 +73,7 @@
 (defn federationRouteFunction
   [env this-map params]
   (let [federation-map
-        (:FEDERATION-MAP this-map)
+        (:FEDERATION-MAP env)
         target-name
         (:target-name params)
         target-map

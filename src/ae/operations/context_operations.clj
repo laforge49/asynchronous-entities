@@ -200,7 +200,7 @@
                 (k/request-exception-check (a/<! acquire-loop-port))
                 this-map
                 (assoc this-map :FEDERATION-MAP federation-map)]
-            (a/>! operation-return-port [this-map nil this-map]))
+            (a/>! operation-return-port [this-map nil federation-map]))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil])))
         (recur)))))
