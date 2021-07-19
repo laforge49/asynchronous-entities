@@ -197,9 +197,7 @@
                 acquire-loop-port
                 (federation-acquire-loop root-contexts-request-port env federation-names)
                 federation-map
-                (k/request-exception-check (a/<! acquire-loop-port))
-                this-map
-                (assoc this-map :FEDERATION-MAP federation-map)]
+                (k/request-exception-check (a/<! acquire-loop-port))]
             (a/>! operation-return-port [this-map nil federation-map]))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil])))
