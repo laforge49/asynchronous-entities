@@ -41,11 +41,11 @@
                     (throw (Exception. (str "Entity " this-name
                                             " is not federated and so can not add a relationship to "
                                             parent-name))))
-                _ (println 11 (prn-str this-map))
+                _ (println 1111 (prn-str this-map))
                 [this-map rv]
                 (addParentFunction env this-map params)]
-            (println 22 (prn-str this-map))
-            (println 33 (prn-str rv))
+            (println 2222 (prn-str this-map))
+            (println 3333 (prn-str rv))
             (a/>! operation-return-port [this-map nil rv]))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))

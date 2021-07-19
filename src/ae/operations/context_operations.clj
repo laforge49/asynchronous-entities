@@ -222,7 +222,7 @@
               (let [[vsnap entity-request-port saved]
                     (val en)]
                 (a/>! entity-request-port [env {:requestid   :RESET-REQUEST-PORT
-                                                :this-map    saved
+                                                :this-map    @vsnap
                                                 :return-port subrequest-return-port}])))
             (doseq [_ federation-map]
               (k/request-exception-check (a/<! subrequest-return-port)))

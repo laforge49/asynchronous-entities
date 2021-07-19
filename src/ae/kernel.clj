@@ -34,7 +34,7 @@
   [this-map]
   (let [this-request-port-stack
         (:REQUEST-PORT-STACK this-map)]
-    (> (count this-request-port-stack) 0)))
+    (> (count this-request-port-stack) 1)))
 
 (defn thisDescriptors
   [this-map params]
@@ -134,13 +134,17 @@
                (try
                  (let [this-name
                        (:NAME this-map)
-                       ;_ (println 7777 (federated? this-map))
-                       ;this-map
-                       #_ (if (federated? this-map)
-                         (let [federation-map
-                               (:FEDERATION-MAP env)]
-                           @(first (get federation-map this-name)))
+                       _ (println 7777 (federated? this-map))
+                       _ (println 7778 (prn-str this-map))
+                       _ (println 7878 (prn-str env))
+                       _ (println 8877 (prn-str params))
+                       federation-map
+                       (:FEDERATION-MAP env)
+                       this-map
+                       (if (federated? this-map)
+                         @(first (get federation-map this-name))
                          this-map)
+                       _ (println 7779 (prn-str this-map))
                        env
                        (assoc env :active-request-port this-request-port)
                        _ (println 999 (prn-str params))
@@ -159,6 +163,7 @@
                          :PUSH-REQUEST-PORT
                          (let [this-descriptors
                                (thisDescriptors this-map params)]
+                           _ (println 4444)
                            (if (:INVARIANT this-descriptors)
                              [this-map this-map]
                              (let [new-request-port
@@ -171,7 +176,10 @@
 
                          :RESET-REQUEST-PORT
                          (let [this-map
-                               (:this-map params)]
+                               (:this-map params)
+                               this-map
+                               (assoc this-map :REQUEST-PORT-STACK (pop this-request-port-stack))]
+                           _ (println 4455)
                            [this-map this-map])
 
                          ;;DEFAULT
@@ -200,6 +208,8 @@
                                                            (prn-str this-map)))))
                                [this-map e return-value]
                                operation-return-value]
+                           (if (federated? this-map)
+                             (vreset! (first (get federation-map this-name)) this-map))
                            (if (some? e)
                              (throw e))
                            [this-map return-value]
