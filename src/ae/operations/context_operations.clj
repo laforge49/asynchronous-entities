@@ -129,7 +129,7 @@
             (:operation-return-port params)]
         (try
           (let [federation-map
-                (:FEDERATION-MAP this-map)
+                (:FEDERATION-MAP env)
                 target-name
                 (:target-name params)
                 target-request-port
@@ -216,7 +216,7 @@
             (:operation-return-port params)]
         (try
           (let [federation-map
-                (:FEDERATION-MAP this-map)
+                (:FEDERATION-MAP env)
                 subrequest-return-port
                 (a/chan)
                 ]
