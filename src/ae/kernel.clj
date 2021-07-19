@@ -72,12 +72,15 @@
 
 (defn federationRouteFunction
   [env this-map params]
-  (let [federation-map
+  (let [this-name
+        (:NAME this-map)
+        federation-map
         (:FEDERATION-MAP env)
+        _ (reset! (first (get federation-map this-name)) federation-map)
         target-name
         (:target-name params)
         target-map
-        (first @(get federation-map target-name))
+        @(first (get federation-map target-name))
         requestid
         (:target-requestid params)
         params
