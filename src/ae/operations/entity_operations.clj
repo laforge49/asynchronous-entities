@@ -58,35 +58,6 @@
         (k/federationRouteFunction env this-map (addParentParams env this-map params))]
     [this-map this-map]))
 
-(defn create-add-relationship-operation
-  [env]
-  (let [add-relationship-port
-        (k/register-operation env {:operationid :ADD-RELATIONSHIP-OPERATIONID
-                                   :function    addRelationshipFunction})]
-    (a/go-loop []
-      (let [[env this-map params]
-            (a/<! add-relationship-port)
-            operation-return-port
-            (:operation-return-port params)]
-        (try
-          (if (not (k/federated? this-map))
-            (throw (Exception. (str "Entity " (:NAME this-map)
-                                    " is not federated and so can not add a relationship to "
-                                    (:child-name params)))))
-          (let [add-parent-return-port
-                (a/chan)
-                _ (a/>! (:CONTEXT-REQUEST-PORT env) [env
-                                                     (into (addParentParams env this-map params)
-                                                           {:requestid   :ROUTE-REQUESTID
-                                                            :return-port add-parent-return-port})])
-                _ (k/request-exception-check (a/<! add-parent-return-port))
-                this-map
-                (addChildOperation env this-map params)]
-            (a/>! operation-return-port [this-map nil this-map]))
-          (catch Exception e
-            (a/>! operation-return-port [this-map e nil]))))
-      (recur))))
-
 (defn addRelationshipParams
   [env this-map params]
   {:target-requestid :ADD-RELATIONSHIP-REQUESTID
@@ -186,7 +157,8 @@
   [env]
   (k/register-function env {:operationid :ADD-PARENT-OPERATIONID
                             :function    addParentFunction})
-  (create-add-relationship-operation env)
+  (k/register-operation env {:operationid :ADD-RELATIONSHIP-OPERATIONID
+                             :function    addRelationshipFunction})
   (create-add-new-child-operation env)
   (create-instantiate-operation env)
   )
