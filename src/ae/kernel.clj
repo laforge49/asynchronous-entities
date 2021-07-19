@@ -85,8 +85,10 @@
         operationid
         (thisOperationid env target-map params)
         fun
-        (second (operationid @operationid-map-atom))]
-    (fun env target-map params)))
+        (second (operationid @operationid-map-atom))
+        [this-map rv]
+        (fun env target-map params)]
+    ))
 
 (defn create-operation-dispatcher
   [this-map]
