@@ -22,32 +22,6 @@
     (assoc-in this-map [:PARENTVECTORS relationship] relationship-parents)]
     [this-map this-map]))
 
-(defn create-add-parent-operation
-  [env]
-  (let [add-parent-port
-        (k/register-operation-port env {:operationid :ADD-PARENT-OPERATIONID
-                                        :function    addParentFunction})]
-    (a/go-loop []
-      (let [[env this-map params]
-            (a/<! add-parent-port)
-            operation-return-port
-            (:operation-return-port params)]
-        (try
-          (let [this-name
-                (:NAME this-map)
-                parent-name
-                (:parent-name params)
-                _ (if (not (k/federated? this-map))
-                    (throw (Exception. (str "Entity " this-name
-                                            " is not federated and so can not add a relationship to "
-                                            parent-name))))
-                [this-map rv]
-                (addParentFunction env this-map params)]
-            (a/>! operation-return-port [this-map nil rv]))
-          (catch Exception e
-            (a/>! operation-return-port [this-map e nil]))))
-      (recur))))
-
 (defn addParentParams
   [env this-map params]
   {:target-requestid :ADD-PARENT-REQUESTID
@@ -210,7 +184,8 @@
 
 (defn create-entity-operations
   [env]
-  (create-add-parent-operation env)
+  (k/register-operation-port env {:operationid :ADD-PARENT-OPERATIONID
+                                  :function    addParentFunction})
   (create-add-relationship-operation env)
   (create-add-new-child-operation env)
   (create-instantiate-operation env)
