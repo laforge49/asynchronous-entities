@@ -70,6 +70,24 @@
                                     (prn-str this-map)))))]
     operationid))
 
+(defn federationRouteFunction
+  [env this-map params]
+  (let [federation-map
+        (:FEDERATION-MAP this-map)
+        target-name
+        (:target-name params)
+        target-map
+        (first (get federation-map target-name))
+        requestid
+        (:target-requestid params)
+        params
+        (assoc params :requestid requestid)
+        operationid
+        (thisOperationid env target-map params)
+        fun
+        (second (operationid @operationid-map-atom))]
+    (fun env target-map params)))
+
 (defn create-operation-dispatcher
   [this-map]
   (a/go-loop [this-map this-map]

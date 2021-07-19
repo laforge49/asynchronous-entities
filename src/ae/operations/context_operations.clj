@@ -118,29 +118,10 @@
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
 
-(defn federationRouteFunction
-  [env this-map params]
-  (let [federation-map
-        (:FEDERATION-MAP this-map)
-        target-name
-        (:target-name params)
-        target-map
-        (first (get federation-map target-name))
-        requestid
-        (:target-requestid params)
-        params
-        (assoc params :requestid requestid)
-        operationid
-        (k/thisOperationid env target-map params)
-        fun
-        (second (operationid @k/operationid-map-atom))]
-    (fun env target-map params)))
-
 (defn create-federation-route-operation
   [env]
   (let [federation-route-port
-        (k/register-operation-port env {:operationid :FEDERATION-ROUTE-OPERATIONID
-                                        :function federationRouteFunction})]
+        (k/register-operation-port env {:operationid :FEDERATION-ROUTE-OPERATIONID})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! federation-route-port)

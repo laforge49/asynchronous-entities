@@ -17,8 +17,10 @@
             (throw (Exception. (str "Entity " parent-name " is already a " relationship
                                     " parent of " this-name))))
         relationship-parents
-        (conj relationship-parents parent-name)]
-    (assoc-in this-map [:PARENTVECTORS relationship] relationship-parents)))
+        (conj relationship-parents parent-name)
+        this-map
+    (assoc-in this-map [:PARENTVECTORS relationship] relationship-parents)]
+    [this-map this-map]))
 
 (defn create-add-parent-operation
   [env]
@@ -39,9 +41,9 @@
                     (throw (Exception. (str "Entity " this-name
                                             " is not federated and so can not add a relationship to "
                                             parent-name))))
-                this-map
+                [this-map rv]
                 (addParentFunction env this-map params)]
-            (a/>! operation-return-port [this-map nil this-map]))
+            (a/>! operation-return-port [this-map nil rv]))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
@@ -53,7 +55,11 @@
    :parent-name      (:NAME this-map)
    :relationship     (:relationship params)})
 
-(defn addChildFunction
+(defn addParentRequest
+  [env this-map params]
+  (k/federationRouteFunction env this-map (addParentParams env this-map params)))
+
+(defn addChildOperation
   [env this-map params]
   (let [this-name
         (:NAME this-map)
@@ -73,6 +79,10 @@
         relationship-children
         (conj relationship-children child-name)]
     (assoc-in this-map [:CHILDVECTORS relationship] relationship-children)))
+
+(defn addChildFunction
+  [env this-map param]
+  )
 
 (defn create-add-relationship-operation
   [env]
@@ -96,7 +106,7 @@
                                                             :return-port add-parent-return-port})])
                 _ (k/request-exception-check (a/<! add-parent-return-port))
                 this-map
-                (addChildFunction env this-map params)]
+                (addChildOperation env this-map params)]
             (a/>! operation-return-port [this-map nil this-map]))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))
