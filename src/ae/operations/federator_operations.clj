@@ -40,12 +40,7 @@
                 script
                 (:SCRIPT descriptors)
                 _ (doseq [script-item script]
-                    (let [script-item
-                          (assoc script-item :requestid :ROUTE-REQUESTID)
-                          script-item
-                          (assoc script-item :return-port subrequest-return-port)]
-                      (a/>! federation-context-request-port [env script-item])
-                      (k/request-exception-check (a/<! subrequest-return-port))))
+                    (k/federationRouteFunction env this-map script-item))
                 env
                 (assoc env :CONTEXT-REQUEST-PORT root-contexts-request-port)
                 _ (a/>! federation-context-request-port [env {:requestid   :RELEASE-REQUESTID

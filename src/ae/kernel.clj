@@ -76,7 +76,7 @@
         (:NAME this-map)
         federation-map
         (:FEDERATION-MAP env)
-        _ (if (not (s/blank? this-name))
+        _ (if (federated? this-map)
             (vreset! (first (get federation-map this-name)) this-map))
         target-name
         (:target-name params)
@@ -94,9 +94,9 @@
         (fun env target-map params)
         _ (vreset! (first (get federation-map target-name)) target-map)
         this-map
-        (if (s/blank? this-name)
-          this-map
-          @(first (get federation-map this-name)))]
+        (if (federated? this-map)
+          @(first (get federation-map this-name))
+          this-map)]
     [this-map rv]))
 
 (defn create-operation-dispatcher
