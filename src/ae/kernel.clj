@@ -119,6 +119,10 @@
                        (throw (Exception. (str "Request is not a vector\n"
                                                (prn-str request)
                                                (prn-str this-map)))))
+                   _ (if (not= (count request) 2)
+                       (throw (Exception. (str "Request is not a 2-tuple\n"
+                                               (prn-str request)
+                                               (prn-str this-map)))))
                    [env params]
                    request
                    return-port
@@ -128,8 +132,18 @@
                                                (prn-str params)
                                                (prn-str this-map)))))]
                (try
-                 (let [env
+                 (let [this-name
+                       (:NAME this-map)
+                       ;_ (println 7777 (federated? this-map))
+                       ;this-map
+                       #_ (if (federated? this-map)
+                         (let [federation-map
+                               (:FEDERATION-MAP env)]
+                           @(first (get federation-map this-name)))
+                         this-map)
+                       env
                        (assoc env :active-request-port this-request-port)
+                       _ (println 999 (prn-str params))
                        requestid
                        (:requestid params)
                        _ (if (nil? requestid)
@@ -153,7 +167,7 @@
                                    this-map
                                    this-map
                                    (assoc this-map :REQUEST-PORT-STACK (conj this-request-port-stack new-request-port))]
-                               [this-map saved-map])))
+                               [this-map [saved-map this-map]])))
 
                          :RESET-REQUEST-PORT
                          (let [this-map
@@ -190,8 +204,11 @@
                              (throw e))
                            [this-map return-value]
                            ))]
+                   (println 17 (prn-str params))
+                   (println 18 (prn-str return-value))
                    (if (not= return-value :NO-RETURN)
                      (a/>! return-port [nil return-value]))
+                   (println 19 (prn-str this-map))
                    this-map)
                  (catch Exception e
                    (a/>! return-port [e nil])
