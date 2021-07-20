@@ -55,12 +55,16 @@
                 (assoc env :NEW-CHILDREN-VOLATILE (volatile! {}))
                 script
                 (:SCRIPT descriptors)
+                _ (doseq [script-item script]
+                    (k/federationRouteFunction env this-map script-item))
                 ;e
                 ;_ (a/<! (registerChildren))
                 ;_ (if (some? e)
                 ;    (throw e))
-                _ (doseq [script-item script]
-                    (k/federationRouteFunction env this-map script-item))
+                env
+                (assoc env :FEDERATION-MAP @(:FEDERATION-MAP-VOLATILE env))
+                env
+                (assoc env :FEDERATION-MAP-VOLATILE nil)
                 _ (a/>! federation-context-request-port [env {:requestid   :RELEASE-REQUESTID
                                                               :return-port subrequest-return-port}])
                 _ (k/request-exception-check (a/<! subrequest-return-port))

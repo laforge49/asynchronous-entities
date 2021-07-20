@@ -142,11 +142,11 @@
                (try
                  (let [this-name
                        (:NAME this-map)
-                       federation-map-volatile
-                       (:FEDERATION-MAP-VOLATILE env)
+                       federation-map
+                       (:FEDERATION-MAP env)
                        this-map
                        (if (federated? this-map)
-                         @(first (get @federation-map-volatile this-name))
+                         @(first (get federation-map this-name))
                          this-map)
                        env
                        (assoc env :active-request-port this-request-port)
@@ -207,7 +207,7 @@
                                [this-map e return-value]
                                operation-return-value]
                            (if (federated? this-map)
-                             (vreset! (first (get @federation-map-volatile this-name)) this-map))
+                             (vreset! (first (get @federation-map this-name)) this-map))
                            (if (some? e)
                              (throw e))
                            [this-map return-value]

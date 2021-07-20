@@ -187,7 +187,7 @@
             (:operation-return-port params)]
         (try
           (let [federation-map
-                @(:FEDERATION-MAP-VOLATILE env)
+                (:FEDERATION-MAP env)
                 subrequest-return-port
                 (a/chan)
                 ]
