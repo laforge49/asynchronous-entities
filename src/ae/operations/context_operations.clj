@@ -169,7 +169,7 @@
                                                                  :target-name      federation-name
                                                                  :new-request-port new-request-port
                                                                  :return-port      subrequest-return-port}])
-                        snap
+                        [snap new-request-port]
                         (k/request-exception-check (a/<! subrequest-return-port))
                         federation-map
                         (assoc federation-map federation-name [(volatile! snap) new-request-port])]
@@ -219,13 +219,19 @@
                 (a/chan)
                 ]
             (doseq [en federation-map]
-              (let [[vsnap entity-request-port saved]
+              (let [[vsnap entity-request-port]
                     (val en)]
-                (a/>! entity-request-port [env {:requestid   :RESET-REQUEST-PORT
-                                                :this-map    @vsnap
-                                                :return-port subrequest-return-port}])))
-            (doseq [_ federation-map]
-              (k/request-exception-check (a/<! subrequest-return-port)))
+                (println 10 (prn-str @vsnap))
+                (println 11 (prn-str entity-request-port))
+                (if (some? entity-request-port)
+                  (a/>! entity-request-port [env {:requestid   :RESET-REQUEST-PORT
+                                                  :this-map    @vsnap
+                                                  :return-port subrequest-return-port}]))))
+            (doseq [en federation-map]
+              (let [[vsnap entity-request-port]
+                    (val en)]
+                (if (some? entity-request-port)
+                  (k/request-exception-check (a/<! subrequest-return-port)))))
             (a/>! operation-return-port [this-map nil this-map]))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil])))

@@ -166,12 +166,12 @@
                          (let [this-descriptors
                                (thisDescriptors this-map params)]
                            (if (:INVARIANT this-descriptors)
-                             [this-map this-map]
+                             [this-map [this-map nil]]
                              (let [new-request-port
                                    (:new-request-port params)
                                    this-map
                                    (assoc this-map :REQUEST-PORT-STACK (conj this-request-port-stack new-request-port))]
-                               [this-map this-map])))
+                               [this-map [this-map new-request-port]])))
 
                          :RESET-REQUEST-PORT
                          (let [this-map
