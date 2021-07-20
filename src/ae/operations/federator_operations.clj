@@ -34,7 +34,7 @@
                 federation-map
                 (k/request-exception-check (a/<! subrequest-return-port))
                 env
-                (assoc env :FEDERATION-MAP federation-map)
+                (assoc env :FEDERATION-MAP-VOLATILE (volatile! federation-map))
                 env
                 (assoc env :CONTEXT-REQUEST-PORT federation-context-request-port)
                 script

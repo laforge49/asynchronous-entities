@@ -82,14 +82,14 @@
   [env this-map params]
   (let [this-name
         (:NAME this-map)
-        federation-map
-        (:FEDERATION-MAP env)
+        federation-map-volatile
+        (:FEDERATION-MAP-VOLATILE env)
         _ (if (federated? this-map)
-            (vreset! (first (get federation-map this-name)) this-map))
+            (vreset! (first (get @federation-map-volatile this-name)) this-map))
         target-name
         (:target-name params)
         target-map
-        @(first (get federation-map target-name))
+        @(first (get @federation-map-volatile target-name))
         requestid
         (:target-requestid params)
         params
@@ -100,10 +100,10 @@
         (second (operationid @operationid-map-atom))
         [target-map rv]
         (fun env target-map params)
-        _ (vreset! (first (get federation-map target-name)) target-map)
+        _ (vreset! (first (get @federation-map-volatile target-name)) target-map)
         this-map
         (if (federated? this-map)
-          @(first (get federation-map this-name))
+          @(first (get @federation-map-volatile this-name))
           this-map)]
     [this-map rv]))
 
@@ -142,11 +142,11 @@
                (try
                  (let [this-name
                        (:NAME this-map)
-                       federation-map
-                       (:FEDERATION-MAP env)
+                       federation-map-volatile
+                       (:FEDERATION-MAP-VOLATILE env)
                        this-map
                        (if (federated? this-map)
-                         @(first (get federation-map this-name))
+                         @(first (get @federation-map-volatile this-name))
                          this-map)
                        env
                        (assoc env :active-request-port this-request-port)
@@ -207,7 +207,7 @@
                                [this-map e return-value]
                                operation-return-value]
                            (if (federated? this-map)
-                             (vreset! (first (get federation-map this-name)) this-map))
+                             (vreset! (first (get @federation-map-volatile this-name)) this-map))
                            (if (some? e)
                              (throw e))
                            [this-map return-value]

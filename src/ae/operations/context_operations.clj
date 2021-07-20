@@ -128,12 +128,12 @@
             operation-return-port
             (:operation-return-port params)]
         (try
-          (let [federation-map
-                (:FEDERATION-MAP env)
+          (let [federation-map-volatile
+                (:FEDERATION-MAP-VOLATILE env)
                 target-name
                 (:target-name params)
                 target-request-port
-                (second (get federation-map target-name))
+                (second (get @federation-map-volatile target-name))
                 _ (if (nil? target-request-port)
                     (throw (Exception. (str "Entity " target-name " is not federated"))))
                 target-requestid
@@ -214,7 +214,7 @@
             (:operation-return-port params)]
         (try
           (let [federation-map
-                (:FEDERATION-MAP env)
+                @(:FEDERATION-MAP-VOLATILE env)
                 subrequest-return-port
                 (a/chan)
                 ]
