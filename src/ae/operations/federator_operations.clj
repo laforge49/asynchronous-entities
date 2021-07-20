@@ -36,6 +36,8 @@
                 env
                 (assoc env :FEDERATION-MAP-VOLATILE (volatile! federation-map))
                 env
+                (assoc env :NEW-CHILDREN-VOLATILE (volatile! #{}))
+                env
                 (assoc env :CONTEXT-REQUEST-PORT federation-context-request-port)
                 script
                 (:SCRIPT descriptors)
