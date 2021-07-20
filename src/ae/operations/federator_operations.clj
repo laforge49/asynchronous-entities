@@ -37,15 +37,10 @@
                 (assoc env :FEDERATION-MAP-VOLATILE (volatile! federation-map))
                 env
                 (assoc env :NEW-CHILDREN-VOLATILE (volatile! {}))
-                env
-                (assoc env :CONTEXT-REQUEST-PORT federation-context-request-port)
                 script
                 (:SCRIPT descriptors)
                 _ (doseq [script-item script]
                     (k/federationRouteFunction env this-map script-item))
-                _ (println "post script")
-                env
-                (assoc env :CONTEXT-REQUEST-PORT root-contexts-request-port)
                 _ (a/>! federation-context-request-port [env {:requestid   :RELEASE-REQUESTID
                                                               :return-port subrequest-return-port}])
                 _ (k/request-exception-check (a/<! subrequest-return-port))
