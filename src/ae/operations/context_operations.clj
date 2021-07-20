@@ -15,14 +15,14 @@
                                     new-entity-name))))]
     (if (s/blank? new-entity-name)
       (let [new-entity-public-request-port
-            (k/create-entity env params)]
+            (first (k/create-entity env params))]
         [this-map nil new-entity-public-request-port])
       (let [[new-entity-kw _ _]
             (kw/name-as-keyword new-entity-name)
             _ (if (some? (get-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw]))
                 (throw (Exception. (str "Entity " new-entity-name " already exists in " this-name))))
             new-entity-public-request-port
-            (k/create-entity env params)
+            (first (k/create-entity env params))
             this-map
             (assoc-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw] new-entity-public-request-port)]
         [this-map nil new-entity-public-request-port]))))
@@ -82,11 +82,11 @@
                 [target-entity-kw target-context-base-name _]
                 (kw/name-as-keyword target-entity-name)]
             (if (= this-name target-entity-name)
-              (let [target-request
+              (let [target-requestid
                     (:target-requestid params)]
                 (a/>! operation-return-port [this-map nil :NO-RETURN])
                 (a/>! active-request-port [env
-                                           (assoc params :requestid target-request)]))
+                                           (assoc params :requestid target-requestid)]))
               (if (= this-base-name target-context-base-name)
                 (let [entity-public-request-ports
                       (:ENTITY-PUBLIC-REQUEST-PORTS this-map)

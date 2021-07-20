@@ -102,6 +102,36 @@
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
 
+(defn instantiateFunction
+  [env this-map params]
+  (let [new-entity-name
+        (:name params)
+        this-name
+        (:NAME this-map)
+        this-descriptors
+        (:DESCRIPTORS this-map)
+        prototype-descriptors
+        (:PROTOTYPE-DESCRIPTORS this-descriptors)
+        prototype-descriptors
+        (assoc prototype-descriptors :PROTOTYPE this-name)
+        prototype-descriptors
+        (into prototype-descriptors (:descriptors params))
+        initialization-port
+        (a/chan)
+        params
+        (into params {:target-name         new-entity-name
+                      :initialization-port initialization-port
+                      :descriptors         prototype-descriptors})
+        [new-entity-public-request-port snap]
+        (k/create-entity env params)
+        federation-map-volatile
+        (:FEDERATION-MAP-VOLATILE env)
+        new-children-volatile
+        (:NEW-CHILDREN-VOLATILE env)
+        ]
+    (vswap! federation-map-volatile assoc new-entity-name [(volatile! snap) initialization-port])
+    (vswap! new-children-volatile assoc new-entity-name new-entity-public-request-port initialization-port)))
+
 (defn instantiateOperation
   [env this-map params]
   (let [new-entity-name
@@ -134,7 +164,7 @@
   [env]
   (let [instantiate-port
         (k/register-operation env {:operationid :INSTANTIATE-OPERATIONID
-                                   :function    instantiateOperation})]
+                                   :function    instantiateFunction})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! instantiate-port)

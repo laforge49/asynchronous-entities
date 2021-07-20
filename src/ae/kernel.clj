@@ -248,4 +248,4 @@
          :REQUEST-PORT-STACK request-port-stack}
         ]
     (create-operation-dispatcher new-entity-map)
-    new-public-request-port))
+    [new-public-request-port new-entity-map]))
