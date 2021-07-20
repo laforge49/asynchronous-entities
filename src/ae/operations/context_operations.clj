@@ -169,7 +169,7 @@
                                                                  :target-name      federation-name
                                                                  :new-request-port new-request-port
                                                                  :return-port      subrequest-return-port}])
-                        [saved snap]
+                        snap
                         (k/request-exception-check (a/<! subrequest-return-port))
                         federation-map
                         (assoc federation-map federation-name [(volatile! snap) new-request-port])]

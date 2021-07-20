@@ -169,11 +169,9 @@
                              [this-map this-map]
                              (let [new-request-port
                                    (:new-request-port params)
-                                   saved-map
-                                   this-map
                                    this-map
                                    (assoc this-map :REQUEST-PORT-STACK (conj this-request-port-stack new-request-port))]
-                               [this-map [saved-map this-map]])))
+                               [this-map this-map])))
 
                          :RESET-REQUEST-PORT
                          (let [this-map
