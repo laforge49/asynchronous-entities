@@ -46,22 +46,16 @@
                 _ (println "post script")
                 env
                 (assoc env :CONTEXT-REQUEST-PORT root-contexts-request-port)
-                _ (println 1)
                 _ (a/>! federation-context-request-port [env {:requestid   :RELEASE-REQUESTID
                                                               :return-port subrequest-return-port}])
-                _ (println 2)
                 _ (k/request-exception-check (a/<! subrequest-return-port))
-                _ (println 3)
                 _ (a/>! federation-context-request-port [env {:requestid   :SNAPSHOT
                                                               :return-port subrequest-return-port}])
-                _ (println 4)
                 federation-context-snap
                 (k/request-exception-check (a/<! subrequest-return-port))
-                _ (println 5)
                 _ (a/>! operation-return-port [this-map
                                                nil
                                                this-map])
-                _ (println 6)
                 ])
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))

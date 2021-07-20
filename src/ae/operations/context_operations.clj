@@ -221,8 +221,6 @@
             (doseq [en federation-map]
               (let [[vsnap entity-request-port]
                     (val en)]
-                (println 10 (prn-str @vsnap))
-                (println 11 (prn-str entity-request-port))
                 (if (some? entity-request-port)
                   (a/>! entity-request-port [env {:requestid   :RESET-REQUEST-PORT
                                                   :this-map    @vsnap
