@@ -50,12 +50,18 @@
     :target-name      "CONTEXTS/FEDERATOR-PROTOTYPE"
     :name             "MAIN/FEDERATOR_1"
     :descriptors      {:FEDERATION-NAMES ["MAIN/SIMPLE_1"
-                                          "MAIN/SIMPLE_2"]
+                                          "MAIN/SIMPLE_2"
+                                          "MAIN/SIMPLE-PROTOTYPE"]
                        :SCRIPT           [{:target-requestid :ADD-RELATIONSHIP-REQUESTID
                                            :target-name      "MAIN/SIMPLE_1"
                                            :relationship     :BASIC
                                            :child-name       "MAIN/SIMPLE_2"
-                                           }]}
+                                           }
+                                          {:target-requestid :INSTANTIATE-REQUESTID
+                                           :target-name      "MAIN/SIMPLE-PROTOTYPE"
+                                           :name             "MAIN/SIMPLE_3"
+                                           }
+                                          ]}
     }
    {:target-requestid :RUN-FEDERATION-REQUESTID
     :target-name      "MAIN/FEDERATOR_1"

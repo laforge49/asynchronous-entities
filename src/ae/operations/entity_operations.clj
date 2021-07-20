@@ -130,7 +130,8 @@
         (:NEW-CHILDREN-VOLATILE env)
         ]
     (vswap! federation-map-volatile assoc new-entity-name [(volatile! snap) initialization-port])
-    (vswap! new-children-volatile assoc new-entity-name new-entity-public-request-port initialization-port)))
+    (vswap! new-children-volatile assoc new-entity-name new-entity-public-request-port)
+    [this-map this-map]))
 
 (defn instantiateOperation
   [env this-map params]
