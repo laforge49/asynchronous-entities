@@ -7,14 +7,24 @@
   [federation-map new-children]
   (let [return-port
         (a/chan)]
-    (a/go-loop []
-      (let []
-        (try
-          (let []
-            (a/>! return-port [nil federation-map]))
-          (catch Exception e
-            (a/>! return-port [e nil])))
-        (recur)))
+    (a/go-loop [lvec [federation-map new-children]]
+      (if (some? lvec)
+        (let [[federation-map new-children]
+              lvec]
+          (if (empty? new-children)
+            (a/>! return-port [nil federation-map])
+            (recur
+              (try
+                (let [child-names
+                      (keys new-children)
+                      child-name
+                      (first child-names)
+                      new-children
+                      (dissoc new-children child-name)]
+                  [federation-map new-children])
+                (catch Exception e
+                  (a/>! return-port [e nil])
+                  nil)))))))
     return-port))
 
 (defn create-run-federation-operation
