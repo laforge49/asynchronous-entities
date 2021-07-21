@@ -19,7 +19,7 @@
                       (keys new-children)
                       child-name
                       (first child-names)
-                      [vsnap initialization-port]
+                      [snap initialization-port]
                       (get federation-map child-name)
                       new-entity-public-request-port
                       (get new-children child-name)
@@ -86,11 +86,11 @@
                     (assoc federation-map k [@vsnap active-port]))
                   {}
                   @federation-vmap)
-                ;[e federation-vmap]
-                #_ (a/<! (registerChildren @(:FEDERATION-MAP-VOLATILE env)
-                                        @(:NEW-CHILDREN-VOLATILE env)))
-                ;_ (if (some? e)
-                ;    (throw e))
+                [e federation-map]
+                (a/<! (registerChildren federation-map
+                                          @(:NEW-CHILDREN-VOLATILE env)))
+                _ (if (some? e)
+                    (throw e))
                 env
                 (assoc env :FEDERATION-MAP federation-map)
                 env
