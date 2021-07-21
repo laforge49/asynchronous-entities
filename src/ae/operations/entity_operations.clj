@@ -157,7 +157,7 @@
         (assoc prototype-descriptors :PROTOTYPE this-name)
         prototype-descriptors
         (into prototype-descriptors (:descriptors params))]
-    (into params {:target-requestid :REGISTER-NEW-ENTITY-REQUESTID
+    (into params {:target-requestid :REGISTER-ENTITY-REQUESTID
                   :target-name      target-name
                   :descriptors      prototype-descriptors})))
 

@@ -1,7 +1,7 @@
 (ns ae.script1)
 
 (def script1
-  [{:target-requestid :REGISTER-NEW-ENTITY-REQUESTID
+  [{:target-requestid :REGISTER-ENTITY-REQUESTID
     :target-name      "ROOT/CONTEXTS"
     :name             "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :descriptors      {:INVARIANT             true
@@ -12,8 +12,8 @@
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
     :name             "CONTEXTS/CONTEXT-PROTOTYPE"
-    :descriptors      {:PROTOTYPE-DESCRIPTORS {:REQUESTID-MAP {:REGISTER-NEW-ENTITY-REQUESTID :REGISTER-ENTITY-OPERATIONID
-                                                               :ROUTE-REQUESTID               :ROUTE-OPERATIONID}}}
+    :descriptors      {:PROTOTYPE-DESCRIPTORS {:REQUESTID-MAP {:REGISTER-ENTITY-REQUESTID :REGISTER-ENTITY-OPERATIONID
+                                                               :ROUTE-REQUESTID           :ROUTE-OPERATIONID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
