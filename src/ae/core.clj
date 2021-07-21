@@ -59,19 +59,19 @@
                 (k/request-exception-check (a/<! return-port4))
                 _ (a/>! context-request-port [env {:requestid        :ROUTE-REQUESTID
                                                    :target-requestid :SNAPSHOT
-                                                   :target-name      "CONTEXTS/CONTEXT-PROTOTYPE"
+                                                   :target-name      "CONTEXTS/CONTEXT-INSTANTIATOR"
                                                    :return-port      return-port4}])
                 context-prototype-snap
                 (k/request-exception-check (a/<! return-port4))
                 _ (a/>! context-request-port [env {:requestid        :ROUTE-REQUESTID
                                                    :target-requestid :SNAPSHOT
-                                                   :target-name      "CONTEXTS/FEDERATOR-PROTOTYPE"
+                                                   :target-name      "CONTEXTS/FEDERATOR-INSTANTIATOR"
                                                    :return-port      return-port4}])
                 federator-prototype-snap
                 (k/request-exception-check (a/<! return-port4))
                 _ (a/>! context-request-port [env {:requestid        :ROUTE-REQUESTID
                                                    :target-requestid :SNAPSHOT
-                                                   :target-name      "CONTEXTS/FEDERATION-CONTEXT-PROTOTYPE"
+                                                   :target-name      "CONTEXTS/FEDERATION-CONTEXT-INSTANTIATOR"
                                                    :return-port      return-port4}])
                 federation-context-prototype-snap
                 (k/request-exception-check (a/<! return-port4))
@@ -83,7 +83,7 @@
                 (k/request-exception-check (a/<! return-port4))
                 _ (a/>! context-request-port [env {:requestid        :ROUTE-REQUESTID
                                                    :target-requestid :SNAPSHOT
-                                                   :target-name      "MAIN/SIMPLE-PROTOTYPE"
+                                                   :target-name      "MAIN/SIMPLE-INSTANTIATOR"
                                                    :return-port      return-port4}])
                 simple-prototype-snap
                 (k/request-exception-check (a/<! return-port4))

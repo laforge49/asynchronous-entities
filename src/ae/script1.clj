@@ -11,54 +11,54 @@
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
-    :name             "CONTEXTS/CONTEXT-PROTOTYPE"
+    :name             "CONTEXTS/CONTEXT-INSTANTIATOR"
     :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:REGISTER-ENTITY-REQUESTID :REGISTER-ENTITY-OPERATIONID
                                                                :ROUTE-REQUESTID           :ROUTE-OPERATIONID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
-    :name             "CONTEXTS/FEDERATOR-PROTOTYPE"
+    :name             "CONTEXTS/FEDERATOR-INSTANTIATOR"
     :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:RUN-FEDERATION-REQUESTID :RUN-FEDERATION-OPERATIONID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
-    :name             "CONTEXTS/FEDERATION-CONTEXT-PROTOTYPE"
+    :name             "CONTEXTS/FEDERATION-CONTEXT-INSTANTIATOR"
     :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:ACQUIRE-REQUESTID :FEDERATION-ACQUIRE-OPERATIONID
                                                                :RELEASE-REQUESTID :FEDERATION-RELEASE-OPERATIONID
                                                                :ROUTE-REQUESTID   :FEDERATION-ROUTE-OPERATIONID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
-    :target-name      "CONTEXTS/CONTEXT-PROTOTYPE"
+    :target-name      "CONTEXTS/CONTEXT-INSTANTIATOR"
     :name             "CONTEXTS/MAIN"
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
-    :name             "MAIN/SIMPLE-PROTOTYPE"
+    :name             "MAIN/SIMPLE-INSTANTIATOR"
     :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:ADD-PARENT-REQUESTID       :ADD-PARENT-OPERATIONID
                                                                :ADD-RELATIONSHIP-REQUESTID :ADD-RELATIONSHIP-OPERATIONID
                                                                :ADD-NEW-CHILD-REQUESTID    :ADD-NEW-CHILD-OPERATIONID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
-    :target-name      "MAIN/SIMPLE-PROTOTYPE"
+    :target-name      "MAIN/SIMPLE-INSTANTIATOR"
     :name             "MAIN/SIMPLE_1"
     }
    {:target-requestid :INSTANTIATE-REQUESTID
-    :target-name      "MAIN/SIMPLE-PROTOTYPE"
+    :target-name      "MAIN/SIMPLE-INSTANTIATOR"
     :name             "MAIN/SIMPLE_2"
     }
    {:target-requestid :INSTANTIATE-REQUESTID
-    :target-name      "CONTEXTS/FEDERATOR-PROTOTYPE"
+    :target-name      "CONTEXTS/FEDERATOR-INSTANTIATOR"
     :name             "MAIN/FEDERATOR_1"
     :descriptors      {:FEDERATION-NAMES ["MAIN/SIMPLE_1"
                                           "MAIN/SIMPLE_2"
-                                          "MAIN/SIMPLE-PROTOTYPE"]
+                                          "MAIN/SIMPLE-INSTANTIATOR"]
                        :SCRIPT           [{:target-requestid :ADD-RELATIONSHIP-REQUESTID
                                            :target-name      "MAIN/SIMPLE_1"
                                            :relationship     :BASIC
                                            :child-name       "MAIN/SIMPLE_2"
                                            }
                                           {:target-requestid :INSTANTIATE-REQUESTID
-                                           :target-name      "MAIN/SIMPLE-PROTOTYPE"
+                                           :target-name      "MAIN/SIMPLE-INSTANTIATOR"
                                            :name             "MAIN/SIMPLE_3"
                                            }
                                           ]}
@@ -70,6 +70,6 @@
       :target-name      "MAIN/SIMPLE_1"
       :relationship     :BASIC
       :child-name       "MAIN/SIMPLE_3"
-      :prototype        "MAIN/SIMPLE-PROTOTYPE"
+      :prototype        "MAIN/SIMPLE-INSTANTIATOR"
       }
    ])

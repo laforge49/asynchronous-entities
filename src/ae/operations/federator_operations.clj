@@ -74,7 +74,7 @@
                 (a/chan)
                 _ (a/>! root-contexts-request-port [env {:requestid        :ROUTE-REQUESTID
                                                          :target-requestid :INSTANTIATE-REQUESTID
-                                                         :target-name      "CONTEXTS/FEDERATION-CONTEXT-PROTOTYPE"
+                                                         :target-name      "CONTEXTS/FEDERATION-CONTEXT-INSTANTIATOR"
                                                          :return-port      subrequest-return-port
                                                          :name             nil}])
                 federation-context-request-port
