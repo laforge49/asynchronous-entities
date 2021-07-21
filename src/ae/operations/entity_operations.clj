@@ -110,18 +110,18 @@
         (:NAME this-map)
         this-descriptors
         (:DESCRIPTORS this-map)
-        prototype-descriptors
-        (:PROTOTYPE-DESCRIPTORS this-descriptors)
-        prototype-descriptors
-        (assoc prototype-descriptors :PROTOTYPE this-name)
-        prototype-descriptors
-        (into prototype-descriptors (:descriptors params))
+        instantiation-descriptors
+        (:INSTANTIATION-DESCRIPTORS this-descriptors)
+        instantiation-descriptors
+        (assoc instantiation-descriptors :PROTOTYPE this-name)
+        instantiation-descriptors
+        (into instantiation-descriptors (:descriptors params))
         initialization-port
         (a/chan)
         params
         (into params {:target-name         new-entity-name
                       :initialization-port initialization-port
-                      :descriptors         prototype-descriptors})
+                      :descriptors         instantiation-descriptors})
         [new-entity-public-request-port snap]
         (k/create-entity env params)
         federation-map-volatile
@@ -151,15 +151,15 @@
         (:NAME this-map)
         this-descriptors
         (:DESCRIPTORS this-map)
-        prototype-descriptors
-        (:PROTOTYPE-DESCRIPTORS this-descriptors)
-        prototype-descriptors
-        (assoc prototype-descriptors :PROTOTYPE this-name)
-        prototype-descriptors
-        (into prototype-descriptors (:descriptors params))]
+        instantiation-descriptors
+        (:INSTANTIATION-DESCRIPTORS this-descriptors)
+        instantiation-descriptors
+        (assoc instantiation-descriptors :PROTOTYPE this-name)
+        instantiation-descriptors
+        (into instantiation-descriptors (:descriptors params))]
     (into params {:target-requestid :REGISTER-ENTITY-REQUESTID
                   :target-name      target-name
-                  :descriptors      prototype-descriptors})))
+                  :descriptors      instantiation-descriptors})))
 
 (defn create-instantiate-operation
   [env]

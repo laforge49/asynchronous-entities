@@ -53,7 +53,7 @@
                 (k/request-exception-check (a/<! return-port4))
                 _ (a/>! context-request-port [env {:requestid        :ROUTE-REQUESTID
                                                    :target-requestid :SNAPSHOT
-                                                   :target-name      "CONTEXTS/PROTOTYPE-PROTOTYPE"
+                                                   :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
                                                    :return-port      return-port4}])
                 prototype-prototype-snap
                 (k/request-exception-check (a/<! return-port4))
