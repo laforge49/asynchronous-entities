@@ -4,7 +4,7 @@
             [ae.keywords :as kw]))
 
 (defn registerChildren
-  [federation-map new-children]
+  [env federation-map new-children]
   (let [return-port
         (a/chan)]
     (a/go-loop [lvec [federation-map new-children]]
@@ -23,6 +23,12 @@
                       (get federation-map child-name)
                       new-entity-public-request-port
                       (get new-children child-name)
+                      subrequest-return-port
+                      (a/chan)
+                      _ (a/>! initialization-port [env {:requestid   :RESET-REQUEST-PORT
+                                                      :this-map    snap
+                                                      :return-port subrequest-return-port}])
+                      _ (k/request-exception-check (a/<! subrequest-return-port))
 
                       federation-map
                       (dissoc federation-map child-name)
@@ -87,8 +93,9 @@
                   {}
                   @federation-vmap)
                 [e federation-map]
-                (a/<! (registerChildren federation-map
-                                          @(:NEW-CHILDREN-VOLATILE env)))
+                (a/<! (registerChildren env
+                                        federation-map
+                                        @(:NEW-CHILDREN-VOLATILE env)))
                 _ (if (some? e)
                     (throw e))
                 env
