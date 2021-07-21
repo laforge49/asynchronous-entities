@@ -135,18 +135,18 @@
 
 (defn instantiateOperation
   [env this-map params]
-  (let [new-entity-name
+  (let [entity-name
         (:name params)
-        [_ new-entity-context-base-name _]
-        (if (s/blank? new-entity-name)
+        [_ entity-context-base-name _]
+        (if (s/blank? entity-name)
           [nil "" nil]
-          (kw/name-as-keyword new-entity-name))
+          (kw/name-as-keyword entity-name))
         target-name
-        (if (s/blank? new-entity-name)
+        (if (s/blank? entity-name)
           "ROOT/CONTEXTS"
-          (if (= new-entity-context-base-name "CONTEXTS")
+          (if (= entity-context-base-name "CONTEXTS")
             (str "ROOT/CONTEXTS")
-            (str "CONTEXTS/" new-entity-context-base-name)))
+            (str "CONTEXTS/" entity-context-base-name)))
         this-name
         (:NAME this-map)
         this-descriptors

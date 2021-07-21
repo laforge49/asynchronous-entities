@@ -17,12 +17,18 @@
               (try
                 (let [child-names
                       (keys new-children)
-                      child-name
+                      entity-name
                       (first child-names)
+                      [_ entity-context-base-name _]
+                      (kw/name-as-keyword entity-name)
+                      target-name
+                      (if (= entity-context-base-name "CONTEXTS")
+                        (str "ROOT/CONTEXTS")
+                        (str "CONTEXTS/" entity-context-base-name))
                       [snap initialization-port]
-                      (get federation-map child-name)
+                      (get federation-map entity-name)
                       entity-public-request-port
-                      (get new-children child-name)
+                      (get new-children entity-name)
                       subrequest-return-port
                       (a/chan)
                       _ (a/>! initialization-port [env {:requestid   :RESET-REQUEST-PORT
@@ -31,15 +37,17 @@
                       _ (k/request-exception-check (a/<! subrequest-return-port))
                       context-request-port
                       (:CONTEXT-REQUEST-PORT env)
-                      _ (a/>! context-request-port [env {:requestid                  :REGISTER-ENTITY-REQUESTID
+                      _ (a/>! context-request-port [env {:requestid                  :ROUTE-REQUESTID
+                                                         :target-requestid           :REGISTER-ENTITY-REQUESTID
                                                          :entity-public-request-port entity-public-request-port
+                                                         :target-name                target-name
                                                          :name                       (:NAME snap)
                                                          :return-port                subrequest-return-port}])
                       _ (k/request-exception-check (a/<! subrequest-return-port))
                       federation-map
-                      (dissoc federation-map child-name)
+                      (dissoc federation-map entity-name)
                       new-children
-                      (dissoc new-children child-name)]
+                      (dissoc new-children entity-name)]
                   [federation-map new-children])
                 (catch Exception e
                   (a/>! return-port [e nil])
