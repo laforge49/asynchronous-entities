@@ -145,7 +145,7 @@
                         [snap new-request-port]
                         (k/request-exception-check (a/<! subrequest-return-port))
                         federation-map
-                        (assoc federation-map federation-name [(volatile! snap) new-request-port])]
+                        (assoc federation-map federation-name [snap new-request-port])]
                     [federation-names-vec federation-map])
                   (catch Exception e
                     (a/>! return-port [e nil])

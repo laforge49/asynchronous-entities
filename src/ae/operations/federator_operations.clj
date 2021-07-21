@@ -23,7 +23,7 @@
                       (get federation-map child-name)
                       new-entity-public-request-port
                       (get new-children child-name)
-                      
+
                       federation-map
                       (dissoc federation-map child-name)
                       new-children
@@ -64,21 +64,27 @@
                                                               :return-port      subrequest-return-port}])
                 federation-map
                 (k/request-exception-check (a/<! subrequest-return-port))
+                federation-vmap
+                (reduce
+                  (fn [federation-vmap [k [snap active-port]]]
+                       (assoc federation-vmap k [(volatile! snap) active-port]))
+                  {}
+                  federation-map)
                 env
-                (assoc env :FEDERATION-MAP-VOLATILE (volatile! federation-map))
+                (assoc env :FEDERATION-MAP-VOLATILE (volatile! federation-vmap))
                 env
                 (assoc env :NEW-CHILDREN-VOLATILE (volatile! {}))
                 script
                 (:SCRIPT descriptors)
                 _ (doseq [script-item script]
                     (k/federationRouteFunction env this-map script-item))
-                [e federation-map]
+                [e federation-vmap]
                 (a/<! (registerChildren @(:FEDERATION-MAP-VOLATILE env)
                                         @(:NEW-CHILDREN-VOLATILE env)))
                 _ (if (some? e)
                     (throw e))
                 env
-                (assoc env :FEDERATION-MAP federation-map)
+                (assoc env :FEDERATION-MAP federation-vmap)
                 env
                 (assoc env :FEDERATION-MAP-VOLATILE nil)
                 env
