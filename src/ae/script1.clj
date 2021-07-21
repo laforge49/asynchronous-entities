@@ -4,16 +4,16 @@
   [{:target-requestid :REGISTER-ENTITY-REQUESTID
     :target-name      "ROOT/CONTEXTS"
     :name             "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
-    :descriptors      {:INVARIANT             true
-                       :REQUESTID-MAP         {:INSTANTIATE-REQUESTID :INSTANTIATE-OPERATIONID}
+    :descriptors      {:INVARIANT                 true
+                       :REQUESTID-MAP             {:INSTANTIATE-REQUESTID :INSTANTIATE-OPERATIONID}
                        :INSTANTIATION-DESCRIPTORS {:INVARIANT     true
-                                               :REQUESTID-MAP {:INSTANTIATE-REQUESTID :INSTANTIATE-OPERATIONID}}}
+                                                   :REQUESTID-MAP {:INSTANTIATE-REQUESTID :INSTANTIATE-OPERATIONID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
     :name             "CONTEXTS/CONTEXT-INSTANTIATOR"
     :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:REGISTER-ENTITY-REQUESTID :REGISTER-ENTITY-OPERATIONID
-                                                               :ROUTE-REQUESTID           :ROUTE-OPERATIONID}}}
+                                                                   :ROUTE-REQUESTID           :ROUTE-OPERATIONID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
@@ -24,8 +24,8 @@
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
     :name             "CONTEXTS/FEDERATION-CONTEXT-INSTANTIATOR"
     :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:ACQUIRE-REQUESTID :FEDERATION-ACQUIRE-OPERATIONID
-                                                               :RELEASE-REQUESTID :FEDERATION-RELEASE-OPERATIONID
-                                                               :ROUTE-REQUESTID   :FEDERATION-ROUTE-OPERATIONID}}}
+                                                                   :RELEASE-REQUESTID :FEDERATION-RELEASE-OPERATIONID
+                                                                   :ROUTE-REQUESTID   :FEDERATION-ROUTE-OPERATIONID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/CONTEXT-INSTANTIATOR"
@@ -35,8 +35,8 @@
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
     :name             "MAIN/SIMPLE-INSTANTIATOR"
     :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:ADD-PARENT-REQUESTID       :ADD-PARENT-OPERATIONID
-                                                               :ADD-RELATIONSHIP-REQUESTID :ADD-RELATIONSHIP-OPERATIONID
-                                                               :ADD-NEW-CHILD-REQUESTID    :ADD-NEW-CHILD-OPERATIONID}}}
+                                                                   :ADD-RELATIONSHIP-REQUESTID :ADD-RELATIONSHIP-OPERATIONID
+                                                                   :ADD-NEW-CHILD-REQUESTID    :ADD-NEW-CHILD-OPERATIONID}}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "MAIN/SIMPLE-INSTANTIATOR"
