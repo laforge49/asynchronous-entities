@@ -146,7 +146,7 @@
                        (:FEDERATION-MAP env)
                        this-map
                        (if (federated? this-map)
-                         @(first (get federation-map this-name))
+                         (first (get federation-map this-name))
                          this-map)
                        env
                        (assoc env :active-request-port this-request-port)

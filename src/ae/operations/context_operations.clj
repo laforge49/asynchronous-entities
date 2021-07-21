@@ -192,11 +192,11 @@
                 (a/chan)
                 ]
             (doseq [en federation-map]
-              (let [[vsnap entity-request-port]
+              (let [[snap entity-request-port]
                     (val en)]
                 (if (some? entity-request-port)
                   (a/>! entity-request-port [env {:requestid   :RESET-REQUEST-PORT
-                                                  :this-map    @vsnap
+                                                  :this-map    snap
                                                   :return-port subrequest-return-port}]))))
             (doseq [en federation-map]
               (let [[vsnap entity-request-port]

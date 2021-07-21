@@ -65,26 +65,34 @@
                 federation-map
                 (k/request-exception-check (a/<! subrequest-return-port))
                 federation-vmap
-                (reduce
-                  (fn [federation-vmap [k [snap active-port]]]
-                       (assoc federation-vmap k [(volatile! snap) active-port]))
-                  {}
-                  federation-map)
+                (volatile! (reduce
+                             (fn [federation-vmap [k [snap active-port]]]
+                               (assoc federation-vmap k [(volatile! snap) active-port]))
+                             {}
+                             federation-map))
                 env
-                (assoc env :FEDERATION-MAP-VOLATILE (volatile! federation-vmap))
+                (assoc env :FEDERATION-MAP-VOLATILE federation-vmap)
                 env
                 (assoc env :NEW-CHILDREN-VOLATILE (volatile! {}))
                 script
                 (:SCRIPT descriptors)
                 _ (doseq [script-item script]
                     (k/federationRouteFunction env this-map script-item))
-                [e federation-vmap]
-                (a/<! (registerChildren @(:FEDERATION-MAP-VOLATILE env)
+                federation-vmap
+                (:FEDERATION-MAP-VOLATILE env)
+                federation-map
+                (reduce
+                  (fn [federation-map [k [vsnap active-port]]]
+                    (assoc federation-map k [@vsnap active-port]))
+                  {}
+                  @federation-vmap)
+                ;[e federation-vmap]
+                #_ (a/<! (registerChildren @(:FEDERATION-MAP-VOLATILE env)
                                         @(:NEW-CHILDREN-VOLATILE env)))
-                _ (if (some? e)
-                    (throw e))
+                ;_ (if (some? e)
+                ;    (throw e))
                 env
-                (assoc env :FEDERATION-MAP federation-vmap)
+                (assoc env :FEDERATION-MAP federation-map)
                 env
                 (assoc env :FEDERATION-MAP-VOLATILE nil)
                 env
