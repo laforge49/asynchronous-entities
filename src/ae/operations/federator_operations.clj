@@ -3,19 +3,17 @@
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
-#_ (defn registerChildren
-  []
+(defn registerChildren
+  [federation-map new-children]
   (let [return-port
-        (a/chan)
-        federation-map-volatile
-        (:FEDERATION-MAP-VOLATILE env)]
+        (a/chan)]
     (a/go-loop []
       (let []
         (try
           (let []
-            (a/>! return-port nil))
+            (a/>! return-port [nil federation-map]))
           (catch Exception e
-            (a/>! return-port e)))
+            (a/>! return-port [e nil])))
         (recur)))
     return-port))
 
@@ -57,14 +55,17 @@
                 (:SCRIPT descriptors)
                 _ (doseq [script-item script]
                     (k/federationRouteFunction env this-map script-item))
-                ;e
-                ;_ (a/<! (registerChildren))
-                ;_ (if (some? e)
-                ;    (throw e))
+                [e federation-map]
+                (a/<! (registerChildren @(:FEDERATION-MAP-VOLATILE env)
+                                        @(:NEW-CHILDREN-VOLATILE env)))
+                _ (if (some? e)
+                    (throw e))
                 env
-                (assoc env :FEDERATION-MAP @(:FEDERATION-MAP-VOLATILE env))
+                (assoc env :FEDERATION-MAP federation-map)
                 env
                 (assoc env :FEDERATION-MAP-VOLATILE nil)
+                env
+                (assoc env :NEW-CHILDREN-VOLATILE nil)
                 _ (a/>! federation-context-request-port [env {:requestid   :RELEASE-REQUESTID
                                                               :return-port subrequest-return-port}])
                 _ (k/request-exception-check (a/<! subrequest-return-port))
