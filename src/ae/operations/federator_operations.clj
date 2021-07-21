@@ -19,6 +19,13 @@
                       (keys new-children)
                       child-name
                       (first child-names)
+                      [vsnap initialization-port]
+                      (get federation-map child-name)
+                      new-entity-public-request-port
+                      (get new-children child-name)
+                      
+                      federation-map
+                      (dissoc federation-map child-name)
                       new-children
                       (dissoc new-children child-name)]
                   [federation-map new-children])
