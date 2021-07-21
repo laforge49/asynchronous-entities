@@ -28,10 +28,10 @@
                 _ (create-operations env)
                 context-request-port
                 (first (k/create-entity env {:name        "ROOT/CONTEXTS"
-                                      :descriptors {:REQUESTID-MAP {:REGISTER-NEW-ENTITY-REQUESTID :REGISTER-NEW-ENTITY-OPERATIONID
-                                                                    :ROUTE-REQUESTID               :ROUTE-OPERATIONID}}
-                                      :classifiers {}
-                                      }))
+                                             :descriptors {:REQUESTID-MAP {:REGISTER-NEW-ENTITY-REQUESTID :REGISTER-ENTITY-OPERATIONID
+                                                                           :ROUTE-REQUESTID               :ROUTE-OPERATIONID}}
+                                             :classifiers {}
+                                             }))
                 env
                 (assoc env :CONTEXT-REQUEST-PORT context-request-port)
                 return-port0

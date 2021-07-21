@@ -4,7 +4,7 @@
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
-(defn register-new-entity-function
+(defn registerEntityOperation
   [env this-map params]
   (let [this-name
         (:NAME this-map)
@@ -14,9 +14,13 @@
             (throw (Exception. (str "An initialization port is not compatible with registration of entity "
                                     new-entity-name))))]
     (if (s/blank? new-entity-name)
-      (let [new-entity-public-request-port
-            (first (k/create-entity env params))]
-        [this-map nil new-entity-public-request-port])
+      (let [entity-public-request-port
+            (:entity-public-request-port params)
+            entity-public-request-port
+            (if (some? entity-public-request-port)
+              entity-public-request-port
+              (first (k/create-entity env params)))]
+        [this-map nil entity-public-request-port])
       (let [[new-entity-kw _ _]
             (kw/name-as-keyword new-entity-name)
             _ (if (some? (get-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw]))
@@ -27,18 +31,17 @@
             (assoc-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw] new-entity-public-request-port)]
         [this-map nil new-entity-public-request-port]))))
 
-(defn create-register-new-entity-operation
+(defn create-register-entity-operation
   [env]
-  (let [new-entity-registration-port
-        (k/register-operation env {:operationid :REGISTER-NEW-ENTITY-OPERATIONID
-                                   :function    register-new-entity-function})]
+  (let [entity-registration-port
+        (k/register-operation env {:operationid :REGISTER-ENTITY-OPERATIONID})]
     (a/go-loop []
       (let [[env this-map params]
-            (a/<! new-entity-registration-port)
+            (a/<! entity-registration-port)
             operation-return-port
             (:operation-return-port params)]
         (try
-          (a/>! operation-return-port (register-new-entity-function env this-map params))
+          (a/>! operation-return-port (registerEntityOperation env this-map params))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
@@ -210,7 +213,7 @@
 
 (defn create-context-operations
   [env]
-  (create-register-new-entity-operation env)
+  (create-register-entity-operation env)
   (create-route-operation env)
   (create-federation-acquire-operation env)
   (create-federation-release-operation env)
