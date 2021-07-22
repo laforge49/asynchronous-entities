@@ -6,7 +6,7 @@
 
 (defn instantiateFunction
   [env this-map params]
-  (let [new-entity-name
+  (let [name
         (:name params)
         this-name
         (:NAME this-map)
@@ -21,7 +21,7 @@
         initialization-port
         (a/chan)
         params
-        (into params {:target-name         new-entity-name
+        (into params {:target-name         name
                       :initialization-port initialization-port
                       :descriptors         instantiation-descriptors})
         [new-entity-public-request-port snap]
@@ -31,8 +31,8 @@
         new-children-volatile
         (:NEW-CHILDREN-VOLATILE env)
         ]
-    (vswap! federation-map-volatile assoc new-entity-name [(volatile! snap) initialization-port])
-    (vswap! new-children-volatile assoc new-entity-name new-entity-public-request-port)
+    (vswap! federation-map-volatile assoc name [(volatile! snap) initialization-port])
+    (vswap! new-children-volatile assoc name new-entity-public-request-port)
     [this-map this-map]))
 
 (defn instantiateOperation
@@ -127,14 +127,24 @@
 
 (defn addRelationshipFunction
   [env this-map params]
-  (let [this-map
+  (let [child-name
+        (:child-name params)
+        _ (if (s/blank? child-name)
+            (throw (Exception. "ADD RELATIONSHIP requires child-name")))
+        relationship
+        (:relationship params)
+        _ (if (not (keyword? relationship))
+            (throw (Exception. "ADD RELATIONSHIP requires keyword: " relationship)))
+        child-instantiator
+        (:child-instantiator params)
+        this-map
         (addChildOperation env this-map params)
         [this-map rv]
         (k/federationRouteFunction env this-map
                                    {:target-requestid :ADD-PARENT-REQUESTID
-                                                 :target-name      (:child-name params)
-                                                 :parent-name      (:NAME this-map)
-                                                 :relationship     (:relationship params)})]
+                                    :target-name      child-name
+                                    :parent-name      (:NAME this-map)
+                                    :relationship     (:relationship params)})]
     [this-map this-map]))
 
 (defn create-entity-operations
