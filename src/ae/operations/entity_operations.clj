@@ -119,10 +119,18 @@
 
 (defn addRelationshipFunction
   [env this-map params]
-  (let [child-name
+  (let [this-name
+        (:NAME this-map)
+        child-name
         (:child-name params)
         _ (if (s/blank? child-name)
             (throw (Exception. "ADD RELATIONSHIP requires child-name")))
+        this-name-context-name
+        (k/entityContextName this-name)
+        child-name-context-name
+        (k/entityContextName child-name)
+        _ (if (not= this-name-context-name child-name-context-name)
+            (throw (Exception. "ADD RELATIONSHIP requires entities of the same context")))
         relationship
         (:relationship params)
         _ (if (not (keyword? relationship))
@@ -142,7 +150,7 @@
                                    this-map
                                    {:target-requestid :ADD-PARENT-REQUESTID
                                     :target-name      child-name
-                                    :parent-name      (:NAME this-map)
+                                    :parent-name      this-name
                                     :relationship     (:relationship params)})]
     [this-map this-map]))
 
