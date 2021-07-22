@@ -20,7 +20,7 @@
                       entity-name
                       (first child-names)
                       context-name
-                      (k/entityContext entity-name)
+                      (k/entityContextName entity-name)
                       [snap initialization-port]
                       (get federation-map entity-name)
                       entity-public-request-port

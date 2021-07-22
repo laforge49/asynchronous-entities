@@ -40,7 +40,7 @@
   (let [context-name
         (:name params)
         target-name
-        (k/entityContext context-name)
+        (k/entityContextName context-name)
         this-name
         (:NAME this-map)
         this-descriptors

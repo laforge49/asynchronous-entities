@@ -248,7 +248,7 @@
     (create-operation-dispatcher new-entity-map)
     [new-public-request-port new-entity-map]))
 
-(defn entityContext
+(defn entityContextName
   [entity-name]
   (let [[_ entity-context-base-name _]
         (if (s/blank? entity-name)
