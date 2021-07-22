@@ -37,14 +37,14 @@
 
 (defn instantiateOperation
   [env this-map params]
-  (let [entity-name
+  (let [name
         (:name params)
         [_ entity-context-base-name _]
-        (if (s/blank? entity-name)
+        (if (s/blank? name)
           [nil "" nil]
-          (kw/name-as-keyword entity-name))
+          (kw/name-as-keyword name))
         target-name
-        (if (s/blank? entity-name)
+        (if (s/blank? name)
           "ROOT/CONTEXTS"
           (if (= entity-context-base-name "CONTEXTS")
             (str "ROOT/CONTEXTS")
@@ -104,13 +104,6 @@
         (assoc-in this-map [:PARENTVECTORS relationship] relationship-parents)]
     [this-map this-map]))
 
-(defn addParentParams
-  [env this-map params]
-  {:target-requestid :ADD-PARENT-REQUESTID
-   :target-name      (:child-name params)
-   :parent-name      (:NAME this-map)
-   :relationship     (:relationship params)})
-
 (defn addChildOperation
   [env this-map params]
   (let [this-name
@@ -137,7 +130,11 @@
   (let [this-map
         (addChildOperation env this-map params)
         [this-map rv]
-        (k/federationRouteFunction env this-map (addParentParams env this-map params))]
+        (k/federationRouteFunction env this-map
+                                   {:target-requestid :ADD-PARENT-REQUESTID
+                                                 :target-name      (:child-name params)
+                                                 :parent-name      (:NAME this-map)
+                                                 :relationship     (:relationship params)})]
     [this-map this-map]))
 
 (defn create-entity-operations
