@@ -11,7 +11,7 @@
         new-entity-name
         (:name params)
         _ (if (some? (:initialization-port params))
-            (throw (Exception. (str "An initialization port is not compatible with registration of entity "
+            (throw (Exception. (str "An initialization port is not compatible with non-federated registration of entity "
                                     new-entity-name))))]
     (if (s/blank? new-entity-name)
       (let [entity-public-request-port
@@ -42,6 +42,42 @@
             (:operation-return-port params)]
         (try
           (a/>! operation-return-port (registerEntityOperation env this-map params))
+          (catch Exception e
+            (a/>! operation-return-port [this-map e nil]))))
+      (recur))))
+
+(defn registerClassifierFunction
+  [env this-map params]
+  (let [classifier
+        (:classifier params)
+        classifier-value
+        (:classifier-value params)
+        values
+        (get-in this-map [:CLASSIFIER-REGISTRY classifier] [])
+        i
+        (.indexOf values classifier-value)
+        _ (if (= i -1)
+            (throw (Exception. (str classifier-value " for " classifier " already present in " (:NAME this-map)))))
+        values
+        (conj values classifier-value)
+        this-map
+        (assoc-in this-map [:CLASSIFIER-REGISTRY classifier] values)]
+    [this-map this-map]))
+
+(defn create-register-classifier-operation
+  [env]
+  (let [register-classifier-port
+        (k/register-operation env {:operationid :REGISTER-CLASSIFIER-OPERATIONID
+                                   :function registerClassifierFunction})]
+    (a/go-loop []
+      (let [[env this-map params]
+            (a/<! register-classifier-port)
+            operation-return-port
+            (:operation-return-port params)]
+        (try
+          (let [[this-map rv]
+            (registerClassifierFunction env this-map params)]
+            (a/>! operation-return-port [this-map nil rv]))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
@@ -214,6 +250,7 @@
 (defn create-context-operations
   [env]
   (create-register-entity-operation env)
+  (create-register-classifier-operation env)
   (create-route-operation env)
   (create-federation-acquire-operation env)
   (create-federation-release-operation env)
