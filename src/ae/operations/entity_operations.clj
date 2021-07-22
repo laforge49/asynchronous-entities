@@ -140,9 +140,9 @@
         _ (if (not (s/blank? child-instantiator))
             (k/federationRouteFunction env
                                        this-map
-                                       {:target-requestid :INSTANTIATE-OPERATIONID
-                                        :target-name child-instantiator
-                                        :name child-name}))
+                                       {:target-requestid :INSTANTIATE-REQUESTID
+                                        :target-name      child-instantiator
+                                        :name             child-name}))
         this-map
         (addChildOperation env this-map params)
         [this-map rv]

@@ -57,9 +57,11 @@
                                            :relationship     :BASIC
                                            :child-name       "MAIN/SIMPLE_2"
                                            }
-                                          {:target-requestid :INSTANTIATE-REQUESTID
-                                           :target-name      "MAIN/SIMPLE-INSTANTIATOR"
-                                           :name             "MAIN/SIMPLE_3"
+                                          {:target-requestid   :ADD-RELATIONSHIP-REQUESTID
+                                           :target-name        "MAIN/SIMPLE_1"
+                                           :relationship       :BASIC
+                                           :child-instantiator "MAIN/SIMPLE-INSTANTIATOR"
+                                           :child-name         "MAIN/SIMPLE_3"
                                            }
                                           ]}
     }
