@@ -243,8 +243,6 @@
         new-entity-map
         {:NAME               name
          :DESCRIPTORS        descriptors
-         :CHILDVECTORS       {}
-         :PARENTVECTORS      {}
          :REQUEST-PORT-STACK request-port-stack}
         ]
     (create-operation-dispatcher new-entity-map)
