@@ -46,7 +46,7 @@
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
 
-(defn registerClassifierFunction
+(defn registerClassifierOperation
   [env this-map params]
   (let [classifier
         (:classifier params)
@@ -62,22 +62,20 @@
         (conj values classifier-value)
         this-map
         (assoc-in this-map [:CLASSIFIER-REGISTRY classifier] values)]
-    [this-map this-map]))
+    [this-map nil this-map]))
 
 (defn create-register-classifier-operation
   [env]
   (let [register-classifier-port
         (k/register-operation env {:operationid :REGISTER-CLASSIFIER-OPERATIONID
-                                   :function registerClassifierFunction})]
+                                   :function    registerClassifierFunction})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! register-classifier-port)
             operation-return-port
             (:operation-return-port params)]
         (try
-          (let [[this-map rv]
-            (registerClassifierFunction env this-map params)]
-            (a/>! operation-return-port [this-map nil rv]))
+          (a/>! operation-return-port (registerClassifierOperation env this-map params))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
