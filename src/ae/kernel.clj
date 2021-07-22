@@ -247,3 +247,15 @@
         ]
     (create-operation-dispatcher new-entity-map)
     [new-public-request-port new-entity-map]))
+
+(defn entityContext
+  [entity-name]
+  (let [[_ entity-context-base-name _]
+        (if (s/blank? entity-name)
+          [nil "" nil]
+          (kw/name-as-keyword entity-name))]
+    (if (s/blank? entity-name)
+      "ROOT/CONTEXTS"
+      (if (= entity-context-base-name "CONTEXTS")
+        (str "ROOT/CONTEXTS")
+        (str "CONTEXTS/" entity-context-base-name)))))

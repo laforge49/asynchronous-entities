@@ -19,12 +19,8 @@
                       (keys new-children)
                       entity-name
                       (first child-names)
-                      [_ entity-context-base-name _]
-                      (kw/name-as-keyword entity-name)
-                      target-name
-                      (if (= entity-context-base-name "CONTEXTS")
-                        (str "ROOT/CONTEXTS")
-                        (str "CONTEXTS/" entity-context-base-name))
+                      context-name
+                      (k/entityContext entity-name)
                       [snap initialization-port]
                       (get federation-map entity-name)
                       entity-public-request-port
@@ -40,7 +36,7 @@
                       _ (a/>! context-request-port [env {:requestid                  :ROUTE-REQUESTID
                                                          :target-requestid           :REGISTER-ENTITY-REQUESTID
                                                          :entity-public-request-port entity-public-request-port
-                                                         :target-name                target-name
+                                                         :target-name                context-name
                                                          :name                       (:NAME snap)
                                                          :return-port                subrequest-return-port}])
                       _ (k/request-exception-check (a/<! subrequest-return-port))
