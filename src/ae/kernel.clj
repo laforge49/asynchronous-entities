@@ -230,6 +230,12 @@
         [new-public-request-port]
         descriptors
         (:descriptors params)
+        classifiers
+        (:classifiers params)
+        classifiers
+        (if (nil? classifiers)
+          {}
+          classifiers)
         invariant
         (:INVARIANT descriptors)
         initialization-port
@@ -243,6 +249,7 @@
         new-entity-map
         {:NAME               name
          :DESCRIPTORS        descriptors
+         :CLASSIFIERS        classifiers
          :REQUEST-PORT-STACK request-port-stack}
         ]
     (create-operation-dispatcher new-entity-map)
