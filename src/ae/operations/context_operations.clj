@@ -48,27 +48,28 @@
 
 (defn registerClassifierOperation
   [env this-map params]
-  (let [classifier
+  (let [name
+        (:name params)
+        classifier
         (:classifier params)
         classifier-value
         (:classifier-value params)
-        values
-        (get-in this-map [:CLASSIFIER-REGISTRY classifier] [])
+        names
+        (get-in this-map [:CLASSIFIER-REGISTRY classifier classifier-value] [])
         i
-        (.indexOf values classifier-value)
+        (.indexOf name names)
         _ (if (= i -1)
-            (throw (Exception. (str classifier-value " for " classifier " already present in " (:NAME this-map)))))
-        values
-        (conj values classifier-value)
+            (throw (Exception. (str classifier-value " for " classifier " already registered for " name))))
+        names
+        (conj names name)
         this-map
-        (assoc-in this-map [:CLASSIFIER-REGISTRY classifier] values)]
+        (assoc-in this-map [:CLASSIFIER-REGISTRY classifier classifier-value] names)]
     [this-map nil this-map]))
 
 (defn create-register-classifier-operation
   [env]
   (let [register-classifier-port
-        (k/register-operation env {:operationid :REGISTER-CLASSIFIER-OPERATIONID
-                                   :function    registerClassifierFunction})]
+        (k/register-operation env {:operationid :REGISTER-CLASSIFIER-OPERATIONID})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! register-classifier-port)
