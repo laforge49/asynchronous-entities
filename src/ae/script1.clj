@@ -14,21 +14,21 @@
                        :REQUESTID-MAP             {:INSTANTIATE-REQUESTID :INSTANTIATE-OPERATIONID}
                        :INSTANTIATION-DESCRIPTORS {:INVARIANT     true
                                                    :REQUESTID-MAP {:INSTANTIATE-REQUESTID :INSTANTIATE-OPERATIONID}}
-                       :INSTANTIATION-CLASSIFIERS {:ENTRY-TYPE "instantiator"}}
-    :classifiers       {:ENTRY-TYPE   "instantiator"}
+                       :INSTANTIATION-CLASSIFIERS {:ENTITY-TYPE "instantiator"}}
+    :classifiers       {:ENTITY-TYPE   "instantiator"}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
     :name             "CONTEXTS/CONTEXT-INSTANTIATOR"
     :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:REGISTER-ENTITY-REQUESTID     :REGISTER-ENTITY-OPERATIONID
                                                                    :ROUTE-REQUESTID               :ROUTE-OPERATIONID}}
-                       :INSTANTIATION-CLASSIFIERS {:ENTRY-TYPE "context"}}
+                       :INSTANTIATION-CLASSIFIERS {:ENTITY-TYPE "context"}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
     :name             "CONTEXTS/FEDERATOR-INSTANTIATOR"
     :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:RUN-FEDERATION-REQUESTID :RUN-FEDERATION-OPERATIONID}}
-                       :INSTANTIATION-CLASSIFIERS {:ENTRY-TYPE "federator"}}
+                       :INSTANTIATION-CLASSIFIERS {:ENTITY-TYPE "federator"}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
@@ -36,7 +36,7 @@
     :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:ACQUIRE-REQUESTID :FEDERATION-ACQUIRE-OPERATIONID
                                                                    :RELEASE-REQUESTID :FEDERATION-RELEASE-OPERATIONID
                                                                    :ROUTE-REQUESTID   :FEDERATION-ROUTE-OPERATIONID}}
-                       :INSTANTIATION-CLASSIFIERS {:ENTRY-TYPE "federation-context"}}
+                       :INSTANTIATION-CLASSIFIERS {:ENTITY-TYPE "federation-context"}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/CONTEXT-INSTANTIATOR"
@@ -48,7 +48,7 @@
     :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:ADD-PARENT-REQUESTID       :ADD-PARENT-OPERATIONID
                                                                    :ADD-RELATIONSHIP-REQUESTID :ADD-RELATIONSHIP-OPERATIONID
                                                                    :ADD-NEW-CHILD-REQUESTID    :ADD-NEW-CHILD-OPERATIONID}}
-                       :INSTANTIATION-CLASSIFIERS {:ENTRY-TYPE "simple"}}
+                       :INSTANTIATION-CLASSIFIERS {:ENTITY-TYPE "simple"}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "MAIN/SIMPLE-INSTANTIATOR"

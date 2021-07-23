@@ -8,12 +8,12 @@
   [env this-map params]
   (let [this-name
         (:NAME this-map)
-        new-entity-name
+        name
         (:name params)
         _ (if (some? (:initialization-port params))
             (throw (Exception. (str "An initialization port is not compatible with non-federated registration of entity "
-                                    new-entity-name))))]
-    (if (s/blank? new-entity-name)
+                                    name))))]
+    (if (s/blank? name)
       (let [entity-public-request-port
             (:entity-public-request-port params)
             entity-public-request-port
@@ -22,13 +22,31 @@
               (first (k/create-entity env params)))]
         [this-map nil entity-public-request-port])
       (let [[new-entity-kw _ _]
-            (kw/name-as-keyword new-entity-name)
+            (kw/name-as-keyword name)
             _ (if (some? (get-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw]))
-                (throw (Exception. (str "Entity " new-entity-name " already exists in " this-name))))
+                (throw (Exception. (str "Entity " name " already exists in " this-name))))
             new-entity-public-request-port
             (first (k/create-entity env params))
             this-map
-            (assoc-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw] new-entity-public-request-port)]
+            (assoc-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw] new-entity-public-request-port)
+            classifiers
+            (:classifiers params)
+            this-map
+            (if (nil? classifiers)
+              this-map
+              (reduce
+                (fn [this-map [classifier classifier-value]]
+                  (let [names
+                        (get-in this-map [:CLASSIFIER-REGISTRY classifier classifier-value] [])
+                        i
+                        (s/index-of names name)
+                        _ (if (some? i)
+                            (throw (Exception. (str classifier-value " for " classifier " already registered for " name))))
+                        names
+                        (conj names name)]
+                    (assoc-in this-map [:CLASSIFIER-REGISTRY classifier classifier-value] names)))
+                this-map
+                classifiers))]
         [this-map nil new-entity-public-request-port]))))
 
 (defn create-register-entity-operation
