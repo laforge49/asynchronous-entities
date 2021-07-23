@@ -50,7 +50,9 @@
         instantiation-descriptors
         (assoc instantiation-descriptors :PROTOTYPE this-name)
         instantiation-descriptors
-        (into instantiation-descriptors (:descriptors params))]
+        (into instantiation-descriptors (:descriptors params))
+
+        ]
     (into params {:target-requestid :REGISTER-ENTITY-REQUESTID
                   :target-name      target-name
                   :descriptors      instantiation-descriptors})))

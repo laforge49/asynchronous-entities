@@ -13,7 +13,8 @@
     :descriptors      {:INVARIANT                 true
                        :REQUESTID-MAP             {:INSTANTIATE-REQUESTID :INSTANTIATE-OPERATIONID}
                        :INSTANTIATION-DESCRIPTORS {:INVARIANT     true
-                                                   :REQUESTID-MAP {:INSTANTIATE-REQUESTID :INSTANTIATE-OPERATIONID}}}
+                                                   :REQUESTID-MAP {:INSTANTIATE-REQUESTID :INSTANTIATE-OPERATIONID}}
+                       :INSTANTIATION-CLASSIFIERS {:ENTRY-TYPE "instantiator"}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
