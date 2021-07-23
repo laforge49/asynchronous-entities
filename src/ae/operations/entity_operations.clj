@@ -18,12 +18,15 @@
         (assoc instantiation-descriptors :PROTOTYPE this-name)
         instantiation-descriptors
         (into instantiation-descriptors (:descriptors params))
+        instantiation-classifiers
+        (:INSTANTIATION-CLASSIFIERS this-descriptors)
         initialization-port
         (a/chan)
         params
         (into params {:target-name         name
                       :initialization-port initialization-port
-                      :descriptors         instantiation-descriptors})
+                      :descriptors         instantiation-descriptors
+                      :classifiers         instantiation-classifiers})
         [new-entity-public-request-port snap]
         (k/create-entity env params)
         federation-map-volatile

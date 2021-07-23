@@ -12,23 +12,21 @@
         (:name params)
         _ (if (some? (:initialization-port params))
             (throw (Exception. (str "An initialization port is not compatible with non-federated registration of entity "
-                                    name))))]
+                                    name))))
+        entity-public-request-port
+        (:entity-public-request-port params)
+        entity-public-request-port
+        (if (some? entity-public-request-port)
+          entity-public-request-port
+          (first (k/create-entity env params)))]
     (if (s/blank? name)
-      (let [entity-public-request-port
-            (:entity-public-request-port params)
-            entity-public-request-port
-            (if (some? entity-public-request-port)
-              entity-public-request-port
-              (first (k/create-entity env params)))]
-        [this-map nil entity-public-request-port])
+      [this-map nil entity-public-request-port]
       (let [[new-entity-kw _ _]
             (kw/name-as-keyword name)
             _ (if (some? (get-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw]))
                 (throw (Exception. (str "Entity " name " already exists in " this-name))))
-            new-entity-public-request-port
-            (first (k/create-entity env params))
             this-map
-            (assoc-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw] new-entity-public-request-port)
+            (assoc-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw] entity-public-request-port)
             classifiers
             (:classifiers params)
             this-map
@@ -47,7 +45,7 @@
                     (assoc-in this-map [:CLASSIFIER-REGISTRY classifier classifier-value] names)))
                 this-map
                 classifiers))]
-        [this-map nil new-entity-public-request-port]))))
+        [this-map nil entity-public-request-port]))))
 
 (defn create-register-entity-operation
   [env]
