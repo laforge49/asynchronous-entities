@@ -29,8 +29,7 @@
                 context-request-port
                 (first (k/create-entity env {:name        "ROOT/CONTEXTS"
                                              :descriptors {:REQUESTID-MAP {:REGISTER-ENTITY-REQUESTID     :REGISTER-ENTITY-OPERATIONID
-                                                                           :ROUTE-REQUESTID               :ROUTE-OPERATIONID
-                                                                           :REGISTER-CLASSIFIER-REQUESTID :REGISTER-CLASSIFIER-OPERATIONID}
+                                                                           :ROUTE-REQUESTID               :ROUTE-OPERATIONID}
                                                            }
                                              :classifiers {:ENTITY-TYPE "context"}
                                              }))

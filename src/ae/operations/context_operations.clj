@@ -64,41 +64,6 @@
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
 
-(defn registerClassifierOperation
-  [env this-map params]
-  (let [name
-        (:name params)
-        classifier
-        (:classifier params)
-        classifier-value
-        (:classifier-value params)
-        names
-        (get-in this-map [:CLASSIFIER-REGISTRY classifier classifier-value] [])
-        i
-        (s/index-of names name)
-        _ (if (some? i)
-            (throw (Exception. (str classifier-value " for " classifier " already registered for " name))))
-        names
-        (conj names name)
-        this-map
-        (assoc-in this-map [:CLASSIFIER-REGISTRY classifier classifier-value] names)]
-    [this-map nil this-map]))
-
-(defn create-register-classifier-operation
-  [env]
-  (let [register-classifier-port
-        (k/register-operation env {:operationid :REGISTER-CLASSIFIER-OPERATIONID})]
-    (a/go-loop []
-      (let [[env this-map params]
-            (a/<! register-classifier-port)
-            operation-return-port
-            (:operation-return-port params)]
-        (try
-          (a/>! operation-return-port (registerClassifierOperation env this-map params))
-          (catch Exception e
-            (a/>! operation-return-port [this-map e nil]))))
-      (recur))))
-
 (defn create-route-operation
   [env]
   (let [route-to-local-entity-port
@@ -267,7 +232,6 @@
 (defn create-context-operations
   [env]
   (create-register-entity-operation env)
-  (create-register-classifier-operation env)
   (create-route-operation env)
   (create-federation-acquire-operation env)
   (create-federation-release-operation env)
