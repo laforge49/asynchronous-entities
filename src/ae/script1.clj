@@ -21,8 +21,7 @@
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
     :name             "CONTEXTS/CONTEXT-INSTANTIATOR"
     :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:REGISTER-ENTITY-REQUESTID     :REGISTER-ENTITY-OPERATIONID
-                                                                   :ROUTE-REQUESTID               :ROUTE-OPERATIONID
-                                                                   :REGISTER-CLASSIFIER-REQUESTID :REGISTER-CLASSIFIER-OPERATIONID}}
+                                                                   :ROUTE-REQUESTID               :ROUTE-OPERATIONID}}
                        :INSTANTIATION-CLASSIFIERS {:ENTRY-TYPE "context"}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
