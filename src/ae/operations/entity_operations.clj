@@ -51,11 +51,13 @@
         (assoc instantiation-descriptors :PROTOTYPE this-name)
         instantiation-descriptors
         (into instantiation-descriptors (:descriptors params))
-
+        instantiation-classifiers
+        (:INSTANTIATION-CLASSIFIERS this-descriptors)
         ]
     (into params {:target-requestid :REGISTER-ENTITY-REQUESTID
                   :target-name      target-name
-                  :descriptors      instantiation-descriptors})))
+                  :descriptors      instantiation-descriptors
+                  :classifiers      instantiation-classifiers})))
 
 (defn create-instantiate-operation
   [env]
