@@ -57,8 +57,8 @@
         names
         (get-in this-map [:CLASSIFIER-REGISTRY classifier classifier-value] [])
         i
-        (.indexOf name names)
-        _ (if (= i -1)
+        (s/index-of names name)
+        _ (if (some? i)
             (throw (Exception. (str classifier-value " for " classifier " already registered for " name))))
         names
         (conj names name)

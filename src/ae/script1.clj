@@ -1,7 +1,13 @@
 (ns ae.script1)
 
 (def script1
-  [{:target-requestid :REGISTER-ENTITY-REQUESTID
+  [{:target-requestid :REGISTER-CLASSIFIER-REQUESTID
+    :target-name      "ROOT/CONTEXTS"
+    :name             "ROOT/CONTEXTS"
+    :classifier       :ENTITY-TYPE
+    :classifier-value "context"
+    }
+   {:target-requestid :REGISTER-ENTITY-REQUESTID
     :target-name      "ROOT/CONTEXTS"
     :name             "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
     :descriptors      {:INVARIANT                 true

@@ -32,7 +32,7 @@
                                                                            :ROUTE-REQUESTID               :ROUTE-OPERATIONID
                                                                            :REGISTER-CLASSIFIER-REQUESTID :REGISTER-CLASSIFIER-OPERATIONID}
                                                            }
-                                             :classifiers {:ROOT/ENTITY-TYPE "root/context"}
+                                             :classifiers {:ENTITY-TYPE "context"}
                                              }))
                 env
                 (assoc env :CONTEXT-REQUEST-PORT context-request-port)
