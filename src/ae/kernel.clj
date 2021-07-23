@@ -230,6 +230,10 @@
         [new-public-request-port]
         descriptors
         (:descriptors params)
+        descriptors
+        (if (nil? descriptors)
+          {}
+          descriptors)
         classifiers
         (:classifiers params)
         classifiers
