@@ -60,17 +60,13 @@
         (a/>! return-port [nil])
         (recur
           (try
-            (let [entity-names
-                  (keys new-classifiers)
-                  entity-name
-                  (first entity-names)
+            (let [[entity-name classifier classifier-value]
+                  (peek new-classifiers)
                   context-name
                   (k/entityContextName entity-name)
-                  new-entity-classifiers
-                  (get new-classifiers entity-names)
-                  ;;todo
+                  ;;todo update context
                   new-classifiers
-                  (dissoc new-classifiers entity-name)]
+                  (pop new-classifiers)]
               new-classifiers)
             (catch Exception e
               (a/>! return-port e)
@@ -118,7 +114,7 @@
                 env
                 (assoc env :NEW-CHILDREN-VOLATILE (volatile! {}))
                 env
-                (assoc env :NEW-CLASSIFIERS-VOLATILE (volatile! {}))
+                (assoc env :NEW-CLASSIFIERS-VOLATILE (volatile! []))
                 script
                 (:SCRIPT descriptors)
                 _ (doseq [script-item script]
