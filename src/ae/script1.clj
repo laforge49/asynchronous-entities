@@ -76,7 +76,7 @@
                                            :descriptor       :DEGREE-OF-POLISH
                                            :descriptor-value "MIDDLING"
                                            }
-                                          #_ {:target-requestid :ADD-CLASSIFIER-REQUESTID
+                                          {:target-requestid :ADD-CLASSIFIER-REQUESTID
                                            :target-name      "MAIN/SIMPLE_3"
                                            :classifier       :APPLICATION
                                            :classifier-value :FIDDLING

@@ -52,7 +52,7 @@
     return-port))
 
 (defn registerClassifiers
-  [env new-classifiers]
+  [env new-classifiers new-children]
   (let [return-port
         (a/chan)]
     (a/go-loop [new-classifiers new-classifiers]
@@ -68,16 +68,17 @@
                   (:CONTEXT-REQUEST-PORT env)
                   subrequest-return-port
                   (a/chan)
-                  _ (a/>! context-request-port [env {:requestid        :ROUTE-REQUESTID
-                                                     :target-requestid :REGISTER-CLASSIFIER-REQUESTID
-                                                     :target-name      context-name
-                                                     :name             entity-name
-                                                     :classifier       classifier
-                                                     :classifier-value classifier-value
-                                                     :return-port      subrequest-return-port}])
-                  _ (k/request-exception-check (a/<! subrequest-return-port))
                   new-classifiers
                   (pop new-classifiers)]
+              (when (not (contains? new-children entity-name))
+                (a/>! context-request-port [env {:requestid        :ROUTE-REQUESTID
+                                                 :target-requestid :REGISTER-CLASSIFIER-REQUESTID
+                                                 :target-name      context-name
+                                                 :name             entity-name
+                                                 :classifier       classifier
+                                                 :classifier-value classifier-value
+                                                 :return-port      subrequest-return-port}])
+                (k/request-exception-check (a/<! subrequest-return-port)))
               new-classifiers)
             (catch Exception e
               (a/>! return-port [e])
@@ -146,7 +147,9 @@
                     (throw e))
                 [e]
                 (a/<! (registerClassifiers env
-                                           @(:NEW-CLASSIFIERS-VOLATILE env)))
+                                           @(:NEW-CLASSIFIERS-VOLATILE env)
+                                           @(:NEW-CHILDREN-VOLATILE env)
+                                           ))
                 _ (if (some? e)
                     (throw e))
                 env
