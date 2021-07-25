@@ -103,6 +103,18 @@
         (assoc-in this-map [:PARENTVECTORS relationship] relationship-parents)]
     [this-map this-map]))
 
+(defn addClassifierFunction
+  [env this-map params]
+  (let [this-name
+        (:NAME this-map)
+        classifier
+        (:classifier params)
+        classifier-value
+        (:classifier-value params)
+        this-map
+        (assoc-in this-map [:CLASSIFIERS classifier] classifier-value)]
+    [this-map this-map]))
+
 (defn addChildOperation
   [env this-map params]
   (let [this-name
@@ -166,6 +178,8 @@
   (create-instantiate-operation env)
   (k/register-function env {:operationid :ADD-PARENT-OPERATIONID
                             :function    addParentFunction})
+  (k/register-function env {:operationid :ADD-CLASSIFIER-OPERATIONID
+                            :function    addClassifierFunction})
   (k/register-operation env {:operationid :ADD-RELATIONSHIP-OPERATIONID
                              :function    addRelationshipFunction})
   )
