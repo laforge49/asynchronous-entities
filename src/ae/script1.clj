@@ -72,10 +72,6 @@
     :name             "CONTEXTS/VALUE_OF!ENTITY_TYPE"
     :classifiers      {:CONTEXTS/VALUE_OF :CONTEXTS/VALUE_OF}
     }
-
-
-
-
    {:target_requestid :INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS/CONTEXT_INSTANTIATOR"
@@ -123,6 +119,11 @@
    {:target_requestid :INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS/CLASSIFIER_INSTANTIATOR"
     :name             "MAIN/APPLICATION"
+    }
+   {:target_requestid :INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/CLASSIFIER_VALUE_INSTANTIATOR"
+    :name             "MAIN/APPLICATION!FIDDLING"
+    :classifiers      {:CONTEXTS/VALUE_OF :MAIN/APPLICATION}
     }
    {:target_requestid :INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS/FEDERATOR_INSTANTIATOR"
