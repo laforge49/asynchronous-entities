@@ -13,7 +13,7 @@
         this-descriptors
         (:DESCRIPTORS this-map)
         instantiation-descriptors
-        (:CONTEXTS/INSTANTIATION-DESCRIPTORS this-descriptors)
+        (:CONTEXTS/INSTANTIATION_DESCRIPTORS this-descriptors)
         instantiation-descriptors
         (assoc instantiation-descriptors :PROTOTYPE this-name)
         instantiation-descriptors
@@ -49,7 +49,7 @@
         this-descriptors
         (:DESCRIPTORS this-map)
         instantiation-descriptors
-        (:CONTEXTS/INSTANTIATION-DESCRIPTORS this-descriptors)
+        (:CONTEXTS/INSTANTIATION_DESCRIPTORS this-descriptors)
         instantiation-descriptors
         (assoc instantiation-descriptors :PROTOTYPE this-name)
         instantiation-descriptors
