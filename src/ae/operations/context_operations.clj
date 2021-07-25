@@ -62,6 +62,24 @@
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
 
+(defn create-register-classifier-operation
+  [env]
+  (let [register-classifier-port
+        (k/register-operation env {:operationid :REGISTER-CLASSIFIER-OPERATIONID})]
+    (a/go-loop []
+      (let [[env this-map params]
+            (a/<! register-classifier-port)
+            operation-return-port
+            (:operation-return-port params)]
+        (try
+          ;;todo
+          (println 444 (prn-str params))
+          (a/>! operation-return-port [this-map nil this-map])
+          (catch Exception e
+            (a/>! operation-return-port [this-map e nil]))))
+      (recur))
+    ))
+
 (defn create-route-operation
   [env]
   (let [route-to-local-entity-port
@@ -230,6 +248,7 @@
 (defn create-context-operations
   [env]
   (create-register-entity-operation env)
+  (create-register-classifier-operation env)
   (create-route-operation env)
   (create-federation-acquire-operation env)
   (create-federation-release-operation env)
