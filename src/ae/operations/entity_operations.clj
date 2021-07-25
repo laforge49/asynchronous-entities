@@ -107,6 +107,8 @@
   [env this-map params]
   (let [this-name
         (:NAME this-map)
+        _ (if (s/blank? this-name)
+            (throw (Exception. "ADD CLASSIFIER requires a name on the entity being assigned a classifier")))
         classifier
         (:classifier params)
         classifier-value
