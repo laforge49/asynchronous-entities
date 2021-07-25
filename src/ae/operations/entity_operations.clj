@@ -23,7 +23,7 @@
         initialization-port
         (a/chan)
         params
-        (into params {:target-name         name
+        (into params {:target_name         name
                       :initialization-port initialization-port
                       :descriptors         instantiation-descriptors
                       :classifiers         instantiation-classifiers})
@@ -58,7 +58,7 @@
         (:CONTEXTS/INSTANTIATION_CLASSIFIERS this-descriptors)
         ]
     (into params {:target_requestid :REGISTER_ENTITY_REQUESTID
-                  :target-name      target-name
+                  :target_name      target-name
                   :descriptors      instantiation-descriptors
                   :classifiers      instantiation-classifiers})))
 

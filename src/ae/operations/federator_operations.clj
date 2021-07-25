@@ -36,7 +36,7 @@
                       _ (a/>! context-request-port [env {:requestid                  :ROUTE_REQUESTID
                                                          :target_requestid           :REGISTER_ENTITY_REQUESTID
                                                          :entity-public-request-port entity-public-request-port
-                                                         :target-name                context-name
+                                                         :target_name                context-name
                                                          :name                       (:NAME snap)
                                                          :classifiers                (:CLASSIFIERS snap)
                                                          :return_port                subrequest-return-port}])
@@ -73,7 +73,7 @@
               (when (not (contains? new-children entity-name))
                 (a/>! context-request-port [env {:requestid        :ROUTE_REQUESTID
                                                  :target_requestid :REGISTER_CLASSIFIER_REQUESTID
-                                                 :target-name      context-name
+                                                 :target_name      context-name
                                                  :name             entity-name
                                                  :classifier       classifier
                                                  :classifier-value classifier-value
@@ -105,7 +105,7 @@
                 (a/chan)
                 _ (a/>! root-contexts-request-port [env {:requestid        :ROUTE_REQUESTID
                                                          :target_requestid :INSTANTIATE_REQUESTID
-                                                         :target-name      "CONTEXTS/FEDERATION_CONTEXT_INSTANTIATOR"
+                                                         :target_name      "CONTEXTS/FEDERATION_CONTEXT_INSTANTIATOR"
                                                          :return_port      subrequest-return-port
                                                          :name             nil}])
                 federation-context-request-port

@@ -87,7 +87,7 @@
         _ (if (federated? this-map)
             (vreset! (first (get @federation-map-volatile this-name)) this-map))
         target-name
-        (:target-name params)
+        (:target_name params)
         target-map
         @(first (get @federation-map-volatile target-name))
         requestid
