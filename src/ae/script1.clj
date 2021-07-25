@@ -9,13 +9,14 @@
                        :INSTANTIATION-DESCRIPTORS {:INVARIANT     true
                                                    :REQUESTID-MAP {:INSTANTIATE-REQUESTID :INSTANTIATE-OPERATIONID}}
                        :INSTANTIATION-CLASSIFIERS {:ENTITY-TYPE "instantiator"}}
-    :classifiers       {:ENTITY-TYPE   "instantiator"}
+    :classifiers      {:ENTITY-TYPE "instantiator"}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
     :name             "CONTEXTS/CONTEXT-INSTANTIATOR"
     :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:REGISTER-ENTITY-REQUESTID     :REGISTER-ENTITY-OPERATIONID
-                                                                   :ROUTE-REQUESTID               :ROUTE-OPERATIONID}}
+                                                                   :ROUTE-REQUESTID               :ROUTE-OPERATIONID
+                                                                   :REGISTER-CLASSIFIER-REQUESTID :REGISTER-CLASSIFIER-OPERATIONID}}
                        :INSTANTIATION-CLASSIFIERS {:ENTITY-TYPE "context"}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
@@ -70,15 +71,15 @@
                                            :child-instantiator "MAIN/SIMPLE-INSTANTIATOR"
                                            :child-name         "MAIN/SIMPLE_3"
                                            }
-                                          {:target-requestid   :ADD-DESCRIPTOR-REQUESTID
-                                           :target-name        "MAIN/SIMPLE_1"
-                                           :descriptor         :DEGREE-OF-POLISH
-                                           :descriptor-value   "MIDDLING"
+                                          {:target-requestid :ADD-DESCRIPTOR-REQUESTID
+                                           :target-name      "MAIN/SIMPLE_1"
+                                           :descriptor       :DEGREE-OF-POLISH
+                                           :descriptor-value "MIDDLING"
                                            }
-                                          {:target-requestid   :ADD-CLASSIFIER-REQUESTID
-                                           :target-name        "MAIN/SIMPLE_1"
-                                           :classifier         :APPLICATION
-                                           :classifier-value   :FIDDLING
+                                          {:target-requestid :ADD-CLASSIFIER-REQUESTID
+                                           :target-name      "MAIN/SIMPLE_1"
+                                           :classifier       :APPLICATION
+                                           :classifier-value :FIDDLING
                                            }
                                           ]}
     }
