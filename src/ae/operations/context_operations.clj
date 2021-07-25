@@ -134,7 +134,7 @@
                 (kw/name-as-keyword target-entity-name)]
             (if (= this-name target-entity-name)
               (let [target-requestid
-                    (:target-requestid params)]
+                    (:target_requestid params)]
                 (a/>! operation-return-port [this-map nil :NO-RETURN])
                 (a/>! active-request-port [env
                                            (assoc params :requestid target-requestid)]))
@@ -144,7 +144,7 @@
                       target-entity-request-port
                       (target-entity-kw entity-public-request-ports)
                       target-requestid
-                      (:target-requestid params)]
+                      (:target_requestid params)]
                   (if (nil? target-entity-request-port)
                     (throw (Exception. (str "Entity " target-entity-name " is not registered in " this-name))))
                   (a/>! operation-return-port [this-map
@@ -189,7 +189,7 @@
                         subrequest-return-port
                         (a/chan)
                         _ (a/>! root-contexts-request-port [env {:requestid        :ROUTE_REQUESTID
-                                                                 :target-requestid :PUSH-REQUEST-PORT
+                                                                 :target_requestid :PUSH-REQUEST-PORT
                                                                  :target-name      federation-name
                                                                  :new-request-port new-request-port
                                                                  :return_port      subrequest-return-port}])

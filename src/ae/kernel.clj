@@ -91,7 +91,7 @@
         target-map
         @(first (get @federation-map-volatile target-name))
         requestid
-        (:target-requestid params)
+        (:target_requestid params)
         params
         (assoc params :requestid requestid)
         operationid

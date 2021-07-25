@@ -57,7 +57,7 @@
         instantiation-classifiers
         (:CONTEXTS/INSTANTIATION_CLASSIFIERS this-descriptors)
         ]
-    (into params {:target-requestid :REGISTER_ENTITY_REQUESTID
+    (into params {:target_requestid :REGISTER_ENTITY_REQUESTID
                   :target-name      target-name
                   :descriptors      instantiation-descriptors
                   :classifiers      instantiation-classifiers})))

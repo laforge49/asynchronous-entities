@@ -34,7 +34,7 @@
                       context-request-port
                       (:CONTEXT-REQUEST-PORT env)
                       _ (a/>! context-request-port [env {:requestid                  :ROUTE_REQUESTID
-                                                         :target-requestid           :REGISTER_ENTITY_REQUESTID
+                                                         :target_requestid           :REGISTER_ENTITY_REQUESTID
                                                          :entity-public-request-port entity-public-request-port
                                                          :target-name                context-name
                                                          :name                       (:NAME snap)
@@ -72,7 +72,7 @@
                   (pop new-classifiers)]
               (when (not (contains? new-children entity-name))
                 (a/>! context-request-port [env {:requestid        :ROUTE_REQUESTID
-                                                 :target-requestid :REGISTER_CLASSIFIER_REQUESTID
+                                                 :target_requestid :REGISTER_CLASSIFIER_REQUESTID
                                                  :target-name      context-name
                                                  :name             entity-name
                                                  :classifier       classifier
@@ -104,7 +104,7 @@
                 subrequest-return-port
                 (a/chan)
                 _ (a/>! root-contexts-request-port [env {:requestid        :ROUTE_REQUESTID
-                                                         :target-requestid :INSTANTIATE_REQUESTID
+                                                         :target_requestid :INSTANTIATE_REQUESTID
                                                          :target-name      "CONTEXTS/FEDERATION_CONTEXT_INSTANTIATOR"
                                                          :return_port      subrequest-return-port
                                                          :name             nil}])
