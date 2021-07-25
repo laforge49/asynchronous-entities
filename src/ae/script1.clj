@@ -34,6 +34,15 @@
     }
    {:target_requestid :INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
+    :name             "CONTEXTS/CLASSIFIER_INSTANTIATOR"
+    :descriptors      {:CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!CLASSIFIER"}}
+    }
+   {:target_requestid :INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/CLASSIFIER_INSTANTIATOR"
+    :name             "CONTEXTS/ENTITY_TYPE"
+    }
+   {:target_requestid :INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS/CONTEXT_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:REGISTER_ENTITY_REQUESTID     :REGISTER_ENTITY_OPERATIONID
                                                                                      :ROUTE_REQUESTID               :ROUTE_OPERATIONID
@@ -75,6 +84,10 @@
    {:target_requestid :INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS/DESCRIPTOR_INSTANTIATOR"
     :name             "MAIN/DEGREE_OF_POLISH"
+    }
+   {:target_requestid :INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/CLASSIFIER_INSTANTIATOR"
+    :name             "MAIN/APPLICATION"
     }
    {:target_requestid :INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS/FEDERATOR_INSTANTIATOR"
