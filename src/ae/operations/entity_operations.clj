@@ -103,6 +103,22 @@
         (assoc-in this-map [:PARENTVECTORS relationship] relationship-parents)]
     [this-map this-map]))
 
+(defn addDescriptorFunction
+  [env this-map params]
+  (let [descriptor
+        (:descriptor params)
+        _ (if (not (keyword? descriptor))
+            (throw (Exception. "ADD DESCRIPTOR requires the descriptor be a keyword")))
+        descriptor-value
+        (:descriptor-value params)
+        old-descriptor-value
+        (get-in this-map [:DESCRIPTORS descriptor])
+        _ (if (some? old-descriptor-value)
+            (throw (Exception. (str "ADD DESCRIPTOR encountered a pre-existing value: " old-descriptor-value))))
+        this-map
+        (assoc-in this-map [:DESCRIPTORS descriptor] descriptor-value)]
+    [this-map this-map]))
+
 (defn addClassifierFunction
   [env this-map params]
   (let [this-name
@@ -186,6 +202,8 @@
   (create-instantiate-operation env)
   (k/register-function env {:operationid :ADD-PARENT-OPERATIONID
                             :function    addParentFunction})
+  (k/register-function env {:operationid :ADD-DESCRIPTOR-OPERATIONID
+                            :function    addDescriptorFunction})
   (k/register-function env {:operationid :ADD-CLASSIFIER-OPERATIONID
                             :function    addClassifierFunction})
   (k/register-operation env {:operationid :ADD-RELATIONSHIP-OPERATIONID

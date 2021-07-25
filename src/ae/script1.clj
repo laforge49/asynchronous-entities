@@ -41,6 +41,7 @@
     :name             "MAIN/SIMPLE-INSTANTIATOR"
     :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:ADD-PARENT-REQUESTID       :ADD-PARENT-OPERATIONID
                                                                    :ADD-RELATIONSHIP-REQUESTID :ADD-RELATIONSHIP-OPERATIONID
+                                                                   :ADD-DESCRIPTOR-REQUESTID   :ADD-DESCRIPTOR-OPERATIONID
                                                                    :ADD-CLASSIFIER-REQUESTID   :ADD-CLASSIFIER-OPERATIONID}}
                        :INSTANTIATION-CLASSIFIERS {:ENTITY-TYPE "simple"}}
     }
@@ -68,6 +69,11 @@
                                            :relationship       :BASIC
                                            :child-instantiator "MAIN/SIMPLE-INSTANTIATOR"
                                            :child-name         "MAIN/SIMPLE_3"
+                                           }
+                                          {:target-requestid   :ADD-DESCRIPTOR-REQUESTID
+                                           :target-name        "MAIN/SIMPLE_1"
+                                           :descriptor         :DEGREE-OF-POLISH
+                                           :descriptor-value   "MIDDLING"
                                            }
                                           {:target-requestid   :ADD-CLASSIFIER-REQUESTID
                                            :target-name        "MAIN/SIMPLE_1"
