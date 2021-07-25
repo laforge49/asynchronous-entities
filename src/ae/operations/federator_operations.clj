@@ -65,6 +65,7 @@
                   context-name
                   (k/entityContextName entity-name)
                   ;;todo update context
+                  _ (println 123 entity-name classifier classifier-value)
                   new-classifiers
                   (pop new-classifiers)]
               new-classifiers)
