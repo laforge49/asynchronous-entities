@@ -29,7 +29,7 @@
                       (a/chan)
                       _ (a/>! initialization-port [env {:requestid   :RESET-REQUEST-PORT
                                                         :this-map    snap
-                                                        :return-port subrequest-return-port}])
+                                                        :return_port subrequest-return-port}])
                       _ (k/request-exception-check (a/<! subrequest-return-port))
                       context-request-port
                       (:CONTEXT-REQUEST-PORT env)
@@ -39,7 +39,7 @@
                                                          :target-name                context-name
                                                          :name                       (:NAME snap)
                                                          :classifiers                (:CLASSIFIERS snap)
-                                                         :return-port                subrequest-return-port}])
+                                                         :return_port                subrequest-return-port}])
                       _ (k/request-exception-check (a/<! subrequest-return-port))
                       federation-map
                       (dissoc federation-map entity-name)
@@ -77,7 +77,7 @@
                                                  :name             entity-name
                                                  :classifier       classifier
                                                  :classifier-value classifier-value
-                                                 :return-port      subrequest-return-port}])
+                                                 :return_port      subrequest-return-port}])
                 (k/request-exception-check (a/<! subrequest-return-port)))
               new-classifiers)
             (catch Exception e
@@ -106,13 +106,13 @@
                 _ (a/>! root-contexts-request-port [env {:requestid        :ROUTE_REQUESTID
                                                          :target-requestid :INSTANTIATE_REQUESTID
                                                          :target-name      "CONTEXTS/FEDERATION_CONTEXT_INSTANTIATOR"
-                                                         :return-port      subrequest-return-port
+                                                         :return_port      subrequest-return-port
                                                          :name             nil}])
                 federation-context-request-port
                 (k/request-exception-check (a/<! subrequest-return-port))
                 _ (a/>! federation-context-request-port [env {:requestid        :ACQUIRE_REQUESTID
                                                               :federation-names federation-names
-                                                              :return-port      subrequest-return-port}])
+                                                              :return_port      subrequest-return-port}])
                 federation-map
                 (k/request-exception-check (a/<! subrequest-return-port))
                 federation-vmap
@@ -161,7 +161,7 @@
                 env
                 (assoc env :NEW-CLASSIFIERS-VOLATILE nil)
                 _ (a/>! federation-context-request-port [env {:requestid   :RELEASE_REQUESTID
-                                                              :return-port subrequest-return-port}])
+                                                              :return_port subrequest-return-port}])
                 _ (k/request-exception-check (a/<! subrequest-return-port))
                 _ (a/>! operation-return-port [this-map
                                                nil
