@@ -19,7 +19,7 @@
         instantiation-descriptors
         (into instantiation-descriptors (:descriptors params))
         instantiation-classifiers
-        (:CONTEXTS/INSTANTIATION-CLASSIFIERS this-descriptors)
+        (:CONTEXTS/INSTANTIATION_CLASSIFIERS this-descriptors)
         initialization-port
         (a/chan)
         params
@@ -55,7 +55,7 @@
         instantiation-descriptors
         (into instantiation-descriptors (:descriptors params))
         instantiation-classifiers
-        (:CONTEXTS/INSTANTIATION-CLASSIFIERS this-descriptors)
+        (:CONTEXTS/INSTANTIATION_CLASSIFIERS this-descriptors)
         ]
     (into params {:target-requestid :REGISTER-ENTITY-REQUESTID
                   :target-name      target-name
