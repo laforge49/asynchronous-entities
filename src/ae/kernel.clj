@@ -98,6 +98,10 @@
         (thisOperationid env target-map params)
         fun
         (second (operationid @operationid-map-atom))
+        _ (if (nil? fun)
+            (throw (Exception. (str "Operationid " operationid " has no function\n"
+                                    (prn-str params)
+                                    (prn-str this-map)))))
         [target-map rv]
         (fun env target-map params)
         _ (vreset! (first (get @federation-map-volatile target-name)) target-map)
