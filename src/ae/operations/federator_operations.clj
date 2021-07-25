@@ -64,13 +64,23 @@
                   (peek new-classifiers)
                   context-name
                   (k/entityContextName entity-name)
-                  ;;todo update context
-                  _ (println 123 entity-name classifier classifier-value)
+                  context-request-port
+                  (:CONTEXT-REQUEST-PORT env)
+                  subrequest-return-port
+                  (a/chan)
+                  _ (a/>! context-request-port [env {:requestid                  :ROUTE-REQUESTID
+                                                     :target-requestid           :REGISTER-CLASSIFIER-REQUESTID
+                                                     :target-name                context-name
+                                                     :name                       entity-name
+                                                     :classifier                 classifier
+                                                     :classifier-value           classifier-value
+                                                     :return-port                subrequest-return-port}])
+                  _ (k/request-exception-check (a/<! subrequest-return-port))
                   new-classifiers
                   (pop new-classifiers)]
               new-classifiers)
             (catch Exception e
-              (a/>! return-port e)
+              (a/>! return-port [e])
               nil)))))
     return-port))
 
