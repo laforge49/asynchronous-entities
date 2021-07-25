@@ -40,7 +40,8 @@
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
     :name             "MAIN/SIMPLE-INSTANTIATOR"
     :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:ADD-PARENT-REQUESTID       :ADD-PARENT-OPERATIONID
-                                                                   :ADD-RELATIONSHIP-REQUESTID :ADD-RELATIONSHIP-OPERATIONID}}
+                                                                   :ADD-RELATIONSHIP-REQUESTID :ADD-RELATIONSHIP-OPERATIONID
+                                                                   :ADD-CLASSIFIER-REQUESTID   :ADD-CLASSIFIER-OPERATIONID}}
                        :INSTANTIATION-CLASSIFIERS {:ENTITY-TYPE "simple"}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
