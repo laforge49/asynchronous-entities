@@ -43,6 +43,41 @@
     }
    {:target_requestid :INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
+    :name             "CONTEXTS/CLASSIFIER_VALUE_INSTANTIATOR"
+    :descriptors      {:CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!CLASSIFIER_VALUE"}}
+    }
+   {:target_requestid :INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/CLASSIFIER_VALUE_INSTANTIATOR"
+    :name             "CONTEXTS/ENTITY_TYPE!CLASSIFIER_VALUE"
+    :classifiers      {:CONTEXTS/VALUE_OF :CONTEXTS/ENTITY_TYPE}
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+   {:target_requestid :INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/CLASSIFIER_INSTANTIATOR"
+    :name             "CONTEXTS/VALUE_OF"
+    }
+   {:target_requestid :INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/CLASSIFIER_VALUE_INSTANTIATOR"
+    :name             "CONTEXTS/VALUE_OF!ENTITY_TYPE"
+    :classifiers      {:CONTEXTS/VALUE_OF :CONTEXTS/VALUE_OF}
+    }
+
+
+
+
+   {:target_requestid :INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS/CONTEXT_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:REGISTER_ENTITY_REQUESTID     :REGISTER_ENTITY_OPERATIONID
                                                                                      :ROUTE_REQUESTID               :ROUTE_OPERATIONID
