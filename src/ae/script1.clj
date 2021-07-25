@@ -68,6 +68,11 @@
                                            :child-instantiator "MAIN/SIMPLE-INSTANTIATOR"
                                            :child-name         "MAIN/SIMPLE_3"
                                            }
+                                          {:target-requestid   :ADD-CLASSIFIER-REQUESTID
+                                           :target-name        "MAIN/SIMPLE_1"
+                                           :classifier         :APPLICATION
+                                           :classifier-value   :FIDDLING
+                                           }
                                           ]}
     }
    {:target-requestid :RUN-FEDERATION-REQUESTID
