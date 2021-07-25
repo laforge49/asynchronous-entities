@@ -127,7 +127,7 @@
 (defn create-entity-operations
   [env]
   (create-instantiate-operation env)
-  (k/register-function env {:operationid :ADD-DESCRIPTOR-OPERATIONID
+  (k/register-function env {:operationid :ADD_DESCRIPTOR_OPERATIONID
                             :function    addDescriptorFunction})
   (k/register-function env {:operationid :ADD_CLASSIFIER_OPERATIONID
                             :function    addClassifierFunction})

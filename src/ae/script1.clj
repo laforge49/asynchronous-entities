@@ -27,10 +27,10 @@
     }
    {:target-requestid :INSTANTIATE_REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
-    :name             "CONTEXTS/FEDERATION-CONTEXT_INSTANTIATOR"
+    :name             "CONTEXTS/FEDERATION_CONTEXT_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:ACQUIRE_REQUESTID :FEDERATION_ACQUIRE_OPERATIONID
                                                                                      :RELEASE_REQUESTID :FEDERATION_RELEASE_OPERATIONID}}
-                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!FEDERATION-CONTEXT"}}
+                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!FEDERATION_CONTEXT"}}
     }
    {:target-requestid :INSTANTIATE_REQUESTID
     :target-name      "CONTEXTS/CONTEXT_INSTANTIATOR"
@@ -39,7 +39,7 @@
    {:target-requestid :INSTANTIATE_REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
     :name             "MAIN/SIMPLE_INSTANTIATOR"
-    :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:ADD-DESCRIPTOR_REQUESTID :ADD-DESCRIPTOR-OPERATIONID
+    :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:ADD_DESCRIPTOR_REQUESTID :ADD_DESCRIPTOR_OPERATIONID
                                                                                      :ADD_CLASSIFIER_REQUESTID :ADD_CLASSIFIER_OPERATIONID}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "MAIN/ENTITY_TYPE!SIMPLE"}}
     }
@@ -60,7 +60,7 @@
                                                     :target-name      "MAIN/SIMPLE_INSTANTIATOR"
                                                     :name             "MAIN/SIMPLE_3"
                                                     }
-                                                   {:target-requestid :ADD-DESCRIPTOR_REQUESTID
+                                                   {:target-requestid :ADD_DESCRIPTOR_REQUESTID
                                                     :target-name      "MAIN/SIMPLE_1"
                                                     :descriptor       :MAIN/DEGREE_OF_POLISH
                                                     :descriptor-value "MIDDLING"
@@ -70,7 +70,7 @@
                                                     :classifier       :MAIN/APPLICATION
                                                     :classifier-value :MAIN/APPLICATION!FIDDLING
                                                     }
-                                                   {:target-requestid :ADD-DESCRIPTOR_REQUESTID
+                                                   {:target-requestid :ADD_DESCRIPTOR_REQUESTID
                                                     :target-name      "MAIN/SIMPLE_3"
                                                     :descriptor       :MAIN/DEGREE_OF_POLISH
                                                     :descriptor-value "MIDDLING"

@@ -71,7 +71,7 @@
                 (k/request-exception-check (a/<! return-port4))
                 _ (a/>! context-request-port [env {:requestid        :ROUTE_REQUESTID
                                                    :target-requestid :SNAPSHOT
-                                                   :target-name      "CONTEXTS/FEDERATION-CONTEXT_INSTANTIATOR"
+                                                   :target-name      "CONTEXTS/FEDERATION_CONTEXT_INSTANTIATOR"
                                                    :return-port      return-port4}])
                 federation-context-prototype-snap
                 (k/request-exception-check (a/<! return-port4))
