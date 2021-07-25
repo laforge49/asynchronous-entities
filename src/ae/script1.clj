@@ -4,33 +4,33 @@
   [{:target-requestid :REGISTER-ENTITY-REQUESTID
     :target-name      "ROOT/CONTEXTS"
     :name             "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
-    :descriptors      {:INVARIANT                 true
-                       :REQUESTID-MAP             {:INSTANTIATE-REQUESTID :INSTANTIATE-OPERATIONID}
-                       :INSTANTIATION-DESCRIPTORS {:INVARIANT     true
-                                                   :REQUESTID-MAP {:INSTANTIATE-REQUESTID :INSTANTIATE-OPERATIONID}}
+    :descriptors      {:CONTEXTS/INVARIANT        true
+                       :CONTEXTS/REQUESTID-MAP    {:INSTANTIATE-REQUESTID :INSTANTIATE-OPERATIONID}
+                       :INSTANTIATION-DESCRIPTORS {:CONTEXTS/INVARIANT     true
+                                                   :CONTEXTS/REQUESTID-MAP {:INSTANTIATE-REQUESTID :INSTANTIATE-OPERATIONID}}
                        :INSTANTIATION-CLASSIFIERS {:ENTITY-TYPE "instantiator"}}
     :classifiers      {:ENTITY-TYPE "instantiator"}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
     :name             "CONTEXTS/CONTEXT-INSTANTIATOR"
-    :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:REGISTER-ENTITY-REQUESTID     :REGISTER-ENTITY-OPERATIONID
-                                                                   :ROUTE-REQUESTID               :ROUTE-OPERATIONID
-                                                                   :REGISTER-CLASSIFIER-REQUESTID :REGISTER-CLASSIFIER-OPERATIONID}}
+    :descriptors      {:INSTANTIATION-DESCRIPTORS {:CONTEXTS/REQUESTID-MAP {:REGISTER-ENTITY-REQUESTID     :REGISTER-ENTITY-OPERATIONID
+                                                                            :ROUTE-REQUESTID               :ROUTE-OPERATIONID
+                                                                            :REGISTER-CLASSIFIER-REQUESTID :REGISTER-CLASSIFIER-OPERATIONID}}
                        :INSTANTIATION-CLASSIFIERS {:ENTITY-TYPE "context"}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
     :name             "CONTEXTS/FEDERATOR-INSTANTIATOR"
-    :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:RUN-FEDERATION-REQUESTID :RUN-FEDERATION-OPERATIONID}}
+    :descriptors      {:INSTANTIATION-DESCRIPTORS {:CONTEXTS/REQUESTID-MAP {:RUN-FEDERATION-REQUESTID :RUN-FEDERATION-OPERATIONID}}
                        :INSTANTIATION-CLASSIFIERS {:ENTITY-TYPE "federator"}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
     :name             "CONTEXTS/FEDERATION-CONTEXT-INSTANTIATOR"
-    :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:ACQUIRE-REQUESTID :FEDERATION-ACQUIRE-OPERATIONID
-                                                                   :RELEASE-REQUESTID :FEDERATION-RELEASE-OPERATIONID
-                                                                   :ROUTE-REQUESTID   :FEDERATION-ROUTE-OPERATIONID}}
+    :descriptors      {:INSTANTIATION-DESCRIPTORS {:CONTEXTS/REQUESTID-MAP {:ACQUIRE-REQUESTID :FEDERATION-ACQUIRE-OPERATIONID
+                                                                            :RELEASE-REQUESTID :FEDERATION-RELEASE-OPERATIONID
+                                                                            :ROUTE-REQUESTID   :FEDERATION-ROUTE-OPERATIONID}}
                        :INSTANTIATION-CLASSIFIERS {:ENTITY-TYPE "federation-context"}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
@@ -40,8 +40,8 @@
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
     :name             "MAIN/SIMPLE-INSTANTIATOR"
-    :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:ADD-DESCRIPTOR-REQUESTID   :ADD-DESCRIPTOR-OPERATIONID
-                                                                   :ADD-CLASSIFIER-REQUESTID   :ADD-CLASSIFIER-OPERATIONID}}
+    :descriptors      {:INSTANTIATION-DESCRIPTORS {:CONTEXTS/REQUESTID-MAP {:ADD-DESCRIPTOR-REQUESTID :ADD-DESCRIPTOR-OPERATIONID
+                                                                            :ADD-CLASSIFIER-REQUESTID :ADD-CLASSIFIER-OPERATIONID}}
                        :INSTANTIATION-CLASSIFIERS {:ENTITY-TYPE "simple"}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID

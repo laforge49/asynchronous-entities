@@ -65,7 +65,7 @@
         this-descriptors
         (thisDescriptors this-map params)
         this-requestid-map
-        (:REQUESTID-MAP this-descriptors)
+        (:CONTEXTS/REQUESTID-MAP this-descriptors)
         _ (if (nil? this-requestid-map)
             (throw (Exception. (str "Requestid map is nil\n"
                                     (prn-str params)
@@ -169,7 +169,7 @@
                          :PUSH-REQUEST-PORT
                          (let [this-descriptors
                                (thisDescriptors this-map params)]
-                           (if (:INVARIANT this-descriptors)
+                           (if (:CONTEXTS/INVARIANT this-descriptors)
                              [this-map [this-map nil]]
                              (let [new-request-port
                                    (:new-request-port params)
@@ -245,7 +245,7 @@
           {}
           classifiers)
         invariant
-        (:INVARIANT descriptors)
+        (:CONTEXTS/INVARIANT descriptors)
         initialization-port
         (:initialization-port params)
         request-port-stack
