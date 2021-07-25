@@ -50,7 +50,7 @@
 (defn create-register-entity-operation
   [env]
   (let [entity-registration-port
-        (k/register-operation env {:operationid :REGISTER-ENTITY-OPERATIONID})]
+        (k/register-operation env {:operationid :REGISTER_ENTITY_OPERATIONID})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! entity-registration-port)
@@ -97,7 +97,7 @@
 (defn create-route-operation
   [env]
   (let [route-to-local-entity-port
-        (k/register-operation env {:operationid :ROUTE-OPERATIONID})]
+        (k/register-operation env {:operationid :ROUTE_OPERATIONID})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! route-to-local-entity-port)
@@ -164,7 +164,7 @@
                                                nil
                                                :NO-RETURN])
                   (a/>! target-entity-request-port [env
-                                                    (assoc params :requestid :ROUTE-REQUESTID)])))))
+                                                    (assoc params :requestid :ROUTE_REQUESTID)])))))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
@@ -188,7 +188,7 @@
                         (a/chan)
                         subrequest-return-port
                         (a/chan)
-                        _ (a/>! root-contexts-request-port [env {:requestid        :ROUTE-REQUESTID
+                        _ (a/>! root-contexts-request-port [env {:requestid        :ROUTE_REQUESTID
                                                                  :target-requestid :PUSH-REQUEST-PORT
                                                                  :target-name      federation-name
                                                                  :new-request-port new-request-port

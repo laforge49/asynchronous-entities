@@ -33,8 +33,8 @@
                       _ (k/request-exception-check (a/<! subrequest-return-port))
                       context-request-port
                       (:CONTEXT-REQUEST-PORT env)
-                      _ (a/>! context-request-port [env {:requestid                  :ROUTE-REQUESTID
-                                                         :target-requestid           :REGISTER-ENTITY-REQUESTID
+                      _ (a/>! context-request-port [env {:requestid                  :ROUTE_REQUESTID
+                                                         :target-requestid           :REGISTER_ENTITY_REQUESTID
                                                          :entity-public-request-port entity-public-request-port
                                                          :target-name                context-name
                                                          :name                       (:NAME snap)
@@ -71,7 +71,7 @@
                   new-classifiers
                   (pop new-classifiers)]
               (when (not (contains? new-children entity-name))
-                (a/>! context-request-port [env {:requestid        :ROUTE-REQUESTID
+                (a/>! context-request-port [env {:requestid        :ROUTE_REQUESTID
                                                  :target-requestid :REGISTER-CLASSIFIER-REQUESTID
                                                  :target-name      context-name
                                                  :name             entity-name
@@ -103,7 +103,7 @@
                 (:CONTEXTS/FEDERATION_NAMES descriptors)
                 subrequest-return-port
                 (a/chan)
-                _ (a/>! root-contexts-request-port [env {:requestid        :ROUTE-REQUESTID
+                _ (a/>! root-contexts-request-port [env {:requestid        :ROUTE_REQUESTID
                                                          :target-requestid :INSTANTIATE_REQUESTID
                                                          :target-name      "CONTEXTS/FEDERATION-CONTEXT_INSTANTIATOR"
                                                          :return-port      subrequest-return-port

@@ -1,7 +1,7 @@
 (ns ae.script1)
 
 (def script1
-  [{:target-requestid :REGISTER-ENTITY-REQUESTID
+  [{:target-requestid :REGISTER_ENTITY_REQUESTID
     :target-name      "ROOT/CONTEXTS"
     :name             "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INVARIANT                 true
@@ -14,8 +14,8 @@
    {:target-requestid :INSTANTIATE_REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS/CONTEXT_INSTANTIATOR"
-    :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:REGISTER-ENTITY-REQUESTID     :REGISTER-ENTITY-OPERATIONID
-                                                                                     :ROUTE-REQUESTID               :ROUTE-OPERATIONID
+    :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:REGISTER_ENTITY_REQUESTID     :REGISTER_ENTITY_OPERATIONID
+                                                                                     :ROUTE_REQUESTID               :ROUTE_OPERATIONID
                                                                                      :REGISTER-CLASSIFIER-REQUESTID :REGISTER-CLASSIFIER-OPERATIONID}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!CONTEXT"}}
     }
@@ -30,7 +30,7 @@
     :name             "CONTEXTS/FEDERATION-CONTEXT_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:ACQUIRE-REQUESTID :FEDERATION-ACQUIRE-OPERATIONID
                                                                                      :RELEASE-REQUESTID :FEDERATION-RELEASE-OPERATIONID
-                                                                                     :ROUTE-REQUESTID   :FEDERATION-ROUTE-OPERATIONID}}
+                                                                                     :ROUTE_REQUESTID   :FEDERATION-ROUTE-OPERATIONID}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!FEDERATION-CONTEXT"}}
     }
    {:target-requestid :INSTANTIATE_REQUESTID
