@@ -16,21 +16,20 @@
     :name             "CONTEXTS/CONTEXT_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:REGISTER_ENTITY_REQUESTID     :REGISTER_ENTITY_OPERATIONID
                                                                                      :ROUTE_REQUESTID               :ROUTE_OPERATIONID
-                                                                                     :REGISTER-CLASSIFIER-REQUESTID :REGISTER-CLASSIFIER-OPERATIONID}}
+                                                                                     :REGISTER_CLASSIFIER_REQUESTID :REGISTER_CLASSIFIER_OPERATIONID}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!CONTEXT"}}
     }
    {:target-requestid :INSTANTIATE_REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS/FEDERATOR_INSTANTIATOR"
-    :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:RUN-FEDERATION-REQUESTID :RUN-FEDERATION-OPERATIONID}}
+    :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:RUN_FEDERATION_REQUESTID :RUN_FEDERATION_OPERATIONID}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!FEDERATOR"}}
     }
    {:target-requestid :INSTANTIATE_REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS/FEDERATION-CONTEXT_INSTANTIATOR"
-    :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:ACQUIRE-REQUESTID :FEDERATION-ACQUIRE-OPERATIONID
-                                                                                     :RELEASE-REQUESTID :FEDERATION-RELEASE-OPERATIONID
-                                                                                     :ROUTE_REQUESTID   :FEDERATION-ROUTE-OPERATIONID}}
+    :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:ACQUIRE_REQUESTID :FEDERATION_ACQUIRE_OPERATIONID
+                                                                                     :RELEASE_REQUESTID :FEDERATION_RELEASE_OPERATIONID}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!FEDERATION-CONTEXT"}}
     }
    {:target-requestid :INSTANTIATE_REQUESTID
@@ -40,8 +39,8 @@
    {:target-requestid :INSTANTIATE_REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
     :name             "MAIN/SIMPLE_INSTANTIATOR"
-    :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:ADD-DESCRIPTOR-REQUESTID :ADD-DESCRIPTOR-OPERATIONID
-                                                                                     :ADD-CLASSIFIER-REQUESTID :ADD-CLASSIFIER-OPERATIONID}}
+    :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:ADD-DESCRIPTOR_REQUESTID :ADD-DESCRIPTOR-OPERATIONID
+                                                                                     :ADD_CLASSIFIER_REQUESTID :ADD_CLASSIFIER_OPERATIONID}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "MAIN/ENTITY_TYPE!SIMPLE"}}
     }
    {:target-requestid :INSTANTIATE_REQUESTID
@@ -61,29 +60,29 @@
                                                     :target-name      "MAIN/SIMPLE_INSTANTIATOR"
                                                     :name             "MAIN/SIMPLE_3"
                                                     }
-                                                   {:target-requestid :ADD-DESCRIPTOR-REQUESTID
+                                                   {:target-requestid :ADD-DESCRIPTOR_REQUESTID
                                                     :target-name      "MAIN/SIMPLE_1"
                                                     :descriptor       :MAIN/DEGREE_OF_POLISH
                                                     :descriptor-value "MIDDLING"
                                                     }
-                                                   {:target-requestid :ADD-CLASSIFIER-REQUESTID
+                                                   {:target-requestid :ADD_CLASSIFIER_REQUESTID
                                                     :target-name      "MAIN/SIMPLE_1"
                                                     :classifier       :MAIN/APPLICATION
                                                     :classifier-value :MAIN/APPLICATION!FIDDLING
                                                     }
-                                                   {:target-requestid :ADD-DESCRIPTOR-REQUESTID
+                                                   {:target-requestid :ADD-DESCRIPTOR_REQUESTID
                                                     :target-name      "MAIN/SIMPLE_3"
                                                     :descriptor       :MAIN/DEGREE_OF_POLISH
                                                     :descriptor-value "MIDDLING"
                                                     }
-                                                   {:target-requestid :ADD-CLASSIFIER-REQUESTID
+                                                   {:target-requestid :ADD_CLASSIFIER_REQUESTID
                                                     :target-name      "MAIN/SIMPLE_3"
                                                     :classifier       :MAIN/APPLICATION
                                                     :classifier-value :MAIN/APPLICATION!FIDDLING
                                                     }
                                                    ]}
     }
-   {:target-requestid :RUN-FEDERATION-REQUESTID
+   {:target-requestid :RUN_FEDERATION_REQUESTID
     :target-name      "MAIN/FEDERATOR_1"
     }
    ])

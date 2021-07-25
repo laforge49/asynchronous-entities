@@ -65,7 +65,7 @@
 (defn create-register-classifier-operation
   [env]
   (let [register-classifier-port
-        (k/register-operation env {:operationid :REGISTER-CLASSIFIER-OPERATIONID})]
+        (k/register-operation env {:operationid :REGISTER_CLASSIFIER_OPERATIONID})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! register-classifier-port)
@@ -207,7 +207,7 @@
 (defn create-federation-acquire-operation
   [env]
   (let [federation-acquire-port
-        (k/register-operation env {:operationid :FEDERATION-ACQUIRE-OPERATIONID})]
+        (k/register-operation env {:operationid :FEDERATION_ACQUIRE_OPERATIONID})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! federation-acquire-port)
@@ -230,7 +230,7 @@
 (defn create-federation-release-operation
   [env]
   (let [federation-release-port
-        (k/register-operation env {:operationid :FEDERATION-RELEASE-OPERATIONID})]
+        (k/register-operation env {:operationid :FEDERATION_RELEASE_OPERATIONID})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! federation-release-port)

@@ -72,7 +72,7 @@
                   (pop new-classifiers)]
               (when (not (contains? new-children entity-name))
                 (a/>! context-request-port [env {:requestid        :ROUTE_REQUESTID
-                                                 :target-requestid :REGISTER-CLASSIFIER-REQUESTID
+                                                 :target-requestid :REGISTER_CLASSIFIER_REQUESTID
                                                  :target-name      context-name
                                                  :name             entity-name
                                                  :classifier       classifier
@@ -88,7 +88,7 @@
 (defn create-run-federation-operation
   [env]
   (let [new-run-federation-port
-        (k/register-operation env {:operationid :RUN-FEDERATION-OPERATIONID})]
+        (k/register-operation env {:operationid :RUN_FEDERATION_OPERATIONID})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! new-run-federation-port)
@@ -110,7 +110,7 @@
                                                          :name             nil}])
                 federation-context-request-port
                 (k/request-exception-check (a/<! subrequest-return-port))
-                _ (a/>! federation-context-request-port [env {:requestid        :ACQUIRE-REQUESTID
+                _ (a/>! federation-context-request-port [env {:requestid        :ACQUIRE_REQUESTID
                                                               :federation-names federation-names
                                                               :return-port      subrequest-return-port}])
                 federation-map
@@ -160,7 +160,7 @@
                 (assoc env :NEW-CHILDREN-VOLATILE nil)
                 env
                 (assoc env :NEW-CLASSIFIERS-VOLATILE nil)
-                _ (a/>! federation-context-request-port [env {:requestid   :RELEASE-REQUESTID
+                _ (a/>! federation-context-request-port [env {:requestid   :RELEASE_REQUESTID
                                                               :return-port subrequest-return-port}])
                 _ (k/request-exception-check (a/<! subrequest-return-port))
                 _ (a/>! operation-return-port [this-map

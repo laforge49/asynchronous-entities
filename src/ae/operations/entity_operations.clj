@@ -129,6 +129,6 @@
   (create-instantiate-operation env)
   (k/register-function env {:operationid :ADD-DESCRIPTOR-OPERATIONID
                             :function    addDescriptorFunction})
-  (k/register-function env {:operationid :ADD-CLASSIFIER-OPERATIONID
+  (k/register-function env {:operationid :ADD_CLASSIFIER_OPERATIONID
                             :function    addClassifierFunction})
   )
