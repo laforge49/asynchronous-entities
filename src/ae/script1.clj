@@ -55,33 +55,33 @@
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/FEDERATOR-INSTANTIATOR"
     :name             "MAIN/FEDERATOR_1"
-    :descriptors      {:FEDERATION-NAMES ["MAIN/SIMPLE_1"
-                                          "MAIN/SIMPLE-INSTANTIATOR"]
-                       :SCRIPT           [{:target-requestid :INSTANTIATE-REQUESTID
-                                           :target-name      "MAIN/SIMPLE-INSTANTIATOR"
-                                           :name             "MAIN/SIMPLE_3"
-                                           }
-                                          {:target-requestid :ADD-DESCRIPTOR-REQUESTID
-                                           :target-name      "MAIN/SIMPLE_1"
-                                           :descriptor       :DEGREE-OF-POLISH
-                                           :descriptor-value "MIDDLING"
-                                           }
-                                          {:target-requestid :ADD-CLASSIFIER-REQUESTID
-                                           :target-name      "MAIN/SIMPLE_1"
-                                           :classifier       :APPLICATION
-                                           :classifier-value :FIDDLING
-                                           }
-                                          {:target-requestid :ADD-DESCRIPTOR-REQUESTID
-                                           :target-name      "MAIN/SIMPLE_3"
-                                           :descriptor       :DEGREE-OF-POLISH
-                                           :descriptor-value "MIDDLING"
-                                           }
-                                          {:target-requestid :ADD-CLASSIFIER-REQUESTID
-                                           :target-name      "MAIN/SIMPLE_3"
-                                           :classifier       :APPLICATION
-                                           :classifier-value :FIDDLING
-                                           }
-                                          ]}
+    :descriptors      {:CONTEXTS/FEDERATION-NAMES ["MAIN/SIMPLE_1"
+                                                   "MAIN/SIMPLE-INSTANTIATOR"]
+                       :CONTEXTS/SCRIPT           [{:target-requestid :INSTANTIATE-REQUESTID
+                                                    :target-name      "MAIN/SIMPLE-INSTANTIATOR"
+                                                    :name             "MAIN/SIMPLE_3"
+                                                    }
+                                                   {:target-requestid :ADD-DESCRIPTOR-REQUESTID
+                                                    :target-name      "MAIN/SIMPLE_1"
+                                                    :descriptor       :MAIN/DEGREE-OF-POLISH
+                                                    :descriptor-value "MIDDLING"
+                                                    }
+                                                   {:target-requestid :ADD-CLASSIFIER-REQUESTID
+                                                    :target-name      "MAIN/SIMPLE_1"
+                                                    :classifier       :MAIN/APPLICATION
+                                                    :classifier-value :MAIN/APPLICATION!FIDDLING
+                                                    }
+                                                   {:target-requestid :ADD-DESCRIPTOR-REQUESTID
+                                                    :target-name      "MAIN/SIMPLE_3"
+                                                    :descriptor       :MAIN/DEGREE-OF-POLISH
+                                                    :descriptor-value "MIDDLING"
+                                                    }
+                                                   {:target-requestid :ADD-CLASSIFIER-REQUESTID
+                                                    :target-name      "MAIN/SIMPLE_3"
+                                                    :classifier       :MAIN/APPLICATION
+                                                    :classifier-value :MAIN/APPLICATION!FIDDLING
+                                                    }
+                                                   ]}
     }
    {:target-requestid :RUN-FEDERATION-REQUESTID
     :target-name      "MAIN/FEDERATOR_1"

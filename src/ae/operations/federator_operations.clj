@@ -100,7 +100,7 @@
                 descriptors
                 (:DESCRIPTORS this-map)
                 federation-names
-                (:FEDERATION-NAMES descriptors)
+                (:CONTEXTS/FEDERATION-NAMES descriptors)
                 subrequest-return-port
                 (a/chan)
                 _ (a/>! root-contexts-request-port [env {:requestid        :ROUTE-REQUESTID
@@ -128,7 +128,7 @@
                 env
                 (assoc env :NEW-CLASSIFIERS-VOLATILE (volatile! []))
                 script
-                (:SCRIPT descriptors)
+                (:CONTEXTS/SCRIPT descriptors)
                 _ (doseq [script-item script]
                     (k/federationRouteFunction env this-map script-item))
                 federation-vmap
