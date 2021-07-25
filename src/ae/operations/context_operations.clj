@@ -72,9 +72,23 @@
             operation-return-port
             (:operation-return-port params)]
         (try
-          ;;todo
-          (println 444 (prn-str params))
-          (a/>! operation-return-port [this-map nil this-map])
+          (let [name
+                (:name params)
+                classifier
+                (:classifier params)
+                classifier-value
+                (:classifier-value params)
+                names
+                (get-in this-map [:CLASSIFIER-REGISTRY classifier classifier-value] [])
+                i
+                (s/index-of names name)
+                _ (if (some? i)
+                    (throw (Exception. (str classifier-value " for " classifier " already registered for " name))))
+                names
+                (conj names name)
+                this-map
+                (assoc-in this-map [:CLASSIFIER-REGISTRY classifier classifier-value] names)]
+            (a/>! operation-return-port [this-map nil this-map]))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))
       (recur))
