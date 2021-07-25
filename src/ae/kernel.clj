@@ -67,7 +67,7 @@
         this-requestid-map
         (:REQUESTID-MAP this-descriptors)
         _ (if (nil? this-requestid-map)
-            (throw (Exception. (str "requestid map is nil\n"
+            (throw (Exception. (str "Requestid map is nil\n"
                                     (prn-str params)
                                     (prn-str this-map)))))
         operationid
