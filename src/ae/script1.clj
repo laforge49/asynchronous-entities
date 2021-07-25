@@ -5,13 +5,13 @@
     :target-name      "ROOT/CONTEXTS"
     :name             "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INVARIANT                 true
-                       :CONTEXTS/REQUESTID_MAP             {:INSTANTIATE-REQUESTID :INSTANTIATE-OPERATIONID}
+                       :CONTEXTS/REQUESTID_MAP             {:INSTANTIATE_REQUESTID :INSTANTIATE_OPERATIONID}
                        :CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/INVARIANT     true
-                                                            :CONTEXTS/REQUESTID_MAP {:INSTANTIATE-REQUESTID :INSTANTIATE-OPERATIONID}}
+                                                            :CONTEXTS/REQUESTID_MAP {:INSTANTIATE_REQUESTID :INSTANTIATE_OPERATIONID}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!INSTANTIATOR"}}
     :classifiers      {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!INSTANTIATOR"}
     }
-   {:target-requestid :INSTANTIATE-REQUESTID
+   {:target-requestid :INSTANTIATE_REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS/CONTEXT_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:REGISTER-ENTITY-REQUESTID     :REGISTER-ENTITY-OPERATIONID
@@ -19,13 +19,13 @@
                                                                                      :REGISTER-CLASSIFIER-REQUESTID :REGISTER-CLASSIFIER-OPERATIONID}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!CONTEXT"}}
     }
-   {:target-requestid :INSTANTIATE-REQUESTID
+   {:target-requestid :INSTANTIATE_REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS/FEDERATOR_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:RUN-FEDERATION-REQUESTID :RUN-FEDERATION-OPERATIONID}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!FEDERATOR"}}
     }
-   {:target-requestid :INSTANTIATE-REQUESTID
+   {:target-requestid :INSTANTIATE_REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS/FEDERATION-CONTEXT_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:ACQUIRE-REQUESTID :FEDERATION-ACQUIRE-OPERATIONID
@@ -33,31 +33,31 @@
                                                                                      :ROUTE-REQUESTID   :FEDERATION-ROUTE-OPERATIONID}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!FEDERATION-CONTEXT"}}
     }
-   {:target-requestid :INSTANTIATE-REQUESTID
+   {:target-requestid :INSTANTIATE_REQUESTID
     :target-name      "CONTEXTS/CONTEXT_INSTANTIATOR"
     :name             "CONTEXTS/MAIN"
     }
-   {:target-requestid :INSTANTIATE-REQUESTID
+   {:target-requestid :INSTANTIATE_REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
     :name             "MAIN/SIMPLE_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:ADD-DESCRIPTOR-REQUESTID :ADD-DESCRIPTOR-OPERATIONID
                                                                                      :ADD-CLASSIFIER-REQUESTID :ADD-CLASSIFIER-OPERATIONID}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "MAIN/ENTITY_TYPE!SIMPLE"}}
     }
-   {:target-requestid :INSTANTIATE-REQUESTID
+   {:target-requestid :INSTANTIATE_REQUESTID
     :target-name      "MAIN/SIMPLE_INSTANTIATOR"
     :name             "MAIN/SIMPLE_1"
     }
-   {:target-requestid :INSTANTIATE-REQUESTID
+   {:target-requestid :INSTANTIATE_REQUESTID
     :target-name      "MAIN/SIMPLE_INSTANTIATOR"
     :name             "MAIN/SIMPLE_2"
     }
-   {:target-requestid :INSTANTIATE-REQUESTID
+   {:target-requestid :INSTANTIATE_REQUESTID
     :target-name      "CONTEXTS/FEDERATOR_INSTANTIATOR"
     :name             "MAIN/FEDERATOR_1"
     :descriptors      {:CONTEXTS/FEDERATION_NAMES ["MAIN/SIMPLE_1"
                                                    "MAIN/SIMPLE_INSTANTIATOR"]
-                       :CONTEXTS/SCRIPT           [{:target-requestid :INSTANTIATE-REQUESTID
+                       :CONTEXTS/SCRIPT           [{:target-requestid :INSTANTIATE_REQUESTID
                                                     :target-name      "MAIN/SIMPLE_INSTANTIATOR"
                                                     :name             "MAIN/SIMPLE_3"
                                                     }

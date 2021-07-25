@@ -65,7 +65,7 @@
 (defn create-instantiate-operation
   [env]
   (let [instantiate-port
-        (k/register-operation env {:operationid :INSTANTIATE-OPERATIONID
+        (k/register-operation env {:operationid :INSTANTIATE_OPERATIONID
                                    :function    instantiateFunction})]
     (a/go-loop []
       (let [[env this-map params]
