@@ -51,6 +51,32 @@
                   nil)))))))
     return-port))
 
+(defn registerClassifiers
+  [env new-classifiers]
+  (let [return-port
+        (a/chan)]
+    (a/go-loop [new-classifiers new-classifiers]
+      (if (empty? new-classifiers)
+        (a/>! return-port [nil])
+        (recur
+          (try
+            (let [entity-names
+                  (keys new-classifiers)
+                  entity-name
+                  (first entity-names)
+                  context-name
+                  (k/entityContextName entity-name)
+                  new-entity-classifiers
+                  (get new-classifiers entity-names)
+                  ;;todo
+                  new-classifiers
+                  (dissoc new-classifiers entity-name)]
+              new-classifiers)
+            (catch Exception e
+              (a/>! return-port e)
+              nil)))))
+    return-port))
+
 (defn create-run-federation-operation
   [env]
   (let [new-run-federation-port
@@ -91,6 +117,8 @@
                 (assoc env :FEDERATION-MAP-VOLATILE federation-vmap)
                 env
                 (assoc env :NEW-CHILDREN-VOLATILE (volatile! {}))
+                env
+                (assoc env :NEW-CLASSIFIERS-VOLATILE (volatile! {}))
                 script
                 (:SCRIPT descriptors)
                 _ (doseq [script-item script]
@@ -109,12 +137,19 @@
                                         @(:NEW-CHILDREN-VOLATILE env)))
                 _ (if (some? e)
                     (throw e))
+                [e]
+                (a/<! (registerClassifiers env
+                                           @(:NEW-CLASSIFIERS-VOLATILE env)))
+                _ (if (some? e)
+                    (throw e))
                 env
                 (assoc env :FEDERATION-MAP federation-map)
                 env
                 (assoc env :FEDERATION-MAP-VOLATILE nil)
                 env
                 (assoc env :NEW-CHILDREN-VOLATILE nil)
+                env
+                (assoc env :NEW-CLASSIFIERS-VOLATILE nil)
                 _ (a/>! federation-context-request-port [env {:requestid   :RELEASE-REQUESTID
                                                               :return-port subrequest-return-port}])
                 _ (k/request-exception-check (a/<! subrequest-return-port))
