@@ -73,6 +73,10 @@
     :name             "MAIN/SIMPLE_2"
     }
    {:target_requestid :INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/DESCRIPTOR_INSTANTIATOR"
+    :name             "MAIN/DEGREE_OF_POLISH"
+    }
+   {:target_requestid :INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS/FEDERATOR_INSTANTIATOR"
     :name             "MAIN/FEDERATOR_1"
     :descriptors      {:CONTEXTS/FEDERATION_NAMES ["MAIN/SIMPLE_1"
