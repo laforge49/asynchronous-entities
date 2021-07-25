@@ -111,8 +111,14 @@
             (throw (Exception. "ADD CLASSIFIER requires a name on the entity being assigned a classifier")))
         classifier
         (:classifier params)
+        _ (if (not (keyword? classifier))
+            (throw (Exception. "ADD CLASSIFIER requires the classifier be a keyword")))
         classifier-value
         (:classifier-value params)
+        old-classifier-value
+        (get-in this-map [:CLASSIFIERS classifier])
+        _ (if (some? old-classifier-value)
+            (throw (Exception. (str "ADD CLASSIFIER encountered a pre-existing value: " old-classifier-value))))
         this-map
         (assoc-in this-map [:CLASSIFIERS classifier] classifier-value)]
     [this-map this-map]))
