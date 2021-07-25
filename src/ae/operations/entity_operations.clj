@@ -136,7 +136,10 @@
         _ (if (some? old-classifier-value)
             (throw (Exception. (str "ADD CLASSIFIER encountered a pre-existing value: " old-classifier-value))))
         this-map
-        (assoc-in this-map [:CLASSIFIERS classifier] classifier-value)]
+        (assoc-in this-map [:CLASSIFIERS classifier] classifier-value)
+        new-classifiers-voltile
+        (:NEW-CLASSIFIERS-VOLATILE env)]
+    (vswap! new-classifiers-voltile conj [this-name classifier classifier-value])
     [this-map this-map]))
 
 (defn addChildOperation
