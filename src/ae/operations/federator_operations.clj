@@ -100,12 +100,12 @@
                 descriptors
                 (:DESCRIPTORS this-map)
                 federation-names
-                (:CONTEXTS/FEDERATION-NAMES descriptors)
+                (:CONTEXTS/FEDERATION_NAMES descriptors)
                 subrequest-return-port
                 (a/chan)
                 _ (a/>! root-contexts-request-port [env {:requestid        :ROUTE-REQUESTID
                                                          :target-requestid :INSTANTIATE-REQUESTID
-                                                         :target-name      "CONTEXTS/FEDERATION-CONTEXT-INSTANTIATOR"
+                                                         :target-name      "CONTEXTS/FEDERATION-CONTEXT_INSTANTIATOR"
                                                          :return-port      subrequest-return-port
                                                          :name             nil}])
                 federation-context-request-port

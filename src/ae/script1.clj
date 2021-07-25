@@ -13,7 +13,7 @@
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
-    :name             "CONTEXTS/CONTEXT-INSTANTIATOR"
+    :name             "CONTEXTS/CONTEXT_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:REGISTER-ENTITY-REQUESTID     :REGISTER-ENTITY-OPERATIONID
                                                                                      :ROUTE-REQUESTID               :ROUTE-OPERATIONID
                                                                                      :REGISTER-CLASSIFIER-REQUESTID :REGISTER-CLASSIFIER-OPERATIONID}}
@@ -21,49 +21,49 @@
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
-    :name             "CONTEXTS/FEDERATOR-INSTANTIATOR"
+    :name             "CONTEXTS/FEDERATOR_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:RUN-FEDERATION-REQUESTID :RUN-FEDERATION-OPERATIONID}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!FEDERATOR"}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
-    :name             "CONTEXTS/FEDERATION-CONTEXT-INSTANTIATOR"
+    :name             "CONTEXTS/FEDERATION-CONTEXT_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:ACQUIRE-REQUESTID :FEDERATION-ACQUIRE-OPERATIONID
                                                                                      :RELEASE-REQUESTID :FEDERATION-RELEASE-OPERATIONID
                                                                                      :ROUTE-REQUESTID   :FEDERATION-ROUTE-OPERATIONID}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!FEDERATION-CONTEXT"}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
-    :target-name      "CONTEXTS/CONTEXT-INSTANTIATOR"
+    :target-name      "CONTEXTS/CONTEXT_INSTANTIATOR"
     :name             "CONTEXTS/MAIN"
     }
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
-    :name             "MAIN/SIMPLE-INSTANTIATOR"
+    :name             "MAIN/SIMPLE_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:ADD-DESCRIPTOR-REQUESTID :ADD-DESCRIPTOR-OPERATIONID
                                                                                      :ADD-CLASSIFIER-REQUESTID :ADD-CLASSIFIER-OPERATIONID}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "MAIN/ENTITY_TYPE!SIMPLE"}}
     }
    {:target-requestid :INSTANTIATE-REQUESTID
-    :target-name      "MAIN/SIMPLE-INSTANTIATOR"
+    :target-name      "MAIN/SIMPLE_INSTANTIATOR"
     :name             "MAIN/SIMPLE_1"
     }
    {:target-requestid :INSTANTIATE-REQUESTID
-    :target-name      "MAIN/SIMPLE-INSTANTIATOR"
+    :target-name      "MAIN/SIMPLE_INSTANTIATOR"
     :name             "MAIN/SIMPLE_2"
     }
    {:target-requestid :INSTANTIATE-REQUESTID
-    :target-name      "CONTEXTS/FEDERATOR-INSTANTIATOR"
+    :target-name      "CONTEXTS/FEDERATOR_INSTANTIATOR"
     :name             "MAIN/FEDERATOR_1"
-    :descriptors      {:CONTEXTS/FEDERATION-NAMES ["MAIN/SIMPLE_1"
-                                                   "MAIN/SIMPLE-INSTANTIATOR"]
+    :descriptors      {:CONTEXTS/FEDERATION_NAMES ["MAIN/SIMPLE_1"
+                                                   "MAIN/SIMPLE_INSTANTIATOR"]
                        :CONTEXTS/SCRIPT           [{:target-requestid :INSTANTIATE-REQUESTID
-                                                    :target-name      "MAIN/SIMPLE-INSTANTIATOR"
+                                                    :target-name      "MAIN/SIMPLE_INSTANTIATOR"
                                                     :name             "MAIN/SIMPLE_3"
                                                     }
                                                    {:target-requestid :ADD-DESCRIPTOR-REQUESTID
                                                     :target-name      "MAIN/SIMPLE_1"
-                                                    :descriptor       :MAIN/DEGREE-OF-POLISH
+                                                    :descriptor       :MAIN/DEGREE_OF_POLISH
                                                     :descriptor-value "MIDDLING"
                                                     }
                                                    {:target-requestid :ADD-CLASSIFIER-REQUESTID
@@ -73,7 +73,7 @@
                                                     }
                                                    {:target-requestid :ADD-DESCRIPTOR-REQUESTID
                                                     :target-name      "MAIN/SIMPLE_3"
-                                                    :descriptor       :MAIN/DEGREE-OF-POLISH
+                                                    :descriptor       :MAIN/DEGREE_OF_POLISH
                                                     :descriptor-value "MIDDLING"
                                                     }
                                                    {:target-requestid :ADD-CLASSIFIER-REQUESTID
