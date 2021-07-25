@@ -65,7 +65,7 @@
         this-descriptors
         (thisDescriptors this-map params)
         this-requestid-map
-        (:CONTEXTS/REQUESTID-MAP this-descriptors)
+        (:CONTEXTS/REQUESTID_MAP this-descriptors)
         _ (if (nil? this-requestid-map)
             (throw (Exception. (str "Requestid map is nil\n"
                                     (prn-str params)
