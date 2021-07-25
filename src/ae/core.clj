@@ -31,7 +31,6 @@
                                              :descriptors {:REQUESTID-MAP {:REGISTER-ENTITY-REQUESTID     :REGISTER-ENTITY-OPERATIONID
                                                                            :ROUTE-REQUESTID               :ROUTE-OPERATIONID
                                                                            :REGISTER-CLASSIFIER-REQUESTID :REGISTER-CLASSIFIER-OPERATIONID}}
-                                             :classifiers {:ENTITY-TYPE "context"}
                                              }))
                 env
                 (assoc env :CONTEXT-REQUEST-PORT context-request-port)
