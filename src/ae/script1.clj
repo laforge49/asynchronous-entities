@@ -40,9 +40,7 @@
    {:target-requestid :INSTANTIATE-REQUESTID
     :target-name      "CONTEXTS/INSTANTIATOR-INSTANTIATOR"
     :name             "MAIN/SIMPLE-INSTANTIATOR"
-    :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:ADD-PARENT-REQUESTID       :ADD-PARENT-OPERATIONID
-                                                                   :ADD-RELATIONSHIP-REQUESTID :ADD-RELATIONSHIP-OPERATIONID
-                                                                   :ADD-DESCRIPTOR-REQUESTID   :ADD-DESCRIPTOR-OPERATIONID
+    :descriptors      {:INSTANTIATION-DESCRIPTORS {:REQUESTID-MAP {:ADD-DESCRIPTOR-REQUESTID   :ADD-DESCRIPTOR-OPERATIONID
                                                                    :ADD-CLASSIFIER-REQUESTID   :ADD-CLASSIFIER-OPERATIONID}}
                        :INSTANTIATION-CLASSIFIERS {:ENTITY-TYPE "simple"}}
     }
@@ -58,18 +56,10 @@
     :target-name      "CONTEXTS/FEDERATOR-INSTANTIATOR"
     :name             "MAIN/FEDERATOR_1"
     :descriptors      {:FEDERATION-NAMES ["MAIN/SIMPLE_1"
-                                          "MAIN/SIMPLE_2"
                                           "MAIN/SIMPLE-INSTANTIATOR"]
-                       :SCRIPT           [{:target-requestid :ADD-RELATIONSHIP-REQUESTID
-                                           :target-name      "MAIN/SIMPLE_1"
-                                           :relationship     :BASIC
-                                           :child-name       "MAIN/SIMPLE_2"
-                                           }
-                                          {:target-requestid   :ADD-RELATIONSHIP-REQUESTID
-                                           :target-name        "MAIN/SIMPLE_1"
-                                           :relationship       :BASIC
-                                           :child-instantiator "MAIN/SIMPLE-INSTANTIATOR"
-                                           :child-name         "MAIN/SIMPLE_3"
+                       :SCRIPT           [{:target-requestid :INSTANTIATE-REQUESTID
+                                           :target-name      "MAIN/SIMPLE-INSTANTIATOR"
+                                           :name             "MAIN/SIMPLE_3"
                                            }
                                           {:target-requestid :ADD-DESCRIPTOR-REQUESTID
                                            :target-name      "MAIN/SIMPLE_1"
