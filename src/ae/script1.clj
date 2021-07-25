@@ -71,6 +71,16 @@
                                            :classifier       :APPLICATION
                                            :classifier-value :FIDDLING
                                            }
+                                          {:target-requestid :ADD-DESCRIPTOR-REQUESTID
+                                           :target-name      "MAIN/SIMPLE_3"
+                                           :descriptor       :DEGREE-OF-POLISH
+                                           :descriptor-value "MIDDLING"
+                                           }
+                                          #_ {:target-requestid :ADD-CLASSIFIER-REQUESTID
+                                           :target-name      "MAIN/SIMPLE_3"
+                                           :classifier       :APPLICATION
+                                           :classifier-value :FIDDLING
+                                           }
                                           ]}
     }
    {:target-requestid :RUN-FEDERATION-REQUESTID
