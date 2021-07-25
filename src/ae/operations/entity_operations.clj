@@ -85,24 +85,6 @@
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
 
-(defn addParentFunction
-  [env this-map params]
-  (let [this-name
-        (:NAME this-map)
-        parent-name
-        (:parent-name params)
-        relationship
-        (:relationship params) relationship-parents
-        (get-in this-map [:PARENTVECTORS relationship] [])
-        _ (if (> (.indexOf relationship-parents parent-name) -1)
-            (throw (Exception. (str "Entity " parent-name " is already a " relationship
-                                    " parent of " this-name))))
-        relationship-parents
-        (conj relationship-parents parent-name)
-        this-map
-        (assoc-in this-map [:PARENTVECTORS relationship] relationship-parents)]
-    [this-map this-map]))
-
 (defn addDescriptorFunction
   [env this-map params]
   (let [descriptor
@@ -142,73 +124,11 @@
     (vswap! new-classifiers-voltile conj [this-name classifier classifier-value])
     [this-map this-map]))
 
-(defn addChildOperation
-  [env this-map params]
-  (let [this-name
-        (:NAME this-map)
-        child-name
-        (:child-name params)
-        _ (if (not (k/federated? this-map))
-            (throw (Exception. (str "Entity " this-name
-                                    " is not federated and so can not add a relationship to "
-                                    child-name))))
-        relationship
-        (:relationship params)
-        relationship-children
-        (get-in this-map [:CHILDVECTORS relationship] [])
-        _ (if (> (.indexOf relationship-children child-name) -1)
-            (throw (Exception. (str "Entity " child-name " is already a " relationship
-                                    " child of " this-name))))
-        relationship-children
-        (conj relationship-children child-name)]
-    (assoc-in this-map [:CHILDVECTORS relationship] relationship-children)))
-
-(defn addRelationshipFunction
-  [env this-map params]
-  (let [this-name
-        (:NAME this-map)
-        child-name
-        (:child-name params)
-        _ (if (s/blank? child-name)
-            (throw (Exception. "ADD RELATIONSHIP requires child-name")))
-        this-name-context-name
-        (k/entityContextName this-name)
-        child-name-context-name
-        (k/entityContextName child-name)
-        _ (if (not= this-name-context-name child-name-context-name)
-            (throw (Exception. "ADD RELATIONSHIP requires entities of the same context")))
-        relationship
-        (:relationship params)
-        _ (if (not (keyword? relationship))
-            (throw (Exception. "ADD RELATIONSHIP requires keyword: " relationship)))
-        child-instantiator
-        (:child-instantiator params)
-        _ (if (not (s/blank? child-instantiator))
-            (k/federationRouteFunction env
-                                       this-map
-                                       {:target-requestid :INSTANTIATE-REQUESTID
-                                        :target-name      child-instantiator
-                                        :name             child-name}))
-        this-map
-        (addChildOperation env this-map params)
-        [this-map rv]
-        (k/federationRouteFunction env
-                                   this-map
-                                   {:target-requestid :ADD-PARENT-REQUESTID
-                                    :target-name      child-name
-                                    :parent-name      this-name
-                                    :relationship     (:relationship params)})]
-    [this-map this-map]))
-
 (defn create-entity-operations
   [env]
   (create-instantiate-operation env)
-  (k/register-function env {:operationid :ADD-PARENT-OPERATIONID
-                            :function    addParentFunction})
   (k/register-function env {:operationid :ADD-DESCRIPTOR-OPERATIONID
                             :function    addDescriptorFunction})
   (k/register-function env {:operationid :ADD-CLASSIFIER-OPERATIONID
                             :function    addClassifierFunction})
-  (k/register-operation env {:operationid :ADD-RELATIONSHIP-OPERATIONID
-                             :function    addRelationshipFunction})
   )
