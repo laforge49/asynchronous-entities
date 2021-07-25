@@ -16,7 +16,22 @@
     :name             "CONTEXTS/DESCRIPTOR_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!DESCRIPTOR"}}
     }
-   
+   {:target_requestid :INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/DESCRIPTOR_INSTANTIATOR"
+    :name             "CONTEXTS/REQUESTID_MAP"
+    }
+   {:target_requestid :INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/DESCRIPTOR_INSTANTIATOR"
+    :name             "CONTEXTS/INVARIANT"
+    }
+   {:target_requestid :INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/DESCRIPTOR_INSTANTIATOR"
+    :name             "CONTEXTS/INSTANTIATION_DESCRIPTORS"
+    }
+   {:target_requestid :INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/DESCRIPTOR_INSTANTIATOR"
+    :name             "CONTEXTS/INSTANTIATION_CLASSIFIERS"
+    }
    {:target_requestid :INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS/CONTEXT_INSTANTIATOR"
