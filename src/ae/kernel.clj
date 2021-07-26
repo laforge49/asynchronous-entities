@@ -168,7 +168,7 @@
                        (:NAME this-map)
                        federation-map
                        (:FEDERATION-MAP env)
-                       this-map
+                       target-map
                        (if (federated? this-map)
                          (first (get federation-map this-name))
                          this-map)
@@ -179,22 +179,22 @@
                        _ (if (nil? requestid)
                            (throw (Exception. (str "Requestid port is nil\n"
                                                    (prn-str params)
-                                                   (prn-str this-map)))))
+                                                   (prn-str target-map)))))
                        [this-map return-value]
                        (case requestid
 
                          :SNAPSHOT
-                         [this-map this-map]
+                         [target-map target-map]
 
                          :PUSH-REQUEST-PORT
                          (let [this-descriptors
-                               (thisDescriptors this-map params)]
+                               (thisDescriptors target-map params)]
                            (if (:CONTEXTS/INVARIANT this-descriptors)
-                             [this-map [this-map nil]]
+                             [target-map [target-map nil]]
                              (let [new-request-port
                                    (:new-request-port params)
                                    this-map
-                                   (assoc this-map :REQUEST-PORT-STACK (conj this-request-port-stack new-request-port))]
+                                   (assoc target-map :REQUEST-PORT-STACK (conj this-request-port-stack new-request-port))]
                                [this-map [this-map new-request-port]])))
 
                          :RESET-REQUEST-PORT
@@ -206,28 +206,28 @@
 
                          ;;DEFAULT
                          (let [operationid
-                               (thisOperationid env this-map params)
+                               (thisOperationid env target-map params)
                                operation-port
                                (first (operationid @operationid-map-atom))
                                _ (if (nil? operation-port)
                                    (throw (Exception. (str "Operation port is nil\n"
                                                            (prn-str params)
-                                                           (prn-str this-map)))))
+                                                           (prn-str target-map)))))
                                operation-return-port
                                (a/chan)
-                               _ (a/>! operation-port [env this-map (assoc params :operation-return-port operation-return-port)])
+                               _ (a/>! operation-port [env target-map (assoc params :operation-return-port operation-return-port)])
                                operation-return-value
                                (a/<! operation-return-port)
                                _ (if (not (vector? operation-return-value))
                                    (throw (Exception. (str "Operation return value is not a vector\n"
                                                            (prn-str operation-return-value)
                                                            (prn-str params)
-                                                           (prn-str this-map)))))
+                                                           (prn-str target-map)))))
                                _ (if (not= (count operation-return-value) 3)
                                    (throw (Exception. (str "Operation return value is not a 3-tuple\n"
                                                            (prn-str operation-return-value)
                                                            (prn-str params)
-                                                           (prn-str this-map)))))
+                                                           (prn-str target-map)))))
                                [this-map e return-value]
                                operation-return-value]
                            (if (some? e)
