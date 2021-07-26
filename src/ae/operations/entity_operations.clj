@@ -99,6 +99,9 @@
             (throw (Exception. (str "ADD DESCRIPTOR encountered a pre-existing value: " old-descriptor-value))))
         this-map
         (assoc-in this-map [:DESCRIPTORS descriptor] descriptor-value)]
+    (if (= descriptor :CONTEXTS/INVARIANT)
+      (if (= descriptor-value true)
+        (swap! k/invariant-map-atom assoc name this-map)))
     [this-map this-map]))
 
 (defn addClassifierFunction

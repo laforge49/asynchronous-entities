@@ -4,6 +4,9 @@
             [clojure.stacktrace :as stacktrace]
             [ae.keywords :as kw]))
 
+(def invariant-map-atom
+  (atom {}))
+
 (def operationid-map-atom
   (atom {}))
 
@@ -94,8 +97,17 @@
             (vreset! (first (get @federation-map-volatile this-name)) this-map))
         target-name
         (:target_name params)
+        federation-entry
+        (get @federation-map-volatile target-name)
         target-map
-        @(first (get @federation-map-volatile target-name))
+        (if (some? federation-entry)
+          @(first federation-entry)
+          (if (contains? @invariant-map-atom target-name)
+            @(get @invariant-map-atom target-name)))
+        _ (if (nil? target-map)
+            (throw (Exception. (str "Unreachable: " target-name
+                                    (prn-str params)
+                                    (prn-str this-map)))))
         requestid
         (:target_requestid params)
         params
@@ -216,8 +228,6 @@
                                                            (prn-str this-map)))))
                                [this-map e return-value]
                                operation-return-value]
-                           (if (federated? this-map)
-                             (vreset! (first (get @federation-map this-name)) this-map))
                            (if (some? e)
                              (throw e))
                            [this-map return-value]
@@ -266,6 +276,8 @@
          :CLASSIFIERS        classifiers
          :REQUEST-PORT-STACK request-port-stack}
         ]
+    (if (= (:CONTEXTS/INVARIANT descriptors) true)
+      (swap! invariant-map-atom assoc name new-entity-map))
     (create-operation-dispatcher new-entity-map)
     [new-public-request-port new-entity-map]))
 
