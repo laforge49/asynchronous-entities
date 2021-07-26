@@ -18,15 +18,40 @@
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS/REQUESTID_INSTANTIATOR"
+    :name             "CONTEXTS/ACQUIRE_REQUESTID"
+    }
+   {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/REQUESTID_INSTANTIATOR"
+    :name             "CONTEXTS/ADD_CLASSIFIER_REQUESTID"
+    }
+   {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/REQUESTID_INSTANTIATOR"
+    :name             "CONTEXTS/ADD_DESCRIPTOR_REQUESTID"
+    }
+   {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/REQUESTID_INSTANTIATOR"
+    :name             "CONTEXTS/INSTANTIATE_REQUESTID"
+    }
+   {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/REQUESTID_INSTANTIATOR"
+    :name             "CONTEXTS/REGISTER_CLASSIFIER_REQUESTID"
+    }
+   {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/REQUESTID_INSTANTIATOR"
     :name             "CONTEXTS/REGISTER_ENTITY_REQUESTID"
     }
-
-
-
-
-
-
-
+   {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/REQUESTID_INSTANTIATOR"
+    :name             "CONTEXTS/RELEASE_REQUESTID"
+    }
+   {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/REQUESTID_INSTANTIATOR"
+    :name             "CONTEXTS/ROUTE_REQUESTID"
+    }
+   {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/REQUESTID_INSTANTIATOR"
+    :name             "CONTEXTS/RUN_FEDERATION_REQUESTID"
+    }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS/DESCRIPTOR_INSTANTIATOR"
@@ -117,7 +142,7 @@
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS/FEDERATOR_INSTANTIATOR"
-    :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:RUN_FEDERATION_REQUESTID [:RUN_FEDERATION_OPERATIONID]}}
+    :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:CONTEXTS/RUN_FEDERATION_REQUESTID [:RUN_FEDERATION_OPERATIONID]}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!FEDERATOR"}}
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
@@ -194,7 +219,7 @@
                                                     }
                                                    ]}
     }
-   {:target_requestid :RUN_FEDERATION_REQUESTID
+   {:target_requestid :CONTEXTS/RUN_FEDERATION_REQUESTID
     :target_name      "MAIN/FEDERATOR_1"
     }
    ])
