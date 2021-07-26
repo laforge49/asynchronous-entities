@@ -70,8 +70,14 @@
             (throw (Exception. (str "Requestid map is nil\n"
                                     (prn-str params)
                                     (prn-str this-map)))))
-        operationid
+        operationids
         (requestid this-requestid-map)
+        _ (if (not (vector? operationids))
+            (throw (Exception. (str "Operationids for " requestid " is not a vector\n"
+                                    (prn-str params)
+                                    (prn-str this-map)))))
+        operationid
+        (first operationids)
         _ (if (nil? operationid)
             (throw (Exception. (str "Operationid is nil\n"
                                     (prn-str params)
