@@ -103,7 +103,8 @@
         (if (some? federation-entry)
           @(first federation-entry)
           (if (contains? @invariant-map-atom target-name)
-            @(get @invariant-map-atom target-name)))
+            (get @invariant-map-atom target-name)
+            nil))
         _ (if (nil? target-map)
             (throw (Exception. (str "Unreachable: " target-name
                                     (prn-str params)
@@ -122,7 +123,8 @@
                                     (prn-str this-map)))))
         [target-map rv]
         (fun env target-map params)
-        _ (vreset! (first (get @federation-map-volatile target-name)) target-map)
+        _ (if (federated? target-map)
+            (vreset! (first (get @federation-map-volatile target-name)) target-map))
         this-map
         (if (federated? this-map)
           @(first (get @federation-map-volatile this-name))

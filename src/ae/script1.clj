@@ -1,7 +1,7 @@
 (ns ae.script1)
 
 (def script1
-  [{:target_requestid :REGISTER_ENTITY_REQUESTID
+  [{:target_requestid :CONTEXTS/REGISTER_ENTITY_REQUESTID
     :target_name      "ROOT/CONTEXTS"
     :name             "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INVARIANT                 true
@@ -88,8 +88,8 @@
    {:target_requestid :INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS/CONTEXT_INSTANTIATOR"
-    :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:REGISTER_ENTITY_REQUESTID     [:REGISTER_ENTITY_OPERATIONID]
-                                                                                     :ROUTE_REQUESTID               [:ROUTE_OPERATIONID]
+    :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:CONTEXTS/REGISTER_ENTITY_REQUESTID     [:REGISTER_ENTITY_OPERATIONID]
+                                                                                     :CONTEXTS/ROUTE_REQUESTID               [:ROUTE_OPERATIONID]
                                                                                      :REGISTER_CLASSIFIER_REQUESTID [:REGISTER_CLASSIFIER_OPERATIONID]}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!CONTEXT"}}
     }
@@ -146,8 +146,7 @@
    {:target_requestid :INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS/FEDERATOR_INSTANTIATOR"
     :name             "MAIN/FEDERATOR_1"
-    :descriptors      {:CONTEXTS/FEDERATION_NAMES ["MAIN/SIMPLE_1"
-                                                   "MAIN/SIMPLE_INSTANTIATOR"]
+    :descriptors      {:CONTEXTS/FEDERATION_NAMES ["MAIN/SIMPLE_1"]
                        :CONTEXTS/SCRIPT           [{:target_requestid :INSTANTIATE_REQUESTID
                                                     :target_name      "MAIN/SIMPLE_INSTANTIATOR"
                                                     :name             "MAIN/SIMPLE_3"

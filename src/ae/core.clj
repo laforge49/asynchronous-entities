@@ -28,8 +28,8 @@
                 _ (create-operations env)
                 context-request-port
                 (first (k/create-entity env {:name        "ROOT/CONTEXTS"
-                                             :descriptors {:CONTEXTS/REQUESTID_MAP {:REGISTER_ENTITY_REQUESTID     [:REGISTER_ENTITY_OPERATIONID]
-                                                                                    :ROUTE_REQUESTID               [:ROUTE_OPERATIONID]
+                                             :descriptors {:CONTEXTS/REQUESTID_MAP {:CONTEXTS/REGISTER_ENTITY_REQUESTID     [:REGISTER_ENTITY_OPERATIONID]
+                                                                                    :CONTEXTS/ROUTE_REQUESTID               [:ROUTE_OPERATIONID]
                                                                                     :REGISTER_CLASSIFIER_REQUESTID [:REGISTER_CLASSIFIER_OPERATIONID]}}
                                              }))
                 env
@@ -38,74 +38,74 @@
                 (a/chan)
                 _ (doseq [request-params s1/script1]
                     (let [request-params
-                          (assoc request-params :requestid :ROUTE_REQUESTID)
+                          (assoc request-params :requestid :CONTEXTS/ROUTE_REQUESTID)
                           request-params
                           (assoc request-params :return_port return-port0)]
                       (a/>! context-request-port [env request-params])
                       (k/request-exception-check (a/<! return-port0))))
                 return-port4
                 (a/chan)
-                _ (a/>! context-request-port [env {:requestid        :ROUTE_REQUESTID
+                _ (a/>! context-request-port [env {:requestid        :CONTEXTS/ROUTE_REQUESTID
                                                    :target_requestid :SNAPSHOT
                                                    :target_name      "ROOT/CONTEXTS"
                                                    :return_port      return-port4}])
                 contexts-snap
                 (k/request-exception-check (a/<! return-port4))
-                _ (a/>! context-request-port [env {:requestid        :ROUTE_REQUESTID
+                _ (a/>! context-request-port [env {:requestid        :CONTEXTS/ROUTE_REQUESTID
                                                    :target_requestid :SNAPSHOT
                                                    :target_name      "CONTEXTS/INSTANTIATOR_INSTANTIATOR"
                                                    :return_port      return-port4}])
                 prototype-prototype-snap
                 (k/request-exception-check (a/<! return-port4))
-                _ (a/>! context-request-port [env {:requestid        :ROUTE_REQUESTID
+                _ (a/>! context-request-port [env {:requestid        :CONTEXTS/ROUTE_REQUESTID
                                                    :target_requestid :SNAPSHOT
                                                    :target_name      "CONTEXTS/CONTEXT_INSTANTIATOR"
                                                    :return_port      return-port4}])
                 context-prototype-snap
                 (k/request-exception-check (a/<! return-port4))
-                _ (a/>! context-request-port [env {:requestid        :ROUTE_REQUESTID
+                _ (a/>! context-request-port [env {:requestid        :CONTEXTS/ROUTE_REQUESTID
                                                    :target_requestid :SNAPSHOT
                                                    :target_name      "CONTEXTS/FEDERATOR_INSTANTIATOR"
                                                    :return_port      return-port4}])
                 federator-prototype-snap
                 (k/request-exception-check (a/<! return-port4))
-                _ (a/>! context-request-port [env {:requestid        :ROUTE_REQUESTID
+                _ (a/>! context-request-port [env {:requestid        :CONTEXTS/ROUTE_REQUESTID
                                                    :target_requestid :SNAPSHOT
                                                    :target_name      "CONTEXTS/FEDERATION_CONTEXT_INSTANTIATOR"
                                                    :return_port      return-port4}])
                 federation-context-prototype-snap
                 (k/request-exception-check (a/<! return-port4))
-                _ (a/>! context-request-port [env {:requestid        :ROUTE_REQUESTID
+                _ (a/>! context-request-port [env {:requestid        :CONTEXTS/ROUTE_REQUESTID
                                                    :target_requestid :SNAPSHOT
                                                    :target_name      "CONTEXTS/MAIN"
                                                    :return_port      return-port4}])
                 context-snap
                 (k/request-exception-check (a/<! return-port4))
-                _ (a/>! context-request-port [env {:requestid        :ROUTE_REQUESTID
+                _ (a/>! context-request-port [env {:requestid        :CONTEXTS/ROUTE_REQUESTID
                                                    :target_requestid :SNAPSHOT
                                                    :target_name      "MAIN/SIMPLE_INSTANTIATOR"
                                                    :return_port      return-port4}])
                 simple-prototype-snap
                 (k/request-exception-check (a/<! return-port4))
-                _ (a/>! context-request-port [env {:requestid        :ROUTE_REQUESTID
+                _ (a/>! context-request-port [env {:requestid        :CONTEXTS/ROUTE_REQUESTID
                                                    :target_requestid :SNAPSHOT
                                                    :target_name      "MAIN/SIMPLE_1"
                                                    :return_port      return-port4}])
                 simple1-snap
                 (k/request-exception-check (a/<! return-port4))
-                _ (a/>! context-request-port [env {:requestid        :ROUTE_REQUESTID
+                _ (a/>! context-request-port [env {:requestid        :CONTEXTS/ROUTE_REQUESTID
                                                    :target_requestid :SNAPSHOT
                                                    :target_name      "MAIN/SIMPLE_2"
                                                    :return_port      return-port4}])
                 simple2-snap
                 (k/request-exception-check (a/<! return-port4))
-                _ (a/>! context-request-port [env {:requestid        :ROUTE_REQUESTID
+                _ (a/>! context-request-port [env {:requestid        :CONTEXTS/ROUTE_REQUESTID
                                                    :target_requestid :SNAPSHOT
                                                    :target_name      "MAIN/SIMPLE_3"
                                                    :return_port      return-port4}])
                 simple3-snap
                 (k/request-exception-check (a/<! return-port4))
-                _ (a/>! context-request-port [env {:requestid        :ROUTE_REQUESTID
+                _ (a/>! context-request-port [env {:requestid        :CONTEXTS/ROUTE_REQUESTID
                                                    :target_requestid :SNAPSHOT
                                                    :target_name      "MAIN/FEDERATOR_1"
                                                    :return_port      return-port4}])
