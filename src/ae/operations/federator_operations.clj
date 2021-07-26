@@ -72,7 +72,7 @@
                   (pop new-classifiers)]
               (when (not (contains? new-children entity-name))
                 (a/>! context-request-port [env {:requestid        :CONTEXTS/ROUTE_REQUESTID
-                                                 :target_requestid :REGISTER_CLASSIFIER_REQUESTID
+                                                 :target_requestid :CONTEXTS/REGISTER_CLASSIFIER_REQUESTID
                                                  :target_name      context-name
                                                  :name             entity-name
                                                  :classifier       classifier
@@ -104,13 +104,13 @@
                 subrequest-return-port
                 (a/chan)
                 _ (a/>! root-contexts-request-port [env {:requestid        :CONTEXTS/ROUTE_REQUESTID
-                                                         :target_requestid :INSTANTIATE_REQUESTID
+                                                         :target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
                                                          :target_name      "CONTEXTS/FEDERATION_CONTEXT_INSTANTIATOR"
                                                          :return_port      subrequest-return-port
                                                          :name             nil}])
                 federation-context-request-port
                 (k/request-exception-check (a/<! subrequest-return-port))
-                _ (a/>! federation-context-request-port [env {:requestid        :ACQUIRE_REQUESTID
+                _ (a/>! federation-context-request-port [env {:requestid        :CONTEXTS/ACQUIRE_REQUESTID
                                                               :federation-names federation-names
                                                               :return_port      subrequest-return-port}])
                 federation-map
@@ -160,7 +160,7 @@
                 (assoc env :NEW-CHILDREN-VOLATILE nil)
                 env
                 (assoc env :NEW-CLASSIFIERS-VOLATILE nil)
-                _ (a/>! federation-context-request-port [env {:requestid   :RELEASE_REQUESTID
+                _ (a/>! federation-context-request-port [env {:requestid   :CONTEXTS/RELEASE_REQUESTID
                                                               :return_port subrequest-return-port}])
                 _ (k/request-exception-check (a/<! subrequest-return-port))
                 _ (a/>! operation-return-port [this-map
