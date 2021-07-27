@@ -63,35 +63,35 @@
         (first (kw/keyword-as-name entity-kw))]
     (get-in @invariant-map-atom [(name entity-name) :DESCRIPTORS])))
 
-(defn thisOperationid
-  [env this-map params]
+(defn targetOperationid
+  [env target-map params]
   (let [requestid
         (:requestid params)
         _ (if (nil? requestid)
             (throw (Exception. (str "Requestid is nil\n"
                                     (prn-str params)
-                                    (prn-str this-map)))))
+                                    (prn-str target-map)))))
         this-descriptors
-        (thisDescriptors this-map params)
+        (thisDescriptors target-map params)
         this-requestid-map
         (:CONTEXTS/REQUESTID_MAP this-descriptors)
         _ (if (nil? this-requestid-map)
             (throw (Exception. (str "Requestid map is nil\n"
                                     (prn-str params)
-                                    (prn-str this-map)))))
+                                    (prn-str target-map)))))
         operationids
         (requestid this-requestid-map)
         _ (if (not (vector? operationids))
             (throw (Exception. (str "Operationids for " requestid " is not a vector\n"
                                     (prn-str params)
-                                    (prn-str this-map)))))
+                                    (prn-str target-map)))))
         operationid
         (first operationids)
         _ (if (nil? operationid)
             (throw (Exception. (str "Operationid is nil\n"
                                     (prn-str params)
-                                    (prn-str this-map)))))]
-    (if (= (get-in this-map [:DESCRIPTORS :CONTEXTS/INVARIANT]) true)
+                                    (prn-str target-map)))))]
+    (if (= (get-in target-map [:DESCRIPTORS :CONTEXTS/INVARIANT]) true)
       (let [request-descriptors
             (invariant-descriptors requestid)
             read-only
@@ -99,7 +99,7 @@
               true
               (:CONTEXTS/READ_ONLY request-descriptors))]
         (if (not read-only)
-          (throw (Exception. (str "Can not apply " requestid " to invariant " (:NAME this-map)))))))
+          (throw (Exception. (str "Can not apply " requestid " to invariant " (:NAME target-map)))))))
     operationid))
 
 (defn federationRouteFunction
@@ -129,7 +129,7 @@
         params
         (assoc params :requestid requestid)
         operationid
-        (thisOperationid env target-map params)
+        (targetOperationid env target-map params)
         fun
         (second (operationid @operationid-map-atom))
         _ (if (nil? fun)
@@ -221,7 +221,7 @@
 
                          ;;DEFAULT
                          (let [operationid
-                               (thisOperationid env target-map params)
+                               (targetOperationid env target-map params)
                                operation-port
                                (first (operationid @operationid-map-atom))
                                _ (if (nil? operation-port)
