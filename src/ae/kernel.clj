@@ -61,7 +61,7 @@
   [entity-kw]
   (let [entity-name
         (first (kw/keyword-as-name entity-kw))]
-    (get-in @invariant-map-atom [(name entity-name) :DESCRIPTORS])))
+    (get-in @invariant-map-atom [entity-name :DESCRIPTORS])))
 
 (defn targetOperationid
   [env target-map params]
