@@ -57,6 +57,11 @@
                               (prn-str this-map)))))
     this-descriptors))
 
+(defn invariant-descriptor
+  [entity-kw descriptor-kw]
+  (println entity-kw (prn-str (get-in @invariant-map-atom [entity-kw :DESCRIPTORS])))
+  (get-in @invariant-map-atom [(name entity-kw) :DESCRIPTORS descriptor-kw]))
+
 (defn thisOperationid
   [env this-map params]
   (let [requestid
@@ -85,6 +90,11 @@
             (throw (Exception. (str "Operationid is nil\n"
                                     (prn-str params)
                                     (prn-str this-map)))))]
+    (if (= (get-in this-map [:DESCRIPTORS :CONTEXTS/INVARIANT]) true)
+      (let [read-only
+            (invariant-descriptor requestid :CONTEXTS/READ_ONLY)]
+        (println :??????? read-only)
+        ))
     operationid))
 
 (defn federationRouteFunction

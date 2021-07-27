@@ -32,7 +32,7 @@
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS/REQUESTID_INSTANTIATOR"
     :name             "CONTEXTS/INSTANTIATE_REQUESTID"
-    :descriptor       {:CONTEXTS/READ_ONLY true}
+    :descriptors       {:CONTEXTS/READ_ONLY true}
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS/REQUESTID_INSTANTIATOR"
