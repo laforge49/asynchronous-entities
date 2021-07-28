@@ -13,13 +13,13 @@
         this-descriptors
         (:DESCRIPTORS this-map)
         instantiation-descriptors
-        (:CONTEXTS/INSTANTIATION_DESCRIPTORS this-descriptors)
+        (:CONTEXTS+INSTANTIATION_DESCRIPTORS this-descriptors)
         instantiation-descriptors
-        (assoc instantiation-descriptors :CONTEXTS/INSTANTIATOR this-name)
+        (assoc instantiation-descriptors :CONTEXTS+INSTANTIATOR this-name)
         instantiation-descriptors
         (into instantiation-descriptors (:descriptors params))
         instantiation-classifiers
-        (:CONTEXTS/INSTANTIATION_CLASSIFIERS this-descriptors)
+        (:CONTEXTS+INSTANTIATION_CLASSIFIERS this-descriptors)
         initialization-port
         (a/chan)
         params
@@ -49,15 +49,15 @@
         this-descriptors
         (:DESCRIPTORS this-map)
         instantiation-descriptors
-        (:CONTEXTS/INSTANTIATION_DESCRIPTORS this-descriptors)
+        (:CONTEXTS+INSTANTIATION_DESCRIPTORS this-descriptors)
         instantiation-descriptors
-        (assoc instantiation-descriptors :CONTEXTS/INSTANTIATOR this-name)
+        (assoc instantiation-descriptors :CONTEXTS+INSTANTIATOR this-name)
         instantiation-descriptors
         (into instantiation-descriptors (:descriptors params))
         instantiation-classifiers
-        (:CONTEXTS/INSTANTIATION_CLASSIFIERS this-descriptors)
+        (:CONTEXTS+INSTANTIATION_CLASSIFIERS this-descriptors)
         ]
-    (into params {:target_requestid :CONTEXTS/REGISTER_ENTITY_REQUESTID
+    (into params {:target_requestid :CONTEXTS+REGISTER_ENTITY_REQUESTID
                   :target_name      target-name
                   :descriptors      instantiation-descriptors
                   :classifiers      instantiation-classifiers})))
@@ -78,7 +78,7 @@
                 route-params
                 (instantiateOperation env this-map params)
                 route-params
-                (assoc route-params :requestid :CONTEXTS/ROUTE_REQUESTID)]
+                (assoc route-params :requestid :CONTEXTS+ROUTE_REQUESTID)]
             (a/>! operation-return-port [this-map nil :NO-RETURN])
             (a/>! context-request-port [env route-params]))
           (catch Exception e
@@ -99,7 +99,7 @@
             (throw (Exception. (str "ADD DESCRIPTOR encountered a pre-existing value: " old-descriptor-value))))
         this-map
         (assoc-in this-map [:DESCRIPTORS descriptor] descriptor-value)]
-    (if (= descriptor :CONTEXTS/INVARIANT)
+    (if (= descriptor :CONTEXTS+INVARIANT)
       (if (= descriptor-value true)
         (k/add-invariant-map name this-map)))
     [this-map this-map]))

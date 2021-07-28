@@ -159,12 +159,12 @@
                       target-entity-request-port
                       (target-context-entity-kw entity-public-request-ports)]
                   (if (nil? target-entity-request-port)
-                    (throw (Exception. (str "Entity " this-base-name "/" target-context-base-name " is not registered in " this-name))))
+                    (throw (Exception. (str "Entity " this-base-name "+" target-context-base-name " is not registered in " this-name))))
                   (a/>! operation-return-port [this-map
                                                nil
                                                :NO-RETURN])
                   (a/>! target-entity-request-port [env
-                                                    (assoc params :requestid :CONTEXTS/ROUTE_REQUESTID)])))))
+                                                    (assoc params :requestid :CONTEXTS+ROUTE_REQUESTID)])))))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
@@ -188,7 +188,7 @@
                         (a/chan)
                         subrequest-return-port
                         (a/chan)
-                        _ (a/>! root-contexts-request-port [env {:requestid        :CONTEXTS/ROUTE_REQUESTID
+                        _ (a/>! root-contexts-request-port [env {:requestid        :CONTEXTS+ROUTE_REQUESTID
                                                                  :target_requestid :PUSH-REQUEST-PORT
                                                                  :target_name      federation-name
                                                                  :new-request-port new-request-port

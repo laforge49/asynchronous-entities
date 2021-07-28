@@ -92,7 +92,7 @@
         this-descriptors
         (thisDescriptors target-map params)
         this-requestid-map
-        (:CONTEXTS/REQUESTID_MAP this-descriptors)
+        (:CONTEXTS+REQUESTID_MAP this-descriptors)
         _ (if (nil? this-requestid-map)
             (throw (Exception. (str "Requestid map is nil\n"
                                     (prn-str params)
@@ -109,13 +109,13 @@
             (throw (Exception. (str "Operationid is nil\n"
                                     (prn-str params)
                                     (prn-str target-map)))))]
-    (if (= (get-in target-map [:DESCRIPTORS :CONTEXTS/INVARIANT]) true)
+    (if (= (get-in target-map [:DESCRIPTORS :CONTEXTS+INVARIANT]) true)
       (let [request-descriptors
             (get-invariant-descriptors requestid)
             read-only
             (if (nil? request-descriptors)
               true
-              (:CONTEXTS/READ_ONLY request-descriptors))]
+              (:CONTEXTS+READ_ONLY request-descriptors))]
         (if (not read-only)
           (throw (Exception. (str "Can not apply " requestid " to invariant " (:NAME target-map)))))))
     operationid))
@@ -220,7 +220,7 @@
                          :PUSH-REQUEST-PORT
                          (let [this-descriptors
                                (thisDescriptors target-map params)]
-                           (if (:CONTEXTS/INVARIANT this-descriptors)
+                           (if (:CONTEXTS+INVARIANT this-descriptors)
                              [target-map [target-map nil]]
                              (let [new-request-port
                                    (:new-request-port params)
@@ -294,7 +294,7 @@
           {}
           classifiers)
         invariant
-        (:CONTEXTS/INVARIANT descriptors)
+        (:CONTEXTS+INVARIANT descriptors)
         initialization-port
         (:initialization-port params)
         request-port-stack
@@ -309,7 +309,7 @@
          :CLASSIFIERS        classifiers
          :REQUEST-PORT-STACK request-port-stack}
         ]
-    (if (= (:CONTEXTS/INVARIANT descriptors) true)
+    (if (= (:CONTEXTS+INVARIANT descriptors) true)
       (add-invariant-map name new-entity-map))
     (create-operation-dispatcher new-entity-map)
     [new-public-request-port new-entity-map]))
@@ -321,7 +321,7 @@
           [nil "" nil]
           (kw/name-as-keyword entity-name))]
     (if (s/blank? entity-name)
-      "ROOT/CONTEXTS"
+      "ROOT+CONTEXTS"
       (if (= entity-context-base-name "CONTEXTS")
-        (str "ROOT/CONTEXTS")
-        (str "CONTEXTS/" entity-context-base-name)))))
+        (str "ROOT+CONTEXTS")
+        (str "CONTEXTS+" entity-context-base-name)))))

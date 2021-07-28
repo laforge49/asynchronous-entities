@@ -19,7 +19,7 @@
 (defn name-as-keyword
   [name]
   (let [slashindex
-        (s/index-of name "/")
+        (s/index-of name "+")
         base-name
         (subs name (inc slashindex))
         context-base-name
@@ -48,7 +48,7 @@
             (keyword-decode- 0 "$$r" ")"))
         name
         (str context-base-name
-             "/"
+             "+"
              base-name)
         ]
     [name context-base-name base-name]
