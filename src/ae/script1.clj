@@ -32,7 +32,7 @@
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS/REQUESTID_INSTANTIATOR"
     :name             "CONTEXTS/INSTANTIATE_REQUESTID"
-    :descriptors       {:CONTEXTS/READ_ONLY true}
+    :descriptors      {:CONTEXTS/READ_ONLY true}
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS/REQUESTID_INSTANTIATOR"
@@ -59,6 +59,10 @@
     :name             "CONTEXTS/DESCRIPTOR_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/INVARIANT true}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS/ENTITY_TYPE!DESCRIPTOR"}}
+    }
+   {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS/DESCRIPTOR_INSTANTIATOR"
+    :name             "CONTEXTS/INSTANTIATOR"
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS/DESCRIPTOR_INSTANTIATOR"

@@ -7,6 +7,30 @@
 (def invariant-map-atom
   (atom {}))
 
+(defn get-invariant-map
+  [entity-id]
+  (let [[_ context-base-name base-name]
+        (if (keyword? entity-id)
+          (kw/keyword-as-name entity-id)
+          (kw/name-as-keyword entity-id))]
+    (get-in @invariant-map-atom [context-base-name base-name])))
+
+(defn add-invariant-map
+  [entity-id this-map]
+  (let [[_ context-base-name base-name]
+        (if (keyword? entity-id)
+          (kw/keyword-as-name entity-id)
+          (kw/name-as-keyword entity-id))]
+    (swap! invariant-map-atom assoc-in [context-base-name base-name] this-map)))
+
+(defn get-invariant-descriptors
+  [entity-kw]
+  (let [this-map
+        (get-invariant-map entity-kw)]
+    (if (nil? this-map)
+      nil
+      (:DESCRIPTORS this-map))))
+
 (def operationid-map-atom
   (atom {}))
 
@@ -57,12 +81,6 @@
                               (prn-str this-map)))))
     this-descriptors))
 
-(defn invariant-descriptors
-  [entity-kw]
-  (let [entity-name
-        (first (kw/keyword-as-name entity-kw))]
-    (get-in @invariant-map-atom [entity-name :DESCRIPTORS])))
-
 (defn targetOperationid
   [env target-map params]
   (let [requestid
@@ -93,7 +111,7 @@
                                     (prn-str target-map)))))]
     (if (= (get-in target-map [:DESCRIPTORS :CONTEXTS/INVARIANT]) true)
       (let [request-descriptors
-            (invariant-descriptors requestid)
+            (get-invariant-descriptors requestid)
             read-only
             (if (nil? request-descriptors)
               true
@@ -117,9 +135,7 @@
         target-map
         (if (some? federation-entry)
           @(first federation-entry)
-          (if (contains? @invariant-map-atom target-name)
-            (get @invariant-map-atom target-name)
-            nil))
+          (get-invariant-map target-name))
         _ (if (nil? target-map)
             (throw (Exception. (str "Unreachable: " target-name
                                     (prn-str params)
@@ -294,7 +310,7 @@
          :REQUEST-PORT-STACK request-port-stack}
         ]
     (if (= (:CONTEXTS/INVARIANT descriptors) true)
-      (swap! invariant-map-atom assoc name new-entity-map))
+      (add-invariant-map name new-entity-map))
     (create-operation-dispatcher new-entity-map)
     [new-public-request-port new-entity-map]))
 

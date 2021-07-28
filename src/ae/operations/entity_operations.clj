@@ -15,7 +15,7 @@
         instantiation-descriptors
         (:CONTEXTS/INSTANTIATION_DESCRIPTORS this-descriptors)
         instantiation-descriptors
-        (assoc instantiation-descriptors :PROTOTYPE this-name)
+        (assoc instantiation-descriptors :CONTEXTS/INSTANTIATOR this-name)
         instantiation-descriptors
         (into instantiation-descriptors (:descriptors params))
         instantiation-classifiers
@@ -51,7 +51,7 @@
         instantiation-descriptors
         (:CONTEXTS/INSTANTIATION_DESCRIPTORS this-descriptors)
         instantiation-descriptors
-        (assoc instantiation-descriptors :PROTOTYPE this-name)
+        (assoc instantiation-descriptors :CONTEXTS/INSTANTIATOR this-name)
         instantiation-descriptors
         (into instantiation-descriptors (:descriptors params))
         instantiation-classifiers
@@ -101,7 +101,7 @@
         (assoc-in this-map [:DESCRIPTORS descriptor] descriptor-value)]
     (if (= descriptor :CONTEXTS/INVARIANT)
       (if (= descriptor-value true)
-        (swap! k/invariant-map-atom assoc name this-map)))
+        (k/add-invariant-map name this-map)))
     [this-map this-map]))
 
 (defn addClassifierFunction
