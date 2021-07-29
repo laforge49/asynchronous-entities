@@ -146,7 +146,7 @@
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+CLASSIFIER_VALUE_INSTANTIATOR"
-    :name             "CONTEXTS+VALUE_OF!ENTITY_TYPE"
+    :name             "CONTEXTS+ENTITY_TYPE!VALUE_OF"
     :classifiers      {:CONTEXTS/VALUE_OF :CONTEXTS/VALUE_OF}
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
