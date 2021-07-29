@@ -55,6 +55,11 @@
     :name             "CONTEXTS+RUN_FEDERATION_REQUESTID"
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS+REQUESTID_INSTANTIATOR"
+    :name            "CONTEXTS+CONTEXT_REPORT_REQUESTID"
+    :descriptors      {:CONTEXTS/READ_ONLY true}
+    }
+   {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS+DESCRIPTOR_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/INVARIANT true}
