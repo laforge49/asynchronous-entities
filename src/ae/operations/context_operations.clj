@@ -311,13 +311,13 @@
                               (fn [lines entity-name]
                                 (conj lines (str "    entity:            " entity-name "\n")))
                               lines
-                              entity-names)]
+                              (into (sorted-set) entity-names))]
                         lines))
                     lines
-                    values-map)]
+                    (into (sorted-map) values-map))]
               lines))
           []
-          registry)
+          (into (sorted-map) registry))
         classifiers
         (keys registry)]
     (str n ". Classifier Values of " this-name "\n\n"
