@@ -288,13 +288,26 @@
             (let [[classifier-name _ _]
                   (kw/keyword-as-name classifier-kw)
                   line
-                  (str "classifier: " classifier-name "\n")]
-              (conj lines line)))
+                  (str "classifier: " classifier-name "\n")
+                  lines
+                  (conj lines line)
+                  lines
+                  (reduce
+                    (fn [lines [classifier-value entity-names]]
+                      (let [line
+                            (str "     value:     " classifier-value "\n")
+                            lines
+                            (conj lines line)
+                            ]
+                        lines))
+                    lines
+                    values-map)]
+              lines))
           []
           registry)
         classifiers
         (keys registry)]
-    (str n ". Registered Classifiers of " this-name "\n\n"
+    (str n ". Classifier Values of " this-name "\n\n"
          (prn-str registry) "\n"
          (s/join lines) "\n"
          "Number of classifiers: " (count classifiers) "\n\n")))
