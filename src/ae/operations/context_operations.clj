@@ -1,6 +1,7 @@
 (ns ae.operations.context-operations
   (:require [clojure.core.async :as a]
             [clojure.string :as s]
+            [clojure.java.io :as io]
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
@@ -259,6 +260,45 @@
             (a/>! operation-return-port [this-map e nil])))
         (recur)))))
 
+(defn context-entities-report
+  [n this-name this-map]
+  (let [entities
+        (keys (:ENTITY-PUBLIC-REQUEST-PORTS this-map))
+        sorted-names
+        (reduce
+          (fn [sorted-names entity-kw]
+            (let [[name context-base-name base-name]
+                  (kw/keyword-as-name entity-kw)]
+              (conj sorted-names name)))
+          (sorted-set)
+          entities)
+        entities
+        (s/join "\n" sorted-names)]
+    (str n ". Registered Entities of " this-name "\n\n"
+         entities "\n\n"
+         "Number of entities: " (count sorted-names) "\n\n")))
+
+(defn context-classifiers-report
+  [n this-name this-map]
+  (let [registry
+        (:CLASSIFIER-REGISTRY this-map)
+        lines
+        (reduce
+          (fn [lines [classifier-kw values-map]]
+            (let [[classifier-name _ _]
+                  (kw/keyword-as-name classifier-kw)
+                  line
+                  (str "classifier: " classifier-name "\n")]
+              (conj lines line)))
+          []
+          registry)
+        classifiers
+        (keys registry)]
+    (str n ". Registered Classifiers of " this-name "\n\n"
+         (prn-str registry) "\n"
+         (s/join lines) "\n"
+         "Number of classifiers: " (count classifiers) "\n\n")))
+
 (defn create-context-report-operation
   [env]
   (let [context-report-port
@@ -269,10 +309,18 @@
             operation-return-port
             (:operation-return-port params)]
         (try
-          (let [
-
-                ]
-
+          (let [this-name
+                (:NAME this-map)
+                file-name
+                (str "./reports/contexts/" this-name ".txt")
+                heading
+                (str "Context Report for " this-name "\n\n")
+                report
+                (str heading
+                     (context-entities-report 1 this-name this-map)
+                     (context-classifiers-report 2 this-name this-map))]
+            (io/make-parents file-name)
+            (spit file-name report)
             (a/>! operation-return-port [this-map nil this-map]))
            (catch Exception e
              (a/>! operation-return-port [this-map e nil])))

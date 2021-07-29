@@ -56,7 +56,7 @@
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+REQUESTID_INSTANTIATOR"
-    :name            "CONTEXTS+CONTEXT_REPORT_REQUESTID"
+    :name             "CONTEXTS+CONTEXT_REPORT_REQUESTID"
     :descriptors      {:CONTEXTS/READ_ONLY true}
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
@@ -154,7 +154,8 @@
     :name             "CONTEXTS+CONTEXT_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:CONTEXTS/REGISTER_ENTITY_REQUESTID     [:REGISTER_ENTITY_OPERATIONID]
                                                                                      :CONTEXTS/ROUTE_REQUESTID               [:ROUTE_OPERATIONID]
-                                                                                     :CONTEXTS/REGISTER_CLASSIFIER_REQUESTID [:REGISTER_CLASSIFIER_OPERATIONID]}}
+                                                                                     :CONTEXTS/REGISTER_CLASSIFIER_REQUESTID [:REGISTER_CLASSIFIER_OPERATIONID]
+                                                                                     :CONTEXTS/CONTEXT_REPORT_REQUESTID      [:CONTEXT_REPORT_OPERATIONID]}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS+ENTITY_TYPE!CONTEXT"}}
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
@@ -240,5 +241,8 @@
     }
    {:target_requestid :CONTEXTS/CONTEXT_REPORT_REQUESTID
     :target_name      "ROOT+CONTEXTS"
+    }
+   {:target_requestid :CONTEXTS/CONTEXT_REPORT_REQUESTID
+    :target_name      "CONTEXTS+MAIN"
     }
    ])
