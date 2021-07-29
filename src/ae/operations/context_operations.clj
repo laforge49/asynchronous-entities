@@ -272,10 +272,18 @@
               (conj sorted-names name)))
           (sorted-set)
           entities)
-        entities
-        (s/join "\n" sorted-names)]
+        lines
+        (reduce
+          (fn [lines name]
+            (conj lines
+                  (str name
+                       (if (some? (k/get-invariant-map name))
+                         " (invariant)")
+                       "\n")))
+          []
+          sorted-names)]
     (str n ". Registered Entities of " this-name "\n\n"
-         entities "\n\n"
+         (s/join lines) "\n"
          "Number of entities: " (count sorted-names) "\n\n")))
 
 (defn context-classifiers-report
@@ -288,17 +296,22 @@
             (let [[classifier-name _ _]
                   (kw/keyword-as-name classifier-kw)
                   line
-                  (str "classifier: " classifier-name "\n")
+                  (str "classifier:    " classifier-name "\n")
                   lines
                   (conj lines line)
                   lines
                   (reduce
                     (fn [lines [classifier-value entity-names]]
                       (let [line
-                            (str "     value:     " classifier-value "\n")
+                            (str "     value:        " classifier-value "\n")
                             lines
                             (conj lines line)
-                            ]
+                            lines
+                            (reduce
+                              (fn [lines entity-name]
+                                (conj lines (str "    entity:            " entity-name "\n")))
+                              lines
+                              entity-names)]
                         lines))
                     lines
                     values-map)]
@@ -308,7 +321,6 @@
         classifiers
         (keys registry)]
     (str n ". Classifier Values of " this-name "\n\n"
-         (prn-str registry) "\n"
          (s/join lines) "\n"
          "Number of classifiers: " (count classifiers) "\n\n")))
 
@@ -335,8 +347,8 @@
             (io/make-parents file-name)
             (spit file-name report)
             (a/>! operation-return-port [this-map nil this-map]))
-           (catch Exception e
-             (a/>! operation-return-port [this-map e nil])))
+          (catch Exception e
+            (a/>! operation-return-port [this-map e nil])))
         (recur)))))
 
 (defn create-context-operations
