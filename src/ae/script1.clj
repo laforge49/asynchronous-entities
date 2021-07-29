@@ -229,10 +229,11 @@
                                                     :target_name      "MAIN+SIMPLE_3"
                                                     :classifier       :MAIN/APPLICATION
                                                     :classifier-value :MAIN/APPLICATION!FIDDLING
-                                                    }
-                                                   ]}
-    }
+                                                    }]}}
    {:target_requestid :CONTEXTS/RUN_FEDERATION_REQUESTID
     :target_name      "MAIN+FEDERATOR_1"
+    }
+   {:target_requestid :CONTEXTS/CONTEXT_REPORT_REQUESTID
+    :target_name      "ROOT+CONTEXTS"
     }
    ])

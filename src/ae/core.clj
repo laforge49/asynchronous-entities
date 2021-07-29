@@ -6,7 +6,6 @@
             [ae.operations.entity-operations :as eo]
             [ae.operations.federator-operations :as fo]
             [ae.script1 :as s1]
-            [ae.reports.context-reports :as cr]
             ))
 
 (defn create-operations
@@ -31,7 +30,8 @@
                 (first (k/create-entity env {:name        "ROOT+CONTEXTS"
                                              :descriptors {:CONTEXTS/REQUESTID_MAP {:CONTEXTS/REGISTER_ENTITY_REQUESTID     [:REGISTER_ENTITY_OPERATIONID]
                                                                                     :CONTEXTS/ROUTE_REQUESTID               [:ROUTE_OPERATIONID]
-                                                                                    :CONTEXTS/REGISTER_CLASSIFIER_REQUESTID [:REGISTER_CLASSIFIER_OPERATIONID]}}
+                                                                                    :CONTEXTS/REGISTER_CLASSIFIER_REQUESTID [:REGISTER_CLASSIFIER_OPERATIONID]
+                                                                                    :CONTEXTS/CONTEXT_REPORT_REQUESTID      [:CONTEXT_REPORT_OPERATIONID]}}
                                              }))
                 env
                 (assoc env :CONTEXT-REQUEST-PORT context-request-port)

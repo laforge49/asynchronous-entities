@@ -259,6 +259,25 @@
             (a/>! operation-return-port [this-map e nil])))
         (recur)))))
 
+(defn create-context-report-operation
+  [env]
+  (let [context-report-port
+        (k/register-operation env {:operationid :CONTEXT_REPORT_OPERATIONID})]
+    (a/go-loop []
+      (let [[env this-map params]
+            (a/<! context-report-port)
+            operation-return-port
+            (:operation-return-port params)]
+        (try
+          (let [
+
+                ]
+
+            (a/>! operation-return-port [this-map nil this-map]))
+           (catch Exception e
+             (a/>! operation-return-port [this-map e nil])))
+        (recur)))))
+
 (defn create-context-operations
   [env]
   (create-register-entity-operation env)
@@ -266,4 +285,5 @@
   (create-route-operation env)
   (create-federation-acquire-operation env)
   (create-federation-release-operation env)
+  (create-context-report-operation env)
   )
