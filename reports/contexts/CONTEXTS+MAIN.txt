@@ -3,10 +3,10 @@ Context Report for CONTEXTS+MAIN
 1. Registered Entities of CONTEXTS+MAIN
 
 MAIN+APPLICATION (invariant)
-MAIN+APPLICATION!FIDDLING (invariant)
 MAIN+DEGREE_OF_POLISH (invariant)
-MAIN+ENTITY_TYPE!SIMPLE (invariant)
 MAIN+FEDERATOR_1
+MAIN+FIDDLING (invariant)
+MAIN+SIMPLE (invariant)
 MAIN+SIMPLE_1
 MAIN+SIMPLE_2
 MAIN+SIMPLE_3
@@ -17,23 +17,23 @@ Number of entities: 9
 2. Classifier Values of CONTEXTS+MAIN
 
 classifier:    CONTEXTS+ENTITY_TYPE
-     value:        CONTEXTS+ENTITY_TYPE!CLASSIFIER
+     value:        CONTEXTS+CLASSIFIER
     entity:            MAIN+APPLICATION
-     value:        CONTEXTS+ENTITY_TYPE!CLASSIFIER_VALUE
-    entity:            MAIN+APPLICATION!FIDDLING
-    entity:            MAIN+ENTITY_TYPE!SIMPLE
-     value:        CONTEXTS+ENTITY_TYPE!DESCRIPTOR
+     value:        CONTEXTS+CLASSIFIER_VALUE
+    entity:            MAIN+FIDDLING
+    entity:            MAIN+SIMPLE
+     value:        CONTEXTS+DESCRIPTOR
     entity:            MAIN+DEGREE_OF_POLISH
-     value:        CONTEXTS+ENTITY_TYPE!FEDERATOR
+     value:        CONTEXTS+FEDERATOR
     entity:            MAIN+FEDERATOR_1
-     value:        CONTEXTS+ENTITY_TYPE!INSTANTIATOR
+     value:        CONTEXTS+INSTANTIATOR
     entity:            MAIN+SIMPLE_INSTANTIATOR
-     value:        MAIN+ENTITY_TYPE!SIMPLE
+     value:        MAIN+SIMPLE
     entity:            MAIN+SIMPLE_1
     entity:            MAIN+SIMPLE_2
     entity:            MAIN+SIMPLE_3
 classifier:    MAIN+APPLICATION
-     value:        :MAIN/APPLICATION!FIDDLING
+     value:        :MAIN/FIDDLING
     entity:            MAIN+SIMPLE_1
     entity:            MAIN+SIMPLE_3
 

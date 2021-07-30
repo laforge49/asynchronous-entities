@@ -8,14 +8,14 @@
                        :CONTEXTS/REQUESTID_MAP             {:CONTEXTS/INSTANTIATE_REQUESTID [:INSTANTIATE_OPERATIONID]}
                        :CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/INVARIANT     true
                                                             :CONTEXTS/REQUESTID_MAP {:CONTEXTS/INSTANTIATE_REQUESTID [:INSTANTIATE_OPERATIONID]}}
-                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS+ENTITY_TYPE!INSTANTIATOR"}}
-    :classifiers      {:CONTEXTS/ENTITY_TYPE "CONTEXTS+ENTITY_TYPE!INSTANTIATOR"}
+                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS+INSTANTIATOR"}}
+    :classifiers      {:CONTEXTS/ENTITY_TYPE "CONTEXTS+INSTANTIATOR"}
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS+REQUESTID_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/INVARIANT true}
-                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS+ENTITY_TYPE!REQUESTID"}}
+                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTSREQUESTID"}}
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+REQUESTID_INSTANTIATOR"
@@ -63,11 +63,7 @@
     :target_name      "CONTEXTS+INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS+DESCRIPTOR_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/INVARIANT true}
-                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS+ENTITY_TYPE!DESCRIPTOR"}}
-    }
-   {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
-    :target_name      "CONTEXTS+DESCRIPTOR_INSTANTIATOR"
-    :name             "CONTEXTS+INSTANTIATOR"
+                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS+DESCRIPTOR"}}
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+DESCRIPTOR_INSTANTIATOR"
@@ -93,7 +89,7 @@
     :target_name      "CONTEXTS+INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS+CLASSIFIER_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/INVARIANT true}
-                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS+ENTITY_TYPE!CLASSIFIER"}}
+                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS+CLASSIFIER"}}
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+CLASSIFIER_INSTANTIATOR"
@@ -103,51 +99,31 @@
     :target_name      "CONTEXTS+INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS+CLASSIFIER_VALUE_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/INVARIANT true}
-                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS+ENTITY_TYPE!CLASSIFIER_VALUE"}}
+                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS+CLASSIFIER_VALUE"}}
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+CLASSIFIER_VALUE_INSTANTIATOR"
-    :name             "CONTEXTS+ENTITY_TYPE!INSTANTIATOR"
-    :classifiers      {:CONTEXTS/VALUE_OF :CONTEXTS/ENTITY_TYPE}
+    :name             "CONTEXTS+REQUESTID"
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+CLASSIFIER_VALUE_INSTANTIATOR"
-    :name             "CONTEXTS+ENTITY_TYPE!REQUESTID"
-    :classifiers      {:CONTEXTS/VALUE_OF :CONTEXTS/ENTITY_TYPE}
+    :name             "CONTEXTS+DESCRIPTOR"
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+CLASSIFIER_VALUE_INSTANTIATOR"
-    :name             "CONTEXTS+ENTITY_TYPE!DESCRIPTOR"
-    :classifiers      {:CONTEXTS/VALUE_OF :CONTEXTS/ENTITY_TYPE}
+    :name             "CONTEXTS+CLASSIFIER_VALUE"
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+CLASSIFIER_VALUE_INSTANTIATOR"
-    :name             "CONTEXTS+ENTITY_TYPE!CLASSIFIER_VALUE"
-    :classifiers      {:CONTEXTS/VALUE_OF :CONTEXTS/ENTITY_TYPE}
+    :name             "CONTEXTS+CONTEXT"
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+CLASSIFIER_VALUE_INSTANTIATOR"
-    :name             "CONTEXTS+ENTITY_TYPE!CONTEXT"
-    :classifiers      {:CONTEXTS/VALUE_OF :CONTEXTS/ENTITY_TYPE}
+    :name             "CONTEXTS+FEDERATOR"
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+CLASSIFIER_VALUE_INSTANTIATOR"
-    :name             "CONTEXTS+ENTITY_TYPE!FEDERATOR"
-    :classifiers      {:CONTEXTS/VALUE_OF :CONTEXTS/ENTITY_TYPE}
-    }
-   {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
-    :target_name      "CONTEXTS+CLASSIFIER_VALUE_INSTANTIATOR"
-    :name             "CONTEXTS+ENTITY_TYPE!FEDERATION_CONTEXT"
-    :classifiers      {:CONTEXTS/VALUE_OF :CONTEXTS/ENTITY_TYPE}
-    }
-   {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
-    :target_name      "CONTEXTS+CLASSIFIER_INSTANTIATOR"
-    :name             "CONTEXTS+VALUE_OF"
-    }
-   {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
-    :target_name      "CONTEXTS+CLASSIFIER_VALUE_INSTANTIATOR"
-    :name             "CONTEXTS+ENTITY_TYPE!VALUE_OF"
-    :classifiers      {:CONTEXTS/VALUE_OF :CONTEXTS/VALUE_OF}
+    :name             "CONTEXTS+FEDERATION_CONTEXT"
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+INSTANTIATOR_INSTANTIATOR"
@@ -156,20 +132,20 @@
                                                                                      :CONTEXTS/ROUTE_REQUESTID               [:ROUTE_OPERATIONID]
                                                                                      :CONTEXTS/REGISTER_CLASSIFIER_REQUESTID [:REGISTER_CLASSIFIER_OPERATIONID]
                                                                                      :CONTEXTS/CONTEXT_REPORT_REQUESTID      [:CONTEXT_REPORT_OPERATIONID]}}
-                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS+ENTITY_TYPE!CONTEXT"}}
+                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS+CONTEXT"}}
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS+FEDERATOR_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:CONTEXTS/RUN_FEDERATION_REQUESTID [:RUN_FEDERATION_OPERATIONID]}}
-                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS+ENTITY_TYPE!FEDERATOR"}}
+                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS+FEDERATOR"}}
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+INSTANTIATOR_INSTANTIATOR"
     :name             "CONTEXTS+FEDERATION_CONTEXT_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:CONTEXTS/ACQUIRE_REQUESTID [:FEDERATION_ACQUIRE_OPERATIONID]
                                                                                      :CONTEXTS/RELEASE_REQUESTID [:FEDERATION_RELEASE_OPERATIONID]}}
-                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS+ENTITY_TYPE!FEDERATION_CONTEXT"}}
+                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS+FEDERATION_CONTEXT"}}
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+CONTEXT_INSTANTIATOR"
@@ -180,12 +156,11 @@
     :name             "MAIN+SIMPLE_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:CONTEXTS/ADD_DESCRIPTOR_REQUESTID [:ADD_DESCRIPTOR_OPERATIONID]
                                                                                      :CONTEXTS/ADD_CLASSIFIER_REQUESTID [:ADD_CLASSIFIER_OPERATIONID]}}
-                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "MAIN+ENTITY_TYPE!SIMPLE"}}
+                       :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "MAIN+SIMPLE"}}
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+CLASSIFIER_VALUE_INSTANTIATOR"
-    :name             "MAIN+ENTITY_TYPE!SIMPLE"
-    :classifiers      {:CONTEXTS/VALUE_OF :CONTEXTS/ENTITY_TYPE}
+    :name             "MAIN+SIMPLE"
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "MAIN+SIMPLE_INSTANTIATOR"
@@ -205,8 +180,7 @@
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+CLASSIFIER_VALUE_INSTANTIATOR"
-    :name             "MAIN+APPLICATION!FIDDLING"
-    :classifiers      {:CONTEXTS/VALUE_OF :MAIN/APPLICATION}
+    :name             "MAIN+FIDDLING"
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+FEDERATOR_INSTANTIATOR"
@@ -224,7 +198,7 @@
                                                    {:target_requestid :CONTEXTS/ADD_CLASSIFIER_REQUESTID
                                                     :target_name      "MAIN+SIMPLE_1"
                                                     :classifier       :MAIN/APPLICATION
-                                                    :classifier-value :MAIN/APPLICATION!FIDDLING
+                                                    :classifier-value :MAIN/FIDDLING
                                                     }
                                                    {:target_requestid :CONTEXTS/ADD_DESCRIPTOR_REQUESTID
                                                     :target_name      "MAIN+SIMPLE_3"
@@ -234,7 +208,7 @@
                                                    {:target_requestid :CONTEXTS/ADD_CLASSIFIER_REQUESTID
                                                     :target_name      "MAIN+SIMPLE_3"
                                                     :classifier       :MAIN/APPLICATION
-                                                    :classifier-value :MAIN/APPLICATION!FIDDLING
+                                                    :classifier-value :MAIN/FIDDLING
                                                     }]}}
    {:target_requestid :CONTEXTS/RUN_FEDERATION_REQUESTID
     :target_name      "MAIN+FEDERATOR_1"
