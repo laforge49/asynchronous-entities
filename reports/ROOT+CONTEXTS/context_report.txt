@@ -1,6 +1,6 @@
 Context Report for ROOT+CONTEXTS
 
-1. Registered Entities of ROOT+CONTEXTS
+3. Registered Entities of context ROOT+CONTEXTS
 
 CONTEXTS+ACQUIRE_REQUESTID (invariant)
 CONTEXTS+ADD_CLASSIFIER_REQUESTID (invariant)
@@ -36,7 +36,7 @@ CONTEXTS+RUN_FEDERATION_REQUESTID (invariant)
 
 Number of entities: 31
 
-2. Classifier Values of ROOT+CONTEXTS
+4. Classifier Values of context ROOT+CONTEXTS
 
 classifier:    CONTEXTS+ENTITY_TYPE
      value:        CONTEXTS+CLASSIFIER

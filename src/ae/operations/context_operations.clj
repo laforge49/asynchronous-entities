@@ -254,13 +254,13 @@
           (let [this-name
                 (:NAME this-map)
                 file-name
-                (str "./reports/contexts/" this-name ".txt")
+                (str "./reports/" this-name "/context_report.txt")
                 heading
                 (str "Context Report for " this-name "\n\n")
                 report
                 (str heading
-                     (r/context-entities-report 1 this-name this-map)
-                     (r/context-classifiers-report 2 this-name))]
+                     (r/context-entities-report 3 this-name this-map)
+                     (r/context-classifier-values-report 4 this-name))]
             (io/make-parents file-name)
             (spit file-name report)
             (a/>! operation-return-port [this-map nil this-map]))

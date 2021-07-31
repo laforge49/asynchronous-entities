@@ -155,7 +155,8 @@
     :target_name      "CONTEXTS+INSTANTIATOR_INSTANTIATOR"
     :name             "MAIN+SIMPLE_INSTANTIATOR"
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:CONTEXTS/ADD_DESCRIPTOR_REQUESTID [:ADD_DESCRIPTOR_OPERATIONID]
-                                                                                     :CONTEXTS/ADD_CLASSIFIER_REQUESTID [:ADD_CLASSIFIER_OPERATIONID]}}
+                                                                                     :CONTEXTS/ADD_CLASSIFIER_REQUESTID [:ADD_CLASSIFIER_OPERATIONID]
+                                                                                     :CONTEXTS/ENTITY_REPORT_REQUESTID  [:ENTITY_REPORT_OPERATIONID]}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "MAIN+SIMPLE"}}
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
@@ -218,5 +219,8 @@
     }
    {:target_requestid :CONTEXTS/CONTEXT_REPORT_REQUESTID
     :target_name      "CONTEXTS+MAIN"
+    }
+   {:target_requestid :CONTEXTS/ENTITY_REPORT_REQUESTID
+    :target_name      "MAIN+SIMPLE_1"
     }
    ])

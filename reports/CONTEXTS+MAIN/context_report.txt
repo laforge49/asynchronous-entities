@@ -1,6 +1,6 @@
 Context Report for CONTEXTS+MAIN
 
-1. Registered Entities of CONTEXTS+MAIN
+3. Registered Entities of context CONTEXTS+MAIN
 
 MAIN+APPLICATION (invariant)
 MAIN+DEGREE_OF_POLISH (invariant)
@@ -14,7 +14,7 @@ MAIN+SIMPLE_INSTANTIATOR (invariant)
 
 Number of entities: 9
 
-2. Classifier Values of CONTEXTS+MAIN
+4. Classifier Values of context CONTEXTS+MAIN
 
 classifier:    CONTEXTS+ENTITY_TYPE
      value:        CONTEXTS+CLASSIFIER

@@ -25,11 +25,11 @@
                        "\n")))
           []
           sorted-names)]
-    (str n ". Registered Entities of " this-name "\n\n"
+    (str n ". Registered Entities of context " this-name "\n\n"
          (s/join lines) "\n"
          "Number of entities: " (count sorted-names) "\n\n")))
 
-(defn context-classifiers-report
+(defn context-classifier-values-report
   [n this-name]
   (let [registry
         (k/get-classifier-values-map this-name)
@@ -63,6 +63,6 @@
           (into (sorted-map) registry))
         classifiers
         (keys registry)]
-    (str n ". Classifier Values of " this-name "\n\n"
+    (str n ". Classifier Values of context " this-name "\n\n"
          (s/join lines) "\n"
          "Number of classifiers: " (count classifiers) "\n\n")))

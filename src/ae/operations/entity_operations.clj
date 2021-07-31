@@ -1,6 +1,7 @@
 (ns ae.operations.entity-operations
   (:require [clojure.core.async :as a]
             [clojure.string :as s]
+            [clojure.java.io :as io]
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
@@ -127,6 +128,33 @@
     (vswap! new-classifiers-voltile conj [this-name classifier classifier-value])
     [this-map this-map]))
 
+(defn create-entity-report-operation
+  [env]
+  (let [entity-report-port
+        (k/register-operation env {:operationid :ENTITY_REPORT_OPERATIONID})]
+    (a/go-loop []
+      (let [[env this-map params]
+            (a/<! entity-report-port)
+            operation-return-port
+            (:operation-return-port params)]
+        (try
+          (let [this-name
+                (:NAME this-map)
+                context-name
+                (k/entityContextName this-name)
+                file-name
+                (str "./reports/" context-name "/" this-name ".txt")
+                heading
+                (str "Entity Report for " this-name "\n\n")
+                report
+                (str heading)]
+            (io/make-parents file-name)
+            (spit file-name report)
+            (a/>! operation-return-port [this-map nil this-map]))
+          (catch Exception e
+            (a/>! operation-return-port [this-map e nil])))
+        (recur)))))
+
 (defn create-entity-operations
   [env]
   (create-instantiate-operation env)
@@ -134,4 +162,5 @@
                             :function    addDescriptorFunction})
   (k/register-function env {:operationid :ADD_CLASSIFIER_OPERATIONID
                             :function    addClassifierFunction})
+  (create-entity-report-operation env)
   )
