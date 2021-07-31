@@ -29,23 +29,10 @@
             this-map
             (assoc-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw] entity-public-request-port)
             classifiers
-            (:classifiers params)
-            this-map
-            (if (nil? classifiers)
-              this-map
-              (reduce
-                (fn [this-map [classifier classifier-value]]
-                  (let [names
-                        (get-in this-map [:CLASSIFIER-REGISTRY classifier classifier-value] [])
-                        i
-                        (s/index-of names name)
-                        _ (if (some? i)
-                            (throw (Exception. (str classifier-value " for " classifier " already registered for " name))))
-                        names
-                        (conj names name)]
-                    (assoc-in this-map [:CLASSIFIER-REGISTRY classifier classifier-value] names)))
-                this-map
-                classifiers))]
+            (:classifiers params)]
+        (if (some? classifiers)
+          (doseq [[classifier-kw classifier-value-kw] classifiers]
+            (k/add-classifier-value this-name name classifier-kw classifier-value-kw)))
         [this-map nil entity-public-request-port]))))
 
 (defn create-register-entity-operation
@@ -75,20 +62,13 @@
         (try
           (let [name
                 (:name params)
-                classifier
+                classifier-kw
                 (:classifier params)
-                classifier-value
+                classifier-value-kw
                 (:classifier-value params)
-                names
-                (get-in this-map [:CLASSIFIER-REGISTRY classifier classifier-value] [])
-                i
-                (s/index-of names name)
-                _ (if (some? i)
-                    (throw (Exception. (str classifier-value " for " classifier " already registered for " name))))
-                names
-                (conj names name)
-                this-map
-                (assoc-in this-map [:CLASSIFIER-REGISTRY classifier classifier-value] names)]
+                this-name
+                (:NAME this-map)]
+            (k/add-classifier-value this-name name classifier-kw classifier-value-kw)
             (a/>! operation-return-port [this-map nil this-map]))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))
@@ -287,9 +267,9 @@
          "Number of entities: " (count sorted-names) "\n\n")))
 
 (defn context-classifiers-report
-  [n this-name this-map]
+  [n this-name]
   (let [registry
-        (:CLASSIFIER-REGISTRY this-map)
+        (k/get-classifier-values-map this-name)
         lines
         (reduce
           (fn [lines [classifier-kw values-map]]
@@ -343,7 +323,7 @@
                 report
                 (str heading
                      (context-entities-report 1 this-name this-map)
-                     (context-classifiers-report 2 this-name this-map))]
+                     (context-classifiers-report 2 this-name))]
             (io/make-parents file-name)
             (spit file-name report)
             (a/>! operation-return-port [this-map nil this-map]))

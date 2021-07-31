@@ -4,6 +4,29 @@
             [clojure.stacktrace :as stacktrace]
             [ae.keywords :as kw]))
 
+(def classifier-values-map-atom
+  (atom {}))
+
+(defn get-classifier-values-map
+  [context-name]
+  (get @classifier-values-map-atom context-name))
+
+(defn add-classifier-value-
+  [classifier-values-map context-name entity-name classifier-kw classifier-value-kw]
+  (let [names
+        (get-in classifier-values-map [context-name classifier-kw classifier-value-kw] [])
+        i
+        (.indexOf names entity-name)
+        _ (if (> i -1)
+            (throw (Exception. (str classifier-value-kw " for " classifier-kw " already registered for " entity-name))))
+        names
+        (conj names entity-name)]
+    (assoc-in classifier-values-map [context-name classifier-kw classifier-value-kw] names)))
+
+(defn add-classifier-value
+  [context-kw entity-name classifier-name classifier-value-kw]
+  (swap! classifier-values-map-atom add-classifier-value- context-kw entity-name classifier-name classifier-value-kw))
+
 (def invariant-map-atom
   (atom {}))
 
