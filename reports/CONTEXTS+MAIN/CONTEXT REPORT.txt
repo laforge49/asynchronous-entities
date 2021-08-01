@@ -1,5 +1,7 @@
 Context Report for CONTEXTS+MAIN
 
+1. Classifiers of entity CONTEXTS+MAIN
+
 3. Registered Entities of context CONTEXTS+MAIN
 
 MAIN+APPLICATION (invariant)

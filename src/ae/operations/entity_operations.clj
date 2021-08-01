@@ -2,6 +2,7 @@
   (:require [clojure.core.async :as a]
             [clojure.string :as s]
             [clojure.java.io :as io]
+            [ae.operations.reports :as r]
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
@@ -147,7 +148,8 @@
                 heading
                 (str "Entity Report for " this-name "\n\n")
                 report
-                (str heading)]
+                (str heading
+                     (r/classifier-report 1 this-name this-map))]
             (io/make-parents file-name)
             (spit file-name report)
             (a/>! operation-return-port [this-map nil this-map]))

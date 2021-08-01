@@ -3,6 +3,11 @@
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
+(defn classifier-report
+  [n this-name this-map]
+  (let []
+    (str n ". Classifiers of entity " this-name "\n\n")))
+
 (defn context-entities-report
   [n this-name this-map]
   (let [entities
