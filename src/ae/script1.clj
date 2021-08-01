@@ -131,7 +131,7 @@
     :descriptors      {:CONTEXTS/INSTANTIATION_DESCRIPTORS {:CONTEXTS/REQUESTID_MAP {:CONTEXTS/REGISTER_ENTITY_REQUESTID     [:REGISTER_ENTITY_OPERATIONID]
                                                                                      :CONTEXTS/ROUTE_REQUESTID               [:ROUTE_OPERATIONID]
                                                                                      :CONTEXTS/REGISTER_CLASSIFIER_REQUESTID [:REGISTER_CLASSIFIER_OPERATIONID]
-                                                                                     :CONTEXTS/CONTEXT_REPORT_REQUESTID      [:CONTEXT_REPORT_OPERATIONID]}}
+                                                                                     :CONTEXTS/ENTITY_REPORT_REQUESTID       [:CONTEXT_REPORT_OPERATIONID]}}
                        :CONTEXTS/INSTANTIATION_CLASSIFIERS {:CONTEXTS/ENTITY_TYPE "CONTEXTS+CONTEXT"}}
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
@@ -214,10 +214,10 @@
    {:target_requestid :CONTEXTS/RUN_FEDERATION_REQUESTID
     :target_name      "MAIN+FEDERATOR_1"
     }
-   {:target_requestid :CONTEXTS/CONTEXT_REPORT_REQUESTID
+   {:target_requestid :CONTEXTS/ENTITY_REPORT_REQUESTID
     :target_name      "ROOT+CONTEXTS"
     }
-   {:target_requestid :CONTEXTS/CONTEXT_REPORT_REQUESTID
+   {:target_requestid :CONTEXTS/ENTITY_REPORT_REQUESTID
     :target_name      "CONTEXTS+MAIN"
     }
    {:target_requestid :CONTEXTS/ENTITY_REPORT_REQUESTID

@@ -3,6 +3,34 @@
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
+(defn descriptor-report
+  [n this-name this-map]
+  (let [descriptors
+        (keys (:DESCRIPTORS this-map))
+        sorted-names
+        (reduce
+          (fn [sorted-names descriptor-kw]
+            (let [[name context-base-name base-name]
+                  (kw/keyword-as-name descriptor-kw)]
+              (conj sorted-names name)))
+          (sorted-set)
+          descriptors)
+        lines
+        (reduce
+          (fn [lines name]
+            (let [[name-kw context-base-name base-name]
+                  (kw/name-as-keyword name)]
+              (conj lines (str name " = " (prn-str (get-in this-map [:DESCRIPTORS name-kw]))))))
+          []
+          sorted-names)
+        nbr
+        (count sorted-names)]
+    (str n ". Descriptors of entity " this-name "\n\n"
+         (s/join lines)
+         (if (> nbr 0)
+           "\n")
+         "Number of descriptors: " nbr "\n\n")))
+
 (defn classifier-report
   [n this-name this-map]
   (let [classifiers

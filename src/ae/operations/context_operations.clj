@@ -260,10 +260,16 @@
                 report
                 (str heading
                      (r/classifier-report 1 this-name this-map)
+                     (r/descriptor-report 2 this-name this-map)
                      (r/context-entities-report 3 this-name this-map)
-                     (r/context-classifier-values-report 4 this-name))]
+                     (r/context-classifier-values-report 4 this-name))
+                entity-kws
+                (keys (:ENTITY-PUBLIC-REQUEST-PORTS this-map))]
             (io/make-parents file-name)
             (spit file-name report)
+            (doseq [entity-kw entity-kws]
+              (let []
+                ))
             (a/>! operation-return-port [this-map nil this-map]))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil])))
