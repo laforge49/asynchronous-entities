@@ -199,7 +199,7 @@
                                                    {:target_requestid :CONTEXTS/ADD_CLASSIFIER_REQUESTID
                                                     :target_name      "MAIN+SIMPLE_1"
                                                     :classifier       :MAIN/APPLICATION
-                                                    :classifier-value :MAIN/FIDDLING
+                                                    :classifier-value "MAIN+FIDDLING"
                                                     }
                                                    {:target_requestid :CONTEXTS/ADD_DESCRIPTOR_REQUESTID
                                                     :target_name      "MAIN+SIMPLE_3"
@@ -209,7 +209,7 @@
                                                    {:target_requestid :CONTEXTS/ADD_CLASSIFIER_REQUESTID
                                                     :target_name      "MAIN+SIMPLE_3"
                                                     :classifier       :MAIN/APPLICATION
-                                                    :classifier-value :MAIN/FIDDLING
+                                                    :classifier-value "MAIN+FIDDLING"
                                                     }]}}
    {:target_requestid :CONTEXTS/RUN_FEDERATION_REQUESTID
     :target_name      "MAIN+FEDERATOR_1"

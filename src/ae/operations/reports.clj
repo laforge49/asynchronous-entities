@@ -5,8 +5,31 @@
 
 (defn classifier-report
   [n this-name this-map]
-  (let []
-    (str n ". Classifiers of entity " this-name "\n\n")))
+  (let [classifiers
+        (keys (:CLASSIFIERS this-map))
+        sorted-names
+        (reduce
+          (fn [sorted-names classifier-kw]
+            (let [[name context-base-name base-name]
+                  (kw/keyword-as-name classifier-kw)]
+              (conj sorted-names name)))
+          (sorted-set)
+          classifiers)
+        lines
+        (reduce
+          (fn [lines name]
+            (let [[name-kw context-base-name base-name]
+                  (kw/name-as-keyword name)]
+              (conj lines (str name " = " (get-in this-map [:CLASSIFIERS name-kw]) "\n"))))
+          []
+          sorted-names)
+        nbr
+        (count sorted-names)]
+    (str n ". Classifiers of entity " this-name "\n\n"
+         (s/join lines)
+         (if (> nbr 0)
+           "\n")
+         "Number of classifiers: " nbr "\n\n")))
 
 (defn context-entities-report
   [n this-name this-map]

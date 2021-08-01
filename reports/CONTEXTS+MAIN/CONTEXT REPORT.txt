@@ -2,6 +2,10 @@ Context Report for CONTEXTS+MAIN
 
 1. Classifiers of entity CONTEXTS+MAIN
 
+CONTEXTS+ENTITY_TYPE = CONTEXTS+CONTEXT
+
+Number of classifiers: 1
+
 3. Registered Entities of context CONTEXTS+MAIN
 
 MAIN+APPLICATION (invariant)
@@ -35,7 +39,7 @@ classifier:    CONTEXTS+ENTITY_TYPE
     entity:            MAIN+SIMPLE_2
     entity:            MAIN+SIMPLE_3
 classifier:    MAIN+APPLICATION
-     value:        :MAIN/FIDDLING
+     value:        MAIN+FIDDLING
     entity:            MAIN+SIMPLE_1
     entity:            MAIN+SIMPLE_3
 

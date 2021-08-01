@@ -2,6 +2,8 @@ Context Report for ROOT+CONTEXTS
 
 1. Classifiers of entity ROOT+CONTEXTS
 
+Number of classifiers: 0
+
 3. Registered Entities of context ROOT+CONTEXTS
 
 CONTEXTS+ACQUIRE_REQUESTID (invariant)
