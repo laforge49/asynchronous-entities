@@ -278,18 +278,15 @@
                                (:port operationid-submap)
                                operation-goblock
                                (:goblock operationid-submap)
-                               operation-return-value
-                               (if (some? operation-port)
-                                 (do
+                               - (if (some? operation-port)
                                    (a/>! operation-port [env target-map params])
-                                   (a/<! operation-return-port))
-                                 (if (some? operation-goblock)
-                                   (do
+                                   (if (some? operation-goblock)
                                      (operation-goblock env target-map params)
-                                     (a/<! operation-return-port))
-                                   (throw (Exception. (str "Operationid-submap is empty\n"
-                                                           (prn-str params)
-                                                           (prn-str target-map))))))
+                                     (throw (Exception. (str "Operationid-submap is empty\n"
+                                                             (prn-str params)
+                                                             (prn-str target-map))))))
+                               operation-return-value
+                               (a/<! operation-return-port)
                                _ (if (not (vector? operation-return-value))
                                    (throw (Exception. (str "Operation return value is not a vector\n"
                                                            (prn-str operation-return-value)
