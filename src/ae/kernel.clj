@@ -67,7 +67,7 @@
         (:operationid params)
         function
         (:function params)]
-    (swap! operationid-map-atom assoc operationid [nil function])))
+    (swap! operationid-map-atom assoc operationid {:function function})))
 
 (defn register-operation
   [env params]
@@ -77,7 +77,7 @@
         (:function params)
         port
         (a/chan)]
-    (swap! operationid-map-atom assoc operationid [port function])
+    (swap! operationid-map-atom assoc operationid {:port port :function function})
     port))
 
 (defn request-exception-check
@@ -174,7 +174,7 @@
         operationid
         (targetOperationid env target-map params)
         fun
-        (second (operationid @operationid-map-atom))
+        (:function (operationid @operationid-map-atom))
         _ (if (nil? fun)
             (throw (Exception. (str "Operationid " operationid " has no function\n"
                                     (prn-str params)
@@ -266,7 +266,7 @@
                          (let [operationid
                                (targetOperationid env target-map params)
                                operation-port
-                               (first (operationid @operationid-map-atom))
+                               (:port (operationid @operationid-map-atom))
                                _ (if (nil? operation-port)
                                    (throw (Exception. (str "Operation port is nil\n"
                                                            (prn-str params)
