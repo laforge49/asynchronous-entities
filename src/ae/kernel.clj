@@ -267,16 +267,18 @@
                                (targetOperationid env target-map params)
                                operation-return-port
                                (a/chan)
+                               params
+                               (assoc params :operation-return-port operation-return-port)
                                operation-port
                                (:port (operationid @operationid-map-atom))
                                operation-return-value
-                               (if (nil? operation-port)
+                               (if (some? operation-port)
+                                 (do
+                                   (a/>! operation-port [env target-map params])
+                                   (a/<! operation-return-port))
                                  (throw (Exception. (str "Operation port is nil\n"
                                                          (prn-str params)
-                                                         (prn-str target-map))))
-                                 (do
-                                   (a/>! operation-port [env target-map (assoc params :operation-return-port operation-return-port)])
-                                   (a/<! operation-return-port)))
+                                                         (prn-str target-map)))))
                                _ (if (not (vector? operation-return-value))
                                    (throw (Exception. (str "Operation return value is not a vector\n"
                                                            (prn-str operation-return-value)
