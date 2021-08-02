@@ -22,10 +22,9 @@ MAIN+FIDDLING (invariant)
 MAIN+SIMPLE (invariant)
 MAIN+SIMPLE_1
 MAIN+SIMPLE_2
-MAIN+SIMPLE_3
 MAIN+SIMPLE_INSTANTIATOR (invariant)
 
-Number of entities: 9
+Number of entities: 8
 
 4. Classifier Values of context CONTEXTS+MAIN
 
@@ -44,11 +43,6 @@ classifier:    CONTEXTS+ENTITY_TYPE
      value:        MAIN+SIMPLE
     entity:            MAIN+SIMPLE_1
     entity:            MAIN+SIMPLE_2
-    entity:            MAIN+SIMPLE_3
-classifier:    MAIN+APPLICATION
-     value:        MAIN+FIDDLING
-    entity:            MAIN+SIMPLE_1
-    entity:            MAIN+SIMPLE_3
 
-Number of classifiers: 2
+Number of classifiers: 1
 

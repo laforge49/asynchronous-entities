@@ -263,14 +263,22 @@
                      (r/descriptor-report 2 this-name this-map)
                      (r/context-entities-report 3 this-name this-map)
                      (r/context-classifier-values-report 4 this-name))
-                entity-kws
-                (keys (:ENTITY-PUBLIC-REQUEST-PORTS this-map))]
+                entity-ports
+                (:ENTITY-PUBLIC-REQUEST-PORTS this-map)]
             (io/make-parents file-name)
             (spit file-name report)
-            (doseq [entity-kw entity-kws]
-              (let []
-                ))
-            (a/>! operation-return-port [this-map nil this-map]))
+            (doseq [[entity-kw entity-port] entity-ports]
+              (let [subrequest-return-port
+                    (a/chan)]
+                (a/>! entity-port [env {:requestid   :CONTEXTS/ENTITY_REPORT_REQUESTID
+                                        :return_port subrequest-return-port}])
+                (println 11111111 entity-kw)
+                (k/request-exception-check (a/<! subrequest-return-port))
+                (println 22222222)
+                )
+              )
+            (a/>! operation-return-port [this-map nil this-map])
+            )
           (catch Exception e
             (a/>! operation-return-port [this-map e nil])))
         (recur)))))

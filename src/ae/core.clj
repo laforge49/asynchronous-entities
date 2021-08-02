@@ -100,12 +100,12 @@
                                                    :return_port      return-port4}])
                 simple2-snap
                 (k/request-exception-check (a/<! return-port4))
-                _ (a/>! context-request-port [env {:requestid        :CONTEXTS/ROUTE_REQUESTID
+                #_ (a/>! context-request-port [env {:requestid        :CONTEXTS/ROUTE_REQUESTID
                                                    :target_requestid :SNAPSHOT
                                                    :target_name      "MAIN+SIMPLE_3"
                                                    :return_port      return-port4}])
-                simple3-snap
-                (k/request-exception-check (a/<! return-port4))
+                ;simple3-snap
+                ;(k/request-exception-check (a/<! return-port4))
                 _ (a/>! context-request-port [env {:requestid        :CONTEXTS/ROUTE_REQUESTID
                                                    :target_requestid :SNAPSHOT
                                                    :target_name      "MAIN+FEDERATOR_1"
@@ -122,7 +122,7 @@
                                  simple-prototype-snap
                                  simple1-snap
                                  simple2-snap
-                                 simple3-snap
+                                 ;simple3-snap
                                  federator1-snap
                                  ]]))
           (catch Exception e
