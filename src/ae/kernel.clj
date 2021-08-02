@@ -11,6 +11,10 @@
   [context-name]
   (get @classifier-values-map-atom context-name))
 
+(defn classifier-name?
+  [name]
+  (some? (get-classifier-values-map name)))
+
 (defn add-classifier-value-
   [classifier-values-map context-name entity-name classifier-kw classifier-value-kw]
   (let [names
