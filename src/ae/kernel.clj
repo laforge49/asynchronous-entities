@@ -265,14 +265,14 @@
                          ;;DEFAULT
                          (let [operationid
                                (targetOperationid env target-map params)
+                               operation-return-port
+                               (a/chan)
                                operation-port
                                (:port (operationid @operationid-map-atom))
                                _ (if (nil? operation-port)
                                    (throw (Exception. (str "Operation port is nil\n"
                                                            (prn-str params)
                                                            (prn-str target-map)))))
-                               operation-return-port
-                               (a/chan)
                                _ (a/>! operation-port [env target-map (assoc params :operation-return-port operation-return-port)])
                                operation-return-value
                                (a/<! operation-return-port)
