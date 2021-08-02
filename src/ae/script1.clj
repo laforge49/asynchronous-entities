@@ -218,7 +218,7 @@
                                                     :classifier       :MAIN/APPLICATION
                                                     :classifier-value "MAIN+FIDDLING"
                                                     }]}}
-   #_{:target_requestid :CONTEXTS/RUN_FEDERATION_REQUESTID
+   {:target_requestid :CONTEXTS/RUN_FEDERATION_REQUESTID
       :target_name      "MAIN+FEDERATOR_1"
       }
    {:target_requestid :CONTEXTS/ENTITY_REPORT_REQUESTID

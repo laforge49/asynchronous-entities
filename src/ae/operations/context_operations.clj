@@ -273,9 +273,7 @@
                       (a/chan)]
                   (a/>! entity-port [env {:requestid   :CONTEXTS/ENTITY_REPORT_REQUESTID
                                           :return_port subrequest-return-port}])
-                  (println 11111111 entity-kw)
                   (k/request-exception-check (a/<! subrequest-return-port))
-                  (println 22222222)
                   ))
               )
             (a/>! operation-return-port [this-map nil this-map])
