@@ -16,6 +16,7 @@ Number of descriptors: 2
 3. Registered Entities of context CONTEXTS+MAIN
 
 MAIN+APPLICATION
+MAIN+BASIC
 MAIN+DEGREE_OF_POLISH
 MAIN+FEDERATOR_1
 MAIN+FIDDLING
@@ -25,13 +26,14 @@ MAIN+SIMPLE_2
 MAIN+SIMPLE_3
 MAIN+SIMPLE_INSTANTIATOR
 
-Number of entities: 9
+Number of entities: 10
 
 4. Classifier Values of context CONTEXTS+MAIN
 
 classifier:    CONTEXTS+ENTITY_TYPE
      value:        CONTEXTS+CLASSIFIER
     entity:            MAIN+APPLICATION
+    entity:            MAIN+BASIC
      value:        CONTEXTS+CLASSIFIER_VALUE
     entity:            MAIN+FIDDLING
     entity:            MAIN+SIMPLE
@@ -49,6 +51,9 @@ classifier:    MAIN+APPLICATION
      value:        MAIN+FIDDLING
     entity:            MAIN+SIMPLE_1
     entity:            MAIN+SIMPLE_3
+classifier:    MAIN+BASIC
+     value:        MAIN+SIMPLE_1
+    entity:            MAIN+SIMPLE_3
 
-Number of classifiers: 2
+Number of classifiers: 3
 

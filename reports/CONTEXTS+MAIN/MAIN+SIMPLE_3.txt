@@ -4,8 +4,9 @@ Entity Report for MAIN+SIMPLE_3
 
 CONTEXTS+ENTITY_TYPE = MAIN+SIMPLE
 MAIN+APPLICATION = MAIN+FIDDLING
+MAIN+BASIC = MAIN+SIMPLE_1
 
-Number of classifiers: 2
+Number of classifiers: 3
 
 2. Descriptors of entity MAIN+SIMPLE_3
 

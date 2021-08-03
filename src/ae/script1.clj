@@ -178,9 +178,18 @@
     :target_name      "MAIN+SIMPLE_INSTANTIATOR"
     :name             "MAIN+SIMPLE_2"
     }
+   #_ {:target_requestid :CONTEXTS/ADD_CLASSIFIER_REQUESTID
+    :target_name      "MAIN+SIMPLE_2"
+    :classifier       :MAIN/BASIC
+    :classifier-value "MAIN+SIMPLE_1"
+    }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+DESCRIPTOR_INSTANTIATOR"
     :name             "MAIN+DEGREE_OF_POLISH"
+    }
+   {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
+    :target_name      "CONTEXTS+CLASSIFIER_INSTANTIATOR"
+    :name             "MAIN+BASIC"
     }
    {:target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
     :target_name      "CONTEXTS+CLASSIFIER_INSTANTIATOR"
@@ -215,9 +224,15 @@
                                                     }
                                                    {:target_requestid :CONTEXTS/ADD_CLASSIFIER_REQUESTID
                                                     :target_name      "MAIN+SIMPLE_3"
+                                                    :classifier       :MAIN/BASIC
+                                                    :classifier-value "MAIN+SIMPLE_1"
+                                                    }
+                                                   {:target_requestid :CONTEXTS/ADD_CLASSIFIER_REQUESTID
+                                                    :target_name      "MAIN+SIMPLE_3"
                                                     :classifier       :MAIN/APPLICATION
                                                     :classifier-value "MAIN+FIDDLING"
-                                                    }]}}
+                                                    }
+                                                   ]}}
    {:target_requestid :CONTEXTS/RUN_FEDERATION_REQUESTID
       :target_name      "MAIN+FEDERATOR_1"
       }
