@@ -76,8 +76,6 @@
           (fn [lines name]
             (conj lines
                   (str name
-                       (if (some? (k/get-invariant-map name))
-                         " (invariant)")
                        "\n")))
           []
           sorted-names)]
