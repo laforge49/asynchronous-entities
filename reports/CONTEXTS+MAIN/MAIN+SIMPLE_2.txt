@@ -2,7 +2,7 @@ Entity Report for MAIN+SIMPLE_2
 
 1. Classifiers of entity MAIN+SIMPLE_2
 
-CONTEXTS+ENTITY_TYPE = MAIN+SIMPLE
+CONTEXTS+ENTITY_TYPE = +SIMPLE
 
 Number of classifiers: 1
 

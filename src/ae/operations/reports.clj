@@ -5,22 +5,28 @@
 
 (defn descriptor-report
   [n this-name this-map]
-  (let [descriptors
+  (let [[this-name-kw this-context-base-name this-base-name]
+        (kw/name-as-keyword this-name)
+        descriptors
         (keys (:DESCRIPTORS this-map))
         sorted-names
         (reduce
           (fn [sorted-names descriptor-kw]
             (let [[name context-base-name base-name]
-                  (kw/keyword-as-name descriptor-kw)]
-              (conj sorted-names name)))
+                  (kw/keyword-as-name descriptor-kw)
+                  name2
+                  (if (= this-context-base-name context-base-name)
+                    [(str "+" base-name) name]
+                    [name name])]
+              (conj sorted-names name2)))
           (sorted-set)
           descriptors)
         lines
         (reduce
-          (fn [lines name]
+          (fn [lines [short-name name]]
             (let [[name-kw context-base-name base-name]
                   (kw/name-as-keyword name)]
-              (conj lines (str name " = " (prn-str (get-in this-map [:DESCRIPTORS name-kw]))))))
+              (conj lines (str short-name " = " (prn-str (get-in this-map [:DESCRIPTORS name-kw]))))))
           []
           sorted-names)
         nbr
@@ -33,22 +39,36 @@
 
 (defn classifier-report
   [n this-name this-map]
-  (let [classifiers
+  (let [[this-name-kw this-context-base-name this-base-name]
+        (kw/name-as-keyword this-name)
+        classifiers
         (keys (:CLASSIFIERS this-map))
         sorted-names
         (reduce
           (fn [sorted-names classifier-kw]
             (let [[name context-base-name base-name]
-                  (kw/keyword-as-name classifier-kw)]
-              (conj sorted-names name)))
+                  (kw/keyword-as-name classifier-kw)
+                  name2
+                  (if (= this-context-base-name context-base-name)
+                    [(str "+" base-name) name]
+                    [name name])]
+              (conj sorted-names name2)))
           (sorted-set)
           classifiers)
         lines
         (reduce
-          (fn [lines name]
+          (fn [lines [short-name name]]
             (let [[name-kw context-base-name base-name]
-                  (kw/name-as-keyword name)]
-              (conj lines (str name " = " (get-in this-map [:CLASSIFIERS name-kw]) "\n"))))
+                  (kw/name-as-keyword name)
+                  value
+                  (get-in this-map [:CLASSIFIERS name-kw])
+                  [value-kw context-base-name base-name]
+                  (kw/name-as-keyword value)
+                  short-value
+                  (if (= this-context-base-name context-base-name)
+                    (str "+" base-name)
+                    value)]
+              (conj lines (str short-name " = " short-value "\n"))))
           []
           sorted-names)
         nbr

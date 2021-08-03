@@ -75,7 +75,7 @@ classifier:    CONTEXTS+ENTITY_TYPE
     entity:            CONTEXTS+FEDERATOR_INSTANTIATOR
     entity:            CONTEXTS+INSTANTIATOR_INSTANTIATOR
     entity:            CONTEXTS+REQUESTID_INSTANTIATOR
-     value:        CONTEXTSREQUESTID
+     value:        CONTEXTS+REQUESTID
     entity:            CONTEXTS+ACQUIRE_REQUESTID
     entity:            CONTEXTS+ADD_CLASSIFIER_REQUESTID
     entity:            CONTEXTS+ADD_DESCRIPTOR_REQUESTID
