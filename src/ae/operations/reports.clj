@@ -81,21 +81,27 @@
 
 (defn context-entities-report
   [n this-name this-map]
-  (let [entities
+  (let [[this-name-kw this-context-base-name this-base-name]
+        (kw/name-as-keyword this-name)
+        entities
         (keys (:ENTITY-PUBLIC-REQUEST-PORTS this-map))
         sorted-names
         (reduce
           (fn [sorted-names entity-kw]
             (let [[name context-base-name base-name]
-                  (kw/keyword-as-name entity-kw)]
-              (conj sorted-names name)))
+                  (kw/keyword-as-name entity-kw)
+                  short-name
+                  (if (= this-base-name context-base-name)
+                    (str "+" base-name)
+                    name)]
+              (conj sorted-names short-name)))
           (sorted-set)
           entities)
         lines
         (reduce
-          (fn [lines name]
+          (fn [lines short-name]
             (conj lines
-                  (str name
+                  (str short-name
                        "\n")))
           []
           sorted-names)]
