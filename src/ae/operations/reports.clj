@@ -105,17 +105,7 @@
         classifier-names
         (keys classifier-registry)
         sorted-classifier-name2s
-        (reduce
-          (fn [sorted-classifier-name2s classifier-kw]
-            (let [[name context-base-name base-name]
-                  (kw/keyword-as-name classifier-kw)
-                  name2
-                  (if (= this-base-name context-base-name)
-                    [(str "+" base-name) name]
-                    [name name])]
-              (conj sorted-classifier-name2s name2)))
-          (sorted-set)
-          classifier-names)
+        (short-names classifier-names this-base-name)
         lines
         (reduce
           (fn [lines [short-classifier-name classifier-name]]
