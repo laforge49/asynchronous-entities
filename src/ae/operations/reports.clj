@@ -38,49 +38,6 @@
            "\n")
          "Number of descriptors: " nbr "\n\n")))
 
-(defn classifier-report
-  [n this-name this-map]
-  (let [[this-name-kw this-context-base-name this-base-name]
-        (kw/name-as-keyword this-name)
-        classifiers
-        (keys (:CLASSIFIERS this-map))
-        sorted-names
-        (reduce
-          (fn [sorted-names classifier-kw]
-            (let [[name context-base-name base-name]
-                  (kw/keyword-as-name classifier-kw)
-                  name2
-                  (if (= this-context-base-name context-base-name)
-                    [(str "+" base-name) name]
-                    [name name])]
-              (conj sorted-names name2)))
-          (sorted-set)
-          classifiers)
-        lines
-        (reduce
-          (fn [lines [short-name name]]
-            (let [[name-kw context-base-name base-name]
-                  (kw/name-as-keyword name)
-                  value
-                  (get-in this-map [:CLASSIFIERS name-kw])
-                  [value-kw context-base-name base-name]
-                  (kw/name-as-keyword value)
-                  short-value
-                  (if (= this-context-base-name context-base-name)
-                    (str "+" base-name)
-                    value)]
-              (conj lines (str short-name " = " short-value "\n"))))
-          []
-          sorted-names)
-        nbr
-        (count sorted-names)]
-    (str n ". Classifiers of entity " this-name "\n"
-         "(Default context is " this-context-base-name ".)\n\n"
-         (s/join lines)
-         (if (> nbr 0)
-           "\n")
-         "Number of classifiers: " nbr "\n\n")))
-
 (defn context-entities-report
   [n this-name this-map]
   (let [[this-name-kw this-context-base-name this-base-name]
@@ -112,9 +69,54 @@
          (s/join lines) "\n"
          "Number of entities: " (count sorted-names) "\n\n")))
 
+(defn classifier-report
+  [n this-name this-map]
+  (let [[this-name-kw this-context-base-name this-base-name]
+        (kw/name-as-keyword this-name)
+        classifiers
+        (keys (:CLASSIFIERS this-map))
+        sorted-classifier-name2s
+        (reduce
+          (fn [sorted-classifier-name2s classifier-kw]
+            (let [[name context-base-name base-name]
+                  (kw/keyword-as-name classifier-kw)
+                  name2
+                  (if (= this-context-base-name context-base-name)
+                    [(str "+" base-name) name]
+                    [name name])]
+              (conj sorted-classifier-name2s name2)))
+          (sorted-set)
+          classifiers)
+        lines
+        (reduce
+          (fn [lines [short-name name]]
+            (let [[name-kw context-base-name base-name]
+                  (kw/name-as-keyword name)
+                  value
+                  (get-in this-map [:CLASSIFIERS name-kw])
+                  [value-kw context-base-name base-name]
+                  (kw/name-as-keyword value)
+                  short-value
+                  (if (= this-context-base-name context-base-name)
+                    (str "+" base-name)
+                    value)]
+              (conj lines (str short-name " = " short-value "\n"))))
+          []
+          sorted-classifier-name2s)
+        nbr
+        (count sorted-classifier-name2s)]
+    (str n ". Classifiers of entity " this-name "\n"
+         "(Default context is " this-context-base-name ".)\n\n"
+         (s/join lines)
+         (if (> nbr 0)
+           "\n")
+         "Number of classifiers: " nbr "\n\n")))
+
 (defn context-classifier-values-report
   [n this-name]
-  (let [registry
+  (let [[this-name-kw this-context-base-name this-base-name]
+        (kw/name-as-keyword this-name)
+        registry
         (k/get-classifier-values-map this-name)
         lines
         (reduce
@@ -146,6 +148,7 @@
           (into (sorted-map) registry))
         classifiers
         (keys registry)]
-    (str n ". Classifier Values of context " this-name "\n\n"
+    (str n ". Classifier Values of context " this-name "\n"
+         "(Default context is " this-base-name ".)\n\n"
          (s/join lines) "\n"
          "Number of classifiers: " (count classifiers) "\n\n")))

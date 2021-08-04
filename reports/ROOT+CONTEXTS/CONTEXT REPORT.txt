@@ -50,6 +50,7 @@ Number of descriptors: 1
 Number of entities: 31
 
 4. Classifier Values of context ROOT+CONTEXTS
+(Default context is CONTEXTS.)
 
 classifier:    CONTEXTS+ENTITY_TYPE
      value:        CONTEXTS+CLASSIFIER
