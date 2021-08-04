@@ -57,7 +57,8 @@
         descriptors
         (keys (:DESCRIPTORS this-map))
         sorted-names
-        (reduce
+        (short-names descriptors this-context-base-name)
+        #_ (reduce
           (fn [sorted-names descriptor-kw]
             (let [[name context-base-name base-name]
                   (kw/keyword-as-name descriptor-kw)
