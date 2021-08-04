@@ -58,17 +58,6 @@
         (keys (:DESCRIPTORS this-map))
         sorted-names
         (short-names descriptors this-context-base-name)
-        #_ (reduce
-          (fn [sorted-names descriptor-kw]
-            (let [[name context-base-name base-name]
-                  (kw/keyword-as-name descriptor-kw)
-                  name2
-                  (if (= this-context-base-name context-base-name)
-                    [(str "+" base-name) name]
-                    [name name])]
-              (conj sorted-names name2)))
-          (sorted-set)
-          descriptors)
         lines
         (reduce
           (fn [lines [short-name name]]
@@ -93,22 +82,12 @@
         entities
         (keys (:ENTITY-PUBLIC-REQUEST-PORTS this-map))
         sorted-names
-        (reduce
-          (fn [sorted-names entity-kw]
-            (let [[name context-base-name base-name]
-                  (kw/keyword-as-name entity-kw)
-                  short-name
-                  (if (= this-base-name context-base-name)
-                    (str "+" base-name)
-                    name)]
-              (conj sorted-names short-name)))
-          (sorted-set)
-          entities)
+        (short-names entities this-base-name)
         lines
         (reduce
           (fn [lines short-name]
             (conj lines
-                  (str short-name
+                  (str (first short-name)
                        "\n")))
           []
           sorted-names)]
@@ -116,49 +95,6 @@
          "(Default context is " this-base-name ".)\n\n"
          (s/join lines) "\n"
          "Number of entities: " (count sorted-names) "\n\n")))
-
-(defn classifier-report
-  [n this-name this-map]
-  (let [[this-name-kw this-context-base-name this-base-name]
-        (kw/name-as-keyword this-name)
-        classifiers
-        (keys (:CLASSIFIERS this-map))
-        sorted-classifier-name2s
-        (reduce
-          (fn [sorted-classifier-name2s classifier-kw]
-            (let [[name context-base-name base-name]
-                  (kw/keyword-as-name classifier-kw)
-                  name2
-                  (if (= this-context-base-name context-base-name)
-                    [(str "+" base-name) name]
-                    [name name])]
-              (conj sorted-classifier-name2s name2)))
-          (sorted-set)
-          classifiers)
-        lines
-        (reduce
-          (fn [lines [short-name name]]
-            (let [[name-kw context-base-name base-name]
-                  (kw/name-as-keyword name)
-                  value
-                  (get-in this-map [:CLASSIFIERS name-kw])
-                  [value-kw context-base-name base-name]
-                  (kw/name-as-keyword value)
-                  short-value
-                  (if (= this-context-base-name context-base-name)
-                    (str "+" base-name)
-                    value)]
-              (conj lines (str short-name " = " short-value "\n"))))
-          []
-          sorted-classifier-name2s)
-        nbr
-        (count sorted-classifier-name2s)]
-    (str n ". Classifiers of entity " this-name "\n"
-         "(Default context is " this-context-base-name ".)\n\n"
-         (s/join lines)
-         (if (> nbr 0)
-           "\n")
-         "Number of classifiers: " nbr "\n\n")))
 
 (defn context-classifier-values-report
   [n this-name]
