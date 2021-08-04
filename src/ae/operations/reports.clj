@@ -116,8 +116,22 @@
   [n this-name]
   (let [[this-name-kw this-context-base-name this-base-name]
         (kw/name-as-keyword this-name)
-        registry
+        classifier-registry
         (k/get-classifier-values-map this-name)
+        classifiers
+        (keys (:CLASSIFIERS classifier-registry))
+        sorted-classifier-name2s
+        (reduce
+          (fn [sorted-classifier-name2s classifier-kw]
+            (let [[name context-base-name base-name]
+                  (kw/keyword-as-name classifier-kw)
+                  name2
+                  (if (= this-context-base-name context-base-name)
+                    [(str "+" base-name) name]
+                    [name name])]
+              (conj sorted-classifier-name2s name2)))
+          (sorted-set)
+          classifiers)
         lines
         (reduce
           (fn [lines [classifier-kw values-map]]
@@ -145,9 +159,9 @@
                     (into (sorted-map) values-map))]
               lines))
           []
-          (into (sorted-map) registry))
+          (into (sorted-map) classifier-registry))
         classifiers
-        (keys registry)]
+        (keys classifier-registry)]
     (str n ". Classifier Values of context " this-name "\n"
          "(Default context is " this-base-name ".)\n\n"
          (s/join lines) "\n"
