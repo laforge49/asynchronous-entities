@@ -34,6 +34,13 @@ Number of entities: 10
 4. Classifier Values of context CONTEXTS+MAIN
 (Default context is MAIN.)
 
+classifier:    +APPLICATION
+     value:        MAIN+FIDDLING
+    entity:            MAIN+SIMPLE_1
+    entity:            MAIN+SIMPLE_3
+classifier:    +BASIC
+     value:        MAIN+SIMPLE_1
+    entity:            MAIN+SIMPLE_3
 classifier:    CONTEXTS+ENTITY_TYPE
      value:        CONTEXTS+CLASSIFIER
     entity:            MAIN+APPLICATION
@@ -50,13 +57,6 @@ classifier:    CONTEXTS+ENTITY_TYPE
      value:        MAIN+SIMPLE
     entity:            MAIN+SIMPLE_1
     entity:            MAIN+SIMPLE_2
-    entity:            MAIN+SIMPLE_3
-classifier:    MAIN+APPLICATION
-     value:        MAIN+FIDDLING
-    entity:            MAIN+SIMPLE_1
-    entity:            MAIN+SIMPLE_3
-classifier:    MAIN+BASIC
-     value:        MAIN+SIMPLE_1
     entity:            MAIN+SIMPLE_3
 
 Number of classifiers: 3

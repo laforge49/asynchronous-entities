@@ -52,7 +52,7 @@ Number of entities: 31
 4. Classifier Values of context ROOT+CONTEXTS
 (Default context is CONTEXTS.)
 
-classifier:    CONTEXTS+ENTITY_TYPE
+classifier:    +ENTITY_TYPE
      value:        CONTEXTS+CLASSIFIER
     entity:            CONTEXTS+ENTITY_TYPE
      value:        CONTEXTS+CLASSIFIER_VALUE
