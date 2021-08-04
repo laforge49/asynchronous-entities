@@ -35,29 +35,29 @@ Number of entities: 10
 (Default context is MAIN.)
 
 classifier:    +APPLICATION
-     value:        MAIN+FIDDLING
-    entity:            MAIN+SIMPLE_1
-    entity:            MAIN+SIMPLE_3
+     value:        +FIDDLING
+    entity:            +SIMPLE_1
+    entity:            +SIMPLE_3
 classifier:    +BASIC
-     value:        MAIN+SIMPLE_1
-    entity:            MAIN+SIMPLE_3
+     value:        +SIMPLE_1
+    entity:            +SIMPLE_3
 classifier:    CONTEXTS+ENTITY_TYPE
+     value:        +SIMPLE
+    entity:            +SIMPLE_1
+    entity:            +SIMPLE_2
+    entity:            +SIMPLE_3
      value:        CONTEXTS+CLASSIFIER
-    entity:            MAIN+APPLICATION
-    entity:            MAIN+BASIC
+    entity:            +APPLICATION
+    entity:            +BASIC
      value:        CONTEXTS+CLASSIFIER_VALUE
-    entity:            MAIN+FIDDLING
-    entity:            MAIN+SIMPLE
+    entity:            +FIDDLING
+    entity:            +SIMPLE
      value:        CONTEXTS+DESCRIPTOR
-    entity:            MAIN+DEGREE_OF_POLISH
+    entity:            +DEGREE_OF_POLISH
      value:        CONTEXTS+FEDERATOR
-    entity:            MAIN+FEDERATOR_1
+    entity:            +FEDERATOR_1
      value:        CONTEXTS+INSTANTIATOR
-    entity:            MAIN+SIMPLE_INSTANTIATOR
-     value:        MAIN+SIMPLE
-    entity:            MAIN+SIMPLE_1
-    entity:            MAIN+SIMPLE_2
-    entity:            MAIN+SIMPLE_3
+    entity:            +SIMPLE_INSTANTIATOR
 
 Number of classifiers: 3
 

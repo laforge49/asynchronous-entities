@@ -19,8 +19,8 @@
               (kw/name-as-keyword name-or-kw)
               name2
               (if (= default-context-name context-base-name)
-                [(str "+" base-name) name]
-                [name name])]
+                [(str "+" base-name) name-or-kw]
+                [name-or-kw name-or-kw])]
           (conj sorted-names name2))
         ))
     (sorted-set)
@@ -124,22 +124,30 @@
                   (conj lines line)
                   values-map
                   ((first (kw/name-as-keyword classifier-name)) classifier-registry)
+                  values
+                  (keys values-map)
+                  sorted-value2s
+                  (short-names values this-base-name)
                   lines
                   (reduce
-                    (fn [lines [classifier-value entity-names]]
+                    (fn [lines [short-value value]]
                       (let [line
-                            (str "     value:        " classifier-value "\n")
+                            (str "     value:        " short-value "\n")
                             lines
                             (conj lines line)
+                            entity-names
+                            (get values-map value)
+                            sorted-entity-name2s
+                            (short-names entity-names this-base-name)
                             lines
                             (reduce
-                              (fn [lines entity-name]
-                                (conj lines (str "    entity:            " entity-name "\n")))
+                              (fn [lines [entity-short-name entity-name]]
+                                (conj lines (str "    entity:            " entity-short-name "\n")))
                               lines
-                              (into (sorted-set) entity-names))]
+                              sorted-entity-name2s)]
                         lines))
                     lines
-                    (into (sorted-map) values-map))]
+                    sorted-value2s)]
               lines))
           []
           sorted-classifier-name2s)
