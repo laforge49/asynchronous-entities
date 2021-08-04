@@ -31,7 +31,8 @@
           sorted-names)
         nbr
         (count sorted-names)]
-    (str n ". Descriptors of entity " this-name "\n\n"
+    (str n ". Descriptors of entity " this-name "\n"
+         "(Default context is " this-context-base-name ".)\n\n"
          (s/join lines)
          (if (> nbr 0)
            "\n")
@@ -73,7 +74,8 @@
           sorted-names)
         nbr
         (count sorted-names)]
-    (str n ". Classifiers of entity " this-name "\n\n"
+    (str n ". Classifiers of entity " this-name "\n"
+         "(Default context is " this-context-base-name ".)\n\n"
          (s/join lines)
          (if (> nbr 0)
            "\n")
@@ -105,7 +107,8 @@
                        "\n")))
           []
           sorted-names)]
-    (str n ". Registered Entities of context " this-name "\n\n"
+    (str n ". Registered Entities of context " this-name "\n"
+         "(Default context is " this-base-name ".)\n\n"
          (s/join lines) "\n"
          "Number of entities: " (count sorted-names) "\n\n")))
 

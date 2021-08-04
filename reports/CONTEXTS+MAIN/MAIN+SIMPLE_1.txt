@@ -1,6 +1,7 @@
 Entity Report for MAIN+SIMPLE_1
 
 1. Classifiers of entity MAIN+SIMPLE_1
+(Default context is MAIN.)
 
 +APPLICATION = +FIDDLING
 CONTEXTS+ENTITY_TYPE = +SIMPLE
@@ -8,6 +9,7 @@ CONTEXTS+ENTITY_TYPE = +SIMPLE
 Number of classifiers: 2
 
 2. Descriptors of entity MAIN+SIMPLE_1
+(Default context is MAIN.)
 
 +DEGREE_OF_POLISH = "MIDDLING"
 CONTEXTS+INSTANTIATOR = "MAIN+SIMPLE_INSTANTIATOR"

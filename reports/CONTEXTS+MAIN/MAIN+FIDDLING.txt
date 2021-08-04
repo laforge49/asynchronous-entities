@@ -1,12 +1,14 @@
 Entity Report for MAIN+FIDDLING
 
 1. Classifiers of entity MAIN+FIDDLING
+(Default context is MAIN.)
 
 CONTEXTS+ENTITY_TYPE = CONTEXTS+CLASSIFIER_VALUE
 
 Number of classifiers: 1
 
 2. Descriptors of entity MAIN+FIDDLING
+(Default context is MAIN.)
 
 CONTEXTS+INSTANTIATOR = "CONTEXTS+CLASSIFIER_VALUE_INSTANTIATOR"
 CONTEXTS+INVARIANT = true
