@@ -1,13 +1,13 @@
-Entity Report for SYSTEMcontext+FEDERATION_CONTEXT
+Entity Report for SYSTEMcontext+FEDERATION_CONTEXTclassifier_value
 
-1. Classifiers of entity SYSTEMcontext+FEDERATION_CONTEXT
+1. Classifiers of entity SYSTEMcontext+FEDERATION_CONTEXTclassifier_value
 (Default context is SYSTEMcontext.)
 
 +ENTITY_TYPE = +CLASSIFIER_VALUEclassifier_value
 
 Number of classifiers: 1
 
-2. Descriptors of entity SYSTEMcontext+FEDERATION_CONTEXT
+2. Descriptors of entity SYSTEMcontext+FEDERATION_CONTEXTclassifier_value
 (Default context is SYSTEMcontext.)
 
 +INSTANTIATOR = "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"

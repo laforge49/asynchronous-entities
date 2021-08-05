@@ -113,7 +113,11 @@
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"
-    :name             "SYSTEMcontext+DESCRIPTOR"
+    :name             "SYSTEMcontext+CLASSIFIERclassifier_value"
+    }
+   {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
+    :target_name      "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"
+    :name             "SYSTEMcontext+DESCRIPTORclassifier_value"
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"
@@ -125,11 +129,11 @@
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"
-    :name             "SYSTEMcontext+FEDERATOR"
+    :name             "SYSTEMcontext+FEDERATORclassifier_value"
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"
-    :name             "SYSTEMcontext+FEDERATION_CONTEXT"
+    :name             "SYSTEMcontext+FEDERATION_CONTEXTclassifier_value"
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+INSTANTIATORinstantiator"

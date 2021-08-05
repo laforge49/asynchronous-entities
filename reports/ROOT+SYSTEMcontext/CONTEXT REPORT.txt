@@ -20,16 +20,17 @@ Number of descriptors: 1
 +ADD_DESCRIPTORrequestid
 +CLASSIFIER_VALUEclassifier_value
 +CLASSIFIER_VALUEinstantiator
++CLASSIFIERclassifier_value
 +CLASSIFIERinstantiator
 +CONTEXT_REPORTrequestid
 +CONTEXTclassifier_value
 +CONTEXTinstantiator
-+DESCRIPTOR
++DESCRIPTORclassifier_value
 +DESCRIPTORinstantiator
 +ENTITY_TYPE
-+FEDERATION_CONTEXT
++FEDERATION_CONTEXTclassifier_value
 +FEDERATION_CONTEXTinstantiator
-+FEDERATOR
++FEDERATORclassifier_value
 +FEDERATORinstantiator
 +INSTANTIATErequestid
 +INSTANTIATION_CLASSIFIERS
@@ -47,7 +48,7 @@ Number of descriptors: 1
 +RUN_FEDERATIONrequestid
 +SYSTEM_TESTcontext
 
-Number of entities: 31
+Number of entities: 32
 
 4. Classifier Values of context ROOT+SYSTEMcontext
 (Default context is SYSTEMcontext.)
@@ -57,10 +58,11 @@ classifier:    +ENTITY_TYPE
     entity:            +ENTITY_TYPE
      value:        +CLASSIFIER_VALUEclassifier_value
     entity:            +CLASSIFIER_VALUEclassifier_value
+    entity:            +CLASSIFIERclassifier_value
     entity:            +CONTEXTclassifier_value
-    entity:            +DESCRIPTOR
-    entity:            +FEDERATION_CONTEXT
-    entity:            +FEDERATOR
+    entity:            +DESCRIPTORclassifier_value
+    entity:            +FEDERATION_CONTEXTclassifier_value
+    entity:            +FEDERATORclassifier_value
     entity:            +REQUESTID
      value:        +CONTEXTclassifier_value
     entity:            +SYSTEM_TESTcontext
