@@ -28,10 +28,10 @@
                 _ (create-operations env)
                 context-request-port
                 (first (k/create-entity env {:name        "ROOT+SYSTEMcontext"
-                                             :descriptors {:SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/REGISTER_ENTITY_REQUESTID     [:REGISTER_ENTITYoperationid]
-                                                                                    :SYSTEMcontext/ROUTE_REQUESTID               [:ROUTEoperationid]
-                                                                                    :SYSTEMcontext/REGISTER_CLASSIFIER_REQUESTID [:REGISTER_CLASSIFIERoperationid]
-                                                                                    :SYSTEMcontext/ENTITY_REPORT_REQUESTID       [:CONTEXT_REPORToperationid]}}
+                                             :descriptors {:SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/REGISTER_ENTITYrequestid     [:REGISTER_ENTITYoperationid]
+                                                                                    :SYSTEMcontext/ROUTErequestid               [:ROUTEoperationid]
+                                                                                    :SYSTEMcontext/REGISTER_CLASSIFIERrequestid [:REGISTER_CLASSIFIERoperationid]
+                                                                                    :SYSTEMcontext/ENTITY_REPORTrequestid       [:CONTEXT_REPORToperationid]}}
                                              }))
                 env
                 (assoc env :CONTEXT-REQUEST-PORT context-request-port)
@@ -39,7 +39,7 @@
                 (a/chan)
                 _ (doseq [request-params s1/script1]
                     (let [request-params
-                          (assoc request-params :requestid :SYSTEMcontext/ROUTE_REQUESTID)
+                          (assoc request-params :requestid :SYSTEMcontext/ROUTErequestid)
                           request-params
                           (assoc request-params :return_port return-port0)]
                       (a/>! context-request-port [env request-params])

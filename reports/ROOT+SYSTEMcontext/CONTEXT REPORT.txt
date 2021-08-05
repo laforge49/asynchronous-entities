@@ -8,22 +8,22 @@ Number of classifiers: 0
 2. Descriptors of entity ROOT+SYSTEMcontext
 (Default context is ROOT.)
 
-SYSTEMcontext+REQUESTID_MAP = #:SYSTEMcontext{:REGISTER_ENTITY_REQUESTID [:REGISTER_ENTITYoperationid], :ROUTE_REQUESTID [:ROUTEoperationid], :REGISTER_CLASSIFIER_REQUESTID [:REGISTER_CLASSIFIERoperationid], :ENTITY_REPORT_REQUESTID [:CONTEXT_REPORToperationid]}
+SYSTEMcontext+REQUESTID_MAP = #:SYSTEMcontext{:REGISTER_ENTITYrequestid [:REGISTER_ENTITYoperationid], :ROUTErequestid [:ROUTEoperationid], :REGISTER_CLASSIFIERrequestid [:REGISTER_CLASSIFIERoperationid], :ENTITY_REPORTrequestid [:CONTEXT_REPORToperationid]}
 
 Number of descriptors: 1
 
 3. Registered Entities of context ROOT+SYSTEMcontext
 (Default context is SYSTEMcontext.)
 
-+ACQUIRE_REQUESTID
-+ADD_CLASSIFIER_REQUESTID
-+ADD_DESCRIPTOR_REQUESTID
++ACQUIRErequestid
++ADD_CLASSIFIERrequestid
++ADD_DESCRIPTORrequestid
 +CLASSIFIER_INSTANTIATOR
 +CLASSIFIER_VALUE
 +CLASSIFIER_VALUE_INSTANTIATOR
 +CONTEXT
 +CONTEXT_INSTANTIATOR
-+CONTEXT_REPORT_REQUESTID
++CONTEXT_REPORTrequestid
 +DESCRIPTOR
 +DESCRIPTOR_INSTANTIATOR
 +ENTITY_TYPE
@@ -31,20 +31,20 @@ Number of descriptors: 1
 +FEDERATION_CONTEXT_INSTANTIATOR
 +FEDERATOR
 +FEDERATOR_INSTANTIATOR
-+INSTANTIATE_REQUESTID
++INSTANTIATErequestid
 +INSTANTIATION_CLASSIFIERS
 +INSTANTIATION_DESCRIPTORS
 +INSTANTIATOR_INSTANTIATOR
 +INVARIANT
 +READ_ONLY
-+REGISTER_CLASSIFIER_REQUESTID
-+REGISTER_ENTITY_REQUESTID
-+RELEASE_REQUESTID
++REGISTER_CLASSIFIERrequestid
++REGISTER_ENTITYrequestid
++RELEASErequestid
 +REQUESTID
 +REQUESTID_INSTANTIATOR
 +REQUESTID_MAP
-+ROUTE_REQUESTID
-+RUN_FEDERATION_REQUESTID
++ROUTErequestid
++RUN_FEDERATIONrequestid
 +SYSTEM_TESTcontext
 
 Number of entities: 31
@@ -80,16 +80,16 @@ classifier:    +ENTITY_TYPE
     entity:            +INSTANTIATOR_INSTANTIATOR
     entity:            +REQUESTID_INSTANTIATOR
      value:        +REQUESTID
-    entity:            +ACQUIRE_REQUESTID
-    entity:            +ADD_CLASSIFIER_REQUESTID
-    entity:            +ADD_DESCRIPTOR_REQUESTID
-    entity:            +CONTEXT_REPORT_REQUESTID
-    entity:            +INSTANTIATE_REQUESTID
-    entity:            +REGISTER_CLASSIFIER_REQUESTID
-    entity:            +REGISTER_ENTITY_REQUESTID
-    entity:            +RELEASE_REQUESTID
-    entity:            +ROUTE_REQUESTID
-    entity:            +RUN_FEDERATION_REQUESTID
+    entity:            +ACQUIRErequestid
+    entity:            +ADD_CLASSIFIERrequestid
+    entity:            +ADD_DESCRIPTORrequestid
+    entity:            +CONTEXT_REPORTrequestid
+    entity:            +INSTANTIATErequestid
+    entity:            +REGISTER_CLASSIFIERrequestid
+    entity:            +REGISTER_ENTITYrequestid
+    entity:            +RELEASErequestid
+    entity:            +ROUTErequestid
+    entity:            +RUN_FEDERATIONrequestid
 
 Number of classifiers: 1
 

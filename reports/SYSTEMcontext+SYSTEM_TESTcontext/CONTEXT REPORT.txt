@@ -11,7 +11,7 @@ Number of classifiers: 1
 (Default context is SYSTEMcontext.)
 
 +INSTANTIATOR = "SYSTEMcontext+CONTEXT_INSTANTIATOR"
-+REQUESTID_MAP = #:SYSTEMcontext{:REGISTER_ENTITY_REQUESTID [:REGISTER_ENTITYoperationid], :ROUTE_REQUESTID [:ROUTEoperationid], :REGISTER_CLASSIFIER_REQUESTID [:REGISTER_CLASSIFIERoperationid], :ENTITY_REPORT_REQUESTID [:CONTEXT_REPORToperationid]}
++REQUESTID_MAP = #:SYSTEMcontext{:REGISTER_ENTITYrequestid [:REGISTER_ENTITYoperationid], :ROUTErequestid [:ROUTEoperationid], :REGISTER_CLASSIFIERrequestid [:REGISTER_CLASSIFIERoperationid], :ENTITY_REPORTrequestid [:CONTEXT_REPORToperationid]}
 
 Number of descriptors: 2
 
