@@ -18,13 +18,13 @@ Number of descriptors: 2
 3. Registered Entities of context SYSTEMcontext+SYSTEM_TESTcontext
 (Default context is SYSTEM_TESTcontext.)
 
++ALPHAsimple
 +APPLICATIONclassifier
 +BASICrelation
++BETAsimple
 +DEGREE_OF_POLISHdescriptor
 +FIDDLINGclassifier_value
-+SIMPLE_1
-+SIMPLE_2
-+SIMPLE_3
++GAMMAsimple
 +SIMPLEclassifier_value
 +SIMPLEinstantiator
 +TEST_Afederator
@@ -36,16 +36,16 @@ Number of entities: 10
 
 classifier:    +APPLICATIONclassifier
      value:        +FIDDLINGclassifier_value
-    entity:            +SIMPLE_1
-    entity:            +SIMPLE_3
+    entity:            +ALPHAsimple
+    entity:            +GAMMAsimple
 classifier:    +BASICrelation
-     value:        +SIMPLE_1
-    entity:            +SIMPLE_3
+     value:        +ALPHAsimple
+    entity:            +GAMMAsimple
 classifier:    SYSTEMcontext+ENTITY_TYPE
      value:        +SIMPLEclassifier_value
-    entity:            +SIMPLE_1
-    entity:            +SIMPLE_2
-    entity:            +SIMPLE_3
+    entity:            +ALPHAsimple
+    entity:            +BETAsimple
+    entity:            +GAMMAsimple
      value:        SYSTEMcontext+CLASSIFIER
     entity:            +APPLICATIONclassifier
     entity:            +BASICrelation

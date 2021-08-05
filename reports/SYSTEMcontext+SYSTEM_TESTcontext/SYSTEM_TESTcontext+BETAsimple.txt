@@ -1,13 +1,13 @@
-Entity Report for SYSTEM_TESTcontext+SIMPLE_2
+Entity Report for SYSTEM_TESTcontext+BETAsimple
 
-1. Classifiers of entity SYSTEM_TESTcontext+SIMPLE_2
+1. Classifiers of entity SYSTEM_TESTcontext+BETAsimple
 (Default context is SYSTEM_TESTcontext.)
 
 SYSTEMcontext+ENTITY_TYPE = +SIMPLEclassifier_value
 
 Number of classifiers: 1
 
-2. Descriptors of entity SYSTEM_TESTcontext+SIMPLE_2
+2. Descriptors of entity SYSTEM_TESTcontext+BETAsimple
 (Default context is SYSTEM_TESTcontext.)
 
 SYSTEMcontext+INSTANTIATOR = "SYSTEM_TESTcontext+SIMPLEinstantiator"

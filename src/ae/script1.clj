@@ -176,16 +176,16 @@
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEM_TESTcontext+SIMPLEinstantiator"
-    :name             "SYSTEM_TESTcontext+SIMPLE_1"
+    :name             "SYSTEM_TESTcontext+ALPHAsimple"
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEM_TESTcontext+SIMPLEinstantiator"
-    :name             "SYSTEM_TESTcontext+SIMPLE_2"
+    :name             "SYSTEM_TESTcontext+BETAsimple"
     }
    #_{:target_requestid :SYSTEMcontext/ADD_CLASSIFIERrequestid
-      :target_name      "SYSTEM_TESTcontext+SIMPLE_2"
+      :target_name      "SYSTEM_TESTcontext+BETAsimple"
       :classifier       :SYSTEM_TESTcontext/BASICrelation
-      :classifier-value "SYSTEM_TESTcontext+SIMPLE_1"
+      :classifier-value "SYSTEM_TESTcontext+ALPHAsimple"
       }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+DESCRIPTORinstantiator"
@@ -206,33 +206,33 @@
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+FEDERATORinstantiator"
     :name             "SYSTEM_TESTcontext+TEST_Afederator"
-    :descriptors      {:SYSTEMcontext/FEDERATION_NAMES ["SYSTEM_TESTcontext+SIMPLE_1"]
+    :descriptors      {:SYSTEMcontext/FEDERATION_NAMES ["SYSTEM_TESTcontext+ALPHAsimple"]
                        :SYSTEMcontext/SCRIPT           [{:target_requestid :SYSTEMcontext/INSTANTIATErequestid
                                                          :target_name      "SYSTEM_TESTcontext+SIMPLEinstantiator"
-                                                         :name             "SYSTEM_TESTcontext+SIMPLE_3"
+                                                         :name             "SYSTEM_TESTcontext+GAMMAsimple"
                                                          }
                                                         {:target_requestid :SYSTEMcontext/ADD_DESCRIPTORrequestid
-                                                         :target_name      "SYSTEM_TESTcontext+SIMPLE_1"
+                                                         :target_name      "SYSTEM_TESTcontext+ALPHAsimple"
                                                          :descriptor       :SYSTEM_TESTcontext/DEGREE_OF_POLISHdescriptor
                                                          :descriptor-value "MIDDLING"
                                                          }
                                                         {:target_requestid :SYSTEMcontext/ADD_CLASSIFIERrequestid
-                                                         :target_name      "SYSTEM_TESTcontext+SIMPLE_1"
+                                                         :target_name      "SYSTEM_TESTcontext+ALPHAsimple"
                                                          :classifier       :SYSTEM_TESTcontext/APPLICATIONclassifier
                                                          :classifier-value "SYSTEM_TESTcontext+FIDDLINGclassifier_value"
                                                          }
                                                         {:target_requestid :SYSTEMcontext/ADD_DESCRIPTORrequestid
-                                                         :target_name      "SYSTEM_TESTcontext+SIMPLE_3"
+                                                         :target_name      "SYSTEM_TESTcontext+GAMMAsimple"
                                                          :descriptor       :SYSTEM_TESTcontext/DEGREE_OF_POLISHdescriptor
                                                          :descriptor-value "MIDDLING"
                                                          }
                                                         {:target_requestid :SYSTEMcontext/ADD_CLASSIFIERrequestid
-                                                         :target_name      "SYSTEM_TESTcontext+SIMPLE_3"
+                                                         :target_name      "SYSTEM_TESTcontext+GAMMAsimple"
                                                          :classifier       :SYSTEM_TESTcontext/BASICrelation
-                                                         :classifier-value "SYSTEM_TESTcontext+SIMPLE_1"
+                                                         :classifier-value "SYSTEM_TESTcontext+ALPHAsimple"
                                                          }
                                                         {:target_requestid :SYSTEMcontext/ADD_CLASSIFIERrequestid
-                                                         :target_name      "SYSTEM_TESTcontext+SIMPLE_3"
+                                                         :target_name      "SYSTEM_TESTcontext+GAMMAsimple"
                                                          :classifier       :SYSTEM_TESTcontext/APPLICATIONclassifier
                                                          :classifier-value "SYSTEM_TESTcontext+FIDDLINGclassifier_value"
                                                          }

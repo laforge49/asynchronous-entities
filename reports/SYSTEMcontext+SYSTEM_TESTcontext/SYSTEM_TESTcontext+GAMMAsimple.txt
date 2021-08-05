@@ -1,14 +1,15 @@
-Entity Report for SYSTEM_TESTcontext+SIMPLE_1
+Entity Report for SYSTEM_TESTcontext+GAMMAsimple
 
-1. Classifiers of entity SYSTEM_TESTcontext+SIMPLE_1
+1. Classifiers of entity SYSTEM_TESTcontext+GAMMAsimple
 (Default context is SYSTEM_TESTcontext.)
 
 +APPLICATIONclassifier = +FIDDLINGclassifier_value
++BASICrelation = +ALPHAsimple
 SYSTEMcontext+ENTITY_TYPE = +SIMPLEclassifier_value
 
-Number of classifiers: 2
+Number of classifiers: 3
 
-2. Descriptors of entity SYSTEM_TESTcontext+SIMPLE_1
+2. Descriptors of entity SYSTEM_TESTcontext+GAMMAsimple
 (Default context is SYSTEM_TESTcontext.)
 
 +DEGREE_OF_POLISHdescriptor = "MIDDLING"
