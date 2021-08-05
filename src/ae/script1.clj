@@ -205,7 +205,7 @@
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+FEDERATORinstantiator"
-    :name             "SYSTEM_TESTcontext+FEDERATOR_1"
+    :name             "SYSTEM_TESTcontext+TEST_Afederator"
     :descriptors      {:SYSTEMcontext/FEDERATION_NAMES ["SYSTEM_TESTcontext+SIMPLE_1"]
                        :SYSTEMcontext/SCRIPT           [{:target_requestid :SYSTEMcontext/INSTANTIATErequestid
                                                          :target_name      "SYSTEM_TESTcontext+SIMPLEinstantiator"
@@ -238,7 +238,7 @@
                                                          }
                                                         ]}}
    {:target_requestid :SYSTEMcontext/RUN_FEDERATIONrequestid
-    :target_name      "SYSTEM_TESTcontext+FEDERATOR_1"
+    :target_name      "SYSTEM_TESTcontext+TEST_Afederator"
     }
    {:target_requestid :SYSTEMcontext/ENTITY_REPORTrequestid
     :target_name      "ROOT+SYSTEMcontext"

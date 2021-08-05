@@ -1,13 +1,13 @@
-Entity Report for SYSTEM_TESTcontext+FEDERATOR_1
+Entity Report for SYSTEM_TESTcontext+TEST_Afederator
 
-1. Classifiers of entity SYSTEM_TESTcontext+FEDERATOR_1
+1. Classifiers of entity SYSTEM_TESTcontext+TEST_Afederator
 (Default context is SYSTEM_TESTcontext.)
 
 SYSTEMcontext+ENTITY_TYPE = SYSTEMcontext+FEDERATOR
 
 Number of classifiers: 1
 
-2. Descriptors of entity SYSTEM_TESTcontext+FEDERATOR_1
+2. Descriptors of entity SYSTEM_TESTcontext+TEST_Afederator
 (Default context is SYSTEM_TESTcontext.)
 
 SYSTEMcontext+FEDERATION_NAMES = ["SYSTEM_TESTcontext+SIMPLE_1"]
