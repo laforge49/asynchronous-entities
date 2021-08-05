@@ -1,0 +1,18 @@
+Entity Report for SYSTEMcontext+FEDERATOR
+
+1. Classifiers of entity SYSTEMcontext+FEDERATOR
+(Default context is SYSTEMcontext.)
+
++ENTITY_TYPE = +CLASSIFIER_VALUE
+
+Number of classifiers: 1
+
+2. Descriptors of entity SYSTEMcontext+FEDERATOR
+(Default context is SYSTEMcontext.)
+
++INSTANTIATOR = "SYSTEMcontext+CLASSIFIER_VALUE_INSTANTIATOR"
++INVARIANT = true
++REQUESTID_MAP = #:SYSTEMcontext{:ENTITY_REPORT_REQUESTID [:ENTITY_REPORT_OPERATIONID]}
+
+Number of descriptors: 3
+

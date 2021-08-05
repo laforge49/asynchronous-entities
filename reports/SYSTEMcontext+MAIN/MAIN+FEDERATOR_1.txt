@@ -1,0 +1,19 @@
+Entity Report for MAIN+FEDERATOR_1
+
+1. Classifiers of entity MAIN+FEDERATOR_1
+(Default context is MAIN.)
+
+SYSTEMcontext+ENTITY_TYPE = SYSTEMcontext+FEDERATOR
+
+Number of classifiers: 1
+
+2. Descriptors of entity MAIN+FEDERATOR_1
+(Default context is MAIN.)
+
+SYSTEMcontext+FEDERATION_NAMES = ["MAIN+SIMPLE_1"]
+SYSTEMcontext+INSTANTIATOR = "SYSTEMcontext+FEDERATOR_INSTANTIATOR"
+SYSTEMcontext+REQUESTID_MAP = #:SYSTEMcontext{:RUN_FEDERATION_REQUESTID [:RUN_FEDERATION_OPERATIONID], :ENTITY_REPORT_REQUESTID [:ENTITY_REPORT_OPERATIONID]}
+SYSTEMcontext+SCRIPT = [{:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID, :target_name "MAIN+SIMPLE_INSTANTIATOR", :name "MAIN+SIMPLE_3"} {:target_requestid :SYSTEMcontext/ADD_DESCRIPTOR_REQUESTID, :target_name "MAIN+SIMPLE_1", :descriptor :MAIN/DEGREE_OF_POLISH, :descriptor-value "MIDDLING"} {:target_requestid :SYSTEMcontext/ADD_CLASSIFIER_REQUESTID, :target_name "MAIN+SIMPLE_1", :classifier :MAIN/APPLICATION, :classifier-value "MAIN+FIDDLING"} {:target_requestid :SYSTEMcontext/ADD_DESCRIPTOR_REQUESTID, :target_name "MAIN+SIMPLE_3", :descriptor :MAIN/DEGREE_OF_POLISH, :descriptor-value "MIDDLING"} {:target_requestid :SYSTEMcontext/ADD_CLASSIFIER_REQUESTID, :target_name "MAIN+SIMPLE_3", :classifier :MAIN/BASIC, :classifier-value "MAIN+SIMPLE_1"} {:target_requestid :SYSTEMcontext/ADD_CLASSIFIER_REQUESTID, :target_name "MAIN+SIMPLE_3", :classifier :MAIN/APPLICATION, :classifier-value "MAIN+FIDDLING"}]
+
+Number of descriptors: 4
+

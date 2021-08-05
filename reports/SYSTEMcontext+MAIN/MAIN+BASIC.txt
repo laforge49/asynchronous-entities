@@ -1,0 +1,18 @@
+Entity Report for MAIN+BASIC
+
+1. Classifiers of entity MAIN+BASIC
+(Default context is MAIN.)
+
+SYSTEMcontext+ENTITY_TYPE = SYSTEMcontext+CLASSIFIER
+
+Number of classifiers: 1
+
+2. Descriptors of entity MAIN+BASIC
+(Default context is MAIN.)
+
+SYSTEMcontext+INSTANTIATOR = "SYSTEMcontext+CLASSIFIER_INSTANTIATOR"
+SYSTEMcontext+INVARIANT = true
+SYSTEMcontext+REQUESTID_MAP = #:SYSTEMcontext{:ENTITY_REPORT_REQUESTID [:ENTITY_REPORT_OPERATIONID]}
+
+Number of descriptors: 3
+

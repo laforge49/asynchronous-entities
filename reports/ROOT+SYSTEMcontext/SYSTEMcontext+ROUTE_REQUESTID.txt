@@ -1,0 +1,18 @@
+Entity Report for SYSTEMcontext+ROUTE_REQUESTID
+
+1. Classifiers of entity SYSTEMcontext+ROUTE_REQUESTID
+(Default context is SYSTEMcontext.)
+
++ENTITY_TYPE = +REQUESTID
+
+Number of classifiers: 1
+
+2. Descriptors of entity SYSTEMcontext+ROUTE_REQUESTID
+(Default context is SYSTEMcontext.)
+
++INSTANTIATOR = "SYSTEMcontext+REQUESTID_INSTANTIATOR"
++INVARIANT = true
++REQUESTID_MAP = #:SYSTEMcontext{:ENTITY_REPORT_REQUESTID [:ENTITY_REPORT_OPERATIONID]}
+
+Number of descriptors: 3
+

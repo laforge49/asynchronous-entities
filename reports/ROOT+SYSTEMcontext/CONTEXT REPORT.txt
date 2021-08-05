@@ -1,0 +1,95 @@
+Context Report for ROOT+SYSTEMcontext
+
+1. Classifiers of entity ROOT+SYSTEMcontext
+(Default context is ROOT.)
+
+Number of classifiers: 0
+
+2. Descriptors of entity ROOT+SYSTEMcontext
+(Default context is ROOT.)
+
+SYSTEMcontext+REQUESTID_MAP = #:SYSTEMcontext{:REGISTER_ENTITY_REQUESTID [:REGISTER_ENTITY_OPERATIONID], :ROUTE_REQUESTID [:ROUTE_OPERATIONID], :REGISTER_CLASSIFIER_REQUESTID [:REGISTER_CLASSIFIER_OPERATIONID], :ENTITY_REPORT_REQUESTID [:CONTEXT_REPORT_OPERATIONID]}
+
+Number of descriptors: 1
+
+3. Registered Entities of context ROOT+SYSTEMcontext
+(Default context is SYSTEMcontext.)
+
++ACQUIRE_REQUESTID
++ADD_CLASSIFIER_REQUESTID
++ADD_DESCRIPTOR_REQUESTID
++CLASSIFIER_INSTANTIATOR
++CLASSIFIER_VALUE
++CLASSIFIER_VALUE_INSTANTIATOR
++CONTEXT
++CONTEXT_INSTANTIATOR
++CONTEXT_REPORT_REQUESTID
++DESCRIPTOR
++DESCRIPTOR_INSTANTIATOR
++ENTITY_TYPE
++FEDERATION_CONTEXT
++FEDERATION_CONTEXT_INSTANTIATOR
++FEDERATOR
++FEDERATOR_INSTANTIATOR
++INSTANTIATE_REQUESTID
++INSTANTIATION_CLASSIFIERS
++INSTANTIATION_DESCRIPTORS
++INSTANTIATOR_INSTANTIATOR
++INVARIANT
++MAIN
++READ_ONLY
++REGISTER_CLASSIFIER_REQUESTID
++REGISTER_ENTITY_REQUESTID
++RELEASE_REQUESTID
++REQUESTID
++REQUESTID_INSTANTIATOR
++REQUESTID_MAP
++ROUTE_REQUESTID
++RUN_FEDERATION_REQUESTID
+
+Number of entities: 31
+
+4. Classifier Values of context ROOT+SYSTEMcontext
+(Default context is SYSTEMcontext.)
+
+classifier:    +ENTITY_TYPE
+     value:        +CLASSIFIER
+    entity:            +ENTITY_TYPE
+     value:        +CLASSIFIER_VALUE
+    entity:            +CLASSIFIER_VALUE
+    entity:            +CONTEXT
+    entity:            +DESCRIPTOR
+    entity:            +FEDERATION_CONTEXT
+    entity:            +FEDERATOR
+    entity:            +REQUESTID
+     value:        +CONTEXT
+    entity:            +MAIN
+     value:        +DESCRIPTOR
+    entity:            +INSTANTIATION_CLASSIFIERS
+    entity:            +INSTANTIATION_DESCRIPTORS
+    entity:            +INVARIANT
+    entity:            +READ_ONLY
+    entity:            +REQUESTID_MAP
+     value:        +INSTANTIATOR
+    entity:            +CLASSIFIER_INSTANTIATOR
+    entity:            +CLASSIFIER_VALUE_INSTANTIATOR
+    entity:            +CONTEXT_INSTANTIATOR
+    entity:            +DESCRIPTOR_INSTANTIATOR
+    entity:            +FEDERATION_CONTEXT_INSTANTIATOR
+    entity:            +FEDERATOR_INSTANTIATOR
+    entity:            +INSTANTIATOR_INSTANTIATOR
+    entity:            +REQUESTID_INSTANTIATOR
+     value:        +REQUESTID
+    entity:            +ACQUIRE_REQUESTID
+    entity:            +ADD_CLASSIFIER_REQUESTID
+    entity:            +ADD_DESCRIPTOR_REQUESTID
+    entity:            +CONTEXT_REPORT_REQUESTID
+    entity:            +INSTANTIATE_REQUESTID
+    entity:            +REGISTER_CLASSIFIER_REQUESTID
+    entity:            +REGISTER_ENTITY_REQUESTID
+    entity:            +RELEASE_REQUESTID
+    entity:            +ROUTE_REQUESTID
+    entity:            +RUN_FEDERATION_REQUESTID
+
+Number of classifiers: 1
+

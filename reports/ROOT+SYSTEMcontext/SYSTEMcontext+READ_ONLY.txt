@@ -1,0 +1,18 @@
+Entity Report for SYSTEMcontext+READ_ONLY
+
+1. Classifiers of entity SYSTEMcontext+READ_ONLY
+(Default context is SYSTEMcontext.)
+
++ENTITY_TYPE = +DESCRIPTOR
+
+Number of classifiers: 1
+
+2. Descriptors of entity SYSTEMcontext+READ_ONLY
+(Default context is SYSTEMcontext.)
+
++INSTANTIATOR = "SYSTEMcontext+DESCRIPTOR_INSTANTIATOR"
++INVARIANT = true
++REQUESTID_MAP = #:SYSTEMcontext{:ENTITY_REPORT_REQUESTID [:ENTITY_REPORT_OPERATIONID]}
+
+Number of descriptors: 3
+

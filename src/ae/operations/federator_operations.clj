@@ -33,8 +33,8 @@
                       _ (k/request-exception-check (a/<! subrequest-return-port))
                       context-request-port
                       (:CONTEXT-REQUEST-PORT env)
-                      _ (a/>! context-request-port [env {:requestid                  :CONTEXTS/ROUTE_REQUESTID
-                                                         :target_requestid           :CONTEXTS/REGISTER_ENTITY_REQUESTID
+                      _ (a/>! context-request-port [env {:requestid                  :SYSTEMcontext/ROUTE_REQUESTID
+                                                         :target_requestid           :SYSTEMcontext/REGISTER_ENTITY_REQUESTID
                                                          :entity-public-request-port entity-public-request-port
                                                          :target_name                context-name
                                                          :name                       (:NAME snap)
@@ -71,8 +71,8 @@
                   new-classifiers
                   (pop new-classifiers)]
               (when (not (contains? new-children entity-name))
-                (a/>! context-request-port [env {:requestid        :CONTEXTS/ROUTE_REQUESTID
-                                                 :target_requestid :CONTEXTS/REGISTER_CLASSIFIER_REQUESTID
+                (a/>! context-request-port [env {:requestid        :SYSTEMcontext/ROUTE_REQUESTID
+                                                 :target_requestid :SYSTEMcontext/REGISTER_CLASSIFIER_REQUESTID
                                                  :target_name      context-name
                                                  :name             entity-name
                                                  :classifier       classifier
@@ -100,17 +100,17 @@
                 descriptors
                 (:DESCRIPTORS this-map)
                 federation-names
-                (:CONTEXTS/FEDERATION_NAMES descriptors)
+                (:SYSTEMcontext/FEDERATION_NAMES descriptors)
                 subrequest-return-port
                 (a/chan)
-                _ (a/>! root-contexts-request-port [env {:requestid        :CONTEXTS/ROUTE_REQUESTID
-                                                         :target_requestid :CONTEXTS/INSTANTIATE_REQUESTID
-                                                         :target_name      "CONTEXTS+FEDERATION_CONTEXT_INSTANTIATOR"
+                _ (a/>! root-contexts-request-port [env {:requestid        :SYSTEMcontext/ROUTE_REQUESTID
+                                                         :target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
+                                                         :target_name      "SYSTEMcontext+FEDERATION_CONTEXT_INSTANTIATOR"
                                                          :return_port      subrequest-return-port
                                                          :name             nil}])
                 federation-context-request-port
                 (k/request-exception-check (a/<! subrequest-return-port))
-                _ (a/>! federation-context-request-port [env {:requestid        :CONTEXTS/ACQUIRE_REQUESTID
+                _ (a/>! federation-context-request-port [env {:requestid        :SYSTEMcontext/ACQUIRE_REQUESTID
                                                               :federation-names federation-names
                                                               :return_port      subrequest-return-port}])
                 federation-map
@@ -128,7 +128,7 @@
                 env
                 (assoc env :NEW-CLASSIFIERS-VOLATILE (volatile! []))
                 script
-                (:CONTEXTS/SCRIPT descriptors)
+                (:SYSTEMcontext/SCRIPT descriptors)
                 _ (doseq [script-item script]
                     (k/federationRouteFunction env this-map script-item))
                 federation-vmap
@@ -160,7 +160,7 @@
                 (assoc env :NEW-CHILDREN-VOLATILE nil)
                 env
                 (assoc env :NEW-CLASSIFIERS-VOLATILE nil)
-                _ (a/>! federation-context-request-port [env {:requestid   :CONTEXTS/RELEASE_REQUESTID
+                _ (a/>! federation-context-request-port [env {:requestid   :SYSTEMcontext/RELEASE_REQUESTID
                                                               :return_port subrequest-return-port}])
                 _ (k/request-exception-check (a/<! subrequest-return-port))
                 _ (a/>! operation-return-port [this-map
