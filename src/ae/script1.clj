@@ -184,7 +184,7 @@
     }
    #_{:target_requestid :SYSTEMcontext/ADD_CLASSIFIERrequestid
       :target_name      "SYSTEM_TESTcontext+SIMPLE_2"
-      :classifier       :SYSTEM_TESTcontext/BASIC
+      :classifier       :SYSTEM_TESTcontext/BASICrelation
       :classifier-value "SYSTEM_TESTcontext+SIMPLE_1"
       }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
@@ -193,7 +193,7 @@
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+CLASSIFIERinstantiator"
-    :name             "SYSTEM_TESTcontext+BASIC"
+    :name             "SYSTEM_TESTcontext+BASICrelation"
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+CLASSIFIERinstantiator"
@@ -201,7 +201,7 @@
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"
-    :name             "SYSTEM_TESTcontext+FIDDLING"
+    :name             "SYSTEM_TESTcontext+FIDDLINGclassifier_value"
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+FEDERATORinstantiator"
@@ -219,7 +219,7 @@
                                                         {:target_requestid :SYSTEMcontext/ADD_CLASSIFIERrequestid
                                                          :target_name      "SYSTEM_TESTcontext+SIMPLE_1"
                                                          :classifier       :SYSTEM_TESTcontext/APPLICATIONclassifier
-                                                         :classifier-value "SYSTEM_TESTcontext+FIDDLING"
+                                                         :classifier-value "SYSTEM_TESTcontext+FIDDLINGclassifier_value"
                                                          }
                                                         {:target_requestid :SYSTEMcontext/ADD_DESCRIPTORrequestid
                                                          :target_name      "SYSTEM_TESTcontext+SIMPLE_3"
@@ -228,13 +228,13 @@
                                                          }
                                                         {:target_requestid :SYSTEMcontext/ADD_CLASSIFIERrequestid
                                                          :target_name      "SYSTEM_TESTcontext+SIMPLE_3"
-                                                         :classifier       :SYSTEM_TESTcontext/BASIC
+                                                         :classifier       :SYSTEM_TESTcontext/BASICrelation
                                                          :classifier-value "SYSTEM_TESTcontext+SIMPLE_1"
                                                          }
                                                         {:target_requestid :SYSTEMcontext/ADD_CLASSIFIERrequestid
                                                          :target_name      "SYSTEM_TESTcontext+SIMPLE_3"
                                                          :classifier       :SYSTEM_TESTcontext/APPLICATIONclassifier
-                                                         :classifier-value "SYSTEM_TESTcontext+FIDDLING"
+                                                         :classifier-value "SYSTEM_TESTcontext+FIDDLINGclassifier_value"
                                                          }
                                                         ]}}
    {:target_requestid :SYSTEMcontext/RUN_FEDERATIONrequestid

@@ -1,13 +1,13 @@
-Entity Report for SYSTEM_TESTcontext+BASIC
+Entity Report for SYSTEM_TESTcontext+BASICrelation
 
-1. Classifiers of entity SYSTEM_TESTcontext+BASIC
+1. Classifiers of entity SYSTEM_TESTcontext+BASICrelation
 (Default context is SYSTEM_TESTcontext.)
 
 SYSTEMcontext+ENTITY_TYPE = SYSTEMcontext+CLASSIFIER
 
 Number of classifiers: 1
 
-2. Descriptors of entity SYSTEM_TESTcontext+BASIC
+2. Descriptors of entity SYSTEM_TESTcontext+BASICrelation
 (Default context is SYSTEM_TESTcontext.)
 
 SYSTEMcontext+INSTANTIATOR = "SYSTEMcontext+CLASSIFIERinstantiator"
