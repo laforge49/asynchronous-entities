@@ -21,8 +21,8 @@ Number of descriptors: 1
 +CLASSIFIER_VALUEclassifier_value
 +CLASSIFIER_VALUEinstantiator
 +CLASSIFIERinstantiator
-+CONTEXT
 +CONTEXT_REPORTrequestid
++CONTEXTclassifier_value
 +CONTEXTinstantiator
 +DESCRIPTOR
 +DESCRIPTORinstantiator
@@ -57,12 +57,12 @@ classifier:    +ENTITY_TYPE
     entity:            +ENTITY_TYPE
      value:        +CLASSIFIER_VALUEclassifier_value
     entity:            +CLASSIFIER_VALUEclassifier_value
-    entity:            +CONTEXT
+    entity:            +CONTEXTclassifier_value
     entity:            +DESCRIPTOR
     entity:            +FEDERATION_CONTEXT
     entity:            +FEDERATOR
     entity:            +REQUESTID
-     value:        +CONTEXT
+     value:        +CONTEXTclassifier_value
     entity:            +SYSTEM_TESTcontext
      value:        +DESCRIPTOR
     entity:            +INSTANTIATION_CLASSIFIERS

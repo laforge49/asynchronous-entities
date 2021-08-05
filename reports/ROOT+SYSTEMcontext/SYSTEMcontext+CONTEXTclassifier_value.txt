@@ -1,13 +1,13 @@
-Entity Report for SYSTEMcontext+CONTEXT
+Entity Report for SYSTEMcontext+CONTEXTclassifier_value
 
-1. Classifiers of entity SYSTEMcontext+CONTEXT
+1. Classifiers of entity SYSTEMcontext+CONTEXTclassifier_value
 (Default context is SYSTEMcontext.)
 
 +ENTITY_TYPE = +CLASSIFIER_VALUEclassifier_value
 
 Number of classifiers: 1
 
-2. Descriptors of entity SYSTEMcontext+CONTEXT
+2. Descriptors of entity SYSTEMcontext+CONTEXTclassifier_value
 (Default context is SYSTEMcontext.)
 
 +INSTANTIATOR = "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"
