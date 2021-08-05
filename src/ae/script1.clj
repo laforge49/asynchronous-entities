@@ -105,7 +105,7 @@
     :name             "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"
     :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORS {:SYSTEMcontext/INVARIANT     true
                                                                  :SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/ENTITY_REPORTrequestid [:ENTITY_REPORToperationid]}}
-                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERS {:SYSTEMcontext/ENTITY_TYPE "SYSTEMcontext+CLASSIFIER_VALUE"}}
+                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERS {:SYSTEMcontext/ENTITY_TYPE "SYSTEMcontext+CLASSIFIER_VALUEclassifier_value"}}
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"
@@ -117,7 +117,7 @@
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"
-    :name             "SYSTEMcontext+CLASSIFIER_VALUE"
+    :name             "SYSTEMcontext+CLASSIFIER_VALUEclassifier_value"
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"

@@ -3,7 +3,7 @@ Entity Report for SYSTEMcontext+DESCRIPTOR
 1. Classifiers of entity SYSTEMcontext+DESCRIPTOR
 (Default context is SYSTEMcontext.)
 
-+ENTITY_TYPE = +CLASSIFIER_VALUE
++ENTITY_TYPE = +CLASSIFIER_VALUEclassifier_value
 
 Number of classifiers: 1
 

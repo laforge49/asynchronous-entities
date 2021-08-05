@@ -18,7 +18,7 @@ Number of descriptors: 1
 +ACQUIRErequestid
 +ADD_CLASSIFIERrequestid
 +ADD_DESCRIPTORrequestid
-+CLASSIFIER_VALUE
++CLASSIFIER_VALUEclassifier_value
 +CLASSIFIER_VALUEinstantiator
 +CLASSIFIERinstantiator
 +CONTEXT
@@ -55,8 +55,8 @@ Number of entities: 31
 classifier:    +ENTITY_TYPE
      value:        +CLASSIFIER
     entity:            +ENTITY_TYPE
-     value:        +CLASSIFIER_VALUE
-    entity:            +CLASSIFIER_VALUE
+     value:        +CLASSIFIER_VALUEclassifier_value
+    entity:            +CLASSIFIER_VALUEclassifier_value
     entity:            +CONTEXT
     entity:            +DESCRIPTOR
     entity:            +FEDERATION_CONTEXT

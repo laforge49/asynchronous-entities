@@ -49,7 +49,7 @@ classifier:    SYSTEMcontext+ENTITY_TYPE
      value:        SYSTEMcontext+CLASSIFIER
     entity:            +APPLICATION
     entity:            +BASIC
-     value:        SYSTEMcontext+CLASSIFIER_VALUE
+     value:        SYSTEMcontext+CLASSIFIER_VALUEclassifier_value
     entity:            +FIDDLING
     entity:            +SIMPLE
      value:        SYSTEMcontext+DESCRIPTOR
