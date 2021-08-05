@@ -10,7 +10,7 @@ Number of classifiers: 1
 2. Descriptors of entity SYSTEM_TESTcontext+SIMPLEinstantiator
 (Default context is SYSTEM_TESTcontext.)
 
-SYSTEMcontext+INSTANTIATION_CLASSIFIERS = #:SYSTEMcontext{:ENTITY_TYPE "SYSTEM_TESTcontext+SIMPLE"}
+SYSTEMcontext+INSTANTIATION_CLASSIFIERS = #:SYSTEMcontext{:ENTITY_TYPE "SYSTEM_TESTcontext+SIMPLEclassifier_value"}
 SYSTEMcontext+INSTANTIATION_DESCRIPTORS = #:SYSTEMcontext{:REQUESTID_MAP #:SYSTEMcontext{:ADD_DESCRIPTORrequestid [:ADD_DESCRIPTORoperationid], :ADD_CLASSIFIERrequestid [:ADD_CLASSIFIERoperationid], :ENTITY_REPORTrequestid [:ENTITY_REPORToperationid]}}
 SYSTEMcontext+INSTANTIATOR = "SYSTEMcontext+INSTANTIATORinstantiator"
 SYSTEMcontext+INVARIANT = true

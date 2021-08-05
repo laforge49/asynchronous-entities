@@ -5,7 +5,7 @@ Entity Report for SYSTEM_TESTcontext+SIMPLE_3
 
 +APPLICATIONclassifier = +FIDDLINGclassifier_value
 +BASICrelation = +SIMPLE_1
-SYSTEMcontext+ENTITY_TYPE = +SIMPLE
+SYSTEMcontext+ENTITY_TYPE = +SIMPLEclassifier_value
 
 Number of classifiers: 3
 

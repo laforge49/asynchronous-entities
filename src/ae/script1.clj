@@ -168,11 +168,11 @@
     :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORS {:SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/ADD_DESCRIPTORrequestid [:ADD_DESCRIPTORoperationid]
                                                                                                :SYSTEMcontext/ADD_CLASSIFIERrequestid [:ADD_CLASSIFIERoperationid]
                                                                                                :SYSTEMcontext/ENTITY_REPORTrequestid  [:ENTITY_REPORToperationid]}}
-                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERS {:SYSTEMcontext/ENTITY_TYPE "SYSTEM_TESTcontext+SIMPLE"}}
+                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERS {:SYSTEMcontext/ENTITY_TYPE "SYSTEM_TESTcontext+SIMPLEclassifier_value"}}
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"
-    :name             "SYSTEM_TESTcontext+SIMPLE"
+    :name             "SYSTEM_TESTcontext+SIMPLEclassifier_value"
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEM_TESTcontext+SIMPLEinstantiator"

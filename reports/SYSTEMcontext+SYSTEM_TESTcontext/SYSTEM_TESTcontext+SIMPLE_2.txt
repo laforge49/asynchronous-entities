@@ -3,7 +3,7 @@ Entity Report for SYSTEM_TESTcontext+SIMPLE_2
 1. Classifiers of entity SYSTEM_TESTcontext+SIMPLE_2
 (Default context is SYSTEM_TESTcontext.)
 
-SYSTEMcontext+ENTITY_TYPE = +SIMPLE
+SYSTEMcontext+ENTITY_TYPE = +SIMPLEclassifier_value
 
 Number of classifiers: 1
 

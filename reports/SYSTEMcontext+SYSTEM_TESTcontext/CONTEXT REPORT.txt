@@ -23,10 +23,10 @@ Number of descriptors: 2
 +DEGREE_OF_POLISHdescriptor
 +FEDERATOR_1
 +FIDDLINGclassifier_value
-+SIMPLE
 +SIMPLE_1
 +SIMPLE_2
 +SIMPLE_3
++SIMPLEclassifier_value
 +SIMPLEinstantiator
 
 Number of entities: 10
@@ -42,7 +42,7 @@ classifier:    +BASICrelation
      value:        +SIMPLE_1
     entity:            +SIMPLE_3
 classifier:    SYSTEMcontext+ENTITY_TYPE
-     value:        +SIMPLE
+     value:        +SIMPLEclassifier_value
     entity:            +SIMPLE_1
     entity:            +SIMPLE_2
     entity:            +SIMPLE_3
@@ -51,7 +51,7 @@ classifier:    SYSTEMcontext+ENTITY_TYPE
     entity:            +BASICrelation
      value:        SYSTEMcontext+CLASSIFIER_VALUEclassifier_value
     entity:            +FIDDLINGclassifier_value
-    entity:            +SIMPLE
+    entity:            +SIMPLEclassifier_value
      value:        SYSTEMcontext+DESCRIPTOR
     entity:            +DEGREE_OF_POLISHdescriptor
      value:        SYSTEMcontext+FEDERATOR
