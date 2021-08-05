@@ -28,10 +28,10 @@
                 _ (create-operations env)
                 context-request-port
                 (first (k/create-entity env {:name        "ROOT+SYSTEMcontext"
-                                             :descriptors {:SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/REGISTER_ENTITY_REQUESTID     [:REGISTER_ENTITY_OPERATIONID]
-                                                                                    :SYSTEMcontext/ROUTE_REQUESTID               [:ROUTE_OPERATIONID]
-                                                                                    :SYSTEMcontext/REGISTER_CLASSIFIER_REQUESTID [:REGISTER_CLASSIFIER_OPERATIONID]
-                                                                                    :SYSTEMcontext/ENTITY_REPORT_REQUESTID       [:CONTEXT_REPORT_OPERATIONID]}}
+                                             :descriptors {:SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/REGISTER_ENTITY_REQUESTID     [:REGISTER_ENTITYoperationid]
+                                                                                    :SYSTEMcontext/ROUTE_REQUESTID               [:ROUTEoperationid]
+                                                                                    :SYSTEMcontext/REGISTER_CLASSIFIER_REQUESTID [:REGISTER_CLASSIFIERoperationid]
+                                                                                    :SYSTEMcontext/ENTITY_REPORT_REQUESTID       [:CONTEXT_REPORToperationid]}}
                                              }))
                 env
                 (assoc env :CONTEXT-REQUEST-PORT context-request-port)

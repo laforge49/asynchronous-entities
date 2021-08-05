@@ -67,7 +67,7 @@
 (defn create-instantiate-operation
   [env]
   (let [instantiate-port
-        (k/register-operation env {:operationid :INSTANTIATE_OPERATIONID
+        (k/register-operation env {:operationid :INSTANTIATEoperationid
                                    :function    instantiateFunction})]
     (a/go-loop []
       (let [[env this-map params]
@@ -132,7 +132,7 @@
 (defn create-entity-report-operation
   [env]
   (let [entity-report-port
-        (k/register-operation env {:operationid :ENTITY_REPORT_OPERATIONID})]
+        (k/register-operation env {:operationid :ENTITY_REPORToperationid})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! entity-report-port)
@@ -161,9 +161,9 @@
 (defn create-entity-operations
   [env]
   (create-instantiate-operation env)
-  (k/register-function env {:operationid :ADD_DESCRIPTOR_OPERATIONID
+  (k/register-function env {:operationid :ADD_DESCRIPTORoperationid
                             :function    addDescriptorFunction})
-  (k/register-function env {:operationid :ADD_CLASSIFIER_OPERATIONID
+  (k/register-function env {:operationid :ADD_CLASSIFIERoperationid
                             :function    addClassifierFunction})
   (create-entity-report-operation env)
   )

@@ -88,7 +88,7 @@
 (defn create-run-federation-operation
   [env]
   (let [new-run-federation-port
-        (k/register-operation env {:operationid :RUN_FEDERATION_OPERATIONID})]
+        (k/register-operation env {:operationid :RUN_FEDERATIONoperationid})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! new-run-federation-port)

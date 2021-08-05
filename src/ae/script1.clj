@@ -5,11 +5,11 @@
     :target_name      "ROOT+SYSTEMcontext"
     :name             "SYSTEMcontext+INSTANTIATOR_INSTANTIATOR"
     :descriptors      {:SYSTEMcontext/INVARIANT                 true
-                       :SYSTEMcontext/REQUESTID_MAP             {:SYSTEMcontext/INSTANTIATE_REQUESTID   [:INSTANTIATE_OPERATIONID]
-                                                            :SYSTEMcontext/ENTITY_REPORT_REQUESTID [:ENTITY_REPORT_OPERATIONID]}
+                       :SYSTEMcontext/REQUESTID_MAP             {:SYSTEMcontext/INSTANTIATE_REQUESTID   [:INSTANTIATEoperationid]
+                                                            :SYSTEMcontext/ENTITY_REPORT_REQUESTID [:ENTITY_REPORToperationid]}
                        :SYSTEMcontext/INSTANTIATION_DESCRIPTORS {:SYSTEMcontext/INVARIANT     true
-                                                            :SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/INSTANTIATE_REQUESTID   [:INSTANTIATE_OPERATIONID]
-                                                                                     :SYSTEMcontext/ENTITY_REPORT_REQUESTID [:ENTITY_REPORT_OPERATIONID]}}
+                                                            :SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/INSTANTIATE_REQUESTID   [:INSTANTIATEoperationid]
+                                                                                     :SYSTEMcontext/ENTITY_REPORT_REQUESTID [:ENTITY_REPORToperationid]}}
                        :SYSTEMcontext/INSTANTIATION_CLASSIFIERS {:SYSTEMcontext/ENTITY_TYPE "SYSTEMcontext+INSTANTIATOR"}}
     :classifiers      {:SYSTEMcontext/ENTITY_TYPE "SYSTEMcontext+INSTANTIATOR"}
     }
@@ -17,7 +17,7 @@
     :target_name      "SYSTEMcontext+INSTANTIATOR_INSTANTIATOR"
     :name             "SYSTEMcontext+REQUESTID_INSTANTIATOR"
     :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORS {:SYSTEMcontext/INVARIANT     true
-                                                            :SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/ENTITY_REPORT_REQUESTID [:ENTITY_REPORT_OPERATIONID]}}
+                                                            :SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/ENTITY_REPORT_REQUESTID [:ENTITY_REPORToperationid]}}
                        :SYSTEMcontext/INSTANTIATION_CLASSIFIERS {:SYSTEMcontext/ENTITY_TYPE "SYSTEMcontext+REQUESTID"}}
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
@@ -66,7 +66,7 @@
     :target_name      "SYSTEMcontext+INSTANTIATOR_INSTANTIATOR"
     :name             "SYSTEMcontext+DESCRIPTOR_INSTANTIATOR"
     :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORS {:SYSTEMcontext/INVARIANT true
-                                                            :SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/ENTITY_REPORT_REQUESTID [:ENTITY_REPORT_OPERATIONID]}}
+                                                            :SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/ENTITY_REPORT_REQUESTID [:ENTITY_REPORToperationid]}}
                        :SYSTEMcontext/INSTANTIATION_CLASSIFIERS {:SYSTEMcontext/ENTITY_TYPE "SYSTEMcontext+DESCRIPTOR"}}
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
@@ -93,7 +93,7 @@
     :target_name      "SYSTEMcontext+INSTANTIATOR_INSTANTIATOR"
     :name             "SYSTEMcontext+CLASSIFIER_INSTANTIATOR"
     :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORS {:SYSTEMcontext/INVARIANT true
-                                                            :SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/ENTITY_REPORT_REQUESTID [:ENTITY_REPORT_OPERATIONID]}}
+                                                            :SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/ENTITY_REPORT_REQUESTID [:ENTITY_REPORToperationid]}}
                        :SYSTEMcontext/INSTANTIATION_CLASSIFIERS {:SYSTEMcontext/ENTITY_TYPE "SYSTEMcontext+CLASSIFIER"}}
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
@@ -104,7 +104,7 @@
     :target_name      "SYSTEMcontext+INSTANTIATOR_INSTANTIATOR"
     :name             "SYSTEMcontext+CLASSIFIER_VALUE_INSTANTIATOR"
     :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORS {:SYSTEMcontext/INVARIANT     true
-                                                            :SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/ENTITY_REPORT_REQUESTID [:ENTITY_REPORT_OPERATIONID]}}
+                                                            :SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/ENTITY_REPORT_REQUESTID [:ENTITY_REPORToperationid]}}
                        :SYSTEMcontext/INSTANTIATION_CLASSIFIERS {:SYSTEMcontext/ENTITY_TYPE "SYSTEMcontext+CLASSIFIER_VALUE"}}
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
@@ -134,24 +134,24 @@
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
     :target_name      "SYSTEMcontext+INSTANTIATOR_INSTANTIATOR"
     :name             "SYSTEMcontext+CONTEXT_INSTANTIATOR"
-    :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORS {:SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/REGISTER_ENTITY_REQUESTID     [:REGISTER_ENTITY_OPERATIONID]
-                                                                                     :SYSTEMcontext/ROUTE_REQUESTID               [:ROUTE_OPERATIONID]
-                                                                                     :SYSTEMcontext/REGISTER_CLASSIFIER_REQUESTID [:REGISTER_CLASSIFIER_OPERATIONID]
-                                                                                     :SYSTEMcontext/ENTITY_REPORT_REQUESTID       [:CONTEXT_REPORT_OPERATIONID]}}
+    :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORS {:SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/REGISTER_ENTITY_REQUESTID     [:REGISTER_ENTITYoperationid]
+                                                                                     :SYSTEMcontext/ROUTE_REQUESTID               [:ROUTEoperationid]
+                                                                                     :SYSTEMcontext/REGISTER_CLASSIFIER_REQUESTID [:REGISTER_CLASSIFIERoperationid]
+                                                                                     :SYSTEMcontext/ENTITY_REPORT_REQUESTID       [:CONTEXT_REPORToperationid]}}
                        :SYSTEMcontext/INSTANTIATION_CLASSIFIERS {:SYSTEMcontext/ENTITY_TYPE "SYSTEMcontext+CONTEXT"}}
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
     :target_name      "SYSTEMcontext+INSTANTIATOR_INSTANTIATOR"
     :name             "SYSTEMcontext+FEDERATOR_INSTANTIATOR"
-    :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORS {:SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/RUN_FEDERATION_REQUESTID [:RUN_FEDERATION_OPERATIONID]
-                                                                                     :SYSTEMcontext/ENTITY_REPORT_REQUESTID  [:ENTITY_REPORT_OPERATIONID]}}
+    :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORS {:SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/RUN_FEDERATION_REQUESTID [:RUN_FEDERATIONoperationid]
+                                                                                     :SYSTEMcontext/ENTITY_REPORT_REQUESTID  [:ENTITY_REPORToperationid]}}
                        :SYSTEMcontext/INSTANTIATION_CLASSIFIERS {:SYSTEMcontext/ENTITY_TYPE "SYSTEMcontext+FEDERATOR"}}
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
     :target_name      "SYSTEMcontext+INSTANTIATOR_INSTANTIATOR"
     :name             "SYSTEMcontext+FEDERATION_CONTEXT_INSTANTIATOR"
-    :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORS {:SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/ACQUIRE_REQUESTID [:FEDERATION_ACQUIRE_OPERATIONID]
-                                                                                     :SYSTEMcontext/RELEASE_REQUESTID [:FEDERATION_RELEASE_OPERATIONID]}}
+    :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORS {:SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/ACQUIRE_REQUESTID [:FEDERATION_ACQUIREoperationid]
+                                                                                     :SYSTEMcontext/RELEASE_REQUESTID [:FEDERATION_RELEASEoperationid]}}
                        :SYSTEMcontext/INSTANTIATION_CLASSIFIERS {:SYSTEMcontext/ENTITY_TYPE "SYSTEMcontext+FEDERATION_CONTEXT"}}
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
@@ -161,9 +161,9 @@
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
     :target_name      "SYSTEMcontext+INSTANTIATOR_INSTANTIATOR"
     :name             "SYSTEM_TESTcontext+SIMPLE_INSTANTIATOR"
-    :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORS {:SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/ADD_DESCRIPTOR_REQUESTID [:ADD_DESCRIPTOR_OPERATIONID]
-                                                                                     :SYSTEMcontext/ADD_CLASSIFIER_REQUESTID [:ADD_CLASSIFIER_OPERATIONID]
-                                                                                     :SYSTEMcontext/ENTITY_REPORT_REQUESTID  [:ENTITY_REPORT_OPERATIONID]}}
+    :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORS {:SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/ADD_DESCRIPTOR_REQUESTID [:ADD_DESCRIPTORoperationid]
+                                                                                     :SYSTEMcontext/ADD_CLASSIFIER_REQUESTID [:ADD_CLASSIFIERoperationid]
+                                                                                     :SYSTEMcontext/ENTITY_REPORT_REQUESTID  [:ENTITY_REPORToperationid]}}
                        :SYSTEMcontext/INSTANTIATION_CLASSIFIERS {:SYSTEMcontext/ENTITY_TYPE "SYSTEM_TESTcontext+SIMPLE"}}
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID

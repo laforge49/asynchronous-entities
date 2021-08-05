@@ -39,7 +39,7 @@
 (defn create-register-entity-operation
   [env]
   (let [entity-registration-port
-        (k/register-operation env {:operationid :REGISTER_ENTITY_OPERATIONID})]
+        (k/register-operation env {:operationid :REGISTER_ENTITYoperationid})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! entity-registration-port)
@@ -54,7 +54,7 @@
 (defn create-register-classifier-operation
   [env]
   (let [register-classifier-port
-        (k/register-operation env {:operationid :REGISTER_CLASSIFIER_OPERATIONID})]
+        (k/register-operation env {:operationid :REGISTER_CLASSIFIERoperationid})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! register-classifier-port)
@@ -79,7 +79,7 @@
 (defn create-route-operation
   [env]
   (let [route-to-local-entity-port
-        (k/register-operation env {:operationid :ROUTE_OPERATIONID})]
+        (k/register-operation env {:operationid :ROUTEoperationid})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! route-to-local-entity-port)
@@ -189,7 +189,7 @@
 (defn create-federation-acquire-operation
   [env]
   (let [federation-acquire-port
-        (k/register-operation env {:operationid :FEDERATION_ACQUIRE_OPERATIONID})]
+        (k/register-operation env {:operationid :FEDERATION_ACQUIREoperationid})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! federation-acquire-port)
@@ -212,7 +212,7 @@
 (defn create-federation-release-operation
   [env]
   (let [federation-release-port
-        (k/register-operation env {:operationid :FEDERATION_RELEASE_OPERATIONID})]
+        (k/register-operation env {:operationid :FEDERATION_RELEASEoperationid})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! federation-release-port)
@@ -244,7 +244,7 @@
 (defn create-context-report-operation
   [env]
   (let [context-report-port
-        (k/register-operation env {:operationid :CONTEXT_REPORT_OPERATIONID})]
+        (k/register-operation env {:operationid :CONTEXT_REPORToperationid})]
     (a/go-loop []
       (let [[env this-map params]
             (a/<! context-report-port)
