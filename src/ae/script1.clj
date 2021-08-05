@@ -189,7 +189,7 @@
       }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+DESCRIPTORinstantiator"
-    :name             "SYSTEM_TESTcontext+DEGREE_OF_POLISH"
+    :name             "SYSTEM_TESTcontext+DEGREE_OF_POLISHdescriptor"
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+CLASSIFIERinstantiator"
@@ -213,7 +213,7 @@
                                                          }
                                                         {:target_requestid :SYSTEMcontext/ADD_DESCRIPTORrequestid
                                                          :target_name      "SYSTEM_TESTcontext+SIMPLE_1"
-                                                         :descriptor       :SYSTEM_TESTcontext/DEGREE_OF_POLISH
+                                                         :descriptor       :SYSTEM_TESTcontext/DEGREE_OF_POLISHdescriptor
                                                          :descriptor-value "MIDDLING"
                                                          }
                                                         {:target_requestid :SYSTEMcontext/ADD_CLASSIFIERrequestid
@@ -223,7 +223,7 @@
                                                          }
                                                         {:target_requestid :SYSTEMcontext/ADD_DESCRIPTORrequestid
                                                          :target_name      "SYSTEM_TESTcontext+SIMPLE_3"
-                                                         :descriptor       :SYSTEM_TESTcontext/DEGREE_OF_POLISH
+                                                         :descriptor       :SYSTEM_TESTcontext/DEGREE_OF_POLISHdescriptor
                                                          :descriptor-value "MIDDLING"
                                                          }
                                                         {:target_requestid :SYSTEMcontext/ADD_CLASSIFIERrequestid

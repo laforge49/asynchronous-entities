@@ -20,7 +20,7 @@ Number of descriptors: 2
 
 +APPLICATION
 +BASIC
-+DEGREE_OF_POLISH
++DEGREE_OF_POLISHdescriptor
 +FEDERATOR_1
 +FIDDLING
 +SIMPLE
@@ -53,7 +53,7 @@ classifier:    SYSTEMcontext+ENTITY_TYPE
     entity:            +FIDDLING
     entity:            +SIMPLE
      value:        SYSTEMcontext+DESCRIPTOR
-    entity:            +DEGREE_OF_POLISH
+    entity:            +DEGREE_OF_POLISHdescriptor
      value:        SYSTEMcontext+FEDERATOR
     entity:            +FEDERATOR_1
      value:        SYSTEMcontext+INSTANTIATOR
