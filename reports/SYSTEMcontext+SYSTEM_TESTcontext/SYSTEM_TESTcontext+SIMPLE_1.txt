@@ -3,7 +3,7 @@ Entity Report for SYSTEM_TESTcontext+SIMPLE_1
 1. Classifiers of entity SYSTEM_TESTcontext+SIMPLE_1
 (Default context is SYSTEM_TESTcontext.)
 
-+APPLICATION = +FIDDLING
++APPLICATIONclassifier = +FIDDLING
 SYSTEMcontext+ENTITY_TYPE = +SIMPLE
 
 Number of classifiers: 2

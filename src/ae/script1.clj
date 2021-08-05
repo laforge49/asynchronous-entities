@@ -197,7 +197,7 @@
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+CLASSIFIERinstantiator"
-    :name             "SYSTEM_TESTcontext+APPLICATION"
+    :name             "SYSTEM_TESTcontext+APPLICATIONclassifier"
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATErequestid
     :target_name      "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"
@@ -218,7 +218,7 @@
                                                          }
                                                         {:target_requestid :SYSTEMcontext/ADD_CLASSIFIERrequestid
                                                          :target_name      "SYSTEM_TESTcontext+SIMPLE_1"
-                                                         :classifier       :SYSTEM_TESTcontext/APPLICATION
+                                                         :classifier       :SYSTEM_TESTcontext/APPLICATIONclassifier
                                                          :classifier-value "SYSTEM_TESTcontext+FIDDLING"
                                                          }
                                                         {:target_requestid :SYSTEMcontext/ADD_DESCRIPTORrequestid
@@ -233,7 +233,7 @@
                                                          }
                                                         {:target_requestid :SYSTEMcontext/ADD_CLASSIFIERrequestid
                                                          :target_name      "SYSTEM_TESTcontext+SIMPLE_3"
-                                                         :classifier       :SYSTEM_TESTcontext/APPLICATION
+                                                         :classifier       :SYSTEM_TESTcontext/APPLICATIONclassifier
                                                          :classifier-value "SYSTEM_TESTcontext+FIDDLING"
                                                          }
                                                         ]}}
