@@ -156,90 +156,90 @@
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
     :target_name      "SYSTEMcontext+CONTEXT_INSTANTIATOR"
-    :name             "SYSTEMcontext+MAIN"
+    :name             "SYSTEMcontext+SYSTEM_TESTcontext"
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
     :target_name      "SYSTEMcontext+INSTANTIATOR_INSTANTIATOR"
-    :name             "MAIN+SIMPLE_INSTANTIATOR"
+    :name             "SYSTEM_TESTcontext+SIMPLE_INSTANTIATOR"
     :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORS {:SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/ADD_DESCRIPTOR_REQUESTID [:ADD_DESCRIPTOR_OPERATIONID]
                                                                                      :SYSTEMcontext/ADD_CLASSIFIER_REQUESTID [:ADD_CLASSIFIER_OPERATIONID]
                                                                                      :SYSTEMcontext/ENTITY_REPORT_REQUESTID  [:ENTITY_REPORT_OPERATIONID]}}
-                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERS {:SYSTEMcontext/ENTITY_TYPE "MAIN+SIMPLE"}}
+                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERS {:SYSTEMcontext/ENTITY_TYPE "SYSTEM_TESTcontext+SIMPLE"}}
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
     :target_name      "SYSTEMcontext+CLASSIFIER_VALUE_INSTANTIATOR"
-    :name             "MAIN+SIMPLE"
+    :name             "SYSTEM_TESTcontext+SIMPLE"
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
-    :target_name      "MAIN+SIMPLE_INSTANTIATOR"
-    :name             "MAIN+SIMPLE_1"
+    :target_name      "SYSTEM_TESTcontext+SIMPLE_INSTANTIATOR"
+    :name             "SYSTEM_TESTcontext+SIMPLE_1"
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
-    :target_name      "MAIN+SIMPLE_INSTANTIATOR"
-    :name             "MAIN+SIMPLE_2"
+    :target_name      "SYSTEM_TESTcontext+SIMPLE_INSTANTIATOR"
+    :name             "SYSTEM_TESTcontext+SIMPLE_2"
     }
    #_ {:target_requestid :SYSTEMcontext/ADD_CLASSIFIER_REQUESTID
-    :target_name      "MAIN+SIMPLE_2"
-    :classifier       :MAIN/BASIC
-    :classifier-value "MAIN+SIMPLE_1"
+    :target_name      "SYSTEM_TESTcontext+SIMPLE_2"
+    :classifier       :SYSTEM_TESTcontext/BASIC
+    :classifier-value "SYSTEM_TESTcontext+SIMPLE_1"
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
     :target_name      "SYSTEMcontext+DESCRIPTOR_INSTANTIATOR"
-    :name             "MAIN+DEGREE_OF_POLISH"
+    :name             "SYSTEM_TESTcontext+DEGREE_OF_POLISH"
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
     :target_name      "SYSTEMcontext+CLASSIFIER_INSTANTIATOR"
-    :name             "MAIN+BASIC"
+    :name             "SYSTEM_TESTcontext+BASIC"
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
     :target_name      "SYSTEMcontext+CLASSIFIER_INSTANTIATOR"
-    :name             "MAIN+APPLICATION"
+    :name             "SYSTEM_TESTcontext+APPLICATION"
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
     :target_name      "SYSTEMcontext+CLASSIFIER_VALUE_INSTANTIATOR"
-    :name             "MAIN+FIDDLING"
+    :name             "SYSTEM_TESTcontext+FIDDLING"
     }
    {:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
     :target_name      "SYSTEMcontext+FEDERATOR_INSTANTIATOR"
-    :name             "MAIN+FEDERATOR_1"
-    :descriptors      {:SYSTEMcontext/FEDERATION_NAMES ["MAIN+SIMPLE_1"]
+    :name             "SYSTEM_TESTcontext+FEDERATOR_1"
+    :descriptors      {:SYSTEMcontext/FEDERATION_NAMES ["SYSTEM_TESTcontext+SIMPLE_1"]
                        :SYSTEMcontext/SCRIPT           [{:target_requestid :SYSTEMcontext/INSTANTIATE_REQUESTID
-                                                    :target_name      "MAIN+SIMPLE_INSTANTIATOR"
-                                                    :name             "MAIN+SIMPLE_3"
+                                                    :target_name      "SYSTEM_TESTcontext+SIMPLE_INSTANTIATOR"
+                                                    :name             "SYSTEM_TESTcontext+SIMPLE_3"
                                                     }
                                                    {:target_requestid :SYSTEMcontext/ADD_DESCRIPTOR_REQUESTID
-                                                    :target_name      "MAIN+SIMPLE_1"
-                                                    :descriptor       :MAIN/DEGREE_OF_POLISH
+                                                    :target_name      "SYSTEM_TESTcontext+SIMPLE_1"
+                                                    :descriptor       :SYSTEM_TESTcontext/DEGREE_OF_POLISH
                                                     :descriptor-value "MIDDLING"
                                                     }
                                                    {:target_requestid :SYSTEMcontext/ADD_CLASSIFIER_REQUESTID
-                                                    :target_name      "MAIN+SIMPLE_1"
-                                                    :classifier       :MAIN/APPLICATION
-                                                    :classifier-value "MAIN+FIDDLING"
+                                                    :target_name      "SYSTEM_TESTcontext+SIMPLE_1"
+                                                    :classifier       :SYSTEM_TESTcontext/APPLICATION
+                                                    :classifier-value "SYSTEM_TESTcontext+FIDDLING"
                                                     }
                                                    {:target_requestid :SYSTEMcontext/ADD_DESCRIPTOR_REQUESTID
-                                                    :target_name      "MAIN+SIMPLE_3"
-                                                    :descriptor       :MAIN/DEGREE_OF_POLISH
+                                                    :target_name      "SYSTEM_TESTcontext+SIMPLE_3"
+                                                    :descriptor       :SYSTEM_TESTcontext/DEGREE_OF_POLISH
                                                     :descriptor-value "MIDDLING"
                                                     }
                                                    {:target_requestid :SYSTEMcontext/ADD_CLASSIFIER_REQUESTID
-                                                    :target_name      "MAIN+SIMPLE_3"
-                                                    :classifier       :MAIN/BASIC
-                                                    :classifier-value "MAIN+SIMPLE_1"
+                                                    :target_name      "SYSTEM_TESTcontext+SIMPLE_3"
+                                                    :classifier       :SYSTEM_TESTcontext/BASIC
+                                                    :classifier-value "SYSTEM_TESTcontext+SIMPLE_1"
                                                     }
                                                    {:target_requestid :SYSTEMcontext/ADD_CLASSIFIER_REQUESTID
-                                                    :target_name      "MAIN+SIMPLE_3"
-                                                    :classifier       :MAIN/APPLICATION
-                                                    :classifier-value "MAIN+FIDDLING"
+                                                    :target_name      "SYSTEM_TESTcontext+SIMPLE_3"
+                                                    :classifier       :SYSTEM_TESTcontext/APPLICATION
+                                                    :classifier-value "SYSTEM_TESTcontext+FIDDLING"
                                                     }
                                                    ]}}
    {:target_requestid :SYSTEMcontext/RUN_FEDERATION_REQUESTID
-      :target_name      "MAIN+FEDERATOR_1"
+      :target_name      "SYSTEM_TESTcontext+FEDERATOR_1"
       }
    {:target_requestid :SYSTEMcontext/ENTITY_REPORT_REQUESTID
     :target_name      "ROOT+SYSTEMcontext"
     }
    {:target_requestid :SYSTEMcontext/ENTITY_REPORT_REQUESTID
-    :target_name      "SYSTEMcontext+MAIN"
+    :target_name      "SYSTEMcontext+SYSTEM_TESTcontext"
     }
    ])

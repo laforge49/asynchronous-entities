@@ -1,14 +1,14 @@
-Entity Report for MAIN+SIMPLE
+Entity Report for SYSTEM_TESTcontext+FIDDLING
 
-1. Classifiers of entity MAIN+SIMPLE
-(Default context is MAIN.)
+1. Classifiers of entity SYSTEM_TESTcontext+FIDDLING
+(Default context is SYSTEM_TESTcontext.)
 
 SYSTEMcontext+ENTITY_TYPE = SYSTEMcontext+CLASSIFIER_VALUE
 
 Number of classifiers: 1
 
-2. Descriptors of entity MAIN+SIMPLE
-(Default context is MAIN.)
+2. Descriptors of entity SYSTEM_TESTcontext+FIDDLING
+(Default context is SYSTEM_TESTcontext.)
 
 SYSTEMcontext+INSTANTIATOR = "SYSTEMcontext+CLASSIFIER_VALUE_INSTANTIATOR"
 SYSTEMcontext+INVARIANT = true

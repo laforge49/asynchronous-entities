@@ -1,13 +1,13 @@
-Context Report for SYSTEMcontext+MAIN
+Context Report for SYSTEMcontext+SYSTEM_TESTcontext
 
-1. Classifiers of entity SYSTEMcontext+MAIN
+1. Classifiers of entity SYSTEMcontext+SYSTEM_TESTcontext
 (Default context is SYSTEMcontext.)
 
 +ENTITY_TYPE = +CONTEXT
 
 Number of classifiers: 1
 
-2. Descriptors of entity SYSTEMcontext+MAIN
+2. Descriptors of entity SYSTEMcontext+SYSTEM_TESTcontext
 (Default context is SYSTEMcontext.)
 
 +INSTANTIATOR = "SYSTEMcontext+CONTEXT_INSTANTIATOR"
@@ -15,8 +15,8 @@ Number of classifiers: 1
 
 Number of descriptors: 2
 
-3. Registered Entities of context SYSTEMcontext+MAIN
-(Default context is MAIN.)
+3. Registered Entities of context SYSTEMcontext+SYSTEM_TESTcontext
+(Default context is SYSTEM_TESTcontext.)
 
 +APPLICATION
 +BASIC
@@ -31,8 +31,8 @@ Number of descriptors: 2
 
 Number of entities: 10
 
-4. Classifier Values of context SYSTEMcontext+MAIN
-(Default context is MAIN.)
+4. Classifier Values of context SYSTEMcontext+SYSTEM_TESTcontext
+(Default context is SYSTEM_TESTcontext.)
 
 classifier:    +APPLICATION
      value:        +FIDDLING

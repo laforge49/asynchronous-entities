@@ -36,7 +36,6 @@ Number of descriptors: 1
 +INSTANTIATION_DESCRIPTORS
 +INSTANTIATOR_INSTANTIATOR
 +INVARIANT
-+MAIN
 +READ_ONLY
 +REGISTER_CLASSIFIER_REQUESTID
 +REGISTER_ENTITY_REQUESTID
@@ -46,6 +45,7 @@ Number of descriptors: 1
 +REQUESTID_MAP
 +ROUTE_REQUESTID
 +RUN_FEDERATION_REQUESTID
++SYSTEM_TESTcontext
 
 Number of entities: 31
 
@@ -63,7 +63,7 @@ classifier:    +ENTITY_TYPE
     entity:            +FEDERATOR
     entity:            +REQUESTID
      value:        +CONTEXT
-    entity:            +MAIN
+    entity:            +SYSTEM_TESTcontext
      value:        +DESCRIPTOR
     entity:            +INSTANTIATION_CLASSIFIERS
     entity:            +INSTANTIATION_DESCRIPTORS

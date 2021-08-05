@@ -1,14 +1,14 @@
-Entity Report for MAIN+DEGREE_OF_POLISH
+Entity Report for SYSTEM_TESTcontext+DEGREE_OF_POLISH
 
-1. Classifiers of entity MAIN+DEGREE_OF_POLISH
-(Default context is MAIN.)
+1. Classifiers of entity SYSTEM_TESTcontext+DEGREE_OF_POLISH
+(Default context is SYSTEM_TESTcontext.)
 
 SYSTEMcontext+ENTITY_TYPE = SYSTEMcontext+DESCRIPTOR
 
 Number of classifiers: 1
 
-2. Descriptors of entity MAIN+DEGREE_OF_POLISH
-(Default context is MAIN.)
+2. Descriptors of entity SYSTEM_TESTcontext+DEGREE_OF_POLISH
+(Default context is SYSTEM_TESTcontext.)
 
 SYSTEMcontext+INSTANTIATOR = "SYSTEMcontext+DESCRIPTOR_INSTANTIATOR"
 SYSTEMcontext+INVARIANT = true

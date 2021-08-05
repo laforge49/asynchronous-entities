@@ -1,16 +1,16 @@
-Entity Report for MAIN+SIMPLE_2
+Entity Report for SYSTEM_TESTcontext+SIMPLE_2
 
-1. Classifiers of entity MAIN+SIMPLE_2
-(Default context is MAIN.)
+1. Classifiers of entity SYSTEM_TESTcontext+SIMPLE_2
+(Default context is SYSTEM_TESTcontext.)
 
 SYSTEMcontext+ENTITY_TYPE = +SIMPLE
 
 Number of classifiers: 1
 
-2. Descriptors of entity MAIN+SIMPLE_2
-(Default context is MAIN.)
+2. Descriptors of entity SYSTEM_TESTcontext+SIMPLE_2
+(Default context is SYSTEM_TESTcontext.)
 
-SYSTEMcontext+INSTANTIATOR = "MAIN+SIMPLE_INSTANTIATOR"
+SYSTEMcontext+INSTANTIATOR = "SYSTEM_TESTcontext+SIMPLE_INSTANTIATOR"
 SYSTEMcontext+REQUESTID_MAP = #:SYSTEMcontext{:ADD_DESCRIPTOR_REQUESTID [:ADD_DESCRIPTOR_OPERATIONID], :ADD_CLASSIFIER_REQUESTID [:ADD_CLASSIFIER_OPERATIONID], :ENTITY_REPORT_REQUESTID [:ENTITY_REPORT_OPERATIONID]}
 
 Number of descriptors: 2
