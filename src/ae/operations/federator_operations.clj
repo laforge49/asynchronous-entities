@@ -105,7 +105,7 @@
                 (a/chan)
                 _ (a/>! root-contexts-request-port [env {:requestid        :SYSTEMcontext/ROUTErequestid
                                                          :target_requestid :SYSTEMcontext/INSTANTIATErequestid
-                                                         :target_name      "SYSTEMcontext+FEDERATION_CONTEXT_INSTANTIATOR"
+                                                         :target_name      "SYSTEMcontext+FEDERATION_CONTEXTinstantiator"
                                                          :return_port      subrequest-return-port
                                                          :name             nil}])
                 federation-context-request-port

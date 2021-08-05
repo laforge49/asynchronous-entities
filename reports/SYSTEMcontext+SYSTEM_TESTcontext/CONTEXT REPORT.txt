@@ -10,7 +10,7 @@ Number of classifiers: 1
 2. Descriptors of entity SYSTEMcontext+SYSTEM_TESTcontext
 (Default context is SYSTEMcontext.)
 
-+INSTANTIATOR = "SYSTEMcontext+CONTEXT_INSTANTIATOR"
++INSTANTIATOR = "SYSTEMcontext+CONTEXTinstantiator"
 +REQUESTID_MAP = #:SYSTEMcontext{:REGISTER_ENTITYrequestid [:REGISTER_ENTITYoperationid], :ROUTErequestid [:ROUTEoperationid], :REGISTER_CLASSIFIERrequestid [:REGISTER_CLASSIFIERoperationid], :ENTITY_REPORTrequestid [:CONTEXT_REPORToperationid]}
 
 Number of descriptors: 2
@@ -27,7 +27,7 @@ Number of descriptors: 2
 +SIMPLE_1
 +SIMPLE_2
 +SIMPLE_3
-+SIMPLE_INSTANTIATOR
++SIMPLEinstantiator
 
 Number of entities: 10
 
@@ -57,7 +57,7 @@ classifier:    SYSTEMcontext+ENTITY_TYPE
      value:        SYSTEMcontext+FEDERATOR
     entity:            +FEDERATOR_1
      value:        SYSTEMcontext+INSTANTIATOR
-    entity:            +SIMPLE_INSTANTIATOR
+    entity:            +SIMPLEinstantiator
 
 Number of classifiers: 3
 

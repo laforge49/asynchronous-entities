@@ -10,7 +10,7 @@ Number of classifiers: 1
 2. Descriptors of entity SYSTEM_TESTcontext+DEGREE_OF_POLISH
 (Default context is SYSTEM_TESTcontext.)
 
-SYSTEMcontext+INSTANTIATOR = "SYSTEMcontext+DESCRIPTOR_INSTANTIATOR"
+SYSTEMcontext+INSTANTIATOR = "SYSTEMcontext+DESCRIPTORinstantiator"
 SYSTEMcontext+INVARIANT = true
 SYSTEMcontext+REQUESTID_MAP = #:SYSTEMcontext{:ENTITY_REPORTrequestid [:ENTITY_REPORToperationid]}
 

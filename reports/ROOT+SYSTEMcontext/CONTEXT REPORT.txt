@@ -18,31 +18,31 @@ Number of descriptors: 1
 +ACQUIRErequestid
 +ADD_CLASSIFIERrequestid
 +ADD_DESCRIPTORrequestid
-+CLASSIFIER_INSTANTIATOR
 +CLASSIFIER_VALUE
-+CLASSIFIER_VALUE_INSTANTIATOR
++CLASSIFIER_VALUEinstantiator
++CLASSIFIERinstantiator
 +CONTEXT
-+CONTEXT_INSTANTIATOR
 +CONTEXT_REPORTrequestid
++CONTEXTinstantiator
 +DESCRIPTOR
-+DESCRIPTOR_INSTANTIATOR
++DESCRIPTORinstantiator
 +ENTITY_TYPE
 +FEDERATION_CONTEXT
-+FEDERATION_CONTEXT_INSTANTIATOR
++FEDERATION_CONTEXTinstantiator
 +FEDERATOR
-+FEDERATOR_INSTANTIATOR
++FEDERATORinstantiator
 +INSTANTIATErequestid
 +INSTANTIATION_CLASSIFIERS
 +INSTANTIATION_DESCRIPTORS
-+INSTANTIATOR_INSTANTIATOR
++INSTANTIATORinstantiator
 +INVARIANT
 +READ_ONLY
 +REGISTER_CLASSIFIERrequestid
 +REGISTER_ENTITYrequestid
 +RELEASErequestid
 +REQUESTID
-+REQUESTID_INSTANTIATOR
 +REQUESTID_MAP
++REQUESTIDinstantiator
 +ROUTErequestid
 +RUN_FEDERATIONrequestid
 +SYSTEM_TESTcontext
@@ -71,14 +71,14 @@ classifier:    +ENTITY_TYPE
     entity:            +READ_ONLY
     entity:            +REQUESTID_MAP
      value:        +INSTANTIATOR
-    entity:            +CLASSIFIER_INSTANTIATOR
-    entity:            +CLASSIFIER_VALUE_INSTANTIATOR
-    entity:            +CONTEXT_INSTANTIATOR
-    entity:            +DESCRIPTOR_INSTANTIATOR
-    entity:            +FEDERATION_CONTEXT_INSTANTIATOR
-    entity:            +FEDERATOR_INSTANTIATOR
-    entity:            +INSTANTIATOR_INSTANTIATOR
-    entity:            +REQUESTID_INSTANTIATOR
+    entity:            +CLASSIFIER_VALUEinstantiator
+    entity:            +CLASSIFIERinstantiator
+    entity:            +CONTEXTinstantiator
+    entity:            +DESCRIPTORinstantiator
+    entity:            +FEDERATION_CONTEXTinstantiator
+    entity:            +FEDERATORinstantiator
+    entity:            +INSTANTIATORinstantiator
+    entity:            +REQUESTIDinstantiator
      value:        +REQUESTID
     entity:            +ACQUIRErequestid
     entity:            +ADD_CLASSIFIERrequestid

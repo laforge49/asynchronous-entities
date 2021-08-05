@@ -13,7 +13,7 @@ Number of classifiers: 3
 (Default context is SYSTEM_TESTcontext.)
 
 +DEGREE_OF_POLISH = "MIDDLING"
-SYSTEMcontext+INSTANTIATOR = "SYSTEM_TESTcontext+SIMPLE_INSTANTIATOR"
+SYSTEMcontext+INSTANTIATOR = "SYSTEM_TESTcontext+SIMPLEinstantiator"
 SYSTEMcontext+REQUESTID_MAP = #:SYSTEMcontext{:ADD_DESCRIPTORrequestid [:ADD_DESCRIPTORoperationid], :ADD_CLASSIFIERrequestid [:ADD_CLASSIFIERoperationid], :ENTITY_REPORTrequestid [:ENTITY_REPORToperationid]}
 
 Number of descriptors: 3

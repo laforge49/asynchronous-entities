@@ -10,7 +10,7 @@ Number of classifiers: 1
 2. Descriptors of entity SYSTEM_TESTcontext+FIDDLING
 (Default context is SYSTEM_TESTcontext.)
 
-SYSTEMcontext+INSTANTIATOR = "SYSTEMcontext+CLASSIFIER_VALUE_INSTANTIATOR"
+SYSTEMcontext+INSTANTIATOR = "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"
 SYSTEMcontext+INVARIANT = true
 SYSTEMcontext+REQUESTID_MAP = #:SYSTEMcontext{:ENTITY_REPORTrequestid [:ENTITY_REPORToperationid]}
 

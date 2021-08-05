@@ -1,18 +1,18 @@
-Entity Report for SYSTEMcontext+FEDERATOR_INSTANTIATOR
+Entity Report for SYSTEMcontext+FEDERATORinstantiator
 
-1. Classifiers of entity SYSTEMcontext+FEDERATOR_INSTANTIATOR
+1. Classifiers of entity SYSTEMcontext+FEDERATORinstantiator
 (Default context is SYSTEMcontext.)
 
 +ENTITY_TYPE = +INSTANTIATOR
 
 Number of classifiers: 1
 
-2. Descriptors of entity SYSTEMcontext+FEDERATOR_INSTANTIATOR
+2. Descriptors of entity SYSTEMcontext+FEDERATORinstantiator
 (Default context is SYSTEMcontext.)
 
 +INSTANTIATION_CLASSIFIERS = #:SYSTEMcontext{:ENTITY_TYPE "SYSTEMcontext+FEDERATOR"}
 +INSTANTIATION_DESCRIPTORS = #:SYSTEMcontext{:REQUESTID_MAP #:SYSTEMcontext{:RUN_FEDERATIONrequestid [:RUN_FEDERATIONoperationid], :ENTITY_REPORTrequestid [:ENTITY_REPORToperationid]}}
-+INSTANTIATOR = "SYSTEMcontext+INSTANTIATOR_INSTANTIATOR"
++INSTANTIATOR = "SYSTEMcontext+INSTANTIATORinstantiator"
 +INVARIANT = true
 +REQUESTID_MAP = #:SYSTEMcontext{:INSTANTIATErequestid [:INSTANTIATEoperationid], :ENTITY_REPORTrequestid [:ENTITY_REPORToperationid]}
 
