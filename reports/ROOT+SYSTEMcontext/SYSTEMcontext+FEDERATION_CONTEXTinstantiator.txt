@@ -10,10 +10,10 @@ Number of classifiers: 1
 2. Descriptors of entity SYSTEMcontext+FEDERATION_CONTEXTinstantiator
 (Default context is SYSTEMcontext.)
 
-+INSTANTIATION_CLASSIFIERS = #:SYSTEMcontext{:ENTITY_TYPEclassifier "SYSTEMcontext+FEDERATION_CONTEXTclassifier_value"}
-+INSTANTIATION_DESCRIPTORS = #:SYSTEMcontext{:REQUESTID_MAP #:SYSTEMcontext{:ACQUIRErequestid [:FEDERATION_ACQUIREoperationid], :RELEASErequestid [:FEDERATION_RELEASEoperationid]}}
++INSTANTIATION_CLASSIFIERSdescriptor = #:SYSTEMcontext{:ENTITY_TYPEclassifier "SYSTEMcontext+FEDERATION_CONTEXTclassifier_value"}
++INSTANTIATION_DESCRIPTORSdescriptor = #:SYSTEMcontext{:REQUESTID_MAP #:SYSTEMcontext{:ACQUIRErequestid [:FEDERATION_ACQUIREoperationid], :RELEASErequestid [:FEDERATION_RELEASEoperationid]}}
 +INSTANTIATOR = "SYSTEMcontext+INSTANTIATORinstantiator"
-+INVARIANT = true
++INVARIANTdescriptor = true
 +REQUESTID_MAP = #:SYSTEMcontext{:INSTANTIATErequestid [:INSTANTIATEoperationid], :ENTITY_REPORTrequestid [:ENTITY_REPORToperationid]}
 
 Number of descriptors: 5

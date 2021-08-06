@@ -33,12 +33,12 @@ Number of descriptors: 1
 +FEDERATORclassifier_value
 +FEDERATORinstantiator
 +INSTANTIATErequestid
-+INSTANTIATION_CLASSIFIERS
-+INSTANTIATION_DESCRIPTORS
++INSTANTIATION_CLASSIFIERSdescriptor
++INSTANTIATION_DESCRIPTORSdescriptor
 +INSTANTIATORclassifier_value
 +INSTANTIATORinstantiator
-+INVARIANT
-+READ_ONLY
++INVARIANTdescriptor
++READ_ONLYdescriptor
 +REGISTER_CLASSIFIERrequestid
 +REGISTER_ENTITYrequestid
 +RELATIONinstantiator
@@ -70,10 +70,10 @@ classifier:    +ENTITY_TYPEclassifier
      value:        +CONTEXTclassifier_value
     entity:            +SYSTEM_TESTcontext
      value:        +DESCRIPTORclassifier_value
-    entity:            +INSTANTIATION_CLASSIFIERS
-    entity:            +INSTANTIATION_DESCRIPTORS
-    entity:            +INVARIANT
-    entity:            +READ_ONLY
+    entity:            +INSTANTIATION_CLASSIFIERSdescriptor
+    entity:            +INSTANTIATION_DESCRIPTORSdescriptor
+    entity:            +INVARIANTdescriptor
+    entity:            +READ_ONLYdescriptor
     entity:            +REQUESTID_MAP
      value:        +INSTANTIATORclassifier_value
     entity:            +CLASSIFIER_VALUEinstantiator

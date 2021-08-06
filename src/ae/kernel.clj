@@ -139,13 +139,13 @@
             (throw (Exception. (str "Operationid is nil\n"
                                     (prn-str params)
                                     (prn-str target-map)))))]
-    (if (= (get-in target-map [:DESCRIPTORS :SYSTEMcontext/INVARIANT]) true)
+    (if (= (get-in target-map [:DESCRIPTORS :SYSTEMcontext/INVARIANTdescriptor]) true)
       (let [request-descriptors
             (get-invariant-descriptors requestid)
             read-only
             (if (nil? request-descriptors)
               true
-              (:SYSTEMcontext/READ_ONLY request-descriptors))]
+              (:SYSTEMcontext/READ_ONLYdescriptor request-descriptors))]
         (if (not read-only)
           (throw (Exception. (str "Can not apply " requestid " to invariant " (:NAME target-map)))))))
     operationid))
@@ -250,7 +250,7 @@
                          :PUSH-REQUEST-PORT
                          (let [this-descriptors
                                (thisDescriptors target-map params)]
-                           (if (:SYSTEMcontext/INVARIANT this-descriptors)
+                           (if (:SYSTEMcontext/INVARIANTdescriptor this-descriptors)
                              [target-map [target-map nil]]
                              (let [new-request-port
                                    (:new-request-port params)
@@ -332,7 +332,7 @@
           {}
           classifiers)
         invariant
-        (:SYSTEMcontext/INVARIANT descriptors)
+        (:SYSTEMcontext/INVARIANTdescriptor descriptors)
         initialization-port
         (:initialization-port params)
         request-port-stack
@@ -347,7 +347,7 @@
          :CLASSIFIERS        classifiers
          :REQUEST-PORT-STACK request-port-stack}
         ]
-    (if (= (:SYSTEMcontext/INVARIANT descriptors) true)
+    (if (= (:SYSTEMcontext/INVARIANTdescriptor descriptors) true)
       (add-invariant-map name new-entity-map))
     (create-operation-dispatcher new-entity-map)
     [new-public-request-port new-entity-map]))
