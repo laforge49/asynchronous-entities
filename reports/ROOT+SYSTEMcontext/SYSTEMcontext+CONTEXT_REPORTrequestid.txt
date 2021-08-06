@@ -3,7 +3,7 @@ Entity Report for SYSTEMcontext+CONTEXT_REPORTrequestid
 1. Classifiers of entity SYSTEMcontext+CONTEXT_REPORTrequestid
 (Default context is SYSTEMcontext.)
 
-+ENTITY_TYPEclassifier = +REQUESTID
++ENTITY_TYPEclassifier = +REQUESTIDclassifier_value
 
 Number of classifiers: 1
 

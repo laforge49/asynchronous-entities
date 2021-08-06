@@ -3,7 +3,7 @@ Entity Report for SYSTEMcontext+CONTEXTinstantiator
 1. Classifiers of entity SYSTEMcontext+CONTEXTinstantiator
 (Default context is SYSTEMcontext.)
 
-+ENTITY_TYPEclassifier = +INSTANTIATOR
++ENTITY_TYPEclassifier = +INSTANTIATORclassifier_value
 
 Number of classifiers: 1
 

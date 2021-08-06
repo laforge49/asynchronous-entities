@@ -3,7 +3,7 @@ Entity Report for SYSTEM_TESTcontext+BASICrelation
 1. Classifiers of entity SYSTEM_TESTcontext+BASICrelation
 (Default context is SYSTEM_TESTcontext.)
 
-SYSTEMcontext+ENTITY_TYPEclassifier = SYSTEMcontext+CLASSIFIER
+SYSTEMcontext+ENTITY_TYPEclassifier = SYSTEMcontext+CLASSIFIERclassifier_value
 
 Number of classifiers: 1
 

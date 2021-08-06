@@ -35,6 +35,7 @@ Number of descriptors: 1
 +INSTANTIATErequestid
 +INSTANTIATION_CLASSIFIERS
 +INSTANTIATION_DESCRIPTORS
++INSTANTIATORclassifier_value
 +INSTANTIATORinstantiator
 +INVARIANT
 +READ_ONLY
@@ -42,21 +43,19 @@ Number of descriptors: 1
 +REGISTER_ENTITYrequestid
 +RELATIONinstantiator
 +RELEASErequestid
-+REQUESTID
 +REQUESTID_MAP
++REQUESTIDclassifier_value
 +REQUESTIDinstantiator
 +ROUTErequestid
 +RUN_FEDERATIONrequestid
 +SYSTEM_TESTcontext
 
-Number of entities: 33
+Number of entities: 34
 
 4. Classifier Values of context ROOT+SYSTEMcontext
 (Default context is SYSTEMcontext.)
 
 classifier:    +ENTITY_TYPEclassifier
-     value:        +CLASSIFIER
-    entity:            +ENTITY_TYPEclassifier
      value:        +CLASSIFIER_VALUEclassifier_value
     entity:            +CLASSIFIER_VALUEclassifier_value
     entity:            +CLASSIFIERclassifier_value
@@ -64,16 +63,19 @@ classifier:    +ENTITY_TYPEclassifier
     entity:            +DESCRIPTORclassifier_value
     entity:            +FEDERATION_CONTEXTclassifier_value
     entity:            +FEDERATORclassifier_value
-    entity:            +REQUESTID
+    entity:            +INSTANTIATORclassifier_value
+    entity:            +REQUESTIDclassifier_value
+     value:        +CLASSIFIERclassifier_value
+    entity:            +ENTITY_TYPEclassifier
      value:        +CONTEXTclassifier_value
     entity:            +SYSTEM_TESTcontext
-     value:        +DESCRIPTOR
+     value:        +DESCRIPTORclassifier_value
     entity:            +INSTANTIATION_CLASSIFIERS
     entity:            +INSTANTIATION_DESCRIPTORS
     entity:            +INVARIANT
     entity:            +READ_ONLY
     entity:            +REQUESTID_MAP
-     value:        +INSTANTIATOR
+     value:        +INSTANTIATORclassifier_value
     entity:            +CLASSIFIER_VALUEinstantiator
     entity:            +CLASSIFIERinstantiator
     entity:            +CONTEXTinstantiator
@@ -83,7 +85,7 @@ classifier:    +ENTITY_TYPEclassifier
     entity:            +INSTANTIATORinstantiator
     entity:            +RELATIONinstantiator
     entity:            +REQUESTIDinstantiator
-     value:        +REQUESTID
+     value:        +REQUESTIDclassifier_value
     entity:            +ACQUIRErequestid
     entity:            +ADD_CLASSIFIERrequestid
     entity:            +ADD_DESCRIPTORrequestid

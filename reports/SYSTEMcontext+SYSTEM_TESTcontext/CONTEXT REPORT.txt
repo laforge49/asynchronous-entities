@@ -46,17 +46,17 @@ classifier:    SYSTEMcontext+ENTITY_TYPEclassifier
     entity:            +ALPHAsimple
     entity:            +BETAsimple
     entity:            +GAMMAsimple
-     value:        SYSTEMcontext+CLASSIFIER
-    entity:            +APPLICATIONclassifier
-    entity:            +BASICrelation
      value:        SYSTEMcontext+CLASSIFIER_VALUEclassifier_value
     entity:            +FIDDLINGclassifier_value
     entity:            +SIMPLEclassifier_value
-     value:        SYSTEMcontext+DESCRIPTOR
+     value:        SYSTEMcontext+CLASSIFIERclassifier_value
+    entity:            +APPLICATIONclassifier
+    entity:            +BASICrelation
+     value:        SYSTEMcontext+DESCRIPTORclassifier_value
     entity:            +DEGREE_OF_POLISHdescriptor
-     value:        SYSTEMcontext+FEDERATOR
+     value:        SYSTEMcontext+FEDERATORclassifier_value
     entity:            +TEST_Afederator
-     value:        SYSTEMcontext+INSTANTIATOR
+     value:        SYSTEMcontext+INSTANTIATORclassifier_value
     entity:            +SIMPLEinstantiator
 
 Number of classifiers: 3
