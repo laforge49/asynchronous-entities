@@ -3,7 +3,7 @@ Context Report for SYSTEMcontext+SYSTEM_TESTcontext
 1. Classifiers of entity SYSTEMcontext+SYSTEM_TESTcontext
 (Default context is SYSTEMcontext.)
 
-+ENTITY_TYPE = +CONTEXTclassifier_value
++ENTITY_TYPEclassifier = +CONTEXTclassifier_value
 
 Number of classifiers: 1
 
@@ -41,7 +41,7 @@ classifier:    +APPLICATIONclassifier
 classifier:    +BASICrelation
      value:        +ALPHAsimple
     entity:            +GAMMAsimple
-classifier:    SYSTEMcontext+ENTITY_TYPE
+classifier:    SYSTEMcontext+ENTITY_TYPEclassifier
      value:        +SIMPLEclassifier_value
     entity:            +ALPHAsimple
     entity:            +BETAsimple

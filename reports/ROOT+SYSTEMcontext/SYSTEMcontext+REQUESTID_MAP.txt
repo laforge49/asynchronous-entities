@@ -3,7 +3,7 @@ Entity Report for SYSTEMcontext+REQUESTID_MAP
 1. Classifiers of entity SYSTEMcontext+REQUESTID_MAP
 (Default context is SYSTEMcontext.)
 
-+ENTITY_TYPE = +DESCRIPTOR
++ENTITY_TYPEclassifier = +DESCRIPTOR
 
 Number of classifiers: 1
 

@@ -3,7 +3,7 @@ Entity Report for SYSTEMcontext+READ_ONLY
 1. Classifiers of entity SYSTEMcontext+READ_ONLY
 (Default context is SYSTEMcontext.)
 
-+ENTITY_TYPE = +DESCRIPTOR
++ENTITY_TYPEclassifier = +DESCRIPTOR
 
 Number of classifiers: 1
 

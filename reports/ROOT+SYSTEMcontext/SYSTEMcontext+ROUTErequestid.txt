@@ -3,7 +3,7 @@ Entity Report for SYSTEMcontext+ROUTErequestid
 1. Classifiers of entity SYSTEMcontext+ROUTErequestid
 (Default context is SYSTEMcontext.)
 
-+ENTITY_TYPE = +REQUESTID
++ENTITY_TYPEclassifier = +REQUESTID
 
 Number of classifiers: 1
 

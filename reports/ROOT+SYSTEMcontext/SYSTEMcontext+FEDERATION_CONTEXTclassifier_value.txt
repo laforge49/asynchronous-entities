@@ -3,7 +3,7 @@ Entity Report for SYSTEMcontext+FEDERATION_CONTEXTclassifier_value
 1. Classifiers of entity SYSTEMcontext+FEDERATION_CONTEXTclassifier_value
 (Default context is SYSTEMcontext.)
 
-+ENTITY_TYPE = +CLASSIFIER_VALUEclassifier_value
++ENTITY_TYPEclassifier = +CLASSIFIER_VALUEclassifier_value
 
 Number of classifiers: 1
 

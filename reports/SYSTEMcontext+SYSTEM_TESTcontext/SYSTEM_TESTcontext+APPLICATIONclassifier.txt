@@ -3,7 +3,7 @@ Entity Report for SYSTEM_TESTcontext+APPLICATIONclassifier
 1. Classifiers of entity SYSTEM_TESTcontext+APPLICATIONclassifier
 (Default context is SYSTEM_TESTcontext.)
 
-SYSTEMcontext+ENTITY_TYPE = SYSTEMcontext+CLASSIFIER
+SYSTEMcontext+ENTITY_TYPEclassifier = SYSTEMcontext+CLASSIFIER
 
 Number of classifiers: 1
 

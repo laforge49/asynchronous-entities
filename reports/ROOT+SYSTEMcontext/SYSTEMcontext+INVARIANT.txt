@@ -3,7 +3,7 @@ Entity Report for SYSTEMcontext+INVARIANT
 1. Classifiers of entity SYSTEMcontext+INVARIANT
 (Default context is SYSTEMcontext.)
 
-+ENTITY_TYPE = +DESCRIPTOR
++ENTITY_TYPEclassifier = +DESCRIPTOR
 
 Number of classifiers: 1
 
