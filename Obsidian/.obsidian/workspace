@@ -4,14 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "e49175af1c1329b2",
+        "id": "07c53e211b7877ec",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "blog/2021-31-6.md",
-            "mode": "preview"
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -68,7 +65,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "blog/2021-31-6.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,17 +101,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "e49175af1c1329b2",
+  "active": "07c53e211b7877ec",
   "lastOpenFiles": [
+    "blog/2021-31-0.md",
     "blog/2021-31-6.md",
+    "blog/xx2021-31-6.md",
     "blog/2021-31.md",
     "first note.md",
     "blog/202108071829.md",
     "blog/202108071817.md",
     "blog/202108071816 started with Obsidian.md",
     "202108071829.md",
-    "202108071816 started with Obsidian.md",
-    "Untitled.md",
-    "202108071817.md"
+    "202108071816 started with Obsidian.md"
   ]
 }
