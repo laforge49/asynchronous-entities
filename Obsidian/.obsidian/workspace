@@ -4,13 +4,13 @@
     "type": "split",
     "children": [
       {
-        "id": "dcc0ae9bd0ec6524",
+        "id": "e49175af1c1329b2",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "first note.md",
-            "mode": "source"
+            "file": "blog/2021-31-6.md",
+            "mode": "preview"
           }
         }
       }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "first note.md",
+                "file": "blog/2021-31-6.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -78,6 +78,25 @@
                 "unlinkedCollapsed": true
               }
             }
+          },
+          {
+            "id": "80050b7c01f66cbf",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "3c1a94df30335376",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
           }
         ]
       }
@@ -86,8 +105,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "dcc0ae9bd0ec6524",
+  "active": "e49175af1c1329b2",
   "lastOpenFiles": [
-    "Untitled.md"
+    "blog/2021-31-6.md",
+    "blog/2021-31.md",
+    "first note.md",
+    "blog/202108071829.md",
+    "blog/202108071817.md",
+    "blog/202108071816 started with Obsidian.md",
+    "202108071829.md",
+    "202108071816 started with Obsidian.md",
+    "Untitled.md",
+    "202108071817.md"
   ]
 }
