@@ -186,28 +186,23 @@
             (recur federation-names-vec federation-map)))))
     return-port))
 
-(defn create-federation-acquire-operation
-  [env]
-  (let [federation-acquire-port
-        (k/register-operation env {:operationid :FEDERATION_ACQUIREoperationid})]
-    (a/go-loop []
-      (let [[env this-map params]
-            (a/<! federation-acquire-port)
-            operation-return-port
-            (:operation-return-port params)]
-        (try
-          (let [federation-names
-                (:federation-names params)
-                root-contexts-request-port
-                (:CONTEXT-REQUEST-PORT env)
-                acquire-loop-port
-                (federation-acquire-loop root-contexts-request-port env federation-names)
-                federation-map
-                (k/request-exception-check (a/<! acquire-loop-port))]
-            (a/>! operation-return-port [this-map nil federation-map]))
-          (catch Exception e
-            (a/>! operation-return-port [this-map e nil])))
-        (recur)))))
+(defn federation-acquire-goblock
+  [env this-map params]
+  (a/go
+    (let [operation-return-port
+          (:operation-return-port params)]
+      (try
+        (let [federation-names
+              (:federation-names params)
+              root-contexts-request-port
+              (:CONTEXT-REQUEST-PORT env)
+              acquire-loop-port
+              (federation-acquire-loop root-contexts-request-port env federation-names)
+              federation-map
+              (k/request-exception-check (a/<! acquire-loop-port))]
+          (a/>! operation-return-port [this-map nil federation-map]))
+        (catch Exception e
+          (a/>! operation-return-port [this-map e nil]))))))
 
 (defn federation-release-goblock
   [env this-map params]
@@ -277,7 +272,8 @@
   (create-register-entity-operation env)
   (create-register-classifier-operation env)
   (create-route-operation env)
-  (create-federation-acquire-operation env)
+  (k/register-function env {:operationid :FEDERATION_ACQUIREoperationid
+                            :goblock     federation-acquire-goblock})
   (k/register-function env {:operationid :FEDERATION_RELEASEoperationid
                             :goblock     federation-release-goblock})
   (k/register-function env {:operationid :CONTEXT_REPORToperationid
