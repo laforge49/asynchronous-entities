@@ -36,20 +36,15 @@
             (k/add-classifier-value this-name name classifier-kw classifier-value-kw)))
         [this-map nil entity-public-request-port]))))
 
-(defn create-register-entity-operation
-  [env]
-  (let [entity-registration-port
-        (k/register-operation env {:operationid :REGISTER_ENTITYoperationid})]
-    (a/go-loop []
-      (let [[env this-map params]
-            (a/<! entity-registration-port)
-            operation-return-port
-            (:operation-return-port params)]
-        (try
-          (a/>! operation-return-port (registerEntityOperation env this-map params))
-          (catch Exception e
-            (a/>! operation-return-port [this-map e nil]))))
-      (recur))))
+(defn register-entity-goblock
+  [env this-map params]
+  (a/go
+    (let [operation-return-port
+          (:operation-return-port params)]
+      (try
+        (a/>! operation-return-port (registerEntityOperation env this-map params))
+        (catch Exception e
+          (a/>! operation-return-port [this-map e nil]))))))
 
 (defn register-classifier-goblock
   [env this-map params]
@@ -258,7 +253,8 @@
 
 (defn create-context-operations
   [env]
-  (create-register-entity-operation env)
+  (k/register-function env {:operationid :REGISTER_ENTITYoperationid
+                            :goblock     register-entity-goblock})
   (k/register-function env {:operationid :REGISTER_CLASSIFIERoperationid
                             :goblock     register-classifier-goblock})
   (k/register-function env {:operationid :ROUTEoperationid
