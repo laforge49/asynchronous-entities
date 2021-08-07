@@ -85,14 +85,10 @@
               nil)))))
     return-port))
 
-(defn create-run-federation-operation
-  [env]
-  (let [new-run-federation-port
-        (k/register-operation env {:operationid :RUN_FEDERATIONoperationid})]
-    (a/go-loop []
-      (let [[env this-map params]
-            (a/<! new-run-federation-port)
-            operation-return-port
+(defn run-federation-goblock
+  [env this-map params]
+  (a/go
+      (let [operation-return-port
             (:operation-return-port params)]
         (try
           (let [root-contexts-request-port
@@ -168,9 +164,10 @@
                                                this-map])
                 ])
           (catch Exception e
-            (a/>! operation-return-port [this-map e nil]))))
-      (recur))))
+            (a/>! operation-return-port [this-map e nil]))))))
 
 (defn create-federator-operations
   [env]
-  (create-run-federation-operation env))
+  (k/register-function env {:operationid :RUN_FEDERATIONoperationid
+                            :goblock     run-federation-goblock})
+  )
