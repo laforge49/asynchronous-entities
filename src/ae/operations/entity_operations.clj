@@ -66,20 +66,20 @@
 
 (defn instantiate-goblock
   [env this-map params]
-    (a/go
-      (let [operation-return-port
-            (:operation-return-port params)]
-        (try
-          (let [context-request-port
-                (:CONTEXT-REQUEST-PORT env)
-                route-params
-                (instantiateOperation env this-map params)
-                route-params
-                (assoc route-params :requestid :SYSTEMcontext/ROUTErequestid)]
-            (a/>! operation-return-port [this-map nil :NO-RETURN])
-            (a/>! context-request-port [env route-params]))
-          (catch Exception e
-            (a/>! operation-return-port [this-map e nil]))))))
+  (a/go
+    (let [operation-return-port
+          (:operation-return-port params)]
+      (try
+        (let [context-request-port
+              (:CONTEXT-REQUEST-PORT env)
+              route-params
+              (instantiateOperation env this-map params)
+              route-params
+              (assoc route-params :requestid :SYSTEMcontext/ROUTErequestid)]
+          (a/>! operation-return-port [this-map nil :NO-RETURN])
+          (a/>! context-request-port [env route-params]))
+        (catch Exception e
+          (a/>! operation-return-port [this-map e nil]))))))
 
 (defn addDescriptorFunction
   [env this-map params]

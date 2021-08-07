@@ -88,83 +88,83 @@
 (defn run-federation-goblock
   [env this-map params]
   (a/go
-      (let [operation-return-port
-            (:operation-return-port params)]
-        (try
-          (let [root-contexts-request-port
-                (:CONTEXT-REQUEST-PORT env)
-                descriptors
-                (:DESCRIPTORS this-map)
-                federation-names
-                (:SYSTEMcontext/FEDERATION_NAMES descriptors)
-                subrequest-return-port
-                (a/chan)
-                _ (a/>! root-contexts-request-port [env {:requestid        :SYSTEMcontext/ROUTErequestid
-                                                         :target_requestid :SYSTEMcontext/INSTANTIATErequestid
-                                                         :target_name      "SYSTEMcontext+FEDERATION_CONTEXTinstantiator"
-                                                         :return_port      subrequest-return-port
-                                                         :name             nil}])
-                federation-context-request-port
-                (k/request-exception-check (a/<! subrequest-return-port))
-                _ (a/>! federation-context-request-port [env {:requestid        :SYSTEMcontext/ACQUIRErequestid
-                                                              :federation-names federation-names
-                                                              :return_port      subrequest-return-port}])
-                federation-map
-                (k/request-exception-check (a/<! subrequest-return-port))
-                federation-vmap
-                (volatile! (reduce
-                             (fn [federation-vmap [k [snap active-port]]]
-                               (assoc federation-vmap k [(volatile! snap) active-port]))
-                             {}
-                             federation-map))
-                env
-                (assoc env :FEDERATION-MAP-VOLATILE federation-vmap)
-                env
-                (assoc env :NEW-CHILDREN-VOLATILE (volatile! {}))
-                env
-                (assoc env :NEW-CLASSIFIERS-VOLATILE (volatile! []))
-                script
-                (:SYSTEMcontext/SCRIPT descriptors)
-                _ (doseq [script-item script]
-                    (k/federationRouteFunction env this-map script-item))
-                federation-vmap
-                (:FEDERATION-MAP-VOLATILE env)
-                federation-map
-                (reduce
-                  (fn [federation-map [k [vsnap active-port]]]
-                    (assoc federation-map k [@vsnap active-port]))
-                  {}
-                  @federation-vmap)
-                [e federation-map]
-                (a/<! (registerChildren env
-                                        federation-map
-                                        @(:NEW-CHILDREN-VOLATILE env)))
-                _ (if (some? e)
-                    (throw e))
-                [e]
-                (a/<! (registerClassifiers env
-                                           @(:NEW-CLASSIFIERS-VOLATILE env)
-                                           @(:NEW-CHILDREN-VOLATILE env)
-                                           ))
-                _ (if (some? e)
-                    (throw e))
-                env
-                (assoc env :FEDERATION-MAP federation-map)
-                env
-                (assoc env :FEDERATION-MAP-VOLATILE nil)
-                env
-                (assoc env :NEW-CHILDREN-VOLATILE nil)
-                env
-                (assoc env :NEW-CLASSIFIERS-VOLATILE nil)
-                _ (a/>! federation-context-request-port [env {:requestid   :SYSTEMcontext/RELEASErequestid
-                                                              :return_port subrequest-return-port}])
-                _ (k/request-exception-check (a/<! subrequest-return-port))
-                _ (a/>! operation-return-port [this-map
-                                               nil
-                                               this-map])
-                ])
-          (catch Exception e
-            (a/>! operation-return-port [this-map e nil]))))))
+    (let [operation-return-port
+          (:operation-return-port params)]
+      (try
+        (let [root-contexts-request-port
+              (:CONTEXT-REQUEST-PORT env)
+              descriptors
+              (:DESCRIPTORS this-map)
+              federation-names
+              (:SYSTEMcontext/FEDERATION_NAMES descriptors)
+              subrequest-return-port
+              (a/chan)
+              _ (a/>! root-contexts-request-port [env {:requestid        :SYSTEMcontext/ROUTErequestid
+                                                       :target_requestid :SYSTEMcontext/INSTANTIATErequestid
+                                                       :target_name      "SYSTEMcontext+FEDERATION_CONTEXTinstantiator"
+                                                       :return_port      subrequest-return-port
+                                                       :name             nil}])
+              federation-context-request-port
+              (k/request-exception-check (a/<! subrequest-return-port))
+              _ (a/>! federation-context-request-port [env {:requestid        :SYSTEMcontext/ACQUIRErequestid
+                                                            :federation-names federation-names
+                                                            :return_port      subrequest-return-port}])
+              federation-map
+              (k/request-exception-check (a/<! subrequest-return-port))
+              federation-vmap
+              (volatile! (reduce
+                           (fn [federation-vmap [k [snap active-port]]]
+                             (assoc federation-vmap k [(volatile! snap) active-port]))
+                           {}
+                           federation-map))
+              env
+              (assoc env :FEDERATION-MAP-VOLATILE federation-vmap)
+              env
+              (assoc env :NEW-CHILDREN-VOLATILE (volatile! {}))
+              env
+              (assoc env :NEW-CLASSIFIERS-VOLATILE (volatile! []))
+              script
+              (:SYSTEMcontext/SCRIPT descriptors)
+              _ (doseq [script-item script]
+                  (k/federationRouteFunction env this-map script-item))
+              federation-vmap
+              (:FEDERATION-MAP-VOLATILE env)
+              federation-map
+              (reduce
+                (fn [federation-map [k [vsnap active-port]]]
+                  (assoc federation-map k [@vsnap active-port]))
+                {}
+                @federation-vmap)
+              [e federation-map]
+              (a/<! (registerChildren env
+                                      federation-map
+                                      @(:NEW-CHILDREN-VOLATILE env)))
+              _ (if (some? e)
+                  (throw e))
+              [e]
+              (a/<! (registerClassifiers env
+                                         @(:NEW-CLASSIFIERS-VOLATILE env)
+                                         @(:NEW-CHILDREN-VOLATILE env)
+                                         ))
+              _ (if (some? e)
+                  (throw e))
+              env
+              (assoc env :FEDERATION-MAP federation-map)
+              env
+              (assoc env :FEDERATION-MAP-VOLATILE nil)
+              env
+              (assoc env :NEW-CHILDREN-VOLATILE nil)
+              env
+              (assoc env :NEW-CLASSIFIERS-VOLATILE nil)
+              _ (a/>! federation-context-request-port [env {:requestid   :SYSTEMcontext/RELEASErequestid
+                                                            :return_port subrequest-return-port}])
+              _ (k/request-exception-check (a/<! subrequest-return-port))
+              _ (a/>! operation-return-port [this-map
+                                             nil
+                                             this-map])
+              ])
+        (catch Exception e
+          (a/>! operation-return-port [this-map e nil]))))))
 
 (defn create-federator-operations
   [env]

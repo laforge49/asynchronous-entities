@@ -241,46 +241,41 @@
             (a/>! operation-return-port [this-map e nil])))
         (recur)))))
 
-(defn create-context-report-operation
-  [env]
-  (let [context-report-port
-        (k/register-operation env {:operationid :CONTEXT_REPORToperationid})]
-    (a/go-loop []
-      (let [[env this-map params]
-            (a/<! context-report-port)
-            operation-return-port
-            (:operation-return-port params)]
-        (try
-          (let [this-name
-                (:NAME this-map)
-                file-name
-                (str "./reports/" this-name "/CONTEXT REPORT.txt")
-                heading
-                (str "Context Report for " this-name "\n\n")
-                report
-                (str heading
-                     (r/classifier-report 1 this-name this-map)
-                     (r/descriptor-report 2 this-name this-map)
-                     (r/context-entities-report 3 this-name this-map)
-                     (r/context-classifier-values-report 4 this-name))
-                entity-ports
-                (:ENTITY-PUBLIC-REQUEST-PORTS this-map)]
-            (io/make-parents file-name)
-            (spit file-name report)
-            (doseq [[entity-kw entity-port] entity-ports]
-              (if (not (k/classifier-name? (first (kw/keyword-as-name entity-kw))))
-                (let [subrequest-return-port
-                      (a/chan)]
-                  (a/>! entity-port [env {:requestid   :SYSTEMcontext/ENTITY_REPORTrequestid
-                                          :return_port subrequest-return-port}])
-                  (k/request-exception-check (a/<! subrequest-return-port))
-                  ))
-              )
-            (a/>! operation-return-port [this-map nil this-map])
+(defn context-report-goblock
+  [env this-map params]
+  (a/go
+    (let [operation-return-port
+          (:operation-return-port params)]
+      (try
+        (let [this-name
+              (:NAME this-map)
+              file-name
+              (str "./reports/" this-name "/CONTEXT REPORT.txt")
+              heading
+              (str "Context Report for " this-name "\n\n")
+              report
+              (str heading
+                   (r/classifier-report 1 this-name this-map)
+                   (r/descriptor-report 2 this-name this-map)
+                   (r/context-entities-report 3 this-name this-map)
+                   (r/context-classifier-values-report 4 this-name))
+              entity-ports
+              (:ENTITY-PUBLIC-REQUEST-PORTS this-map)]
+          (io/make-parents file-name)
+          (spit file-name report)
+          (doseq [[entity-kw entity-port] entity-ports]
+            (if (not (k/classifier-name? (first (kw/keyword-as-name entity-kw))))
+              (let [subrequest-return-port
+                    (a/chan)]
+                (a/>! entity-port [env {:requestid   :SYSTEMcontext/ENTITY_REPORTrequestid
+                                        :return_port subrequest-return-port}])
+                (k/request-exception-check (a/<! subrequest-return-port))
+                ))
             )
-          (catch Exception e
-            (a/>! operation-return-port [this-map e nil])))
-        (recur)))))
+          (a/>! operation-return-port [this-map nil this-map])
+          )
+        (catch Exception e
+          (a/>! operation-return-port [this-map e nil]))))))
 
 (defn create-context-operations
   [env]
@@ -289,5 +284,6 @@
   (create-route-operation env)
   (create-federation-acquire-operation env)
   (create-federation-release-operation env)
-  (create-context-report-operation env)
+  (k/register-function env {:operationid :CONTEXT_REPORToperationid
+                            :goblock     context-report-goblock})
   )
