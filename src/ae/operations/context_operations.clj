@@ -51,30 +51,24 @@
             (a/>! operation-return-port [this-map e nil]))))
       (recur))))
 
-(defn create-register-classifier-operation
-  [env]
-  (let [register-classifier-port
-        (k/register-operation env {:operationid :REGISTER_CLASSIFIERoperationid})]
-    (a/go-loop []
-      (let [[env this-map params]
-            (a/<! register-classifier-port)
-            operation-return-port
-            (:operation-return-port params)]
-        (try
-          (let [name
-                (:name params)
-                classifier-kw
-                (:classifier params)
-                classifier-value-kw
-                (:classifier-value params)
-                this-name
-                (:NAME this-map)]
-            (k/add-classifier-value this-name name classifier-kw classifier-value-kw)
-            (a/>! operation-return-port [this-map nil this-map]))
-          (catch Exception e
-            (a/>! operation-return-port [this-map e nil]))))
-      (recur))
-    ))
+(defn register-classifier-goblock
+  [env this-map params]
+  (a/go
+    (let [operation-return-port
+          (:operation-return-port params)]
+      (try
+        (let [name
+              (:name params)
+              classifier-kw
+              (:classifier params)
+              classifier-value-kw
+              (:classifier-value params)
+              this-name
+              (:NAME this-map)]
+          (k/add-classifier-value this-name name classifier-kw classifier-value-kw)
+          (a/>! operation-return-port [this-map nil this-map]))
+        (catch Exception e
+          (a/>! operation-return-port [this-map e nil]))))))
 
 (defn route-goblock
   [env this-map params]
@@ -265,7 +259,8 @@
 (defn create-context-operations
   [env]
   (create-register-entity-operation env)
-  (create-register-classifier-operation env)
+  (k/register-function env {:operationid :REGISTER_CLASSIFIERoperationid
+                            :goblock     register-classifier-goblock})
   (k/register-function env {:operationid :ROUTEoperationid
                             :goblock     route-goblock})
   (k/register-function env {:operationid :FEDERATION_ACQUIREoperationid
