@@ -209,37 +209,32 @@
             (a/>! operation-return-port [this-map e nil])))
         (recur)))))
 
-(defn create-federation-release-operation
-  [env]
-  (let [federation-release-port
-        (k/register-operation env {:operationid :FEDERATION_RELEASEoperationid})]
-    (a/go-loop []
-      (let [[env this-map params]
-            (a/<! federation-release-port)
-            operation-return-port
-            (:operation-return-port params)]
-        (try
-          (let [federation-map
-                (:FEDERATION-MAP env)
-                subrequest-return-port
-                (a/chan)
-                ]
-            (doseq [en federation-map]
-              (let [[snap entity-request-port]
-                    (val en)]
-                (if (some? entity-request-port)
-                  (a/>! entity-request-port [env {:requestid   :RESET-REQUEST-PORT
-                                                  :this-map    snap
-                                                  :return_port subrequest-return-port}]))))
-            (doseq [en federation-map]
-              (let [[vsnap entity-request-port]
-                    (val en)]
-                (if (some? entity-request-port)
-                  (k/request-exception-check (a/<! subrequest-return-port)))))
-            (a/>! operation-return-port [this-map nil this-map]))
-          (catch Exception e
-            (a/>! operation-return-port [this-map e nil])))
-        (recur)))))
+(defn federation-release-goblock
+  [env this-map params]
+  (a/go
+    (let [operation-return-port
+          (:operation-return-port params)]
+      (try
+        (let [federation-map
+              (:FEDERATION-MAP env)
+              subrequest-return-port
+              (a/chan)
+              ]
+          (doseq [en federation-map]
+            (let [[snap entity-request-port]
+                  (val en)]
+              (if (some? entity-request-port)
+                (a/>! entity-request-port [env {:requestid   :RESET-REQUEST-PORT
+                                                :this-map    snap
+                                                :return_port subrequest-return-port}]))))
+          (doseq [en federation-map]
+            (let [[vsnap entity-request-port]
+                  (val en)]
+              (if (some? entity-request-port)
+                (k/request-exception-check (a/<! subrequest-return-port)))))
+          (a/>! operation-return-port [this-map nil this-map]))
+        (catch Exception e
+          (a/>! operation-return-port [this-map e nil]))))))
 
 (defn context-report-goblock
   [env this-map params]
@@ -283,7 +278,8 @@
   (create-register-classifier-operation env)
   (create-route-operation env)
   (create-federation-acquire-operation env)
-  (create-federation-release-operation env)
+  (k/register-function env {:operationid :FEDERATION_RELEASEoperationid
+                            :goblock     federation-release-goblock})
   (k/register-function env {:operationid :CONTEXT_REPORToperationid
                             :goblock     context-report-goblock})
   )
