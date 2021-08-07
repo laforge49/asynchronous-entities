@@ -76,80 +76,75 @@
       (recur))
     ))
 
-(defn create-route-operation
-  [env]
-  (let [route-to-local-entity-port
-        (k/register-operation env {:operationid :ROUTEoperationid})]
-    (a/go-loop []
-      (let [[env this-map params]
-            (a/<! route-to-local-entity-port)
-            operation-return-port
-            (:operation-return-port params)]
-        (try
-          (let [active-request-port
-                (:active-request-port env)
-                this-name
-                (:NAME this-map)
-                _ (if (nil? this-name)
-                    (throw (Exception. (str ":NAME is nil\n"
-                                            (prn-str params)
-                                            (prn-str this-map)))))
-                _ (if (not (string? this-name))
-                    (throw (Exception. (str ":NAME is not a string\n"
-                                            (prn this-name)
-                                            (prn-str params)
-                                            (prn-str this-map)))))
-                [_ _ this-base-name]
-                (kw/name-as-keyword this-name)
-                target-entity-name
-                (:target_name params)
-                _ (if (nil? target-entity-name)
-                    (throw (Exception. (str ":target_name is nil\n"
-                                            (prn-str params)
-                                            (prn-str this-map)))))
-                _ (if (not (string? target-entity-name))
-                    (throw (Exception. (str ":target_name is not a string\n"
-                                            (prn-str target-entity-name)
-                                            (prn-str params)
-                                            (prn-str this-map)))))
-                [target-entity-kw target-context-base-name _]
-                (kw/name-as-keyword target-entity-name)]
-            (if (= this-name target-entity-name)
-              (let [target-requestid
+(defn route-goblock
+  [env this-map params]
+  (a/go
+    (let [operation-return-port
+          (:operation-return-port params)]
+      (try
+        (let [active-request-port
+              (:active-request-port env)
+              this-name
+              (:NAME this-map)
+              _ (if (nil? this-name)
+                  (throw (Exception. (str ":NAME is nil\n"
+                                          (prn-str params)
+                                          (prn-str this-map)))))
+              _ (if (not (string? this-name))
+                  (throw (Exception. (str ":NAME is not a string\n"
+                                          (prn this-name)
+                                          (prn-str params)
+                                          (prn-str this-map)))))
+              [_ _ this-base-name]
+              (kw/name-as-keyword this-name)
+              target-entity-name
+              (:target_name params)
+              _ (if (nil? target-entity-name)
+                  (throw (Exception. (str ":target_name is nil\n"
+                                          (prn-str params)
+                                          (prn-str this-map)))))
+              _ (if (not (string? target-entity-name))
+                  (throw (Exception. (str ":target_name is not a string\n"
+                                          (prn-str target-entity-name)
+                                          (prn-str params)
+                                          (prn-str this-map)))))
+              [target-entity-kw target-context-base-name _]
+              (kw/name-as-keyword target-entity-name)]
+          (if (= this-name target-entity-name)
+            (let [target-requestid
+                  (:target_requestid params)]
+              (a/>! operation-return-port [this-map nil :NO-RETURN])
+              (a/>! active-request-port [env
+                                         (assoc params :requestid target-requestid)]))
+            (if (= this-base-name target-context-base-name)
+              (let [entity-public-request-ports
+                    (:ENTITY-PUBLIC-REQUEST-PORTS this-map)
+                    target-entity-request-port
+                    (target-entity-kw entity-public-request-ports)
+                    target-requestid
                     (:target_requestid params)]
-                (a/>! operation-return-port [this-map nil :NO-RETURN])
-                (a/>! active-request-port [env
-                                           (assoc params :requestid target-requestid)]))
-              (if (= this-base-name target-context-base-name)
-                (let [entity-public-request-ports
-                      (:ENTITY-PUBLIC-REQUEST-PORTS this-map)
-                      target-entity-request-port
-                      (target-entity-kw entity-public-request-ports)
-                      target-requestid
-                      (:target_requestid params)]
-                  (if (nil? target-entity-request-port)
-                    (throw (Exception. (str "Entity " target-entity-name " is not registered in " this-name))))
-                  (a/>! operation-return-port [this-map
-                                               nil
-                                               :NO-RETURN])
-                  (a/>! target-entity-request-port [env
-                                                    (assoc params :requestid target-requestid)]))
-                (let [target-context-entity-kw
-                      (keyword this-base-name target-context-base-name)
-                      entity-public-request-ports
-                      (:ENTITY-PUBLIC-REQUEST-PORTS this-map)
-                      target-entity-request-port
-                      (target-context-entity-kw entity-public-request-ports)]
-                  (if (nil? target-entity-request-port)
-                    (throw (Exception. (str "Entity " this-base-name "+" target-context-base-name " is not registered in " this-name))))
-                  (a/>! operation-return-port [this-map
-                                               nil
-                                               :NO-RETURN])
-                  (a/>! target-entity-request-port [env
-                                                    (assoc params :requestid :SYSTEMcontext/ROUTErequestid)])))))
-          (catch Exception e
-            (a/>! operation-return-port [this-map e nil]))))
-      (recur))))
+                (if (nil? target-entity-request-port)
+                  (throw (Exception. (str "Entity " target-entity-name " is not registered in " this-name))))
+                (a/>! operation-return-port [this-map
+                                             nil
+                                             :NO-RETURN])
+                (a/>! target-entity-request-port [env
+                                                  (assoc params :requestid target-requestid)]))
+              (let [target-context-entity-kw
+                    (keyword this-base-name target-context-base-name)
+                    entity-public-request-ports
+                    (:ENTITY-PUBLIC-REQUEST-PORTS this-map)
+                    target-entity-request-port
+                    (target-context-entity-kw entity-public-request-ports)]
+                (if (nil? target-entity-request-port)
+                  (throw (Exception. (str "Entity " this-base-name "+" target-context-base-name " is not registered in " this-name))))
+                (a/>! operation-return-port [this-map
+                                             nil
+                                             :NO-RETURN])
+                (a/>! target-entity-request-port [env
+                                                  (assoc params :requestid :SYSTEMcontext/ROUTErequestid)])))))
+        (catch Exception e
+          (a/>! operation-return-port [this-map e nil]))))))
 
 (defn federation-acquire-loop
   [root-contexts-request-port env federation-names]
@@ -271,7 +266,8 @@
   [env]
   (create-register-entity-operation env)
   (create-register-classifier-operation env)
-  (create-route-operation env)
+  (k/register-function env {:operationid :ROUTEoperationid
+                            :goblock     route-goblock})
   (k/register-function env {:operationid :FEDERATION_ACQUIREoperationid
                             :goblock     federation-acquire-goblock})
   (k/register-function env {:operationid :FEDERATION_RELEASEoperationid
