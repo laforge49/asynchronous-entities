@@ -64,15 +64,10 @@
                   :descriptors      instantiation-descriptors
                   :classifiers      instantiation-classifiers})))
 
-(defn create-instantiate-operation
-  [env]
-  (let [instantiate-port
-        (k/register-operation env {:operationid :INSTANTIATEoperationid
-                                   :function    instantiateFunction})]
-    (a/go-loop []
-      (let [[env this-map params]
-            (a/<! instantiate-port)
-            operation-return-port
+(defn instantiate-goblock
+  [env this-map params]
+    (a/go
+      (let [operation-return-port
             (:operation-return-port params)]
         (try
           (let [context-request-port
@@ -84,8 +79,7 @@
             (a/>! operation-return-port [this-map nil :NO-RETURN])
             (a/>! context-request-port [env route-params]))
           (catch Exception e
-            (a/>! operation-return-port [this-map e nil]))))
-      (recur))))
+            (a/>! operation-return-port [this-map e nil]))))))
 
 (defn addDescriptorFunction
   [env this-map params]
@@ -129,7 +123,7 @@
     (vswap! new-classifiers-voltile conj [this-name classifier classifier-value])
     [this-map this-map]))
 
-(defn entity-report-operation
+(defn entity-report-goblock
   [env this-map params]
   (a/go
     (let [operation-return-port
@@ -155,11 +149,13 @@
 
 (defn create-entity-operations
   [env]
-  (create-instantiate-operation env)
+  (k/register-function env {:operationid :INSTANTIATEoperationid
+                            :function    instantiateFunction
+                            :goblock     instantiate-goblock})
   (k/register-function env {:operationid :ADD_DESCRIPTORoperationid
                             :function    addDescriptorFunction})
   (k/register-function env {:operationid :ADD_CLASSIFIERoperationid
                             :function    addClassifierFunction})
   (k/register-function env {:operationid :ENTITY_REPORToperationid
-                            :goblock     entity-report-operation})
+                            :goblock     entity-report-goblock})
   )
