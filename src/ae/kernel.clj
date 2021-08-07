@@ -250,6 +250,10 @@
                          :PUSH-REQUEST-PORT
                          (let [this-descriptors
                                (thisDescriptors target-map params)]
+                           (if (federated? target-map)
+                             (throw (Exception. (str "Inappropriate sync request on federated entity.\n"
+                                                     (prn-str params)
+                                                     (prn-str target-map)))))
                            (if (:SYSTEMcontext/INVARIANTdescriptor this-descriptors)
                              [target-map [target-map nil]]
                              (let [new-request-port
