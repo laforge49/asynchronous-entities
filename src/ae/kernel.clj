@@ -251,7 +251,7 @@
                          (let [this-descriptors
                                (thisDescriptors target-map params)]
                            (if (federated? target-map)
-                             (throw (Exception. (str "Inappropriate sync request on federated entity.\n"
+                             (throw (Exception. (str "Inappropriate async request on federated entity.\n"
                                                      (prn-str params)
                                                      (prn-str target-map)))))
                            (if (:SYSTEMcontext/INVARIANTdescriptor this-descriptors)
@@ -270,7 +270,11 @@
                            [this-map this-map])
 
                          ;;DEFAULT
-                         (let [operationid
+                         (let [_ (if (federated? target-map)
+                                   (throw (Exception. (str "Inappropriate async request on federated entity.\n"
+                                                           (prn-str params)
+                                                           (prn-str target-map)))))
+                               operationid
                                (targetOperationid env target-map params)
                                operation-return-port
                                (a/chan)
