@@ -4,11 +4,14 @@
     "type": "split",
     "children": [
       {
-        "id": "07c53e211b7877ec",
+        "id": "1811748742a8e755",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "wiki/300-wiki.md",
+            "mode": "source"
+          }
         }
       }
     ],
@@ -65,8 +68,9 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "wiki/300-wiki.md",
                 "collapseAll": false,
-                "extraContext": false,
+                "extraContext": true,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
@@ -94,24 +98,24 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
-  "active": "07c53e211b7877ec",
+  "active": "1811748742a8e755",
   "lastOpenFiles": [
-    "blog/2021-31-0.md",
-    "blog/2021-31-6.md",
-    "blog/xx2021-31-6.md",
-    "blog/2021-31.md",
-    "first note.md",
-    "blog/202108071829.md",
-    "blog/202108071817.md",
-    "blog/202108071816 started with Obsidian.md",
-    "202108071829.md",
-    "202108071816 started with Obsidian.md"
+    "wiki/300-wiki.md",
+    "blog/200-blog.md",
+    "activities/101-recursiveDecent.md",
+    "activities/100-activities.md",
+    "000-AsyncronousEntities.md",
+    "blog/21/21-3 Summer/21-31/21-31-7.md",
+    "blog/21/21-3 Summer/21-31/21-31-6.md",
+    "blog/21-31-6.md",
+    "activities/001-recursiveDecent.md",
+    "activities/Untitled.md"
   ]
 }
