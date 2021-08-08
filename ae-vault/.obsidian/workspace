@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "activities/107-fixLinks.md",
+            "file": "blog/21/21-3 Summer/21-31/21-31-6.md",
             "mode": "source"
           }
         }
@@ -39,7 +39,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#todo",
+                "query": "tag:#completed",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "activities/107-fixLinks.md",
+                "file": "blog/21/21-3 Summer/21-31/21-31-6.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,6 +94,14 @@
             "id": "3c1a94df30335376",
             "type": "leaf",
             "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "188e8f4ab32d5d4e",
+            "type": "leaf",
+            "state": {
               "type": "calendar",
               "state": {}
             }
@@ -107,15 +115,15 @@
   },
   "active": "1811748742a8e755",
   "lastOpenFiles": [
-    "activities/107-fixLinks.md",
-    "activities/106-reportMarkdown.md",
-    "activities/100-activities.md",
-    "activities/108.md",
+    "blog/21/21-3 Summer/21-31/21-31-6.md",
+    "blog/6000-blog.md",
     "blog/21/21-3 Summer/21-31/21-31-7.md",
-    "activities/105-reportBacklinks.md",
-    "activities/103-reportDescriptors.md",
-    "000-asyncronousEntities.md",
-    "activities/104-validation.md",
-    "activities/101-recursiveDecent.md"
+    "0000-asyncronousEntities.md",
+    "activities/8000-pendingActivities.md",
+    "blog/21/21-3 Summer/21-31/8007-fixLinks.md",
+    "activities/8006-reportMarkdown.md",
+    "activities/8000-activities.md",
+    "activities/8007-fixLinks.md",
+    "wiki/1000-wiki.md"
   ]
 }
