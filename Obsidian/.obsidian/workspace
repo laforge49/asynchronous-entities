@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "activities/106-reportMarkdown.md",
-            "mode": "preview"
+            "file": "activities/107-fixLinks.md",
+            "mode": "source"
           }
         }
       }
@@ -48,8 +48,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -69,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "activities/106-reportMarkdown.md",
+                "file": "activities/107-fixLinks.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,15 +107,15 @@
   },
   "active": "1811748742a8e755",
   "lastOpenFiles": [
+    "activities/107-fixLinks.md",
     "activities/106-reportMarkdown.md",
-    "blog/21/21-3 Summer/21-31/21-31-7.md",
     "activities/100-activities.md",
+    "activities/108.md",
+    "blog/21/21-3 Summer/21-31/21-31-7.md",
     "activities/105-reportBacklinks.md",
     "activities/103-reportDescriptors.md",
     "000-asyncronousEntities.md",
     "activities/104-validation.md",
-    "activities/101-recursiveDecent.md",
-    "activities/102-convertReadme.md",
-    "000-AsyncronousEntities.md"
+    "activities/101-recursiveDecent.md"
   ]
 }

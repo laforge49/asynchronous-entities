@@ -6,7 +6,7 @@
   "fileSortOrder": "alphabetical",
   "newFileLocation": "current",
   "useMarkdownLinks": true,
-  "newLinkFormat": "absolute",
+  "newLinkFormat": "relative",
   "showFrontmatter": false,
   "spellcheckDictionary": [
     "backlinks",
