@@ -1,4 +1,4 @@
-from [000-AsyncronousEntities](000-AsyncronousEntities.md)
+from [000-asyncronousEntities](000-asyncronousEntities.md)
 # 200 Blog
 A daily journal of changes made to the Asynchronous Entities project.
 

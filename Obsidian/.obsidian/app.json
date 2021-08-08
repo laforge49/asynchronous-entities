@@ -7,5 +7,10 @@
   "newFileLocation": "current",
   "useMarkdownLinks": true,
   "newLinkFormat": "absolute",
-  "showFrontmatter": false
+  "showFrontmatter": false,
+  "spellcheckDictionary": [
+    "backlinks",
+    "Backlinks",
+    "todo"
+  ]
 }
