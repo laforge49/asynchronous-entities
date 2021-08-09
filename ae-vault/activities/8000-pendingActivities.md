@@ -7,3 +7,5 @@ from [0000-asyncronousEntities](../0000-asyncronousEntities.md)
 - [8005-reportBacklinks](8005-reportBacklinks.md)
 - [8006-reportMarkdown](8006-reportMarkdown.md)
 - next: 8008
+
+Pending activities are listed above. Completed activities have been moved to the Blog into the week folder for when they were completed.
