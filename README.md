@@ -6,7 +6,7 @@ A knowledge management based framework for programming
 * LICENSE: https://www.apache.org/licenses/LICENSE-2.0
 
 Documentation is located in the ae-vault folder.
-Start here: **ae-vault/0000-asynchronousEntities.md**
+Start here: [0000-asynchronousEntities](https://github.com/laforge49/asynchronous-entities/blob/main/ae-vault/0000-asynchronousEntities.md)
 
 ## Entities
 

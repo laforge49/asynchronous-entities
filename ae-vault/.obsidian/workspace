@@ -10,7 +10,7 @@
           "type": "markdown",
           "state": {
             "file": "1wiki/1000-wiki.md",
-            "mode": "preview"
+            "mode": "source"
           }
         }
       }
@@ -116,14 +116,14 @@
   "active": "1811748742a8e755",
   "lastOpenFiles": [
     "1wiki/1000-wiki.md",
-    "0000-asyncronousEntities.md",
     "1wiki/1002-objective.md",
+    "0000-asynchronousEntities.md",
+    "8activities/8002-convertReadme.md",
+    "0000-asyncronousEntities.md",
     "blog/21/21-3 Summer/21-32/21-32-1.md",
     "wiki/1000-wiki.md",
     "wiki/Untitled.md",
     "activities/8011-changeClassifiers.md",
-    "activities/8012-changeDescriptors.md",
-    "activities/8010-deleteEntities.md",
-    "activities/8009-renameEntities.md"
+    "activities/8012-changeDescriptors.md"
   ]
 }
