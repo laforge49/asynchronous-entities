@@ -7,6 +7,10 @@ A knowledge management based framework for programming.
 
 ## Objective
 
+[[ae-vault/0000-asynchronousEntities.md]]
+[[CHANGELOG.md]]
+
+
 For the past few years I've worked on a single-threaded program with all state collected
 in a tree built using persistent maps with something under a million name/value pairs. 
 It feels wrong, especially if I want to support swing or multi-threading in general.
