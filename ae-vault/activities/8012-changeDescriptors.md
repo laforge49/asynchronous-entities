@@ -1,4 +1,5 @@
 from [8000-pendingActivities](8000-pendingActivities.md)
-Descriptors can not currently be changed.
+# 8012 Change Descriptors
+Descriptors can not currently be changed, only added.
 
 #todo 
