@@ -2,11 +2,9 @@
 
 A knowledge management based framework for programming
 
-* LANGUAGE: Clojure
-* LICENSE: https://www.apache.org/licenses/LICENSE-2.0
-
-Documentation is located in the ae-vault folder.
-Start here: [0000-asynchronousEntities](https://github.com/laforge49/asynchronous-entities/blob/main/ae-vault/0000-asynchronousEntities.md)
+* LANGUAGE: [Clojure](https://clojure.org/)
+* LICENSE: [Apachie License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+* DOCUMENTATION: [0000-asynchronousEntities](https://github.com/laforge49/asynchronous-entities/blob/main/ae-vault/0000-asynchronousEntities.md)
 
 ## Entities
 
