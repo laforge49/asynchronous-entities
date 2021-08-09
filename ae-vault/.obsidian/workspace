@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "1wiki/1000-wiki.md",
+            "file": "1wiki/1001-obsidian.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1wiki/1000-wiki.md",
+                "file": "1wiki/1001-obsidian.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,15 +115,15 @@
   },
   "active": "1811748742a8e755",
   "lastOpenFiles": [
+    "1wiki/1001 obsidian.md",
     "1wiki/1000-wiki.md",
+    "8activities/8000-pendingActivities.md",
     "1wiki/1002-objective.md",
     "0000-asynchronousEntities.md",
     "8activities/8002-convertReadme.md",
     "0000-asyncronousEntities.md",
     "blog/21/21-3 Summer/21-32/21-32-1.md",
     "wiki/1000-wiki.md",
-    "wiki/Untitled.md",
-    "activities/8011-changeClassifiers.md",
-    "activities/8012-changeDescriptors.md"
+    "wiki/Untitled.md"
   ]
 }
