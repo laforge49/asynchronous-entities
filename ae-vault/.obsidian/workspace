@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "1wiki/1001-obsidian.md",
-            "mode": "source"
+            "file": "0000-asynchronousEntities.md",
+            "mode": "preview"
           }
         }
       }
@@ -39,7 +39,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#completed",
+                "query": "tag:#in-process",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1wiki/1001-obsidian.md",
+                "file": "0000-asynchronousEntities.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,15 +115,15 @@
   },
   "active": "1811748742a8e755",
   "lastOpenFiles": [
-    "1wiki/1001 obsidian.md",
-    "1wiki/1000-wiki.md",
-    "8activities/8000-pendingActivities.md",
-    "1wiki/1002-objective.md",
     "0000-asynchronousEntities.md",
+    "1wiki/1000-wiki.md",
+    "1wiki/1004-asynchronousMode.md",
+    "1wiki/1003-entities.md",
+    "1wiki/1002-objective.md",
     "8activities/8002-convertReadme.md",
-    "0000-asyncronousEntities.md",
-    "blog/21/21-3 Summer/21-32/21-32-1.md",
-    "wiki/1000-wiki.md",
-    "wiki/Untitled.md"
+    "6blog/21/21-3 Summer/21-31/8007-fixLinks.md",
+    "6blog/21/21-3 Summer/21-32/21-32-1.md",
+    "1wiki/Untitled.md",
+    "1wiki/1001-obsidian.md"
   ]
 }
