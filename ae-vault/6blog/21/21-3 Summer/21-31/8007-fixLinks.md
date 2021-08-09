@@ -1,4 +1,4 @@
-from [8000-pendingActivities](8000-pendingActivities.md)
+from [8000-pendingActivities](../../../../8activities/8000-pendingActivities.md)
 # 8007 Fix Links
 Convert all wikilinks--they don't work in md files with most software.
 

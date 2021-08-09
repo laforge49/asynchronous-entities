@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "activities/8011-changeClassifiers.md",
-            "mode": "source"
+            "file": "6blog/21/21-3 Summer/21-32/21-32-1.md",
+            "mode": "preview"
           }
         }
       }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "activities/8011-changeClassifiers.md",
+                "file": "6blog/21/21-3 Summer/21-32/21-32-1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,15 +115,15 @@
   },
   "active": "1811748742a8e755",
   "lastOpenFiles": [
+    "blog/21/21-3 Summer/21-32/21-32-1.md",
+    "wiki/1000-wiki.md",
+    "wiki/Untitled.md",
+    "0000-asyncronousEntities.md",
     "activities/8011-changeClassifiers.md",
     "activities/8012-changeDescriptors.md",
     "activities/8010-deleteEntities.md",
     "activities/8009-renameEntities.md",
     "activities/8008-operationidVectors.md",
-    "activities/8006-reportMarkdown.md",
-    "activities/8005-reportBacklinks.md",
-    "activities/8004-validation.md",
-    "activities/8003-reportDescriptors.md",
-    "activities/8002-convertReadme.md"
+    "activities/8006-reportMarkdown.md"
   ]
 }
