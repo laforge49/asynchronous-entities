@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "blog/21/21-3 Summer/21-31/21-31-7.md",
-            "mode": "preview"
+            "file": "blog/21/21-3 Summer/21-32/21-32-1.md",
+            "mode": "source"
           }
         }
       }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "blog/21/21-3 Summer/21-31/21-31-7.md",
+                "file": "blog/21/21-3 Summer/21-32/21-32-1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,15 +115,15 @@
   },
   "active": "1811748742a8e755",
   "lastOpenFiles": [
-    "blog/21/21-3 Summer/21-31/21-31-7.md",
-    "blog/21/21-3 Summer/21-31/8007-fixLinks.md",
+    "blog/21/21-3 Summer/21-32/21-32-1.md",
     "activities/8000-pendingActivities.md",
+    "blog/21/21-3 Summer/21-31/8007-fixLinks.md",
+    "blog/21/21-3 Summer/21-31/21-31-7.md",
+    "activities/8011-changeClassifiers.md",
+    "activities/8010-deleteEntities.md",
     "activities/Untitled.md",
-    "0000-asyncronousEntities.md",
-    "blog/6000-blog.md",
-    "wiki/1000-wiki.md",
-    "wiki/1001 obsidian.md",
-    "wiki/Untitled.md",
-    "blog/21/21-3 Summer/21-31/21-31-6.md"
+    "activities/8009-renameEntities.md",
+    "activities/8008-operationid-vectors.md",
+    "blog/21/21-3 Summer/21-32/Untitled.md"
   ]
 }
