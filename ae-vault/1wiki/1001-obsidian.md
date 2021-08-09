@@ -1,4 +1,4 @@
-from [1001-obsidian](1001-obsidian.md)
+from [1000-wiki](1000-wiki.md)
  # 1001 Obsidian
  Obsidian is a knowledge management tool that is great for creating and browsing .md files, and a whole lot more as well with all the plugins that are available for it. 
  
