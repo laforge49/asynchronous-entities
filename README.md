@@ -1,6 +1,6 @@
 # Asynchronous Entities
 
-A universal persistent data structure.
+A knowledge management based framework for programming.
 
 * LANGUAGE: Clojure
 * LICENSE: https://www.apache.org/licenses/LICENSE-2.0
