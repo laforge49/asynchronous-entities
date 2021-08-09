@@ -5,16 +5,8 @@ A knowledge management based framework for programming
 * LANGUAGE: Clojure
 * LICENSE: https://www.apache.org/licenses/LICENSE-2.0
 
-## Objective
-
-For the past few years I've worked on a single-threaded program with all state collected
-in a tree built using persistent maps with something under a million name/value pairs. 
-It feels wrong, especially if I want to support swing or multi-threading in general.
-
-What I'd like to do is to create a tree of entities, which in turn support name/value pairs.
-Operations on entities would be via messages sent using Clojure's async package. The first concern
-is that operations on multiple entities may need to be atomic. To avoid deadlocks, this will be done
-by always acquiring the applicable entities in the same order before operating on them.
+Documentation is located in the ae-vault folder.
+Start here: **ae-vault/0000-asynchronousEntities.md**
 
 ## Entities
 
