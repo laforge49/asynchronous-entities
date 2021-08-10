@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "1wiki/1008-SYSTEMcontext+CONTEXTclassifier_value.md",
+            "file": "1wiki/1006-entityName.md",
             "mode": "source"
           }
         }
@@ -52,7 +52,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 390.5
   },
   "right": {
     "id": "865b2a78d762c7e1",
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1wiki/1008-SYSTEMcontext+CONTEXTclassifier_value.md",
+                "file": "1wiki/1006-entityName.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "1wiki/1008-SYSTEMcontext+CONTEXTclassifier_value.md",
+                "file": "1wiki/1006-entityName.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,12 +127,12 @@
   },
   "active": "1811748742a8e755",
   "lastOpenFiles": [
+    "1wiki/1006-entityName.md",
     "1wiki/1008-SYSTEMcontext+CONTEXTclassifier_value.md",
     "1wiki/1000-wiki.md",
     "6blog/21/21-3 Summer/21-32/21-32-2.md",
     "6blog/21/21-3 Summer/21-32/21-32-1.md",
     "1wiki/1003-entities.md",
-    "1wiki/1006-entityName.md",
     "1wiki/1007-SYSTEMcontext+INVARIANTdescriptor.md",
     "1wiki/Untitled.md",
     "1wiki/1005-synchronousMode.md",
