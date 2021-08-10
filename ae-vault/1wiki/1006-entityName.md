@@ -4,4 +4,4 @@ Entity names are unique identifiers of entities. An entity name has two parts, t
 
 Except for the ROOT+SYSTEMcontext entity, every entity has a context entity which associates its entity name with the port used to send requests to that. And the base name of the context is the first part of the names of its entities. So, for example, the full name of the READ_ONLYdescriptor entity is SYSTEMcontext+READ_ONLYdescriptor -- the base name of the context entity is not included.
 
-The base name of entities need not be unique, as the same base name can be used in different context entities. The exception here are the base names of context entities, which must all be unique.
+The base name of entities need not be unique, as the same base name can be used in different context entities. The exception here are the base names of context entities, which must all be unique. 
