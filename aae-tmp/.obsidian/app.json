@@ -1,0 +1,17 @@
+{
+  "spellcheck": true,
+  "showLineNumber": true,
+  "alwaysUpdateLinks": true,
+  "promptDelete": false,
+  "fileSortOrder": "alphabetical",
+  "newFileLocation": "current",
+  "useMarkdownLinks": true,
+  "newLinkFormat": "relative",
+  "showFrontmatter": false,
+  "spellcheckDictionary": [
+    "backlinks",
+    "Backlinks",
+    "todo"
+  ],
+  "showUnsupportedFiles": true
+}
