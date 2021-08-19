@@ -1,9 +1,3 @@
----
-a:
-    - b d
-    :x y
-    
----
 # 0000 Asynchronous Entities
 ##### A Knowledge Management Based Framework for Programming
 - [1000-wiki](1wiki/1000-wiki.md)

@@ -39,7 +39,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#completed",
+                "query": "tag:#status/todo",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -136,14 +136,14 @@
   "active": "1811748742a8e755",
   "lastOpenFiles": [
     "6blog/21/21-3 Summer/21-33/21-33-4.md",
-    "6blog/21/21-3 Summer/21-32/21-32-2.md",
-    "6blog/21/21-3 Summer/21-32/21-32-1.md",
-    "6blog/21/21-3 Summer/21-31/21-31-6.md",
-    "6blog/21/21-3 Summer/21-31/21-31-7.md",
-    "0000-asynchronousEntities.md",
-    "8activities/8003-reportDescriptors.md",
     "6blog/21/21-3 Summer/21-33/8001-recursiveDecent.md",
-    "6blog/21/21-3 Summer/21-33/8001=recursiveDecent.md",
-    "6blog/21/21-3 Summer/21-32/8002-convertReadme.md"
+    "6blog/21/21-3 Summer/21-32/8002-convertReadme.md",
+    "6blog/21/21-3 Summer/21-31/8007-fixLinks.md",
+    "8activities/8006-reportMarkdown.md",
+    "8activities/8011-changeClassifiers.md",
+    "8activities/8012-changeDescriptors.md",
+    "8activities/8010-deleteEntities.md",
+    "8activities/8009-renameEntities.md",
+    "8activities/8008-operationidVectors.md"
   ]
 }

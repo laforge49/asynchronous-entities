@@ -1,3 +1,7 @@
+---
+tag:
+  - status/completed
+---
 from [8000-pendingActivities](8000-pendingActivities.md)
 # 8001 Recursive Decent
 Previously, every operation had its own dedicated port. So once an operation
@@ -7,8 +11,4 @@ the first invocation completes. This completely precludes the use of recursive d
 
 All operations have been converted now so that the go block of an operation is invoked with each asynchronous operation. This allows multiple invocations of the same operation to be processed in parallel.
 
-What remains is to test that recursive decent now works.
-
-We also need to drop the code that supports the invocation of the old-style asynchronous operation.
-
-status #completed  [21-33-4](21-33-4.md)
+completed  [21-33-4](21-33-4.md)

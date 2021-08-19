@@ -7,7 +7,7 @@
   "newFileLocation": "current",
   "useMarkdownLinks": true,
   "newLinkFormat": "relative",
-  "showFrontmatter": true,
+  "showFrontmatter": false,
   "spellcheckDictionary": [
     "backlinks",
     "Backlinks",
