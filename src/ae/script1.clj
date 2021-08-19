@@ -249,7 +249,4 @@
    {:target_requestid :SYSTEMcontext/ENTITY_REPORTrequestid
     :target_name      "ROOT+SYSTEMcontext"
     }
-   {:target_requestid :SYSTEMcontext/ENTITY_REPORTrequestid
-    :target_name      "SYSTEMcontext+SYSTEM_TESTcontext"
-    }
    ])

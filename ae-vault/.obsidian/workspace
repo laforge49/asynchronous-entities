@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "1wiki/1006-entityName.md",
-            "mode": "source"
+            "file": "8activities/8003-reportDescriptors.md",
+            "mode": "preview"
           }
         }
       }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1wiki/1006-entityName.md",
+                "file": "8activities/8003-reportDescriptors.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "id": "c29446a3928b072a",
             "type": "leaf",
             "state": {
-              "type": "calendar",
+              "type": "empty",
               "state": {}
             }
           },
@@ -112,10 +112,18 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "1wiki/1006-entityName.md",
+                "file": "8activities/8003-reportDescriptors.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
+            }
+          },
+          {
+            "id": "98937d58abf2afa6",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
             }
           }
         ],
@@ -127,15 +135,15 @@
   },
   "active": "1811748742a8e755",
   "lastOpenFiles": [
-    "1wiki/1006-entityName.md",
-    "1wiki/1008-SYSTEMcontext+CONTEXTclassifier_value.md",
-    "1wiki/1000-wiki.md",
-    "6blog/21/21-3 Summer/21-32/21-32-2.md",
+    "8activities/8003-reportDescriptors.md",
+    "6blog/21/21-3 Summer/21-33/21-33-4.md",
     "6blog/21/21-3 Summer/21-32/21-32-1.md",
-    "1wiki/1003-entities.md",
-    "1wiki/1007-SYSTEMcontext+INVARIANTdescriptor.md",
-    "1wiki/Untitled.md",
-    "1wiki/1005-synchronousMode.md",
-    "1wiki/1004-asynchronousMode.md"
+    "6blog/21/21-3 Summer/21-32/21-32-2.md",
+    "6blog/21/21-3 Summer/21-33/8001-recursiveDecent.md",
+    "6blog/21/21-3 Summer/21-33/8001=recursiveDecent.md",
+    "6blog/21/21-3 Summer/21-32/8002-convertReadme.md",
+    "6blog/21/21-3 Summer/21-33/Untitled.md",
+    "6blog/21/21-3 Summer/Untitled.md",
+    "1wiki/1006-entityName.md"
   ]
 }

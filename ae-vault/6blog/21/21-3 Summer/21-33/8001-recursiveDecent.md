@@ -11,4 +11,4 @@ What remains is to test that recursive decent now works.
 
 We also need to drop the code that supports the invocation of the old-style asynchronous operation.
 
-status #todo
+status #completed  [21-33-4](21-33-4.md)

@@ -141,33 +141,33 @@
         (a/chan)]
     (a/go-loop [federation-names-vec (reverse (sort federation-names))
                 federation-map {}]
-      (if (some? federation-names-vec)
-        (if (empty? federation-names-vec)
-          (a/>! return-port [nil federation-map])
-          (let [federation-name
-                (peek federation-names-vec)
-                federation-names-vec
-                (pop federation-names-vec)
-                [federation-names-vec federation-map]
-                (try
-                  (let [new-request-port
-                        (a/chan)
-                        subrequest-return-port
-                        (a/chan)
-                        _ (a/>! root-contexts-request-port [env {:requestid        :SYSTEMcontext/ROUTErequestid
-                                                                 :target_requestid :PUSH-REQUEST-PORT
-                                                                 :target_name      federation-name
-                                                                 :new-request-port new-request-port
-                                                                 :return_port      subrequest-return-port}])
-                        [snap new-request-port]
-                        (k/request-exception-check (a/<! subrequest-return-port))
-                        federation-map
-                        (assoc federation-map federation-name [snap new-request-port])]
-                    [federation-names-vec federation-map])
-                  (catch Exception e
-                    (a/>! return-port [e nil])
-                    [nil nil]))]
-            (recur federation-names-vec federation-map)))))
+               (if (some? federation-names-vec)
+                 (if (empty? federation-names-vec)
+                   (a/>! return-port [nil federation-map])
+                   (let [federation-name
+                         (peek federation-names-vec)
+                         federation-names-vec
+                         (pop federation-names-vec)
+                         [federation-names-vec federation-map]
+                         (try
+                           (let [new-request-port
+                                 (a/chan)
+                                 subrequest-return-port
+                                 (a/chan)
+                                 _ (a/>! root-contexts-request-port [env {:requestid        :SYSTEMcontext/ROUTErequestid
+                                                                          :target_requestid :PUSH-REQUEST-PORT
+                                                                          :target_name      federation-name
+                                                                          :new-request-port new-request-port
+                                                                          :return_port      subrequest-return-port}])
+                                 [snap new-request-port]
+                                 (k/request-exception-check (a/<! subrequest-return-port))
+                                 federation-map
+                                 (assoc federation-map federation-name [snap new-request-port])]
+                             [federation-names-vec federation-map])
+                           (catch Exception e
+                             (a/>! return-port [e nil])
+                             [nil nil]))]
+                     (recur federation-names-vec federation-map)))))
     return-port))
 
 (defn federation-acquire-goblock
@@ -238,13 +238,12 @@
           (io/make-parents file-name)
           (spit file-name report)
           (doseq [[entity-kw entity-port] entity-ports]
-            (if (not (k/classifier-name? (first (kw/keyword-as-name entity-kw))))
-              (let [subrequest-return-port
-                    (a/chan)]
-                (a/>! entity-port [env {:requestid   :SYSTEMcontext/ENTITY_REPORTrequestid
-                                        :return_port subrequest-return-port}])
-                (k/request-exception-check (a/<! subrequest-return-port))
-                ))
+            (let [subrequest-return-port
+                  (a/chan)]
+              (a/>! entity-port [env {:requestid   :SYSTEMcontext/ENTITY_REPORTrequestid
+                                      :return_port subrequest-return-port}])
+              (k/request-exception-check (a/<! subrequest-return-port))
+              )
             )
           (a/>! operation-return-port [this-map nil this-map])
           )

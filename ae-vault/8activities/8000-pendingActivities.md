@@ -1,6 +1,6 @@
 from [0000-asynchronousEntities](../0000-asynchronousEntities.md)
 # 8000 PendingActivities
-- [8001-recursiveDecent](8001-recursiveDecent.md)
+- [8001-recursiveDecent](../6blog/21/21-3%20Summer/21-33/8001-recursiveDecent.md)
 - [8002-convertReadme](../6blog/21/21-3%20Summer/21-32/8002-convertReadme.md)
 - [8003-reportDescriptors](8003-reportDescriptors.md)
 - [8004-validation](8004-validation.md)
