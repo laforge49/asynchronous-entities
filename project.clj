@@ -4,7 +4,8 @@
   :license {:name "APACHE LICENSE, VERSION 2.0"
             :url "https://www.apache.org/licenses/LICENSE-2.0"}
   :dependencies [[org.clojure/clojure "1.10.3"]
-                 [org.clojure/core.async "1.3.618"]]
+                 [org.clojure/core.async "1.3.618"]
+                 [io.forward/yaml "1.0.10"]]
   :main ^:skip-aot ae.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
