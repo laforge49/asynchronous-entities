@@ -1,6 +1,7 @@
 (ns ae.core
   (:require [clojure.core.async :as a]
             [clojure.stacktrace :as stacktrace]
+            [yaml.core :as yaml]
             [ae.kernel :as k]
             [ae.operations.context-operations :as co]
             [ae.operations.entity-operations :as eo]
