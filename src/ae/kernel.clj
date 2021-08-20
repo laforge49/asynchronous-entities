@@ -117,7 +117,7 @@
                                     (prn-str params)
                                     (prn-str target-map)))))
         operationids
-        (requestid this-requestid-map)
+        (get this-requestid-map requestid)
         _ (if (not (vector? operationids))
             (throw (Exception. (str "Operationids for " requestid " is not a vector\n"
                                     (prn-str params)
