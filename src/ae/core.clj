@@ -29,10 +29,10 @@
                 _ (create-operations env)
                 context-request-port
                 (first (k/create-entity env {:name        "ROOT+SYSTEMcontext"
-                                             :descriptors {:SYSTEMcontext/REQUESTID_MAP {:SYSTEMcontext/REGISTER_ENTITYrequestid     ["REGISTER_ENTITYoperationid"]
-                                                                                         :SYSTEMcontext/ROUTErequestid               ["ROUTEoperationid"]
-                                                                                         :SYSTEMcontext/REGISTER_CLASSIFIERrequestid ["REGISTER_CLASSIFIERoperationid"]
-                                                                                         :SYSTEMcontext/ENTITY_REPORTrequestid       ["CONTEXT_REPORToperationid"]}}
+                                             :descriptors {:SYSTEMcontext/REQUESTID_MAP {"SYSTEMcontext+REGISTER_ENTITYrequestid"     ["REGISTER_ENTITYoperationid"]
+                                                                                         "SYSTEMcontext+ROUTErequestid"               ["ROUTEoperationid"]
+                                                                                         "SYSTEMcontext+REGISTER_CLASSIFIERrequestid" ["REGISTER_CLASSIFIERoperationid"]
+                                                                                         "SYSTEMcontext+ENTITY_REPORTrequestid"       ["CONTEXT_REPORToperationid"]}}
                                              }))
                 env
                 (assoc env :CONTEXT-REQUEST-PORT context-request-port)
@@ -40,15 +40,10 @@
                 {"target_requestid" "SYSTEMcontext+REGISTER_ENTITYrequestid"
                  "target_name"      "ROOT+SYSTEMcontext"
                  "name"             "SYSTEMcontext+INSTANTIATORinstantiator"
-                 "descriptors"      {"SYSTEMcontext+INVARIANTdescriptor"                 true
-                                    "SYSTEMcontext+REQUESTID_MAP"                       {"SYSTEMcontext+INSTANTIATErequestid"   ["INSTANTIATEoperationid"]
-                                                                                        "SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}
-                                    ;:SYSTEMcontext/INSTANTIATION_DESCRIPTORSdescriptor {:SYSTEMcontext/INVARIANTdescriptor true
-                                    ;                                                    :SYSTEMcontext/REQUESTID_MAP       {:SYSTEMcontext/INSTANTIATErequestid   [:INSTANTIATEoperationid]
-                                    ;                                                                                        :SYSTEMcontext/ENTITY_REPORTrequestid [:ENTITY_REPORToperationid]}}
-                                    ;:SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {:SYSTEMcontext/ENTITY_TYPEclassifier "SYSTEMcontext+INSTANTIATORclassifier_value"}
-                                    }
-                 ;:classifiers      {:SYSTEMcontext/ENTITY_TYPEclassifier "SYSTEMcontext+INSTANTIATORclassifier_value"}
+                 "descriptors"      {"SYSTEMcontext+INVARIANTdescriptor" true
+                                     "SYSTEMcontext+REQUESTID_MAP"       {"SYSTEMcontext+INSTANTIATErequestid"   ["INSTANTIATEoperationid"]
+                                                                          "SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}
+                                     }
                  }
                 yaml-script
                 (yaml/edn->yaml sample)
@@ -64,7 +59,7 @@
                 (a/chan)
                 _ (doseq [request-params s1/script1]
                     (let [request-params
-                          (assoc request-params :requestid :SYSTEMcontext/ROUTErequestid)
+                          (assoc request-params :requestid "SYSTEMcontext+ROUTErequestid")
                           request-params
                           (assoc request-params :return_port return-port0)]
                       (a/>! context-request-port [env request-params])

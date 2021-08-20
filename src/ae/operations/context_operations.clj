@@ -131,7 +131,7 @@
                                              nil
                                              :NO-RETURN])
                 (a/>! target-entity-request-port [env
-                                                  (assoc params :requestid :SYSTEMcontext/ROUTErequestid)])))))
+                                                  (assoc params :requestid "SYSTEMcontext+ROUTErequestid")])))))
         (catch Exception e
           (a/>! operation-return-port [this-map e nil]))))))
 
@@ -154,8 +154,8 @@
                                  (a/chan)
                                  subrequest-return-port
                                  (a/chan)
-                                 _ (a/>! root-contexts-request-port [env {:requestid        :SYSTEMcontext/ROUTErequestid
-                                                                          :target_requestid :PUSH-REQUEST-PORT
+                                 _ (a/>! root-contexts-request-port [env {:requestid        "SYSTEMcontext+ROUTErequestid"
+                                                                          :target_requestid "PUSH-REQUEST-PORT"
                                                                           :target_name      federation-name
                                                                           :new-request-port new-request-port
                                                                           :return_port      subrequest-return-port}])
@@ -203,7 +203,7 @@
             (let [[snap entity-request-port]
                   (val en)]
               (if (some? entity-request-port)
-                (a/>! entity-request-port [env {:requestid   :RESET-REQUEST-PORT
+                (a/>! entity-request-port [env {:requestid   "RESET-REQUEST-PORT"
                                                 :this-map    snap
                                                 :return_port subrequest-return-port}]))))
           (doseq [en federation-map]
@@ -240,7 +240,7 @@
           (doseq [[entity-kw entity-port] entity-ports]
             (let [subrequest-return-port
                   (a/chan)]
-              (a/>! entity-port [env {:requestid   :SYSTEMcontext/ENTITY_REPORTrequestid
+              (a/>! entity-port [env {:requestid   "SYSTEMcontext+ENTITY_REPORTrequestid"
                                       :return_port subrequest-return-port}])
               (k/request-exception-check (a/<! subrequest-return-port))
               )

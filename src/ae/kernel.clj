@@ -233,10 +233,10 @@
                        [this-map return-value]
                        (case requestid
 
-                         :SNAPSHOT
+                         "SNAPSHOT"
                          [target-map target-map]
 
-                         :PUSH-REQUEST-PORT
+                         "PUSH-REQUEST-PORT"
                          (let [this-descriptors
                                (thisDescriptors target-map params)]
                            (if (federated? target-map)
@@ -251,7 +251,7 @@
                                    (assoc target-map :REQUEST-PORT-STACK (conj this-request-port-stack new-request-port))]
                                [this-map [this-map new-request-port]])))
 
-                         :RESET-REQUEST-PORT
+                         "RESET-REQUEST-PORT"
                          (let [this-map
                                (:this-map params)
                                this-map

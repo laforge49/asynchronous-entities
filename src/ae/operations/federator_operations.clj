@@ -27,14 +27,14 @@
                       (get new-children entity-name)
                       subrequest-return-port
                       (a/chan)
-                      _ (a/>! initialization-port [env {:requestid   :RESET-REQUEST-PORT
+                      _ (a/>! initialization-port [env {:requestid   "RESET-REQUEST-PORT"
                                                         :this-map    snap
                                                         :return_port subrequest-return-port}])
                       _ (k/request-exception-check (a/<! subrequest-return-port))
                       context-request-port
                       (:CONTEXT-REQUEST-PORT env)
-                      _ (a/>! context-request-port [env {:requestid                  :SYSTEMcontext/ROUTErequestid
-                                                         :target_requestid           :SYSTEMcontext/REGISTER_ENTITYrequestid
+                      _ (a/>! context-request-port [env {:requestid                  "SYSTEMcontext+ROUTErequestid"
+                                                         :target_requestid           "SYSTEMcontext+REGISTER_ENTITYrequestid"
                                                          :entity-public-request-port entity-public-request-port
                                                          :target_name                context-name
                                                          :name                       (:NAME snap)
@@ -71,8 +71,8 @@
                   new-classifiers
                   (pop new-classifiers)]
               (when (not (contains? new-children entity-name))
-                (a/>! context-request-port [env {:requestid        :SYSTEMcontext/ROUTErequestid
-                                                 :target_requestid :SYSTEMcontext/REGISTER_CLASSIFIERrequestid
+                (a/>! context-request-port [env {:requestid        "SYSTEMcontext+ROUTErequestid"
+                                                 :target_requestid "SYSTEMcontext+REGISTER_CLASSIFIERrequestid"
                                                  :target_name      context-name
                                                  :name             entity-name
                                                  :classifier       classifier
@@ -99,14 +99,14 @@
               (:SYSTEMcontext/FEDERATION_NAMES descriptors)
               subrequest-return-port
               (a/chan)
-              _ (a/>! root-contexts-request-port [env {:requestid        :SYSTEMcontext/ROUTErequestid
-                                                       :target_requestid :SYSTEMcontext/INSTANTIATErequestid
+              _ (a/>! root-contexts-request-port [env {:requestid        "SYSTEMcontext+ROUTErequestid"
+                                                       :target_requestid "SYSTEMcontext+INSTANTIATErequestid"
                                                        :target_name      "SYSTEMcontext+FEDERATION_CONTEXTinstantiator"
                                                        :return_port      subrequest-return-port
                                                        :name             nil}])
               federation-context-request-port
               (k/request-exception-check (a/<! subrequest-return-port))
-              _ (a/>! federation-context-request-port [env {:requestid        :SYSTEMcontext/ACQUIRErequestid
+              _ (a/>! federation-context-request-port [env {:requestid        "SYSTEMcontext+ACQUIRErequestid"
                                                             :federation-names federation-names
                                                             :return_port      subrequest-return-port}])
               federation-map
@@ -156,7 +156,7 @@
               (assoc env :NEW-CHILDREN-VOLATILE nil)
               env
               (assoc env :NEW-CLASSIFIERS-VOLATILE nil)
-              _ (a/>! federation-context-request-port [env {:requestid   :SYSTEMcontext/RELEASErequestid
+              _ (a/>! federation-context-request-port [env {:requestid   "SYSTEMcontext+RELEASErequestid"
                                                             :return_port subrequest-return-port}])
               _ (k/request-exception-check (a/<! subrequest-return-port))
               _ (a/>! operation-return-port [this-map
