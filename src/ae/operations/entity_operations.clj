@@ -149,13 +149,13 @@
 
 (defn create-entity-operations
   [env]
-  (k/register-function env {:operationid :INSTANTIATEoperationid
+  (k/register-function env {:operationid "INSTANTIATEoperationid"
                             :function    instantiateFunction
                             :goblock     instantiate-goblock})
-  (k/register-function env {:operationid :ADD_DESCRIPTORoperationid
+  (k/register-function env {:operationid "ADD_DESCRIPTORoperationid"
                             :function    addDescriptorFunction})
-  (k/register-function env {:operationid :ADD_CLASSIFIERoperationid
+  (k/register-function env {:operationid "ADD_CLASSIFIERoperationid"
                             :function    addClassifierFunction})
-  (k/register-function env {:operationid :ENTITY_REPORToperationid
+  (k/register-function env {:operationid "ENTITY_REPORToperationid"
                             :goblock     entity-report-goblock})
   )

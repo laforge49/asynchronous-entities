@@ -252,16 +252,16 @@
 
 (defn create-context-operations
   [env]
-  (k/register-function env {:operationid :REGISTER_ENTITYoperationid
+  (k/register-function env {:operationid "REGISTER_ENTITYoperationid"
                             :goblock     register-entity-goblock})
-  (k/register-function env {:operationid :REGISTER_CLASSIFIERoperationid
+  (k/register-function env {:operationid "REGISTER_CLASSIFIERoperationid"
                             :goblock     register-classifier-goblock})
-  (k/register-function env {:operationid :ROUTEoperationid
+  (k/register-function env {:operationid "ROUTEoperationid"
                             :goblock     route-goblock})
-  (k/register-function env {:operationid :FEDERATION_ACQUIREoperationid
+  (k/register-function env {:operationid "FEDERATION_ACQUIREoperationid"
                             :goblock     federation-acquire-goblock})
-  (k/register-function env {:operationid :FEDERATION_RELEASEoperationid
+  (k/register-function env {:operationid "FEDERATION_RELEASEoperationid"
                             :goblock     federation-release-goblock})
-  (k/register-function env {:operationid :CONTEXT_REPORToperationid
+  (k/register-function env {:operationid "CONTEXT_REPORToperationid"
                             :goblock     context-report-goblock})
   )

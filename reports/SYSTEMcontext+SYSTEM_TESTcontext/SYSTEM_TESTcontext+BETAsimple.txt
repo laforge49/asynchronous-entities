@@ -11,7 +11,7 @@ Number of classifiers: 1
 (Default context is SYSTEM_TESTcontext.)
 
 SYSTEMcontext+INSTANTIATOR = "SYSTEM_TESTcontext+SIMPLEinstantiator"
-SYSTEMcontext+REQUESTID_MAP = #:SYSTEMcontext{:ADD_DESCRIPTORrequestid [:ADD_DESCRIPTORoperationid], :ADD_CLASSIFIERrequestid [:ADD_CLASSIFIERoperationid], :ENTITY_REPORTrequestid [:ENTITY_REPORToperationid]}
+SYSTEMcontext+REQUESTID_MAP = #:SYSTEMcontext{:ADD_DESCRIPTORrequestid ["ADD_DESCRIPTORoperationid"], :ADD_CLASSIFIERrequestid ["ADD_CLASSIFIERoperationid"], :ENTITY_REPORTrequestid ["ENTITY_REPORToperationid"]}
 
 Number of descriptors: 2
 

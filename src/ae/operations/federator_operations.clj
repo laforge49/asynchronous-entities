@@ -168,6 +168,6 @@
 
 (defn create-federator-operations
   [env]
-  (k/register-function env {:operationid :RUN_FEDERATIONoperationid
+  (k/register-function env {:operationid "RUN_FEDERATIONoperationid"
                             :goblock     run-federation-goblock})
   )

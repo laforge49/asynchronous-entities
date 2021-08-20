@@ -12,7 +12,7 @@ Number of classifiers: 1
 
 +INSTANTIATOR = "SYSTEMcontext+CLASSIFIERinstantiator"
 +INVARIANTdescriptor = true
-+REQUESTID_MAP = #:SYSTEMcontext{:ENTITY_REPORTrequestid [:ENTITY_REPORToperationid]}
++REQUESTID_MAP = #:SYSTEMcontext{:ENTITY_REPORTrequestid ["ENTITY_REPORToperationid"]}
 
 Number of descriptors: 3
 
