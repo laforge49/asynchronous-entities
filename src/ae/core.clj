@@ -51,10 +51,10 @@
                 (yaml/parse-raw yaml-script)
                 re-yaml
                 (yaml/edn->yaml yaml-roundtrip)
-                _ (println (prn-str sample))
-                _ (println yaml-script)
-                _ (println (prn-str yaml-roundtrip))
-                _ (println re-yaml)
+                ;_ (println (prn-str sample))
+                ;_ (println yaml-script)
+                ;_ (println (prn-str yaml-roundtrip))
+                ;_ (println re-yaml)
                 return-port0
                 (a/chan)
                 _ (doseq [request-params s1/script1]
