@@ -166,7 +166,7 @@
         operationid
         (targetOperationid env target-map params)
         fun
-        (:function (operationid @operationid-map-atom))
+        (:function (get @operationid-map-atom operationid))
         _ (if (nil? fun)
             (throw (Exception. (str "Operationid " operationid " has no function\n"
                                     (prn-str params)
@@ -270,7 +270,7 @@
                                params
                                (assoc params :operation-return-port operation-return-port)
                                operationid-submap
-                               (operationid @operationid-map-atom)
+                               (get @operationid-map-atom operationid)
                                operation-port
                                (:port operationid-submap)
                                operation-goblock
