@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "1wiki/1000-wiki.md",
+            "file": "8activities/8013-keywords.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1wiki/1000-wiki.md",
+                "file": "8activities/8013-keywords.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "1wiki/1000-wiki.md",
+                "file": "8activities/8013-keywords.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,15 +135,15 @@
   },
   "active": "1811748742a8e755",
   "lastOpenFiles": [
-    "1wiki/1000-wiki.md",
-    "6blog/21/21-3 Summer/21-33/21-33-5.md",
     "8activities/8013-keywords.md",
     "8activities/8012-changeDescriptors.md",
-    "1wiki/1007-SYSTEMcontext+INVARIANTdescriptor.md",
-    "8activities/1008-keywords.md",
-    "1wiki/1001-obsidian.md",
-    "1wiki/1002-objective.md",
-    "1wiki/1003-entities.md",
-    "1wiki/1004-asynchronousMode.md"
+    "8activities/8011-changeClassifiers.md",
+    "8activities/8010-deleteEntities.md",
+    "8activities/8009-renameEntities.md",
+    "8activities/8008-operationidVectors.md",
+    "8activities/8006-reportMarkdown.md",
+    "8activities/8005-reportBacklinks.md",
+    "8activities/8004-validation.md",
+    "8activities/8003-reportDescriptors.md"
   ]
 }

@@ -1,5 +1,5 @@
 ---
-tag:
+tags:
   - status/completed
 ---
 from [8000-pendingActivities](../../../../8activities/8000-pendingActivities.md)
