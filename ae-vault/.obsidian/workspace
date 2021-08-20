@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "6blog/21/21-3 Summer/21-33/21-33-5.md",
+            "file": "1wiki/1000-wiki.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6blog/21/21-3 Summer/21-33/21-33-5.md",
+                "file": "1wiki/1000-wiki.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "6blog/21/21-3 Summer/21-33/21-33-5.md",
+                "file": "1wiki/1000-wiki.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,15 +135,15 @@
   },
   "active": "1811748742a8e755",
   "lastOpenFiles": [
-    "6blog/21/21-3 Summer/21-33/21-33-5.md",
-    "1wiki/1008-keywords.md",
-    "1wiki/1007-SYSTEMcontext+INVARIANTdescriptor.md",
     "1wiki/1000-wiki.md",
+    "6blog/21/21-3 Summer/21-33/21-33-5.md",
+    "8activities/8013-keywords.md",
+    "8activities/8012-changeDescriptors.md",
+    "1wiki/1007-SYSTEMcontext+INVARIANTdescriptor.md",
+    "8activities/1008-keywords.md",
+    "1wiki/1001-obsidian.md",
+    "1wiki/1002-objective.md",
     "1wiki/1003-entities.md",
-    "1wiki/1008-SYSTEMcontext+CONTEXTclassifier_value.md",
-    "6blog/21/21-3 Summer/21-33/21-33-4.md",
-    "6blog/21/21-3 Summer/21-32/21-32-2.md",
-    "6blog/21/21-3 Summer/21-33/Untitled.md",
-    "6blog/21/21-3 Summer/21-31/8007-fixLinks.md"
+    "1wiki/1004-asynchronousMode.md"
   ]
 }
