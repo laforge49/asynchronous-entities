@@ -72,17 +72,6 @@
     (swap! operationid-map-atom assoc operationid {:function function
                                                    :goblock  goblock})))
 
-(defn register-operation
-  [env params]
-  (let [operationid
-        (:operationid params)
-        function
-        (:function params)
-        port
-        (a/chan)]
-    (swap! operationid-map-atom assoc operationid {:port port :function function})
-    port))
-
 (defn request-exception-check
   [request-return-value]
   (if (not (vector? request-return-value))
