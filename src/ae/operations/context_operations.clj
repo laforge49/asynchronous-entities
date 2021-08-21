@@ -25,10 +25,10 @@
       [this-map nil entity-public-request-port]
       (let [[new-entity-kw _ _]
             (kw/name-as-keyword name)
-            _ (if (some? (get-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw]))
+            _ (if (some? (get-in this-map ["ENTITY-PUBLIC-REQUEST-PORTS" new-entity-kw]))
                 (throw (Exception. (str "Entity " name " already exists in " this-name))))
             this-map
-            (assoc-in this-map [:ENTITY-PUBLIC-REQUEST-PORTS new-entity-kw] entity-public-request-port)
+            (assoc-in this-map ["ENTITY-PUBLIC-REQUEST-PORTS" new-entity-kw] entity-public-request-port)
             classifiers
             (:classifiers params)]
         (if (some? classifiers)
@@ -107,7 +107,7 @@
                                          (assoc params :requestid target-requestid)]))
             (if (= this-base-name target-context-base-name)
               (let [entity-public-request-ports
-                    (:ENTITY-PUBLIC-REQUEST-PORTS this-map)
+                    (get this-map "ENTITY-PUBLIC-REQUEST-PORTS")
                     target-entity-request-port
                     (target-entity-kw entity-public-request-ports)
                     target-requestid
@@ -122,7 +122,7 @@
               (let [target-context-entity-kw
                     (keyword this-base-name target-context-base-name)
                     entity-public-request-ports
-                    (:ENTITY-PUBLIC-REQUEST-PORTS this-map)
+                    (get this-map "ENTITY-PUBLIC-REQUEST-PORTS")
                     target-entity-request-port
                     (target-context-entity-kw entity-public-request-ports)]
                 (if (nil? target-entity-request-port)
@@ -234,7 +234,7 @@
                    (r/context-entities-report 3 this-name this-map)
                    (r/context-classifier-values-report 4 this-name))
               entity-ports
-              (:ENTITY-PUBLIC-REQUEST-PORTS this-map)]
+              (get this-map "ENTITY-PUBLIC-REQUEST-PORTS")]
           (io/make-parents file-name)
           (spit file-name report)
           (doseq [[entity-kw entity-port] entity-ports]

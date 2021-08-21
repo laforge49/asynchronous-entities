@@ -85,7 +85,7 @@
   (let [[this-name-kw this-context-base-name this-base-name]
         (kw/name-as-keyword this-name)
         entities
-        (keys (:ENTITY-PUBLIC-REQUEST-PORTS this-map))
+        (keys (get this-map "ENTITY-PUBLIC-REQUEST-PORTS"))
         sorted-names
         (short-names entities this-base-name)
         lines
