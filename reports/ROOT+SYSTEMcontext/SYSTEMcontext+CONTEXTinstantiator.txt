@@ -10,7 +10,7 @@ Number of classifiers: 1
 2. Descriptors of entity SYSTEMcontext+CONTEXTinstantiator
 (Default context is SYSTEMcontext.)
 
-+INSTANTIATION_CLASSIFIERSdescriptor = #:SYSTEMcontext{:ENTITY_TYPEclassifier "SYSTEMcontext+CONTEXTclassifier_value"}
++INSTANTIATION_CLASSIFIERSdescriptor = {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+CONTEXTclassifier_value"}
 +INSTANTIATION_DESCRIPTORSdescriptor = #:SYSTEMcontext{:REQUESTID_MAP {"SYSTEMcontext+REGISTER_ENTITYrequestid" ["REGISTER_ENTITYoperationid"], "SYSTEMcontext+ROUTErequestid" ["ROUTEoperationid"], "SYSTEMcontext+REGISTER_CLASSIFIERrequestid" ["REGISTER_CLASSIFIERoperationid"], "SYSTEMcontext+ENTITY_REPORTrequestid" ["CONTEXT_REPORToperationid"]}}
 +INSTANTIATOR = "SYSTEMcontext+INSTANTIATORinstantiator"
 +INVARIANTdescriptor = true

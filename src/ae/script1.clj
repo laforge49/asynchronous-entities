@@ -10,15 +10,15 @@
                        :SYSTEMcontext/INSTANTIATION_DESCRIPTORSdescriptor {:SYSTEMcontext/INVARIANTdescriptor true
                                                                            :SYSTEMcontext/REQUESTID_MAP       {"SYSTEMcontext+INSTANTIATErequestid"   ["INSTANTIATEoperationid"]
                                                                                                                "SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}}
-                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {:SYSTEMcontext/ENTITY_TYPEclassifier "SYSTEMcontext+INSTANTIATORclassifier_value"}}
-    :classifiers      {:SYSTEMcontext/ENTITY_TYPEclassifier "SYSTEMcontext+INSTANTIATORclassifier_value"}
+                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+INSTANTIATORclassifier_value"}}
+    :classifiers      {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+INSTANTIATORclassifier_value"}
     }
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+INSTANTIATORinstantiator"
     :name             "SYSTEMcontext+REQUESTIDinstantiator"
     :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORSdescriptor {:SYSTEMcontext/INVARIANTdescriptor true
                                                                            :SYSTEMcontext/REQUESTID_MAP       {"SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}}
-                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {:SYSTEMcontext/ENTITY_TYPEclassifier "SYSTEMcontext+REQUESTIDclassifier_value"}}
+                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+REQUESTIDclassifier_value"}}
     }
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+REQUESTIDinstantiator"
@@ -67,7 +67,7 @@
     :name             "SYSTEMcontext+DESCRIPTORinstantiator"
     :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORSdescriptor {:SYSTEMcontext/INVARIANTdescriptor true
                                                                            :SYSTEMcontext/REQUESTID_MAP       {"SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}}
-                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {:SYSTEMcontext/ENTITY_TYPEclassifier "SYSTEMcontext+DESCRIPTORclassifier_value"}}
+                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+DESCRIPTORclassifier_value"}}
     }
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+DESCRIPTORinstantiator"
@@ -94,14 +94,14 @@
     :name             "SYSTEMcontext+CLASSIFIERinstantiator"
     :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORSdescriptor {:SYSTEMcontext/INVARIANTdescriptor true
                                                                            :SYSTEMcontext/REQUESTID_MAP       {"SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}}
-                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {:SYSTEMcontext/ENTITY_TYPEclassifier "SYSTEMcontext+CLASSIFIERclassifier_value"}}
+                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+CLASSIFIERclassifier_value"}}
     }
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+INSTANTIATORinstantiator"
     :name             "SYSTEMcontext+RELATIONinstantiator"
     :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORSdescriptor {:SYSTEMcontext/INVARIANTdescriptor true
                                                                            :SYSTEMcontext/REQUESTID_MAP       {"SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}}
-                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {:SYSTEMcontext/ENTITY_TYPEclassifier "SYSTEMcontext+CLASSIFIERclassifier_value"}}
+                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+CLASSIFIERclassifier_value"}}
     }
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+CLASSIFIERinstantiator"
@@ -112,7 +112,7 @@
     :name             "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"
     :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORSdescriptor {:SYSTEMcontext/INVARIANTdescriptor true
                                                                            :SYSTEMcontext/REQUESTID_MAP       {"SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}}
-                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {:SYSTEMcontext/ENTITY_TYPEclassifier "SYSTEMcontext+CLASSIFIER_VALUEclassifier_value"}}
+                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+CLASSIFIER_VALUEclassifier_value"}}
     }
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"
@@ -153,21 +153,21 @@
                                                                                                          "SYSTEMcontext+ROUTErequestid"               ["ROUTEoperationid"]
                                                                                                          "SYSTEMcontext+REGISTER_CLASSIFIERrequestid" ["REGISTER_CLASSIFIERoperationid"]
                                                                                                          "SYSTEMcontext+ENTITY_REPORTrequestid"       ["CONTEXT_REPORToperationid"]}}
-                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {:SYSTEMcontext/ENTITY_TYPEclassifier "SYSTEMcontext+CONTEXTclassifier_value"}}
+                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+CONTEXTclassifier_value"}}
     }
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+INSTANTIATORinstantiator"
     :name             "SYSTEMcontext+FEDERATORinstantiator"
     :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORSdescriptor {:SYSTEMcontext/REQUESTID_MAP {"SYSTEMcontext+RUN_FEDERATIONrequestid" ["RUN_FEDERATIONoperationid"]
                                                                                                          "SYSTEMcontext+ENTITY_REPORTrequestid"  ["ENTITY_REPORToperationid"]}}
-                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {:SYSTEMcontext/ENTITY_TYPEclassifier "SYSTEMcontext+FEDERATORclassifier_value"}}
+                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+FEDERATORclassifier_value"}}
     }
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+INSTANTIATORinstantiator"
     :name             "SYSTEMcontext+FEDERATION_CONTEXTinstantiator"
     :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORSdescriptor {:SYSTEMcontext/REQUESTID_MAP {"SYSTEMcontext+ACQUIRErequestid" ["FEDERATION_ACQUIREoperationid"]
                                                                                                          "SYSTEMcontext+RELEASErequestid" ["FEDERATION_RELEASEoperationid"]}}
-                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {:SYSTEMcontext/ENTITY_TYPEclassifier "SYSTEMcontext+FEDERATION_CONTEXTclassifier_value"}}
+                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+FEDERATION_CONTEXTclassifier_value"}}
     }
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+CONTEXTinstantiator"
@@ -179,7 +179,7 @@
     :descriptors      {:SYSTEMcontext/INSTANTIATION_DESCRIPTORSdescriptor {:SYSTEMcontext/REQUESTID_MAP {"SYSTEMcontext+ADD_DESCRIPTORrequestid" ["ADD_DESCRIPTORoperationid"]
                                                                                                          "SYSTEMcontext+ADD_CLASSIFIERrequestid" ["ADD_CLASSIFIERoperationid"]
                                                                                                          "SYSTEMcontext+ENTITY_REPORTrequestid"  ["ENTITY_REPORToperationid"]}}
-                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {:SYSTEMcontext/ENTITY_TYPEclassifier "SYSTEM_TESTcontext+SIMPLEclassifier_value"}}
+                       :SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEM_TESTcontext+SIMPLEclassifier_value"}}
     }
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"
@@ -224,7 +224,7 @@
                                                          }
                                                         {:target_requestid "SYSTEMcontext+ADD_CLASSIFIERrequestid"
                                                          :target_name      "SYSTEM_TESTcontext+ALPHAsimple"
-                                                         :classifier       :SYSTEM_TESTcontext/APPLICATIONclassifier
+                                                         :classifier       "SYSTEM_TESTcontext+APPLICATIONclassifier"
                                                          :classifier-value "SYSTEM_TESTcontext+FIDDLINGclassifier_value"
                                                          }
                                                         {:target_requestid "SYSTEMcontext+ADD_DESCRIPTORrequestid"
@@ -234,12 +234,12 @@
                                                          }
                                                         {:target_requestid "SYSTEMcontext+ADD_CLASSIFIERrequestid"
                                                          :target_name      "SYSTEM_TESTcontext+GAMMAsimple"
-                                                         :classifier       :SYSTEM_TESTcontext/BASICrelation
+                                                         :classifier       "SYSTEM_TESTcontext+BASICrelation"
                                                          :classifier-value "SYSTEM_TESTcontext+ALPHAsimple"
                                                          }
                                                         {:target_requestid "SYSTEMcontext+ADD_CLASSIFIERrequestid"
                                                          :target_name      "SYSTEM_TESTcontext+GAMMAsimple"
-                                                         :classifier       :SYSTEM_TESTcontext/APPLICATIONclassifier
+                                                         :classifier       "SYSTEM_TESTcontext+APPLICATIONclassifier"
                                                          :classifier-value "SYSTEM_TESTcontext+FIDDLINGclassifier_value"
                                                          }
                                                         ]}}

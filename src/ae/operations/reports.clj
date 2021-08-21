@@ -37,10 +37,8 @@
         lines
         (reduce
           (fn [lines [short-name name]]
-            (let [[name-kw context-base-name base-name]
-                  (kw/name-as-keyword name)
-                  value
-                  (get-in this-map [:CLASSIFIERS name-kw])
+            (let [value
+                  (get-in this-map [:CLASSIFIERS name])
                   [value-kw context-base-name base-name]
                   (kw/name-as-keyword value)
                   short-value
@@ -111,10 +109,10 @@
         (kw/name-as-keyword this-name)
         classifier-registry
         (k/get-classifier-values-map this-name)
-        classifier-kws
+        classifier-names
         (keys classifier-registry)
         sorted-classifier-name2s
-        (short-names classifier-kws this-base-name)
+        (short-names classifier-names this-base-name)
         lines
         (reduce
           (fn [lines [short-classifier-name classifier-name]]
@@ -123,7 +121,7 @@
                   lines
                   (conj lines line)
                   values-map
-                  ((first (kw/name-as-keyword classifier-name)) classifier-registry)
+                  (get classifier-registry classifier-name)
                   values
                   (keys values-map)
                   sorted-value2s

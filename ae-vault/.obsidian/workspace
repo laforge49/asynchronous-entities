@@ -7,11 +7,8 @@
         "id": "1811748742a8e755",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "8activities/8013-keywords.md",
-            "mode": "source"
-          }
+          "type": "graph",
+          "state": {}
         }
       }
     ],
@@ -40,15 +37,16 @@
               "type": "search",
               "state": {
                 "query": "tag:#status/todo",
-                "matchingCase": false,
-                "explainSearch": false,
+                "matchingCase": true,
+                "explainSearch": true,
                 "collapseAll": false,
-                "extraContext": false,
+                "extraContext": true,
                 "sortOrder": "alphabetical"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -68,7 +66,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "8activities/8013-keywords.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +109,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "8activities/8013-keywords.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
