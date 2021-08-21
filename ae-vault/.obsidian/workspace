@@ -7,8 +7,11 @@
         "id": "1811748742a8e755",
         "type": "leaf",
         "state": {
-          "type": "graph",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "6blog/21/21-3 Summer/21-33/21-33-6.md",
+            "mode": "source"
+          }
         }
       }
     ],
@@ -45,8 +48,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -66,6 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "6blog/21/21-3 Summer/21-33/21-33-6.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -109,6 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "6blog/21/21-3 Summer/21-33/21-33-6.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -131,15 +135,15 @@
   },
   "active": "1811748742a8e755",
   "lastOpenFiles": [
-    "8activities/8013-keywords.md",
-    "8activities/8012-changeDescriptors.md",
-    "8activities/8011-changeClassifiers.md",
-    "8activities/8010-deleteEntities.md",
-    "8activities/8009-renameEntities.md",
-    "8activities/8008-operationidVectors.md",
+    "6blog/21/21-3 Summer/21-33/21-33-6.md",
+    "8activities/8003-reportDescriptors.md",
     "8activities/8006-reportMarkdown.md",
-    "8activities/8005-reportBacklinks.md",
-    "8activities/8004-validation.md",
-    "8activities/8003-reportDescriptors.md"
+    "8activities/8000-pendingActivities.md",
+    "8activities/8014-yamlScript.md",
+    "8activities/8012-changeDescriptors.md",
+    "8activities/8014-jamalScript.md",
+    "8activities/8011-changeClassifiers.md",
+    "8activities/Untitled.md",
+    "6blog/21/21-3 Summer/21-33/21-33-5.md"
   ]
 }
