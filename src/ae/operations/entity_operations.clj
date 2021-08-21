@@ -11,7 +11,7 @@
   (let [name
         (:name params)
         this-name
-        (:NAME this-map)
+        (get this-map "NAME")
         this-descriptors
         (get this-map "DESCRIPTORS")
         instantiation-descriptors
@@ -47,7 +47,7 @@
         target-name
         (k/entityContextName context-name)
         this-name
-        (:NAME this-map)
+        (get this-map "NAME")
         this-descriptors
         (get this-map "DESCRIPTORS")
         instantiation-descriptors
@@ -101,7 +101,7 @@
 (defn addClassifierFunction
   [env this-map params]
   (let [this-name
-        (:NAME this-map)
+        (get this-map "NAME")
         _ (if (s/blank? this-name)
             (throw (Exception. "ADD CLASSIFIER requires a name on the entity being assigned a classifier")))
         classifier
@@ -126,7 +126,7 @@
           (:operation-return-port params)]
       (try
         (let [this-name
-              (:NAME this-map)
+              (get this-map "NAME")
               context-name
               (k/entityContextName this-name)
               file-name

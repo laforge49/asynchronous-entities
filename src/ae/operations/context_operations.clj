@@ -9,7 +9,7 @@
 (defn registerEntityOperation
   [env this-map params]
   (let [this-name
-        (:NAME this-map)
+        (get this-map "NAME")
         name
         (:name params)
         _ (if (some? (:initialization-port params))
@@ -59,7 +59,7 @@
               classifier-value-kw
               (:classifier-value params)
               this-name
-              (:NAME this-map)]
+              (get this-map "NAME")]
           (k/add-classifier-value this-name name classifier-kw classifier-value-kw)
           (a/>! operation-return-port [this-map nil this-map]))
         (catch Exception e
@@ -74,13 +74,13 @@
         (let [active-request-port
               (:active-request-port env)
               this-name
-              (:NAME this-map)
+              (get this-map "NAME")
               _ (if (nil? this-name)
-                  (throw (Exception. (str ":NAME is nil\n"
+                  (throw (Exception. (str "NAME is nil\n"
                                           (prn-str params)
                                           (prn-str this-map)))))
               _ (if (not (string? this-name))
-                  (throw (Exception. (str ":NAME is not a string\n"
+                  (throw (Exception. (str "NAME is not a string\n"
                                           (prn this-name)
                                           (prn-str params)
                                           (prn-str this-map)))))
@@ -222,7 +222,7 @@
           (:operation-return-port params)]
       (try
         (let [this-name
-              (:NAME this-map)
+              (get this-map "NAME")
               file-name
               (str "./reports/" this-name "/CONTEXT REPORT.txt")
               heading

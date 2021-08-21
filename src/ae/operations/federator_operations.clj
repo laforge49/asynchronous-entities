@@ -37,7 +37,7 @@
                                                          :target_requestid           "SYSTEMcontext+REGISTER_ENTITYrequestid"
                                                          :entity-public-request-port entity-public-request-port
                                                          :target_name                context-name
-                                                         :name                       (:NAME snap)
+                                                         :name                       (get snap "NAME")
                                                          :classifiers                (get snap "CLASSIFIERS")
                                                          :return_port                subrequest-return-port}])
                       _ (k/request-exception-check (a/<! subrequest-return-port))

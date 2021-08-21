@@ -136,13 +136,13 @@
               true
               (get request-descriptors "SYSTEMcontext+READ_ONLYdescriptor"))]
         (if (not read-only)
-          (throw (Exception. (str "Can not apply " requestid " to invariant " (:NAME target-map)))))))
+          (throw (Exception. (str "Can not apply " requestid " to invariant " (get target-map "NAME")))))))
     operationid))
 
 (defn federationRouteFunction
   [env this-map params]
   (let [this-name
-        (:NAME this-map)
+        (get this-map "NAME")
         federation-map-volatile
         (:FEDERATION-MAP-VOLATILE env)
         _ (if (federated? this-map)
@@ -215,7 +215,7 @@
                                                (prn-str this-map)))))]
                (try
                  (let [this-name
-                       (:NAME this-map)
+                       (get this-map "NAME")
                        federation-map
                        (:FEDERATION-MAP env)
                        target-map
@@ -339,7 +339,7 @@
         name
         (:name params)
         new-entity-map
-        {:NAME               name
+        {"NAME"               name
          "DESCRIPTORS"        descriptors
          "CLASSIFIERS"        classifiers
          :REQUEST-PORT-STACK request-port-stack}
