@@ -179,7 +179,7 @@
         (let [federation-names
               (:federation-names params)
               root-contexts-request-port
-              (:CONTEXT-REQUEST-PORT env)
+              (get env "CONTEXT-REQUEST-PORT")
               acquire-loop-port
               (federation-acquire-loop root-contexts-request-port env federation-names)
               federation-map

@@ -35,7 +35,7 @@
                                                                                           "SYSTEMcontext+ENTITY_REPORTrequestid"       ["CONTEXT_REPORToperationid"]}}
                                              }))
                 env
-                (assoc env :CONTEXT-REQUEST-PORT context-request-port)
+                (assoc env "CONTEXT-REQUEST-PORT" context-request-port)
                 sample
                 {"target_requestid" "SYSTEMcontext+REGISTER_ENTITYrequestid"
                  "target_name"      "ROOT+SYSTEMcontext"

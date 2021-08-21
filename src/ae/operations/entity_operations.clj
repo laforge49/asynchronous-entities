@@ -71,7 +71,7 @@
           (:operation-return-port params)]
       (try
         (let [context-request-port
-              (:CONTEXT-REQUEST-PORT env)
+              (get env "CONTEXT-REQUEST-PORT")
               route-params
               (instantiateOperation env this-map params)
               route-params

@@ -32,7 +32,7 @@
                                                         "return_port" subrequest-return-port}])
                       _ (k/request-exception-check (a/<! subrequest-return-port))
                       context-request-port
-                      (:CONTEXT-REQUEST-PORT env)
+                      (get env "CONTEXT-REQUEST-PORT")
                       _ (a/>! context-request-port [env {"requestid"                  "SYSTEMcontext+ROUTErequestid"
                                                          :target_requestid           "SYSTEMcontext+REGISTER_ENTITYrequestid"
                                                          :entity-public-request-port entity-public-request-port
@@ -65,7 +65,7 @@
                   context-name
                   (k/entityContextName entity-name)
                   context-request-port
-                  (:CONTEXT-REQUEST-PORT env)
+                  (get env "CONTEXT-REQUEST-PORT")
                   subrequest-return-port
                   (a/chan)
                   new-classifiers
@@ -92,7 +92,7 @@
           (:operation-return-port params)]
       (try
         (let [root-contexts-request-port
-              (:CONTEXT-REQUEST-PORT env)
+              (get env "CONTEXT-REQUEST-PORT")
               descriptors
               (get this-map "DESCRIPTORS")
               federation-names
