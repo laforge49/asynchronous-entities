@@ -15,13 +15,13 @@
         this-descriptors
         (:DESCRIPTORS this-map)
         instantiation-descriptors
-        (:SYSTEMcontext/INSTANTIATION_DESCRIPTORSdescriptor this-descriptors)
+        (get this-descriptors "SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor")
         instantiation-descriptors
         (assoc instantiation-descriptors :SYSTEMcontext/INSTANTIATOR this-name)
         instantiation-descriptors
         (into instantiation-descriptors (:descriptors params))
         instantiation-classifiers
-        (:SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor this-descriptors)
+        (get this-descriptors "SYSTEMcontext+INSTANTIATION_CLASSIFIERSdescriptor")
         initialization-port
         (a/chan)
         params
@@ -51,13 +51,13 @@
         this-descriptors
         (:DESCRIPTORS this-map)
         instantiation-descriptors
-        (:SYSTEMcontext/INSTANTIATION_DESCRIPTORSdescriptor this-descriptors)
+        (get this-descriptors "SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor")
         instantiation-descriptors
         (assoc instantiation-descriptors :SYSTEMcontext/INSTANTIATOR this-name)
         instantiation-descriptors
         (into instantiation-descriptors (:descriptors params))
         instantiation-classifiers
-        (:SYSTEMcontext/INSTANTIATION_CLASSIFIERSdescriptor this-descriptors)
+        (get this-descriptors "SYSTEMcontext+INSTANTIATION_CLASSIFIERSdescriptor")
         ]
     (into params {:target_requestid "SYSTEMcontext+REGISTER_ENTITYrequestid"
                   :target_name      target-name
@@ -85,8 +85,6 @@
   [env this-map params]
   (let [descriptor
         (:descriptor params)
-        _ (if (not (keyword? descriptor))
-            (throw (Exception. "ADD DESCRIPTOR requires the descriptor be a keyword")))
         descriptor-value
         (:descriptor-value params)
         old-descriptor-value
@@ -95,7 +93,7 @@
             (throw (Exception. (str "ADD DESCRIPTOR encountered a pre-existing value: " old-descriptor-value))))
         this-map
         (assoc-in this-map [:DESCRIPTORS descriptor] descriptor-value)]
-    (if (= descriptor :SYSTEMcontext/INVARIANTdescriptor)
+    (if (= descriptor "SYSTEMcontext+INVARIANTdescriptor")
       (if (= descriptor-value true)
         (k/add-invariant-map name this-map)))
     [this-map this-map]))

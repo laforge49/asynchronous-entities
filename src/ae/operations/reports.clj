@@ -68,9 +68,7 @@
         lines
         (reduce
           (fn [lines [short-name name]]
-            (let [[name-kw context-base-name base-name]
-                  (kw/name-as-keyword name)]
-              (conj lines (str short-name " = " (prn-str (get-in this-map [:DESCRIPTORS name-kw]))))))
+            (conj lines (str short-name " = " (prn-str (get-in this-map [:DESCRIPTORS name])))))
           []
           sorted-names)
         nbr

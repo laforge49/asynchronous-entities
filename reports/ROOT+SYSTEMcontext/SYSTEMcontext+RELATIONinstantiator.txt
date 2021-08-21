@@ -11,8 +11,8 @@ Number of classifiers: 1
 (Default context is SYSTEMcontext.)
 
 +INSTANTIATION_CLASSIFIERSdescriptor = {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+CLASSIFIERclassifier_value"}
-+INSTANTIATION_DESCRIPTORSdescriptor = #:SYSTEMcontext{:INVARIANTdescriptor true, :REQUESTID_MAP {"SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}}
-+INSTANTIATOR = "SYSTEMcontext+INSTANTIATORinstantiator"
++INSTANTIATION_DESCRIPTORSdescriptor = {"SYSTEMcontext+INVARIANTdescriptor" true, "SYSTEMcontext+REQUESTID_MAP" {"SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}}
++INSTANTIATOR = nil
 +INVARIANTdescriptor = true
 +REQUESTID_MAP = {"SYSTEMcontext+INSTANTIATErequestid" ["INSTANTIATEoperationid"], "SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}
 

@@ -10,7 +10,7 @@ Number of classifiers: 1
 2. Descriptors of entity SYSTEMcontext+RUN_FEDERATIONrequestid
 (Default context is SYSTEMcontext.)
 
-+INSTANTIATOR = "SYSTEMcontext+REQUESTIDinstantiator"
++INSTANTIATOR = nil
 +INVARIANTdescriptor = true
 +REQUESTID_MAP = {"SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}
 
