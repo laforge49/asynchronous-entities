@@ -224,8 +224,8 @@
                                                                     }
                                                                    {"target_requestid" "SYSTEMcontext+ADD_CLASSIFIERrequestid"
                                                                     "target_name"      "SYSTEM_TESTcontext+ALPHAsimple"
-                                                                    :classifier       "SYSTEM_TESTcontext+APPLICATIONclassifier"
-                                                                    :classifier-value "SYSTEM_TESTcontext+FIDDLINGclassifier_value"
+                                                                    "classifier"       "SYSTEM_TESTcontext+APPLICATIONclassifier"
+                                                                    "classifier-value" "SYSTEM_TESTcontext+FIDDLINGclassifier_value"
                                                                     }
                                                                    {"target_requestid" "SYSTEMcontext+ADD_DESCRIPTORrequestid"
                                                                     "target_name"      "SYSTEM_TESTcontext+GAMMAsimple"
@@ -234,13 +234,13 @@
                                                                     }
                                                                    {"target_requestid" "SYSTEMcontext+ADD_CLASSIFIERrequestid"
                                                                     "target_name"      "SYSTEM_TESTcontext+GAMMAsimple"
-                                                                    :classifier       "SYSTEM_TESTcontext+BASICrelation"
-                                                                    :classifier-value "SYSTEM_TESTcontext+ALPHAsimple"
+                                                                    "classifier"       "SYSTEM_TESTcontext+BASICrelation"
+                                                                    "classifier-value" "SYSTEM_TESTcontext+ALPHAsimple"
                                                                     }
                                                                    {"target_requestid" "SYSTEMcontext+ADD_CLASSIFIERrequestid"
                                                                     "target_name"      "SYSTEM_TESTcontext+GAMMAsimple"
-                                                                    :classifier       "SYSTEM_TESTcontext+APPLICATIONclassifier"
-                                                                    :classifier-value "SYSTEM_TESTcontext+FIDDLINGclassifier_value"
+                                                                    "classifier"       "SYSTEM_TESTcontext+APPLICATIONclassifier"
+                                                                    "classifier-value" "SYSTEM_TESTcontext+FIDDLINGclassifier_value"
                                                                     }
                                                                    ]}}
    {"target_requestid" "SYSTEMcontext+RUN_FEDERATIONrequestid"

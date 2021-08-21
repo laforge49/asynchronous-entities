@@ -75,8 +75,8 @@
                                                  "target_requestid" "SYSTEMcontext+REGISTER_CLASSIFIERrequestid"
                                                  "target_name"      context-name
                                                  "name"             entity-name
-                                                 :classifier       classifier
-                                                 :classifier-value classifier-value
+                                                 "classifier"       classifier
+                                                 "classifier-value" classifier-value
                                                  "return_port"      subrequest-return-port}])
                 (k/request-exception-check (a/<! subrequest-return-port)))
               new-classifiers)

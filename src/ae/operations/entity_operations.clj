@@ -105,9 +105,9 @@
         _ (if (s/blank? this-name)
             (throw (Exception. "ADD CLASSIFIER requires a name on the entity being assigned a classifier")))
         classifier
-        (:classifier params)
+        (get params "classifier")
         classifier-value
-        (:classifier-value params)
+        (get params "classifier-value")
         old-classifier-value
         (get-in this-map ["CLASSIFIERS" classifier])
         _ (if (some? old-classifier-value)

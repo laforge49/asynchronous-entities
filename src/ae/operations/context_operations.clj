@@ -55,9 +55,9 @@
         (let [name
               (get params "name")
               classifier-kw
-              (:classifier params)
+              (get params "classifier")
               classifier-value-kw
-              (:classifier-value params)
+              (get params "classifier-value")
               this-name
               (get this-map "NAME")]
           (k/add-classifier-value this-name name classifier-kw classifier-value-kw)
