@@ -30,7 +30,7 @@
             this-map
             (assoc-in this-map ["ENTITY-PUBLIC-REQUEST-PORTS" new-entity-kw] entity-public-request-port)
             classifiers
-            (:classifiers params)]
+            (get params "classifiers")]
         (if (some? classifiers)
           (doseq [[classifier-kw classifier-value-kw] classifiers]
             (k/add-classifier-value this-name name classifier-kw classifier-value-kw)))
@@ -87,13 +87,13 @@
               [_ _ this-base-name]
               (kw/name-as-keyword this-name)
               target-entity-name
-              (:target_name params)
+              (get params "target_name")
               _ (if (nil? target-entity-name)
-                  (throw (Exception. (str ":target_name is nil\n"
+                  (throw (Exception. (str "target_name is nil\n"
                                           (prn-str params)
                                           (prn-str this-map)))))
               _ (if (not (string? target-entity-name))
-                  (throw (Exception. (str ":target_name is not a string\n"
+                  (throw (Exception. (str "target_name is not a string\n"
                                           (prn-str target-entity-name)
                                           (prn-str params)
                                           (prn-str this-map)))))
@@ -101,7 +101,7 @@
               (kw/name-as-keyword target-entity-name)]
           (if (= this-name target-entity-name)
             (let [target-requestid
-                  (:target_requestid params)]
+                  (get params "target_requestid")]
               (a/>! operation-return-port [this-map nil :NO-RETURN])
               (a/>! active-request-port [env
                                          (assoc params "requestid" target-requestid)]))
@@ -111,7 +111,7 @@
                     target-entity-request-port
                     (target-entity-kw entity-public-request-ports)
                     target-requestid
-                    (:target_requestid params)]
+                    (get params "target_requestid")]
                 (if (nil? target-entity-request-port)
                   (throw (Exception. (str "Entity " target-entity-name " is not registered in " this-name))))
                 (a/>! operation-return-port [this-map
@@ -155,8 +155,8 @@
                         subrequest-return-port
                         (a/chan)
                         _ (a/>! root-contexts-request-port [env {"requestid"        "SYSTEMcontext+ROUTErequestid"
-                                                                 :target_requestid "PUSH-REQUEST-PORT"
-                                                                 :target_name      federation-name
+                                                                 "target_requestid" "PUSH-REQUEST-PORT"
+                                                                 "target_name"      federation-name
                                                                  :new-request-port new-request-port
                                                                  "return_port"      subrequest-return-port}])
                         [snap new-request-port]

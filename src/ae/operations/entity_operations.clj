@@ -25,10 +25,10 @@
         initialization-port
         (a/chan)
         params
-        (into params {:target_name         name
+        (into params {"target_name"         name
                       :initialization-port initialization-port
                       "descriptors"         instantiation-descriptors
-                      :classifiers         instantiation-classifiers})
+                      "classifiers"         instantiation-classifiers})
         [new-entity-public-request-port snap]
         (k/create-entity env params)
         federation-map-volatile
@@ -59,10 +59,10 @@
         instantiation-classifiers
         (get this-descriptors "SYSTEMcontext+INSTANTIATION_CLASSIFIERSdescriptor")
         ]
-    (into params {:target_requestid "SYSTEMcontext+REGISTER_ENTITYrequestid"
-                  :target_name      target-name
+    (into params {"target_requestid" "SYSTEMcontext+REGISTER_ENTITYrequestid"
+                  "target_name"      target-name
                   "descriptors"      instantiation-descriptors
-                  :classifiers      instantiation-classifiers})))
+                  "classifiers"      instantiation-classifiers})))
 
 (defn instantiate-goblock
   [env this-map params]
@@ -84,9 +84,9 @@
 (defn addDescriptorFunction
   [env this-map params]
   (let [descriptor
-        (:descriptor params)
+        (get params "descriptor")
         descriptor-value
-        (:descriptor-value params)
+        (get params "descriptor-value")
         old-descriptor-value
         (get-in this-map ["DESCRIPTORS" descriptor])
         _ (if (some? old-descriptor-value)

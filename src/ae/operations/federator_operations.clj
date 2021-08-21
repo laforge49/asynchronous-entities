@@ -34,11 +34,11 @@
                       context-request-port
                       (get env "CONTEXT-REQUEST-PORT")
                       _ (a/>! context-request-port [env {"requestid"                  "SYSTEMcontext+ROUTErequestid"
-                                                         :target_requestid           "SYSTEMcontext+REGISTER_ENTITYrequestid"
+                                                         "target_requestid"           "SYSTEMcontext+REGISTER_ENTITYrequestid"
                                                          :entity-public-request-port entity-public-request-port
-                                                         :target_name                context-name
+                                                         "target_name"                context-name
                                                          "name"                       (get snap "NAME")
-                                                         :classifiers                (get snap "CLASSIFIERS")
+                                                         "classifiers"                (get snap "CLASSIFIERS")
                                                          "return_port"                subrequest-return-port}])
                       _ (k/request-exception-check (a/<! subrequest-return-port))
                       federation-map
@@ -72,8 +72,8 @@
                   (pop new-classifiers)]
               (when (not (contains? new-children entity-name))
                 (a/>! context-request-port [env {"requestid"        "SYSTEMcontext+ROUTErequestid"
-                                                 :target_requestid "SYSTEMcontext+REGISTER_CLASSIFIERrequestid"
-                                                 :target_name      context-name
+                                                 "target_requestid" "SYSTEMcontext+REGISTER_CLASSIFIERrequestid"
+                                                 "target_name"      context-name
                                                  "name"             entity-name
                                                  :classifier       classifier
                                                  :classifier-value classifier-value
@@ -100,8 +100,8 @@
               subrequest-return-port
               (a/chan)
               _ (a/>! root-contexts-request-port [env {"requestid"        "SYSTEMcontext+ROUTErequestid"
-                                                       :target_requestid "SYSTEMcontext+INSTANTIATErequestid"
-                                                       :target_name      "SYSTEMcontext+FEDERATION_CONTEXTinstantiator"
+                                                       "target_requestid" "SYSTEMcontext+INSTANTIATErequestid"
+                                                       "target_name"      "SYSTEMcontext+FEDERATION_CONTEXTinstantiator"
                                                        "return_port"      subrequest-return-port
                                                        "name"             nil}])
               federation-context-request-port

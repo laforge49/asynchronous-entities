@@ -148,7 +148,7 @@
         _ (if (federated? this-map)
             (vreset! (first (get @federation-map-volatile this-name)) this-map))
         target-name
-        (:target_name params)
+        (get params "target_name")
         federation-entry
         (get @federation-map-volatile target-name)
         target-map
@@ -160,7 +160,7 @@
                                     (prn-str params)
                                     (prn-str this-map)))))
         requestid
-        (:target_requestid params)
+        (get params "target_requestid")
         params
         (assoc params "requestid" requestid)
         operationid
@@ -323,7 +323,7 @@
           {}
           descriptors)
         classifiers
-        (:classifiers params)
+        (get params "classifiers")
         classifiers
         (if (nil? classifiers)
           {}
