@@ -59,7 +59,7 @@
                 (a/chan)
                 _ (doseq [request-params s1/script1]
                     (let [request-params
-                          (assoc request-params :requestid "SYSTEMcontext+ROUTErequestid")
+                          (assoc request-params "requestid" "SYSTEMcontext+ROUTErequestid")
                           request-params
                           (assoc request-params :return_port return-port0)]
                       (a/>! context-request-port [env request-params])

@@ -103,7 +103,7 @@
 (defn targetOperationid
   [env target-map params]
   (let [requestid
-        (:requestid params)
+        (get params "requestid")
         _ (if (nil? requestid)
             (throw (Exception. (str "Requestid is nil\n"
                                     (prn-str params)
@@ -162,7 +162,7 @@
         requestid
         (:target_requestid params)
         params
-        (assoc params :requestid requestid)
+        (assoc params "requestid" requestid)
         operationid
         (targetOperationid env target-map params)
         fun
@@ -225,7 +225,7 @@
                        env
                        (assoc env :active-request-port this-request-port)
                        requestid
-                       (:requestid params)
+                       (get params "requestid")
                        _ (if (nil? requestid)
                            (throw (Exception. (str "Requestid port is nil\n"
                                                    (prn-str params)
