@@ -317,7 +317,7 @@
         request-port-stack
         [new-public-request-port]
         descriptors
-        (:descriptors params)
+        (get params "descriptors")
         descriptors
         (if (nil? descriptors)
           {}

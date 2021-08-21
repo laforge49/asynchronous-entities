@@ -19,7 +19,7 @@
         instantiation-descriptors
         (assoc instantiation-descriptors "SYSTEMcontext+INSTANTIATORdescriptor" this-name)
         instantiation-descriptors
-        (into instantiation-descriptors (:descriptors params))
+        (into instantiation-descriptors (get params "descriptors"))
         instantiation-classifiers
         (get this-descriptors "SYSTEMcontext+INSTANTIATION_CLASSIFIERSdescriptor")
         initialization-port
@@ -27,7 +27,7 @@
         params
         (into params {:target_name         name
                       :initialization-port initialization-port
-                      :descriptors         instantiation-descriptors
+                      "descriptors"         instantiation-descriptors
                       :classifiers         instantiation-classifiers})
         [new-entity-public-request-port snap]
         (k/create-entity env params)
@@ -55,13 +55,13 @@
         instantiation-descriptors
         (assoc instantiation-descriptors "SYSTEMcontext+INSTANTIATORdescriptor" this-name)
         instantiation-descriptors
-        (into instantiation-descriptors (:descriptors params))
+        (into instantiation-descriptors (get params "descriptors"))
         instantiation-classifiers
         (get this-descriptors "SYSTEMcontext+INSTANTIATION_CLASSIFIERSdescriptor")
         ]
     (into params {:target_requestid "SYSTEMcontext+REGISTER_ENTITYrequestid"
                   :target_name      target-name
-                  :descriptors      instantiation-descriptors
+                  "descriptors"      instantiation-descriptors
                   :classifiers      instantiation-classifiers})))
 
 (defn instantiate-goblock

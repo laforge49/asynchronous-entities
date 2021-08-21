@@ -4,7 +4,7 @@
   [{:target_requestid "SYSTEMcontext+REGISTER_ENTITYrequestid"
     :target_name      "ROOT+SYSTEMcontext"
     "name"             "SYSTEMcontext+INSTANTIATORinstantiator"
-    :descriptors      {"SYSTEMcontext+INVARIANTdescriptor"                 true
+    "descriptors"      {"SYSTEMcontext+INVARIANTdescriptor"                 true
                        "SYSTEMcontext+REQUESTID_MAP"                       {"SYSTEMcontext+INSTANTIATErequestid"   ["INSTANTIATEoperationid"]
                                                                             "SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}
                        "SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor" {"SYSTEMcontext+INVARIANTdescriptor" true
@@ -16,7 +16,7 @@
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+INSTANTIATORinstantiator"
     "name"             "SYSTEMcontext+REQUESTIDinstantiator"
-    :descriptors      {"SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor" {"SYSTEMcontext+INVARIANTdescriptor" true
+    "descriptors"      {"SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor" {"SYSTEMcontext+INVARIANTdescriptor" true
                                                                             "SYSTEMcontext+REQUESTID_MAP"       {"SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}}
                        "SYSTEMcontext+INSTANTIATION_CLASSIFIERSdescriptor" {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+REQUESTIDclassifier_value"}}
     }
@@ -35,7 +35,7 @@
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+REQUESTIDinstantiator"
     "name"             "SYSTEMcontext+INSTANTIATErequestid"
-    :descriptors      {"SYSTEMcontext+READ_ONLYdescriptor" true}
+    "descriptors"      {"SYSTEMcontext+READ_ONLYdescriptor" true}
     }
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+REQUESTIDinstantiator"
@@ -60,12 +60,12 @@
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+REQUESTIDinstantiator"
     "name"             "SYSTEMcontext+CONTEXT_REPORTrequestid"
-    :descriptors      {"SYSTEMcontext+READ_ONLYdescriptor" true}
+    "descriptors"      {"SYSTEMcontext+READ_ONLYdescriptor" true}
     }
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+INSTANTIATORinstantiator"
     "name"             "SYSTEMcontext+DESCRIPTORinstantiator"
-    :descriptors      {"SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor" {"SYSTEMcontext+INVARIANTdescriptor" true
+    "descriptors"      {"SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor" {"SYSTEMcontext+INVARIANTdescriptor" true
                                                                             "SYSTEMcontext+REQUESTID_MAP"       {"SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}}
                        "SYSTEMcontext+INSTANTIATION_CLASSIFIERSdescriptor" {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+DESCRIPTORclassifier_value"}}
     }
@@ -92,14 +92,14 @@
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+INSTANTIATORinstantiator"
     "name"             "SYSTEMcontext+CLASSIFIERinstantiator"
-    :descriptors      {"SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor" {"SYSTEMcontext+INVARIANTdescriptor" true
+    "descriptors"      {"SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor" {"SYSTEMcontext+INVARIANTdescriptor" true
                                                                             "SYSTEMcontext+REQUESTID_MAP"       {"SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}}
                        "SYSTEMcontext+INSTANTIATION_CLASSIFIERSdescriptor" {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+CLASSIFIERclassifier_value"}}
     }
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+INSTANTIATORinstantiator"
     "name"             "SYSTEMcontext+RELATIONinstantiator"
-    :descriptors      {"SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor" {"SYSTEMcontext+INVARIANTdescriptor" true
+    "descriptors"      {"SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor" {"SYSTEMcontext+INVARIANTdescriptor" true
                                                                             "SYSTEMcontext+REQUESTID_MAP"       {"SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}}
                        "SYSTEMcontext+INSTANTIATION_CLASSIFIERSdescriptor" {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+CLASSIFIERclassifier_value"}}
     }
@@ -110,7 +110,7 @@
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+INSTANTIATORinstantiator"
     "name"             "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"
-    :descriptors      {"SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor" {"SYSTEMcontext+INVARIANTdescriptor" true
+    "descriptors"      {"SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor" {"SYSTEMcontext+INVARIANTdescriptor" true
                                                                             "SYSTEMcontext+REQUESTID_MAP"       {"SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}}
                        "SYSTEMcontext+INSTANTIATION_CLASSIFIERSdescriptor" {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+CLASSIFIER_VALUEclassifier_value"}}
     }
@@ -149,7 +149,7 @@
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+INSTANTIATORinstantiator"
     "name"             "SYSTEMcontext+CONTEXTinstantiator"
-    :descriptors      {"SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor" {"SYSTEMcontext+REQUESTID_MAP" {"SYSTEMcontext+REGISTER_ENTITYrequestid"     ["REGISTER_ENTITYoperationid"]
+    "descriptors"      {"SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor" {"SYSTEMcontext+REQUESTID_MAP" {"SYSTEMcontext+REGISTER_ENTITYrequestid"     ["REGISTER_ENTITYoperationid"]
                                                                                                            "SYSTEMcontext+ROUTErequestid"               ["ROUTEoperationid"]
                                                                                                            "SYSTEMcontext+REGISTER_CLASSIFIERrequestid" ["REGISTER_CLASSIFIERoperationid"]
                                                                                                            "SYSTEMcontext+ENTITY_REPORTrequestid"       ["CONTEXT_REPORToperationid"]}}
@@ -158,14 +158,14 @@
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+INSTANTIATORinstantiator"
     "name"             "SYSTEMcontext+FEDERATORinstantiator"
-    :descriptors      {"SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor" {"SYSTEMcontext+REQUESTID_MAP" {"SYSTEMcontext+RUN_FEDERATIONrequestid" ["RUN_FEDERATIONoperationid"]
+    "descriptors"      {"SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor" {"SYSTEMcontext+REQUESTID_MAP" {"SYSTEMcontext+RUN_FEDERATIONrequestid" ["RUN_FEDERATIONoperationid"]
                                                                                                            "SYSTEMcontext+ENTITY_REPORTrequestid"  ["ENTITY_REPORToperationid"]}}
                        "SYSTEMcontext+INSTANTIATION_CLASSIFIERSdescriptor" {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+FEDERATORclassifier_value"}}
     }
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+INSTANTIATORinstantiator"
     "name"             "SYSTEMcontext+FEDERATION_CONTEXTinstantiator"
-    :descriptors      {"SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor" {"SYSTEMcontext+REQUESTID_MAP" {"SYSTEMcontext+ACQUIRErequestid" ["FEDERATION_ACQUIREoperationid"]
+    "descriptors"      {"SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor" {"SYSTEMcontext+REQUESTID_MAP" {"SYSTEMcontext+ACQUIRErequestid" ["FEDERATION_ACQUIREoperationid"]
                                                                                                            "SYSTEMcontext+RELEASErequestid" ["FEDERATION_RELEASEoperationid"]}}
                        "SYSTEMcontext+INSTANTIATION_CLASSIFIERSdescriptor" {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+FEDERATION_CONTEXTclassifier_value"}}
     }
@@ -176,7 +176,7 @@
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+INSTANTIATORinstantiator"
     "name"             "SYSTEM_TESTcontext+SIMPLEinstantiator"
-    :descriptors      {"SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor" {"SYSTEMcontext+REQUESTID_MAP" {"SYSTEMcontext+ADD_DESCRIPTORrequestid" ["ADD_DESCRIPTORoperationid"]
+    "descriptors"      {"SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor" {"SYSTEMcontext+REQUESTID_MAP" {"SYSTEMcontext+ADD_DESCRIPTORrequestid" ["ADD_DESCRIPTORoperationid"]
                                                                                                            "SYSTEMcontext+ADD_CLASSIFIERrequestid" ["ADD_CLASSIFIERoperationid"]
                                                                                                            "SYSTEMcontext+ENTITY_REPORTrequestid"  ["ENTITY_REPORToperationid"]}}
                        "SYSTEMcontext+INSTANTIATION_CLASSIFIERSdescriptor" {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEM_TESTcontext+SIMPLEclassifier_value"}}
@@ -212,7 +212,7 @@
    {:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
     :target_name      "SYSTEMcontext+FEDERATORinstantiator"
     "name"             "SYSTEM_TESTcontext+TEST_Afederator"
-    :descriptors      {"SYSTEMcontext+FEDERATION_NAMESdescriptor" ["SYSTEM_TESTcontext+ALPHAsimple"]
+    "descriptors"      {"SYSTEMcontext+FEDERATION_NAMESdescriptor" ["SYSTEM_TESTcontext+ALPHAsimple"]
                        "SYSTEMcontext+SCRIPTdescriptor"           [{:target_requestid "SYSTEMcontext+INSTANTIATErequestid"
                                                                     :target_name      "SYSTEM_TESTcontext+SIMPLEinstantiator"
                                                                     "name"             "SYSTEM_TESTcontext+GAMMAsimple"
