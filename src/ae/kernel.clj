@@ -87,7 +87,7 @@
 (defn federated?
   [this-map]
   (let [this-request-port-stack
-        (:REQUEST-PORT-STACK this-map)]
+        (get this-map "REQUEST-PORT-STACK")]
     (> (count this-request-port-stack) 1)))
 
 (defn thisDescriptors
@@ -186,7 +186,7 @@
   (a/go-loop [this-map this-map]
     (recur (try
              (let [this-request-port-stack
-                   (:REQUEST-PORT-STACK this-map)
+                   (get this-map "REQUEST-PORT-STACK")
                    _ (if (nil? this-request-port-stack)
                        (throw (Exception. (str "This request port stack is nil\n"
                                                (prn-str this-map)))))
@@ -248,14 +248,14 @@
                              (let [new-request-port
                                    (:new-request-port params)
                                    this-map
-                                   (assoc target-map :REQUEST-PORT-STACK (conj this-request-port-stack new-request-port))]
+                                   (assoc target-map "REQUEST-PORT-STACK" (conj this-request-port-stack new-request-port))]
                                [this-map [this-map new-request-port]])))
 
                          "RESET-REQUEST-PORT"
                          (let [this-map
                                (:this-map params)
                                this-map
-                               (assoc this-map :REQUEST-PORT-STACK (pop this-request-port-stack))]
+                               (assoc this-map "REQUEST-PORT-STACK" (pop this-request-port-stack))]
                            [this-map this-map])
 
                          ;;DEFAULT
@@ -342,7 +342,7 @@
         {"NAME"               name
          "DESCRIPTORS"        descriptors
          "CLASSIFIERS"        classifiers
-         :REQUEST-PORT-STACK request-port-stack}
+         "REQUEST-PORT-STACK" request-port-stack}
         ]
     (if (= (get descriptors "SYSTEMcontext+INVARIANTdescriptor") true)
       (add-invariant-map name new-entity-map))
