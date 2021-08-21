@@ -37,7 +37,7 @@
                                                          :target_requestid           "SYSTEMcontext+REGISTER_ENTITYrequestid"
                                                          :entity-public-request-port entity-public-request-port
                                                          :target_name                context-name
-                                                         :name                       (get snap "NAME")
+                                                         "name"                       (get snap "NAME")
                                                          :classifiers                (get snap "CLASSIFIERS")
                                                          :return_port                subrequest-return-port}])
                       _ (k/request-exception-check (a/<! subrequest-return-port))
@@ -74,7 +74,7 @@
                 (a/>! context-request-port [env {:requestid        "SYSTEMcontext+ROUTErequestid"
                                                  :target_requestid "SYSTEMcontext+REGISTER_CLASSIFIERrequestid"
                                                  :target_name      context-name
-                                                 :name             entity-name
+                                                 "name"             entity-name
                                                  :classifier       classifier
                                                  :classifier-value classifier-value
                                                  :return_port      subrequest-return-port}])
@@ -103,7 +103,7 @@
                                                        :target_requestid "SYSTEMcontext+INSTANTIATErequestid"
                                                        :target_name      "SYSTEMcontext+FEDERATION_CONTEXTinstantiator"
                                                        :return_port      subrequest-return-port
-                                                       :name             nil}])
+                                                       "name"             nil}])
               federation-context-request-port
               (k/request-exception-check (a/<! subrequest-return-port))
               _ (a/>! federation-context-request-port [env {:requestid        "SYSTEMcontext+ACQUIRErequestid"

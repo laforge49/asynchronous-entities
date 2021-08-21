@@ -337,7 +337,7 @@
           request-port-stack
           (conj request-port-stack initialization-port))
         name
-        (:name params)
+        (get params "name")
         new-entity-map
         {"NAME"               name
          "DESCRIPTORS"        descriptors

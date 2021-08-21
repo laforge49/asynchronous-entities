@@ -11,7 +11,7 @@
   (let [this-name
         (get this-map "NAME")
         name
-        (:name params)
+        (get params "name")
         _ (if (some? (:initialization-port params))
             (throw (Exception. (str "An initialization port is not compatible with non-federated registration of entity "
                                     name))))
@@ -53,7 +53,7 @@
           (:operation-return-port params)]
       (try
         (let [name
-              (:name params)
+              (get params "name")
               classifier-kw
               (:classifier params)
               classifier-value-kw
