@@ -10,7 +10,7 @@ Number of classifiers: 1
 2. Descriptors of entity SYSTEMcontext+SYSTEM_TESTcontext
 (Default context is SYSTEMcontext.)
 
-+INSTANTIATOR = nil
++INSTANTIATORdescriptor = "SYSTEMcontext+CONTEXTinstantiator"
 +REQUESTID_MAP = {"SYSTEMcontext+REGISTER_ENTITYrequestid" ["REGISTER_ENTITYoperationid"], "SYSTEMcontext+ROUTErequestid" ["ROUTEoperationid"], "SYSTEMcontext+REGISTER_CLASSIFIERrequestid" ["REGISTER_CLASSIFIERoperationid"], "SYSTEMcontext+ENTITY_REPORTrequestid" ["CONTEXT_REPORToperationid"]}
 
 Number of descriptors: 2

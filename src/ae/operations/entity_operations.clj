@@ -17,7 +17,7 @@
         instantiation-descriptors
         (get this-descriptors "SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor")
         instantiation-descriptors
-        (assoc instantiation-descriptors :SYSTEMcontext/INSTANTIATOR this-name)
+        (assoc instantiation-descriptors "SYSTEMcontext+INSTANTIATORdescriptor" this-name)
         instantiation-descriptors
         (into instantiation-descriptors (:descriptors params))
         instantiation-classifiers
@@ -53,7 +53,7 @@
         instantiation-descriptors
         (get this-descriptors "SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor")
         instantiation-descriptors
-        (assoc instantiation-descriptors :SYSTEMcontext/INSTANTIATOR this-name)
+        (assoc instantiation-descriptors "SYSTEMcontext+INSTANTIATORdescriptor" this-name)
         instantiation-descriptors
         (into instantiation-descriptors (:descriptors params))
         instantiation-classifiers
