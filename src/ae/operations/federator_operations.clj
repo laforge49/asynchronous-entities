@@ -28,18 +28,18 @@
                       subrequest-return-port
                       (a/chan)
                       _ (a/>! initialization-port [env {"requestid"   "RESET-REQUEST-PORT"
-                                                        :this-map    snap
+                                                        :this-map     snap
                                                         "return_port" subrequest-return-port}])
                       _ (k/request-exception-check (a/<! subrequest-return-port))
                       context-request-port
                       (get env "CONTEXT-REQUEST-PORT")
-                      _ (a/>! context-request-port [env {"requestid"                  "SYSTEMcontext+ROUTErequestid"
-                                                         "target_requestid"           "SYSTEMcontext+REGISTER_ENTITYrequestid"
+                      _ (a/>! context-request-port [env {"requestid"                 "SYSTEMcontext+ROUTErequestid"
+                                                         "target_requestid"          "SYSTEMcontext+REGISTER_ENTITYrequestid"
                                                          :entity-public-request-port entity-public-request-port
-                                                         "target_name"                context-name
-                                                         "name"                       (get snap "NAME")
-                                                         "classifiers"                (get snap "CLASSIFIERS")
-                                                         "return_port"                subrequest-return-port}])
+                                                         "target_name"               context-name
+                                                         "name"                      (get snap "NAME")
+                                                         "classifiers"               (get snap "CLASSIFIERS")
+                                                         "return_port"               subrequest-return-port}])
                       _ (k/request-exception-check (a/<! subrequest-return-port))
                       federation-map
                       (dissoc federation-map entity-name)
@@ -106,9 +106,9 @@
                                                        "name"             nil}])
               federation-context-request-port
               (k/request-exception-check (a/<! subrequest-return-port))
-              _ (a/>! federation-context-request-port [env {"requestid"        "SYSTEMcontext+ACQUIRErequestid"
+              _ (a/>! federation-context-request-port [env {"requestid"       "SYSTEMcontext+ACQUIRErequestid"
                                                             :federation-names federation-names
-                                                            "return_port"      subrequest-return-port}])
+                                                            "return_port"     subrequest-return-port}])
               federation-map
               (k/request-exception-check (a/<! subrequest-return-port))
               federation-vmap
