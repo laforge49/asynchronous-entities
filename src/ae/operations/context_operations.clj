@@ -158,7 +158,7 @@
                                                                  :target_requestid "PUSH-REQUEST-PORT"
                                                                  :target_name      federation-name
                                                                  :new-request-port new-request-port
-                                                                 :return_port      subrequest-return-port}])
+                                                                 "return_port"      subrequest-return-port}])
                         [snap new-request-port]
                         (k/request-exception-check (a/<! subrequest-return-port))
                         federation-map
@@ -205,7 +205,7 @@
               (if (some? entity-request-port)
                 (a/>! entity-request-port [env {"requestid"   "RESET-REQUEST-PORT"
                                                 :this-map    snap
-                                                :return_port subrequest-return-port}]))))
+                                                "return_port" subrequest-return-port}]))))
           (doseq [en federation-map]
             (let [[vsnap entity-request-port]
                   (val en)]
@@ -241,7 +241,7 @@
             (let [subrequest-return-port
                   (a/chan)]
               (a/>! entity-port [env {"requestid"   "SYSTEMcontext+ENTITY_REPORTrequestid"
-                                      :return_port subrequest-return-port}])
+                                      "return_port" subrequest-return-port}])
               (k/request-exception-check (a/<! subrequest-return-port))
               )
             )

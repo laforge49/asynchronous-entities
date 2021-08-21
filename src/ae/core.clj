@@ -61,7 +61,7 @@
                     (let [request-params
                           (assoc request-params "requestid" "SYSTEMcontext+ROUTErequestid")
                           request-params
-                          (assoc request-params :return_port return-port0)]
+                          (assoc request-params "return_port" return-port0)]
                       (a/>! context-request-port [env request-params])
                       (k/request-exception-check (a/<! return-port0))))
                 ]

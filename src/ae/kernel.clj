@@ -208,7 +208,7 @@
                    [env params]
                    request
                    return-port
-                   (:return_port params)
+                   (get params "return_port")
                    _ (if (nil? return-port)
                        (throw (Exception. (str "Return port is nil\n"
                                                (prn-str params)
