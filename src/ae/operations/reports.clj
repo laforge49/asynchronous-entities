@@ -31,14 +31,14 @@
   (let [[this-name-kw this-context-base-name this-base-name]
         (kw/name-as-keyword this-name)
         classifiers
-        (keys (:CLASSIFIERS this-map))
+        (keys (get this-map "CLASSIFIERS"))
         sorted-classifier-name2s
         (short-names classifiers this-context-base-name)
         lines
         (reduce
           (fn [lines [short-name name]]
             (let [value
-                  (get-in this-map [:CLASSIFIERS name])
+                  (get-in this-map ["CLASSIFIERS" name])
                   [value-kw context-base-name base-name]
                   (kw/name-as-keyword value)
                   short-value
@@ -62,13 +62,13 @@
   (let [[this-name-kw this-context-base-name this-base-name]
         (kw/name-as-keyword this-name)
         descriptors
-        (keys (:DESCRIPTORS this-map))
+        (keys (get this-map "DESCRIPTORS"))
         sorted-names
         (short-names descriptors this-context-base-name)
         lines
         (reduce
           (fn [lines [short-name name]]
-            (conj lines (str short-name " = " (prn-str (get-in this-map [:DESCRIPTORS name])))))
+            (conj lines (str short-name " = " (prn-str (get-in this-map ["DESCRIPTORS" name])))))
           []
           sorted-names)
         nbr

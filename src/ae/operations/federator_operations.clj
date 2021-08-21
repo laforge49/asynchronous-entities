@@ -38,7 +38,7 @@
                                                          :entity-public-request-port entity-public-request-port
                                                          :target_name                context-name
                                                          :name                       (:NAME snap)
-                                                         :classifiers                (:CLASSIFIERS snap)
+                                                         :classifiers                (get snap "CLASSIFIERS")
                                                          :return_port                subrequest-return-port}])
                       _ (k/request-exception-check (a/<! subrequest-return-port))
                       federation-map
@@ -94,7 +94,7 @@
         (let [root-contexts-request-port
               (:CONTEXT-REQUEST-PORT env)
               descriptors
-              (:DESCRIPTORS this-map)
+              (get this-map "DESCRIPTORS")
               federation-names
               (get descriptors "SYSTEMcontext+FEDERATION_NAMESdescriptor")
               subrequest-return-port

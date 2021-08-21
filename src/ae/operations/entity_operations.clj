@@ -13,7 +13,7 @@
         this-name
         (:NAME this-map)
         this-descriptors
-        (:DESCRIPTORS this-map)
+        (get this-map "DESCRIPTORS")
         instantiation-descriptors
         (get this-descriptors "SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor")
         instantiation-descriptors
@@ -49,7 +49,7 @@
         this-name
         (:NAME this-map)
         this-descriptors
-        (:DESCRIPTORS this-map)
+        (get this-map "DESCRIPTORS")
         instantiation-descriptors
         (get this-descriptors "SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor")
         instantiation-descriptors
@@ -88,11 +88,11 @@
         descriptor-value
         (:descriptor-value params)
         old-descriptor-value
-        (get-in this-map [:DESCRIPTORS descriptor])
+        (get-in this-map ["DESCRIPTORS" descriptor])
         _ (if (some? old-descriptor-value)
             (throw (Exception. (str "ADD DESCRIPTOR encountered a pre-existing value: " old-descriptor-value))))
         this-map
-        (assoc-in this-map [:DESCRIPTORS descriptor] descriptor-value)]
+        (assoc-in this-map ["DESCRIPTORS" descriptor] descriptor-value)]
     (if (= descriptor "SYSTEMcontext+INVARIANTdescriptor")
       (if (= descriptor-value true)
         (k/add-invariant-map name this-map)))
@@ -109,11 +109,11 @@
         classifier-value
         (:classifier-value params)
         old-classifier-value
-        (get-in this-map [:CLASSIFIERS classifier])
+        (get-in this-map ["CLASSIFIERS" classifier])
         _ (if (some? old-classifier-value)
             (throw (Exception. (str "ADD CLASSIFIER encountered a pre-existing value: " old-classifier-value))))
         this-map
-        (assoc-in this-map [:CLASSIFIERS classifier] classifier-value)
+        (assoc-in this-map ["CLASSIFIERS" classifier] classifier-value)
         new-classifiers-voltile
         (:NEW-CLASSIFIERS-VOLATILE env)]
     (vswap! new-classifiers-voltile conj [this-name classifier classifier-value])

@@ -56,7 +56,7 @@
         (get-invariant-map entity-kw)]
     (if (nil? this-map)
       nil
-      (:DESCRIPTORS this-map))))
+      (get this-map "DESCRIPTORS"))))
 
 (def operationid-map-atom
   (atom {}))
@@ -93,7 +93,7 @@
 (defn thisDescriptors
   [this-map params]
   (let [this-descriptors
-        (:DESCRIPTORS this-map)]
+        (get this-map "DESCRIPTORS")]
     (if (nil? this-descriptors)
       (throw (Exception. (str "Descriptors is nil\n"
                               (prn-str params)
@@ -128,7 +128,7 @@
             (throw (Exception. (str "Operationid is nil\n"
                                     (prn-str params)
                                     (prn-str target-map)))))]
-    (if (= (get-in target-map [:DESCRIPTORS "SYSTEMcontext+INVARIANTdescriptor"]) true)
+    (if (= (get-in target-map ["DESCRIPTORS" "SYSTEMcontext+INVARIANTdescriptor"]) true)
       (let [request-descriptors
             (get-invariant-descriptors requestid)
             read-only
@@ -340,8 +340,8 @@
         (:name params)
         new-entity-map
         {:NAME               name
-         :DESCRIPTORS        descriptors
-         :CLASSIFIERS        classifiers
+         "DESCRIPTORS"        descriptors
+         "CLASSIFIERS"        classifiers
          :REQUEST-PORT-STACK request-port-stack}
         ]
     (if (= (get descriptors "SYSTEMcontext+INVARIANTdescriptor") true)
