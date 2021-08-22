@@ -1,4 +1,10 @@
 ---
+DESCRIPTORS:
+  SYSTEMcontext+INVARIANTdescriptor: true
+  SYSTEMcontext+REQUESTID_MAP:
+    SYSTEMcontext+ENTITY_REPORTrequestid:
+    - ENTITY_REPORToperationid
+  SYSTEMcontext+INSTANTIATORdescriptor: SYSTEMcontext+CLASSIFIER_VALUEinstantiator
 ---
 Entity Report for SYSTEM_TESTcontext+SIMPLEclassifier_value
 
@@ -8,13 +14,4 @@ Entity Report for SYSTEM_TESTcontext+SIMPLEclassifier_value
 SYSTEMcontext+ENTITY_TYPEclassifier = SYSTEMcontext+CLASSIFIER_VALUEclassifier_value
 
 Number of classifiers: 1
-
-2. Descriptors of entity SYSTEM_TESTcontext+SIMPLEclassifier_value
-(Default context is SYSTEM_TESTcontext.)
-
-SYSTEMcontext+INSTANTIATORdescriptor = "SYSTEMcontext+CLASSIFIER_VALUEinstantiator"
-SYSTEMcontext+INVARIANTdescriptor = true
-SYSTEMcontext+REQUESTID_MAP = {"SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}
-
-Number of descriptors: 3
 

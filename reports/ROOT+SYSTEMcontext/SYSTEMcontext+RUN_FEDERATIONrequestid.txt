@@ -1,4 +1,10 @@
 ---
+DESCRIPTORS:
+  SYSTEMcontext+INVARIANTdescriptor: true
+  SYSTEMcontext+REQUESTID_MAP:
+    SYSTEMcontext+ENTITY_REPORTrequestid:
+    - ENTITY_REPORToperationid
+  SYSTEMcontext+INSTANTIATORdescriptor: SYSTEMcontext+REQUESTIDinstantiator
 ---
 Entity Report for SYSTEMcontext+RUN_FEDERATIONrequestid
 
@@ -8,13 +14,4 @@ Entity Report for SYSTEMcontext+RUN_FEDERATIONrequestid
 +ENTITY_TYPEclassifier = +REQUESTIDclassifier_value
 
 Number of classifiers: 1
-
-2. Descriptors of entity SYSTEMcontext+RUN_FEDERATIONrequestid
-(Default context is SYSTEMcontext.)
-
-+INSTANTIATORdescriptor = "SYSTEMcontext+REQUESTIDinstantiator"
-+INVARIANTdescriptor = true
-+REQUESTID_MAP = {"SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}
-
-Number of descriptors: 3
 

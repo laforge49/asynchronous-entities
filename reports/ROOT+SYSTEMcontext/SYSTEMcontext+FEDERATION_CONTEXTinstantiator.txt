@@ -1,4 +1,20 @@
 ---
+DESCRIPTORS:
+  SYSTEMcontext+INVARIANTdescriptor: true
+  SYSTEMcontext+REQUESTID_MAP:
+    SYSTEMcontext+INSTANTIATErequestid:
+    - INSTANTIATEoperationid
+    SYSTEMcontext+ENTITY_REPORTrequestid:
+    - ENTITY_REPORToperationid
+  SYSTEMcontext+INSTANTIATORdescriptor: SYSTEMcontext+INSTANTIATORinstantiator
+  SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor:
+    SYSTEMcontext+REQUESTID_MAP:
+      SYSTEMcontext+ACQUIRErequestid:
+      - FEDERATION_ACQUIREoperationid
+      SYSTEMcontext+RELEASErequestid:
+      - FEDERATION_RELEASEoperationid
+  SYSTEMcontext+INSTANTIATION_CLASSIFIERSdescriptor:
+    SYSTEMcontext+ENTITY_TYPEclassifier: SYSTEMcontext+FEDERATION_CONTEXTclassifier_value
 ---
 Entity Report for SYSTEMcontext+FEDERATION_CONTEXTinstantiator
 
@@ -8,15 +24,4 @@ Entity Report for SYSTEMcontext+FEDERATION_CONTEXTinstantiator
 +ENTITY_TYPEclassifier = +INSTANTIATORclassifier_value
 
 Number of classifiers: 1
-
-2. Descriptors of entity SYSTEMcontext+FEDERATION_CONTEXTinstantiator
-(Default context is SYSTEMcontext.)
-
-+INSTANTIATION_CLASSIFIERSdescriptor = {"SYSTEMcontext+ENTITY_TYPEclassifier" "SYSTEMcontext+FEDERATION_CONTEXTclassifier_value"}
-+INSTANTIATION_DESCRIPTORSdescriptor = {"SYSTEMcontext+REQUESTID_MAP" {"SYSTEMcontext+ACQUIRErequestid" ["FEDERATION_ACQUIREoperationid"], "SYSTEMcontext+RELEASErequestid" ["FEDERATION_RELEASEoperationid"]}}
-+INSTANTIATORdescriptor = "SYSTEMcontext+INSTANTIATORinstantiator"
-+INVARIANTdescriptor = true
-+REQUESTID_MAP = {"SYSTEMcontext+INSTANTIATErequestid" ["INSTANTIATEoperationid"], "SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}
-
-Number of descriptors: 5
 

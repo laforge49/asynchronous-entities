@@ -1,3 +1,16 @@
+---
+DESCRIPTORS:
+  SYSTEMcontext+REQUESTID_MAP:
+    SYSTEMcontext+REGISTER_ENTITYrequestid:
+    - REGISTER_ENTITYoperationid
+    SYSTEMcontext+ROUTErequestid:
+    - ROUTEoperationid
+    SYSTEMcontext+REGISTER_CLASSIFIERrequestid:
+    - REGISTER_CLASSIFIERoperationid
+    SYSTEMcontext+ENTITY_REPORTrequestid:
+    - CONTEXT_REPORToperationid
+  SYSTEMcontext+INSTANTIATORdescriptor: SYSTEMcontext+CONTEXTinstantiator
+---
 Context Report for SYSTEMcontext+SYSTEM_TESTcontext
 
 1. Classifiers of entity SYSTEMcontext+SYSTEM_TESTcontext
@@ -7,15 +20,7 @@ Context Report for SYSTEMcontext+SYSTEM_TESTcontext
 
 Number of classifiers: 1
 
-2. Descriptors of entity SYSTEMcontext+SYSTEM_TESTcontext
-(Default context is SYSTEMcontext.)
-
-+INSTANTIATORdescriptor = "SYSTEMcontext+CONTEXTinstantiator"
-+REQUESTID_MAP = {"SYSTEMcontext+REGISTER_ENTITYrequestid" ["REGISTER_ENTITYoperationid"], "SYSTEMcontext+ROUTErequestid" ["ROUTEoperationid"], "SYSTEMcontext+REGISTER_CLASSIFIERrequestid" ["REGISTER_CLASSIFIERoperationid"], "SYSTEMcontext+ENTITY_REPORTrequestid" ["CONTEXT_REPORToperationid"]}
-
-Number of descriptors: 2
-
-3. Registered Entities of context SYSTEMcontext+SYSTEM_TESTcontext
+2. Registered Entities of context SYSTEMcontext+SYSTEM_TESTcontext
 (Default context is SYSTEM_TESTcontext.)
 
 +ALPHAsimple
@@ -31,7 +36,7 @@ Number of descriptors: 2
 
 Number of entities: 10
 
-4. Classifier Values of context SYSTEMcontext+SYSTEM_TESTcontext
+3. Classifier Values of context SYSTEMcontext+SYSTEM_TESTcontext
 (Default context is SYSTEM_TESTcontext.)
 
 classifier:    +APPLICATIONclassifier

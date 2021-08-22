@@ -1,4 +1,14 @@
 ---
+DESCRIPTORS:
+  SYSTEMcontext+REQUESTID_MAP:
+    SYSTEMcontext+ADD_DESCRIPTORrequestid:
+    - ADD_DESCRIPTORoperationid
+    SYSTEMcontext+ADD_CLASSIFIERrequestid:
+    - ADD_CLASSIFIERoperationid
+    SYSTEMcontext+ENTITY_REPORTrequestid:
+    - ENTITY_REPORToperationid
+  SYSTEMcontext+INSTANTIATORdescriptor: SYSTEM_TESTcontext+SIMPLEinstantiator
+  SYSTEM_TESTcontext+DEGREE_OF_POLISHdescriptor: MIDDLING
 ---
 Entity Report for SYSTEM_TESTcontext+GAMMAsimple
 
@@ -10,13 +20,4 @@ Entity Report for SYSTEM_TESTcontext+GAMMAsimple
 SYSTEMcontext+ENTITY_TYPEclassifier = +SIMPLEclassifier_value
 
 Number of classifiers: 3
-
-2. Descriptors of entity SYSTEM_TESTcontext+GAMMAsimple
-(Default context is SYSTEM_TESTcontext.)
-
-+DEGREE_OF_POLISHdescriptor = "MIDDLING"
-SYSTEMcontext+INSTANTIATORdescriptor = "SYSTEM_TESTcontext+SIMPLEinstantiator"
-SYSTEMcontext+REQUESTID_MAP = {"SYSTEMcontext+ADD_DESCRIPTORrequestid" ["ADD_DESCRIPTORoperationid"], "SYSTEMcontext+ADD_CLASSIFIERrequestid" ["ADD_CLASSIFIERoperationid"], "SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}
-
-Number of descriptors: 3
 

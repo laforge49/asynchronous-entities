@@ -1,32 +1,29 @@
 {
   "main": {
-    "id": "a95612a7f96eb30e",
+    "id": "bffd89642dc51f1e",
     "type": "split",
     "children": [
       {
-        "id": "14dc13b285c7b430",
+        "id": "593747f2c8dbf78d",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "ROOT+SYSTEMcontext/SYSTEMcontext+ACQUIRErequestid.md",
-            "mode": "source"
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "22f8e0fccd87d3cf",
+    "id": "b66202d99a414e57",
     "type": "split",
     "children": [
       {
-        "id": "f41d84c91eb75889",
+        "id": "c15522b5a780c0dd",
         "type": "tabs",
         "children": [
           {
-            "id": "da873fd572bccafc",
+            "id": "e124c06740079119",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -34,7 +31,7 @@
             }
           },
           {
-            "id": "5521994f8b43dc0b",
+            "id": "07540f93f8991708",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -52,30 +49,29 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 326
   },
   "right": {
-    "id": "6e7728b3f1c30d47",
+    "id": "1729bca554b30fef",
     "type": "split",
     "children": [
       {
-        "id": "060da4fd0158fa33",
+        "id": "ce66d3371a736f38",
         "type": "tabs",
         "children": [
           {
-            "id": "b0aed575cd343024",
+            "id": "2d733d3290879715",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ROOT+SYSTEMcontext/SYSTEMcontext+ACQUIRErequestid.md",
-                "collapseAll": false,
-                "extraContext": false,
+                "collapseAll": true,
+                "extraContext": true,
                 "sortOrder": "alphabetical",
-                "showSearch": false,
+                "showSearch": true,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               }
             }
           }
@@ -86,8 +82,6 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "14dc13b285c7b430",
-  "lastOpenFiles": [
-    "ROOT+SYSTEMcontext/SYSTEMcontext+ACQUIRErequestid.md"
-  ]
+  "active": "593747f2c8dbf78d",
+  "lastOpenFiles": []
 }

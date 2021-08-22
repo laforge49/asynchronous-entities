@@ -6,9 +6,9 @@ DESCRIPTORS:
     - ENTITY_REPORToperationid
   SYSTEMcontext+INSTANTIATORdescriptor: SYSTEMcontext+REQUESTIDinstantiator
 ---
-Entity Report for SYSTEMcontext+REGISTER_ENTITYrequestid
+Entity Report for SYSTEMcontext+ACQUIRErequestid
 
-1. Classifiers of entity SYSTEMcontext+REGISTER_ENTITYrequestid
+1. Classifiers of entity SYSTEMcontext+ACQUIRErequestid
 (Default context is SYSTEMcontext.)
 
 +ENTITY_TYPEclassifier = +REQUESTIDclassifier_value

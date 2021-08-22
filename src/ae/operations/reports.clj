@@ -1,5 +1,6 @@
 (ns ae.operations.reports
   (:require [clojure.string :as s]
+            [tupelo.parse.yaml :as yaml]
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
@@ -57,33 +58,14 @@
            "\n")
          "Number of classifiers: " nbr "\n\n")))
 
-(defn descriptor-report
-  [n this-name this-map]
-  (let [[this-name-kw this-context-base-name this-base-name]
-        (kw/name-as-keyword this-name)
-        descriptors
-        (keys (get this-map "DESCRIPTORS"))
-        sorted-names
-        (short-names descriptors this-context-base-name)
-        lines
-        (reduce
-          (fn [lines [short-name name]]
-            (conj lines (str short-name " = " (prn-str (get-in this-map ["DESCRIPTORS" name])))))
-          []
-          sorted-names)
-        nbr
-        (count sorted-names)]
-    (str n ". Descriptors of entity " this-name "\n"
-         "(Default context is " this-context-base-name ".)\n\n"
-         (s/join lines)
-         (if (> nbr 0)
-           "\n")
-         "Number of descriptors: " nbr "\n\n")))
-
 (defn front-matter
   [this-map]
-  (str "---\n"
-       "---\n"))
+  (let [fm
+        {"DESCRIPTORS"
+         (get this-map "DESCRIPTORS")}]
+    (str "---\n"
+         (yaml/edn->yaml fm)
+         "---\n")))
 
 (defn context-entities-report
   [n this-name this-map]
