@@ -5,13 +5,8 @@ DESCRIPTORS:
     SYSTEMcontext+ENTITY_REPORTrequestid:
     - ENTITY_REPORToperationid
   SYSTEMcontext+INSTANTIATORdescriptor: SYSTEMcontext+CLASSIFIER_VALUEinstantiator
+tags:
+- SYSTEMcontext+ENTITY_TYPEclassifier/SYSTEMcontext+CLASSIFIER_VALUEclassifier_value
 ---
 Entity Report for SYSTEM_TESTcontext+FIDDLINGclassifier_value
-
-1. Classifiers of entity SYSTEM_TESTcontext+FIDDLINGclassifier_value
-(Default context is SYSTEM_TESTcontext.)
-
-SYSTEMcontext+ENTITY_TYPEclassifier = SYSTEMcontext+CLASSIFIER_VALUEclassifier_value
-
-Number of classifiers: 1
 

@@ -6,13 +6,8 @@ DESCRIPTORS:
     - ENTITY_REPORToperationid
   SYSTEMcontext+INSTANTIATORdescriptor: SYSTEMcontext+REQUESTIDinstantiator
   SYSTEMcontext+READ_ONLYdescriptor: true
+tags:
+- SYSTEMcontext+ENTITY_TYPEclassifier/SYSTEMcontext+REQUESTIDclassifier_value
 ---
 Entity Report for SYSTEMcontext+CONTEXT_REPORTrequestid
-
-1. Classifiers of entity SYSTEMcontext+CONTEXT_REPORTrequestid
-(Default context is SYSTEMcontext.)
-
-+ENTITY_TYPEclassifier = +REQUESTIDclassifier_value
-
-Number of classifiers: 1
 

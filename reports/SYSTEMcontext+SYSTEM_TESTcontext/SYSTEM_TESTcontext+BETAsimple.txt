@@ -8,13 +8,8 @@ DESCRIPTORS:
     SYSTEMcontext+ENTITY_REPORTrequestid:
     - ENTITY_REPORToperationid
   SYSTEMcontext+INSTANTIATORdescriptor: SYSTEM_TESTcontext+SIMPLEinstantiator
+tags:
+- SYSTEMcontext+ENTITY_TYPEclassifier/SYSTEM_TESTcontext+SIMPLEclassifier_value
 ---
 Entity Report for SYSTEM_TESTcontext+BETAsimple
-
-1. Classifiers of entity SYSTEM_TESTcontext+BETAsimple
-(Default context is SYSTEM_TESTcontext.)
-
-SYSTEMcontext+ENTITY_TYPEclassifier = +SIMPLEclassifier_value
-
-Number of classifiers: 1
 

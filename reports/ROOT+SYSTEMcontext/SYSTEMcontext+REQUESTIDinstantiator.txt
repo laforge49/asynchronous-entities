@@ -14,13 +14,8 @@ DESCRIPTORS:
       - ENTITY_REPORToperationid
   SYSTEMcontext+INSTANTIATION_CLASSIFIERSdescriptor:
     SYSTEMcontext+ENTITY_TYPEclassifier: SYSTEMcontext+REQUESTIDclassifier_value
+tags:
+- SYSTEMcontext+ENTITY_TYPEclassifier/SYSTEMcontext+INSTANTIATORclassifier_value
 ---
 Entity Report for SYSTEMcontext+REQUESTIDinstantiator
-
-1. Classifiers of entity SYSTEMcontext+REQUESTIDinstantiator
-(Default context is SYSTEMcontext.)
-
-+ENTITY_TYPEclassifier = +INSTANTIATORclassifier_value
-
-Number of classifiers: 1
 

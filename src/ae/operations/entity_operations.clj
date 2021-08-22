@@ -135,8 +135,7 @@
               (str "Entity Report for " this-name "\n\n")
               report
               (str (r/front-matter this-map)
-                   heading
-                   (r/classifier-report 1 this-name this-map))]
+                   heading)]
           (io/make-parents file-name)
           (spit file-name report)
           (a/>! operation-return-port [this-map nil this-map]))

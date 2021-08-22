@@ -62,7 +62,13 @@
   [this-map]
   (let [fm
         {"DESCRIPTORS"
-         (get this-map "DESCRIPTORS")}]
+         (get this-map "DESCRIPTORS")
+         "tags"
+         (reduce
+           (fn [tags [n v]]
+             (conj tags (str n "/" v)))
+           []
+           (get this-map "CLASSIFIERS"))}]
     (str "---\n"
          (yaml/edn->yaml fm)
          "---\n")))

@@ -9,15 +9,10 @@ DESCRIPTORS:
     - ENTITY_REPORToperationid
   SYSTEMcontext+INSTANTIATORdescriptor: SYSTEM_TESTcontext+SIMPLEinstantiator
   SYSTEM_TESTcontext+DEGREE_OF_POLISHdescriptor: MIDDLING
+tags:
+- SYSTEMcontext+ENTITY_TYPEclassifier/SYSTEM_TESTcontext+SIMPLEclassifier_value
+- SYSTEM_TESTcontext+BASICrelation/SYSTEM_TESTcontext+ALPHAsimple
+- SYSTEM_TESTcontext+APPLICATIONclassifier/SYSTEM_TESTcontext+FIDDLINGclassifier_value
 ---
 Entity Report for SYSTEM_TESTcontext+GAMMAsimple
-
-1. Classifiers of entity SYSTEM_TESTcontext+GAMMAsimple
-(Default context is SYSTEM_TESTcontext.)
-
-+APPLICATIONclassifier = +FIDDLINGclassifier_value
-+BASICrelation = +ALPHAsimple
-SYSTEMcontext+ENTITY_TYPEclassifier = +SIMPLEclassifier_value
-
-Number of classifiers: 3
 

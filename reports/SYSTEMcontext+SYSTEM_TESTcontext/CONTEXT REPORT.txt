@@ -10,17 +10,12 @@ DESCRIPTORS:
     SYSTEMcontext+ENTITY_REPORTrequestid:
     - CONTEXT_REPORToperationid
   SYSTEMcontext+INSTANTIATORdescriptor: SYSTEMcontext+CONTEXTinstantiator
+tags:
+- SYSTEMcontext+ENTITY_TYPEclassifier/SYSTEMcontext+CONTEXTclassifier_value
 ---
 Context Report for SYSTEMcontext+SYSTEM_TESTcontext
 
-1. Classifiers of entity SYSTEMcontext+SYSTEM_TESTcontext
-(Default context is SYSTEMcontext.)
-
-+ENTITY_TYPEclassifier = +CONTEXTclassifier_value
-
-Number of classifiers: 1
-
-2. Registered Entities of context SYSTEMcontext+SYSTEM_TESTcontext
+1. Registered Entities of context SYSTEMcontext+SYSTEM_TESTcontext
 (Default context is SYSTEM_TESTcontext.)
 
 +ALPHAsimple
@@ -36,7 +31,7 @@ Number of classifiers: 1
 
 Number of entities: 10
 
-3. Classifier Values of context SYSTEMcontext+SYSTEM_TESTcontext
+2. Classifier Values of context SYSTEMcontext+SYSTEM_TESTcontext
 (Default context is SYSTEM_TESTcontext.)
 
 classifier:    +APPLICATIONclassifier

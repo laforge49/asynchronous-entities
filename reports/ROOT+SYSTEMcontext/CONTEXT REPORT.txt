@@ -9,15 +9,11 @@ DESCRIPTORS:
     - REGISTER_CLASSIFIERoperationid
     SYSTEMcontext+ENTITY_REPORTrequestid:
     - CONTEXT_REPORToperationid
+tags: []
 ---
 Context Report for ROOT+SYSTEMcontext
 
-1. Classifiers of entity ROOT+SYSTEMcontext
-(Default context is ROOT.)
-
-Number of classifiers: 0
-
-2. Registered Entities of context ROOT+SYSTEMcontext
+1. Registered Entities of context ROOT+SYSTEMcontext
 (Default context is SYSTEMcontext.)
 
 +ACQUIRErequestid
@@ -57,7 +53,7 @@ Number of classifiers: 0
 
 Number of entities: 34
 
-3. Classifier Values of context ROOT+SYSTEMcontext
+2. Classifier Values of context ROOT+SYSTEMcontext
 (Default context is SYSTEMcontext.)
 
 classifier:    +ENTITY_TYPEclassifier
