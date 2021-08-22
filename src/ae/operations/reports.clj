@@ -80,6 +80,11 @@
            "\n")
          "Number of descriptors: " nbr "\n\n")))
 
+(defn front-matter
+  [this-map]
+  (str "---\n"
+       "---\n"))
+
 (defn context-entities-report
   [n this-name this-map]
   (let [[this-name-kw this-context-base-name this-base-name]

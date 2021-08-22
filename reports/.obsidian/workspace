@@ -1,0 +1,93 @@
+{
+  "main": {
+    "id": "a95612a7f96eb30e",
+    "type": "split",
+    "children": [
+      {
+        "id": "14dc13b285c7b430",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "ROOT+SYSTEMcontext/SYSTEMcontext+ACQUIRErequestid.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "22f8e0fccd87d3cf",
+    "type": "split",
+    "children": [
+      {
+        "id": "f41d84c91eb75889",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "da873fd572bccafc",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "5521994f8b43dc0b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "6e7728b3f1c30d47",
+    "type": "split",
+    "children": [
+      {
+        "id": "060da4fd0158fa33",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b0aed575cd343024",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "ROOT+SYSTEMcontext/SYSTEMcontext+ACQUIRErequestid.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "14dc13b285c7b430",
+  "lastOpenFiles": [
+    "ROOT+SYSTEMcontext/SYSTEMcontext+ACQUIRErequestid.md"
+  ]
+}

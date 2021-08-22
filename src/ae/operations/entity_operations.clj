@@ -134,7 +134,8 @@
               heading
               (str "Entity Report for " this-name "\n\n")
               report
-              (str heading
+              (str (r/front-matter this-map)
+                   heading
                    (r/classifier-report 1 this-name this-map)
                    (r/descriptor-report 2 this-name this-map))]
           (io/make-parents file-name)
