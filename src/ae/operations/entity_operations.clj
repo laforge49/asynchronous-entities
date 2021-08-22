@@ -130,9 +130,9 @@
               context-name
               (k/entityContextName this-name)
               file-name
-              (str "./reports/" context-name "/" this-name ".txt")
+              (str "./reports/" context-name "/" this-name ".md")
               heading
-              (str "Entity Report for " this-name "\n\n")
+              (str "# Entity Report for " this-name "\n\n")
               report
               (str (r/front-matter this-map)
                    heading)]

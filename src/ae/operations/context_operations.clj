@@ -224,9 +224,9 @@
         (let [this-name
               (get this-map "NAME")
               file-name
-              (str "./reports/" this-name "/CONTEXT REPORT.txt")
+              (str "./reports/" this-name "/CONTEXT REPORT.md")
               heading
-              (str "Context Report for " this-name "\n\n")
+              (str "# Context Report for " this-name "\n\n")
               report
               (str (r/front-matter this-map)
                    heading

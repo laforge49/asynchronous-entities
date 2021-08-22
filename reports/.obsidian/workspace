@@ -1,29 +1,32 @@
 {
   "main": {
-    "id": "bffd89642dc51f1e",
+    "id": "045592e4458fdf26",
     "type": "split",
     "children": [
       {
-        "id": "593747f2c8dbf78d",
+        "id": "68e8878a4fa9965c",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "SYSTEMcontext+SYSTEM_TESTcontext/SYSTEM_TESTcontext+BASICrelation.md",
+            "mode": "preview"
+          }
         }
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "b66202d99a414e57",
+    "id": "d14c5e94e7d58cd5",
     "type": "split",
     "children": [
       {
-        "id": "c15522b5a780c0dd",
+        "id": "9c7d69c13d7e126e",
         "type": "tabs",
         "children": [
           {
-            "id": "e124c06740079119",
+            "id": "6ef7c79ef4bf2292",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -31,12 +34,12 @@
             }
           },
           {
-            "id": "07540f93f8991708",
+            "id": "fabc9be7bfad34e1",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#SYSTEMcontext+ENTITY_TYPEclassifier/SYSTEMcontext+CLASSIFIERclassifier_value",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -45,43 +48,67 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 326
+    "width": 537
   },
   "right": {
-    "id": "1729bca554b30fef",
+    "id": "bb058bd4edb4a427",
     "type": "split",
     "children": [
       {
-        "id": "ce66d3371a736f38",
+        "id": "787423a724bafdf7",
         "type": "tabs",
         "children": [
           {
-            "id": "2d733d3290879715",
+            "id": "5c909a3e35725578",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "collapseAll": true,
-                "extraContext": true,
+                "file": "SYSTEMcontext+SYSTEM_TESTcontext/SYSTEM_TESTcontext+BASICrelation.md",
+                "collapseAll": false,
+                "extraContext": false,
                 "sortOrder": "alphabetical",
-                "showSearch": true,
+                "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": false
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "8f88ec5bbd28ddcb",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 559
   },
-  "active": "593747f2c8dbf78d",
-  "lastOpenFiles": []
+  "active": "68e8878a4fa9965c",
+  "lastOpenFiles": [
+    "SYSTEMcontext+SYSTEM_TESTcontext/SYSTEM_TESTcontext+BASICrelation.md",
+    "SYSTEMcontext+SYSTEM_TESTcontext/SYSTEM_TESTcontext+ALPHAsimple.md",
+    "SYSTEMcontext+SYSTEM_TESTcontext/CONTEXT REPORT.md",
+    "ROOT+SYSTEMcontext/SYSTEMcontext+CONTEXTinstantiator.md",
+    "ROOT+SYSTEMcontext/SYSTEMcontext+CONTEXTclassifier_value.md",
+    "ROOT+SYSTEMcontext/SYSTEMcontext+CONTEXT_REPORTrequestid.md",
+    "ROOT+SYSTEMcontext/SYSTEMcontext+CLASSIFIERclassifier_value.md",
+    "ROOT+SYSTEMcontext/SYSTEMcontext+CLASSIFIER_VALUEinstantiator.md",
+    "ROOT+SYSTEMcontext/SYSTEMcontext+CLASSIFIER_VALUEclassifier_value.md",
+    "ROOT+SYSTEMcontext/SYSTEMcontext+ADD_DESCRIPTORrequestid.md"
+  ]
 }

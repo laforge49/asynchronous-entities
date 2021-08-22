@@ -60,15 +60,19 @@
 
 (defn front-matter
   [this-map]
-  (let [fm
+  (let [classifiers
+        (get this-map "CLASSIFIERS")
+        fm
         {"DESCRIPTORS"
-         (get this-map "DESCRIPTORS")
-         "tags"
-         (reduce
-           (fn [tags [n v]]
-             (conj tags (str n "/" v)))
-           []
-           (get this-map "CLASSIFIERS"))}]
+         (get this-map "DESCRIPTORS")}
+        fm
+        (if (empty? classifiers)
+          fm
+          (assoc fm "tags" (reduce
+                             (fn [tags [n v]]
+                               (conj tags (str n "/" v)))
+                             []
+                             classifiers)))]
     (str "---\n"
          (yaml/edn->yaml fm)
          "---\n")))
