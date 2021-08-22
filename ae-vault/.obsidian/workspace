@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "6blog/21/21-3 Summer/21-33/21-33-7 Sunday (week 33), 8-22-2021.md",
+            "file": "8activities/8000-pendingActivities.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6blog/21/21-3 Summer/21-33/21-33-7 Sunday (week 33), 8-22-2021.md",
+                "file": "8activities/8000-pendingActivities.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "6blog/21/21-3 Summer/21-33/21-33-7 Sunday (week 33), 8-22-2021.md",
+                "file": "8activities/8000-pendingActivities.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,15 +135,15 @@
   },
   "active": "1811748742a8e755",
   "lastOpenFiles": [
-    "6blog/21/21-3 Summer/21-33/21-33-7 Sunday (week 33), 8-22-2021.md",
-    "6blog/21/21-3 Summer/21-33/8001-recursiveDecent.md",
     "8activities/8000-pendingActivities.md",
+    "6blog/21/21-3 Summer/21-33/21-33-7 Sunday (week 33), 8-22-2021.md",
+    "8activities/8015-reportIntegration.md",
+    "8activities/8012-changeDescriptors.md",
+    "8activities/Untitled.md",
+    "6blog/21/21-3 Summer/21-33/8001-recursiveDecent.md",
     "6blog/21/21-3 Summer/21-33/8003-reportDescriptors.md",
     "6blog/21/21-3 Summer/21-33/8013-keywords.md",
     "8activities/8003-reportDescriptors.md",
-    "8activities/8005-reportBacklinks.md",
-    "8activities/8004-validation.md",
-    "8activities/Untitled.md",
-    "8activities/8012-changeDescriptors.md"
+    "8activities/8005-reportBacklinks.md"
   ]
 }
