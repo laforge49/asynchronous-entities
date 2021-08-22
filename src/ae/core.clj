@@ -1,12 +1,12 @@
 (ns ae.core
   (:require [clojure.core.async :as a]
             [clojure.stacktrace :as stacktrace]
+            [clojure.java.io :as io]
             [tupelo.parse.yaml :as yaml]
             [ae.kernel :as k]
             [ae.operations.context-operations :as co]
             [ae.operations.entity-operations :as eo]
             [ae.operations.federator-operations :as fo]
-            [ae.script1 :as s1]
             ))
 
 (defn create-operations
@@ -36,28 +36,15 @@
                                              }))
                 env
                 (assoc env "CONTEXT-REQUEST-PORT" context-request-port)
-                sample
-                {"target_requestid" "SYSTEMcontext+REGISTER_ENTITYrequestid"
-                 "target_name"      "ROOT+SYSTEMcontext"
-                 "name"             "SYSTEMcontext+INSTANTIATORinstantiator"
-                 "descriptors"      {"SYSTEMcontext+INVARIANTdescriptor" true
-                                     "SYSTEMcontext+REQUESTID_MAP"       {"SYSTEMcontext+INSTANTIATErequestid"   ["INSTANTIATEoperationid"]
-                                                                          "SYSTEMcontext+ENTITY_REPORTrequestid" ["ENTITY_REPORToperationid"]}
-                                     }
-                 }
+                boot-script-path
+                "./scripts/boot-script.yml"
                 yaml-script
-                (yaml/edn->yaml sample)
-                yaml-roundtrip
+                (slurp boot-script-path)
+                edn-script
                 (yaml/parse-raw yaml-script)
-                re-yaml
-                (yaml/edn->yaml yaml-roundtrip)
-                ;_ (println (prn-str sample))
-                ;_ (println yaml-script)
-                ;_ (println (prn-str yaml-roundtrip))
-                ;_ (println re-yaml)
                 return-port0
                 (a/chan)
-                _ (doseq [request-params s1/script1]
+                _ (doseq [request-params edn-script]
                     (let [request-params
                           (assoc request-params "requestid" "SYSTEMcontext+ROUTErequestid")
                           request-params

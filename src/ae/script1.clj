@@ -1,5 +1,7 @@
 (ns ae.script1)
 
+; no longer in use
+
 (def script1
   [{"target_requestid" "SYSTEMcontext+REGISTER_ENTITYrequestid"
     "target_name"      "ROOT+SYSTEMcontext"
