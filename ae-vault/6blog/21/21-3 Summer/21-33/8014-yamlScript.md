@@ -1,6 +1,6 @@
 ---
 tags:
-  - status/todo
+  - status/completed
 ---
 from [8000-pendingActivities](8000-pendingActivities.md)
 # 8014 YAML Script
