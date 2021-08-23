@@ -15,13 +15,13 @@
         this-descriptors
         (get this-map "DESCRIPTORS")
         instantiation-descriptors
-        (get this-descriptors "SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor")
+        (get this-descriptors "SYS+INSTANTIATION_DESCRIPTORSdescriptor")
         instantiation-descriptors
-        (assoc instantiation-descriptors "SYSTEMcontext+INSTANTIATORdescriptor" this-name)
+        (assoc instantiation-descriptors "SYS+INSTANTIATORdescriptor" this-name)
         instantiation-descriptors
         (into instantiation-descriptors (get params "descriptors"))
         instantiation-classifiers
-        (get this-descriptors "SYSTEMcontext+INSTANTIATION_CLASSIFIERSdescriptor")
+        (get this-descriptors "SYS+INSTANTIATION_CLASSIFIERSdescriptor")
         initialization-port
         (a/chan)
         params
@@ -51,15 +51,15 @@
         this-descriptors
         (get this-map "DESCRIPTORS")
         instantiation-descriptors
-        (get this-descriptors "SYSTEMcontext+INSTANTIATION_DESCRIPTORSdescriptor")
+        (get this-descriptors "SYS+INSTANTIATION_DESCRIPTORSdescriptor")
         instantiation-descriptors
-        (assoc instantiation-descriptors "SYSTEMcontext+INSTANTIATORdescriptor" this-name)
+        (assoc instantiation-descriptors "SYS+INSTANTIATORdescriptor" this-name)
         instantiation-descriptors
         (into instantiation-descriptors (get params "descriptors"))
         instantiation-classifiers
-        (get this-descriptors "SYSTEMcontext+INSTANTIATION_CLASSIFIERSdescriptor")
+        (get this-descriptors "SYS+INSTANTIATION_CLASSIFIERSdescriptor")
         ]
-    (into params {"target_requestid" "SYSTEMcontext+REGISTER_ENTITYrequestid"
+    (into params {"target_requestid" "SYS+REGISTER_ENTITYrequestid"
                   "target_name"      target-name
                   "descriptors"      instantiation-descriptors
                   "classifiers"      instantiation-classifiers})))
@@ -75,7 +75,7 @@
               route-params
               (instantiateOperation env this-map params)
               route-params
-              (assoc route-params "requestid" "SYSTEMcontext+ROUTErequestid")]
+              (assoc route-params "requestid" "SYS+ROUTErequestid")]
           (a/>! operation-return-port [this-map nil :NO-RETURN])
           (a/>! context-request-port [env route-params]))
         (catch Exception e
@@ -93,7 +93,7 @@
             (throw (Exception. (str "ADD DESCRIPTOR encountered a pre-existing value: " old-descriptor-value))))
         this-map
         (assoc-in this-map ["DESCRIPTORS" descriptor] descriptor-value)]
-    (if (= descriptor "SYSTEMcontext+INVARIANTdescriptor")
+    (if (= descriptor "SYS+INVARIANTdescriptor")
       (if (= descriptor-value true)
         (k/add-invariant-map name this-map)))
     [this-map this-map]))
@@ -132,9 +132,9 @@
               context-name
               (k/entityContextName this-name)
               file-name
-              (if (= context-base-name "SYSTEMcontext")
-                (str "ae-vault/9ROOT/SYSTEM/" base-name ".md")
-                (str "ae-vault/9ROOT/SYSTEM/" (subs context-base-name 0 (- (count context-base-name) 7)) "/" base-name ".md"))
+              (if (= context-base-name "SYS")
+                (str "ae-vault/9ROOT/SYS/" this-name ".md")
+                (str "ae-vault/9ROOT/" context-base-name "/" this-name ".md"))
               heading
               (str "# Entity Report for " this-name "\n\n")
               report

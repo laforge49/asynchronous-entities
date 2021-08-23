@@ -11,22 +11,27 @@
 
 (defn keyword-encode
   [context-base-name base-name]
-  (keyword context-base-name (-> base-name
-                                 (keyword-encode- 0 " " "$$s")
-                                 (keyword-encode- 0 "(" "$$l")
-                                 (keyword-encode- 0 ")" "$$r"))))
+  (if (s/blank? context-base-name)
+    (keyword base-name)
+    (keyword context-base-name (-> base-name
+                                   (keyword-encode- 0 " " "$$s")
+                                   (keyword-encode- 0 "(" "$$l")
+                                   (keyword-encode- 0 ")" "$$r")))))
 
 (defn name-as-keyword
   [name]
-  (let [slashindex
+  (let [plus-index
         (s/index-of name "+")
         base-name
-        (subs name (inc slashindex))
+        (if (nil? plus-index)
+          name
+          (subs name (inc plus-index)))
         context-base-name
-        (subs name 0 slashindex)
+        (if (nil? plus-index)
+          nil
+          (subs name 0 plus-index))
         name-kw
-        (keyword-encode context-base-name base-name)
-        ]
+        (keyword-encode context-base-name base-name)]
     [name-kw context-base-name base-name]))
 
 (defn keyword-decode-
@@ -47,9 +52,11 @@
             (keyword-decode- 0 "$$l" "(")
             (keyword-decode- 0 "$$r" ")"))
         name
-        (str context-base-name
-             "+"
-             base-name)
+        (if (s/blank? context-base-name)
+          base-name
+          (str context-base-name
+               "+"
+               base-name))
         ]
     [name context-base-name base-name]
     ))

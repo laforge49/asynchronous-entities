@@ -111,7 +111,7 @@
         this-descriptors
         (thisDescriptors target-map params)
         this-requestid-map
-        (get this-descriptors "SYSTEMcontext+REQUESTID_MAP")
+        (get this-descriptors "SYS+REQUESTID_MAP")
         _ (if (nil? this-requestid-map)
             (throw (Exception. (str "Requestid map is nil\n"
                                     (prn-str params)
@@ -128,13 +128,13 @@
             (throw (Exception. (str "Operationid is nil\n"
                                     (prn-str params)
                                     (prn-str target-map)))))]
-    (if (= (get-in target-map ["DESCRIPTORS" "SYSTEMcontext+INVARIANTdescriptor"]) true)
+    (if (= (get-in target-map ["DESCRIPTORS" "SYS+INVARIANTdescriptor"]) true)
       (let [request-descriptors
             (get-invariant-descriptors requestid)
             read-only
             (if (nil? request-descriptors)
               true
-              (get request-descriptors "SYSTEMcontext+READ_ONLYdescriptor"))]
+              (get request-descriptors "SYS+READ_ONLYdescriptor"))]
         (if (not read-only)
           (throw (Exception. (str "Can not apply " requestid " to invariant " (get target-map "NAME")))))))
     operationid))
@@ -243,7 +243,7 @@
                              (throw (Exception. (str "Inappropriate async request on federated entity.\n"
                                                      (prn-str params)
                                                      (prn-str target-map)))))
-                           (if (get this-descriptors "SYSTEMcontext+INVARIANTdescriptor")
+                           (if (get this-descriptors "SYS+INVARIANTdescriptor")
                              [target-map [target-map nil]]
                              (let [new-request-port
                                    (:new-request-port params)
@@ -329,7 +329,7 @@
           {}
           classifiers)
         invariant
-        (get descriptors "SYSTEMcontext+INVARIANTdescriptor")
+        (get descriptors "SYS+INVARIANTdescriptor")
         initialization-port
         (:initialization-port params)
         request-port-stack
@@ -344,7 +344,7 @@
          "CLASSIFIERS"        classifiers
          "REQUEST-PORT-STACK" request-port-stack}
         ]
-    (if (= (get descriptors "SYSTEMcontext+INVARIANTdescriptor") true)
+    (if (= (get descriptors "SYS+INVARIANTdescriptor") true)
       (add-invariant-map name new-entity-map))
     (create-operation-dispatcher new-entity-map)
     [new-public-request-port new-entity-map]))
@@ -353,10 +353,8 @@
   [entity-name]
   (let [[_ entity-context-base-name _]
         (if (s/blank? entity-name)
-          [nil "" nil]
+          [nil nil nil]
           (kw/name-as-keyword entity-name))]
     (if (s/blank? entity-name)
-      "9ROOT+SYSTEMcontext"
-      (if (= entity-context-base-name "SYSTEMcontext")
-        (str "9ROOT+SYSTEMcontext")
-        (str "SYSTEMcontext+" entity-context-base-name)))))
+      nil
+      entity-context-base-name)))

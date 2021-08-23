@@ -131,7 +131,7 @@
                                              nil
                                              :NO-RETURN])
                 (a/>! target-entity-request-port [env
-                                                  (assoc params "requestid" "SYSTEMcontext+ROUTErequestid")])))))
+                                                  (assoc params "requestid" "SYS+ROUTErequestid")])))))
         (catch Exception e
           (a/>! operation-return-port [this-map e nil]))))))
 
@@ -154,7 +154,7 @@
                         (a/chan)
                         subrequest-return-port
                         (a/chan)
-                        _ (a/>! root-contexts-request-port [env {"requestid"        "SYSTEMcontext+ROUTErequestid"
+                        _ (a/>! root-contexts-request-port [env {"requestid"        "SYS+ROUTErequestid"
                                                                  "target_requestid" "PUSH-REQUEST-PORT"
                                                                  "target_name"      federation-name
                                                                  :new-request-port  new-request-port
@@ -226,9 +226,9 @@
               [name-kw context-base-name base-name]
               (kw/name-as-keyword this-name)
               file-name
-              (if (= this-name "9ROOT+SYSTEMcontext")
-                "ae-vault/9ROOT/SYSTEMcontext.md"
-                (str "ae-vault/9ROOT/SYSTEM/" base-name ".md"))
+              (if (= this-name "SYS")
+                "ae-vault/9ROOT/SYS/SYS.md"
+                (str "ae-vault/9ROOT/" base-name "/" this-name ".md"))
               heading
               (str "# Context Report for " this-name "\n\n")
               report
@@ -243,7 +243,7 @@
           (doseq [[entity-kw entity-port] entity-ports]
             (let [subrequest-return-port
                   (a/chan)]
-              (a/>! entity-port [env {"requestid"   "SYSTEMcontext+ENTITY_REPORTrequestid"
+              (a/>! entity-port [env {"requestid"   "SYS+ENTITY_REPORTrequestid"
                                       "return_port" subrequest-return-port}])
               (k/request-exception-check (a/<! subrequest-return-port))
               )
