@@ -226,7 +226,7 @@
               [name-kw context-base-name base-name]
               (kw/name-as-keyword this-name)
               file-name
-              (if (= this-name "ROOT+SYSTEMcontext")
+              (if (= this-name "9ROOT+SYSTEMcontext")
                 "ae-vault/9ROOT/SYSTEMcontext.md"
                 (str "ae-vault/9ROOT/SYSTEM/" base-name ".md"))
               heading

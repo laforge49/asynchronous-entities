@@ -4,7 +4,7 @@
 
 (def script1
   [{"target_requestid" "SYSTEMcontext+REGISTER_ENTITYrequestid"
-    "target_name"      "ROOT+SYSTEMcontext"
+    "target_name"      "9ROOT+SYSTEMcontext"
     "name"             "SYSTEMcontext+INSTANTIATORinstantiator"
     "descriptors"      {"SYSTEMcontext+INVARIANTdescriptor"                 true
                         "SYSTEMcontext+REQUESTID_MAP"                       {"SYSTEMcontext+INSTANTIATErequestid"   ["INSTANTIATEoperationid"]
@@ -249,6 +249,6 @@
     "target_name"      "SYSTEM_TESTcontext+TEST_Afederator"
     }
    {"target_requestid" "SYSTEMcontext+ENTITY_REPORTrequestid"
-    "target_name"      "ROOT+SYSTEMcontext"
+    "target_name"      "9ROOT+SYSTEMcontext"
     }
    ])
