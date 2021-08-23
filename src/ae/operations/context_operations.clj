@@ -120,7 +120,7 @@
                 (a/>! target-entity-request-port [env
                                                   (assoc params "requestid" target-requestid)]))
               (let [target-context-entity-kw
-                    (keyword this-base-name target-context-base-name)
+                    (keyword target-context-base-name)
                     entity-public-request-ports
                     (get this-map "ENTITY-PUBLIC-REQUEST-PORTS")
                     target-entity-request-port

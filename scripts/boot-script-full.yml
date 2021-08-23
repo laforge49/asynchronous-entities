@@ -192,10 +192,10 @@
       SYS+ENTITY_TYPEclassifier: SYS+FEDERATION_CONTEXTclassifier_value
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+CONTEXTinstantiator
-  name: SYS+SYSTEM_TESTcontext
+  name: TEST
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+INSTANTIATORinstantiator
-  name: SYSTEM_TESTcontext+SIMPLEinstantiator
+  name: TEST+SIMPLEinstantiator
   descriptors:
     SYS+INSTANTIATION_DESCRIPTORSdescriptor:
       SYS+REQUESTID_MAP:
@@ -206,59 +206,59 @@
         SYS+ENTITY_REPORTrequestid:
         - ENTITY_REPORToperationid
     SYS+INSTANTIATION_CLASSIFIERSdescriptor:
-      SYS+ENTITY_TYPEclassifier: SYSTEM_TESTcontext+SIMPLEclassifier_value
+      SYS+ENTITY_TYPEclassifier: TEST+SIMPLEclassifier_value
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+CLASSIFIER_VALUEinstantiator
-  name: SYSTEM_TESTcontext+SIMPLEclassifier_value
+  name: TEST+SIMPLEclassifier_value
 - target_requestid: SYS+INSTANTIATErequestid
-  target_name: SYSTEM_TESTcontext+SIMPLEinstantiator
-  name: SYSTEM_TESTcontext+ALPHAsimple
+  target_name: TEST+SIMPLEinstantiator
+  name: TEST+ALPHAsimple
 - target_requestid: SYS+INSTANTIATErequestid
-  target_name: SYSTEM_TESTcontext+SIMPLEinstantiator
-  name: SYSTEM_TESTcontext+BETAsimple
+  target_name: TEST+SIMPLEinstantiator
+  name: TEST+BETAsimple
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+RELATIONinstantiator
-  name: SYSTEM_TESTcontext+BASICrelation
+  name: TEST+BASICrelation
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+DESCRIPTORinstantiator
-  name: SYSTEM_TESTcontext+DEGREE_OF_POLISHdescriptor
+  name: TEST+DEGREE_OF_POLISHdescriptor
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+CLASSIFIERinstantiator
-  name: SYSTEM_TESTcontext+APPLICATIONclassifier
+  name: TEST+APPLICATIONclassifier
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+CLASSIFIER_VALUEinstantiator
-  name: SYSTEM_TESTcontext+FIDDLINGclassifier_value
+  name: TEST+FIDDLINGclassifier_value
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+FEDERATORinstantiator
-  name: SYSTEM_TESTcontext+TEST_Afederator
+  name: TEST+TEST_Afederator
   descriptors:
     SYS+FEDERATION_NAMESdescriptor:
-    - SYSTEM_TESTcontext+ALPHAsimple
+    - TEST+ALPHAsimple
     SYS+SCRIPTdescriptor:
     - target_requestid: SYS+INSTANTIATErequestid
-      target_name: SYSTEM_TESTcontext+SIMPLEinstantiator
-      name: SYSTEM_TESTcontext+GAMMAsimple
+      target_name: TEST+SIMPLEinstantiator
+      name: TEST+GAMMAsimple
     - target_requestid: SYS+ADD_DESCRIPTORrequestid
-      target_name: SYSTEM_TESTcontext+ALPHAsimple
-      descriptor: SYSTEM_TESTcontext+DEGREE_OF_POLISHdescriptor
+      target_name: TEST+ALPHAsimple
+      descriptor: TEST+DEGREE_OF_POLISHdescriptor
       descriptor-value: MIDDLING
     - target_requestid: SYS+ADD_CLASSIFIERrequestid
-      target_name: SYSTEM_TESTcontext+ALPHAsimple
-      classifier: SYSTEM_TESTcontext+APPLICATIONclassifier
-      classifier-value: SYSTEM_TESTcontext+FIDDLINGclassifier_value
+      target_name: TEST+ALPHAsimple
+      classifier: TEST+APPLICATIONclassifier
+      classifier-value: TEST+FIDDLINGclassifier_value
     - target_requestid: SYS+ADD_DESCRIPTORrequestid
-      target_name: SYSTEM_TESTcontext+GAMMAsimple
-      descriptor: SYSTEM_TESTcontext+DEGREE_OF_POLISHdescriptor
+      target_name: TEST+GAMMAsimple
+      descriptor: TEST+DEGREE_OF_POLISHdescriptor
       descriptor-value: MIDDLING
     - target_requestid: SYS+ADD_CLASSIFIERrequestid
-      target_name: SYSTEM_TESTcontext+GAMMAsimple
-      classifier: SYSTEM_TESTcontext+BASICrelation
-      classifier-value: SYSTEM_TESTcontext+ALPHAsimple
+      target_name: TEST+GAMMAsimple
+      classifier: TEST+BASICrelation
+      classifier-value: TEST+ALPHAsimple
     - target_requestid: SYS+ADD_CLASSIFIERrequestid
-      target_name: SYSTEM_TESTcontext+GAMMAsimple
-      classifier: SYSTEM_TESTcontext+APPLICATIONclassifier
-      classifier-value: SYSTEM_TESTcontext+FIDDLINGclassifier_value
+      target_name: TEST+GAMMAsimple
+      classifier: TEST+APPLICATIONclassifier
+      classifier-value: TEST+FIDDLINGclassifier_value
 - target_requestid: SYS+RUN_FEDERATIONrequestid
-  target_name: SYSTEM_TESTcontext+TEST_Afederator
+  target_name: TEST+TEST_Afederator
 - target_requestid: SYS+ENTITY_REPORTrequestid
   target_name: SYS

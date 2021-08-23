@@ -28,10 +28,15 @@
           (subs name (inc plus-index)))
         context-base-name
         (if (nil? plus-index)
-          nil
+          "SYS"
           (subs name 0 plus-index))
         name-kw
-        (keyword-encode context-base-name base-name)]
+        (keyword-encode context-base-name base-name)
+        name-kw
+        (if (nil? plus-index)
+          (keyword name)
+          name-kw)
+        ]
     [name-kw context-base-name base-name]))
 
 (defn keyword-decode-
