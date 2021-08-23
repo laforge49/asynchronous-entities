@@ -10,6 +10,7 @@ from [0000-asynchronousEntities](../0000-asynchronousEntities.md)
 - [8010-deleteEntities](8010-deleteEntities.md)
 - [8011-changeClassifiers](8011-changeClassifiers.md)
 - [8012-changeDescriptors](8012-changeDescriptors.md)
-- next: 8016
+- [8016-shortenContextNames](8016-shortenContextNames.md)
+- next: 8017
 
 Pending activities are listed above. Completed activities have been moved to the Blog into the week folder for when they were completed.
