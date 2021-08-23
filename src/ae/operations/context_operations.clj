@@ -223,8 +223,12 @@
       (try
         (let [this-name
               (get this-map "NAME")
+              [name-kw context-base-name base-name]
+              (kw/name-as-keyword this-name)
               file-name
-              (str "./reports/" this-name "/CONTEXT REPORT.md")
+              (if (= this-name "ROOT+SYSTEMcontext")
+                "ae-vault/9ROOT/SYSTEMcontext.md"
+                (str "ae-vault/9ROOT/SYSTEM/" base-name ".md"))
               heading
               (str "# Context Report for " this-name "\n\n")
               report

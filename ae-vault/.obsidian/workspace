@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "8activities/8000-pendingActivities.md",
-            "mode": "source"
+            "file": "6blog/21/21-3 Summer/21-33/8015-reportIntegration.md",
+            "mode": "preview"
           }
         }
       }
@@ -48,7 +48,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -68,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "8activities/8000-pendingActivities.md",
+                "file": "6blog/21/21-3 Summer/21-33/8015-reportIntegration.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "8activities/8000-pendingActivities.md",
+                "file": "6blog/21/21-3 Summer/21-33/8015-reportIntegration.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,15 +136,15 @@
   },
   "active": "1811748742a8e755",
   "lastOpenFiles": [
-    "8activities/8000-pendingActivities.md",
+    "6blog/21/21-3 Summer/21-33/8015-reportIntegration.md",
     "6blog/21/21-3 Summer/21-33/21-33-7 Sunday (week 33), 8-22-2021.md",
+    "8activities/8000-pendingActivities.md",
     "8activities/8015-reportIntegration.md",
+    "9ROOT/SYSTEM/CLASSIFIERinstantiator.md",
     "8activities/8012-changeDescriptors.md",
     "8activities/Untitled.md",
     "6blog/21/21-3 Summer/21-33/8001-recursiveDecent.md",
     "6blog/21/21-3 Summer/21-33/8003-reportDescriptors.md",
-    "6blog/21/21-3 Summer/21-33/8013-keywords.md",
-    "8activities/8003-reportDescriptors.md",
-    "8activities/8005-reportBacklinks.md"
+    "6blog/21/21-3 Summer/21-33/8013-keywords.md"
   ]
 }

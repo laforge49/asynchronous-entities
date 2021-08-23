@@ -127,10 +127,14 @@
       (try
         (let [this-name
               (get this-map "NAME")
+              [name-kw context-base-name base-name]
+              (kw/name-as-keyword this-name)
               context-name
               (k/entityContextName this-name)
               file-name
-              (str "./reports/" context-name "/" this-name ".md")
+              (if (= context-base-name "SYSTEMcontext")
+                (str "ae-vault/9ROOT/SYSTEM/" base-name ".md")
+                (str "ae-vault/9ROOT/SYSTEM/" (subs context-base-name 0 (- (count context-base-name) 7)) "/" base-name ".md"))
               heading
               (str "# Entity Report for " this-name "\n\n")
               report
