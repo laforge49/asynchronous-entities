@@ -9,5 +9,5 @@ DESCRIPTORS:
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+REQUESTIDclassifier_value
 ---
-# Entity Report for SYS+CONTEXT_REPORTrequestid
+# Entity SYS+CONTEXT_REPORTrequestid
 

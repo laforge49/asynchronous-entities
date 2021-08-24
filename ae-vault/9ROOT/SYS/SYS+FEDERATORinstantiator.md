@@ -18,5 +18,5 @@ DESCRIPTORS:
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+INSTANTIATORclassifier_value
 ---
-# Entity Report for SYS+FEDERATORinstantiator
+# Entity SYS+FEDERATORinstantiator
 

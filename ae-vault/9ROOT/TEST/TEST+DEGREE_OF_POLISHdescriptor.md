@@ -8,5 +8,5 @@ DESCRIPTORS:
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+DESCRIPTORclassifier_value
 ---
-# Entity Report for TEST+DEGREE_OF_POLISHdescriptor
+# Entity TEST+DEGREE_OF_POLISHdescriptor
 

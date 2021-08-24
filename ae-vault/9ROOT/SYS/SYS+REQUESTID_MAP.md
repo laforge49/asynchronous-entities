@@ -8,5 +8,5 @@ DESCRIPTORS:
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+DESCRIPTORclassifier_value
 ---
-# Entity Report for SYS+REQUESTID_MAP
+# Entity SYS+REQUESTID_MAP
 

@@ -13,5 +13,5 @@ tags:
 - SYS+ENTITY_TYPEclassifier/TEST+SIMPLEclassifier_value
 - TEST+APPLICATIONclassifier/TEST+FIDDLINGclassifier_value
 ---
-# Entity Report for TEST+ALPHAsimple
+# Entity TEST+ALPHAsimple
 

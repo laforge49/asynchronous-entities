@@ -8,5 +8,5 @@ DESCRIPTORS:
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+CLASSIFIERclassifier_value
 ---
-# Entity Report for TEST+BASICrelation
+# Entity TEST+BASICrelation
 

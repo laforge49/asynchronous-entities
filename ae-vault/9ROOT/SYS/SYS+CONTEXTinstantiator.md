@@ -22,5 +22,5 @@ DESCRIPTORS:
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+INSTANTIATORclassifier_value
 ---
-# Entity Report for SYS+CONTEXTinstantiator
+# Entity SYS+CONTEXTinstantiator
 

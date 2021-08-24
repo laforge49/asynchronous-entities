@@ -35,5 +35,5 @@ DESCRIPTORS:
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+FEDERATORclassifier_value
 ---
-# Entity Report for TEST+TEST_Afederator
+# Entity TEST+TEST_Afederator
 

@@ -17,5 +17,5 @@ DESCRIPTORS:
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+INSTANTIATORclassifier_value
 ---
-# Entity Report for SYS+CLASSIFIERinstantiator
+# Entity SYS+CLASSIFIERinstantiator
 

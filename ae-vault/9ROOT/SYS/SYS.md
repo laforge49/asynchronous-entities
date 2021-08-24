@@ -10,7 +10,7 @@ DESCRIPTORS:
     SYS+ENTITY_REPORTrequestid:
     - CONTEXT_REPORToperationid
 ---
-# Context Report for SYS
+# Entity SYS
 
 1. Registered Entities of context SYS
 (Default context is SYS.)

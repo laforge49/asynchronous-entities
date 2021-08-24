@@ -20,5 +20,5 @@ DESCRIPTORS:
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+INSTANTIATORclassifier_value
 ---
-# Entity Report for TEST+SIMPLEinstantiator
+# Entity TEST+SIMPLEinstantiator
 

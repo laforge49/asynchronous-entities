@@ -136,7 +136,7 @@
                 (str "ae-vault/9ROOT/SYS/" this-name ".md")
                 (str "ae-vault/9ROOT/" context-base-name "/" this-name ".md"))
               heading
-              (str "# Entity Report for " this-name "\n\n")
+              (str "# Entity " this-name "\n\n")
               report
               (str (r/front-matter this-map)
                    heading)]

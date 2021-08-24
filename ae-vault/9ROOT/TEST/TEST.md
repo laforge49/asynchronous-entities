@@ -13,7 +13,7 @@ DESCRIPTORS:
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+CONTEXTclassifier_value
 ---
-# Context Report for TEST
+# Entity TEST
 
 1. Registered Entities of context TEST
 (Default context is TEST.)

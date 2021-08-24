@@ -14,5 +14,5 @@ tags:
 - TEST+BASICrelation/TEST+ALPHAsimple
 - TEST+APPLICATIONclassifier/TEST+FIDDLINGclassifier_value
 ---
-# Entity Report for TEST+GAMMAsimple
+# Entity TEST+GAMMAsimple
 

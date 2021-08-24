@@ -8,5 +8,5 @@ DESCRIPTORS:
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+REQUESTIDclassifier_value
 ---
-# Entity Report for SYS+REGISTER_ENTITYrequestid
+# Entity SYS+REGISTER_ENTITYrequestid
 

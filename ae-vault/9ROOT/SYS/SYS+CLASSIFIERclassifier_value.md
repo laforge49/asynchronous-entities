@@ -8,5 +8,5 @@ DESCRIPTORS:
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+CLASSIFIER_VALUEclassifier_value
 ---
-# Entity Report for SYS+CLASSIFIERclassifier_value
+# Entity SYS+CLASSIFIERclassifier_value
 
