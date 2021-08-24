@@ -356,5 +356,5 @@
           [nil nil nil]
           (kw/name-as-keyword entity-name))]
     (if (s/blank? entity-name)
-      nil
+      "SYS"
       entity-context-base-name)))

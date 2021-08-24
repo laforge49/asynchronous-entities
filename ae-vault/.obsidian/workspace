@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "9ROOT/TEST/TEST+DEGREE_OF_POLISHdescriptor.md",
-            "mode": "preview"
+            "file": "9ROOT/TEST/TEST+ALPHAsimple.md",
+            "mode": "source"
           }
         }
       }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "9ROOT/TEST/TEST+DEGREE_OF_POLISHdescriptor.md",
+                "file": "9ROOT/TEST/TEST+ALPHAsimple.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "9ROOT/TEST/TEST+DEGREE_OF_POLISHdescriptor.md",
+                "file": "9ROOT/TEST/TEST+ALPHAsimple.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,15 +135,15 @@
   },
   "active": "1811748742a8e755",
   "lastOpenFiles": [
+    "9ROOT/TEST/TEST+ALPHAsimple.md",
+    "8activities/8016-shortenContextNames.md",
+    "9ROOT/TEST/TEST+BETAsimple.md",
     "9ROOT/TEST/TEST+DEGREE_OF_POLISHdescriptor.md",
     "9ROOT/TEST/TEST.md",
     "6blog/21/21-3 Summer/21-34/21-34-1 Monday (week 34), 8-23-2021.md",
     "9ROOT/SYSTEMcontext.md",
     "6blog/21/21-3 Summer/21-33/21-33-7 Sunday (week 33), 8-22-2021.md",
     "6blog/21/21-3 Summer/21-34/Untitled.md",
-    "8activities/8000-pendingActivities.md",
-    "8activities/8016-shortenContextNames.md",
-    "8activities/8012-changeDescriptors.md",
-    "8activities/Untitled.md"
+    "8activities/8000-pendingActivities.md"
   ]
 }

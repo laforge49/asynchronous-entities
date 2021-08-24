@@ -258,7 +258,7 @@
         target_name: TEST+GAMMAsimple
         classifier: TEST+APPLICATIONclassifier
         classifier-value: TEST+FIDDLINGclassifier_value
-# - target_requestid: SYS+RUN_FEDERATIONrequestid
-#   target_name: TEST+TEST_Afederator
+- target_requestid: SYS+RUN_FEDERATIONrequestid
+  target_name: TEST+TEST_Afederator
 - target_requestid: SYS+ENTITY_REPORTrequestid
   target_name: SYS

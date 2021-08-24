@@ -11,7 +11,8 @@ DESCRIPTORS:
   TEST+DEGREE_OF_POLISHdescriptor: MIDDLING
 tags:
 - SYS+ENTITY_TYPEclassifier/TEST+SIMPLEclassifier_value
+- TEST+BASICrelation/TEST+ALPHAsimple
 - TEST+APPLICATIONclassifier/TEST+FIDDLINGclassifier_value
 ---
-# Entity Report for TEST+ALPHAsimple
+# Entity Report for TEST+GAMMAsimple
 

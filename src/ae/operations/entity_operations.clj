@@ -46,7 +46,6 @@
         (get params "name")
         target-name
         (k/entityContextName context-name)
-        _ (println :instantiate context-name target-name)
         this-name
         (get this-map "NAME")
         this-descriptors
