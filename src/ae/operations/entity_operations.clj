@@ -137,9 +137,16 @@
                 (str "ae-vault/9ROOT/" context-base-name "/" this-name ".md"))
               heading
               (str "# Entity " this-name "\n\n")
+              content
+              (get this-map "CONTENT")
+              content
+              (if (= (count content) 0)
+                ""
+                (str content "\n"))
               report
               (str (r/front-matter this-map)
-                   heading)]
+                   heading
+                   content)]
           (io/make-parents file-name)
           (spit file-name report)
           (a/>! operation-return-port [this-map nil this-map]))

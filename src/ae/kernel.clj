@@ -317,17 +317,11 @@
         request-port-stack
         [new-public-request-port]
         descriptors
-        (get params "descriptors")
-        descriptors
-        (if (nil? descriptors)
-          {}
-          descriptors)
+        (get params "descriptors" {})
         classifiers
-        (get params "classifiers")
-        classifiers
-        (if (nil? classifiers)
-          {}
-          classifiers)
+        (get params "classifiers" {})
+        content
+        (get params "content" "")
         invariant
         (get descriptors "SYS+INVARIANTdescriptor")
         initialization-port
@@ -342,6 +336,7 @@
         {"NAME"               name
          "DESCRIPTORS"        descriptors
          "CLASSIFIERS"        classifiers
+         "CONTENT"            content
          "REQUEST-PORT-STACK" request-port-stack}
         ]
     (if (= (get descriptors "SYS+INVARIANTdescriptor") true)

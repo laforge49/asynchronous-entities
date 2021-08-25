@@ -231,9 +231,16 @@
                 (str "ae-vault/9ROOT/" base-name "/" this-name ".md"))
               heading
               (str "# Entity " this-name "\n\n")
+              content
+              (get this-map "CONTENT")
+              content
+              (if (= (count content) 0)
+                ""
+                (str content "\n---\n"))
               report
               (str (r/front-matter this-map)
                    heading
+                   content
                    (r/context-entities-report 1 this-name this-map)
                    (r/context-classifier-values-report 2 this-name))
               entity-ports
