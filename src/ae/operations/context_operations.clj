@@ -236,7 +236,7 @@
               content
               (if (= (count content) 0)
                 ""
-                (str content "\n---\n"))
+                (str content "\n\n---\n"))
               report
               (str (r/front-matter this-map)
                    heading

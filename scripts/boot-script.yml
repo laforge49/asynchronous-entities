@@ -195,8 +195,8 @@
   name: TEST
   content:
     "this is a test
-    same line\n
-    different line"
+    same line
+    \ndifferent line"
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+INSTANTIATORinstantiator
   name: TEST+SIMPLEinstantiator
@@ -219,8 +219,8 @@
   name: TEST+ALPHAsimple
   content:
     "this is a test
-    same line\n
-    different line"
+    same line
+    \ndifferent line"
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: TEST+SIMPLEinstantiator
   name: TEST+BETAsimple
