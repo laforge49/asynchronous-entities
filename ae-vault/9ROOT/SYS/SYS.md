@@ -68,7 +68,7 @@ classifier:    +ENTITY_TYPEclassifier
      value:        +CLASSIFIERclassifier_value
     entity:            +ENTITY_TYPEclassifier
      value:        +CONTEXTclassifier_value
-    entity:            +TEST
+    entity:            TEST
      value:        +DESCRIPTORclassifier_value
     entity:            +INSTANTIATION_CLASSIFIERSdescriptor
     entity:            +INSTANTIATION_DESCRIPTORSdescriptor

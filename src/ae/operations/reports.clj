@@ -11,16 +11,26 @@
       (if (keyword? name-or-kw)
         (let [[name context-base-name base-name]
               (kw/keyword-as-name name-or-kw)
+              +pos
+              (s/index-of name "+")
               name2
               (if (= default-context-name context-base-name)
-                [(str "+" base-name) name]
+                [(if (nil? name)
+                   base-name
+                   (str "+" base-name))
+                 name]
                 [name name])]
           (conj sorted-names name2))
         (let [[name-kw context-base-name base-name]
               (kw/name-as-keyword name-or-kw)
+              +pos
+              (s/index-of name-or-kw "+")
               name2
               (if (= default-context-name context-base-name)
-                [(str "+" base-name) name-or-kw]
+                [(if (nil? +pos)
+                   base-name
+                   (str "+" base-name))
+                 name-or-kw]
                 [name-or-kw name-or-kw])]
           (conj sorted-names name2))
         ))
