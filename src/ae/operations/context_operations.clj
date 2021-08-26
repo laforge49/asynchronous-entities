@@ -223,12 +223,10 @@
       (try
         (let [this-name
               (get this-map "NAME")
-              [name-kw context-base-name base-name]
-              (kw/name-as-keyword this-name)
               file-name
               (if (= this-name "SYS")
-                "ae-vault/9ROOT/SYS/SYS.md"
-                (str "ae-vault/9ROOT/" base-name "/" this-name ".md"))
+                "ae-vault/9ROOT/SYS.md"
+                (str "ae-vault/9ROOT/SYS/" this-name ".md"))
               heading
               (str "# Entity " this-name "\n\n")
               content
