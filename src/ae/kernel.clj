@@ -2,6 +2,7 @@
   (:require [clojure.core.async :as a]
             [clojure.string :as s]
             [clojure.stacktrace :as stacktrace]
+            [tupelo.parse.yaml :as yaml]
             [ae.keywords :as kw]))
 
 (def classifier-values-map-atom
@@ -353,3 +354,27 @@
     (if (s/blank? entity-name)
       "SYS"
       entity-context-base-name)))
+
+(defn async-script
+  [yaml-script env]
+  (let [out
+        (a/chan)]
+    (a/go
+      (try
+        (let [edn-script
+              (yaml/parse-raw yaml-script)
+              return-port0
+              (a/chan)
+              context-request-port
+              (get env "CONTEXT-REQUEST-PORT")]
+          (doseq [request-params edn-script]
+            (let [request-params
+                  (assoc request-params "requestid" "SYS+ROUTErequestid")
+                  request-params
+                  (assoc request-params "return_port" return-port0)]
+              (a/>! context-request-port [env request-params])
+              (request-exception-check (a/<! return-port0)))))
+        (a/>! out [nil])
+        (catch Exception e
+          (a/>! out [e]))))
+    out))
