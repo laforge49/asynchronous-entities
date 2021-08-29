@@ -17,6 +17,8 @@ DESCRIPTORS:
       - REGISTER_CLASSIFIERoperationid
       SYS+ENTITY_REPORTrequestid:
       - CONTEXT_REPORToperationid
+      SYS+LOAD_SCRIPTrequestid:
+      - LOAD_SCRIPToperationid
   SYS+INSTANTIATION_CLASSIFIERSdescriptor:
     SYS+ENTITY_TYPEclassifier: SYS+CONTEXTclassifier_value
 tags:
