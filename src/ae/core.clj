@@ -32,7 +32,7 @@
           env
           (assoc env "CONTEXT-REQUEST-PORT" context-request-port)
           boot-script-path
-          "./scripts/boot-script.yml"
+          "./scripts/SYS.yml"
           yaml-script
           (slurp boot-script-path)
           [e]
