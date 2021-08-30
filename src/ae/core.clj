@@ -27,7 +27,8 @@
                                    "descriptors" {"SYS+REQUESTID_MAP" {"SYS+REGISTER_ENTITYrequestid"     ["REGISTER_ENTITYoperationid"]
                                                                        "SYS+ROUTErequestid"               ["ROUTEoperationid"]
                                                                        "SYS+REGISTER_CLASSIFIERrequestid" ["REGISTER_CLASSIFIERoperationid"]
-                                                                       "SYS+ENTITY_REPORTrequestid"       ["CONTEXT_REPORToperationid"]}}}))
+                                                                       "SYS+ENTITY_REPORTrequestid"       ["CONTEXT_REPORToperationid"]
+                                                                       "SYS+LOAD_SCRIPTrequestid"         ["LOAD_SCRIPToperationid"]}}}))
           env
           (assoc env "CONTEXT-REQUEST-PORT" context-request-port)
           boot-script-path
