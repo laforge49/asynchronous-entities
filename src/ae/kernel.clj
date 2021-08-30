@@ -357,17 +357,24 @@
 
 (defn async-script
   [yaml-script env]
+  (println)
+  (println)
+  (println)
   (let [out
         (a/chan)]
     (a/go
       (try
         (let [edn-script
               (yaml/parse-raw yaml-script)
+              _ (println :edn-script (prn-str edn-script))
               return-port0
               (a/chan)
               context-request-port
               (get env "CONTEXT-REQUEST-PORT")]
+          (println :context-request-port context-request-port)
           (doseq [request-params edn-script]
+            (println)
+            (println (prn-str request-params))
             (let [request-params
                   (assoc request-params "requestid" "SYS+ROUTErequestid")
                   request-params

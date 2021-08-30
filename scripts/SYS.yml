@@ -199,7 +199,7 @@
     "this is a test
     same line
     \ndifferent line"
-# - target_requestid: LOAD_SCRIPTrequestid#
-#   target_name: TEST
+- target_requestid: SYS+LOAD_SCRIPTrequestid
+  target_name: TEST
 - target_requestid: SYS+ENTITY_REPORTrequestid
   target_name: SYS

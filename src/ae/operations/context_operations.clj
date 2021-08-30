@@ -266,11 +266,12 @@
         (let [this-name
               (get this-map "NAME")
               boot-script-path
-              "./scripts/" this-name ".yml"
+              (str "scripts/" this-name ".yml")
               yaml-script
               (slurp boot-script-path)
               [e]
-              (a/<!! (k/async-script yaml-script env))]
+              (a/<! (k/async-script yaml-script env))]
+          (println :!!!!!!!!!!!!!!!!! e)
           (if (some? e)
             (throw e))
           (a/>! operation-return-port [this-map nil this-map]))
