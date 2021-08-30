@@ -253,8 +253,27 @@
               (k/request-exception-check (a/<! subrequest-return-port))
               )
             )
-          (a/>! operation-return-port [this-map nil this-map])
-          )
+          (a/>! operation-return-port [this-map nil this-map]))
+        (catch Exception e
+          (a/>! operation-return-port [this-map e nil]))))))
+
+(defn load-script-goblock
+  [env this-map params]
+  (a/go
+    (let [operation-return-port
+          (:operation-return-port params)]
+      (try
+        (let [this-name
+              (get this-map "NAME")
+              boot-script-path
+              "./scripts/" this-name ".yml"
+              yaml-script
+              (slurp boot-script-path)
+              [e]
+              (a/<!! (k/async-script yaml-script env))]
+          (if (some? e)
+            (throw e))
+          (a/>! operation-return-port [this-map nil this-map]))
         (catch Exception e
           (a/>! operation-return-port [this-map e nil]))))))
 
@@ -272,4 +291,6 @@
                             :goblock     federation-release-goblock})
   (k/register-function env {:operationid "CONTEXT_REPORToperationid"
                             :goblock     context-report-goblock})
+  (k/register-function env {:operationid "LOAD_SCRIPToperationid"
+                            :goblock     load-script-goblock})
   )
