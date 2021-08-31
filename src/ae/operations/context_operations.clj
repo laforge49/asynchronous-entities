@@ -261,7 +261,10 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (:operation-return-port params)]
+          (:operation-return-port params)
+          return-port
+          (get params "return_port")]
+      (a/>! operation-return-port [this-map nil :NO-RETURN])
       (try
         (let [this-name
               (get this-map "NAME")
@@ -271,12 +274,11 @@
               (slurp boot-script-path)
               [e]
               (a/<! (k/async-script yaml-script env))]
-          (println :!!!!!!!!!!!!!!!!! e)
           (if (some? e)
             (throw e))
-          (a/>! operation-return-port [this-map nil this-map]))
+          (a/>! return-port [nil nil]))
         (catch Exception e
-          (a/>! operation-return-port [this-map e nil]))))))
+          (a/>! return-port [e nil]))))))
 
 (defn create-context-operations
   [env]
