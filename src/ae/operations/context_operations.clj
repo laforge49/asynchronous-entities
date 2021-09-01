@@ -226,7 +226,7 @@
               file-name
               (if (= this-name "SYS")
                 "ae-vault/9ROOT/SYS.md"
-                (str "ae-vault/9ROOT/SYS/" this-name ".md"))
+                (str "ae-vault/9ROOT/" this-name ".md"))
               heading
               (str "# Entity " this-name "\n\n")
               content
