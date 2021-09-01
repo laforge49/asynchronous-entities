@@ -36,7 +36,7 @@
           yaml-script
           (slurp boot-script-path)
           [e]
-          (a/<!! (k/async-script yaml-script env))]
+          (a/<!! (k/async-script yaml-script "SYS" env))]
       (if (some? e)
         (throw e)))
     (catch Exception e

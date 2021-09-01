@@ -355,14 +355,42 @@
       "SYS"
       entity-context-base-name)))
 
+(defn bind-context
+  [local-context edn]
+  (cond
+    (string? edn)
+    (if (s/starts-with? edn "+")
+      (str local-context edn)
+      edn)
+
+    (vector? edn)
+    (reduce
+      (fn [v item]
+        (conj v (bind-context local-context item)))
+      []
+      edn)
+
+    (map? edn)
+    (reduce
+      (fn [m [k v]]
+        (assoc m (bind-context local-context k)
+                 (bind-context local-context v)))
+      (sorted-map)
+      edn)
+
+    true
+    edn))
+
 (defn async-script
-  [yaml-script env]
+  [yaml-script local-context env]
   (let [out
         (a/chan)]
     (a/go
       (try
         (let [edn-script
               (yaml/parse-raw yaml-script)
+              ;edn-script
+              ;(bind-context local-context edn-script)
               return-port0
               (a/chan)
               context-request-port
