@@ -26,15 +26,15 @@
         (a/chan)
         params
         (into params {"target_name"        name
-                      :initialization-port initialization-port
+                      "initialization-port" initialization-port
                       "descriptors"        instantiation-descriptors
                       "classifiers"        instantiation-classifiers})
         [new-entity-public-request-port snap]
         (k/create-entity env params)
         federation-map-volatile
-        (:FEDERATION-MAP-VOLATILE env)
+        (get env "FEDERATION-MAP-VOLATILE")
         new-children-volatile
-        (:NEW-CHILDREN-VOLATILE env)
+        (get env "NEW-CHILDREN-VOLATILE")
         ]
     (vswap! federation-map-volatile assoc name [(volatile! snap) initialization-port])
     (vswap! new-children-volatile assoc name new-entity-public-request-port)
@@ -68,7 +68,7 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (:operation-return-port params)]
+          (get params "operation-return-port")]
       (try
         (let [context-request-port
               (get env "CONTEXT-REQUEST-PORT")
@@ -123,7 +123,7 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (:operation-return-port params)]
+          (get params "operation-return-port")]
       (try
         (let [this-name
               (get this-map "NAME")

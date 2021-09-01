@@ -12,11 +12,11 @@
         (get this-map "NAME")
         name
         (get params "name")
-        _ (if (some? (:initialization-port params))
+        _ (if (some? (get params "initialization-port"))
             (throw (Exception. (str "An initialization port is not compatible with non-federated registration of entity "
                                     name))))
         entity-public-request-port
-        (:entity-public-request-port params)
+        (get params "entity-public-request-port")
         entity-public-request-port
         (if (some? entity-public-request-port)
           entity-public-request-port
@@ -40,7 +40,7 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (:operation-return-port params)]
+          (get params "operation-return-port")]
       (try
         (a/>! operation-return-port (registerEntityOperation env this-map params))
         (catch Exception e
@@ -50,7 +50,7 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (:operation-return-port params)]
+          (get params "operation-return-port")]
       (try
         (let [name
               (get params "name")
@@ -69,10 +69,10 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (:operation-return-port params)]
+          (get params "operation-return-port")]
       (try
         (let [active-request-port
-              (:active-request-port env)
+              (get env "active-request-port")
               this-name
               (get this-map "NAME")
               _ (if (nil? this-name)
@@ -157,7 +157,7 @@
                         _ (a/>! root-contexts-request-port [env {"requestid"        "SYS+ROUTErequestid"
                                                                  "target_requestid" "PUSH-REQUEST-PORT"
                                                                  "target_name"      federation-name
-                                                                 :new-request-port  new-request-port
+                                                                 "new-request-port"  new-request-port
                                                                  "return_port"      subrequest-return-port}])
                         [snap new-request-port]
                         (k/request-exception-check (a/<! subrequest-return-port))
@@ -174,7 +174,7 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (:operation-return-port params)]
+          (get params "operation-return-port")]
       (try
         (let [federation-names
               (:federation-names params)
@@ -192,10 +192,10 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (:operation-return-port params)]
+          (get params "operation-return-port")]
       (try
         (let [federation-map
-              (:FEDERATION-MAP env)
+              (get env "FEDERATION-MAP")
               subrequest-return-port
               (a/chan)
               ]
@@ -204,7 +204,7 @@
                   (val en)]
               (if (some? entity-request-port)
                 (a/>! entity-request-port [env {"requestid"   "RESET-REQUEST-PORT"
-                                                :this-map     snap
+                                                "this-map"     snap
                                                 "return_port" subrequest-return-port}]))))
           (doseq [en federation-map]
             (let [[vsnap entity-request-port]
@@ -219,7 +219,7 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (:operation-return-port params)]
+          (get params "operation-return-port")]
       (try
         (let [this-name
               (get this-map "NAME")
@@ -261,7 +261,7 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (:operation-return-port params)
+          (get params "operation-return-port")
           return-port
           (get params "return_port")]
       (a/>! operation-return-port [this-map nil :NO-RETURN])

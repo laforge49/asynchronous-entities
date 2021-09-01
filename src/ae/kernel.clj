@@ -145,7 +145,7 @@
   (let [this-name
         (get this-map "NAME")
         federation-map-volatile
-        (:FEDERATION-MAP-VOLATILE env)
+        (get env "FEDERATION-MAP-VOLATILE")
         _ (if (federated? this-map)
             (vreset! (first (get @federation-map-volatile this-name)) this-map))
         target-name
@@ -218,13 +218,13 @@
                  (let [this-name
                        (get this-map "NAME")
                        federation-map
-                       (:FEDERATION-MAP env)
+                       (get env "FEDERATION-MAP")
                        target-map
                        (if (federated? this-map)
                          (first (get federation-map this-name))
                          this-map)
                        env
-                       (assoc env :active-request-port this-request-port)
+                       (assoc env "active-request-port" this-request-port)
                        requestid
                        (get params "requestid")
                        _ (if (nil? requestid)
@@ -247,20 +247,21 @@
                            (if (get this-descriptors "SYS+INVARIANTdescriptor")
                              [target-map [target-map nil]]
                              (let [new-request-port
-                                   (:new-request-port params)
+                                   (get params "new-request-port")
                                    this-map
                                    (assoc target-map "REQUEST-PORT-STACK" (conj this-request-port-stack new-request-port))]
                                [this-map [this-map new-request-port]])))
 
                          "RESET-REQUEST-PORT"
                          (let [this-map
-                               (:this-map params)
+                               (get params "this-map")
                                this-map
                                (assoc this-map "REQUEST-PORT-STACK" (pop this-request-port-stack))]
                            [this-map this-map])
 
                          ;;DEFAULT
-                         (let [_ (if (federated? target-map)
+                         (let [
+                               _ (if (federated? target-map)
                                    (throw (Exception. (str "Inappropriate async request on federated entity.\n"
                                                            (prn-str params)
                                                            (prn-str target-map)))))
@@ -269,20 +270,16 @@
                                operation-return-port
                                (a/chan)
                                params
-                               (assoc params :operation-return-port operation-return-port)
+                               (assoc params "operation-return-port" operation-return-port)
                                operationid-submap
                                (get @operationid-map-atom operationid)
-                               operation-port
-                               (:port operationid-submap)
                                operation-goblock
                                (:goblock operationid-submap)
-                               - (if (some? operation-port)
-                                   (a/>! operation-port [env target-map params])
-                                   (if (some? operation-goblock)
+                               - (if (some? operation-goblock)
                                      (operation-goblock env target-map params)
                                      (throw (Exception. (str "Operationid-submap is empty\n"
                                                              (prn-str params)
-                                                             (prn-str target-map))))))
+                                                             (prn-str target-map)))))
                                operation-return-value
                                (a/<! operation-return-port)
                                _ (if (not (vector? operation-return-value))
@@ -326,7 +323,7 @@
         invariant
         (get descriptors "SYS+INVARIANTdescriptor")
         initialization-port
-        (:initialization-port params)
+        (get params "initialization-port")
         request-port-stack
         (if (or invariant (nil? initialization-port))
           request-port-stack
@@ -389,8 +386,8 @@
       (try
         (let [edn-script
               (yaml/parse-raw yaml-script)
-              ;edn-script
-              ;(bind-context local-context edn-script)
+              edn-script
+              (bind-context local-context edn-script)
               return-port0
               (a/chan)
               context-request-port
@@ -399,7 +396,10 @@
             (let [request-params
                   (assoc request-params "requestid" "SYS+ROUTErequestid")
                   request-params
-                  (assoc request-params "return_port" return-port0)]
+                  (assoc request-params "return_port" return-port0)
+                  ;request-params2
+                  ;(bind-context local-context request-params)
+                  ]
               (a/>! context-request-port [env request-params])
               (request-exception-check (a/<! return-port0)))))
         (a/>! out [nil])

@@ -28,14 +28,14 @@
                       subrequest-return-port
                       (a/chan)
                       _ (a/>! initialization-port [env {"requestid"   "RESET-REQUEST-PORT"
-                                                        :this-map     snap
+                                                        "this-map"     snap
                                                         "return_port" subrequest-return-port}])
                       _ (k/request-exception-check (a/<! subrequest-return-port))
                       context-request-port
                       (get env "CONTEXT-REQUEST-PORT")
                       _ (a/>! context-request-port [env {"requestid"                 "SYS+ROUTErequestid"
                                                          "target_requestid"          "SYS+REGISTER_ENTITYrequestid"
-                                                         :entity-public-request-port entity-public-request-port
+                                                         "entity-public-request-port" entity-public-request-port
                                                          "target_name"               context-name
                                                          "name"                      (get snap "NAME")
                                                          "classifiers"               (get snap "CLASSIFIERS")
@@ -89,7 +89,7 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (:operation-return-port params)]
+          (get params "operation-return-port")]
       (try
         (let [root-contexts-request-port
               (get env "CONTEXT-REQUEST-PORT")
@@ -118,9 +118,9 @@
                            {}
                            federation-map))
               env
-              (assoc env :FEDERATION-MAP-VOLATILE federation-vmap)
+              (assoc env "FEDERATION-MAP-VOLATILE" federation-vmap)
               env
-              (assoc env :NEW-CHILDREN-VOLATILE (volatile! {}))
+              (assoc env "NEW-CHILDREN-VOLATILE" (volatile! {}))
               env
               (assoc env :NEW-CLASSIFIERS-VOLATILE (volatile! []))
               script
@@ -128,7 +128,7 @@
               _ (doseq [script-item script]
                   (k/federationRouteFunction env this-map script-item))
               federation-vmap
-              (:FEDERATION-MAP-VOLATILE env)
+              (get env "FEDERATION-MAP-VOLATILE")
               federation-map
               (reduce
                 (fn [federation-map [k [vsnap active-port]]]
@@ -138,22 +138,22 @@
               [e federation-map]
               (a/<! (registerChildren env
                                       federation-map
-                                      @(:NEW-CHILDREN-VOLATILE env)))
+                                      @(get env "NEW-CHILDREN-VOLATILE")))
               _ (if (some? e)
                   (throw e))
               [e]
               (a/<! (registerClassifiers env
                                          @(:NEW-CLASSIFIERS-VOLATILE env)
-                                         @(:NEW-CHILDREN-VOLATILE env)
+                                         @(get env "NEW-CHILDREN-VOLATILE")
                                          ))
               _ (if (some? e)
                   (throw e))
               env
-              (assoc env :FEDERATION-MAP federation-map)
+              (assoc env "FEDERATION-MAP" federation-map)
               env
-              (assoc env :FEDERATION-MAP-VOLATILE nil)
+              (assoc env "FEDERATION-MAP-VOLATILE" nil)
               env
-              (assoc env :NEW-CHILDREN-VOLATILE nil)
+              (assoc env "NEW-CHILDREN-VOLATILE" nil)
               env
               (assoc env :NEW-CLASSIFIERS-VOLATILE nil)
               _ (a/>! federation-context-request-port [env {"requestid"   "SYS+RELEASErequestid"

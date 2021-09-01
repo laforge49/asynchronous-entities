@@ -1,37 +1,37 @@
 ---
 DESCRIPTORS:
-  SYS+REQUESTID_MAP:
-    SYS+RUN_FEDERATIONrequestid:
-    - RUN_FEDERATIONoperationid
-    SYS+ENTITY_REPORTrequestid:
-    - ENTITY_REPORToperationid
-  SYS+INSTANTIATORdescriptor: SYS+FEDERATORinstantiator
   SYS+FEDERATION_NAMESdescriptor:
   - TEST+ALPHAsimple
+  SYS+INSTANTIATORdescriptor: SYS+FEDERATORinstantiator
+  SYS+REQUESTID_MAP:
+    SYS+ENTITY_REPORTrequestid:
+    - ENTITY_REPORToperationid
+    SYS+RUN_FEDERATIONrequestid:
+    - RUN_FEDERATIONoperationid
   SYS+SCRIPTdescriptor:
-  - target_requestid: SYS+INSTANTIATErequestid
+  - name: TEST+GAMMAsimple
     target_name: TEST+SIMPLEinstantiator
-    name: TEST+GAMMAsimple
-  - target_requestid: SYS+ADD_DESCRIPTORrequestid
-    target_name: TEST+ALPHAsimple
-    descriptor: TEST+DEGREE_OF_POLISHdescriptor
+    target_requestid: SYS+INSTANTIATErequestid
+  - descriptor: TEST+DEGREE_OF_POLISHdescriptor
     descriptor-value: MIDDLING
-  - target_requestid: SYS+ADD_CLASSIFIERrequestid
     target_name: TEST+ALPHAsimple
-    classifier: TEST+APPLICATIONclassifier
+    target_requestid: SYS+ADD_DESCRIPTORrequestid
+  - classifier: TEST+APPLICATIONclassifier
     classifier-value: TEST+FIDDLINGclassifier_value
-  - target_requestid: SYS+ADD_DESCRIPTORrequestid
-    target_name: TEST+GAMMAsimple
-    descriptor: TEST+DEGREE_OF_POLISHdescriptor
+    target_name: TEST+ALPHAsimple
+    target_requestid: SYS+ADD_CLASSIFIERrequestid
+  - descriptor: TEST+DEGREE_OF_POLISHdescriptor
     descriptor-value: MIDDLING
-  - target_requestid: SYS+ADD_CLASSIFIERrequestid
     target_name: TEST+GAMMAsimple
-    classifier: TEST+BASICrelation
+    target_requestid: SYS+ADD_DESCRIPTORrequestid
+  - classifier: TEST+BASICrelation
     classifier-value: TEST+ALPHAsimple
-  - target_requestid: SYS+ADD_CLASSIFIERrequestid
     target_name: TEST+GAMMAsimple
-    classifier: TEST+APPLICATIONclassifier
+    target_requestid: SYS+ADD_CLASSIFIERrequestid
+  - classifier: TEST+APPLICATIONclassifier
     classifier-value: TEST+FIDDLINGclassifier_value
+    target_name: TEST+GAMMAsimple
+    target_requestid: SYS+ADD_CLASSIFIERrequestid
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+FEDERATORclassifier_value
 ---
