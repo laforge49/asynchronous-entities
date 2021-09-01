@@ -224,9 +224,7 @@
         (let [this-name
               (get this-map "NAME")
               file-name
-              (if (= this-name "SYS")
-                "ae-vault/9ROOT/SYS.md"
-                (str "ae-vault/9ROOT/" this-name ".md"))
+              (str "ae-vault/9ROOT/" this-name "/" this-name ".md")
               heading
               (str "# Entity " this-name "\n\n")
               content
