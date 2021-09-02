@@ -156,13 +156,15 @@
         target-name
         (get params "target_name")
         federation-entry
-        (get @federation-map-volatile target-name)
+        (if (nil? federation-map-volatile)
+          nil
+          (get @federation-map-volatile target-name))
         target-map
         (if (some? federation-entry)
           @(first federation-entry)
           (get-invariant-map target-name))
         _ (if (nil? target-map)
-            (throw (Exception. (str "Unreachable: " target-name
+            (throw (Exception. (str "Unreachable: " target-name "\n"
                                     (prn-str params)
                                     (prn-str this-map)))))
         requestid
@@ -374,30 +376,42 @@
       entity-context-base-name)))
 
 (defn bind-context
-  [local-context edn]
-  (cond
-    (string? edn)
-    (if (s/starts-with? edn "+")
-      (str local-context edn)
-      edn)
+  [local-context context-map typ-entity edn env]
+  (let [[type subtype]
+        (if (nil? typ-entity)
+          [nil nil]
+          (let [return-port
+                (a/chan)
+                params
+                {"requestid"        "SYS+ROUTErequestid"
+                 "return_port"      return-port
+                 "target_requestid" "TYPE_OFrequestid"
+                 "target_name"      typ-entity
+                 "edn"              edn}]
+            (routeFunction env context-map params)))]
+        (cond
+          (string? edn)
+          (if (s/starts-with? edn "+")
+            (str local-context edn)
+            edn)
 
-    (vector? edn)
-    (reduce
-      (fn [v item]
-        (conj v (bind-context local-context item)))
-      []
-      edn)
+          (vector? edn)
+          (reduce
+            (fn [v item]
+              (conj v (bind-context local-context context-map nil item env)))
+            []
+            edn)
 
-    (map? edn)
-    (reduce
-      (fn [m [k v]]
-        (assoc m (bind-context local-context k)
-                 (bind-context local-context v)))
-      (sorted-map)
-      edn)
+          (map? edn)
+          (reduce
+            (fn [m [k v]]
+              (assoc m (bind-context local-context context-map nil k env)
+                       (bind-context local-context context-map nil v env)))
+            (sorted-map)
+            edn)
 
-    true
-    edn))
+          true
+          edn)))
 
 (defn async-script
   [yaml-script context-map env]
@@ -410,7 +424,7 @@
         (let [edn-script
               (yaml/parse-raw yaml-script)
               edn-script
-              (bind-context local-context edn-script)
+              (bind-context local-context context-map "SYS+SCRIPTlist" edn-script env)
               return-port0
               (a/chan)
               context-request-port
