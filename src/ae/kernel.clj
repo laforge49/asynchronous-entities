@@ -140,12 +140,19 @@
                 true
                 (get request-descriptors "SYS+READ_ONLYdescriptor"))]
           (if (not read-only)
-            (throw (Exception. (str "Can not apply " requestid " to invariant " (get target-map "NAME"))))))))
+            (throw (Exception. (str "Can not apply " requestid " to invariant " (get target-map "NAME")
+                                    (prn-str params)
+                                    (prn-str target-map))))))))
     operationids))
 
 (defn targetOperationid
   [env target-map params]
-  (first (targetOperationids env target-map params)))
+  (let [operationids (targetOperationids env target-map params)]
+    (if (> (count operationids) 1)
+      (throw (Exception. (str "Multiple operationids not supported for async invocation\n"
+                              (prn-str params)
+                              (prn-str target-map)))))
+    (first operationids)))
 
 (defn routeFunction
   [env this-map params]
