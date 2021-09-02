@@ -21,14 +21,14 @@
     (let [env
           {}
           _ (create-operations env)
-          context-request-port
-          (first (k/create-entity env
+          [context-request-port context-map]
+          (k/create-entity env
                                   {"name"        "SYS"
                                    "descriptors" {"SYS+REQUESTID_MAP" {"SYS+REGISTER_ENTITYrequestid"     ["REGISTER_ENTITYoperationid"]
                                                                        "SYS+ROUTErequestid"               ["ROUTEoperationid"]
                                                                        "SYS+REGISTER_CLASSIFIERrequestid" ["REGISTER_CLASSIFIERoperationid"]
                                                                        "SYS+ENTITY_REPORTrequestid"       ["CONTEXT_REPORToperationid"]
-                                                                       "SYS+LOAD_SCRIPTrequestid"         ["LOAD_SCRIPToperationid"]}}}))
+                                                                       "SYS+LOAD_SCRIPTrequestid"         ["LOAD_SCRIPToperationid"]}}})
           env
           (assoc env "CONTEXT-REQUEST-PORT" context-request-port)
           boot-script-path
@@ -36,7 +36,7 @@
           yaml-script
           (slurp boot-script-path)
           [e]
-          (a/<!! (k/async-script yaml-script "SYS" env))]
+          (a/<!! (k/async-script yaml-script context-map env))]
       (if (some? e)
         (throw e)))
     (catch Exception e

@@ -400,8 +400,10 @@
     edn))
 
 (defn async-script
-  [yaml-script local-context env]
-  (let [out
+  [yaml-script context-map env]
+  (let [local-context
+        (get context-map "NAME")
+        out
         (a/chan)]
     (a/go
       (try

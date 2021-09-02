@@ -271,7 +271,7 @@
               yaml-script
               (slurp boot-script-path)
               [e]
-              (a/<! (k/async-script yaml-script this-name env))]
+              (a/<! (k/async-script yaml-script this-map env))]
           (if (some? e)
             (throw e))
           (a/>! return-port [nil nil]))
