@@ -126,7 +126,7 @@
               script
               (get descriptors "SYS+SCRIPTdescriptor")
               _ (doseq [script-item script]
-                  (k/federationRouteFunction env this-map script-item))
+                  (k/routeFunction env this-map script-item))
               federation-vmap
               (get env "FEDERATION-MAP-VOLATILE")
               federation-map

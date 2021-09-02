@@ -147,7 +147,7 @@
   [env target-map params]
   (first (targetOperationids env target-map params)))
 
-(defn federationRouteFunction
+(defn routeFunction
   [env this-map params]
   (let [this-name
         (get this-map "NAME")
@@ -171,6 +171,7 @@
         (get params "target_requestid")
         params
         (assoc params "requestid" requestid)
+
         operationid
         (targetOperationid env target-map params)
         fun
@@ -181,6 +182,7 @@
                                     (prn-str this-map)))))
         [target-map rv]
         (fun env target-map params)
+
         _ (if (federated? target-map)
             (vreset! (first (get @federation-map-volatile target-name)) target-map))
         this-map
@@ -272,6 +274,7 @@
                                    (throw (Exception. (str "Inappropriate async request on federated entity.\n"
                                                            (prn-str params)
                                                            (prn-str target-map)))))
+
                                operationid
                                (targetOperationid env target-map params)
                                operation-return-port
@@ -403,10 +406,7 @@
             (let [request-params
                   (assoc request-params "requestid" "SYS+ROUTErequestid")
                   request-params
-                  (assoc request-params "return_port" return-port0)
-                  ;request-params2
-                  ;(bind-context local-context request-params)
-                  ]
+                  (assoc request-params "return_port" return-port0)]
               (a/>! context-request-port [env request-params])
               (request-exception-check (a/<! return-port0)))))
         (a/>! out [nil])
