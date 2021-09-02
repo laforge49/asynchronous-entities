@@ -157,7 +157,7 @@
                         _ (a/>! root-contexts-request-port [env {"requestid"        "SYS+ROUTErequestid"
                                                                  "target_requestid" "PUSH-REQUEST-PORT"
                                                                  "target_name"      federation-name
-                                                                 "new-request-port"  new-request-port
+                                                                 "new-request-port" new-request-port
                                                                  "return_port"      subrequest-return-port}])
                         [snap new-request-port]
                         (k/request-exception-check (a/<! subrequest-return-port))
@@ -204,7 +204,7 @@
                   (val en)]
               (if (some? entity-request-port)
                 (a/>! entity-request-port [env {"requestid"   "RESET-REQUEST-PORT"
-                                                "this-map"     snap
+                                                "this-map"    snap
                                                 "return_port" subrequest-return-port}]))))
           (doseq [en federation-map]
             (let [[vsnap entity-request-port]

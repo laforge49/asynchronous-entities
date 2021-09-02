@@ -101,7 +101,7 @@
                               (prn-str this-map)))))
     this-descriptors))
 
-(defn targetOperationid
+(defn targetOperationids
   [env target-map params]
   (let [requestid
         (get params "requestid")
@@ -118,27 +118,34 @@
                                     (prn-str params)
                                     (prn-str target-map)))))
         operationids
-        (get this-requestid-map requestid)
-        _ (if (not (vector? operationids))
-            (throw (Exception. (str "Operationids for " requestid " is not a vector\n"
-                                    (prn-str params)
-                                    (prn-str target-map)))))
-        operationid
-        (first operationids)
-        _ (if (nil? operationid)
-            (throw (Exception. (str "Operationid is nil\n"
-                                    (prn-str params)
-                                    (prn-str target-map)))))]
-    (if (= (get-in target-map ["DESCRIPTORS" "SYS+INVARIANTdescriptor"]) true)
-      (let [request-descriptors
-            (get-invariant-descriptors requestid)
-            read-only
-            (if (nil? request-descriptors)
-              true
-              (get request-descriptors "SYS+READ_ONLYdescriptor"))]
-        (if (not read-only)
-          (throw (Exception. (str "Can not apply " requestid " to invariant " (get target-map "NAME")))))))
-    operationid))
+        (get this-requestid-map requestid)]
+    (if (not (vector? operationids))
+      (throw (Exception. (str "Operationids for " requestid " is not a vector\n"
+                              (prn-str params)
+                              (prn-str target-map)))))
+    (if (empty? operationids)
+      (throw (Exception. (str "Operationids for " requestid " is empty\n"
+                              (prn-str params)
+                              (prn-str target-map)))))
+    (doseq [operationid operationids]
+      (if (nil? operationid)
+        (throw (Exception. (str "Operationid is nil\n"
+                                (prn-str params)
+                                (prn-str target-map)))))
+      (if (= (get-in target-map ["DESCRIPTORS" "SYS+INVARIANTdescriptor"]) true)
+        (let [request-descriptors
+              (get-invariant-descriptors requestid)
+              read-only
+              (if (nil? request-descriptors)
+                true
+                (get request-descriptors "SYS+READ_ONLYdescriptor"))]
+          (if (not read-only)
+            (throw (Exception. (str "Can not apply " requestid " to invariant " (get target-map "NAME"))))))))
+    operationids))
+
+(defn targetOperationid
+  [env target-map params]
+  (first (targetOperationids env target-map params)))
 
 (defn federationRouteFunction
   [env this-map params]
@@ -276,10 +283,10 @@
                                operation-goblock
                                (:goblock operationid-submap)
                                - (if (some? operation-goblock)
-                                     (operation-goblock env target-map params)
-                                     (throw (Exception. (str "Operationid-submap is empty\n"
-                                                             (prn-str params)
-                                                             (prn-str target-map)))))
+                                   (operation-goblock env target-map params)
+                                   (throw (Exception. (str "Operationid-submap is empty\n"
+                                                           (prn-str params)
+                                                           (prn-str target-map)))))
                                operation-return-value
                                (a/<! operation-return-port)
                                _ (if (not (vector? operation-return-value))

@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "1811748742a8e755",
+        "id": "c902587de11a02ea",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "6blog/21/21-3 Summer/21-35/21-35-3 Wednesday (weei 35), 9-1-2021.md",
+            "file": "8activities/8008-operationidVectors.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6blog/21/21-3 Summer/21-35/21-35-3 Wednesday (weei 35), 9-1-2021.md",
+                "file": "8activities/8008-operationidVectors.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "6blog/21/21-3 Summer/21-35/21-35-3 Wednesday (weei 35), 9-1-2021.md",
+                "file": "8activities/8008-operationidVectors.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,17 +133,17 @@
     "direction": "horizontal",
     "width": 485
   },
-  "active": "1811748742a8e755",
+  "active": "c902587de11a02ea",
   "lastOpenFiles": [
+    "8activities/8008-operationidVectors.md",
+    "8activities/8004-validation.md",
+    "8activities/8012-changeDescriptors.md",
+    "9ROOT/TEST/TEST.md",
     "6blog/21/21-3 Summer/21-35/21-35-3 Wednesday (weei 35), 9-1-2021.md",
     "9ROOT/TEST.md",
     "9ROOT/SYS.md",
     "6blog/21/21-3 Summer/21-34/21-34-5 Friday (week 34), 8-27-2021.md",
     "6blog/21/21-3 Summer/21-34/21-34-4 Thursday (week 34), 8-26-2021.md",
-    "6blog/21/21-3 Summer/21-35/Untitled.md",
-    "6blog/21/21-3 Summer/Untitled.md",
-    "6blog/21/21-3 Summer/21-34/8016-shortenContextNames.md",
-    "8activities/8000-pendingActivities.md",
-    "6blog/21/21-3 Summer/21-34/Untitled.md"
+    "6blog/21/21-3 Summer/21-35/Untitled.md"
   ]
 }

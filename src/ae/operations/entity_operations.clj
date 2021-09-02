@@ -25,10 +25,10 @@
         initialization-port
         (a/chan)
         params
-        (into params {"target_name"        name
+        (into params {"target_name"         name
                       "initialization-port" initialization-port
-                      "descriptors"        instantiation-descriptors
-                      "classifiers"        instantiation-classifiers})
+                      "descriptors"         instantiation-descriptors
+                      "classifiers"         instantiation-classifiers})
         [new-entity-public-request-port snap]
         (k/create-entity env params)
         federation-map-volatile
