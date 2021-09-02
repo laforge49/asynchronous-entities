@@ -145,15 +145,6 @@
                                     (prn-str target-map))))))))
     operationids))
 
-(defn targetOperationid
-  [env target-map params]
-  (let [operationids (targetOperationids env target-map params)]
-    (if (> (count operationids) 1)
-      (throw (Exception. (str "Multiple operationids not supported for async invocation\n"
-                              (prn-str params)
-                              (prn-str target-map)))))
-    (first operationids)))
-
 (defn routeFunction
   [env this-map params]
   (let [this-name
@@ -178,18 +169,22 @@
         (get params "target_requestid")
         params
         (assoc params "requestid" requestid)
-
-        operationid
-        (targetOperationid env target-map params)
-        fun
-        (:function (get @operationid-map-atom operationid))
-        _ (if (nil? fun)
-            (throw (Exception. (str "Operationid " operationid " has no function\n"
-                                    (prn-str params)
-                                    (prn-str this-map)))))
+        operationids
+        (targetOperationids env target-map params)
         [target-map rv]
-        (fun env target-map params)
-
+        (reduce
+          (fn [[target-map rv] operationid]
+            (if (some? rv)
+              [target-map rv]
+              (let [fun
+                    (:function (get @operationid-map-atom operationid))]
+                (if (nil? fun)
+                  (throw (Exception. (str "Operationid " operationid " has no function\n"
+                                          (prn-str params)
+                                          (prn-str this-map)))))
+                (fun env target-map params))))
+          [target-map nil]
+          operationids)
         _ (if (federated? target-map)
             (vreset! (first (get @federation-map-volatile target-name)) target-map))
         this-map
@@ -197,6 +192,15 @@
           @(first (get @federation-map-volatile this-name))
           this-map)]
     [this-map rv]))
+
+(defn targetOperationid
+  [env target-map params]
+  (let [operationids (targetOperationids env target-map params)]
+    (if (> (count operationids) 1)
+      (throw (Exception. (str "Multiple operationids not supported for async invocation\n"
+                              (prn-str params)
+                              (prn-str target-map)))))
+    (first operationids)))
 
 (defn create-operation-dispatcher
   [this-map]
