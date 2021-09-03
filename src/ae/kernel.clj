@@ -375,43 +375,38 @@
       "SYS"
       entity-context-base-name)))
 
-(defn validate-context
-  [local-context context-map typ-entity edn env]
-  (let [[type subtype]
+(defn validate-edn
+  [context-map typ-entity edn env]
+  (let [[typ key-entity value-entity]
         (if (nil? typ-entity)
           [nil nil]
-          (let [return-port
-                (a/chan)
-                params
+          (let [params
                 {"requestid"        "SYS+ROUTErequestid"
-                 "return_port"      return-port
                  "target_requestid" "TYPE_OFrequestid"
                  "target_name"      typ-entity
                  "edn"              edn}]
             (routeFunction env context-map params)))]
     (cond
       (string? edn)
-      (if (s/starts-with? edn "+")
-        (str local-context edn)
-        edn)
+      (if (not= typ "string")
+        (throw (Exception. (str "Not a string: " (prn-str edn) "\n"))))
 
       (vector? edn)
-      (reduce
-        (fn [v item]
-          (conj v (validate-context local-context context-map nil item env)))
-        []
-        edn)
+      (if (not= typ "vector")
+        (throw (Exception. (str "Not a vector: " (prn-str edn) "\n")))
+        (doseq [v edn]
+          (validate-edn context-map value-entity v env)))
 
       (map? edn)
-      (reduce
-        (fn [m [k v]]
-          (assoc m (validate-context local-context context-map nil k env)
-                   (validate-context local-context context-map nil v env)))
-        (sorted-map)
-        edn)
+      (if (not= typ "map")
+        (throw (Exception. (str "Not a map: " (prn-str edn) "\n")))
+        (doseq [[k v] edn]
+          (validate-edn context-map key-entity k env)
+          (validate-edn context-map value-entity v env)))
 
       true
-      edn)))
+      (if (not= typ "undefined")
+        (throw (Exception. (str "Not a map: " (prn-str edn) "\n")))))))
 
 (defn bind-context
   [local-context context-map edn env]
@@ -451,6 +446,7 @@
               (yaml/parse-raw yaml-script)
               edn-script
               (bind-context local-context context-map edn-script env)
+              ;_ (validate-edn context-map "SYS+SCRIPTlist" edn-script env)
               return-port0
               (a/chan)
               context-request-port
