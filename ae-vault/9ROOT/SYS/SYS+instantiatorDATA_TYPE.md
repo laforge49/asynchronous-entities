@@ -7,6 +7,8 @@ DESCRIPTORS:
     SYS+REQUESTID_MAP:
       SYS+ENTITY_REPORTrequestid:
       - ENTITY_REPORToperationid
+      SYS+requestidTYPE_OF:
+      - operationidTYPE_OF
   SYS+INSTANTIATORdescriptor: SYS+INSTANTIATORinstantiator
   SYS+INVARIANTdescriptor: true
   SYS+REQUESTID_MAP:

@@ -382,7 +382,7 @@
           [nil nil]
           (let [params
                 {"requestid"        "SYS+ROUTErequestid"
-                 "target_requestid" "requestidTYPE_OF"
+                 "target_requestid" "SYS+requestidTYPE_OF"
                  "target_name"      typ-entity
                  "edn"              edn}]
             (routeFunction env context-map params)))]
@@ -465,7 +465,8 @@
                   (assoc request-params "return_port" return-port0)]
               (a/>! context-request-port [env request-params])
               (request-exception-check (a/<! return-port0))))
-          (validate-edn script-path context-map "SYS+listSCRIPT" edn-script env))
+          (validate-edn script-path context-map "SYS+listSCRIPT" edn-script env)
+          )
         (a/>! out [nil])
         (catch Exception e
           (a/>! out [e]))))

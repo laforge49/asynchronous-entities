@@ -201,6 +201,8 @@
       +REQUESTID_MAP:
         +ENTITY_REPORTrequestid:
           - ENTITY_REPORToperationid
+        +requestidTYPE_OF:
+          - operationidTYPE_OF
     +INSTANTIATION_CLASSIFIERSdescriptor:
       +ENTITY_TYPEclassifier: +classifier_valueDATA_TYPE
 - target_requestid: +INSTANTIATErequestid
