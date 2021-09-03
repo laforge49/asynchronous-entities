@@ -454,7 +454,7 @@
               (yaml/parse-raw yaml-script)
               edn-script
               (bind-context local-context context-map edn-script env)
-              #_ (validate-edn script-path context-map "SYS+SCRIPTlist" edn-script env)
+              #_ (validate-edn script-path context-map "SYS+listSCRIPT" edn-script env)
               return-port0
               (a/chan)
               context-request-port
