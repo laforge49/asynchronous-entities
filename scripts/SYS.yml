@@ -193,6 +193,9 @@
     +INSTANTIATION_CLASSIFIERSdescriptor:
       +ENTITY_TYPEclassifier: +FEDERATION_CONTEXTclassifier_value
 - target_requestid: +INSTANTIATErequestid
+  target_name: +INSTANTIATORinstantiator
+  name: +instantiatorDATA_TYPE
+- target_requestid: +INSTANTIATErequestid
   target_name: +CONTEXTinstantiator
   name: TEST
   content:
