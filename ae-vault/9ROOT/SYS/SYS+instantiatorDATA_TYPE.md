@@ -1,5 +1,12 @@
 ---
 DESCRIPTORS:
+  SYS+INSTANTIATION_CLASSIFIERSdescriptor:
+    SYS+ENTITY_TYPEclassifier: SYS+classifier_valueDATA_TYPE
+  SYS+INSTANTIATION_DESCRIPTORSdescriptor:
+    SYS+INVARIANTdescriptor: true
+    SYS+REQUESTID_MAP:
+      SYS+ENTITY_REPORTrequestid:
+      - ENTITY_REPORToperationid
   SYS+INSTANTIATORdescriptor: SYS+INSTANTIATORinstantiator
   SYS+INVARIANTdescriptor: true
   SYS+REQUESTID_MAP:

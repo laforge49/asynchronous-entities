@@ -195,6 +195,17 @@
 - target_requestid: +INSTANTIATErequestid
   target_name: +INSTANTIATORinstantiator
   name: +instantiatorDATA_TYPE
+  descriptors:
+    +INSTANTIATION_DESCRIPTORSdescriptor:
+      +INVARIANTdescriptor: true
+      +REQUESTID_MAP:
+        +ENTITY_REPORTrequestid:
+          - ENTITY_REPORToperationid
+    +INSTANTIATION_CLASSIFIERSdescriptor:
+      +ENTITY_TYPEclassifier: +classifier_valueDATA_TYPE
+- target_requestid: +INSTANTIATErequestid
+  target_name: +instantiatorDATA_TYPE
+  name: +listSCRIPT
 - target_requestid: +INSTANTIATErequestid
   target_name: +CONTEXTinstantiator
   name: TEST

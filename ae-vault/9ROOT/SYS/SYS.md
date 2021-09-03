@@ -51,9 +51,10 @@ DESCRIPTORS:
 +ROUTErequestid
 +RUN_FEDERATIONrequestid
 +instantiatorDATA_TYPE
++listSCRIPT
 TEST
 
-Number of entities: 35
+Number of entities: 36
 
 2. Classifier Values of context SYS
 (Default context is SYS.)
@@ -100,6 +101,8 @@ classifier:    +ENTITY_TYPEclassifier
     entity:            +RELEASErequestid
     entity:            +ROUTErequestid
     entity:            +RUN_FEDERATIONrequestid
+     value:        +classifier_valueDATA_TYPE
+    entity:            +listSCRIPT
 
 Number of classifiers: 1
 
