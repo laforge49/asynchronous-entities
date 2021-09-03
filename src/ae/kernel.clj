@@ -403,6 +403,7 @@
           (doseq [i (range c)]
             (let [v
                   (nth edn i)]
+              (println "vector" i (prn-str v))
               (validate-edn (str path " " i) context-map value-entity v env)))))
 
       (map? edn)
@@ -412,7 +413,7 @@
                                 (prn-str context-map))))
         (doseq [[k v] edn]
           (validate-edn (str path " key") context-map key-entity k env)
-          (validate-edn (str path (prn-str k)) context-map value-entity v env)))
+          (validate-edn (str path " " (prn-str k)) context-map value-entity v env)))
 
       true
       (if (not= data-type "undefined")

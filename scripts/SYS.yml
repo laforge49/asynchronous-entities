@@ -209,8 +209,20 @@
   target_name: +instantiatorDATA_TYPE
   name: +listSCRIPT
   descriptors:
-    +descriptorDATA_TYPE:
-      vector
+    +descriptorDATA_TYPE: vector
+    +descriptorVALUE_ENTITY: +mapREQUEST
+- target_requestid: +INSTANTIATErequestid
+  target_name: +instantiatorDATA_TYPE
+  name: +mapREQUEST
+  descriptors:
+    +descriptorDATA_TYPE: map
+    +descriptorKEY_ENTITY: +stringPARAMATER_NAME
+    #+descriptorVALUE_ENTITY: +mapINVOCATION
+- target_requestid: +INSTANTIATErequestid
+  target_name: +instantiatorDATA_TYPE
+  name: +stringPARAMATER_NAME
+  descriptors:
+    +descriptorDATA_TYPE: string
 - target_requestid: +INSTANTIATErequestid
   target_name: +CONTEXTinstantiator
   name: TEST
