@@ -31,12 +31,12 @@
                                                                        "SYS+LOAD_SCRIPTrequestid"         ["LOAD_SCRIPToperationid"]}}})
           env
           (assoc env "CONTEXT-REQUEST-PORT" context-request-port)
-          boot-script-path
-          "./scripts/SYS.yml"
+          script-path
+          "scripts/SYS.yml"
           yaml-script
-          (slurp boot-script-path)
+          (slurp script-path)
           [e]
-          (a/<!! (k/async-script yaml-script context-map env))]
+          (a/<!! (k/async-script script-path yaml-script context-map env))]
       (if (some? e)
         (throw e)))
     (catch Exception e

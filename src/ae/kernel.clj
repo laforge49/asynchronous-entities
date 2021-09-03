@@ -376,7 +376,7 @@
       entity-context-base-name)))
 
 (defn validate-edn
-  [context-map typ-entity edn env]
+  [path context-map typ-entity edn env]
   (let [[typ key-entity value-entity]
         (if (nil? typ-entity)
           [nil nil]
@@ -389,24 +389,28 @@
     (cond
       (string? edn)
       (if (not= typ "string")
-        (throw (Exception. (str "Not a string: " (prn-str edn) "\n"))))
+        (throw (Exception. (str "At " path ", expected a string, not\n" (prn-str edn) "\n"
+                                (prn-str context-map)))))
 
       (vector? edn)
       (if (not= typ "vector")
-        (throw (Exception. (str "Not a vector: " (prn-str edn) "\n")))
+        (throw (Exception. (str "At " path ", expected a vector, not\n" (prn-str edn) "\n"
+                                (prn-str context-map))))
         (doseq [v edn]
-          (validate-edn context-map value-entity v env)))
+          (validate-edn (str path " vector") context-map value-entity v env)))
 
       (map? edn)
       (if (not= typ "map")
-        (throw (Exception. (str "Not a map: " (prn-str edn) "\n")))
+        (throw (Exception. (str "At " path ", expected a map, not\n" (prn-str edn) "\n"
+                                (prn-str context-map))))
         (doseq [[k v] edn]
-          (validate-edn context-map key-entity k env)
-          (validate-edn context-map value-entity v env)))
+          (validate-edn (str path " key") context-map key-entity k env)
+          (validate-edn (str path (prn-str k)) context-map value-entity v env)))
 
       true
       (if (not= typ "undefined")
-        (throw (Exception. (str "Not a map: " (prn-str edn) "\n")))))))
+        (throw (Exception. (str "At " path ", expected an undefined, not\n" (prn-str edn) "\n"
+                                (prn-str context-map))))))))
 
 (defn bind-context
   [local-context context-map edn env]
@@ -435,7 +439,7 @@
       edn))
 
 (defn async-script
-  [yaml-script context-map env]
+  [script-path yaml-script context-map env]
   (let [local-context
         (get context-map "NAME")
         out
@@ -446,7 +450,7 @@
               (yaml/parse-raw yaml-script)
               edn-script
               (bind-context local-context context-map edn-script env)
-              ;_ (validate-edn context-map "SYS+SCRIPTlist" edn-script env)
+              #_ (validate-edn script-path context-map "SYS+SCRIPTlist" edn-script env)
               return-port0
               (a/chan)
               context-request-port
