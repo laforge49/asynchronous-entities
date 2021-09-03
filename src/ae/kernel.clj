@@ -396,8 +396,12 @@
       (if (not= typ "vector")
         (throw (Exception. (str "At " path ", expected a vector, not\n" (prn-str edn) "\n"
                                 (prn-str context-map))))
-        (doseq [v edn]
-          (validate-edn (str path " vector") context-map value-entity v env)))
+        (let [c
+              (count edn)]
+          (doseq [i (range c)]
+            (let [v
+                  (nth edn i)]
+              (validate-edn (str path " " i) context-map value-entity v env)))))
 
       (map? edn)
       (if (not= typ "map")
