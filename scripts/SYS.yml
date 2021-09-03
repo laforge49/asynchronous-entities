@@ -217,7 +217,8 @@
   descriptors:
     +descriptorDATA_TYPE: map
     +descriptorKEY_ENTITY: +stringPARAMATER_NAME
-    #+descriptorVALUE_ENTITY: +mapINVOCATION
+    +descriptorVALUE_ENTITY:
+      +descriptors: +mapDESCRIPTORS
 - target_requestid: +INSTANTIATErequestid
   target_name: +instantiatorDATA_TYPE
   name: +stringPARAMATER_NAME
