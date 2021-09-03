@@ -376,25 +376,27 @@
       entity-context-base-name)))
 
 (defn validate-edn
-  [path context-map typ-entity edn env]
-  (let [[typ key-entity value-entity]
-        (if (nil? typ-entity)
-          [nil nil]
+  [path context-map type-entity edn env]
+  (println :path path)
+  (let [[_ [data-type key-entity value-entity]]
+        (if (nil? type-entity)
+          [nil [nil nil nil]]
           (let [params
                 {"requestid"        "SYS+ROUTErequestid"
                  "target_requestid" "SYS+requestidTYPE_OF"
-                 "target_name"      typ-entity
-                 "edn"              edn}]
+                 "target_name"      type-entity}]
             (routeFunction env context-map params)))]
     (cond
       (string? edn)
-      (if (not= typ "string")
-        (throw (Exception. (str "At " path ", expected a string, not\n" (prn-str edn) "\n"
+      (if (not= data-type "string")
+        (throw (Exception. (str "At " path ", expected a string, not\n" data-type "\n"
+                                (prn-str edn)
                                 (prn-str context-map)))))
 
       (vector? edn)
-      (if (not= typ "vector")
-        (throw (Exception. (str "At " path ", expected a vector, not\n" (prn-str edn) "\n"
+      (if (not= data-type "vector")
+        (throw (Exception. (str "At " path ", expected a vector, not\n" data-type "\n"
+                                (prn-str edn)
                                 (prn-str context-map))))
         (let [c
               (count edn)]
@@ -404,16 +406,18 @@
               (validate-edn (str path " " i) context-map value-entity v env)))))
 
       (map? edn)
-      (if (not= typ "map")
-        (throw (Exception. (str "At " path ", expected a map, not\n" (prn-str edn) "\n"
+      (if (not= data-type "map")
+        (throw (Exception. (str "At " path ", expected a map, not\n" data-type "\n"
+                                (prn-str edn)
                                 (prn-str context-map))))
         (doseq [[k v] edn]
           (validate-edn (str path " key") context-map key-entity k env)
           (validate-edn (str path (prn-str k)) context-map value-entity v env)))
 
       true
-      (if (not= typ "undefined")
-        (throw (Exception. (str "At " path ", expected an undefined, not\n" (prn-str edn) "\n"
+      (if (not= data-type "undefined")
+        (throw (Exception. (str "At " path ", expected an undefined, not\n" data-type "\n"
+                                (prn-str edn)
                                 (prn-str context-map))))))))
 
 (defn bind-context

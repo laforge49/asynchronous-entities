@@ -208,6 +208,9 @@
 - target_requestid: +INSTANTIATErequestid
   target_name: +instantiatorDATA_TYPE
   name: +listSCRIPT
+  descriptors:
+    +descriptorDATA_TYPE:
+      vector
 - target_requestid: +INSTANTIATErequestid
   target_name: +CONTEXTinstantiator
   name: TEST

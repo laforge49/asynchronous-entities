@@ -153,6 +153,12 @@
         (catch Exception e
           (a/>! operation-return-port [this-map e nil]))))))
 
+(defn typeOfFunction
+  [env this-map params]
+    [this-map [(get-in this-map ["DESCRIPTORS" "SYS+descriptorDATA_TYPE"])
+               (get-in this-map ["DESCRIPTORS" "SYS+descriptorKEY_ENTITY"])
+               (get-in this-map ["DESCRIPTORS" "SYS+descriptorVALUE_ENTITY"])]])
+
 (defn create-entity-operations
   [env]
   (k/register-function env {:operationid "INSTANTIATEoperationid"
@@ -164,4 +170,6 @@
                             :function    addClassifierFunction})
   (k/register-function env {:operationid "ENTITY_REPORToperationid"
                             :goblock     entity-report-goblock})
+  (k/register-function env {:operationid "operationidTYPE_OF"
+                            :function     typeOfFunction})
   )
