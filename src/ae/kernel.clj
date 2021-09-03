@@ -375,7 +375,7 @@
       "SYS"
       entity-context-base-name)))
 
-(defn bind-context
+(defn validate-context
   [local-context context-map typ-entity edn env]
   (let [[type subtype]
         (if (nil? typ-entity)
@@ -389,29 +389,55 @@
                  "target_name"      typ-entity
                  "edn"              edn}]
             (routeFunction env context-map params)))]
-        (cond
-          (string? edn)
-          (if (s/starts-with? edn "+")
-            (str local-context edn)
-            edn)
+    (cond
+      (string? edn)
+      (if (s/starts-with? edn "+")
+        (str local-context edn)
+        edn)
 
-          (vector? edn)
-          (reduce
-            (fn [v item]
-              (conj v (bind-context local-context context-map nil item env)))
-            []
-            edn)
+      (vector? edn)
+      (reduce
+        (fn [v item]
+          (conj v (validate-context local-context context-map nil item env)))
+        []
+        edn)
 
-          (map? edn)
-          (reduce
-            (fn [m [k v]]
-              (assoc m (bind-context local-context context-map nil k env)
-                       (bind-context local-context context-map nil v env)))
-            (sorted-map)
-            edn)
+      (map? edn)
+      (reduce
+        (fn [m [k v]]
+          (assoc m (validate-context local-context context-map nil k env)
+                   (validate-context local-context context-map nil v env)))
+        (sorted-map)
+        edn)
 
-          true
-          edn)))
+      true
+      edn)))
+
+(defn bind-context
+  [local-context context-map edn env]
+  (cond
+      (string? edn)
+      (if (s/starts-with? edn "+")
+        (str local-context edn)
+        edn)
+
+      (vector? edn)
+      (reduce
+        (fn [v item]
+          (conj v (bind-context local-context context-map item env)))
+        []
+        edn)
+
+      (map? edn)
+      (reduce
+        (fn [m [k v]]
+          (assoc m (bind-context local-context context-map k env)
+                   (bind-context local-context context-map v env)))
+        (sorted-map)
+        edn)
+
+      true
+      edn))
 
 (defn async-script
   [yaml-script context-map env]
@@ -424,7 +450,7 @@
         (let [edn-script
               (yaml/parse-raw yaml-script)
               edn-script
-              (bind-context local-context context-map "SYS+SCRIPTlist" edn-script env)
+              (bind-context local-context context-map edn-script env)
               return-port0
               (a/chan)
               context-request-port
