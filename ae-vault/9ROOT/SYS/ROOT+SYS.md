@@ -12,9 +12,9 @@ DESCRIPTORS:
     SYS+LOAD_SCRIPTrequestid:
     - LOAD_SCRIPToperationid
 ---
-# Entity SYS
+# Entity ROOT+SYS
 
-1. Registered Entities of context SYS
+1. Registered Entities of context ROOT+SYS
 (Default context is SYS.)
 
 +ACQUIRErequestid
@@ -50,15 +50,15 @@ DESCRIPTORS:
 +REQUESTIDinstantiator
 +ROUTErequestid
 +RUN_FEDERATIONrequestid
++TEST
 +instantiatorDATA_TYPE
 +listSCRIPT
 +mapREQUEST
 +stringPARAMATER_NAME
-TEST
 
 Number of entities: 38
 
-2. Classifier Values of context SYS
+2. Classifier Values of context ROOT+SYS
 (Default context is SYS.)
 
 classifier:    +ENTITY_TYPEclassifier
@@ -74,7 +74,7 @@ classifier:    +ENTITY_TYPEclassifier
      value:        +CLASSIFIERclassifier_value
     entity:            +ENTITY_TYPEclassifier
      value:        +CONTEXTclassifier_value
-    entity:            TEST
+    entity:            +TEST
      value:        +DESCRIPTORclassifier_value
     entity:            +INSTANTIATION_CLASSIFIERSdescriptor
     entity:            +INSTANTIATION_DESCRIPTORSdescriptor

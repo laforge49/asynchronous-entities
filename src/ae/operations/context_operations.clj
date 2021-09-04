@@ -120,7 +120,7 @@
                 (a/>! target-entity-request-port [env
                                                   (assoc params "requestid" target-requestid)]))
               (let [target-context-entity-kw
-                    (keyword target-context-base-name)
+                    (keyword "SYS" target-context-base-name)
                     entity-public-request-ports
                     (get this-map "ENTITY-PUBLIC-REQUEST-PORTS")
                     target-entity-request-port
@@ -223,8 +223,10 @@
       (try
         (let [this-name
               (get this-map "NAME")
+              [_ _ base-name]
+              (kw/name-as-keyword this-name)
               file-name
-              (str "ae-vault/9ROOT/" this-name "/" this-name ".md")
+              (str "ae-vault/9ROOT/" base-name "/" this-name ".md")
               heading
               (str "# Entity " this-name "\n\n")
               content

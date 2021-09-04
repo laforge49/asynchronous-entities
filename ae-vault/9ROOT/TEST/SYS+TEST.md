@@ -15,13 +15,13 @@ DESCRIPTORS:
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+CONTEXTclassifier_value
 ---
-# Entity TEST
+# Entity SYS+TEST
 
 this is a test same line 
 different line
 
 ---
-1. Registered Entities of context TEST
+1. Registered Entities of context SYS+TEST
 (Default context is TEST.)
 
 +ALPHAsimple
@@ -37,7 +37,7 @@ different line
 
 Number of entities: 10
 
-2. Classifier Values of context TEST
+2. Classifier Values of context SYS+TEST
 (Default context is TEST.)
 
 classifier:    +APPLICATIONclassifier

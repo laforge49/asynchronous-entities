@@ -372,8 +372,10 @@
           [nil nil nil]
           (kw/name-as-keyword entity-name))]
     (if (s/blank? entity-name)
-      "SYS"
-      entity-context-base-name)))
+      "ROOT+SYS"
+      (if (= entity-context-base-name "SYS")
+        "ROOT+SYS"
+        (str "SYS+" entity-context-base-name)))))
 
 (defn validate-edn
   [path context-map type-entity edn env]
@@ -449,8 +451,10 @@
 
 (defn async-script
   [script-path yaml-script context-map env]
-  (let [local-context
+  (let [full-local-context
         (get context-map "NAME")
+        [_ _ local-context]
+        (kw/name-as-keyword full-local-context)
         out
         (a/chan)]
     (a/go

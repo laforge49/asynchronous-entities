@@ -1,5 +1,5 @@
 - target_requestid: +REGISTER_ENTITYrequestid
-  target_name: SYS
+  target_name: ROOT+SYS
   name: +INSTANTIATORinstantiator
   descriptors:
     +INVARIANTdescriptor: true
@@ -226,12 +226,12 @@
     +descriptorDATA_TYPE: string
 - target_requestid: +INSTANTIATErequestid
   target_name: +CONTEXTinstantiator
-  name: TEST
+  name: +TEST
   content:
     "this is a test
     same line
     \ndifferent line"
 - target_requestid: +LOAD_SCRIPTrequestid
-  target_name: TEST
+  target_name: +TEST
 - target_requestid: +ENTITY_REPORTrequestid
-  target_name: SYS
+  target_name: ROOT+SYS

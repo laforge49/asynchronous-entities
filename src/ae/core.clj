@@ -23,7 +23,7 @@
           _ (create-operations env)
           [context-request-port context-map]
           (k/create-entity env
-                                  {"name"        "SYS"
+                                  {"name"        "ROOT+SYS"
                                    "descriptors" {"SYS+REQUESTID_MAP" {"SYS+REGISTER_ENTITYrequestid"     ["REGISTER_ENTITYoperationid"]
                                                                        "SYS+ROUTErequestid"               ["ROUTEoperationid"]
                                                                        "SYS+REGISTER_CLASSIFIERrequestid" ["REGISTER_CLASSIFIERoperationid"]
@@ -32,7 +32,7 @@
           env
           (assoc env "CONTEXT-REQUEST-PORT" context-request-port)
           script-path
-          "scripts/SYS.yml"
+          "scripts/ROOT+SYS.yml"
           yaml-script
           (slurp script-path)
           [e]

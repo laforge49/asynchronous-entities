@@ -133,8 +133,8 @@
               (k/entityContextName this-name)
               file-name
               (if (= context-base-name "SYS")
-                (str "ae-vault/9ROOT/SYS/" this-name ".md")
-                (str "ae-vault/9ROOT/" context-base-name "/" this-name ".md"))
+                (str "ae-vault/9ROOT/SYS/" base-name ".md")
+                (str "ae-vault/9ROOT/" context-base-name "/" base-name ".md"))
               heading
               (str "# Entity " this-name "\n\n")
               content
