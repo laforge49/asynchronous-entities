@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "6blog/21/21-3 Summer/21-35/8008-operationidVectors.md",
-            "mode": "preview"
+            "file": "6blog/21/21-3 Summer/21-35/21-35-6 Saturday (week 35), 9-4-2021.md",
+            "mode": "source"
           }
         }
       }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6blog/21/21-3 Summer/21-35/8008-operationidVectors.md",
+                "file": "6blog/21/21-3 Summer/21-35/21-35-6 Saturday (week 35), 9-4-2021.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "6blog/21/21-3 Summer/21-35/8008-operationidVectors.md",
+                "file": "6blog/21/21-3 Summer/21-35/21-35-6 Saturday (week 35), 9-4-2021.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,15 +135,15 @@
   },
   "active": "c902587de11a02ea",
   "lastOpenFiles": [
-    "6blog/21/21-3 Summer/21-35/8008-operationidVectors.md",
+    "6blog/21/21-3 Summer/21-35/21-35-6 Saturday (week 35), 9-4-2021.md",
     "6blog/21/21-3 Summer/21-35/21-35-4 Thursday (week 35), 9-2-2021.md",
-    "6blog/21/21-3 Summer/21-34/21-34-2 Tuesday (week 34), 8-24-2021.md",
-    "6blog/21/21-3 Summer/21-34/21-34-4 Thursday (week 34), 8-26-2021.md",
-    "6blog/21/21-3 Summer/21-34/21-34-5 Friday (week 34), 8-27-2021.md",
-    "6blog/21/21-3 Summer/21-34/8016-shortenContextNames.md",
-    "8activities/8000-pendingActivities.md",
-    "6blog/21/21-3 Summer/21-35/21-35-3 Wednesday (weei 35), 9-1-2021.md",
     "6blog/21/21-3 Summer/21-35/Untitled.md",
-    "8activities/8008-operationidVectors.md"
+    "8activities/8004-validation.md",
+    "8activities/8000-pendingActivities.md",
+    "8activities/8017-dataTypeExtensions.md",
+    "8activities/8012-changeDescriptors.md",
+    "8activities/Untitled.md",
+    "6blog/21/21-3 Summer/21-35/8008-operationidVectors.md",
+    "6blog/21/21-3 Summer/21-34/21-34-2 Tuesday (week 34), 8-24-2021.md"
   ]
 }
