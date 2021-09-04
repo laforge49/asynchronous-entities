@@ -7,10 +7,9 @@ DESCRIPTORS:
     - ENTITY_REPORToperationid
     SYS+requestidTYPE_OF:
     - operationidTYPE_OF
-  SYS+descriptorDATA_TYPE: vector
-  SYS+descriptorVALUE_ENTITY: SYS+mapREQUEST
+  SYS+descriptorDATA_TYPE: string
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+classifier_valueDATA_TYPE
 ---
-# Entity SYS+listSCRIPT
+# Entity SYS+stringPARAMATER_NAME
 

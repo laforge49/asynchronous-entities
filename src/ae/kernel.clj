@@ -470,7 +470,7 @@
                   (assoc request-params "return_port" return-port0)]
               (a/>! context-request-port [env request-params])
               (request-exception-check (a/<! return-port0))))
-          (validate-edn script-path context-map "SYS+listSCRIPT" edn-script env)
+          ;(validate-edn script-path context-map "SYS+listSCRIPT" edn-script env)
           )
         (a/>! out [nil])
         (catch Exception e
