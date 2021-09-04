@@ -226,7 +226,7 @@
               [_ _ base-name]
               (kw/name-as-keyword this-name)
               file-name
-              (str "ae-vault/9ROOT/" base-name "/" this-name ".md")
+              (str "ae-vault/9ROOT/CONTEXTS/" this-name ".md")
               heading
               (str "# Entity " this-name "\n\n")
               content
