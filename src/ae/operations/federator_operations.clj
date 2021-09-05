@@ -124,7 +124,7 @@
               env
               (assoc env :NEW-CLASSIFIERS-VOLATILE (volatile! []))
               script
-              (get descriptors "SYS+SCRIPTdescriptor")
+              (get descriptors "SYS+descriptorSCRIPT$yaml")
               _ (doseq [script-item script]
                   (k/routeFunction env this-map script-item))
               federation-vmap

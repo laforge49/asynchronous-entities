@@ -3,7 +3,7 @@ DESCRIPTORS:
   SYS+FEDERATION_NAMESdescriptor:
   - TEST+ALPHAsimple
   SYS+INSTANTIATORdescriptor: SYS+FEDERATORinstantiator
-  SYS+SCRIPTdescriptor:
+  SYS+descriptorSCRIPT$yaml:
   - name: TEST+GAMMAsimple
     target_name: TEST+SIMPLEinstantiator
     target_requestid: SYS+INSTANTIATErequestid

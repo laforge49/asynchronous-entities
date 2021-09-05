@@ -43,7 +43,7 @@
   descriptors:
     SYS+FEDERATION_NAMESdescriptor:
       - +ALPHAsimple
-    SYS+SCRIPTdescriptor:
+    SYS+descriptorSCRIPT$yaml:
       - target_requestid: SYS+INSTANTIATErequestid
         target_name: +SIMPLEinstantiator
         name: +GAMMAsimple
