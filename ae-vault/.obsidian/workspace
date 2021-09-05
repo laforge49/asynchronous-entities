@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "6blog/21/21-3 Summer/21-35/21-35-6 Saturday (week 35), 9-4-2021.md",
-            "mode": "source"
+            "file": "8activities/8017-dataTypeExtensions.md",
+            "mode": "preview"
           }
         }
       }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6blog/21/21-3 Summer/21-35/21-35-6 Saturday (week 35), 9-4-2021.md",
+                "file": "8activities/8017-dataTypeExtensions.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "6blog/21/21-3 Summer/21-35/21-35-6 Saturday (week 35), 9-4-2021.md",
+                "file": "8activities/8017-dataTypeExtensions.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,12 +135,12 @@
   },
   "active": "c902587de11a02ea",
   "lastOpenFiles": [
+    "8activities/8017-dataTypeExtensions.md",
     "6blog/21/21-3 Summer/21-35/21-35-6 Saturday (week 35), 9-4-2021.md",
     "6blog/21/21-3 Summer/21-35/21-35-4 Thursday (week 35), 9-2-2021.md",
     "6blog/21/21-3 Summer/21-35/Untitled.md",
     "8activities/8004-validation.md",
     "8activities/8000-pendingActivities.md",
-    "8activities/8017-dataTypeExtensions.md",
     "8activities/8012-changeDescriptors.md",
     "8activities/Untitled.md",
     "6blog/21/21-3 Summer/21-35/8008-operationidVectors.md",
