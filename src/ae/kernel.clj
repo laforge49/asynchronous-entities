@@ -112,7 +112,7 @@
         this-descriptors
         (thisDescriptors target-map params)
         this-requestid-map
-        (get this-descriptors "SYS+REQUESTID_MAP")
+        (get this-descriptors "SYS+descriptor_mapREQUESTID$operationid")
         _ (if (nil? this-requestid-map)
             (throw (Exception. (str "Requestid map is nil\n"
                                     (prn-str params)
@@ -132,7 +132,7 @@
         (throw (Exception. (str "Operationid is nil\n"
                                 (prn-str params)
                                 (prn-str target-map)))))
-      (if (= (get-in target-map ["DESCRIPTORS" "SYS+INVARIANTdescriptor"]) true)
+      (if (= (get-in target-map ["DESCRIPTORS" "SYS+descriptorINVARIANT$bool"]) true)
         (let [request-descriptors
               (get-invariant-descriptors requestid)
               read-only
@@ -266,7 +266,7 @@
                              (throw (Exception. (str "Inappropriate async request on federated entity.\n"
                                                      (prn-str params)
                                                      (prn-str target-map)))))
-                           (if (get this-descriptors "SYS+INVARIANTdescriptor")
+                           (if (get this-descriptors "SYS+descriptorINVARIANT$bool")
                              [target-map [target-map nil]]
                              (let [new-request-port
                                    (get params "new-request-port")
@@ -344,7 +344,7 @@
         content
         (get params "content" "")
         invariant
-        (get descriptors "SYS+INVARIANTdescriptor")
+        (get descriptors "SYS+descriptorINVARIANT$bool")
         initialization-port
         (get params "initialization-port")
         request-port-stack
@@ -360,7 +360,7 @@
          "CONTENT"            content
          "REQUEST-PORT-STACK" request-port-stack}
         ]
-    (if (= (get descriptors "SYS+INVARIANTdescriptor") true)
+    (if (= (get descriptors "SYS+descriptorINVARIANT$bool") true)
       (add-invariant-map name new-entity-map))
     (create-operation-dispatcher new-entity-map)
     [new-public-request-port new-entity-map]))

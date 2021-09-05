@@ -2,15 +2,15 @@
   target_name: ROOT+SYS
   name: +INSTANTIATORinstantiator
   descriptors:
-    +INVARIANTdescriptor: true
-    +REQUESTID_MAP:
+    +descriptorINVARIANT$bool: true
+    +descriptor_mapREQUESTID$operationid:
       +INSTANTIATErequestid:
         - INSTANTIATEoperationid
       +ENTITY_REPORTrequestid:
         - ENTITY_REPORToperationid
     +INSTANTIATION_DESCRIPTORSdescriptor:
-      +INVARIANTdescriptor: true
-      +REQUESTID_MAP:
+      +descriptorINVARIANT$bool: true
+      +descriptor_mapREQUESTID$operationid:
         +INSTANTIATErequestid:
           - INSTANTIATEoperationid
         +ENTITY_REPORTrequestid:
@@ -24,8 +24,8 @@
   name: +REQUESTIDinstantiator
   descriptors:
     +INSTANTIATION_DESCRIPTORSdescriptor:
-      +INVARIANTdescriptor: true
-      +REQUESTID_MAP:
+      +descriptorINVARIANT$bool: true
+      +descriptor_mapREQUESTID$operationid:
         +ENTITY_REPORTrequestid:
           - ENTITY_REPORToperationid
     +INSTANTIATION_CLASSIFIERSdescriptor:
@@ -69,8 +69,8 @@
   name: +DESCRIPTORinstantiator
   descriptors:
     +INSTANTIATION_DESCRIPTORSdescriptor:
-      +INVARIANTdescriptor: true
-      +REQUESTID_MAP:
+      +descriptorINVARIANT$bool: true
+      +descriptor_mapREQUESTID$operationid:
         +ENTITY_REPORTrequestid:
           - ENTITY_REPORToperationid
     +INSTANTIATION_CLASSIFIERSdescriptor:
@@ -80,10 +80,10 @@
   name: +READ_ONLYdescriptor
 - target_requestid: +INSTANTIATErequestid
   target_name: +DESCRIPTORinstantiator
-  name: +REQUESTID_MAP
+  name: +descriptor_mapREQUESTID$operationid
 - target_requestid: +INSTANTIATErequestid
   target_name: +DESCRIPTORinstantiator
-  name: +INVARIANTdescriptor
+  name: +descriptorINVARIANT$bool
 - target_requestid: +INSTANTIATErequestid
   target_name: +DESCRIPTORinstantiator
   name: +INSTANTIATION_DESCRIPTORSdescriptor
@@ -95,8 +95,8 @@
   name: +CLASSIFIERinstantiator
   descriptors:
     +INSTANTIATION_DESCRIPTORSdescriptor:
-      +INVARIANTdescriptor: true
-      +REQUESTID_MAP:
+      +descriptorINVARIANT$bool: true
+      +descriptor_mapREQUESTID$operationid:
         +ENTITY_REPORTrequestid:
           - ENTITY_REPORToperationid
     +INSTANTIATION_CLASSIFIERSdescriptor:
@@ -106,8 +106,8 @@
   name: +RELATIONinstantiator
   descriptors:
     +INSTANTIATION_DESCRIPTORSdescriptor:
-      +INVARIANTdescriptor: true
-      +REQUESTID_MAP:
+      +descriptorINVARIANT$bool: true
+      +descriptor_mapREQUESTID$operationid:
         +ENTITY_REPORTrequestid:
           - ENTITY_REPORToperationid
     +INSTANTIATION_CLASSIFIERSdescriptor:
@@ -120,8 +120,8 @@
   name: +CLASSIFIER_VALUEinstantiator
   descriptors:
     +INSTANTIATION_DESCRIPTORSdescriptor:
-      +INVARIANTdescriptor: true
-      +REQUESTID_MAP:
+      +descriptorINVARIANT$bool: true
+      +descriptor_mapREQUESTID$operationid:
         +ENTITY_REPORTrequestid:
           - ENTITY_REPORToperationid
     +INSTANTIATION_CLASSIFIERSdescriptor:
@@ -155,7 +155,7 @@
   name: +CONTEXTinstantiator
   descriptors:
     +INSTANTIATION_DESCRIPTORSdescriptor:
-      +REQUESTID_MAP:
+      +descriptor_mapREQUESTID$operationid:
         +REGISTER_ENTITYrequestid:
           - REGISTER_ENTITYoperationid
         +ROUTErequestid:
@@ -173,7 +173,7 @@
   name: +FEDERATORinstantiator
   descriptors:
     +INSTANTIATION_DESCRIPTORSdescriptor:
-      +REQUESTID_MAP:
+      +descriptor_mapREQUESTID$operationid:
         +RUN_FEDERATIONrequestid:
           - RUN_FEDERATIONoperationid
         +ENTITY_REPORTrequestid:
@@ -185,7 +185,7 @@
   name: +FEDERATION_CONTEXTinstantiator
   descriptors:
     +INSTANTIATION_DESCRIPTORSdescriptor:
-      +REQUESTID_MAP:
+      +descriptor_mapREQUESTID$operationid:
         +ACQUIRErequestid:
           - FEDERATION_ACQUIREoperationid
         +RELEASErequestid:
@@ -197,8 +197,8 @@
   name: +instantiatorDATA_TYPE
   descriptors:
     +INSTANTIATION_DESCRIPTORSdescriptor:
-      +INVARIANTdescriptor: true
-      +REQUESTID_MAP:
+      +descriptorINVARIANT$bool: true
+      +descriptor_mapREQUESTID$operationid:
         +ENTITY_REPORTrequestid:
           - ENTITY_REPORToperationid
         +requestidTYPE_OF:

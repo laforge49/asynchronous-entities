@@ -3,7 +3,7 @@ DESCRIPTORS:
   SYS+INSTANTIATION_CLASSIFIERSdescriptor:
     SYS+ENTITY_TYPEclassifier: TEST+SIMPLEclassifier_value
   SYS+INSTANTIATION_DESCRIPTORSdescriptor:
-    SYS+REQUESTID_MAP:
+    SYS+descriptor_mapREQUESTID$operationid:
       SYS+ADD_CLASSIFIERrequestid:
       - ADD_CLASSIFIERoperationid
       SYS+ADD_DESCRIPTORrequestid:
@@ -11,8 +11,8 @@ DESCRIPTORS:
       SYS+ENTITY_REPORTrequestid:
       - ENTITY_REPORToperationid
   SYS+INSTANTIATORdescriptor: SYS+INSTANTIATORinstantiator
-  SYS+INVARIANTdescriptor: true
-  SYS+REQUESTID_MAP:
+  SYS+descriptorINVARIANT$bool: true
+  SYS+descriptor_mapREQUESTID$operationid:
     SYS+ENTITY_REPORTrequestid:
     - ENTITY_REPORToperationid
     SYS+INSTANTIATErequestid:

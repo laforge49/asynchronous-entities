@@ -93,7 +93,7 @@
             (throw (Exception. (str "ADD DESCRIPTOR encountered a pre-existing value: " old-descriptor-value))))
         this-map
         (assoc-in this-map ["DESCRIPTORS" descriptor] descriptor-value)]
-    (if (= descriptor "SYS+INVARIANTdescriptor")
+    (if (= descriptor "SYS+descriptorINVARIANT$bool")
       (if (= descriptor-value true)
         (k/add-invariant-map name this-map)))
     [this-map this-map]))

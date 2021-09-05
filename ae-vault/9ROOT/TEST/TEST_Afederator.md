@@ -3,11 +3,6 @@ DESCRIPTORS:
   SYS+FEDERATION_NAMESdescriptor:
   - TEST+ALPHAsimple
   SYS+INSTANTIATORdescriptor: SYS+FEDERATORinstantiator
-  SYS+REQUESTID_MAP:
-    SYS+ENTITY_REPORTrequestid:
-    - ENTITY_REPORToperationid
-    SYS+RUN_FEDERATIONrequestid:
-    - RUN_FEDERATIONoperationid
   SYS+SCRIPTdescriptor:
   - name: TEST+GAMMAsimple
     target_name: TEST+SIMPLEinstantiator
@@ -32,6 +27,11 @@ DESCRIPTORS:
     classifier-value: TEST+FIDDLINGclassifier_value
     target_name: TEST+GAMMAsimple
     target_requestid: SYS+ADD_CLASSIFIERrequestid
+  SYS+descriptor_mapREQUESTID$operationid:
+    SYS+ENTITY_REPORTrequestid:
+    - ENTITY_REPORToperationid
+    SYS+RUN_FEDERATIONrequestid:
+    - RUN_FEDERATIONoperationid
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+FEDERATORclassifier_value
 ---

@@ -1,8 +1,8 @@
 ---
 DESCRIPTORS:
   SYS+INSTANTIATORdescriptor: SYS+CLASSIFIER_VALUEinstantiator
-  SYS+INVARIANTdescriptor: true
-  SYS+REQUESTID_MAP:
+  SYS+descriptorINVARIANT$bool: true
+  SYS+descriptor_mapREQUESTID$operationid:
     SYS+ENTITY_REPORTrequestid:
     - ENTITY_REPORToperationid
 tags:

@@ -1,6 +1,6 @@
 ---
 DESCRIPTORS:
-  SYS+REQUESTID_MAP:
+  SYS+descriptor_mapREQUESTID$operationid:
     SYS+REGISTER_ENTITYrequestid:
     - REGISTER_ENTITYoperationid
     SYS+ROUTErequestid:
@@ -39,18 +39,18 @@ DESCRIPTORS:
 +INSTANTIATION_DESCRIPTORSdescriptor
 +INSTANTIATORclassifier_value
 +INSTANTIATORinstantiator
-+INVARIANTdescriptor
 +READ_ONLYdescriptor
 +REGISTER_CLASSIFIERrequestid
 +REGISTER_ENTITYrequestid
 +RELATIONinstantiator
 +RELEASErequestid
-+REQUESTID_MAP
 +REQUESTIDclassifier_value
 +REQUESTIDinstantiator
 +ROUTErequestid
 +RUN_FEDERATIONrequestid
 +TEST
++descriptorINVARIANT$bool
++descriptor_mapREQUESTID$operationid
 +instantiatorDATA_TYPE
 +listSCRIPT
 +mapREQUEST
@@ -78,9 +78,9 @@ classifier:    +ENTITY_TYPEclassifier
      value:        +DESCRIPTORclassifier_value
     entity:            +INSTANTIATION_CLASSIFIERSdescriptor
     entity:            +INSTANTIATION_DESCRIPTORSdescriptor
-    entity:            +INVARIANTdescriptor
     entity:            +READ_ONLYdescriptor
-    entity:            +REQUESTID_MAP
+    entity:            +descriptorINVARIANT$bool
+    entity:            +descriptor_mapREQUESTID$operationid
      value:        +INSTANTIATORclassifier_value
     entity:            +CLASSIFIER_VALUEinstantiator
     entity:            +CLASSIFIERinstantiator

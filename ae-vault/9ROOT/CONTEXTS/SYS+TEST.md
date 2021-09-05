@@ -1,7 +1,7 @@
 ---
 DESCRIPTORS:
   SYS+INSTANTIATORdescriptor: SYS+CONTEXTinstantiator
-  SYS+REQUESTID_MAP:
+  SYS+descriptor_mapREQUESTID$operationid:
     SYS+ENTITY_REPORTrequestid:
     - CONTEXT_REPORToperationid
     SYS+LOAD_SCRIPTrequestid:

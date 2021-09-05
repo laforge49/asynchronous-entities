@@ -3,7 +3,7 @@
   name: +SIMPLEinstantiator
   descriptors:
     SYS+INSTANTIATION_DESCRIPTORSdescriptor:
-      SYS+REQUESTID_MAP:
+      SYS+descriptor_mapREQUESTID$operationid:
         SYS+ADD_DESCRIPTORrequestid:
           - ADD_DESCRIPTORoperationid
         SYS+ADD_CLASSIFIERrequestid:

@@ -24,7 +24,7 @@
           [context-request-port context-map]
           (k/create-entity env
                                   {"name"        "ROOT+SYS"
-                                   "descriptors" {"SYS+REQUESTID_MAP" {"SYS+REGISTER_ENTITYrequestid"     ["REGISTER_ENTITYoperationid"]
+                                   "descriptors" {"SYS+descriptor_mapREQUESTID$operationid" {"SYS+REGISTER_ENTITYrequestid"     ["REGISTER_ENTITYoperationid"]
                                                                        "SYS+ROUTErequestid"               ["ROUTEoperationid"]
                                                                        "SYS+REGISTER_CLASSIFIERrequestid" ["REGISTER_CLASSIFIERoperationid"]
                                                                        "SYS+ENTITY_REPORTrequestid"       ["CONTEXT_REPORToperationid"]

@@ -1,9 +1,9 @@
 ---
 DESCRIPTORS:
   SYS+INSTANTIATORdescriptor: SYS+REQUESTIDinstantiator
-  SYS+INVARIANTdescriptor: true
   SYS+READ_ONLYdescriptor: true
-  SYS+REQUESTID_MAP:
+  SYS+descriptorINVARIANT$bool: true
+  SYS+descriptor_mapREQUESTID$operationid:
     SYS+ENTITY_REPORTrequestid:
     - ENTITY_REPORToperationid
 tags:

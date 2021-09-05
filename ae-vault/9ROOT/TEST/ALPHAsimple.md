@@ -1,7 +1,7 @@
 ---
 DESCRIPTORS:
   SYS+INSTANTIATORdescriptor: TEST+SIMPLEinstantiator
-  SYS+REQUESTID_MAP:
+  SYS+descriptor_mapREQUESTID$operationid:
     SYS+ADD_CLASSIFIERrequestid:
     - ADD_CLASSIFIERoperationid
     SYS+ADD_DESCRIPTORrequestid:

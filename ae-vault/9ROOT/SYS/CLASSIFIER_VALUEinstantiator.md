@@ -3,13 +3,13 @@ DESCRIPTORS:
   SYS+INSTANTIATION_CLASSIFIERSdescriptor:
     SYS+ENTITY_TYPEclassifier: SYS+CLASSIFIER_VALUEclassifier_value
   SYS+INSTANTIATION_DESCRIPTORSdescriptor:
-    SYS+INVARIANTdescriptor: true
-    SYS+REQUESTID_MAP:
+    SYS+descriptorINVARIANT$bool: true
+    SYS+descriptor_mapREQUESTID$operationid:
       SYS+ENTITY_REPORTrequestid:
       - ENTITY_REPORToperationid
   SYS+INSTANTIATORdescriptor: SYS+INSTANTIATORinstantiator
-  SYS+INVARIANTdescriptor: true
-  SYS+REQUESTID_MAP:
+  SYS+descriptorINVARIANT$bool: true
+  SYS+descriptor_mapREQUESTID$operationid:
     SYS+ENTITY_REPORTrequestid:
     - ENTITY_REPORToperationid
     SYS+INSTANTIATErequestid:
