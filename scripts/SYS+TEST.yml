@@ -18,7 +18,7 @@
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: +SIMPLEinstantiator
   name: +ALPHAsimple
-  content:
+  content$ml:
     "this is a test
     same line
     \ndifferent line"

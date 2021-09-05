@@ -138,7 +138,7 @@
               heading
               (str "# Entity " this-name "\n\n")
               content
-              (get this-map "CONTENT")
+              (get this-map "CONTENT$ml")
               content
               (if (= (count content) 0)
                 ""

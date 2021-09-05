@@ -342,7 +342,7 @@
         classifiers
         (get params "classifiers" {})
         content
-        (get params "content" "")
+        (get params "content$ml" "")
         invariant
         (get descriptors "SYS+descriptorINVARIANT$bool")
         initialization-port
@@ -357,7 +357,7 @@
         {"NAME"               name
          "DESCRIPTORS"        descriptors
          "CLASSIFIERS"        classifiers
-         "CONTENT"            content
+         "CONTENT$ml"            content
          "REQUEST-PORT-STACK" request-port-stack}
         ]
     (if (= (get descriptors "SYS+descriptorINVARIANT$bool") true)
