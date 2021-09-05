@@ -39,7 +39,6 @@ DESCRIPTORS:
 +INSTANTIATION_DESCRIPTORSdescriptor
 +INSTANTIATORclassifier_value
 +INSTANTIATORinstantiator
-+READ_ONLYdescriptor
 +REGISTER_CLASSIFIERrequestid
 +REGISTER_ENTITYrequestid
 +RELATIONinstantiator
@@ -50,6 +49,7 @@ DESCRIPTORS:
 +RUN_FEDERATIONrequestid
 +TEST
 +descriptorINVARIANT$bool
++descriptorREAD_ONLY$bool
 +descriptor_mapREQUESTID$operationid
 +instantiatorDATA_TYPE
 +listSCRIPT
@@ -78,8 +78,8 @@ classifier:    +ENTITY_TYPEclassifier
      value:        +DESCRIPTORclassifier_value
     entity:            +INSTANTIATION_CLASSIFIERSdescriptor
     entity:            +INSTANTIATION_DESCRIPTORSdescriptor
-    entity:            +READ_ONLYdescriptor
     entity:            +descriptorINVARIANT$bool
+    entity:            +descriptorREAD_ONLY$bool
     entity:            +descriptor_mapREQUESTID$operationid
      value:        +INSTANTIATORclassifier_value
     entity:            +CLASSIFIER_VALUEinstantiator

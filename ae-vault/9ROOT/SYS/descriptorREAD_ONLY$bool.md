@@ -8,5 +8,5 @@ DESCRIPTORS:
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+DESCRIPTORclassifier_value
 ---
-# Entity SYS+READ_ONLYdescriptor
+# Entity SYS+descriptorREAD_ONLY$bool
 

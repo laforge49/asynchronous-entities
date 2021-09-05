@@ -43,7 +43,7 @@
   target_name: +REQUESTIDinstantiator
   name: +INSTANTIATErequestid
   descriptors:
-    +READ_ONLYdescriptor: true
+    +descriptorREAD_ONLY$bool: true
 - target_requestid: +INSTANTIATErequestid
   target_name: +REQUESTIDinstantiator
   name: +REGISTER_CLASSIFIERrequestid
@@ -63,7 +63,7 @@
   target_name: +REQUESTIDinstantiator
   name: +CONTEXT_REPORTrequestid
   descriptors:
-    +READ_ONLYdescriptor: true
+    +descriptorREAD_ONLY$bool: true
 - target_requestid: +INSTANTIATErequestid
   target_name: +INSTANTIATORinstantiator
   name: +DESCRIPTORinstantiator
@@ -77,7 +77,7 @@
       +ENTITY_TYPEclassifier: +DESCRIPTORclassifier_value
 - target_requestid: +INSTANTIATErequestid
   target_name: +DESCRIPTORinstantiator
-  name: +READ_ONLYdescriptor
+  name: +descriptorREAD_ONLY$bool
 - target_requestid: +INSTANTIATErequestid
   target_name: +DESCRIPTORinstantiator
   name: +descriptor_mapREQUESTID$operationid

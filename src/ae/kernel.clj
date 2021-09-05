@@ -138,7 +138,7 @@
               read-only
               (if (nil? request-descriptors)
                 true
-                (get request-descriptors "SYS+READ_ONLYdescriptor"))]
+                (get request-descriptors "SYS+descriptorREAD_ONLY$bool"))]
           (if (not read-only)
             (throw (Exception. (str "Can not apply " requestid " to invariant " (get target-map "NAME")
                                     (prn-str params)
