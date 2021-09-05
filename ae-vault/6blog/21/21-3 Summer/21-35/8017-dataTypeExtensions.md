@@ -1,6 +1,6 @@
 ---
 tags:
-  - status/todo
+  - status/completed
 ---
 from [8000-pendingActivities](8000-pendingActivities.md)
 # 8017 Data Type Extensions
@@ -17,3 +17,5 @@ REQUESTID_MAP | descriptor_mapREQUESTID$operationid
 READ_ONLYdescriptor | descriptorREAD_ONLY$bool
 content | content$ml
 SCRIPTdescriptor | descriptorSCRIPT$yaml
+
+completed: [21-35-7 Sunday (week 35), 9-5-2021](21-35-7%20Sunday%20(week%2035),%209-5-2021.md)
