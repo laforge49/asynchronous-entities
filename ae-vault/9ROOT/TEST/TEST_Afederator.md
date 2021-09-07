@@ -4,29 +4,29 @@ DESCRIPTORS:
   - TEST+ALPHAsimple
   SYS+INSTANTIATORdescriptor: SYS+FEDERATORinstantiator
   SYS+descriptorSCRIPT$yaml:
-  - name: TEST+GAMMAsimple
-    target_name: TEST+SIMPLEinstantiator
-    target_requestid: SYS+INSTANTIATErequestid
-  - descriptor: TEST+DEGREE_OF_POLISHdescriptor
+  - target_requestid: SYS+INSTANTIATErequestid
+    target_name: +SIMPLEinstantiator
+    name: +GAMMAsimple
+  - target_requestid: SYS+ADD_DESCRIPTORrequestid
+    target_name: +ALPHAsimple
+    descriptor: +DEGREE_OF_POLISHdescriptor
     descriptor-value: MIDDLING
-    target_name: TEST+ALPHAsimple
-    target_requestid: SYS+ADD_DESCRIPTORrequestid
-  - classifier: TEST+APPLICATIONclassifier
-    classifier-value: TEST+FIDDLINGclassifier_value
-    target_name: TEST+ALPHAsimple
-    target_requestid: SYS+ADD_CLASSIFIERrequestid
-  - descriptor: TEST+DEGREE_OF_POLISHdescriptor
+  - target_requestid: SYS+ADD_CLASSIFIERrequestid
+    target_name: +ALPHAsimple
+    classifier: +APPLICATIONclassifier
+    classifier-value: +FIDDLINGclassifier_value
+  - target_requestid: SYS+ADD_DESCRIPTORrequestid
+    target_name: +GAMMAsimple
+    descriptor: +DEGREE_OF_POLISHdescriptor
     descriptor-value: MIDDLING
-    target_name: TEST+GAMMAsimple
-    target_requestid: SYS+ADD_DESCRIPTORrequestid
-  - classifier: TEST+BASICrelation
-    classifier-value: TEST+ALPHAsimple
-    target_name: TEST+GAMMAsimple
-    target_requestid: SYS+ADD_CLASSIFIERrequestid
-  - classifier: TEST+APPLICATIONclassifier
-    classifier-value: TEST+FIDDLINGclassifier_value
-    target_name: TEST+GAMMAsimple
-    target_requestid: SYS+ADD_CLASSIFIERrequestid
+  - target_requestid: SYS+ADD_CLASSIFIERrequestid
+    target_name: +GAMMAsimple
+    classifier: +BASICrelation
+    classifier-value: +ALPHAsimple
+  - target_requestid: SYS+ADD_CLASSIFIERrequestid
+    target_name: +GAMMAsimple
+    classifier: +APPLICATIONclassifier
+    classifier-value: +FIDDLINGclassifier_value
   SYS+descriptor_mapREQUESTID$operationid:
     SYS+ENTITY_REPORTrequestid:
     - ENTITY_REPORToperationid

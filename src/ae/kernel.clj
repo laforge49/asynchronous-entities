@@ -424,25 +424,33 @@
                                 (prn-str context-map))))))))
 
 (defn bind-context
-  [local-context context-map edn env]
+  [local-context edn values-as-data env]
   (cond
       (string? edn)
-      (if (s/starts-with? edn "+")
-        (str local-context edn)
-        edn)
+      (if values-as-data
+        edn
+        (if (s/starts-with? edn "+")
+          (str local-context edn)
+          (if (some? (s/index-of edn "+"))
+            edn
+            (str local-context "+" edn))))
 
       (vector? edn)
       (reduce
         (fn [v item]
-          (conj v (bind-context local-context context-map item env)))
+          (conj v (if values-as-data
+                    item
+                    (bind-context local-context item values-as-data env))))
         []
         edn)
 
       (map? edn)
       (reduce
         (fn [m [k v]]
-          (assoc m (bind-context local-context context-map k env)
-                   (bind-context local-context context-map v env)))
+          (assoc m (bind-context local-context k false env)
+                   (bind-context local-context v
+                                 (or values-as-data (some? (s/index-of k "$")))
+                                 env)))
         (sorted-map)
         edn)
 
@@ -462,7 +470,17 @@
         (let [edn-script
               (yaml/parse-raw yaml-script)
               edn-script
-              (bind-context local-context context-map edn-script env)
+              (reduce
+                (fn [edn-script request]
+                  (conj edn-script
+                        (reduce
+                          (fn [request [k v]]
+                            (into request {k
+                                           (bind-context local-context v false env)}))
+                          {}
+                          request)))
+                []
+                edn-script)
               return-port0
               (a/chan)
               context-request-port

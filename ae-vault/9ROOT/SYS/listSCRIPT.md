@@ -1,7 +1,7 @@
 ---
 DESCRIPTORS:
   SYS+INSTANTIATORdescriptor: SYS+instantiatorDATA_TYPE
-  SYS+descriptorDATA_TYPE: vector
+  SYS+descriptorDATA_TYPE: SYS+vector
   SYS+descriptorINVARIANT$bool: true
   SYS+descriptorVALUE_ENTITY: SYS+mapREQUEST
   SYS+descriptor_mapREQUESTID$operationid:

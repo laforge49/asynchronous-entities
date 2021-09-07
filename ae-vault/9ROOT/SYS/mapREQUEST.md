@@ -1,7 +1,7 @@
 ---
 DESCRIPTORS:
   SYS+INSTANTIATORdescriptor: SYS+instantiatorDATA_TYPE
-  SYS+descriptorDATA_TYPE: map
+  SYS+descriptorDATA_TYPE: SYS+map
   SYS+descriptorINVARIANT$bool: true
   SYS+descriptorKEY_ENTITY: SYS+stringPARAMATER_NAME
   SYS+descriptorVALUE_ENTITY:

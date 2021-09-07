@@ -13,5 +13,6 @@
     "Backlinks",
     "todo"
   ],
-  "showUnsupportedFiles": true
+  "showUnsupportedFiles": true,
+  "attachmentFolderPath": "/"
 }

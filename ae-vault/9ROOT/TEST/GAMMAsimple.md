@@ -8,7 +8,7 @@ DESCRIPTORS:
     - ADD_DESCRIPTORoperationid
     SYS+ENTITY_REPORTrequestid:
     - ENTITY_REPORToperationid
-  TEST+DEGREE_OF_POLISHdescriptor: MIDDLING
+  TEST+DEGREE_OF_POLISHdescriptor: TEST+MIDDLING
 tags:
 - SYS+ENTITY_TYPEclassifier/TEST+SIMPLEclassifier_value
 - TEST+APPLICATIONclassifier/TEST+FIDDLINGclassifier_value

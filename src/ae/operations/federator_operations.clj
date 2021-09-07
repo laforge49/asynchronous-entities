@@ -125,8 +125,20 @@
               (assoc env :NEW-CLASSIFIERS-VOLATILE (volatile! []))
               script
               (get descriptors "SYS+descriptorSCRIPT$yaml")
-              _ (doseq [script-item script]
-                  (k/routeFunction env this-map script-item))
+              this-name
+              (get this-map "NAME")
+              [_ local-context _]
+              (kw/name-as-keyword this-name)
+              _ (doseq [request script]
+                  (let [
+                        request
+                        (reduce
+                          (fn [request [k v]]
+                            (into request {k
+                                           (k/bind-context local-context v false env)}))
+                          {}
+                          request)]
+                    (k/routeFunction env this-map request)))
               federation-vmap
               (get env "FEDERATION-MAP-VOLATILE")
               federation-map
