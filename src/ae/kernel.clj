@@ -476,7 +476,7 @@
                         (reduce
                           (fn [request [k v]]
                             (into request {k
-                                           (bind-context local-context v false env)}))
+                                           (bind-context local-context v (some? (s/index-of k "$")) env)}))
                           {}
                           request)))
                 []

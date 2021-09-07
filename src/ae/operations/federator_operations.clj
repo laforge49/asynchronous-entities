@@ -1,5 +1,6 @@
 (ns ae.operations.federator-operations
   (:require [clojure.core.async :as a]
+            [clojure.string :as s]
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
@@ -135,7 +136,7 @@
                         (reduce
                           (fn [request [k v]]
                             (into request {k
-                                           (k/bind-context local-context v false env)}))
+                                           (k/bind-context local-context v (some? (s/index-of k "$")) env)}))
                           {}
                           request)]
                     (k/routeFunction env this-map request)))
