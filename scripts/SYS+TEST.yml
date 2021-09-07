@@ -14,58 +14,58 @@
       SYS+ENTITY_TYPEclassifier: +SIMPLEclassifier_value
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+CLASSIFIER_VALUEinstantiator
-  name: +SIMPLEclassifier_value
+  name: SIMPLEclassifier_value
 - target_requestid: SYS+INSTANTIATErequestid
-  target_name: +SIMPLEinstantiator
-  name: +ALPHAsimple
+  target_name: SIMPLEinstantiator
+  name: ALPHAsimple
   content$ml:
     "this is a test
     same line
     \ndifferent line"
 - target_requestid: SYS+INSTANTIATErequestid
-  target_name: +SIMPLEinstantiator
-  name: +BETAsimple
+  target_name: SIMPLEinstantiator
+  name: BETAsimple
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+RELATIONinstantiator
-  name: +BASICrelation
+  name: BASICrelation
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+DESCRIPTORinstantiator
-  name: +DEGREE_OF_POLISHdescriptor
+  name: DEGREE_OF_POLISHdescriptor
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+CLASSIFIERinstantiator
-  name: +APPLICATIONclassifier
+  name: APPLICATIONclassifier
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+CLASSIFIER_VALUEinstantiator
-  name: +FIDDLINGclassifier_value
+  name: FIDDLINGclassifier_value
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+FEDERATORinstantiator
-  name: +TEST_Afederator
+  name: TEST_Afederator
   descriptors:
     SYS+FEDERATION_NAMESdescriptor:
-      - +ALPHAsimple
+      - ALPHAsimple
     SYS+descriptorSCRIPT$yaml:
       - target_requestid: SYS+INSTANTIATErequestid
-        target_name: +SIMPLEinstantiator
-        name: +GAMMAsimple
+        target_name: SIMPLEinstantiator
+        name: GAMMAsimple
       - target_requestid: SYS+ADD_DESCRIPTORrequestid
-        target_name: +ALPHAsimple
-        descriptor: +DEGREE_OF_POLISHdescriptor
+        target_name: ALPHAsimple
+        descriptor: DEGREE_OF_POLISHdescriptor
         descriptor-value: MIDDLING
       - target_requestid: SYS+ADD_CLASSIFIERrequestid
-        target_name: +ALPHAsimple
-        classifier: +APPLICATIONclassifier
-        classifier-value: +FIDDLINGclassifier_value
+        target_name: ALPHAsimple
+        classifier: APPLICATIONclassifier
+        classifier-value: FIDDLINGclassifier_value
       - target_requestid: SYS+ADD_DESCRIPTORrequestid
-        target_name: +GAMMAsimple
-        descriptor: +DEGREE_OF_POLISHdescriptor
+        target_name: GAMMAsimple
+        descriptor: DEGREE_OF_POLISHdescriptor
         descriptor-value: MIDDLING
       - target_requestid: SYS+ADD_CLASSIFIERrequestid
-        target_name: +GAMMAsimple
-        classifier: +BASICrelation
-        classifier-value: +ALPHAsimple
+        target_name: GAMMAsimple
+        classifier: BASICrelation
+        classifier-value: ALPHAsimple
       - target_requestid: SYS+ADD_CLASSIFIERrequestid
-        target_name: +GAMMAsimple
-        classifier: +APPLICATIONclassifier
-        classifier-value: +FIDDLINGclassifier_value
+        target_name: GAMMAsimple
+        classifier: APPLICATIONclassifier
+        classifier-value: FIDDLINGclassifier_value
 - target_requestid: SYS+RUN_FEDERATIONrequestid
-  target_name: +TEST_Afederator
+  target_name: TEST_Afederator

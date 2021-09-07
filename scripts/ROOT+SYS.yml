@@ -1,237 +1,237 @@
-- target_requestid: +REGISTER_ENTITYrequestid
+- target_requestid: REGISTER_ENTITYrequestid
   target_name: ROOT+SYS
-  name: +INSTANTIATORinstantiator
+  name: INSTANTIATORinstantiator
   descriptors:
-    +descriptorINVARIANT$bool: true
-    +descriptor_mapREQUESTID$operationid:
-      +INSTANTIATErequestid:
+    descriptorINVARIANT$bool: true
+    descriptor_mapREQUESTID$operationid:
+      INSTANTIATErequestid:
         - INSTANTIATEoperationid
-      +ENTITY_REPORTrequestid:
+      ENTITY_REPORTrequestid:
         - ENTITY_REPORToperationid
-    +INSTANTIATION_DESCRIPTORSdescriptor:
-      +descriptorINVARIANT$bool: true
-      +descriptor_mapREQUESTID$operationid:
-        +INSTANTIATErequestid:
+    INSTANTIATION_DESCRIPTORSdescriptor:
+      descriptorINVARIANT$bool: true
+      descriptor_mapREQUESTID$operationid:
+        INSTANTIATErequestid:
           - INSTANTIATEoperationid
-        +ENTITY_REPORTrequestid:
+        ENTITY_REPORTrequestid:
           - ENTITY_REPORToperationid
-    +INSTANTIATION_CLASSIFIERSdescriptor:
-      +ENTITY_TYPEclassifier: +INSTANTIATORclassifier_value
+    INSTANTIATION_CLASSIFIERSdescriptor:
+      ENTITY_TYPEclassifier: INSTANTIATORclassifier_value
   classifiers:
-    +ENTITY_TYPEclassifier: +INSTANTIATORclassifier_value
-- target_requestid: +INSTANTIATErequestid
-  target_name: +INSTANTIATORinstantiator
-  name: +REQUESTIDinstantiator
+    ENTITY_TYPEclassifier: INSTANTIATORclassifier_value
+- target_requestid: INSTANTIATErequestid
+  target_name: INSTANTIATORinstantiator
+  name: REQUESTIDinstantiator
   descriptors:
-    +INSTANTIATION_DESCRIPTORSdescriptor:
-      +descriptorINVARIANT$bool: true
-      +descriptor_mapREQUESTID$operationid:
-        +ENTITY_REPORTrequestid:
+    INSTANTIATION_DESCRIPTORSdescriptor:
+      descriptorINVARIANT$bool: true
+      descriptor_mapREQUESTID$operationid:
+        ENTITY_REPORTrequestid:
           - ENTITY_REPORToperationid
-    +INSTANTIATION_CLASSIFIERSdescriptor:
-      +ENTITY_TYPEclassifier: +REQUESTIDclassifier_value
-- target_requestid: +INSTANTIATErequestid
-  target_name: +REQUESTIDinstantiator
-  name: +ACQUIRErequestid
-- target_requestid: +INSTANTIATErequestid
-  target_name: +REQUESTIDinstantiator
-  name: +ADD_CLASSIFIERrequestid
-- target_requestid: +INSTANTIATErequestid
-  target_name: +REQUESTIDinstantiator
-  name: +ADD_DESCRIPTORrequestid
-- target_requestid: +INSTANTIATErequestid
-  target_name: +REQUESTIDinstantiator
-  name: +INSTANTIATErequestid
+    INSTANTIATION_CLASSIFIERSdescriptor:
+      ENTITY_TYPEclassifier: REQUESTIDclassifier_value
+- target_requestid: INSTANTIATErequestid
+  target_name: REQUESTIDinstantiator
+  name: ACQUIRErequestid
+- target_requestid: INSTANTIATErequestid
+  target_name: REQUESTIDinstantiator
+  name: ADD_CLASSIFIERrequestid
+- target_requestid: INSTANTIATErequestid
+  target_name: REQUESTIDinstantiator
+  name: ADD_DESCRIPTORrequestid
+- target_requestid: INSTANTIATErequestid
+  target_name: REQUESTIDinstantiator
+  name: INSTANTIATErequestid
   descriptors:
-    +descriptorREAD_ONLY$bool: true
-- target_requestid: +INSTANTIATErequestid
-  target_name: +REQUESTIDinstantiator
-  name: +REGISTER_CLASSIFIERrequestid
-- target_requestid: +INSTANTIATErequestid
-  target_name: +REQUESTIDinstantiator
-  name: +REGISTER_ENTITYrequestid
-- target_requestid: +INSTANTIATErequestid
-  target_name: +REQUESTIDinstantiator
-  name: +RELEASErequestid
-- target_requestid: +INSTANTIATErequestid
-  target_name: +REQUESTIDinstantiator
-  name: +ROUTErequestid
-- target_requestid: +INSTANTIATErequestid
-  target_name: +REQUESTIDinstantiator
-  name: +RUN_FEDERATIONrequestid
-- target_requestid: +INSTANTIATErequestid
-  target_name: +REQUESTIDinstantiator
-  name: +CONTEXT_REPORTrequestid
+    descriptorREAD_ONLY$bool: true
+- target_requestid: INSTANTIATErequestid
+  target_name: REQUESTIDinstantiator
+  name: REGISTER_CLASSIFIERrequestid
+- target_requestid: INSTANTIATErequestid
+  target_name: REQUESTIDinstantiator
+  name: REGISTER_ENTITYrequestid
+- target_requestid: INSTANTIATErequestid
+  target_name: REQUESTIDinstantiator
+  name: RELEASErequestid
+- target_requestid: INSTANTIATErequestid
+  target_name: REQUESTIDinstantiator
+  name: ROUTErequestid
+- target_requestid: INSTANTIATErequestid
+  target_name: REQUESTIDinstantiator
+  name: RUN_FEDERATIONrequestid
+- target_requestid: INSTANTIATErequestid
+  target_name: REQUESTIDinstantiator
+  name: CONTEXT_REPORTrequestid
   descriptors:
-    +descriptorREAD_ONLY$bool: true
-- target_requestid: +INSTANTIATErequestid
-  target_name: +INSTANTIATORinstantiator
-  name: +DESCRIPTORinstantiator
+    descriptorREAD_ONLY$bool: true
+- target_requestid: INSTANTIATErequestid
+  target_name: INSTANTIATORinstantiator
+  name: DESCRIPTORinstantiator
   descriptors:
-    +INSTANTIATION_DESCRIPTORSdescriptor:
-      +descriptorINVARIANT$bool: true
-      +descriptor_mapREQUESTID$operationid:
-        +ENTITY_REPORTrequestid:
+    INSTANTIATION_DESCRIPTORSdescriptor:
+      descriptorINVARIANT$bool: true
+      descriptor_mapREQUESTID$operationid:
+        ENTITY_REPORTrequestid:
           - ENTITY_REPORToperationid
-    +INSTANTIATION_CLASSIFIERSdescriptor:
-      +ENTITY_TYPEclassifier: +DESCRIPTORclassifier_value
-- target_requestid: +INSTANTIATErequestid
-  target_name: +DESCRIPTORinstantiator
-  name: +descriptorREAD_ONLY$bool
-- target_requestid: +INSTANTIATErequestid
-  target_name: +DESCRIPTORinstantiator
-  name: +descriptor_mapREQUESTID$operationid
-- target_requestid: +INSTANTIATErequestid
-  target_name: +DESCRIPTORinstantiator
-  name: +descriptorINVARIANT$bool
-- target_requestid: +INSTANTIATErequestid
-  target_name: +DESCRIPTORinstantiator
-  name: +INSTANTIATION_DESCRIPTORSdescriptor
-- target_requestid: +INSTANTIATErequestid
-  target_name: +DESCRIPTORinstantiator
-  name: +INSTANTIATION_CLASSIFIERSdescriptor
-- target_requestid: +INSTANTIATErequestid
-  target_name: +INSTANTIATORinstantiator
-  name: +CLASSIFIERinstantiator
+    INSTANTIATION_CLASSIFIERSdescriptor:
+      ENTITY_TYPEclassifier: DESCRIPTORclassifier_value
+- target_requestid: INSTANTIATErequestid
+  target_name: DESCRIPTORinstantiator
+  name: descriptorREAD_ONLY$bool
+- target_requestid: INSTANTIATErequestid
+  target_name: DESCRIPTORinstantiator
+  name: descriptor_mapREQUESTID$operationid
+- target_requestid: INSTANTIATErequestid
+  target_name: DESCRIPTORinstantiator
+  name: descriptorINVARIANT$bool
+- target_requestid: INSTANTIATErequestid
+  target_name: DESCRIPTORinstantiator
+  name: INSTANTIATION_DESCRIPTORSdescriptor
+- target_requestid: INSTANTIATErequestid
+  target_name: DESCRIPTORinstantiator
+  name: INSTANTIATION_CLASSIFIERSdescriptor
+- target_requestid: INSTANTIATErequestid
+  target_name: INSTANTIATORinstantiator
+  name: CLASSIFIERinstantiator
   descriptors:
-    +INSTANTIATION_DESCRIPTORSdescriptor:
-      +descriptorINVARIANT$bool: true
-      +descriptor_mapREQUESTID$operationid:
-        +ENTITY_REPORTrequestid:
+    INSTANTIATION_DESCRIPTORSdescriptor:
+      descriptorINVARIANT$bool: true
+      descriptor_mapREQUESTID$operationid:
+        ENTITY_REPORTrequestid:
           - ENTITY_REPORToperationid
-    +INSTANTIATION_CLASSIFIERSdescriptor:
-      +ENTITY_TYPEclassifier: +CLASSIFIERclassifier_value
-- target_requestid: +INSTANTIATErequestid
-  target_name: +INSTANTIATORinstantiator
-  name: +RELATIONinstantiator
+    INSTANTIATION_CLASSIFIERSdescriptor:
+      ENTITY_TYPEclassifier: CLASSIFIERclassifier_value
+- target_requestid: INSTANTIATErequestid
+  target_name: INSTANTIATORinstantiator
+  name: RELATIONinstantiator
   descriptors:
-    +INSTANTIATION_DESCRIPTORSdescriptor:
-      +descriptorINVARIANT$bool: true
-      +descriptor_mapREQUESTID$operationid:
-        +ENTITY_REPORTrequestid:
+    INSTANTIATION_DESCRIPTORSdescriptor:
+      descriptorINVARIANT$bool: true
+      descriptor_mapREQUESTID$operationid:
+        ENTITY_REPORTrequestid:
           - ENTITY_REPORToperationid
-    +INSTANTIATION_CLASSIFIERSdescriptor:
-      +ENTITY_TYPEclassifier: +CLASSIFIERclassifier_value
-- target_requestid: +INSTANTIATErequestid
-  target_name: +CLASSIFIERinstantiator
-  name: +ENTITY_TYPEclassifier
-- target_requestid: +INSTANTIATErequestid
-  target_name: +INSTANTIATORinstantiator
-  name: +CLASSIFIER_VALUEinstantiator
+    INSTANTIATION_CLASSIFIERSdescriptor:
+      ENTITY_TYPEclassifier: CLASSIFIERclassifier_value
+- target_requestid: INSTANTIATErequestid
+  target_name: CLASSIFIERinstantiator
+  name: ENTITY_TYPEclassifier
+- target_requestid: INSTANTIATErequestid
+  target_name: INSTANTIATORinstantiator
+  name: CLASSIFIER_VALUEinstantiator
   descriptors:
-    +INSTANTIATION_DESCRIPTORSdescriptor:
-      +descriptorINVARIANT$bool: true
-      +descriptor_mapREQUESTID$operationid:
-        +ENTITY_REPORTrequestid:
+    INSTANTIATION_DESCRIPTORSdescriptor:
+      descriptorINVARIANT$bool: true
+      descriptor_mapREQUESTID$operationid:
+        ENTITY_REPORTrequestid:
           - ENTITY_REPORToperationid
-    +INSTANTIATION_CLASSIFIERSdescriptor:
-      +ENTITY_TYPEclassifier: +CLASSIFIER_VALUEclassifier_value
-- target_requestid: +INSTANTIATErequestid
-  target_name: +CLASSIFIER_VALUEinstantiator
-  name: +REQUESTIDclassifier_value
-- target_requestid: +INSTANTIATErequestid
-  target_name: +CLASSIFIER_VALUEinstantiator
-  name: +CLASSIFIERclassifier_value
-- target_requestid: +INSTANTIATErequestid
-  target_name: +CLASSIFIER_VALUEinstantiator
-  name: +DESCRIPTORclassifier_value
-- target_requestid: +INSTANTIATErequestid
-  target_name: +CLASSIFIER_VALUEinstantiator
-  name: +CLASSIFIER_VALUEclassifier_value
-- target_requestid: +INSTANTIATErequestid
-  target_name: +CLASSIFIER_VALUEinstantiator
-  name: +CONTEXTclassifier_value
-- target_requestid: +INSTANTIATErequestid
-  target_name: +CLASSIFIER_VALUEinstantiator
-  name: +FEDERATORclassifier_value
-- target_requestid: +INSTANTIATErequestid
-  target_name: +CLASSIFIER_VALUEinstantiator
-  name: +FEDERATION_CONTEXTclassifier_value
-- target_requestid: +INSTANTIATErequestid
-  target_name: +CLASSIFIER_VALUEinstantiator
-  name: +INSTANTIATORclassifier_value
-- target_requestid: +INSTANTIATErequestid
-  target_name: +INSTANTIATORinstantiator
-  name: +CONTEXTinstantiator
+    INSTANTIATION_CLASSIFIERSdescriptor:
+      ENTITY_TYPEclassifier: CLASSIFIER_VALUEclassifier_value
+- target_requestid: INSTANTIATErequestid
+  target_name: CLASSIFIER_VALUEinstantiator
+  name: REQUESTIDclassifier_value
+- target_requestid: INSTANTIATErequestid
+  target_name: CLASSIFIER_VALUEinstantiator
+  name: CLASSIFIERclassifier_value
+- target_requestid: INSTANTIATErequestid
+  target_name: CLASSIFIER_VALUEinstantiator
+  name: DESCRIPTORclassifier_value
+- target_requestid: INSTANTIATErequestid
+  target_name: CLASSIFIER_VALUEinstantiator
+  name: CLASSIFIER_VALUEclassifier_value
+- target_requestid: INSTANTIATErequestid
+  target_name: CLASSIFIER_VALUEinstantiator
+  name: CONTEXTclassifier_value
+- target_requestid: INSTANTIATErequestid
+  target_name: CLASSIFIER_VALUEinstantiator
+  name: FEDERATORclassifier_value
+- target_requestid: INSTANTIATErequestid
+  target_name: CLASSIFIER_VALUEinstantiator
+  name: FEDERATION_CONTEXTclassifier_value
+- target_requestid: INSTANTIATErequestid
+  target_name: CLASSIFIER_VALUEinstantiator
+  name: INSTANTIATORclassifier_value
+- target_requestid: INSTANTIATErequestid
+  target_name: INSTANTIATORinstantiator
+  name: CONTEXTinstantiator
   descriptors:
-    +INSTANTIATION_DESCRIPTORSdescriptor:
-      +descriptor_mapREQUESTID$operationid:
-        +REGISTER_ENTITYrequestid:
+    INSTANTIATION_DESCRIPTORSdescriptor:
+      descriptor_mapREQUESTID$operationid:
+        REGISTER_ENTITYrequestid:
           - REGISTER_ENTITYoperationid
-        +ROUTErequestid:
+        ROUTErequestid:
           - ROUTEoperationid
-        +REGISTER_CLASSIFIERrequestid:
+        REGISTER_CLASSIFIERrequestid:
           - REGISTER_CLASSIFIERoperationid
-        +ENTITY_REPORTrequestid:
+        ENTITY_REPORTrequestid:
           - CONTEXT_REPORToperationid
-        +LOAD_SCRIPTrequestid:
+        LOAD_SCRIPTrequestid:
           - LOAD_SCRIPToperationid
-    +INSTANTIATION_CLASSIFIERSdescriptor:
-      +ENTITY_TYPEclassifier: +CONTEXTclassifier_value
-- target_requestid: +INSTANTIATErequestid
-  target_name: +INSTANTIATORinstantiator
-  name: +FEDERATORinstantiator
+    INSTANTIATION_CLASSIFIERSdescriptor:
+      ENTITY_TYPEclassifier: +CONTEXTclassifier_value
+- target_requestid: INSTANTIATErequestid
+  target_name: INSTANTIATORinstantiator
+  name: FEDERATORinstantiator
   descriptors:
-    +INSTANTIATION_DESCRIPTORSdescriptor:
-      +descriptor_mapREQUESTID$operationid:
-        +RUN_FEDERATIONrequestid:
+    INSTANTIATION_DESCRIPTORSdescriptor:
+      descriptor_mapREQUESTID$operationid:
+        RUN_FEDERATIONrequestid:
           - RUN_FEDERATIONoperationid
-        +ENTITY_REPORTrequestid:
+        ENTITY_REPORTrequestid:
           - ENTITY_REPORToperationid
-    +INSTANTIATION_CLASSIFIERSdescriptor:
-      +ENTITY_TYPEclassifier: +FEDERATORclassifier_value
-- target_requestid: +INSTANTIATErequestid
-  target_name: +INSTANTIATORinstantiator
-  name: +FEDERATION_CONTEXTinstantiator
+    INSTANTIATION_CLASSIFIERSdescriptor:
+      ENTITY_TYPEclassifier: FEDERATORclassifier_value
+- target_requestid: INSTANTIATErequestid
+  target_name: INSTANTIATORinstantiator
+  name: FEDERATION_CONTEXTinstantiator
   descriptors:
-    +INSTANTIATION_DESCRIPTORSdescriptor:
-      +descriptor_mapREQUESTID$operationid:
-        +ACQUIRErequestid:
+    INSTANTIATION_DESCRIPTORSdescriptor:
+      descriptor_mapREQUESTID$operationid:
+        ACQUIRErequestid:
           - FEDERATION_ACQUIREoperationid
-        +RELEASErequestid:
+        RELEASErequestid:
           - FEDERATION_RELEASEoperationid
-    +INSTANTIATION_CLASSIFIERSdescriptor:
-      +ENTITY_TYPEclassifier: +FEDERATION_CONTEXTclassifier_value
-- target_requestid: +INSTANTIATErequestid
-  target_name: +INSTANTIATORinstantiator
-  name: +instantiatorDATA_TYPE
+    INSTANTIATION_CLASSIFIERSdescriptor:
+      ENTITY_TYPEclassifier: FEDERATION_CONTEXTclassifier_value
+- target_requestid: INSTANTIATErequestid
+  target_name: INSTANTIATORinstantiator
+  name: instantiatorDATA_TYPE
   descriptors:
-    +INSTANTIATION_DESCRIPTORSdescriptor:
-      +descriptorINVARIANT$bool: true
-      +descriptor_mapREQUESTID$operationid:
-        +ENTITY_REPORTrequestid:
+    INSTANTIATION_DESCRIPTORSdescriptor:
+      descriptorINVARIANT$bool: true
+      descriptor_mapREQUESTID$operationid:
+        ENTITY_REPORTrequestid:
           - ENTITY_REPORToperationid
-        +requestidTYPE_OF:
+        requestidTYPE_OF:
           - operationidTYPE_OF
-    +INSTANTIATION_CLASSIFIERSdescriptor:
-      +ENTITY_TYPEclassifier: +classifier_valueDATA_TYPE
-- target_requestid: +INSTANTIATErequestid
-  target_name: +instantiatorDATA_TYPE
-  name: +listSCRIPT
+    INSTANTIATION_CLASSIFIERSdescriptor:
+      ENTITY_TYPEclassifier: classifier_valueDATA_TYPE
+- target_requestid: INSTANTIATErequestid
+  target_name: instantiatorDATA_TYPE
+  name: listSCRIPT
   descriptors:
-    +descriptorDATA_TYPE: vector
-    +descriptorVALUE_ENTITY: +mapREQUEST
-- target_requestid: +INSTANTIATErequestid
-  target_name: +instantiatorDATA_TYPE
-  name: +mapREQUEST
+    descriptorDATA_TYPE: vector
+    descriptorVALUE_ENTITY: mapREQUEST
+- target_requestid: INSTANTIATErequestid
+  target_name: instantiatorDATA_TYPE
+  name: mapREQUEST
   descriptors:
-    +descriptorDATA_TYPE: map
-    +descriptorKEY_ENTITY: +stringPARAMATER_NAME
-    +descriptorVALUE_ENTITY:
-      +descriptors: +mapDESCRIPTORS
-- target_requestid: +INSTANTIATErequestid
-  target_name: +instantiatorDATA_TYPE
-  name: +stringPARAMATER_NAME
+    descriptorDATA_TYPE: map
+    descriptorKEY_ENTITY: +stringPARAMATER_NAME
+    descriptorVALUE_ENTITY:
+      descriptors: mapDESCRIPTORS
+- target_requestid: INSTANTIATErequestid
+  target_name: instantiatorDATA_TYPE
+  name: stringPARAMATER_NAME
   descriptors:
-    +descriptorDATA_TYPE: string
-- target_requestid: +INSTANTIATErequestid
-  target_name: +CONTEXTinstantiator
-  name: +TEST
+    descriptorDATA_TYPE: string
+- target_requestid: INSTANTIATErequestid
+  target_name: CONTEXTinstantiator
+  name: TEST
   content$ml:
     "this is a test
     same line
     \ndifferent line"
-- target_requestid: +LOAD_SCRIPTrequestid
-  target_name: +TEST
-- target_requestid: +ENTITY_REPORTrequestid
+- target_requestid: LOAD_SCRIPTrequestid
+  target_name: TEST
+- target_requestid: ENTITY_REPORTrequestid
   target_name: ROOT+SYS
