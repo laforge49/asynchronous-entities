@@ -1,28 +1,28 @@
 ---
 DESCRIPTORS:
   SYS+FEDERATION_NAMESdescriptor:
-  - TEST+ALPHAsimple
+  - TEST+simple-ALPHA
   SYS+INSTANTIATORdescriptor: SYS+FEDERATORinstantiator
   SYS+descriptorSCRIPT$yaml:
   - target_requestid: SYS+INSTANTIATErequestid
-    target_name: SIMPLEinstantiator
+    target_name: instantiator-SIMPLE
     name: GAMMAsimple
   - target_requestid: SYS+ADD_DESCRIPTORrequestid
-    target_name: ALPHAsimple
-    descriptor: DEGREE_OF_POLISHdescriptor
+    target_name: simple-ALPHA
+    descriptor: descriptor-DEGREE_OF_POLISH$str
     descriptor-value: MIDDLING
   - target_requestid: SYS+ADD_CLASSIFIERrequestid
-    target_name: ALPHAsimple
+    target_name: simple-ALPHA
     classifier: APPLICATIONclassifier
     classifier-value: FIDDLINGclassifier_value
   - target_requestid: SYS+ADD_DESCRIPTORrequestid
     target_name: GAMMAsimple
-    descriptor: DEGREE_OF_POLISHdescriptor
+    descriptor: descriptor-DEGREE_OF_POLISH$str
     descriptor-value: MIDDLING
   - target_requestid: SYS+ADD_CLASSIFIERrequestid
     target_name: GAMMAsimple
     classifier: BASICrelation
-    classifier-value: ALPHAsimple
+    classifier-value: simple-ALPHA
   - target_requestid: SYS+ADD_CLASSIFIERrequestid
     target_name: GAMMAsimple
     classifier: APPLICATIONclassifier

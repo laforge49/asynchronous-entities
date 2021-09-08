@@ -1,6 +1,6 @@
 ---
 DESCRIPTORS:
-  SYS+INSTANTIATORdescriptor: TEST+SIMPLEinstantiator
+  SYS+INSTANTIATORdescriptor: TEST+instantiator-SIMPLE
   SYS+descriptor_mapREQUESTID$operationid:
     SYS+ADD_CLASSIFIERrequestid:
     - ADD_CLASSIFIERoperationid
@@ -8,11 +8,11 @@ DESCRIPTORS:
     - ADD_DESCRIPTORoperationid
     SYS+ENTITY_REPORTrequestid:
     - ENTITY_REPORToperationid
-  TEST+DEGREE_OF_POLISHdescriptor: TEST+MIDDLING
+  TEST+descriptor-DEGREE_OF_POLISH$str: TEST+MIDDLING
 tags:
-- SYS+ENTITY_TYPEclassifier/TEST+SIMPLEclassifier_value
+- SYS+ENTITY_TYPEclassifier/TEST+classifier_value-SIMPLE
 - TEST+APPLICATIONclassifier/TEST+FIDDLINGclassifier_value
-- TEST+BASICrelation/TEST+ALPHAsimple
+- TEST+BASICrelation/TEST+simple-ALPHA
 ---
 # Entity TEST+GAMMAsimple
 

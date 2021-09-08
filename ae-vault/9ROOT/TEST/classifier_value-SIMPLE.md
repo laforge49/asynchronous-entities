@@ -1,12 +1,12 @@
 ---
 DESCRIPTORS:
-  SYS+INSTANTIATORdescriptor: SYS+DESCRIPTORinstantiator
+  SYS+INSTANTIATORdescriptor: SYS+CLASSIFIER_VALUEinstantiator
   SYS+descriptorINVARIANT$bool: true
   SYS+descriptor_mapREQUESTID$operationid:
     SYS+ENTITY_REPORTrequestid:
     - ENTITY_REPORToperationid
 tags:
-- SYS+ENTITY_TYPEclassifier/SYS+DESCRIPTORclassifier_value
+- SYS+ENTITY_TYPEclassifier/SYS+CLASSIFIER_VALUEclassifier_value
 ---
-# Entity TEST+DEGREE_OF_POLISHdescriptor
+# Entity TEST+classifier_value-SIMPLE
 

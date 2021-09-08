@@ -24,16 +24,16 @@ different line
 1. Registered Entities of context SYS+TEST
 (Default context is TEST.)
 
-+ALPHAsimple
 +APPLICATIONclassifier
 +BASICrelation
 +BETAsimple
-+DEGREE_OF_POLISHdescriptor
 +FIDDLINGclassifier_value
 +GAMMAsimple
-+SIMPLEclassifier_value
-+SIMPLEinstantiator
 +TEST_Afederator
++classifier_value-SIMPLE
++descriptor-DEGREE_OF_POLISH$str
++instantiator-SIMPLE
++simple-ALPHA
 
 Number of entities: 10
 
@@ -42,28 +42,28 @@ Number of entities: 10
 
 classifier:    +APPLICATIONclassifier
      value:        +FIDDLINGclassifier_value
-    entity:            +ALPHAsimple
     entity:            +GAMMAsimple
+    entity:            +simple-ALPHA
 classifier:    +BASICrelation
-     value:        +ALPHAsimple
+     value:        +simple-ALPHA
     entity:            +GAMMAsimple
 classifier:    SYS+ENTITY_TYPEclassifier
-     value:        +SIMPLEclassifier_value
-    entity:            +ALPHAsimple
+     value:        +classifier_value-SIMPLE
     entity:            +BETAsimple
     entity:            +GAMMAsimple
+    entity:            +simple-ALPHA
      value:        SYS+CLASSIFIER_VALUEclassifier_value
     entity:            +FIDDLINGclassifier_value
-    entity:            +SIMPLEclassifier_value
+    entity:            +classifier_value-SIMPLE
      value:        SYS+CLASSIFIERclassifier_value
     entity:            +APPLICATIONclassifier
     entity:            +BASICrelation
      value:        SYS+DESCRIPTORclassifier_value
-    entity:            +DEGREE_OF_POLISHdescriptor
+    entity:            +descriptor-DEGREE_OF_POLISH$str
      value:        SYS+FEDERATORclassifier_value
     entity:            +TEST_Afederator
      value:        SYS+INSTANTIATORclassifier_value
-    entity:            +SIMPLEinstantiator
+    entity:            +instantiator-SIMPLE
 
 Number of classifiers: 3
 

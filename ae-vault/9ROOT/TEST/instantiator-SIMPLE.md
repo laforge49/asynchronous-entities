@@ -1,7 +1,7 @@
 ---
 DESCRIPTORS:
   SYS+INSTANTIATION_CLASSIFIERSdescriptor:
-    SYS+ENTITY_TYPEclassifier: TEST+SIMPLEclassifier_value
+    SYS+ENTITY_TYPEclassifier: TEST+classifier_value-SIMPLE
   SYS+INSTANTIATION_DESCRIPTORSdescriptor:
     SYS+descriptor_mapREQUESTID$operationid:
       SYS+ADD_CLASSIFIERrequestid:
@@ -20,5 +20,5 @@ DESCRIPTORS:
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+INSTANTIATORclassifier_value
 ---
-# Entity TEST+SIMPLEinstantiator
+# Entity TEST+instantiator-SIMPLE
 
