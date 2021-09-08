@@ -42,7 +42,6 @@ Number of entities: 10
 
 classifier:    +APPLICATIONclassifier
      value:        +FIDDLINGclassifier_value
-    entity:            +GAMMAsimple
     entity:            +simple-ALPHA
 classifier:    +BASICrelation
      value:        +simple-ALPHA

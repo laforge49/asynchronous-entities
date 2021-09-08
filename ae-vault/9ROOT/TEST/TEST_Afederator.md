@@ -11,22 +11,22 @@ DESCRIPTORS:
     target_name: simple-ALPHA
     descriptors:
       descriptor-DEGREE_OF_POLISH$str: MIDDLING
-  - target_requestid: SYS+ADD_CLASSIFIERrequestid
+  - target_requestid: SYS+ADD_CLASSIFIERSrequestid
     target_name: simple-ALPHA
-    classifier: APPLICATIONclassifier
-    classifier-value: FIDDLINGclassifier_value
+    classifiers:
+      APPLICATIONclassifier: FIDDLINGclassifier_value
   - target_requestid: SYS+ADD_DESCRIPTORSrequestid
     target_name: GAMMAsimple
     descriptors:
       descriptor-DEGREE_OF_POLISH$str: MIDDLING
-  - target_requestid: SYS+ADD_CLASSIFIERrequestid
+  - target_requestid: SYS+ADD_CLASSIFIERSrequestid
     target_name: GAMMAsimple
-    classifier: BASICrelation
-    classifier-value: simple-ALPHA
-  - target_requestid: SYS+ADD_CLASSIFIERrequestid
+    classifiers:
+      BASICrelation: simple-ALPHA
+  - target_requestid: SYS+ADD_CLASSIFIERSrequestid
     target_name: GAMMAsimple
-    classifier: APPLICATIONclassifier
-    classifier-value: FIDDLINGclassifier_value
+    classifierS:
+      APPLICATIONclassifier: FIDDLINGclassifier_value
   SYS+descriptor_mapREQUESTID$operationid:
     SYS+ENTITY_REPORTrequestid:
     - ENTITY_REPORToperationid

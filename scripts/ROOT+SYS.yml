@@ -35,7 +35,7 @@
   name: ACQUIRErequestid
 - target_requestid: INSTANTIATErequestid
   target_name: REQUESTIDinstantiator
-  name: ADD_CLASSIFIERrequestid
+  name: ADD_CLASSIFIERSrequestid
 - target_requestid: INSTANTIATErequestid
   target_name: REQUESTIDinstantiator
   name: ADD_DESCRIPTORSrequestid

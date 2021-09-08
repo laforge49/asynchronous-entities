@@ -18,7 +18,7 @@ DESCRIPTORS:
 (Default context is SYS.)
 
 +ACQUIRErequestid
-+ADD_CLASSIFIERrequestid
++ADD_CLASSIFIERSrequestid
 +ADD_DESCRIPTORSrequestid
 +CLASSIFIER_VALUEclassifier_value
 +CLASSIFIER_VALUEinstantiator
@@ -94,7 +94,7 @@ classifier:    +ENTITY_TYPEclassifier
     entity:            +instantiatorDATA_TYPE
      value:        +REQUESTIDclassifier_value
     entity:            +ACQUIRErequestid
-    entity:            +ADD_CLASSIFIERrequestid
+    entity:            +ADD_CLASSIFIERSrequestid
     entity:            +ADD_DESCRIPTORSrequestid
     entity:            +CONTEXT_REPORTrequestid
     entity:            +INSTANTIATErequestid

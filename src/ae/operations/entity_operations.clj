@@ -102,25 +102,29 @@
           descriptors-map)]
     [this-map this-map]))
 
-(defn addClassifierFunction
+(defn addClassifiersFunction
   [env this-map params]
   (let [this-name
         (get this-map "NAME")
         _ (if (s/blank? this-name)
             (throw (Exception. "ADD CLASSIFIER requires a name on the entity being assigned a classifier")))
-        classifier
-        (get params "classifier")
-        classifier-value
-        (get params "classifier-value")
-        old-classifier-value
-        (get-in this-map ["CLASSIFIERS" classifier])
-        _ (if (some? old-classifier-value)
-            (throw (Exception. (str "ADD CLASSIFIER encountered a pre-existing value: " old-classifier-value))))
+        classifiers-map
+        (get params "classifiers")
         this-map
-        (assoc-in this-map ["CLASSIFIERS" classifier] classifier-value)
-        new-classifiers-voltile
-        (:NEW-CLASSIFIERS-VOLATILE env)]
-    (vswap! new-classifiers-voltile conj [this-name classifier classifier-value])
+        (reduce
+          (fn [this-map [classifier classifier-value]]
+            (let [old-classifier-value
+                  (get-in this-map ["CLASSIFIERS" classifier])
+                  _ (if (some? old-classifier-value)
+                      (throw (Exception. (str "ADD CLASSIFIER encountered a pre-existing value: " old-classifier-value))))
+                  this-map
+                  (assoc-in this-map ["CLASSIFIERS" classifier] classifier-value)
+                  new-classifiers-voltile
+                  (:NEW-CLASSIFIERS-VOLATILE env)]
+              (vswap! new-classifiers-voltile conj [this-name classifier classifier-value])
+              this-map))
+          this-map
+          classifiers-map)]
     [this-map this-map]))
 
 (defn entity-report-goblock
@@ -170,8 +174,8 @@
                             :goblock     instantiate-goblock})
   (k/register-function env {:operationid "ADD_DESCRIPTORSoperationid"
                             :function    addDescriptorsFunction})
-  (k/register-function env {:operationid "ADD_CLASSIFIERoperationid"
-                            :function    addClassifierFunction})
+  (k/register-function env {:operationid "ADD_CLASSIFIERSoperationid"
+                            :function    addClassifiersFunction})
   (k/register-function env {:operationid "ENTITY_REPORToperationid"
                             :goblock     entity-report-goblock})
   (k/register-function env {:operationid "operationidTYPE_OF"
