@@ -19,7 +19,7 @@ DESCRIPTORS:
 
 +ACQUIRErequestid
 +ADD_CLASSIFIERrequestid
-+ADD_DESCRIPTORrequestid
++ADD_DESCRIPTORSrequestid
 +CLASSIFIER_VALUEclassifier_value
 +CLASSIFIER_VALUEinstantiator
 +CLASSIFIERclassifier_value
@@ -95,7 +95,7 @@ classifier:    +ENTITY_TYPEclassifier
      value:        +REQUESTIDclassifier_value
     entity:            +ACQUIRErequestid
     entity:            +ADD_CLASSIFIERrequestid
-    entity:            +ADD_DESCRIPTORrequestid
+    entity:            +ADD_DESCRIPTORSrequestid
     entity:            +CONTEXT_REPORTrequestid
     entity:            +INSTANTIATErequestid
     entity:            +REGISTER_CLASSIFIERrequestid

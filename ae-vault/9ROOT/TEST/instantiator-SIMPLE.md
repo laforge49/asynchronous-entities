@@ -6,8 +6,8 @@ DESCRIPTORS:
     SYS+descriptor_mapREQUESTID$operationid:
       SYS+ADD_CLASSIFIERrequestid:
       - ADD_CLASSIFIERoperationid
-      SYS+ADD_DESCRIPTORrequestid:
-      - ADD_DESCRIPTORoperationid
+      SYS+ADD_DESCRIPTORSrequestid:
+      - ADD_DESCRIPTORSoperationid
       SYS+ENTITY_REPORTrequestid:
       - ENTITY_REPORToperationid
   SYS+INSTANTIATORdescriptor: SYS+INSTANTIATORinstantiator

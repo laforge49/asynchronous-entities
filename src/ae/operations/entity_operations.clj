@@ -81,21 +81,25 @@
         (catch Exception e
           (a/>! operation-return-port [this-map e nil]))))))
 
-(defn addDescriptorFunction
+(defn addDescriptorsFunction
   [env this-map params]
-  (let [descriptor
-        (get params "descriptor")
-        descriptor-value
-        (get params "descriptor-value")
-        old-descriptor-value
-        (get-in this-map ["DESCRIPTORS" descriptor])
-        _ (if (some? old-descriptor-value)
-            (throw (Exception. (str "ADD DESCRIPTOR encountered a pre-existing value: " old-descriptor-value))))
+  (let [descriptors-map
+        (get params "descriptors")
         this-map
-        (assoc-in this-map ["DESCRIPTORS" descriptor] descriptor-value)]
-    (if (= descriptor "SYS+descriptorINVARIANT$bool")
-      (if (= descriptor-value true)
-        (k/add-invariant-map name this-map)))
+        (reduce
+          (fn [this-map [descriptor descriptor-value]]
+            (let [old-descriptor-value
+                  (get-in this-map ["DESCRIPTORS" descriptor])
+                  _ (if (some? old-descriptor-value)
+                      (throw (Exception. (str "ADD DESCRIPTOR encountered a pre-existing value: " old-descriptor-value))))
+                  this-map
+                  (assoc-in this-map ["DESCRIPTORS" descriptor] descriptor-value)]
+              (if (= descriptor "SYS+descriptorINVARIANT$bool")
+                (if (= descriptor-value true)
+                  (k/add-invariant-map name this-map)))
+              this-map))
+          this-map
+          descriptors-map)]
     [this-map this-map]))
 
 (defn addClassifierFunction
@@ -164,8 +168,8 @@
   (k/register-function env {:operationid "INSTANTIATEoperationid"
                             :function    instantiateFunction
                             :goblock     instantiate-goblock})
-  (k/register-function env {:operationid "ADD_DESCRIPTORoperationid"
-                            :function    addDescriptorFunction})
+  (k/register-function env {:operationid "ADD_DESCRIPTORSoperationid"
+                            :function    addDescriptorsFunction})
   (k/register-function env {:operationid "ADD_CLASSIFIERoperationid"
                             :function    addClassifierFunction})
   (k/register-function env {:operationid "ENTITY_REPORToperationid"
