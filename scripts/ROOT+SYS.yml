@@ -167,7 +167,7 @@
         LOAD_SCRIPTrequestid:
           - LOAD_SCRIPToperationid
     INSTANTIATION_CLASSIFIERSdescriptor:
-      ENTITY_TYPEclassifier: +CONTEXTclassifier_value
+      ENTITY_TYPEclassifier: CONTEXTclassifier_value
 - target_requestid: INSTANTIATErequestid
   target_name: INSTANTIATORinstantiator
   name: FEDERATORinstantiator
@@ -216,7 +216,7 @@
   name: mapREQUEST
   descriptors:
     descriptorDATA_TYPE: map
-    descriptorKEY_ENTITY: +stringPARAMATER_NAME
+    descriptorKEY_ENTITY: stringPARAMATER_NAME
     descriptorVALUE_ENTITY:
       descriptors: mapDESCRIPTORS
 - target_requestid: INSTANTIATErequestid

@@ -357,7 +357,7 @@
         {"NAME"               name
          "DESCRIPTORS"        descriptors
          "CLASSIFIERS"        classifiers
-         "CONTENT$ml"            content
+         "CONTENT$ml"         content
          "REQUEST-PORT-STACK" request-port-stack}
         ]
     (if (= (get descriptors "SYS+descriptorINVARIANT$bool") true)
@@ -426,36 +426,34 @@
 (defn bind-context
   [local-context edn values-as-data env]
   (cond
-      (string? edn)
-      (if values-as-data
+    (string? edn)
+    (if values-as-data
+      edn
+      (if (some? (s/index-of edn "+"))
         edn
-        (if (s/starts-with? edn "+")
-          (str local-context edn)
-          (if (some? (s/index-of edn "+"))
-            edn
-            (str local-context "+" edn))))
+        (str local-context "+" edn)))
 
-      (vector? edn)
-      (reduce
-        (fn [v item]
-          (conj v (if values-as-data
-                    item
-                    (bind-context local-context item values-as-data env))))
-        []
-        edn)
+    (vector? edn)
+    (reduce
+      (fn [v item]
+        (conj v (if values-as-data
+                  item
+                  (bind-context local-context item values-as-data env))))
+      []
+      edn)
 
-      (map? edn)
-      (reduce
-        (fn [m [k v]]
-          (assoc m (bind-context local-context k false env)
-                   (bind-context local-context v
-                                 (or values-as-data (some? (s/index-of k "$")))
-                                 env)))
-        (sorted-map)
-        edn)
+    (map? edn)
+    (reduce
+      (fn [m [k v]]
+        (assoc m (bind-context local-context k false env)
+                 (bind-context local-context v
+                               (or values-as-data (some? (s/index-of k "$")))
+                               env)))
+      (sorted-map)
+      edn)
 
-      true
-      edn))
+    true
+    edn))
 
 (defn async-script
   [script-path yaml-script context-map env]

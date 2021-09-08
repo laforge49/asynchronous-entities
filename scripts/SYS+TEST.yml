@@ -1,6 +1,6 @@
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+INSTANTIATORinstantiator
-  name: +SIMPLEinstantiator
+  name: SIMPLEinstantiator
   descriptors:
     SYS+INSTANTIATION_DESCRIPTORSdescriptor:
       SYS+descriptor_mapREQUESTID$operationid:
@@ -11,7 +11,7 @@
         SYS+ENTITY_REPORTrequestid:
           - ENTITY_REPORToperationid
     SYS+INSTANTIATION_CLASSIFIERSdescriptor:
-      SYS+ENTITY_TYPEclassifier: +SIMPLEclassifier_value
+      SYS+ENTITY_TYPEclassifier: SIMPLEclassifier_value
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+CLASSIFIER_VALUEinstantiator
   name: SIMPLEclassifier_value
