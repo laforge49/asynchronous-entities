@@ -1,6 +1,6 @@
 ---
 DESCRIPTORS:
-  SYS+INSTANTIATORdescriptor: SYS+RELATIONinstantiator
+  SYS+INSTANTIATORdescriptor: SYS+CLASSIFIERinstantiator
   SYS+descriptorINVARIANT$bool: true
   SYS+descriptor_mapREQUESTID$operationid:
     SYS+ENTITY_REPORTrequestid:
@@ -8,5 +8,5 @@ DESCRIPTORS:
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+CLASSIFIERclassifier_value
 ---
-# Entity TEST+BASICrelation
+# Entity TEST+classifier-APPLICATION
 

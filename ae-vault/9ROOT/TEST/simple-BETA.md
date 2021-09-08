@@ -11,5 +11,5 @@ DESCRIPTORS:
 tags:
 - SYS+ENTITY_TYPEclassifier/TEST+classifier_value-SIMPLE
 ---
-# Entity TEST+BETAsimple
+# Entity TEST+simple-BETA
 

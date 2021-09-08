@@ -1,12 +1,12 @@
 ---
 DESCRIPTORS:
-  SYS+INSTANTIATORdescriptor: SYS+CLASSIFIERinstantiator
+  SYS+INSTANTIATORdescriptor: SYS+CLASSIFIER_VALUEinstantiator
   SYS+descriptorINVARIANT$bool: true
   SYS+descriptor_mapREQUESTID$operationid:
     SYS+ENTITY_REPORTrequestid:
     - ENTITY_REPORToperationid
 tags:
-- SYS+ENTITY_TYPEclassifier/SYS+CLASSIFIERclassifier_value
+- SYS+ENTITY_TYPEclassifier/SYS+CLASSIFIER_VALUEclassifier_value
 ---
-# Entity TEST+APPLICATIONclassifier
+# Entity TEST+classifier_value-FIDDLING
 

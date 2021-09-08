@@ -24,29 +24,29 @@
     \ndifferent line"
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: instantiator-SIMPLE
-  name: BETAsimple
+  name: simple-BETA
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+RELATIONinstantiator
-  name: BASICrelation
+  name: relation-BASIC
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+DESCRIPTORinstantiator
   name: descriptor-DEGREE_OF_POLISH$str
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+CLASSIFIERinstantiator
-  name: APPLICATIONclassifier
+  name: classifier-APPLICATION
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+CLASSIFIER_VALUEinstantiator
-  name: FIDDLINGclassifier_value
+  name: classifier_value-FIDDLING
 - target_requestid: SYS+INSTANTIATErequestid
   target_name: SYS+FEDERATORinstantiator
-  name: TEST_Afederator
+  name: federator-A
   descriptors:
     SYS+FEDERATION_NAMESdescriptor:
       - simple-ALPHA
     SYS+descriptorSCRIPT$yaml:
       - target_requestid: SYS+INSTANTIATErequestid
         target_name: instantiator-SIMPLE
-        name: GAMMAsimple
+        name: simple-GAMMA
       - target_requestid: SYS+ADD_DESCRIPTORSrequestid
         target_name: simple-ALPHA
         descriptors:
@@ -54,18 +54,18 @@
       - target_requestid: SYS+ADD_CLASSIFIERSrequestid
         target_name: simple-ALPHA
         classifiers:
-          APPLICATIONclassifier: FIDDLINGclassifier_value
+          classifier-APPLICATION: classifier_value-FIDDLING
       - target_requestid: SYS+ADD_DESCRIPTORSrequestid
-        target_name: GAMMAsimple
+        target_name: simple-GAMMA
         descriptors:
           descriptor-DEGREE_OF_POLISH$str: MIDDLING
       - target_requestid: SYS+ADD_CLASSIFIERSrequestid
-        target_name: GAMMAsimple
+        target_name: simple-GAMMA
         classifiers:
-          BASICrelation: simple-ALPHA
+          relation-BASIC: simple-ALPHA
       - target_requestid: SYS+ADD_CLASSIFIERSrequestid
-        target_name: GAMMAsimple
+        target_name: simple-GAMMA
         classifierS:
-          APPLICATIONclassifier: FIDDLINGclassifier_value
+          classifier-APPLICATION: classifier_value-FIDDLING
 - target_requestid: SYS+RUN_FEDERATIONrequestid
-  target_name: TEST_Afederator
+  target_name: federator-A

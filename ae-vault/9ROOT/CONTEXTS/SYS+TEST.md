@@ -24,43 +24,43 @@ different line
 1. Registered Entities of context SYS+TEST
 (Default context is TEST.)
 
-+APPLICATIONclassifier
-+BASICrelation
-+BETAsimple
-+FIDDLINGclassifier_value
-+GAMMAsimple
-+TEST_Afederator
++classifier-APPLICATION
++classifier_value-FIDDLING
 +classifier_value-SIMPLE
 +descriptor-DEGREE_OF_POLISH$str
++federator-A
 +instantiator-SIMPLE
++relation-BASIC
 +simple-ALPHA
++simple-BETA
++simple-GAMMA
 
 Number of entities: 10
 
 2. Classifier Values of context SYS+TEST
 (Default context is TEST.)
 
-classifier:    +APPLICATIONclassifier
-     value:        +FIDDLINGclassifier_value
+classifier:    +classifier-APPLICATION
+     value:        +classifier_value-FIDDLING
     entity:            +simple-ALPHA
-classifier:    +BASICrelation
+classifier:    +relation-BASIC
      value:        +simple-ALPHA
-    entity:            +GAMMAsimple
+    entity:            +simple-GAMMA
 classifier:    SYS+ENTITY_TYPEclassifier
      value:        +classifier_value-SIMPLE
-    entity:            +BETAsimple
-    entity:            +GAMMAsimple
     entity:            +simple-ALPHA
+    entity:            +simple-BETA
+    entity:            +simple-GAMMA
      value:        SYS+CLASSIFIER_VALUEclassifier_value
-    entity:            +FIDDLINGclassifier_value
+    entity:            +classifier_value-FIDDLING
     entity:            +classifier_value-SIMPLE
      value:        SYS+CLASSIFIERclassifier_value
-    entity:            +APPLICATIONclassifier
-    entity:            +BASICrelation
+    entity:            +classifier-APPLICATION
+    entity:            +relation-BASIC
      value:        SYS+DESCRIPTORclassifier_value
     entity:            +descriptor-DEGREE_OF_POLISH$str
      value:        SYS+FEDERATORclassifier_value
-    entity:            +TEST_Afederator
+    entity:            +federator-A
      value:        SYS+INSTANTIATORclassifier_value
     entity:            +instantiator-SIMPLE
 

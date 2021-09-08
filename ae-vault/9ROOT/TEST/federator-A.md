@@ -6,7 +6,7 @@ DESCRIPTORS:
   SYS+descriptorSCRIPT$yaml:
   - target_requestid: SYS+INSTANTIATErequestid
     target_name: instantiator-SIMPLE
-    name: GAMMAsimple
+    name: simple-GAMMA
   - target_requestid: SYS+ADD_DESCRIPTORSrequestid
     target_name: simple-ALPHA
     descriptors:
@@ -14,19 +14,19 @@ DESCRIPTORS:
   - target_requestid: SYS+ADD_CLASSIFIERSrequestid
     target_name: simple-ALPHA
     classifiers:
-      APPLICATIONclassifier: FIDDLINGclassifier_value
+      classifier-APPLICATION: classifier_value-FIDDLING
   - target_requestid: SYS+ADD_DESCRIPTORSrequestid
-    target_name: GAMMAsimple
+    target_name: simple-GAMMA
     descriptors:
       descriptor-DEGREE_OF_POLISH$str: MIDDLING
   - target_requestid: SYS+ADD_CLASSIFIERSrequestid
-    target_name: GAMMAsimple
+    target_name: simple-GAMMA
     classifiers:
-      BASICrelation: simple-ALPHA
+      relation-BASIC: simple-ALPHA
   - target_requestid: SYS+ADD_CLASSIFIERSrequestid
-    target_name: GAMMAsimple
+    target_name: simple-GAMMA
     classifierS:
-      APPLICATIONclassifier: FIDDLINGclassifier_value
+      classifier-APPLICATION: classifier_value-FIDDLING
   SYS+descriptor_mapREQUESTID$operationid:
     SYS+ENTITY_REPORTrequestid:
     - ENTITY_REPORToperationid
@@ -35,5 +35,5 @@ DESCRIPTORS:
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+FEDERATORclassifier_value
 ---
-# Entity TEST+TEST_Afederator
+# Entity TEST+federator-A
 

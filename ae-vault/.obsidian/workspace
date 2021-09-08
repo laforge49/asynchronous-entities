@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "9ROOT/SYS/listSCRIPT.md",
-            "mode": "preview"
+            "file": "6blog/21/21-3 Summer/21-36/8018-dropLeading+.md",
+            "mode": "source"
           }
         }
       }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "9ROOT/SYS/listSCRIPT.md",
+                "file": "6blog/21/21-3 Summer/21-36/8018-dropLeading+.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "9ROOT/SYS/listSCRIPT.md",
+                "file": "6blog/21/21-3 Summer/21-36/8018-dropLeading+.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,15 +135,15 @@
   },
   "active": "c902587de11a02ea",
   "lastOpenFiles": [
+    "6blog/21/21-3 Summer/21-36/8018-dropLeading+.md",
+    "8activities/8000-pendingActivities.md",
+    "6blog/21/21-3 Summer/21-36/21-36-3 Wednesday (week 36), 9-8-2021.md",
+    "6blog/21/21-3 Summer/21-35/21-35-7 Sunday (week 35), 9-5-2021.md",
+    "6blog/21/21-3 Summer/21-36/Untitled.md",
+    "6blog/21/21-3 Summer/21-35/Untitled.md",
+    "8activities/8018-dropLeading+.md",
     "9ROOT/SYS/listSCRIPT.md",
     "9ROOT/CONTEXTS/ROOT+SYS.md",
-    "8activities/8000-pendingActivities.md",
-    "6blog/21/21-3 Summer/21-35/21-35-7 Sunday (week 35), 9-5-2021.md",
-    "8activities/8018-dropLeading+.md",
-    "8activities/8012-changeDescriptors.md",
-    "6blog/21/21-3 Summer/21-35/8017-dataTypeExtensions.md",
-    "8activities/Untitled.md",
-    "6blog/21/21-3 Summer/21-34/21-34-2 Tuesday (week 34), 8-24-2021.md",
-    "6blog/21/21-3 Summer/21-34/8016-shortenContextNames.md"
+    "8activities/8012-changeDescriptors.md"
   ]
 }
