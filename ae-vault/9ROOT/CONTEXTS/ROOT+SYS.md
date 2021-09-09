@@ -17,7 +17,6 @@ DESCRIPTORS:
 1. Registered Entities of context ROOT+SYS
 (Default context is SYS.)
 
-+ACQUIRErequestid
 +ADD_CLASSIFIERSrequestid
 +ADD_DESCRIPTORSrequestid
 +CLASSIFIER_VALUEclassifier_value
@@ -31,10 +30,8 @@ DESCRIPTORS:
 +DESCRIPTORinstantiator
 +ENTITY_TYPEclassifier
 +FEDERATION_CONTEXTclassifier_value
-+FEDERATION_CONTEXTinstantiator
 +FEDERATORclassifier_value
 +FEDERATORinstantiator
-+INSTANTIATErequestid
 +INSTANTIATION_CLASSIFIERSdescriptor
 +INSTANTIATION_DESCRIPTORSdescriptor
 +INSTANTIATORclassifier_value
@@ -48,9 +45,12 @@ DESCRIPTORS:
 +descriptorINVARIANT$bool
 +descriptorREAD_ONLY$bool
 +descriptor_map-REQUESTID$operationid
++instantiator-FEDERATION_CONTEXT
 +instantiatorDATA_TYPE
 +listSCRIPT
 +mapREQUEST
++requestid-ACQUIRE
++requestid-INSTANTIATE
 +requestid-REGISTER_CLASSIFIER
 +requestid-REGISTER_ENTITY
 +requestid-ROUTE
@@ -86,20 +86,20 @@ classifier:    +ENTITY_TYPEclassifier
     entity:            +CLASSIFIERinstantiator
     entity:            +CONTEXTinstantiator
     entity:            +DESCRIPTORinstantiator
-    entity:            +FEDERATION_CONTEXTinstantiator
     entity:            +FEDERATORinstantiator
     entity:            +INSTANTIATORinstantiator
     entity:            +RELATIONinstantiator
     entity:            +REQUESTIDinstantiator
+    entity:            +instantiator-FEDERATION_CONTEXT
     entity:            +instantiatorDATA_TYPE
      value:        +REQUESTIDclassifier_value
-    entity:            +ACQUIRErequestid
     entity:            +ADD_CLASSIFIERSrequestid
     entity:            +ADD_DESCRIPTORSrequestid
     entity:            +CONTEXT_REPORTrequestid
-    entity:            +INSTANTIATErequestid
     entity:            +RELEASErequestid
     entity:            +RUN_FEDERATIONrequestid
+    entity:            +requestid-ACQUIRE
+    entity:            +requestid-INSTANTIATE
     entity:            +requestid-REGISTER_CLASSIFIER
     entity:            +requestid-REGISTER_ENTITY
     entity:            +requestid-ROUTE

@@ -4,7 +4,7 @@ DESCRIPTORS:
   - TEST+simple-ALPHA
   SYS+INSTANTIATORdescriptor: SYS+FEDERATORinstantiator
   SYS+descriptorSCRIPT$yaml:
-  - target_requestid: SYS+INSTANTIATErequestid
+  - target_requestid: SYS+requestid-INSTANTIATE
     target_name: instantiator-SIMPLE
     name: simple-GAMMA
   - target_requestid: SYS+ADD_DESCRIPTORSrequestid

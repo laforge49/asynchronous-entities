@@ -4,14 +4,14 @@
   descriptors:
     descriptorINVARIANT$bool: true
     descriptor_map-REQUESTID$operationid:
-      INSTANTIATErequestid:
+      requestid-INSTANTIATE:
         - INSTANTIATEoperationid
       requestid-ENTITY_REPORT:
         - ENTITY_REPORToperationid
     INSTANTIATION_DESCRIPTORSdescriptor:
       descriptorINVARIANT$bool: true
       descriptor_map-REQUESTID$operationid:
-        INSTANTIATErequestid:
+        requestid-INSTANTIATE:
           - INSTANTIATEoperationid
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
@@ -19,7 +19,7 @@
       ENTITY_TYPEclassifier: INSTANTIATORclassifier_value
   classifiers:
     ENTITY_TYPEclassifier: INSTANTIATORclassifier_value
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: INSTANTIATORinstantiator
   name: REQUESTIDinstantiator
   descriptors:
@@ -30,41 +30,41 @@
           - ENTITY_REPORToperationid
     INSTANTIATION_CLASSIFIERSdescriptor:
       ENTITY_TYPEclassifier: REQUESTIDclassifier_value
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: REQUESTIDinstantiator
-  name: ACQUIRErequestid
-- target_requestid: INSTANTIATErequestid
+  name: requestid-ACQUIRE
+- target_requestid: requestid-INSTANTIATE
   target_name: REQUESTIDinstantiator
   name: ADD_CLASSIFIERSrequestid
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: REQUESTIDinstantiator
   name: ADD_DESCRIPTORSrequestid
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: REQUESTIDinstantiator
-  name: INSTANTIATErequestid
+  name: requestid-INSTANTIATE
   descriptors:
     descriptorREAD_ONLY$bool: true
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: REQUESTIDinstantiator
   name: requestid-REGISTER_CLASSIFIER
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: REQUESTIDinstantiator
   name: requestid-REGISTER_ENTITY
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: REQUESTIDinstantiator
   name: RELEASErequestid
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: REQUESTIDinstantiator
   name: requestid-ROUTE
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: REQUESTIDinstantiator
   name: RUN_FEDERATIONrequestid
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: REQUESTIDinstantiator
   name: CONTEXT_REPORTrequestid
   descriptors:
     descriptorREAD_ONLY$bool: true
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: INSTANTIATORinstantiator
   name: DESCRIPTORinstantiator
   descriptors:
@@ -75,22 +75,22 @@
           - ENTITY_REPORToperationid
     INSTANTIATION_CLASSIFIERSdescriptor:
       ENTITY_TYPEclassifier: DESCRIPTORclassifier_value
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: DESCRIPTORinstantiator
   name: descriptorREAD_ONLY$bool
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: DESCRIPTORinstantiator
   name: descriptor_map-REQUESTID$operationid
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: DESCRIPTORinstantiator
   name: descriptorINVARIANT$bool
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: DESCRIPTORinstantiator
   name: INSTANTIATION_DESCRIPTORSdescriptor
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: DESCRIPTORinstantiator
   name: INSTANTIATION_CLASSIFIERSdescriptor
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: INSTANTIATORinstantiator
   name: CLASSIFIERinstantiator
   descriptors:
@@ -101,7 +101,7 @@
           - ENTITY_REPORToperationid
     INSTANTIATION_CLASSIFIERSdescriptor:
       ENTITY_TYPEclassifier: CLASSIFIERclassifier_value
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: INSTANTIATORinstantiator
   name: RELATIONinstantiator
   descriptors:
@@ -112,10 +112,10 @@
           - ENTITY_REPORToperationid
     INSTANTIATION_CLASSIFIERSdescriptor:
       ENTITY_TYPEclassifier: CLASSIFIERclassifier_value
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: CLASSIFIERinstantiator
   name: ENTITY_TYPEclassifier
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: INSTANTIATORinstantiator
   name: CLASSIFIER_VALUEinstantiator
   descriptors:
@@ -126,31 +126,31 @@
           - ENTITY_REPORToperationid
     INSTANTIATION_CLASSIFIERSdescriptor:
       ENTITY_TYPEclassifier: CLASSIFIER_VALUEclassifier_value
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: CLASSIFIER_VALUEinstantiator
   name: REQUESTIDclassifier_value
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: CLASSIFIER_VALUEinstantiator
   name: CLASSIFIERclassifier_value
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: CLASSIFIER_VALUEinstantiator
   name: DESCRIPTORclassifier_value
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: CLASSIFIER_VALUEinstantiator
   name: CLASSIFIER_VALUEclassifier_value
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: CLASSIFIER_VALUEinstantiator
   name: CONTEXTclassifier_value
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: CLASSIFIER_VALUEinstantiator
   name: FEDERATORclassifier_value
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: CLASSIFIER_VALUEinstantiator
   name: FEDERATION_CONTEXTclassifier_value
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: CLASSIFIER_VALUEinstantiator
   name: INSTANTIATORclassifier_value
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: INSTANTIATORinstantiator
   name: CONTEXTinstantiator
   descriptors:
@@ -168,7 +168,7 @@
           - LOAD_SCRIPToperationid
     INSTANTIATION_CLASSIFIERSdescriptor:
       ENTITY_TYPEclassifier: CONTEXTclassifier_value
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: INSTANTIATORinstantiator
   name: FEDERATORinstantiator
   descriptors:
@@ -180,19 +180,19 @@
           - ENTITY_REPORToperationid
     INSTANTIATION_CLASSIFIERSdescriptor:
       ENTITY_TYPEclassifier: FEDERATORclassifier_value
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: INSTANTIATORinstantiator
-  name: FEDERATION_CONTEXTinstantiator
+  name: instantiator-FEDERATION_CONTEXT
   descriptors:
     INSTANTIATION_DESCRIPTORSdescriptor:
       descriptor_map-REQUESTID$operationid:
-        ACQUIRErequestid:
+        requestid-ACQUIRE:
           - FEDERATION_ACQUIREoperationid
         RELEASErequestid:
           - FEDERATION_RELEASEoperationid
     INSTANTIATION_CLASSIFIERSdescriptor:
       ENTITY_TYPEclassifier: FEDERATION_CONTEXTclassifier_value
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: INSTANTIATORinstantiator
   name: instantiatorDATA_TYPE
   descriptors:
@@ -205,13 +205,13 @@
           - operationidTYPE_OF
     INSTANTIATION_CLASSIFIERSdescriptor:
       ENTITY_TYPEclassifier: classifier_valueDATA_TYPE
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: instantiatorDATA_TYPE
   name: listSCRIPT
   descriptors:
     descriptorDATA_TYPE: vector
     descriptorVALUE_ENTITY: mapREQUEST
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: instantiatorDATA_TYPE
   name: mapREQUEST
   descriptors:
@@ -219,12 +219,12 @@
     descriptorKEY_ENTITY: stringPARAMATER_NAME
     descriptorVALUE_ENTITY:
       descriptors: mapDESCRIPTORS
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: instantiatorDATA_TYPE
   name: stringPARAMATER_NAME
   descriptors:
     descriptorDATA_TYPE: string
-- target_requestid: INSTANTIATErequestid
+- target_requestid: requestid-INSTANTIATE
   target_name: CONTEXTinstantiator
   name: TEST
   content$ml:

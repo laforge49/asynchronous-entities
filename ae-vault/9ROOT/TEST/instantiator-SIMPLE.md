@@ -13,10 +13,10 @@ DESCRIPTORS:
   SYS+INSTANTIATORdescriptor: SYS+INSTANTIATORinstantiator
   SYS+descriptorINVARIANT$bool: true
   SYS+descriptor_map-REQUESTID$operationid:
-    SYS+INSTANTIATErequestid:
-    - INSTANTIATEoperationid
     SYS+requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
+    SYS+requestid-INSTANTIATE:
+    - INSTANTIATEoperationid
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+INSTANTIATORclassifier_value
 ---

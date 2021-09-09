@@ -1,4 +1,4 @@
-- target_requestid: SYS+INSTANTIATErequestid
+- target_requestid: SYS+requestid-INSTANTIATE
   target_name: SYS+INSTANTIATORinstantiator
   name: instantiator-SIMPLE
   descriptors:
@@ -12,39 +12,39 @@
           - ENTITY_REPORToperationid
     SYS+INSTANTIATION_CLASSIFIERSdescriptor:
       SYS+ENTITY_TYPEclassifier: classifier_value-SIMPLE
-- target_requestid: SYS+INSTANTIATErequestid
+- target_requestid: SYS+requestid-INSTANTIATE
   target_name: SYS+CLASSIFIER_VALUEinstantiator
   name: classifier_value-SIMPLE
-- target_requestid: SYS+INSTANTIATErequestid
+- target_requestid: SYS+requestid-INSTANTIATE
   target_name: instantiator-SIMPLE
   name: simple-ALPHA
   content$ml:
     "this is a test
     same line
     \ndifferent line"
-- target_requestid: SYS+INSTANTIATErequestid
+- target_requestid: SYS+requestid-INSTANTIATE
   target_name: instantiator-SIMPLE
   name: simple-BETA
-- target_requestid: SYS+INSTANTIATErequestid
+- target_requestid: SYS+requestid-INSTANTIATE
   target_name: SYS+RELATIONinstantiator
   name: relation-BASIC
-- target_requestid: SYS+INSTANTIATErequestid
+- target_requestid: SYS+requestid-INSTANTIATE
   target_name: SYS+DESCRIPTORinstantiator
   name: descriptor-DEGREE_OF_POLISH$str
-- target_requestid: SYS+INSTANTIATErequestid
+- target_requestid: SYS+requestid-INSTANTIATE
   target_name: SYS+CLASSIFIERinstantiator
   name: classifier-APPLICATION
-- target_requestid: SYS+INSTANTIATErequestid
+- target_requestid: SYS+requestid-INSTANTIATE
   target_name: SYS+CLASSIFIER_VALUEinstantiator
   name: classifier_value-FIDDLING
-- target_requestid: SYS+INSTANTIATErequestid
+- target_requestid: SYS+requestid-INSTANTIATE
   target_name: SYS+FEDERATORinstantiator
   name: federator-A
   descriptors:
     SYS+FEDERATION_NAMESdescriptor:
       - simple-ALPHA
     SYS+descriptorSCRIPT$yaml:
-      - target_requestid: SYS+INSTANTIATErequestid
+      - target_requestid: SYS+requestid-INSTANTIATE
         target_name: instantiator-SIMPLE
         name: simple-GAMMA
       - target_requestid: SYS+ADD_DESCRIPTORSrequestid
