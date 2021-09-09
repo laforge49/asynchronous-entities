@@ -33,19 +33,19 @@ DESCRIPTORS:
 +FEDERATORclassifier_value
 +FEDERATORinstantiator
 +INSTANTIATION_CLASSIFIERSdescriptor
-+INSTANTIATION_DESCRIPTORSdescriptor
 +INSTANTIATORclassifier_value
-+INSTANTIATORinstantiator
 +RELATIONinstantiator
 +RELEASErequestid
 +REQUESTIDclassifier_value
 +REQUESTIDinstantiator
 +RUN_FEDERATIONrequestid
 +TEST
++descriptor-INSTANTIATION_DESCRIPTORS
 +descriptorINVARIANT$bool
 +descriptorREAD_ONLY$bool
 +descriptor_map-REQUESTID$operationid
 +instantiator-FEDERATION_CONTEXT
++instantiator-INSTANTIATOR
 +instantiatorDATA_TYPE
 +listSCRIPT
 +mapREQUEST
@@ -77,7 +77,7 @@ classifier:    +ENTITY_TYPEclassifier
     entity:            +TEST
      value:        +DESCRIPTORclassifier_value
     entity:            +INSTANTIATION_CLASSIFIERSdescriptor
-    entity:            +INSTANTIATION_DESCRIPTORSdescriptor
+    entity:            +descriptor-INSTANTIATION_DESCRIPTORS
     entity:            +descriptorINVARIANT$bool
     entity:            +descriptorREAD_ONLY$bool
     entity:            +descriptor_map-REQUESTID$operationid
@@ -87,10 +87,10 @@ classifier:    +ENTITY_TYPEclassifier
     entity:            +CONTEXTinstantiator
     entity:            +DESCRIPTORinstantiator
     entity:            +FEDERATORinstantiator
-    entity:            +INSTANTIATORinstantiator
     entity:            +RELATIONinstantiator
     entity:            +REQUESTIDinstantiator
     entity:            +instantiator-FEDERATION_CONTEXT
+    entity:            +instantiator-INSTANTIATOR
     entity:            +instantiatorDATA_TYPE
      value:        +REQUESTIDclassifier_value
     entity:            +ADD_CLASSIFIERSrequestid

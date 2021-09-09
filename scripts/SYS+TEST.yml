@@ -1,8 +1,8 @@
 - target_requestid: SYS+requestid-INSTANTIATE
-  target_name: SYS+INSTANTIATORinstantiator
+  target_name: SYS+instantiator-INSTANTIATOR
   name: instantiator-SIMPLE
   descriptors:
-    SYS+INSTANTIATION_DESCRIPTORSdescriptor:
+    SYS+descriptor-INSTANTIATION_DESCRIPTORS:
       SYS+descriptor_map-REQUESTID$operationid:
         SYS+ADD_DESCRIPTORSrequestid:
           - ADD_DESCRIPTORSoperationid

@@ -15,7 +15,7 @@
         this-descriptors
         (get this-map "DESCRIPTORS")
         instantiation-descriptors
-        (get this-descriptors "SYS+INSTANTIATION_DESCRIPTORSdescriptor")
+        (get this-descriptors "SYS+descriptor-INSTANTIATION_DESCRIPTORS")
         instantiation-descriptors
         (assoc instantiation-descriptors "SYS+INSTANTIATORdescriptor" this-name)
         instantiation-descriptors
@@ -51,7 +51,7 @@
         this-descriptors
         (get this-map "DESCRIPTORS")
         instantiation-descriptors
-        (get this-descriptors "SYS+INSTANTIATION_DESCRIPTORSdescriptor")
+        (get this-descriptors "SYS+descriptor-INSTANTIATION_DESCRIPTORS")
         instantiation-descriptors
         (assoc instantiation-descriptors "SYS+INSTANTIATORdescriptor" this-name)
         instantiation-descriptors

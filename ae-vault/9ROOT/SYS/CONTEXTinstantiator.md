@@ -2,7 +2,8 @@
 DESCRIPTORS:
   SYS+INSTANTIATION_CLASSIFIERSdescriptor:
     SYS+ENTITY_TYPEclassifier: SYS+CONTEXTclassifier_value
-  SYS+INSTANTIATION_DESCRIPTORSdescriptor:
+  SYS+INSTANTIATORdescriptor: SYS+instantiator-INSTANTIATOR
+  SYS+descriptor-INSTANTIATION_DESCRIPTORS:
     SYS+descriptor_map-REQUESTID$operationid:
       SYS+requestid-ENTITY_REPORT:
       - CONTEXT_REPORToperationid
@@ -14,7 +15,6 @@ DESCRIPTORS:
       - REGISTER_ENTITYoperationid
       SYS+requestid-ROUTE:
       - ROUTEoperationid
-  SYS+INSTANTIATORdescriptor: SYS+INSTANTIATORinstantiator
   SYS+descriptorINVARIANT$bool: true
   SYS+descriptor_map-REQUESTID$operationid:
     SYS+requestid-ENTITY_REPORT:
