@@ -5,10 +5,10 @@ DESCRIPTORS:
     SYS+classifier-ENTITY_TYPE: SYS+FEDERATORclassifier_value
   SYS+descriptor-INSTANTIATION_DESCRIPTORS:
     SYS+descriptor_map-REQUESTID$operationid:
-      SYS+RUN_FEDERATIONrequestid:
-      - RUN_FEDERATIONoperationid
       SYS+requestid-ENTITY_REPORT:
       - ENTITY_REPORToperationid
+      SYS+requestid-RUN_FEDERATION:
+      - RUN_FEDERATIONoperationid
   SYS+descriptorINVARIANT$bool: true
   SYS+descriptor_map-REQUESTID$operationid:
     SYS+requestid-ENTITY_REPORT:
@@ -18,5 +18,5 @@ DESCRIPTORS:
 tags:
 - SYS+classifier-ENTITY_TYPE/SYS+INSTANTIATORclassifier_value
 ---
-# Entity SYS+FEDERATORinstantiator
+# Entity SYS+instantiator-FEDERATOR
 

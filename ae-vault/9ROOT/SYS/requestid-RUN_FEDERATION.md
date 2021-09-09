@@ -8,5 +8,5 @@ DESCRIPTORS:
 tags:
 - SYS+classifier-ENTITY_TYPE/SYS+REQUESTIDclassifier_value
 ---
-# Entity SYS+RUN_FEDERATIONrequestid
+# Entity SYS+requestid-RUN_FEDERATION
 

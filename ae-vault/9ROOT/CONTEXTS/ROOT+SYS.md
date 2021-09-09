@@ -25,12 +25,10 @@ DESCRIPTORS:
 +DESCRIPTORclassifier_value
 +FEDERATION_CONTEXTclassifier_value
 +FEDERATORclassifier_value
-+FEDERATORinstantiator
 +INSTANTIATORclassifier_value
 +RELEASErequestid
 +REQUESTIDclassifier_value
 +REQUESTIDinstantiator
-+RUN_FEDERATIONrequestid
 +TEST
 +classifier-ENTITY_TYPE
 +descriptor-INSTANTIATION_CLASSIFIERS
@@ -42,6 +40,7 @@ DESCRIPTORS:
 +instantiator-CLASSIFIER_VALUE
 +instantiator-DESCRIPTOR
 +instantiator-FEDERATION_CONTEXT
++instantiator-FEDERATOR
 +instantiator-INSTANTIATOR
 +instantiator-RELATION
 +instantiatorDATA_TYPE
@@ -54,6 +53,7 @@ DESCRIPTORS:
 +requestid-REGISTER_CLASSIFIER
 +requestid-REGISTER_ENTITY
 +requestid-ROUTE
++requestid-RUN_FEDERATION
 +stringPARAMATER_NAME
 
 Number of entities: 38
@@ -83,19 +83,18 @@ classifier:    +classifier-ENTITY_TYPE
     entity:            +descriptor_map-REQUESTID$operationid
      value:        +INSTANTIATORclassifier_value
     entity:            +CONTEXTinstantiator
-    entity:            +FEDERATORinstantiator
     entity:            +REQUESTIDinstantiator
     entity:            +instantiator-CLASSIFIER
     entity:            +instantiator-CLASSIFIER_VALUE
     entity:            +instantiator-DESCRIPTOR
     entity:            +instantiator-FEDERATION_CONTEXT
+    entity:            +instantiator-FEDERATOR
     entity:            +instantiator-INSTANTIATOR
     entity:            +instantiator-RELATION
     entity:            +instantiatorDATA_TYPE
      value:        +REQUESTIDclassifier_value
     entity:            +CONTEXT_REPORTrequestid
     entity:            +RELEASErequestid
-    entity:            +RUN_FEDERATIONrequestid
     entity:            +requestid-ACQUIRE
     entity:            +requestid-ADD_CLASSIFIERS
     entity:            +requestid-ADD_DESCRIPTORS
@@ -103,6 +102,7 @@ classifier:    +classifier-ENTITY_TYPE
     entity:            +requestid-REGISTER_CLASSIFIER
     entity:            +requestid-REGISTER_ENTITY
     entity:            +requestid-ROUTE
+    entity:            +requestid-RUN_FEDERATION
      value:        +classifier_valueDATA_TYPE
     entity:            +listSCRIPT
     entity:            +mapREQUEST

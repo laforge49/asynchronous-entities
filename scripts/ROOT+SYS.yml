@@ -58,7 +58,7 @@
   name: requestid-ROUTE
 - target_requestid: requestid-INSTANTIATE
   target_name: REQUESTIDinstantiator
-  name: RUN_FEDERATIONrequestid
+  name: requestid-RUN_FEDERATION
 - target_requestid: requestid-INSTANTIATE
   target_name: REQUESTIDinstantiator
   name: CONTEXT_REPORTrequestid
@@ -170,11 +170,11 @@
       classifier-ENTITY_TYPE: CONTEXTclassifier_value
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-INSTANTIATOR
-  name: FEDERATORinstantiator
+  name: instantiator-FEDERATOR
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
       descriptor_map-REQUESTID$operationid:
-        RUN_FEDERATIONrequestid:
+        requestid-RUN_FEDERATION:
           - RUN_FEDERATIONoperationid
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid

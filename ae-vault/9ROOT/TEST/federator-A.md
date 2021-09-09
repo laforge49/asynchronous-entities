@@ -2,7 +2,7 @@
 DESCRIPTORS:
   SYS+FEDERATION_NAMESdescriptor:
   - TEST+simple-ALPHA
-  SYS+INSTANTIATORdescriptor: SYS+FEDERATORinstantiator
+  SYS+INSTANTIATORdescriptor: SYS+instantiator-FEDERATOR
   SYS+descriptorSCRIPT$yaml:
   - target_requestid: SYS+requestid-INSTANTIATE
     target_name: instantiator-SIMPLE
@@ -28,10 +28,10 @@ DESCRIPTORS:
     classifierS:
       classifier-APPLICATION: classifier_value-FIDDLING
   SYS+descriptor_map-REQUESTID$operationid:
-    SYS+RUN_FEDERATIONrequestid:
-    - RUN_FEDERATIONoperationid
     SYS+requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
+    SYS+requestid-RUN_FEDERATION:
+    - RUN_FEDERATIONoperationid
 tags:
 - SYS+classifier-ENTITY_TYPE/SYS+FEDERATORclassifier_value
 ---

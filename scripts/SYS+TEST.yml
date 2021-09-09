@@ -38,7 +38,7 @@
   target_name: SYS+instantiator-CLASSIFIER_VALUE
   name: classifier_value-FIDDLING
 - target_requestid: SYS+requestid-INSTANTIATE
-  target_name: SYS+FEDERATORinstantiator
+  target_name: SYS+instantiator-FEDERATOR
   name: federator-A
   descriptors:
     SYS+FEDERATION_NAMESdescriptor:
@@ -67,5 +67,5 @@
         target_name: simple-GAMMA
         classifierS:
           classifier-APPLICATION: classifier_value-FIDDLING
-- target_requestid: SYS+RUN_FEDERATIONrequestid
+- target_requestid: SYS+requestid-RUN_FEDERATION
   target_name: federator-A
