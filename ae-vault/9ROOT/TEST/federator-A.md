@@ -27,11 +27,11 @@ DESCRIPTORS:
     target_name: simple-GAMMA
     classifierS:
       classifier-APPLICATION: classifier_value-FIDDLING
-  SYS+descriptor_mapREQUESTID$operationid:
-    SYS+ENTITY_REPORTrequestid:
-    - ENTITY_REPORToperationid
+  SYS+descriptor_map-REQUESTID$operationid:
     SYS+RUN_FEDERATIONrequestid:
     - RUN_FEDERATIONoperationid
+    SYS+requestid-ENTITY_REPORT:
+    - ENTITY_REPORToperationid
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+FEDERATORclassifier_value
 ---

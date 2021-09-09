@@ -1,16 +1,16 @@
 ---
 DESCRIPTORS:
   SYS+INSTANTIATORdescriptor: SYS+CONTEXTinstantiator
-  SYS+descriptor_mapREQUESTID$operationid:
-    SYS+ENTITY_REPORTrequestid:
+  SYS+descriptor_map-REQUESTID$operationid:
+    SYS+requestid-ENTITY_REPORT:
     - CONTEXT_REPORToperationid
-    SYS+LOAD_SCRIPTrequestid:
+    SYS+requestid-LOAD_SCRIPT:
     - LOAD_SCRIPToperationid
-    SYS+REGISTER_CLASSIFIERrequestid:
+    SYS+requestid-REGISTER_CLASSIFIER:
     - REGISTER_CLASSIFIERoperationid
-    SYS+REGISTER_ENTITYrequestid:
+    SYS+requestid-REGISTER_ENTITY:
     - REGISTER_ENTITYoperationid
-    SYS+ROUTErequestid:
+    SYS+requestid-ROUTE:
     - ROUTEoperationid
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+CONTEXTclassifier_value

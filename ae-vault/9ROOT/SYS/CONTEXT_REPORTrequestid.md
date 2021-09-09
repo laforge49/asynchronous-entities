@@ -3,8 +3,8 @@ DESCRIPTORS:
   SYS+INSTANTIATORdescriptor: SYS+REQUESTIDinstantiator
   SYS+descriptorINVARIANT$bool: true
   SYS+descriptorREAD_ONLY$bool: true
-  SYS+descriptor_mapREQUESTID$operationid:
-    SYS+ENTITY_REPORTrequestid:
+  SYS+descriptor_map-REQUESTID$operationid:
+    SYS+requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+REQUESTIDclassifier_value

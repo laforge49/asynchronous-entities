@@ -24,11 +24,11 @@
           [context-request-port context-map]
           (k/create-entity env
                            {"name"        "ROOT+SYS"
-                            "descriptors" {"SYS+descriptor_mapREQUESTID$operationid" {"SYS+REGISTER_ENTITYrequestid"     ["REGISTER_ENTITYoperationid"]
-                                                                                      "SYS+ROUTErequestid"               ["ROUTEoperationid"]
-                                                                                      "SYS+REGISTER_CLASSIFIERrequestid" ["REGISTER_CLASSIFIERoperationid"]
-                                                                                      "SYS+ENTITY_REPORTrequestid"       ["CONTEXT_REPORToperationid"]
-                                                                                      "SYS+LOAD_SCRIPTrequestid"         ["LOAD_SCRIPToperationid"]}}})
+                            "descriptors" {"SYS+descriptor_map-REQUESTID$operationid" {"SYS+requestid-REGISTER_ENTITY"     ["REGISTER_ENTITYoperationid"]
+                                                                                      "SYS+requestid-ROUTE"               ["ROUTEoperationid"]
+                                                                                      "SYS+requestid-REGISTER_CLASSIFIER" ["REGISTER_CLASSIFIERoperationid"]
+                                                                                      "SYS+requestid-ENTITY_REPORT"       ["CONTEXT_REPORToperationid"]
+                                                                                      "SYS+requestid-LOAD_SCRIPT"         ["LOAD_SCRIPToperationid"]}}})
           env
           (assoc env "CONTEXT-REQUEST-PORT" context-request-port)
           script-path

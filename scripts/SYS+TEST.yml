@@ -3,12 +3,12 @@
   name: instantiator-SIMPLE
   descriptors:
     SYS+INSTANTIATION_DESCRIPTORSdescriptor:
-      SYS+descriptor_mapREQUESTID$operationid:
+      SYS+descriptor_map-REQUESTID$operationid:
         SYS+ADD_DESCRIPTORSrequestid:
           - ADD_DESCRIPTORSoperationid
         SYS+ADD_CLASSIFIERSrequestid:
           - ADD_CLASSIFIERSoperationid
-        SYS+ENTITY_REPORTrequestid:
+        SYS+requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     SYS+INSTANTIATION_CLASSIFIERSdescriptor:
       SYS+ENTITY_TYPEclassifier: classifier_value-SIMPLE

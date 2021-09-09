@@ -4,17 +4,17 @@ DESCRIPTORS:
     SYS+ENTITY_TYPEclassifier: SYS+INSTANTIATORclassifier_value
   SYS+INSTANTIATION_DESCRIPTORSdescriptor:
     SYS+descriptorINVARIANT$bool: true
-    SYS+descriptor_mapREQUESTID$operationid:
-      SYS+ENTITY_REPORTrequestid:
-      - ENTITY_REPORToperationid
+    SYS+descriptor_map-REQUESTID$operationid:
       SYS+INSTANTIATErequestid:
       - INSTANTIATEoperationid
+      SYS+requestid-ENTITY_REPORT:
+      - ENTITY_REPORToperationid
   SYS+descriptorINVARIANT$bool: true
-  SYS+descriptor_mapREQUESTID$operationid:
-    SYS+ENTITY_REPORTrequestid:
-    - ENTITY_REPORToperationid
+  SYS+descriptor_map-REQUESTID$operationid:
     SYS+INSTANTIATErequestid:
     - INSTANTIATEoperationid
+    SYS+requestid-ENTITY_REPORT:
+    - ENTITY_REPORToperationid
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+INSTANTIATORclassifier_value
 ---

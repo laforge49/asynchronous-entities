@@ -59,7 +59,7 @@
         instantiation-classifiers
         (get this-descriptors "SYS+INSTANTIATION_CLASSIFIERSdescriptor")
         ]
-    (into params {"target_requestid" "SYS+REGISTER_ENTITYrequestid"
+    (into params {"target_requestid" "SYS+requestid-REGISTER_ENTITY"
                   "target_name"      target-name
                   "descriptors"      instantiation-descriptors
                   "classifiers"      instantiation-classifiers})))
@@ -75,7 +75,7 @@
               route-params
               (instantiateOperation env this-map params)
               route-params
-              (assoc route-params "requestid" "SYS+ROUTErequestid")]
+              (assoc route-params "requestid" "SYS+requestid-ROUTE")]
           (a/>! operation-return-port [this-map nil :NO-RETURN])
           (a/>! context-request-port [env route-params]))
         (catch Exception e

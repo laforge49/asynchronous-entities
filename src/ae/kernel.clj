@@ -112,7 +112,7 @@
         this-descriptors
         (thisDescriptors target-map params)
         this-requestid-map
-        (get this-descriptors "SYS+descriptor_mapREQUESTID$operationid")
+        (get this-descriptors "SYS+descriptor_map-REQUESTID$operationid")
         _ (if (nil? this-requestid-map)
             (throw (Exception. (str "Requestid map is nil\n"
                                     (prn-str params)
@@ -384,7 +384,7 @@
         (if (nil? type-entity)
           [nil [nil nil nil]]
           (let [params
-                {"requestid"        "SYS+ROUTErequestid"
+                {"requestid"        "SYS+requestid-ROUTE"
                  "target_requestid" "SYS+requestidTYPE_OF"
                  "target_name"      type-entity}]
             (routeFunction env context-map params)))]
@@ -485,7 +485,7 @@
               (get env "CONTEXT-REQUEST-PORT")]
           (doseq [request-params edn-script]
             (let [request-params
-                  (assoc request-params "requestid" "SYS+ROUTErequestid")
+                  (assoc request-params "requestid" "SYS+requestid-ROUTE")
                   request-params
                   (assoc request-params "return_port" return-port0)]
               (a/>! context-request-port [env request-params])

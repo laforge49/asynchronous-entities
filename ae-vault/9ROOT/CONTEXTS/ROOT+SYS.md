@@ -1,15 +1,15 @@
 ---
 DESCRIPTORS:
-  SYS+descriptor_mapREQUESTID$operationid:
-    SYS+REGISTER_ENTITYrequestid:
+  SYS+descriptor_map-REQUESTID$operationid:
+    SYS+requestid-REGISTER_ENTITY:
     - REGISTER_ENTITYoperationid
-    SYS+ROUTErequestid:
+    SYS+requestid-ROUTE:
     - ROUTEoperationid
-    SYS+REGISTER_CLASSIFIERrequestid:
+    SYS+requestid-REGISTER_CLASSIFIER:
     - REGISTER_CLASSIFIERoperationid
-    SYS+ENTITY_REPORTrequestid:
+    SYS+requestid-ENTITY_REPORT:
     - CONTEXT_REPORToperationid
-    SYS+LOAD_SCRIPTrequestid:
+    SYS+requestid-LOAD_SCRIPT:
     - LOAD_SCRIPToperationid
 ---
 # Entity ROOT+SYS
@@ -39,21 +39,21 @@ DESCRIPTORS:
 +INSTANTIATION_DESCRIPTORSdescriptor
 +INSTANTIATORclassifier_value
 +INSTANTIATORinstantiator
-+REGISTER_CLASSIFIERrequestid
-+REGISTER_ENTITYrequestid
 +RELATIONinstantiator
 +RELEASErequestid
 +REQUESTIDclassifier_value
 +REQUESTIDinstantiator
-+ROUTErequestid
 +RUN_FEDERATIONrequestid
 +TEST
 +descriptorINVARIANT$bool
 +descriptorREAD_ONLY$bool
-+descriptor_mapREQUESTID$operationid
++descriptor_map-REQUESTID$operationid
 +instantiatorDATA_TYPE
 +listSCRIPT
 +mapREQUEST
++requestid-REGISTER_CLASSIFIER
++requestid-REGISTER_ENTITY
++requestid-ROUTE
 +stringPARAMATER_NAME
 
 Number of entities: 38
@@ -80,7 +80,7 @@ classifier:    +ENTITY_TYPEclassifier
     entity:            +INSTANTIATION_DESCRIPTORSdescriptor
     entity:            +descriptorINVARIANT$bool
     entity:            +descriptorREAD_ONLY$bool
-    entity:            +descriptor_mapREQUESTID$operationid
+    entity:            +descriptor_map-REQUESTID$operationid
      value:        +INSTANTIATORclassifier_value
     entity:            +CLASSIFIER_VALUEinstantiator
     entity:            +CLASSIFIERinstantiator
@@ -98,11 +98,11 @@ classifier:    +ENTITY_TYPEclassifier
     entity:            +ADD_DESCRIPTORSrequestid
     entity:            +CONTEXT_REPORTrequestid
     entity:            +INSTANTIATErequestid
-    entity:            +REGISTER_CLASSIFIERrequestid
-    entity:            +REGISTER_ENTITYrequestid
     entity:            +RELEASErequestid
-    entity:            +ROUTErequestid
     entity:            +RUN_FEDERATIONrequestid
+    entity:            +requestid-REGISTER_CLASSIFIER
+    entity:            +requestid-REGISTER_ENTITY
+    entity:            +requestid-ROUTE
      value:        +classifier_valueDATA_TYPE
     entity:            +listSCRIPT
     entity:            +mapREQUEST

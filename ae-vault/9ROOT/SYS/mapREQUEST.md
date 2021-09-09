@@ -6,8 +6,8 @@ DESCRIPTORS:
   SYS+descriptorKEY_ENTITY: SYS+stringPARAMATER_NAME
   SYS+descriptorVALUE_ENTITY:
     SYS+descriptors: SYS+mapDESCRIPTORS
-  SYS+descriptor_mapREQUESTID$operationid:
-    SYS+ENTITY_REPORTrequestid:
+  SYS+descriptor_map-REQUESTID$operationid:
+    SYS+requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
     SYS+requestidTYPE_OF:
     - operationidTYPE_OF

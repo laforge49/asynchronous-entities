@@ -1,19 +1,19 @@
-- target_requestid: REGISTER_ENTITYrequestid
+- target_requestid: requestid-REGISTER_ENTITY
   target_name: ROOT+SYS
   name: INSTANTIATORinstantiator
   descriptors:
     descriptorINVARIANT$bool: true
-    descriptor_mapREQUESTID$operationid:
+    descriptor_map-REQUESTID$operationid:
       INSTANTIATErequestid:
         - INSTANTIATEoperationid
-      ENTITY_REPORTrequestid:
+      requestid-ENTITY_REPORT:
         - ENTITY_REPORToperationid
     INSTANTIATION_DESCRIPTORSdescriptor:
       descriptorINVARIANT$bool: true
-      descriptor_mapREQUESTID$operationid:
+      descriptor_map-REQUESTID$operationid:
         INSTANTIATErequestid:
           - INSTANTIATEoperationid
-        ENTITY_REPORTrequestid:
+        requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     INSTANTIATION_CLASSIFIERSdescriptor:
       ENTITY_TYPEclassifier: INSTANTIATORclassifier_value
@@ -25,8 +25,8 @@
   descriptors:
     INSTANTIATION_DESCRIPTORSdescriptor:
       descriptorINVARIANT$bool: true
-      descriptor_mapREQUESTID$operationid:
-        ENTITY_REPORTrequestid:
+      descriptor_map-REQUESTID$operationid:
+        requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     INSTANTIATION_CLASSIFIERSdescriptor:
       ENTITY_TYPEclassifier: REQUESTIDclassifier_value
@@ -46,16 +46,16 @@
     descriptorREAD_ONLY$bool: true
 - target_requestid: INSTANTIATErequestid
   target_name: REQUESTIDinstantiator
-  name: REGISTER_CLASSIFIERrequestid
+  name: requestid-REGISTER_CLASSIFIER
 - target_requestid: INSTANTIATErequestid
   target_name: REQUESTIDinstantiator
-  name: REGISTER_ENTITYrequestid
+  name: requestid-REGISTER_ENTITY
 - target_requestid: INSTANTIATErequestid
   target_name: REQUESTIDinstantiator
   name: RELEASErequestid
 - target_requestid: INSTANTIATErequestid
   target_name: REQUESTIDinstantiator
-  name: ROUTErequestid
+  name: requestid-ROUTE
 - target_requestid: INSTANTIATErequestid
   target_name: REQUESTIDinstantiator
   name: RUN_FEDERATIONrequestid
@@ -70,8 +70,8 @@
   descriptors:
     INSTANTIATION_DESCRIPTORSdescriptor:
       descriptorINVARIANT$bool: true
-      descriptor_mapREQUESTID$operationid:
-        ENTITY_REPORTrequestid:
+      descriptor_map-REQUESTID$operationid:
+        requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     INSTANTIATION_CLASSIFIERSdescriptor:
       ENTITY_TYPEclassifier: DESCRIPTORclassifier_value
@@ -80,7 +80,7 @@
   name: descriptorREAD_ONLY$bool
 - target_requestid: INSTANTIATErequestid
   target_name: DESCRIPTORinstantiator
-  name: descriptor_mapREQUESTID$operationid
+  name: descriptor_map-REQUESTID$operationid
 - target_requestid: INSTANTIATErequestid
   target_name: DESCRIPTORinstantiator
   name: descriptorINVARIANT$bool
@@ -96,8 +96,8 @@
   descriptors:
     INSTANTIATION_DESCRIPTORSdescriptor:
       descriptorINVARIANT$bool: true
-      descriptor_mapREQUESTID$operationid:
-        ENTITY_REPORTrequestid:
+      descriptor_map-REQUESTID$operationid:
+        requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     INSTANTIATION_CLASSIFIERSdescriptor:
       ENTITY_TYPEclassifier: CLASSIFIERclassifier_value
@@ -107,8 +107,8 @@
   descriptors:
     INSTANTIATION_DESCRIPTORSdescriptor:
       descriptorINVARIANT$bool: true
-      descriptor_mapREQUESTID$operationid:
-        ENTITY_REPORTrequestid:
+      descriptor_map-REQUESTID$operationid:
+        requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     INSTANTIATION_CLASSIFIERSdescriptor:
       ENTITY_TYPEclassifier: CLASSIFIERclassifier_value
@@ -121,8 +121,8 @@
   descriptors:
     INSTANTIATION_DESCRIPTORSdescriptor:
       descriptorINVARIANT$bool: true
-      descriptor_mapREQUESTID$operationid:
-        ENTITY_REPORTrequestid:
+      descriptor_map-REQUESTID$operationid:
+        requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     INSTANTIATION_CLASSIFIERSdescriptor:
       ENTITY_TYPEclassifier: CLASSIFIER_VALUEclassifier_value
@@ -155,16 +155,16 @@
   name: CONTEXTinstantiator
   descriptors:
     INSTANTIATION_DESCRIPTORSdescriptor:
-      descriptor_mapREQUESTID$operationid:
-        REGISTER_ENTITYrequestid:
+      descriptor_map-REQUESTID$operationid:
+        requestid-REGISTER_ENTITY:
           - REGISTER_ENTITYoperationid
-        ROUTErequestid:
+        requestid-ROUTE:
           - ROUTEoperationid
-        REGISTER_CLASSIFIERrequestid:
+        requestid-REGISTER_CLASSIFIER:
           - REGISTER_CLASSIFIERoperationid
-        ENTITY_REPORTrequestid:
+        requestid-ENTITY_REPORT:
           - CONTEXT_REPORToperationid
-        LOAD_SCRIPTrequestid:
+        requestid-LOAD_SCRIPT:
           - LOAD_SCRIPToperationid
     INSTANTIATION_CLASSIFIERSdescriptor:
       ENTITY_TYPEclassifier: CONTEXTclassifier_value
@@ -173,10 +173,10 @@
   name: FEDERATORinstantiator
   descriptors:
     INSTANTIATION_DESCRIPTORSdescriptor:
-      descriptor_mapREQUESTID$operationid:
+      descriptor_map-REQUESTID$operationid:
         RUN_FEDERATIONrequestid:
           - RUN_FEDERATIONoperationid
-        ENTITY_REPORTrequestid:
+        requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     INSTANTIATION_CLASSIFIERSdescriptor:
       ENTITY_TYPEclassifier: FEDERATORclassifier_value
@@ -185,7 +185,7 @@
   name: FEDERATION_CONTEXTinstantiator
   descriptors:
     INSTANTIATION_DESCRIPTORSdescriptor:
-      descriptor_mapREQUESTID$operationid:
+      descriptor_map-REQUESTID$operationid:
         ACQUIRErequestid:
           - FEDERATION_ACQUIREoperationid
         RELEASErequestid:
@@ -198,8 +198,8 @@
   descriptors:
     INSTANTIATION_DESCRIPTORSdescriptor:
       descriptorINVARIANT$bool: true
-      descriptor_mapREQUESTID$operationid:
-        ENTITY_REPORTrequestid:
+      descriptor_map-REQUESTID$operationid:
+        requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
         requestidTYPE_OF:
           - operationidTYPE_OF
@@ -231,7 +231,7 @@
     "this is a test
     same line
     \ndifferent line"
-- target_requestid: LOAD_SCRIPTrequestid
+- target_requestid: requestid-LOAD_SCRIPT
   target_name: TEST
-- target_requestid: ENTITY_REPORTrequestid
+- target_requestid: requestid-ENTITY_REPORT
   target_name: ROOT+SYS

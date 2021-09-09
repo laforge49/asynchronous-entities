@@ -3,24 +3,24 @@ DESCRIPTORS:
   SYS+INSTANTIATION_CLASSIFIERSdescriptor:
     SYS+ENTITY_TYPEclassifier: SYS+CONTEXTclassifier_value
   SYS+INSTANTIATION_DESCRIPTORSdescriptor:
-    SYS+descriptor_mapREQUESTID$operationid:
-      SYS+ENTITY_REPORTrequestid:
+    SYS+descriptor_map-REQUESTID$operationid:
+      SYS+requestid-ENTITY_REPORT:
       - CONTEXT_REPORToperationid
-      SYS+LOAD_SCRIPTrequestid:
+      SYS+requestid-LOAD_SCRIPT:
       - LOAD_SCRIPToperationid
-      SYS+REGISTER_CLASSIFIERrequestid:
+      SYS+requestid-REGISTER_CLASSIFIER:
       - REGISTER_CLASSIFIERoperationid
-      SYS+REGISTER_ENTITYrequestid:
+      SYS+requestid-REGISTER_ENTITY:
       - REGISTER_ENTITYoperationid
-      SYS+ROUTErequestid:
+      SYS+requestid-ROUTE:
       - ROUTEoperationid
   SYS+INSTANTIATORdescriptor: SYS+INSTANTIATORinstantiator
   SYS+descriptorINVARIANT$bool: true
-  SYS+descriptor_mapREQUESTID$operationid:
-    SYS+ENTITY_REPORTrequestid:
-    - ENTITY_REPORToperationid
+  SYS+descriptor_map-REQUESTID$operationid:
     SYS+INSTANTIATErequestid:
     - INSTANTIATEoperationid
+    SYS+requestid-ENTITY_REPORT:
+    - ENTITY_REPORToperationid
 tags:
 - SYS+ENTITY_TYPEclassifier/SYS+INSTANTIATORclassifier_value
 ---
