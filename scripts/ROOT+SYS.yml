@@ -66,7 +66,7 @@
     descriptorREAD_ONLY$bool: true
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-INSTANTIATOR
-  name: DESCRIPTORinstantiator
+  name: instantiator-DESCRIPTOR
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
       descriptorINVARIANT$bool: true
@@ -76,23 +76,23 @@
     descriptor-INSTANTIATION_CLASSIFIERS:
       classifier-ENTITY_TYPE: DESCRIPTORclassifier_value
 - target_requestid: requestid-INSTANTIATE
-  target_name: DESCRIPTORinstantiator
+  target_name: instantiator-DESCRIPTOR
   name: descriptorREAD_ONLY$bool
 - target_requestid: requestid-INSTANTIATE
-  target_name: DESCRIPTORinstantiator
+  target_name: instantiator-DESCRIPTOR
   name: descriptor_map-REQUESTID$operationid
 - target_requestid: requestid-INSTANTIATE
-  target_name: DESCRIPTORinstantiator
+  target_name: instantiator-DESCRIPTOR
   name: descriptorINVARIANT$bool
 - target_requestid: requestid-INSTANTIATE
-  target_name: DESCRIPTORinstantiator
+  target_name: instantiator-DESCRIPTOR
   name: descriptor-INSTANTIATION_DESCRIPTORS
 - target_requestid: requestid-INSTANTIATE
-  target_name: DESCRIPTORinstantiator
+  target_name: instantiator-DESCRIPTOR
   name: descriptor-INSTANTIATION_CLASSIFIERS
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-INSTANTIATOR
-  name: CLASSIFIERinstantiator
+  name: instantiator-CLASSIFIER
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
       descriptorINVARIANT$bool: true
@@ -103,7 +103,7 @@
       classifier-ENTITY_TYPE: CLASSIFIERclassifier_value
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-INSTANTIATOR
-  name: RELATIONinstantiator
+  name: instantiator-RELATION
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
       descriptorINVARIANT$bool: true
@@ -113,11 +113,11 @@
     descriptor-INSTANTIATION_CLASSIFIERS:
       classifier-ENTITY_TYPE: CLASSIFIERclassifier_value
 - target_requestid: requestid-INSTANTIATE
-  target_name: CLASSIFIERinstantiator
+  target_name: instantiator-CLASSIFIER
   name: classifier-ENTITY_TYPE
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-INSTANTIATOR
-  name: CLASSIFIER_VALUEinstantiator
+  name: instantiator-CLASSIFIER_VALUE
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
       descriptorINVARIANT$bool: true
@@ -127,28 +127,28 @@
     descriptor-INSTANTIATION_CLASSIFIERS:
       classifier-ENTITY_TYPE: CLASSIFIER_VALUEclassifier_value
 - target_requestid: requestid-INSTANTIATE
-  target_name: CLASSIFIER_VALUEinstantiator
+  target_name: instantiator-CLASSIFIER_VALUE
   name: REQUESTIDclassifier_value
 - target_requestid: requestid-INSTANTIATE
-  target_name: CLASSIFIER_VALUEinstantiator
+  target_name: instantiator-CLASSIFIER_VALUE
   name: CLASSIFIERclassifier_value
 - target_requestid: requestid-INSTANTIATE
-  target_name: CLASSIFIER_VALUEinstantiator
+  target_name: instantiator-CLASSIFIER_VALUE
   name: DESCRIPTORclassifier_value
 - target_requestid: requestid-INSTANTIATE
-  target_name: CLASSIFIER_VALUEinstantiator
+  target_name: instantiator-CLASSIFIER_VALUE
   name: CLASSIFIER_VALUEclassifier_value
 - target_requestid: requestid-INSTANTIATE
-  target_name: CLASSIFIER_VALUEinstantiator
+  target_name: instantiator-CLASSIFIER_VALUE
   name: CONTEXTclassifier_value
 - target_requestid: requestid-INSTANTIATE
-  target_name: CLASSIFIER_VALUEinstantiator
+  target_name: instantiator-CLASSIFIER_VALUE
   name: FEDERATORclassifier_value
 - target_requestid: requestid-INSTANTIATE
-  target_name: CLASSIFIER_VALUEinstantiator
+  target_name: instantiator-CLASSIFIER_VALUE
   name: FEDERATION_CONTEXTclassifier_value
 - target_requestid: requestid-INSTANTIATE
-  target_name: CLASSIFIER_VALUEinstantiator
+  target_name: instantiator-CLASSIFIER_VALUE
   name: INSTANTIATORclassifier_value
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-INSTANTIATOR

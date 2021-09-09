@@ -13,7 +13,7 @@
     SYS+descriptor-INSTANTIATION_CLASSIFIERS:
       SYS+classifier-ENTITY_TYPE: classifier_value-SIMPLE
 - target_requestid: SYS+requestid-INSTANTIATE
-  target_name: SYS+CLASSIFIER_VALUEinstantiator
+  target_name: SYS+instantiator-CLASSIFIER_VALUE
   name: classifier_value-SIMPLE
 - target_requestid: SYS+requestid-INSTANTIATE
   target_name: instantiator-SIMPLE
@@ -26,16 +26,16 @@
   target_name: instantiator-SIMPLE
   name: simple-BETA
 - target_requestid: SYS+requestid-INSTANTIATE
-  target_name: SYS+RELATIONinstantiator
+  target_name: SYS+instantiator-RELATION
   name: relation-BASIC
 - target_requestid: SYS+requestid-INSTANTIATE
-  target_name: SYS+DESCRIPTORinstantiator
+  target_name: SYS+instantiator-DESCRIPTOR
   name: descriptor-DEGREE_OF_POLISH$str
 - target_requestid: SYS+requestid-INSTANTIATE
-  target_name: SYS+CLASSIFIERinstantiator
+  target_name: SYS+instantiator-CLASSIFIER
   name: classifier-APPLICATION
 - target_requestid: SYS+requestid-INSTANTIATE
-  target_name: SYS+CLASSIFIER_VALUEinstantiator
+  target_name: SYS+instantiator-CLASSIFIER_VALUE
   name: classifier_value-FIDDLING
 - target_requestid: SYS+requestid-INSTANTIATE
   target_name: SYS+FEDERATORinstantiator

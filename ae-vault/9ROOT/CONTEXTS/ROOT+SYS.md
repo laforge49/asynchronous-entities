@@ -18,19 +18,15 @@ DESCRIPTORS:
 (Default context is SYS.)
 
 +CLASSIFIER_VALUEclassifier_value
-+CLASSIFIER_VALUEinstantiator
 +CLASSIFIERclassifier_value
-+CLASSIFIERinstantiator
 +CONTEXT_REPORTrequestid
 +CONTEXTclassifier_value
 +CONTEXTinstantiator
 +DESCRIPTORclassifier_value
-+DESCRIPTORinstantiator
 +FEDERATION_CONTEXTclassifier_value
 +FEDERATORclassifier_value
 +FEDERATORinstantiator
 +INSTANTIATORclassifier_value
-+RELATIONinstantiator
 +RELEASErequestid
 +REQUESTIDclassifier_value
 +REQUESTIDinstantiator
@@ -42,8 +38,12 @@ DESCRIPTORS:
 +descriptorINVARIANT$bool
 +descriptorREAD_ONLY$bool
 +descriptor_map-REQUESTID$operationid
++instantiator-CLASSIFIER
++instantiator-CLASSIFIER_VALUE
++instantiator-DESCRIPTOR
 +instantiator-FEDERATION_CONTEXT
 +instantiator-INSTANTIATOR
++instantiator-RELATION
 +instantiatorDATA_TYPE
 +listSCRIPT
 +mapREQUEST
@@ -82,15 +82,15 @@ classifier:    +classifier-ENTITY_TYPE
     entity:            +descriptorREAD_ONLY$bool
     entity:            +descriptor_map-REQUESTID$operationid
      value:        +INSTANTIATORclassifier_value
-    entity:            +CLASSIFIER_VALUEinstantiator
-    entity:            +CLASSIFIERinstantiator
     entity:            +CONTEXTinstantiator
-    entity:            +DESCRIPTORinstantiator
     entity:            +FEDERATORinstantiator
-    entity:            +RELATIONinstantiator
     entity:            +REQUESTIDinstantiator
+    entity:            +instantiator-CLASSIFIER
+    entity:            +instantiator-CLASSIFIER_VALUE
+    entity:            +instantiator-DESCRIPTOR
     entity:            +instantiator-FEDERATION_CONTEXT
     entity:            +instantiator-INSTANTIATOR
+    entity:            +instantiator-RELATION
     entity:            +instantiatorDATA_TYPE
      value:        +REQUESTIDclassifier_value
     entity:            +CONTEXT_REPORTrequestid

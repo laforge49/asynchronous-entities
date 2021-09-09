@@ -1,6 +1,6 @@
 ---
 DESCRIPTORS:
-  SYS+INSTANTIATORdescriptor: SYS+RELATIONinstantiator
+  SYS+INSTANTIATORdescriptor: SYS+instantiator-RELATION
   SYS+descriptorINVARIANT$bool: true
   SYS+descriptor_map-REQUESTID$operationid:
     SYS+requestid-ENTITY_REPORT:
