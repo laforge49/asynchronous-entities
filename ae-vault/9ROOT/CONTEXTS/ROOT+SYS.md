@@ -25,16 +25,14 @@ DESCRIPTORS:
 +DESCRIPTORclassifier_value
 +FEDERATION_CONTEXTclassifier_value
 +FEDERATORclassifier_value
-+INSTANTIATORclassifier_value
-+RELEASErequestid
-+REQUESTIDclassifier_value
-+REQUESTIDinstantiator
 +TEST
 +classifier-ENTITY_TYPE
++classifier_value-INSTANTIATOR
++classifier_value-REQUESTID
 +descriptor-INSTANTIATION_CLASSIFIERS
 +descriptor-INSTANTIATION_DESCRIPTORS
-+descriptorINVARIANT$bool
-+descriptorREAD_ONLY$bool
++descriptor-INVARIANT$bool
++descriptor-READ_ONLY$bool
 +descriptor_map-REQUESTID$operationid
 +instantiator-CLASSIFIER
 +instantiator-CLASSIFIER_VALUE
@@ -43,6 +41,7 @@ DESCRIPTORS:
 +instantiator-FEDERATOR
 +instantiator-INSTANTIATOR
 +instantiator-RELATION
++instantiator-REQUESTID
 +instantiatorDATA_TYPE
 +listSCRIPT
 +mapREQUEST
@@ -52,6 +51,7 @@ DESCRIPTORS:
 +requestid-INSTANTIATE
 +requestid-REGISTER_CLASSIFIER
 +requestid-REGISTER_ENTITY
++requestid-RELEASE
 +requestid-ROUTE
 +requestid-RUN_FEDERATION
 +stringPARAMATER_NAME
@@ -69,8 +69,8 @@ classifier:    +classifier-ENTITY_TYPE
     entity:            +DESCRIPTORclassifier_value
     entity:            +FEDERATION_CONTEXTclassifier_value
     entity:            +FEDERATORclassifier_value
-    entity:            +INSTANTIATORclassifier_value
-    entity:            +REQUESTIDclassifier_value
+    entity:            +classifier_value-INSTANTIATOR
+    entity:            +classifier_value-REQUESTID
      value:        +CLASSIFIERclassifier_value
     entity:            +classifier-ENTITY_TYPE
      value:        +CONTEXTclassifier_value
@@ -78,12 +78,11 @@ classifier:    +classifier-ENTITY_TYPE
      value:        +DESCRIPTORclassifier_value
     entity:            +descriptor-INSTANTIATION_CLASSIFIERS
     entity:            +descriptor-INSTANTIATION_DESCRIPTORS
-    entity:            +descriptorINVARIANT$bool
-    entity:            +descriptorREAD_ONLY$bool
+    entity:            +descriptor-INVARIANT$bool
+    entity:            +descriptor-READ_ONLY$bool
     entity:            +descriptor_map-REQUESTID$operationid
-     value:        +INSTANTIATORclassifier_value
+     value:        +classifier_value-INSTANTIATOR
     entity:            +CONTEXTinstantiator
-    entity:            +REQUESTIDinstantiator
     entity:            +instantiator-CLASSIFIER
     entity:            +instantiator-CLASSIFIER_VALUE
     entity:            +instantiator-DESCRIPTOR
@@ -91,16 +90,17 @@ classifier:    +classifier-ENTITY_TYPE
     entity:            +instantiator-FEDERATOR
     entity:            +instantiator-INSTANTIATOR
     entity:            +instantiator-RELATION
+    entity:            +instantiator-REQUESTID
     entity:            +instantiatorDATA_TYPE
-     value:        +REQUESTIDclassifier_value
+     value:        +classifier_value-REQUESTID
     entity:            +CONTEXT_REPORTrequestid
-    entity:            +RELEASErequestid
     entity:            +requestid-ACQUIRE
     entity:            +requestid-ADD_CLASSIFIERS
     entity:            +requestid-ADD_DESCRIPTORS
     entity:            +requestid-INSTANTIATE
     entity:            +requestid-REGISTER_CLASSIFIER
     entity:            +requestid-REGISTER_ENTITY
+    entity:            +requestid-RELEASE
     entity:            +requestid-ROUTE
     entity:            +requestid-RUN_FEDERATION
      value:        +classifier_valueDATA_TYPE

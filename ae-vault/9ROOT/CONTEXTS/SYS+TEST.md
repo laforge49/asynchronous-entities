@@ -61,7 +61,7 @@ classifier:    SYS+classifier-ENTITY_TYPE
     entity:            +descriptor-DEGREE_OF_POLISH$str
      value:        SYS+FEDERATORclassifier_value
     entity:            +federator-A
-     value:        SYS+INSTANTIATORclassifier_value
+     value:        SYS+classifier_value-INSTANTIATOR
     entity:            +instantiator-SIMPLE
 
 Number of classifiers: 3

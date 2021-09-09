@@ -2,74 +2,74 @@
   target_name: ROOT+SYS
   name: instantiator-INSTANTIATOR
   descriptors:
-    descriptorINVARIANT$bool: true
+    descriptor-INVARIANT$bool: true
     descriptor_map-REQUESTID$operationid:
       requestid-INSTANTIATE:
         - INSTANTIATEoperationid
       requestid-ENTITY_REPORT:
         - ENTITY_REPORToperationid
     descriptor-INSTANTIATION_DESCRIPTORS:
-      descriptorINVARIANT$bool: true
+      descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTID$operationid:
         requestid-INSTANTIATE:
           - INSTANTIATEoperationid
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     descriptor-INSTANTIATION_CLASSIFIERS:
-      classifier-ENTITY_TYPE: INSTANTIATORclassifier_value
+      classifier-ENTITY_TYPE: classifier_value-INSTANTIATOR
   classifiers:
-    classifier-ENTITY_TYPE: INSTANTIATORclassifier_value
+    classifier-ENTITY_TYPE: classifier_value-INSTANTIATOR
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-INSTANTIATOR
-  name: REQUESTIDinstantiator
+  name: instantiator-REQUESTID
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
-      descriptorINVARIANT$bool: true
+      descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTID$operationid:
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     descriptor-INSTANTIATION_CLASSIFIERS:
-      classifier-ENTITY_TYPE: REQUESTIDclassifier_value
+      classifier-ENTITY_TYPE: classifier_value-REQUESTID
 - target_requestid: requestid-INSTANTIATE
-  target_name: REQUESTIDinstantiator
+  target_name: instantiator-REQUESTID
   name: requestid-ACQUIRE
 - target_requestid: requestid-INSTANTIATE
-  target_name: REQUESTIDinstantiator
+  target_name: instantiator-REQUESTID
   name: requestid-ADD_CLASSIFIERS
 - target_requestid: requestid-INSTANTIATE
-  target_name: REQUESTIDinstantiator
+  target_name: instantiator-REQUESTID
   name: requestid-ADD_DESCRIPTORS
 - target_requestid: requestid-INSTANTIATE
-  target_name: REQUESTIDinstantiator
+  target_name: instantiator-REQUESTID
   name: requestid-INSTANTIATE
   descriptors:
-    descriptorREAD_ONLY$bool: true
+    descriptor-READ_ONLY$bool: true
 - target_requestid: requestid-INSTANTIATE
-  target_name: REQUESTIDinstantiator
+  target_name: instantiator-REQUESTID
   name: requestid-REGISTER_CLASSIFIER
 - target_requestid: requestid-INSTANTIATE
-  target_name: REQUESTIDinstantiator
+  target_name: instantiator-REQUESTID
   name: requestid-REGISTER_ENTITY
 - target_requestid: requestid-INSTANTIATE
-  target_name: REQUESTIDinstantiator
-  name: RELEASErequestid
+  target_name: instantiator-REQUESTID
+  name: requestid-RELEASE
 - target_requestid: requestid-INSTANTIATE
-  target_name: REQUESTIDinstantiator
+  target_name: instantiator-REQUESTID
   name: requestid-ROUTE
 - target_requestid: requestid-INSTANTIATE
-  target_name: REQUESTIDinstantiator
+  target_name: instantiator-REQUESTID
   name: requestid-RUN_FEDERATION
 - target_requestid: requestid-INSTANTIATE
-  target_name: REQUESTIDinstantiator
+  target_name: instantiator-REQUESTID
   name: CONTEXT_REPORTrequestid
   descriptors:
-    descriptorREAD_ONLY$bool: true
+    descriptor-READ_ONLY$bool: true
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-INSTANTIATOR
   name: instantiator-DESCRIPTOR
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
-      descriptorINVARIANT$bool: true
+      descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTID$operationid:
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
@@ -77,13 +77,13 @@
       classifier-ENTITY_TYPE: DESCRIPTORclassifier_value
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-DESCRIPTOR
-  name: descriptorREAD_ONLY$bool
+  name: descriptor-READ_ONLY$bool
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-DESCRIPTOR
   name: descriptor_map-REQUESTID$operationid
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-DESCRIPTOR
-  name: descriptorINVARIANT$bool
+  name: descriptor-INVARIANT$bool
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-DESCRIPTOR
   name: descriptor-INSTANTIATION_DESCRIPTORS
@@ -95,7 +95,7 @@
   name: instantiator-CLASSIFIER
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
-      descriptorINVARIANT$bool: true
+      descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTID$operationid:
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
@@ -106,7 +106,7 @@
   name: instantiator-RELATION
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
-      descriptorINVARIANT$bool: true
+      descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTID$operationid:
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
@@ -120,7 +120,7 @@
   name: instantiator-CLASSIFIER_VALUE
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
-      descriptorINVARIANT$bool: true
+      descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTID$operationid:
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
@@ -128,7 +128,7 @@
       classifier-ENTITY_TYPE: CLASSIFIER_VALUEclassifier_value
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-CLASSIFIER_VALUE
-  name: REQUESTIDclassifier_value
+  name: classifier_value-REQUESTID
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-CLASSIFIER_VALUE
   name: CLASSIFIERclassifier_value
@@ -149,7 +149,7 @@
   name: FEDERATION_CONTEXTclassifier_value
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-CLASSIFIER_VALUE
-  name: INSTANTIATORclassifier_value
+  name: classifier_value-INSTANTIATOR
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-INSTANTIATOR
   name: CONTEXTinstantiator
@@ -188,7 +188,7 @@
       descriptor_map-REQUESTID$operationid:
         requestid-ACQUIRE:
           - FEDERATION_ACQUIREoperationid
-        RELEASErequestid:
+        requestid-RELEASE:
           - FEDERATION_RELEASEoperationid
     descriptor-INSTANTIATION_CLASSIFIERS:
       classifier-ENTITY_TYPE: FEDERATION_CONTEXTclassifier_value
@@ -197,7 +197,7 @@
   name: instantiatorDATA_TYPE
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
-      descriptorINVARIANT$bool: true
+      descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTID$operationid:
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid

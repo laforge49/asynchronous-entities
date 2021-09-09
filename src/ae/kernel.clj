@@ -132,13 +132,13 @@
         (throw (Exception. (str "Operationid is nil\n"
                                 (prn-str params)
                                 (prn-str target-map)))))
-      (if (= (get-in target-map ["DESCRIPTORS" "SYS+descriptorINVARIANT$bool"]) true)
+      (if (= (get-in target-map ["DESCRIPTORS" "SYS+descriptor-INVARIANT$bool"]) true)
         (let [request-descriptors
               (get-invariant-descriptors requestid)
               read-only
               (if (nil? request-descriptors)
                 true
-                (get request-descriptors "SYS+descriptorREAD_ONLY$bool"))]
+                (get request-descriptors "SYS+descriptor-READ_ONLY$bool"))]
           (if (not read-only)
             (throw (Exception. (str "Can not apply " requestid " to invariant " (get target-map "NAME")
                                     (prn-str params)
@@ -266,7 +266,7 @@
                              (throw (Exception. (str "Inappropriate async request on federated entity.\n"
                                                      (prn-str params)
                                                      (prn-str target-map)))))
-                           (if (get this-descriptors "SYS+descriptorINVARIANT$bool")
+                           (if (get this-descriptors "SYS+descriptor-INVARIANT$bool")
                              [target-map [target-map nil]]
                              (let [new-request-port
                                    (get params "new-request-port")
@@ -344,7 +344,7 @@
         content
         (get params "content$ml" "")
         invariant
-        (get descriptors "SYS+descriptorINVARIANT$bool")
+        (get descriptors "SYS+descriptor-INVARIANT$bool")
         initialization-port
         (get params "initialization-port")
         request-port-stack
@@ -360,7 +360,7 @@
          "CONTENT$ml"         content
          "REQUEST-PORT-STACK" request-port-stack}
         ]
-    (if (= (get descriptors "SYS+descriptorINVARIANT$bool") true)
+    (if (= (get descriptors "SYS+descriptor-INVARIANT$bool") true)
       (add-invariant-map name new-entity-map))
     (create-operation-dispatcher new-entity-map)
     [new-public-request-port new-entity-map]))

@@ -5,18 +5,18 @@ DESCRIPTORS:
     SYS+classifier-ENTITY_TYPE: SYS+FEDERATION_CONTEXTclassifier_value
   SYS+descriptor-INSTANTIATION_DESCRIPTORS:
     SYS+descriptor_map-REQUESTID$operationid:
-      SYS+RELEASErequestid:
-      - FEDERATION_RELEASEoperationid
       SYS+requestid-ACQUIRE:
       - FEDERATION_ACQUIREoperationid
-  SYS+descriptorINVARIANT$bool: true
+      SYS+requestid-RELEASE:
+      - FEDERATION_RELEASEoperationid
+  SYS+descriptor-INVARIANT$bool: true
   SYS+descriptor_map-REQUESTID$operationid:
     SYS+requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
     SYS+requestid-INSTANTIATE:
     - INSTANTIATEoperationid
 tags:
-- SYS+classifier-ENTITY_TYPE/SYS+INSTANTIATORclassifier_value
+- SYS+classifier-ENTITY_TYPE/SYS+classifier_value-INSTANTIATOR
 ---
 # Entity SYS+instantiator-FEDERATION_CONTEXT
 

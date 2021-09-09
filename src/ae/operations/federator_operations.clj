@@ -169,7 +169,7 @@
               (assoc env "NEW-CHILDREN-VOLATILE" nil)
               env
               (assoc env :NEW-CLASSIFIERS-VOLATILE nil)
-              _ (a/>! federation-context-request-port [env {"requestid"   "SYS+RELEASErequestid"
+              _ (a/>! federation-context-request-port [env {"requestid"   "SYS+requestid-RELEASE"
                                                             "return_port" subrequest-return-port}])
               _ (k/request-exception-check (a/<! subrequest-return-port))
               _ (a/>! operation-return-port [this-map
