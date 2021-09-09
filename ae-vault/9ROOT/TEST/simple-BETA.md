@@ -2,14 +2,14 @@
 DESCRIPTORS:
   SYS+INSTANTIATORdescriptor: TEST+instantiator-SIMPLE
   SYS+descriptor_map-REQUESTID$operationid:
-    SYS+ADD_CLASSIFIERSrequestid:
+    SYS+requestid-ADD_CLASSIFIERS:
     - ADD_CLASSIFIERSoperationid
-    SYS+ADD_DESCRIPTORSrequestid:
+    SYS+requestid-ADD_DESCRIPTORS:
     - ADD_DESCRIPTORSoperationid
     SYS+requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
 tags:
-- SYS+ENTITY_TYPEclassifier/TEST+classifier_value-SIMPLE
+- SYS+classifier-ENTITY_TYPE/TEST+classifier_value-SIMPLE
 ---
 # Entity TEST+simple-BETA
 

@@ -6,7 +6,7 @@ DESCRIPTORS:
     SYS+requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
 tags:
-- SYS+ENTITY_TYPEclassifier/SYS+DESCRIPTORclassifier_value
+- SYS+classifier-ENTITY_TYPE/SYS+DESCRIPTORclassifier_value
 ---
 # Entity SYS+descriptorINVARIANT$bool
 

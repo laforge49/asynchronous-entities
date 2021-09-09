@@ -1,13 +1,13 @@
 ---
 DESCRIPTORS:
-  SYS+INSTANTIATION_CLASSIFIERSdescriptor:
-    SYS+ENTITY_TYPEclassifier: TEST+classifier_value-SIMPLE
   SYS+INSTANTIATORdescriptor: SYS+instantiator-INSTANTIATOR
+  SYS+descriptor-INSTANTIATION_CLASSIFIERS:
+    SYS+classifier-ENTITY_TYPE: TEST+classifier_value-SIMPLE
   SYS+descriptor-INSTANTIATION_DESCRIPTORS:
     SYS+descriptor_map-REQUESTID$operationid:
-      SYS+ADD_CLASSIFIERSrequestid:
+      SYS+requestid-ADD_CLASSIFIERS:
       - ADD_CLASSIFIERSoperationid
-      SYS+ADD_DESCRIPTORSrequestid:
+      SYS+requestid-ADD_DESCRIPTORS:
       - ADD_DESCRIPTORSoperationid
       SYS+requestid-ENTITY_REPORT:
       - ENTITY_REPORToperationid
@@ -18,7 +18,7 @@ DESCRIPTORS:
     SYS+requestid-INSTANTIATE:
     - INSTANTIATEoperationid
 tags:
-- SYS+ENTITY_TYPEclassifier/SYS+INSTANTIATORclassifier_value
+- SYS+classifier-ENTITY_TYPE/SYS+INSTANTIATORclassifier_value
 ---
 # Entity TEST+instantiator-SIMPLE
 

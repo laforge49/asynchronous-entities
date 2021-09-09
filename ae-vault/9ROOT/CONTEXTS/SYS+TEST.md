@@ -13,7 +13,7 @@ DESCRIPTORS:
     SYS+requestid-ROUTE:
     - ROUTEoperationid
 tags:
-- SYS+ENTITY_TYPEclassifier/SYS+CONTEXTclassifier_value
+- SYS+classifier-ENTITY_TYPE/SYS+CONTEXTclassifier_value
 ---
 # Entity SYS+TEST
 
@@ -46,7 +46,7 @@ classifier:    +classifier-APPLICATION
 classifier:    +relation-BASIC
      value:        +simple-ALPHA
     entity:            +simple-GAMMA
-classifier:    SYS+ENTITY_TYPEclassifier
+classifier:    SYS+classifier-ENTITY_TYPE
      value:        +classifier_value-SIMPLE
     entity:            +simple-ALPHA
     entity:            +simple-BETA

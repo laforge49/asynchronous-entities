@@ -1,7 +1,7 @@
 ---
 DESCRIPTORS:
-  SYS+INSTANTIATION_CLASSIFIERSdescriptor:
-    SYS+ENTITY_TYPEclassifier: SYS+INSTANTIATORclassifier_value
+  SYS+descriptor-INSTANTIATION_CLASSIFIERS:
+    SYS+classifier-ENTITY_TYPE: SYS+INSTANTIATORclassifier_value
   SYS+descriptor-INSTANTIATION_DESCRIPTORS:
     SYS+descriptorINVARIANT$bool: true
     SYS+descriptor_map-REQUESTID$operationid:
@@ -16,7 +16,7 @@ DESCRIPTORS:
     SYS+requestid-INSTANTIATE:
     - INSTANTIATEoperationid
 tags:
-- SYS+ENTITY_TYPEclassifier/SYS+INSTANTIATORclassifier_value
+- SYS+classifier-ENTITY_TYPE/SYS+INSTANTIATORclassifier_value
 ---
 # Entity SYS+instantiator-INSTANTIATOR
 

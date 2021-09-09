@@ -21,7 +21,7 @@
         instantiation-descriptors
         (into instantiation-descriptors (get params "descriptors"))
         instantiation-classifiers
-        (get this-descriptors "SYS+INSTANTIATION_CLASSIFIERSdescriptor")
+        (get this-descriptors "SYS+descriptor-INSTANTIATION_CLASSIFIERS")
         initialization-port
         (a/chan)
         params
@@ -57,7 +57,7 @@
         instantiation-descriptors
         (into instantiation-descriptors (get params "descriptors"))
         instantiation-classifiers
-        (get this-descriptors "SYS+INSTANTIATION_CLASSIFIERSdescriptor")
+        (get this-descriptors "SYS+descriptor-INSTANTIATION_CLASSIFIERS")
         ]
     (into params {"target_requestid" "SYS+requestid-REGISTER_ENTITY"
                   "target_name"      target-name

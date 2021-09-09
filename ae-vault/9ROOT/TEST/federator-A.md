@@ -7,23 +7,23 @@ DESCRIPTORS:
   - target_requestid: SYS+requestid-INSTANTIATE
     target_name: instantiator-SIMPLE
     name: simple-GAMMA
-  - target_requestid: SYS+ADD_DESCRIPTORSrequestid
+  - target_requestid: SYS+requestid-ADD_DESCRIPTORS
     target_name: simple-ALPHA
     descriptors:
       descriptor-DEGREE_OF_POLISH$str: MIDDLING
-  - target_requestid: SYS+ADD_CLASSIFIERSrequestid
+  - target_requestid: SYS+requestid-ADD_CLASSIFIERS
     target_name: simple-ALPHA
     classifiers:
       classifier-APPLICATION: classifier_value-FIDDLING
-  - target_requestid: SYS+ADD_DESCRIPTORSrequestid
+  - target_requestid: SYS+requestid-ADD_DESCRIPTORS
     target_name: simple-GAMMA
     descriptors:
       descriptor-DEGREE_OF_POLISH$str: MIDDLING
-  - target_requestid: SYS+ADD_CLASSIFIERSrequestid
+  - target_requestid: SYS+requestid-ADD_CLASSIFIERS
     target_name: simple-GAMMA
     classifiers:
       relation-BASIC: simple-ALPHA
-  - target_requestid: SYS+ADD_CLASSIFIERSrequestid
+  - target_requestid: SYS+requestid-ADD_CLASSIFIERS
     target_name: simple-GAMMA
     classifierS:
       classifier-APPLICATION: classifier_value-FIDDLING
@@ -33,7 +33,7 @@ DESCRIPTORS:
     SYS+requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
 tags:
-- SYS+ENTITY_TYPEclassifier/SYS+FEDERATORclassifier_value
+- SYS+classifier-ENTITY_TYPE/SYS+FEDERATORclassifier_value
 ---
 # Entity TEST+federator-A
 

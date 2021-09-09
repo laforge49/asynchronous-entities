@@ -9,7 +9,7 @@ DESCRIPTORS:
     SYS+requestidTYPE_OF:
     - operationidTYPE_OF
 tags:
-- SYS+ENTITY_TYPEclassifier/SYS+classifier_valueDATA_TYPE
+- SYS+classifier-ENTITY_TYPE/SYS+classifier_valueDATA_TYPE
 ---
 # Entity SYS+stringPARAMATER_NAME
 

@@ -1,8 +1,8 @@
 ---
 DESCRIPTORS:
-  SYS+INSTANTIATION_CLASSIFIERSdescriptor:
-    SYS+ENTITY_TYPEclassifier: SYS+CONTEXTclassifier_value
   SYS+INSTANTIATORdescriptor: SYS+instantiator-INSTANTIATOR
+  SYS+descriptor-INSTANTIATION_CLASSIFIERS:
+    SYS+classifier-ENTITY_TYPE: SYS+CONTEXTclassifier_value
   SYS+descriptor-INSTANTIATION_DESCRIPTORS:
     SYS+descriptor_map-REQUESTID$operationid:
       SYS+requestid-ENTITY_REPORT:
@@ -22,7 +22,7 @@ DESCRIPTORS:
     SYS+requestid-INSTANTIATE:
     - INSTANTIATEoperationid
 tags:
-- SYS+ENTITY_TYPEclassifier/SYS+INSTANTIATORclassifier_value
+- SYS+classifier-ENTITY_TYPE/SYS+INSTANTIATORclassifier_value
 ---
 # Entity SYS+CONTEXTinstantiator
 

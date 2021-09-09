@@ -4,14 +4,14 @@
   descriptors:
     SYS+descriptor-INSTANTIATION_DESCRIPTORS:
       SYS+descriptor_map-REQUESTID$operationid:
-        SYS+ADD_DESCRIPTORSrequestid:
+        SYS+requestid-ADD_DESCRIPTORS:
           - ADD_DESCRIPTORSoperationid
-        SYS+ADD_CLASSIFIERSrequestid:
+        SYS+requestid-ADD_CLASSIFIERS:
           - ADD_CLASSIFIERSoperationid
         SYS+requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
-    SYS+INSTANTIATION_CLASSIFIERSdescriptor:
-      SYS+ENTITY_TYPEclassifier: classifier_value-SIMPLE
+    SYS+descriptor-INSTANTIATION_CLASSIFIERS:
+      SYS+classifier-ENTITY_TYPE: classifier_value-SIMPLE
 - target_requestid: SYS+requestid-INSTANTIATE
   target_name: SYS+CLASSIFIER_VALUEinstantiator
   name: classifier_value-SIMPLE
@@ -47,23 +47,23 @@
       - target_requestid: SYS+requestid-INSTANTIATE
         target_name: instantiator-SIMPLE
         name: simple-GAMMA
-      - target_requestid: SYS+ADD_DESCRIPTORSrequestid
+      - target_requestid: SYS+requestid-ADD_DESCRIPTORS
         target_name: simple-ALPHA
         descriptors:
           descriptor-DEGREE_OF_POLISH$str: MIDDLING
-      - target_requestid: SYS+ADD_CLASSIFIERSrequestid
+      - target_requestid: SYS+requestid-ADD_CLASSIFIERS
         target_name: simple-ALPHA
         classifiers:
           classifier-APPLICATION: classifier_value-FIDDLING
-      - target_requestid: SYS+ADD_DESCRIPTORSrequestid
+      - target_requestid: SYS+requestid-ADD_DESCRIPTORS
         target_name: simple-GAMMA
         descriptors:
           descriptor-DEGREE_OF_POLISH$str: MIDDLING
-      - target_requestid: SYS+ADD_CLASSIFIERSrequestid
+      - target_requestid: SYS+requestid-ADD_CLASSIFIERS
         target_name: simple-GAMMA
         classifiers:
           relation-BASIC: simple-ALPHA
-      - target_requestid: SYS+ADD_CLASSIFIERSrequestid
+      - target_requestid: SYS+requestid-ADD_CLASSIFIERS
         target_name: simple-GAMMA
         classifierS:
           classifier-APPLICATION: classifier_value-FIDDLING

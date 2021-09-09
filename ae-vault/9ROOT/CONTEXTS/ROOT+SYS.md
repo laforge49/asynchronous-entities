@@ -17,8 +17,6 @@ DESCRIPTORS:
 1. Registered Entities of context ROOT+SYS
 (Default context is SYS.)
 
-+ADD_CLASSIFIERSrequestid
-+ADD_DESCRIPTORSrequestid
 +CLASSIFIER_VALUEclassifier_value
 +CLASSIFIER_VALUEinstantiator
 +CLASSIFIERclassifier_value
@@ -28,11 +26,9 @@ DESCRIPTORS:
 +CONTEXTinstantiator
 +DESCRIPTORclassifier_value
 +DESCRIPTORinstantiator
-+ENTITY_TYPEclassifier
 +FEDERATION_CONTEXTclassifier_value
 +FEDERATORclassifier_value
 +FEDERATORinstantiator
-+INSTANTIATION_CLASSIFIERSdescriptor
 +INSTANTIATORclassifier_value
 +RELATIONinstantiator
 +RELEASErequestid
@@ -40,6 +36,8 @@ DESCRIPTORS:
 +REQUESTIDinstantiator
 +RUN_FEDERATIONrequestid
 +TEST
++classifier-ENTITY_TYPE
++descriptor-INSTANTIATION_CLASSIFIERS
 +descriptor-INSTANTIATION_DESCRIPTORS
 +descriptorINVARIANT$bool
 +descriptorREAD_ONLY$bool
@@ -50,6 +48,8 @@ DESCRIPTORS:
 +listSCRIPT
 +mapREQUEST
 +requestid-ACQUIRE
++requestid-ADD_CLASSIFIERS
++requestid-ADD_DESCRIPTORS
 +requestid-INSTANTIATE
 +requestid-REGISTER_CLASSIFIER
 +requestid-REGISTER_ENTITY
@@ -61,7 +61,7 @@ Number of entities: 38
 2. Classifier Values of context ROOT+SYS
 (Default context is SYS.)
 
-classifier:    +ENTITY_TYPEclassifier
+classifier:    +classifier-ENTITY_TYPE
      value:        +CLASSIFIER_VALUEclassifier_value
     entity:            +CLASSIFIER_VALUEclassifier_value
     entity:            +CLASSIFIERclassifier_value
@@ -72,11 +72,11 @@ classifier:    +ENTITY_TYPEclassifier
     entity:            +INSTANTIATORclassifier_value
     entity:            +REQUESTIDclassifier_value
      value:        +CLASSIFIERclassifier_value
-    entity:            +ENTITY_TYPEclassifier
+    entity:            +classifier-ENTITY_TYPE
      value:        +CONTEXTclassifier_value
     entity:            +TEST
      value:        +DESCRIPTORclassifier_value
-    entity:            +INSTANTIATION_CLASSIFIERSdescriptor
+    entity:            +descriptor-INSTANTIATION_CLASSIFIERS
     entity:            +descriptor-INSTANTIATION_DESCRIPTORS
     entity:            +descriptorINVARIANT$bool
     entity:            +descriptorREAD_ONLY$bool
@@ -93,12 +93,12 @@ classifier:    +ENTITY_TYPEclassifier
     entity:            +instantiator-INSTANTIATOR
     entity:            +instantiatorDATA_TYPE
      value:        +REQUESTIDclassifier_value
-    entity:            +ADD_CLASSIFIERSrequestid
-    entity:            +ADD_DESCRIPTORSrequestid
     entity:            +CONTEXT_REPORTrequestid
     entity:            +RELEASErequestid
     entity:            +RUN_FEDERATIONrequestid
     entity:            +requestid-ACQUIRE
+    entity:            +requestid-ADD_CLASSIFIERS
+    entity:            +requestid-ADD_DESCRIPTORS
     entity:            +requestid-INSTANTIATE
     entity:            +requestid-REGISTER_CLASSIFIER
     entity:            +requestid-REGISTER_ENTITY
