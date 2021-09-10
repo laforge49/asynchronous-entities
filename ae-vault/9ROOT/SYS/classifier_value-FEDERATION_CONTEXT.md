@@ -8,5 +8,5 @@ DESCRIPTORS:
 tags:
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-CLASSIFIER_VALUE
 ---
-# Entity SYS+CONTEXTclassifier_value
+# Entity SYS+classifier_value-FEDERATION_CONTEXT
 

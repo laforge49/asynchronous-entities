@@ -1,6 +1,6 @@
 ---
 DESCRIPTORS:
-  SYS+INSTANTIATORdescriptor: SYS+CONTEXTinstantiator
+  SYS+INSTANTIATORdescriptor: SYS+instantiator-CONTEXT
   SYS+descriptor_map-REQUESTID$operationid:
     SYS+requestid-ENTITY_REPORT:
     - CONTEXT_REPORToperationid
@@ -13,7 +13,7 @@ DESCRIPTORS:
     SYS+requestid-ROUTE:
     - ROUTEoperationid
 tags:
-- SYS+classifier-ENTITY_TYPE/SYS+CONTEXTclassifier_value
+- SYS+classifier-ENTITY_TYPE/SYS+classifier_value-CONTEXT
 ---
 # Entity SYS+TEST
 
@@ -51,8 +51,6 @@ classifier:    SYS+classifier-ENTITY_TYPE
     entity:            +simple-ALPHA
     entity:            +simple-BETA
     entity:            +simple-GAMMA
-     value:        SYS+FEDERATORclassifier_value
-    entity:            +federator-A
      value:        SYS+classifier_value-CLASSIFIER
     entity:            +classifier-APPLICATION
     entity:            +relation-BASIC
@@ -61,6 +59,8 @@ classifier:    SYS+classifier-ENTITY_TYPE
     entity:            +classifier_value-SIMPLE
      value:        SYS+classifier_value-DESCRIPTOR
     entity:            +descriptor-DEGREE_OF_POLISH$str
+     value:        SYS+classifier_value-FEDERATOR
+    entity:            +federator-A
      value:        SYS+classifier_value-INSTANTIATOR
     entity:            +instantiator-SIMPLE
 

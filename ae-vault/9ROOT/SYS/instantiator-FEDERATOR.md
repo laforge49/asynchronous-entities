@@ -2,7 +2,7 @@
 DESCRIPTORS:
   SYS+INSTANTIATORdescriptor: SYS+instantiator-INSTANTIATOR
   SYS+descriptor-INSTANTIATION_CLASSIFIERS:
-    SYS+classifier-ENTITY_TYPE: SYS+FEDERATORclassifier_value
+    SYS+classifier-ENTITY_TYPE: SYS+classifier_value-FEDERATOR
   SYS+descriptor-INSTANTIATION_DESCRIPTORS:
     SYS+descriptor_map-REQUESTID$operationid:
       SYS+requestid-ENTITY_REPORT:

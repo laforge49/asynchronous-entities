@@ -33,7 +33,7 @@ DESCRIPTORS:
     SYS+requestid-RUN_FEDERATION:
     - RUN_FEDERATIONoperationid
 tags:
-- SYS+classifier-ENTITY_TYPE/SYS+FEDERATORclassifier_value
+- SYS+classifier-ENTITY_TYPE/SYS+classifier_value-FEDERATOR
 ---
 # Entity TEST+federator-A
 
