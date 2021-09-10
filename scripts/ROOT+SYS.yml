@@ -61,7 +61,7 @@
   name: requestid-RUN_FEDERATION
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-REQUESTID
-  name: CONTEXT_REPORTrequestid
+  name: requestid-CONTEXT_REPORT
   descriptors:
     descriptor-READ_ONLY$bool: true
 - target_requestid: requestid-INSTANTIATE
@@ -74,7 +74,7 @@
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     descriptor-INSTANTIATION_CLASSIFIERS:
-      classifier-ENTITY_TYPE: DESCRIPTORclassifier_value
+      classifier-ENTITY_TYPE: classifier_value-DESCRIPTOR
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-DESCRIPTOR
   name: descriptor-READ_ONLY$bool
@@ -100,7 +100,7 @@
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     descriptor-INSTANTIATION_CLASSIFIERS:
-      classifier-ENTITY_TYPE: CLASSIFIERclassifier_value
+      classifier-ENTITY_TYPE: classifier_value-CLASSIFIER
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-INSTANTIATOR
   name: instantiator-RELATION
@@ -111,7 +111,7 @@
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     descriptor-INSTANTIATION_CLASSIFIERS:
-      classifier-ENTITY_TYPE: CLASSIFIERclassifier_value
+      classifier-ENTITY_TYPE: classifier_value-CLASSIFIER
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-CLASSIFIER
   name: classifier-ENTITY_TYPE
@@ -125,19 +125,19 @@
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     descriptor-INSTANTIATION_CLASSIFIERS:
-      classifier-ENTITY_TYPE: CLASSIFIER_VALUEclassifier_value
+      classifier-ENTITY_TYPE: classifier_value-CLASSIFIER_VALUE
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-CLASSIFIER_VALUE
   name: classifier_value-REQUESTID
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-CLASSIFIER_VALUE
-  name: CLASSIFIERclassifier_value
+  name: classifier_value-CLASSIFIER
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-CLASSIFIER_VALUE
-  name: DESCRIPTORclassifier_value
+  name: classifier_value-DESCRIPTOR
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-CLASSIFIER_VALUE
-  name: CLASSIFIER_VALUEclassifier_value
+  name: classifier_value-CLASSIFIER_VALUE
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-CLASSIFIER_VALUE
   name: CONTEXTclassifier_value

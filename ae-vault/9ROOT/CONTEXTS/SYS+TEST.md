@@ -51,16 +51,16 @@ classifier:    SYS+classifier-ENTITY_TYPE
     entity:            +simple-ALPHA
     entity:            +simple-BETA
     entity:            +simple-GAMMA
-     value:        SYS+CLASSIFIER_VALUEclassifier_value
-    entity:            +classifier_value-FIDDLING
-    entity:            +classifier_value-SIMPLE
-     value:        SYS+CLASSIFIERclassifier_value
-    entity:            +classifier-APPLICATION
-    entity:            +relation-BASIC
-     value:        SYS+DESCRIPTORclassifier_value
-    entity:            +descriptor-DEGREE_OF_POLISH$str
      value:        SYS+FEDERATORclassifier_value
     entity:            +federator-A
+     value:        SYS+classifier_value-CLASSIFIER
+    entity:            +classifier-APPLICATION
+    entity:            +relation-BASIC
+     value:        SYS+classifier_value-CLASSIFIER_VALUE
+    entity:            +classifier_value-FIDDLING
+    entity:            +classifier_value-SIMPLE
+     value:        SYS+classifier_value-DESCRIPTOR
+    entity:            +descriptor-DEGREE_OF_POLISH$str
      value:        SYS+classifier_value-INSTANTIATOR
     entity:            +instantiator-SIMPLE
 

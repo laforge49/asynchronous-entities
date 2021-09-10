@@ -6,7 +6,7 @@ DESCRIPTORS:
     SYS+requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
 tags:
-- SYS+classifier-ENTITY_TYPE/SYS+CLASSIFIER_VALUEclassifier_value
+- SYS+classifier-ENTITY_TYPE/SYS+classifier_value-CLASSIFIER_VALUE
 ---
-# Entity SYS+DESCRIPTORclassifier_value
+# Entity SYS+classifier_value-CLASSIFIER
 

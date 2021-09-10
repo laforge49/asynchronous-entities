@@ -17,16 +17,15 @@ DESCRIPTORS:
 1. Registered Entities of context ROOT+SYS
 (Default context is SYS.)
 
-+CLASSIFIER_VALUEclassifier_value
-+CLASSIFIERclassifier_value
-+CONTEXT_REPORTrequestid
 +CONTEXTclassifier_value
 +CONTEXTinstantiator
-+DESCRIPTORclassifier_value
 +FEDERATION_CONTEXTclassifier_value
 +FEDERATORclassifier_value
 +TEST
 +classifier-ENTITY_TYPE
++classifier_value-CLASSIFIER
++classifier_value-CLASSIFIER_VALUE
++classifier_value-DESCRIPTOR
 +classifier_value-INSTANTIATOR
 +classifier_value-REQUESTID
 +descriptor-INSTANTIATION_CLASSIFIERS
@@ -48,6 +47,7 @@ DESCRIPTORS:
 +requestid-ACQUIRE
 +requestid-ADD_CLASSIFIERS
 +requestid-ADD_DESCRIPTORS
++requestid-CONTEXT_REPORT
 +requestid-INSTANTIATE
 +requestid-REGISTER_CLASSIFIER
 +requestid-REGISTER_ENTITY
@@ -62,20 +62,20 @@ Number of entities: 38
 (Default context is SYS.)
 
 classifier:    +classifier-ENTITY_TYPE
-     value:        +CLASSIFIER_VALUEclassifier_value
-    entity:            +CLASSIFIER_VALUEclassifier_value
-    entity:            +CLASSIFIERclassifier_value
-    entity:            +CONTEXTclassifier_value
-    entity:            +DESCRIPTORclassifier_value
-    entity:            +FEDERATION_CONTEXTclassifier_value
-    entity:            +FEDERATORclassifier_value
-    entity:            +classifier_value-INSTANTIATOR
-    entity:            +classifier_value-REQUESTID
-     value:        +CLASSIFIERclassifier_value
-    entity:            +classifier-ENTITY_TYPE
      value:        +CONTEXTclassifier_value
     entity:            +TEST
-     value:        +DESCRIPTORclassifier_value
+     value:        +classifier_value-CLASSIFIER
+    entity:            +classifier-ENTITY_TYPE
+     value:        +classifier_value-CLASSIFIER_VALUE
+    entity:            +CONTEXTclassifier_value
+    entity:            +FEDERATION_CONTEXTclassifier_value
+    entity:            +FEDERATORclassifier_value
+    entity:            +classifier_value-CLASSIFIER
+    entity:            +classifier_value-CLASSIFIER_VALUE
+    entity:            +classifier_value-DESCRIPTOR
+    entity:            +classifier_value-INSTANTIATOR
+    entity:            +classifier_value-REQUESTID
+     value:        +classifier_value-DESCRIPTOR
     entity:            +descriptor-INSTANTIATION_CLASSIFIERS
     entity:            +descriptor-INSTANTIATION_DESCRIPTORS
     entity:            +descriptor-INVARIANT$bool
@@ -93,10 +93,10 @@ classifier:    +classifier-ENTITY_TYPE
     entity:            +instantiator-REQUESTID
     entity:            +instantiatorDATA_TYPE
      value:        +classifier_value-REQUESTID
-    entity:            +CONTEXT_REPORTrequestid
     entity:            +requestid-ACQUIRE
     entity:            +requestid-ADD_CLASSIFIERS
     entity:            +requestid-ADD_DESCRIPTORS
+    entity:            +requestid-CONTEXT_REPORT
     entity:            +requestid-INSTANTIATE
     entity:            +requestid-REGISTER_CLASSIFIER
     entity:            +requestid-REGISTER_ENTITY
