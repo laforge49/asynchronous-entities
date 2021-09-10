@@ -18,4 +18,4 @@ READ_ONLYdescriptor | descriptorREAD_ONLY$bool
 content | content$ml
 SCRIPTdescriptor | descriptorSCRIPT$yaml
 
-completed: [21-35-7 Sunday (week 35), 9-5-2021](21-35-7%20Sunday%20(week%2035),%209-5-2021.md)
+completed: [2135.7 Sunday (week 35), 9-5-2021](2135.7%20Sunday%20(week%2035),%209-5-2021.md)
