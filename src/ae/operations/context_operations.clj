@@ -84,8 +84,12 @@
                                           (prn this-name)
                                           (prn-str params)
                                           (prn-str this-map)))))
-              [_ _ this-base-name]
+              [_ _ local-context]
               (kw/name-as-keyword this-name)
+              local-context
+              (if (s/starts-with? local-context "context-")
+                (subs local-context 8)
+                (throw (Exception. (str "unrecognized context: " local-context))))
               target-entity-name
               (get params "target_name")
               _ (if (nil? target-entity-name)
@@ -105,7 +109,7 @@
               (a/>! operation-return-port [this-map nil :NO-RETURN])
               (a/>! active-request-port [env
                                          (assoc params "requestid" target-requestid)]))
-            (if (= this-base-name target-context-base-name)
+            (if (= local-context target-context-base-name)
               (let [entity-public-request-ports
                     (get this-map "ENTITY-PUBLIC-REQUEST-PORTS")
                     target-entity-request-port
@@ -113,20 +117,21 @@
                     target-requestid
                     (get params "target_requestid")]
                 (if (nil? target-entity-request-port)
-                  (throw (Exception. (str "Entity " target-entity-name " is not registered in " this-name))))
+                  (throw (Exception. (str "Entity " target-entity-name " is not registered in " this-name "\n"
+                                          (prn-str params)))))
                 (a/>! operation-return-port [this-map
                                              nil
                                              :NO-RETURN])
                 (a/>! target-entity-request-port [env
                                                   (assoc params "requestid" target-requestid)]))
               (let [target-context-entity-kw
-                    (keyword "SYS" target-context-base-name)
+                    (keyword "SYS" (str "context-" target-context-base-name))
                     entity-public-request-ports
                     (get this-map "ENTITY-PUBLIC-REQUEST-PORTS")
                     target-entity-request-port
                     (target-context-entity-kw entity-public-request-ports)]
                 (if (nil? target-entity-request-port)
-                  (throw (Exception. (str "Entity " this-base-name "+" target-context-base-name " is not registered in " this-name))))
+                  (throw (Exception. (str "Entity " local-context "+context-" target-context-base-name " is not registered in " this-name))))
                 (a/>! operation-return-port [this-map
                                              nil
                                              :NO-RETURN])

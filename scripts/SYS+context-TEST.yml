@@ -41,9 +41,9 @@
   target_name: SYS+instantiator-FEDERATOR
   name: federator-A
   descriptors:
-    SYS+FEDERATION_NAMESdescriptor:
+    SYS+descriptor-FEDERATION_NAMES:
       - simple-ALPHA
-    SYS+descriptorSCRIPT$yaml:
+    SYS+descriptor-SCRIPT$yaml:
       - target_requestid: SYS+requestid-INSTANTIATE
         target_name: instantiator-SIMPLE
         name: simple-GAMMA

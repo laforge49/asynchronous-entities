@@ -1,9 +1,9 @@
 ---
 DESCRIPTORS:
-  SYS+FEDERATION_NAMESdescriptor:
-  - TEST+simple-ALPHA
   SYS+INSTANTIATORdescriptor: SYS+instantiator-FEDERATOR
-  SYS+descriptorSCRIPT$yaml:
+  SYS+descriptor-FEDERATION_NAMES:
+  - TEST+simple-ALPHA
+  SYS+descriptor-SCRIPT$yaml:
   - target_requestid: SYS+requestid-INSTANTIATE
     target_name: instantiator-SIMPLE
     name: simple-GAMMA

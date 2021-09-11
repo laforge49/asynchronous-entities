@@ -1,5 +1,5 @@
 - target_requestid: requestid-REGISTER_ENTITY
-  target_name: ROOT+SYS
+  target_name: ROOT+context-SYS
   name: instantiator-INSTANTIATOR
   descriptors:
     descriptor-INVARIANT$bool: true
@@ -201,18 +201,18 @@
       descriptor_map-REQUESTID$operationid:
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
-        requestidTYPE_OF:
+        requestid-TYPE_OF:
           - operationidTYPE_OF
     descriptor-INSTANTIATION_CLASSIFIERS:
-      classifier-ENTITY_TYPE: classifier_valueDATA_TYPE
+      classifier-ENTITY_TYPE: classifier_value-DATA_TYPE
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-CONTEXT
-  name: TEST
+  name: context-TEST
   content$ml:
     "this is a test
     same line
     \ndifferent line"
 - target_requestid: requestid-LOAD_SCRIPT
-  target_name: TEST
+  target_name: context-TEST
 - target_requestid: requestid-ENTITY_REPORT
-  target_name: ROOT+SYS
+  target_name: ROOT+context-SYS

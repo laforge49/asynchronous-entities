@@ -97,7 +97,7 @@
               descriptors
               (get this-map "DESCRIPTORS")
               federation-names
-              (get descriptors "SYS+FEDERATION_NAMESdescriptor")
+              (get descriptors "SYS+descriptor-FEDERATION_NAMES")
               subrequest-return-port
               (a/chan)
               _ (a/>! root-contexts-request-port [env {"requestid"        "SYS+requestid-ROUTE"
@@ -125,7 +125,7 @@
               env
               (assoc env :NEW-CLASSIFIERS-VOLATILE (volatile! []))
               script
-              (get descriptors "SYS+descriptorSCRIPT$yaml")
+              (get descriptors "SYS+descriptor-SCRIPT$yaml")
               this-name
               (get this-map "NAME")
               [_ local-context _]

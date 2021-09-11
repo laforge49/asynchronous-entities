@@ -372,10 +372,10 @@
           [nil nil nil]
           (kw/name-as-keyword entity-name))]
     (if (s/blank? entity-name)
-      "ROOT+SYS"
+      "ROOT+context-SYS"
       (if (= entity-context-base-name "SYS")
-        "ROOT+SYS"
-        (str "SYS+" entity-context-base-name)))))
+        "ROOT+context-SYS"
+        (str "SYS+context-" entity-context-base-name)))))
 
 (defn validate-edn
   [path context-map type-entity edn env]
@@ -423,15 +423,47 @@
                                 (prn-str edn)
                                 (prn-str context-map))))))))
 
+(defn validate-entity-name
+  [s]
+  (let [dot-ndx
+        (s/index-of s ".")
+        h-ndx
+        (s/index-of s "-")
+        d-ndx
+        (s/index-of s "$")]
+    (cond
+      (some? dot-ndx)
+      (throw (Exception. (str "Name " s " should not contain a .")))
+
+      (nil? h-ndx)
+      (throw (Exception. (str "Name " s " is missing a -")))
+
+      (and (some? d-ndx)
+           (> h-ndx d-ndx))
+      (throw (Exception. (str "Name " s " has a $ before the -")))
+
+      (= h-ndx 0)
+      (throw (Exception. (str "Name " s " begins with a -")))
+
+      (= h-ndx (dec (count s)))
+      (throw (Exception. (str "Name " s " ends with a -")))
+
+      (and (some? d-ndx)
+           (= h-ndx (dec d-ndx)))
+      (throw (Exception. (str "Name " s " has a $ immediately following the -")))
+      )))
+
 (defn bind-context
   [local-context edn values-as-data env]
   (cond
     (string? edn)
     (if values-as-data
       edn
-      (if (some? (s/index-of edn "+"))
-        edn
-        (str local-context "+" edn)))
+      (do
+        (validate-entity-name edn)
+        (if (some? (s/index-of edn "+"))
+          edn
+          (str local-context "+" edn))))
 
     (vector? edn)
     (reduce
@@ -461,6 +493,10 @@
         (get context-map "NAME")
         [_ _ local-context]
         (kw/name-as-keyword full-local-context)
+        local-context
+        (if (s/starts-with? local-context "context-")
+          (subs local-context 8)
+          (throw (Exception. (str "unrecognized context: " local-context))))
         out
         (a/chan)]
     (a/go
