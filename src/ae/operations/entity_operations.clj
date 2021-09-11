@@ -58,7 +58,9 @@
         (into instantiation-descriptors (get params "descriptors"))
         instantiation-classifiers
         (get this-descriptors "SYS+descriptor-INSTANTIATION_CLASSIFIERS")
-        ]
+        instantiation-classifiers
+        (into instantiation-classifiers (get params "classifiers"))]
+    (println (prn-str instantiation-classifiers))
     (into params {"target_requestid" "SYS+requestid-REGISTER_ENTITY"
                   "target_name"      target-name
                   "descriptors"      instantiation-descriptors
