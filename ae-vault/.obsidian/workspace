@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "6blog/21/21-3 Q3/2136/8019-validateEntityNames.md",
-            "mode": "source"
+            "file": "6blog/21/21-3 Q3/2136/2136.6 Saturday (week 36),   9-11-2021.md",
+            "mode": "preview"
           }
         }
       }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6blog/21/21-3 Q3/2136/8019-validateEntityNames.md",
+                "file": "6blog/21/21-3 Q3/2136/2136.6 Saturday (week 36),   9-11-2021.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "6blog/21/21-3 Q3/2136/8019-validateEntityNames.md",
+                "file": "6blog/21/21-3 Q3/2136/2136.6 Saturday (week 36),   9-11-2021.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,15 +135,15 @@
   },
   "active": "c902587de11a02ea",
   "lastOpenFiles": [
-    "6blog/21/21-3 Q3/2136/8019-validateEntityNames.md",
-    "6blog/21/21-3 Q3/2136/2136.5 Friday (week 36), 9-10-2021.md",
-    "8activities/8000-pendingActivities.md",
-    "8activities/8019-validateEntityNames.md",
-    "6blog/21/21-3 Q3/2136/8018-dropLeading+.md",
+    "6blog/21/21-3 Q3/2136/2136.6 Saturday (week 36),   9-11-2021.md",
+    "8activities/8020-imports.md",
     "8activities/8012-changeDescriptors.md",
+    "6blog/21/21-3 Q3/2136/2136.5 Friday (week 36), 9-10-2021.md",
+    "6blog/21/21-3 Q3/2136/Untitled.md",
+    "8activities/8000-pendingActivities.md",
     "8activities/Untitled.md",
-    "6blog/21/21-3 Summer/2136/21-36-3 Wednesday (week 36), 9-8-2021.md",
-    "6blog/21/21-3 Summer/2136/21-36-5 Friday (week 36), 9-10-2021.md",
-    "6blog/21/21-3 Summer/2135/21-35-3 Wednesday (week 35), 9-1-2021.md"
+    "6blog/21/21-3 Q3/2136/8019-validateEntityNames.md",
+    "8activities/8019-validateEntityNames.md",
+    "6blog/21/21-3 Q3/2136/8018-dropLeading+.md"
   ]
 }
