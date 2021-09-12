@@ -100,9 +100,6 @@ classifier:    SYS+classifier-ENTITY_TYPE
     entity:            SYS+requestid-RELEASE
     entity:            SYS+requestid-ROUTE
     entity:            SYS+requestid-RUN_FEDERATION
-classifier:    SYS+classifier_list-IMPORTS
-     value:        ROOT+context-SYS
-    entity:            SYS+context-TEST
 
-Number of classifiers: 2
+Number of classifiers: 1
 

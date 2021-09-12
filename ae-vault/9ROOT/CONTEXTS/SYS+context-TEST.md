@@ -14,7 +14,6 @@ DESCRIPTORS:
     - ROUTEoperationid
 tags:
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-CONTEXT
-- SYS+classifier_list-IMPORTS/ROOT+context-SYS
 ---
 # Entity SYS+context-TEST
 
