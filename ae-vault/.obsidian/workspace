@@ -39,7 +39,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#SYS+ENTITY_TYPEclassifier/SYS+CONTEXTclassifier_value",
+                "query": "",
                 "matchingCase": true,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -48,7 +48,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -119,7 +120,7 @@
             }
           },
           {
-            "id": "1a4a5fb25ec827f4",
+            "id": "5d161a68ef3c832f",
             "type": "leaf",
             "state": {
               "type": "calendar",

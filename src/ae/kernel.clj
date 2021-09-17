@@ -450,8 +450,39 @@
 
       (and (some? d-ndx)
            (= h-ndx (dec d-ndx)))
-      (throw (Exception. (str "Name " s " has a $ immediately following the -")))
-      )))
+      (throw (Exception. (str "Name " s " has a $ immediately following the -"))))))
+
+(defn unbind-context
+  [local-context-+ edn values-as-data env]
+  (cond
+    (string? edn)
+    (if values-as-data
+      edn
+      (if (s/starts-with? edn local-context-+)
+        (subs edn (count local-context-+))
+        edn))
+
+    (vector? edn)
+    (reduce
+      (fn [v item]
+        (conj v (if values-as-data
+                  item
+                  (unbind-context local-context-+ item values-as-data env))))
+      []
+      edn)
+
+    (map? edn)
+    (reduce
+      (fn [m [k v]]
+        (assoc m (unbind-context local-context-+ k false env)
+                 (unbind-context local-context-+ v
+                               (or values-as-data (some? (s/index-of k "$")))
+                               env)))
+      (sorted-map)
+      edn)
+
+    true
+    edn))
 
 (defn bind-context
   [local-context edn values-as-data env]
