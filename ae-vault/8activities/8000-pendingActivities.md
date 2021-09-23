@@ -10,6 +10,7 @@ from [0000-asynchronousEntities](../0000-asynchronousEntities.md)
 - [8011-changeClassifiers](8011-changeClassifiers.md)
 - [8012-changeDescriptors](8012-changeDescriptors.md)
 - [8020-imports](8020-imports.md)
-- next: 8021
+- [8021-classifierValuesImmutable](8021-classifierValuesImmutable.md)
+- next: 8022
 
 Pending activities are listed above. Completed activities have been moved to the into the Blog's week folder for when they were completed.
