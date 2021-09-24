@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "8activities/8021-classifierValuesImmutable.md",
+            "file": "8activities/8022-classifier-INSTANTIATOR.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "8activities/8021-classifierValuesImmutable.md",
+                "file": "8activities/8022-classifier-INSTANTIATOR.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "8activities/8021-classifierValuesImmutable.md",
+                "file": "8activities/8022-classifier-INSTANTIATOR.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,15 +135,15 @@
   },
   "active": "c902587de11a02ea",
   "lastOpenFiles": [
-    "8activities/8021-classifierValuesImmutable.md",
+    "8activities/8022-INSTANTIATORclassifier.md",
+    "8activities/8000-pendingActivities.md",
     "6blog/21/21-3 Q3/2138/2138.5 Friday (week 38), 9-24-2021.md",
+    "8activities/8021-classifierValuesImmutable.md",
+    "8activities/8020-imports.md",
+    "8activities/Untitled.md",
     "6blog/21/21-3 Q3/2136/2136.5 Friday (week 36), 9-10-2021.md",
     "6blog/21/21-3 Q3/2136/2136.6 Saturday (week 36),   9-11-2021.md",
     "6blog/21/21-3 Q3/2138/2138.4 Thursday (week 38), 9-23-2021.md",
-    "6blog/21/21-3 Q3/2138/Untitled.md",
-    "8activities/8000-pendingActivities.md",
-    "8activities/8011-changeClassifiers.md",
-    "8activities/8006-reportMarkdown.md",
-    "8activities/8020-imports.md"
+    "6blog/21/21-3 Q3/2138/Untitled.md"
   ]
 }

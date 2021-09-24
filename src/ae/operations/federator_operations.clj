@@ -124,6 +124,8 @@
               (assoc env "NEW-CHILDREN-VOLATILE" (volatile! {}))
               env
               (assoc env :NEW-CLASSIFIERS-VOLATILE (volatile! []))
+              env
+              (assoc env :NEW-RELATIONS-VOLATILE (volatile! []))
               script
               (get descriptors "SYS+descriptor-SCRIPT$yaml")
               this-name
@@ -169,6 +171,8 @@
               (assoc env "NEW-CHILDREN-VOLATILE" nil)
               env
               (assoc env :NEW-CLASSIFIERS-VOLATILE nil)
+              env
+              (assoc env :NEW-RELATIONS-VOLATILE nil)
               _ (a/>! federation-context-request-port [env {"requestid"   "SYS+requestid-RELEASE"
                                                             "return_port" subrequest-return-port}])
               _ (k/request-exception-check (a/<! subrequest-return-port))

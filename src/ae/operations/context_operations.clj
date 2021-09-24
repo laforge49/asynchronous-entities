@@ -65,6 +65,25 @@
         (catch Exception e
           (a/>! operation-return-port [this-map e nil]))))))
 
+(defn register-relation-goblock
+  [env this-map params]
+  (a/go
+    (let [operation-return-port
+          (get params "operation-return-port")]
+      (try
+        (let [name
+              (get params "name")
+              relation-kw
+              (get params "relation")
+              relation-value-kw
+              (get params "relation-value")
+              this-name
+              (get this-map "NAME")]
+          (k/add-relation-value this-name name relation-kw relation-value-kw)
+          (a/>! operation-return-port [this-map nil this-map]))
+        (catch Exception e
+          (a/>! operation-return-port [this-map e nil]))))))
+
 (defn route-goblock
   [env this-map params]
   (a/go
@@ -291,6 +310,8 @@
                             :goblock     register-entity-goblock})
   (k/register-function env {:operationid "REGISTER_CLASSIFIERoperationid"
                             :goblock     register-classifier-goblock})
+  (k/register-function env {:operationid "REGISTER_RELATIONoperationid"
+                            :goblock     register-relation-goblock})
   (k/register-function env {:operationid "ROUTEoperationid"
                             :goblock     route-goblock})
   (k/register-function env {:operationid "FEDERATION_ACQUIREoperationid"

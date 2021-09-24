@@ -120,9 +120,9 @@
                       (throw (Exception. (str "ADD RELATIONS encountered a pre-existing value: " relation ":" old-relation-value))))
                   this-map
                   (assoc-in this-map ["RELATIONS" relation] relation-value)
-                  new-classifiers-voltile
-                  (:NEW-CLASSIFIERS-VOLATILE env)]
-              (vswap! new-classifiers-voltile conj [this-name relation relation-value])
+                  new-relations-voltile
+                  (:NEW-RELATIONS-VOLATILE env)]
+              (vswap! new-relations-voltile conj [this-name relation relation-value])
               this-map))
           this-map
           relations-map)]

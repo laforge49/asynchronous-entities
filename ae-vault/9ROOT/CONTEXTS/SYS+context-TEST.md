@@ -10,6 +10,8 @@ DESCRIPTORS:
     - REGISTER_CLASSIFIERoperationid
     requestid-REGISTER_ENTITY:
     - REGISTER_ENTITYoperationid
+    requestid-REGISTER_RELATION:
+    - REGISTER_RELATIONoperationid
     requestid-ROUTE:
     - ROUTEoperationid
 TAGS:
@@ -53,9 +55,6 @@ classifier:    SYS+classifier-ENTITY_TYPE
     entity:            TEST+simple-ALPHA
     entity:            TEST+simple-BETA
     entity:            TEST+simple-GAMMA
-classifier:    TEST+relation-BASIC
-     value:        TEST+simple-ALPHA
-    entity:            TEST+simple-BETA
 
-Number of classifiers: 2
+Number of classifiers: 1
 
