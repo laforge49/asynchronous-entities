@@ -86,6 +86,38 @@
               nil)))))
     return-port))
 
+(defn registerRelations
+  [env new-relations]
+  (let [return-port
+        (a/chan)]
+    (a/go-loop [new-relations new-relations]
+      (if (empty? new-relations)
+        (a/>! return-port [nil])
+        (recur
+          (try
+            (let [[entity-name relation relation-value]
+                  (peek new-relations)
+                  context-name
+                  (k/entityContextName entity-name)
+                  context-request-port
+                  (get env "CONTEXT-REQUEST-PORT")
+                  subrequest-return-port
+                  (a/chan)
+                  new-relations
+                  (pop new-relations)]
+              (a/>! context-request-port [env {"requestid"        "SYS+requestid-ROUTE"
+                                               "target_requestid" "SYS+requestid-REGISTER_RELATION"
+                                               "target_name"      context-name
+                                               "name"             entity-name
+                                               "relation"         relation
+                                               "relation-value"   relation-value
+                                               "return_port"      subrequest-return-port}])
+              new-relations)
+            (catch Exception e
+              (a/>! return-port [e])
+              nil)))))
+    return-port))
+
 (defn run-federation-goblock
   [env this-map params]
   (a/go
@@ -160,6 +192,12 @@
               (a/<! (registerClassifiers env
                                          @(:NEW-CLASSIFIERS-VOLATILE env)
                                          @(get env "NEW-CHILDREN-VOLATILE")
+                                         ))
+              _ (if (some? e)
+                  (throw e))
+              [e]
+              (a/<! (registerRelations env
+                                         @(:NEW-RELATIONS-VOLATILE env)
                                          ))
               _ (if (some? e)
                   (throw e))
