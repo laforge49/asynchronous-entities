@@ -17,14 +17,14 @@ DESCRIPTORS:
       descriptor-DEGREE_OF_POLISH$str: MIDDLING
   - target_requestid: SYS+requestid-ADD_RELATIONS
     target_name: simple-GAMMA
-    classifiers:
+    relations:
       relation-BASIC: simple-ALPHA
   SYS+descriptor_map-REQUESTID$operationid:
     SYS+requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
     SYS+requestid-RUN_FEDERATION:
     - RUN_FEDERATIONoperationid
-tags:
+TAGS:
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-FEDERATOR
 ---
 # Entity TEST+federator-A

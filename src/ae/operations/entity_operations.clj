@@ -108,24 +108,24 @@
   (let [this-name
         (get this-map "NAME")
         _ (if (s/blank? this-name)
-            (throw (Exception. "ADD CLASSIFIER requires a name on the entity being assigned a classifier")))
-        classifiers-map
-        (get params "classifiers")
+            (throw (Exception. "ADD RELATIONS requires a name on the entities being assigned a classifier")))
+        relations-map
+        (get params "relations")
         this-map
         (reduce
-          (fn [this-map [classifier classifier-value]]
-            (let [old-classifier-value
-                  (get-in this-map ["CLASSIFIERS" classifier])
-                  _ (if (some? old-classifier-value)
-                      (throw (Exception. (str "ADD CLASSIFIER encountered a pre-existing value: " old-classifier-value))))
+          (fn [this-map [relation relation-value]]
+            (let [old-relation-value
+                  (get-in this-map ["RELATIONS" relation])
+                  _ (if (some? old-relation-value)
+                      (throw (Exception. (str "ADD RELATIONS encountered a pre-existing value: " relation ":" old-relation-value))))
                   this-map
-                  (assoc-in this-map ["CLASSIFIERS" classifier] classifier-value)
+                  (assoc-in this-map ["RELATIONS" relation] relation-value)
                   new-classifiers-voltile
                   (:NEW-CLASSIFIERS-VOLATILE env)]
-              (vswap! new-classifiers-voltile conj [this-name classifier classifier-value])
+              (vswap! new-classifiers-voltile conj [this-name relation relation-value])
               this-map))
           this-map
-          classifiers-map)]
+          relations-map)]
     [this-map this-map]))
 
 (defn entity-report-goblock

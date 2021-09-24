@@ -83,17 +83,30 @@
                           descriptors
                           false
                           env)
+        relations
+        (get this-map "RELATIONS")
         fm
         {"DESCRIPTORS"
          descriptors}
+        classifier-tags
+        (reduce
+          (fn [tags [n v]]
+            (conj tags (str n "/" v)))
+          []
+          classifiers)
+        relation-tags
+        (reduce
+          (fn [tags [n v]]
+            (conj tags (str n "/" v)))
+          []
+          relations)
+        tags
+        (into classifier-tags relation-tags)
         fm
-        (if (empty? classifiers)
+        (if (empty? tags)
           fm
-          (assoc fm "tags" (reduce
-                             (fn [tags [n v]]
-                               (conj tags (str n "/" v)))
-                             []
-                             classifiers)))]
+          (assoc fm "TAGS" tags))
+        ]
     (str "---\n"
          (yaml/edn->yaml fm)
          "---\n")))

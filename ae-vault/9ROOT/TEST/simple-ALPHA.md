@@ -9,7 +9,7 @@ DESCRIPTORS:
     SYS+requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
   descriptor-DEGREE_OF_POLISH$str: MIDDLING
-tags:
+TAGS:
 - SYS+classifier-ENTITY_TYPE/TEST+classifier_value-SIMPLE
 ---
 # Entity TEST+simple-ALPHA

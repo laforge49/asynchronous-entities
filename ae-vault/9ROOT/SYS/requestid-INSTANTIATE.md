@@ -6,7 +6,7 @@ DESCRIPTORS:
   descriptor_map-REQUESTID$operationid:
     requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
-tags:
+TAGS:
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-REQUESTID
 ---
 # Entity SYS+requestid-INSTANTIATE

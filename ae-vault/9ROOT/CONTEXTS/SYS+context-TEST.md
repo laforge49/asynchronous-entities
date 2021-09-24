@@ -12,7 +12,7 @@ DESCRIPTORS:
     - REGISTER_ENTITYoperationid
     requestid-ROUTE:
     - ROUTEoperationid
-tags:
+TAGS:
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-CONTEXT
 ---
 # Entity SYS+context-TEST
@@ -53,9 +53,6 @@ classifier:    SYS+classifier-ENTITY_TYPE
     entity:            TEST+simple-ALPHA
     entity:            TEST+simple-BETA
     entity:            TEST+simple-GAMMA
-classifier:    TEST+relation-BASIC
-     value:        TEST+simple-ALPHA
-    entity:            TEST+simple-GAMMA
 
-Number of classifiers: 2
+Number of classifiers: 1
 

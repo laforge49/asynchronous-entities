@@ -17,7 +17,7 @@ DESCRIPTORS:
     - ENTITY_REPORToperationid
     SYS+requestid-INSTANTIATE:
     - INSTANTIATEoperationid
-tags:
+TAGS:
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-INSTANTIATOR
 ---
 # Entity TEST+instantiator-SIMPLE

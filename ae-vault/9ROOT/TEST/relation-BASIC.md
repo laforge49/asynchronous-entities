@@ -5,7 +5,7 @@ DESCRIPTORS:
   SYS+descriptor_map-REQUESTID$operationid:
     SYS+requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
-tags:
+TAGS:
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-CLASSIFIER
 ---
 # Entity TEST+relation-BASIC

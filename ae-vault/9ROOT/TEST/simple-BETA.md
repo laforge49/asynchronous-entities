@@ -8,7 +8,7 @@ DESCRIPTORS:
     - ADD_RELATIONSoperationid
     SYS+requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
-tags:
+TAGS:
 - SYS+classifier-ENTITY_TYPE/TEST+classifier_value-SIMPLE
 ---
 # Entity TEST+simple-BETA
