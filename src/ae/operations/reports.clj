@@ -69,12 +69,23 @@
          "Number of classifiers: " nbr "\n\n")))
 
 (defn front-matter
-  [this-map]
-  (let [classifiers
+  [this-map env]
+  (let [this-name
+        (get this-map "NAME")
+        [name-kw context-base-name base-name]
+        (kw/name-as-keyword this-name)
+        classifiers
         (get this-map "CLASSIFIERS")
+        descriptors
+        (get this-map "DESCRIPTORS")
+        descriptors
+        (k/unbind-context (str context-base-name "+")
+                          descriptors
+                          false
+                          env)
         fm
         {"DESCRIPTORS"
-         (get this-map "DESCRIPTORS")}
+         descriptors}
         fm
         (if (empty? classifiers)
           fm

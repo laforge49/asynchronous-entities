@@ -241,7 +241,7 @@
                 ""
                 (str content "\n\n---\n"))
               report
-              (str (r/front-matter this-map)
+              (str (r/front-matter this-map env)
                    heading
                    content
                    (r/context-entities-report 1 this-name this-map)

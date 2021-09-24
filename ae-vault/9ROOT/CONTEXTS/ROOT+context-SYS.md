@@ -1,16 +1,16 @@
 ---
 DESCRIPTORS:
   SYS+descriptor_map-REQUESTID$operationid:
-    SYS+requestid-REGISTER_ENTITY:
-    - REGISTER_ENTITYoperationid
-    SYS+requestid-ROUTE:
-    - ROUTEoperationid
-    SYS+requestid-REGISTER_CLASSIFIER:
-    - REGISTER_CLASSIFIERoperationid
     SYS+requestid-ENTITY_REPORT:
     - CONTEXT_REPORToperationid
     SYS+requestid-LOAD_SCRIPT:
     - LOAD_SCRIPToperationid
+    SYS+requestid-REGISTER_CLASSIFIER:
+    - REGISTER_CLASSIFIERoperationid
+    SYS+requestid-REGISTER_ENTITY:
+    - REGISTER_ENTITYoperationid
+    SYS+requestid-ROUTE:
+    - ROUTEoperationid
 ---
 # Entity ROOT+context-SYS
 

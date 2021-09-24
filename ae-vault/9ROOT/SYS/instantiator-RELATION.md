@@ -1,18 +1,18 @@
 ---
 DESCRIPTORS:
-  SYS+INSTANTIATORdescriptor: SYS+instantiator-INSTANTIATOR
-  SYS+descriptor-INSTANTIATION_CLASSIFIERS:
-    SYS+classifier-ENTITY_TYPE: SYS+classifier_value-CLASSIFIER
-  SYS+descriptor-INSTANTIATION_DESCRIPTORS:
-    SYS+descriptor-INVARIANT$bool: true
-    SYS+descriptor_map-REQUESTID$operationid:
-      SYS+requestid-ENTITY_REPORT:
+  INSTANTIATORdescriptor: instantiator-INSTANTIATOR
+  descriptor-INSTANTIATION_CLASSIFIERS:
+    classifier-ENTITY_TYPE: classifier_value-CLASSIFIER
+  descriptor-INSTANTIATION_DESCRIPTORS:
+    descriptor-INVARIANT$bool: true
+    descriptor_map-REQUESTID$operationid:
+      requestid-ENTITY_REPORT:
       - ENTITY_REPORToperationid
-  SYS+descriptor-INVARIANT$bool: true
-  SYS+descriptor_map-REQUESTID$operationid:
-    SYS+requestid-ENTITY_REPORT:
+  descriptor-INVARIANT$bool: true
+  descriptor_map-REQUESTID$operationid:
+    requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
-    SYS+requestid-INSTANTIATE:
+    requestid-INSTANTIATE:
     - INSTANTIATEoperationid
 tags:
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-INSTANTIATOR

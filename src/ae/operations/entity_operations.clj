@@ -138,8 +138,6 @@
               (get this-map "NAME")
               [name-kw context-base-name base-name]
               (kw/name-as-keyword this-name)
-              context-name
-              (k/entityContextName this-name)
               file-name
               (if (= context-base-name "SYS")
                 (str "ae-vault/9ROOT/SYS/" base-name ".md")
@@ -153,7 +151,7 @@
                 ""
                 (str content "\n"))
               report
-              (str (r/front-matter this-map)
+              (str (r/front-matter this-map env)
                    heading
                    content)]
           (io/make-parents file-name)
