@@ -43,8 +43,8 @@ SYS+instantiator-INSTANTIATOR
 SYS+instantiator-RELATION
 SYS+instantiator-REQUESTID
 SYS+requestid-ACQUIRE
-SYS+requestid-ADD_CLASSIFIERS
 SYS+requestid-ADD_DESCRIPTORS
+SYS+requestid-ADD_RELATIONS
 SYS+requestid-CONTEXT_REPORT
 SYS+requestid-INSTANTIATE
 SYS+requestid-REGISTER_CLASSIFIER
@@ -91,8 +91,8 @@ classifier:    SYS+classifier-ENTITY_TYPE
     entity:            SYS+instantiator-REQUESTID
      value:        SYS+classifier_value-REQUESTID
     entity:            SYS+requestid-ACQUIRE
-    entity:            SYS+requestid-ADD_CLASSIFIERS
     entity:            SYS+requestid-ADD_DESCRIPTORS
+    entity:            SYS+requestid-ADD_RELATIONS
     entity:            SYS+requestid-CONTEXT_REPORT
     entity:            SYS+requestid-INSTANTIATE
     entity:            SYS+requestid-REGISTER_CLASSIFIER

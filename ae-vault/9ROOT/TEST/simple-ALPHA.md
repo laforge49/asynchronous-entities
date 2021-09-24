@@ -2,10 +2,10 @@
 DESCRIPTORS:
   SYS+INSTANTIATORdescriptor: instantiator-SIMPLE
   SYS+descriptor_map-REQUESTID$operationid:
-    SYS+requestid-ADD_CLASSIFIERS:
-    - ADD_CLASSIFIERSoperationid
     SYS+requestid-ADD_DESCRIPTORS:
     - ADD_DESCRIPTORSoperationid
+    SYS+requestid-ADD_RELATIONS:
+    - ADD_RELATIONSoperationid
     SYS+requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
   descriptor-DEGREE_OF_POLISH$str: MIDDLING

@@ -15,7 +15,7 @@ DESCRIPTORS:
     target_name: simple-GAMMA
     descriptors:
       descriptor-DEGREE_OF_POLISH$str: MIDDLING
-  - target_requestid: SYS+requestid-ADD_CLASSIFIERS
+  - target_requestid: SYS+requestid-ADD_RELATIONS
     target_name: simple-GAMMA
     classifiers:
       relation-BASIC: simple-ALPHA

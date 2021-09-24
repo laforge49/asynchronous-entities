@@ -103,7 +103,7 @@
           descriptors-map)]
     [this-map this-map]))
 
-(defn addClassifiersFunction
+(defn addRelationsFunction
   [env this-map params]
   (let [this-name
         (get this-map "NAME")
@@ -173,8 +173,8 @@
                             :goblock     instantiate-goblock})
   (k/register-function env {:operationid "ADD_DESCRIPTORSoperationid"
                             :function    addDescriptorsFunction})
-  (k/register-function env {:operationid "ADD_CLASSIFIERSoperationid"
-                            :function    addClassifiersFunction})
+  (k/register-function env {:operationid "ADD_RELATIONSoperationid"
+                            :function    addRelationsFunction})
   (k/register-function env {:operationid "ENTITY_REPORToperationid"
                             :goblock     entity-report-goblock})
   (k/register-function env {:operationid "operationidTYPE_OF"
