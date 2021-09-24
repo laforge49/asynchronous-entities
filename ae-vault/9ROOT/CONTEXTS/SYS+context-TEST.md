@@ -24,8 +24,6 @@ different line
 1. Registered Entities of context SYS+context-TEST
 (Default context is context-TEST.)
 
-TEST+classifier-APPLICATION
-TEST+classifier_value-FIDDLING
 TEST+classifier_value-SIMPLE
 TEST+descriptor-DEGREE_OF_POLISH$str
 TEST+federator-A
@@ -35,17 +33,15 @@ TEST+simple-ALPHA
 TEST+simple-BETA
 TEST+simple-GAMMA
 
-Number of entities: 10
+Number of entities: 8
 
 2. Classifier Values of context SYS+context-TEST
 (Default context is context-TEST.)
 
 classifier:    SYS+classifier-ENTITY_TYPE
      value:        SYS+classifier_value-CLASSIFIER
-    entity:            TEST+classifier-APPLICATION
     entity:            TEST+relation-BASIC
      value:        SYS+classifier_value-CLASSIFIER_VALUE
-    entity:            TEST+classifier_value-FIDDLING
     entity:            TEST+classifier_value-SIMPLE
      value:        SYS+classifier_value-DESCRIPTOR
     entity:            TEST+descriptor-DEGREE_OF_POLISH$str
@@ -57,12 +53,9 @@ classifier:    SYS+classifier-ENTITY_TYPE
     entity:            TEST+simple-ALPHA
     entity:            TEST+simple-BETA
     entity:            TEST+simple-GAMMA
-classifier:    TEST+classifier-APPLICATION
-     value:        TEST+classifier_value-FIDDLING
-    entity:            TEST+simple-ALPHA
 classifier:    TEST+relation-BASIC
      value:        TEST+simple-ALPHA
     entity:            TEST+simple-GAMMA
 
-Number of classifiers: 3
+Number of classifiers: 2
 

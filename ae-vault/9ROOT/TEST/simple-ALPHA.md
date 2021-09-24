@@ -11,7 +11,6 @@ DESCRIPTORS:
   descriptor-DEGREE_OF_POLISH$str: MIDDLING
 tags:
 - SYS+classifier-ENTITY_TYPE/TEST+classifier_value-SIMPLE
-- TEST+classifier-APPLICATION/TEST+classifier_value-FIDDLING
 ---
 # Entity TEST+simple-ALPHA
 

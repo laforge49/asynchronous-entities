@@ -11,10 +11,6 @@ DESCRIPTORS:
     target_name: simple-ALPHA
     descriptors:
       descriptor-DEGREE_OF_POLISH$str: MIDDLING
-  - target_requestid: SYS+requestid-ADD_CLASSIFIERS
-    target_name: simple-ALPHA
-    classifiers:
-      classifier-APPLICATION: classifier_value-FIDDLING
   - target_requestid: SYS+requestid-ADD_DESCRIPTORS
     target_name: simple-GAMMA
     descriptors:
@@ -23,10 +19,6 @@ DESCRIPTORS:
     target_name: simple-GAMMA
     classifiers:
       relation-BASIC: simple-ALPHA
-  - target_requestid: SYS+requestid-ADD_CLASSIFIERS
-    target_name: simple-GAMMA
-    classifierS:
-      classifier-APPLICATION: classifier_value-FIDDLING
   SYS+descriptor_map-REQUESTID$operationid:
     SYS+requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
