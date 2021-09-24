@@ -53,6 +53,9 @@ classifier:    SYS+classifier-ENTITY_TYPE
     entity:            TEST+simple-ALPHA
     entity:            TEST+simple-BETA
     entity:            TEST+simple-GAMMA
+classifier:    TEST+relation-BASIC
+     value:        TEST+simple-ALPHA
+    entity:            TEST+simple-BETA
 
-Number of classifiers: 1
+Number of classifiers: 2
 

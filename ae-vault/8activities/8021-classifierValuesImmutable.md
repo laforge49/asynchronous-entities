@@ -9,3 +9,4 @@ To allow functional access to classifier values, they will be treated as immutab
 - Test script no longer adds a classifier.
 - Renamed add-classifiers to add-relations.
 - Add relations updates the relations attributes, which are reported.
+- Enhanced test script. Add relation beta->alpha.
