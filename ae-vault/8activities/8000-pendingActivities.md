@@ -10,7 +10,6 @@ from [0000-asynchronousEntities](../0000-asynchronousEntities.md)
 - [8011-changeRelations](8011-changeRelations.md)
 - [8012-changeDescriptors](8012-changeDescriptors.md)
 - [8020-imports](8020-imports.md)
-- [8021-classifierValuesImmutable](8021-classifierValuesImmutable.md)
 - [8022-classifier-INSTANTIATOR](8022-classifier-INSTANTIATOR.md)
 - next: 8023
 

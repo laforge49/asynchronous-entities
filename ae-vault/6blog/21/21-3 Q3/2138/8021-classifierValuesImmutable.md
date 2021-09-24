@@ -1,6 +1,6 @@
 ---
 tags:
-  - status/todo
+  - status/completed
 ---
 from [8000-pendingActivities](8000-pendingActivities.md)
 # 8021 Classifier values are Immutable
@@ -9,3 +9,6 @@ To allow functional access to classifier values, they will be treated as immutab
 - Renamed add-classifiers to add-relations.
 - Add relations updates the relations attributes, which are reported.
 - Enhanced test script. Add relation beta->alpha.
+- Relation processing parallel to classifier processing.
+
+completed: [2138.5 Friday (week 38), 9-24-2021](2138.5%20Friday%20(week%2038),%209-24-2021.md)

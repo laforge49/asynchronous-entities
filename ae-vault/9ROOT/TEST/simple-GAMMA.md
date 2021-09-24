@@ -11,6 +11,7 @@ DESCRIPTORS:
   descriptor-DEGREE_OF_POLISH$str: MIDDLING
 TAGS:
 - SYS+classifier-ENTITY_TYPE/TEST+classifier_value-SIMPLE
+- TEST+relation-BASIC/TEST+simple-ALPHA
 ---
 # Entity TEST+simple-GAMMA
 

@@ -49,7 +49,7 @@
 
 (defn add-relation-value
   [context-kw entity-name relation-name relation-value-kw]
-  (swap! classifier-values-map-atom add-classifier-value- context-kw entity-name relation-name relation-value-kw))
+  (swap! relation-values-map-atom add-relation-value- context-kw entity-name relation-name relation-value-kw))
 
 (def invariant-map-atom
   (atom {}))

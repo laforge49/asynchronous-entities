@@ -40,21 +40,31 @@ Number of entities: 8
 2. Classifier Values of context SYS+context-TEST
 (Default context is context-TEST.)
 
-classifier:    SYS+classifier-ENTITY_TYPE
-     value:        SYS+classifier_value-CLASSIFIER
-    entity:            TEST+relation-BASIC
-     value:        SYS+classifier_value-CLASSIFIER_VALUE
-    entity:            TEST+classifier_value-SIMPLE
-     value:        SYS+classifier_value-DESCRIPTOR
-    entity:            TEST+descriptor-DEGREE_OF_POLISH$str
-     value:        SYS+classifier_value-FEDERATOR
-    entity:            TEST+federator-A
-     value:        SYS+classifier_value-INSTANTIATOR
-    entity:            TEST+instantiator-SIMPLE
-     value:        TEST+classifier_value-SIMPLE
-    entity:            TEST+simple-ALPHA
-    entity:            TEST+simple-BETA
-    entity:            TEST+simple-GAMMA
+classifier:  SYS+classifier-ENTITY_TYPE
+  value:       SYS+classifier_value-CLASSIFIER
+    entity:      TEST+relation-BASIC
+  value:       SYS+classifier_value-CLASSIFIER_VALUE
+    entity:      TEST+classifier_value-SIMPLE
+  value:       SYS+classifier_value-DESCRIPTOR
+    entity:      TEST+descriptor-DEGREE_OF_POLISH$str
+  value:       SYS+classifier_value-FEDERATOR
+    entity:      TEST+federator-A
+  value:       SYS+classifier_value-INSTANTIATOR
+    entity:      TEST+instantiator-SIMPLE
+  value:       TEST+classifier_value-SIMPLE
+    entity:      TEST+simple-ALPHA
+    entity:      TEST+simple-BETA
+    entity:      TEST+simple-GAMMA
 
 Number of classifiers: 1
+
+3. Relation Values of context SYS+context-TEST
+(Default context is context-TEST.)
+
+relation:  TEST+relation-BASIC
+  value:     TEST+simple-ALPHA
+    entity:    TEST+simple-BETA
+    entity:    TEST+simple-GAMMA
+
+Number of relations: 1
 

@@ -112,6 +112,7 @@
                                                "relation"         relation
                                                "relation-value"   relation-value
                                                "return_port"      subrequest-return-port}])
+              (k/request-exception-check (a/<! subrequest-return-port))
               new-relations)
             (catch Exception e
               (a/>! return-port [e])
@@ -195,8 +196,8 @@
                                          ))
               _ (if (some? e)
                   (throw e))
-              [e]
-              (a/<! (registerRelations env
+              _ [e]
+              _ (a/<! (registerRelations env
                                          @(:NEW-RELATIONS-VOLATILE env)
                                          ))
               _ (if (some? e)
