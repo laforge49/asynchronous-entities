@@ -16,7 +16,7 @@ DESCRIPTORS:
 TAGS:
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-CONTEXT
 - SYS+classifier-INSTANTIATOR/SYS+instantiator-CONTEXT
-- SYS+classifier-RESOURCES/["ROOT+context-SYS"]
+- SYS+classifier-RESOURCES/ROOT+context-SYS
 ---
 # Entity SYS+context-TEST
 

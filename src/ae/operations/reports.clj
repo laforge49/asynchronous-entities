@@ -91,7 +91,13 @@
         classifier-tags
         (reduce
           (fn [tags [n v]]
-            (conj tags (str n "/" v)))
+            (if (vector? v)
+              (reduce
+                (fn [tags i]
+                  (conj tags (str n "/" i)))
+                tags
+                v)
+              (conj tags (str n "/" v))))
           []
           classifiers)
         relation-tags
