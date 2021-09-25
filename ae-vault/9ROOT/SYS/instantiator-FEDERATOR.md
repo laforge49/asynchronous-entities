@@ -1,6 +1,5 @@
 ---
 DESCRIPTORS:
-  INSTANTIATORdescriptor: instantiator-INSTANTIATOR
   descriptor-INSTANTIATION_CLASSIFIERS:
     classifier-ENTITY_TYPE: classifier_value-FEDERATOR
   descriptor-INSTANTIATION_DESCRIPTORS:
@@ -17,6 +16,7 @@ DESCRIPTORS:
     - INSTANTIATEoperationid
 TAGS:
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-INSTANTIATOR
+- SYS+classifier-INSTANTIATOR/SYS+instantiator-INSTANTIATOR
 ---
 # Entity SYS+instantiator-FEDERATOR
 

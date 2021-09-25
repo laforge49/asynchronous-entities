@@ -100,8 +100,49 @@ classifier:  SYS+classifier-ENTITY_TYPE
     entity:      SYS+requestid-RELEASE
     entity:      SYS+requestid-ROUTE
     entity:      SYS+requestid-RUN_FEDERATION
+classifier:  SYS+classifier-INSTANTIATOR
+  value:       SYS+instantiator-CLASSIFIER
+    entity:      SYS+classifier-ENTITY_TYPE
+  value:       SYS+instantiator-CLASSIFIER_VALUE
+    entity:      SYS+classifier_value-CLASSIFIER
+    entity:      SYS+classifier_value-CLASSIFIER_VALUE
+    entity:      SYS+classifier_value-CONTEXT
+    entity:      SYS+classifier_value-DESCRIPTOR
+    entity:      SYS+classifier_value-FEDERATION_CONTEXT
+    entity:      SYS+classifier_value-FEDERATOR
+    entity:      SYS+classifier_value-INSTANTIATOR
+    entity:      SYS+classifier_value-REQUESTID
+  value:       SYS+instantiator-CONTEXT
+    entity:      SYS+context-TEST
+  value:       SYS+instantiator-DESCRIPTOR
+    entity:      SYS+descriptor-INSTANTIATION_CLASSIFIERS
+    entity:      SYS+descriptor-INSTANTIATION_DESCRIPTORS
+    entity:      SYS+descriptor-INVARIANT$bool
+    entity:      SYS+descriptor-READ_ONLY$bool
+    entity:      SYS+descriptor_map-REQUESTID$operationid
+  value:       SYS+instantiator-INSTANTIATOR
+    entity:      SYS+instantiator-CLASSIFIER
+    entity:      SYS+instantiator-CLASSIFIER_VALUE
+    entity:      SYS+instantiator-CONTEXT
+    entity:      SYS+instantiator-DATA_TYPE
+    entity:      SYS+instantiator-DESCRIPTOR
+    entity:      SYS+instantiator-FEDERATION_CONTEXT
+    entity:      SYS+instantiator-FEDERATOR
+    entity:      SYS+instantiator-RELATION
+    entity:      SYS+instantiator-REQUESTID
+  value:       SYS+instantiator-REQUESTID
+    entity:      SYS+requestid-ACQUIRE
+    entity:      SYS+requestid-ADD_DESCRIPTORS
+    entity:      SYS+requestid-ADD_RELATIONS
+    entity:      SYS+requestid-CONTEXT_REPORT
+    entity:      SYS+requestid-INSTANTIATE
+    entity:      SYS+requestid-REGISTER_CLASSIFIER
+    entity:      SYS+requestid-REGISTER_ENTITY
+    entity:      SYS+requestid-RELEASE
+    entity:      SYS+requestid-ROUTE
+    entity:      SYS+requestid-RUN_FEDERATION
 
-Number of classifiers: 1
+Number of classifiers: 2
 
 3. Relation Values of context ROOT+context-SYS
 (Default context is context-SYS.)

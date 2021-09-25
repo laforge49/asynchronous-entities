@@ -1,6 +1,5 @@
 ---
 DESCRIPTORS:
-  SYS+INSTANTIATORdescriptor: SYS+instantiator-INSTANTIATOR
   SYS+descriptor-INSTANTIATION_CLASSIFIERS:
     SYS+classifier-ENTITY_TYPE: classifier_value-SIMPLE
   SYS+descriptor-INSTANTIATION_DESCRIPTORS:
@@ -19,6 +18,7 @@ DESCRIPTORS:
     - INSTANTIATEoperationid
 TAGS:
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-INSTANTIATOR
+- SYS+classifier-INSTANTIATOR/SYS+instantiator-INSTANTIATOR
 ---
 # Entity TEST+instantiator-SIMPLE
 

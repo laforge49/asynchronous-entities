@@ -1,6 +1,5 @@
 ---
 DESCRIPTORS:
-  INSTANTIATORdescriptor: instantiator-CONTEXT
   descriptor_map-REQUESTID$operationid:
     requestid-ENTITY_REPORT:
     - CONTEXT_REPORToperationid
@@ -16,6 +15,7 @@ DESCRIPTORS:
     - ROUTEoperationid
 TAGS:
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-CONTEXT
+- SYS+classifier-INSTANTIATOR/SYS+instantiator-CONTEXT
 ---
 # Entity SYS+context-TEST
 
@@ -55,8 +55,23 @@ classifier:  SYS+classifier-ENTITY_TYPE
     entity:      TEST+simple-ALPHA
     entity:      TEST+simple-BETA
     entity:      TEST+simple-GAMMA
+classifier:  SYS+classifier-INSTANTIATOR
+  value:       SYS+instantiator-CLASSIFIER_VALUE
+    entity:      TEST+classifier_value-SIMPLE
+  value:       SYS+instantiator-DESCRIPTOR
+    entity:      TEST+descriptor-DEGREE_OF_POLISH$str
+  value:       SYS+instantiator-FEDERATOR
+    entity:      TEST+federator-A
+  value:       SYS+instantiator-INSTANTIATOR
+    entity:      TEST+instantiator-SIMPLE
+  value:       SYS+instantiator-RELATION
+    entity:      TEST+relation-BASIC
+  value:       TEST+instantiator-SIMPLE
+    entity:      TEST+simple-ALPHA
+    entity:      TEST+simple-BETA
+    entity:      TEST+simple-GAMMA
 
-Number of classifiers: 1
+Number of classifiers: 2
 
 3. Relation Values of context SYS+context-TEST
 (Default context is context-TEST.)

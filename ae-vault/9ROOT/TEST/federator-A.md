@@ -1,6 +1,5 @@
 ---
 DESCRIPTORS:
-  SYS+INSTANTIATORdescriptor: SYS+instantiator-FEDERATOR
   SYS+descriptor-FEDERATION_NAMES:
   - simple-ALPHA
   - simple-BETA
@@ -31,6 +30,7 @@ DESCRIPTORS:
     - RUN_FEDERATIONoperationid
 TAGS:
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-FEDERATOR
+- SYS+classifier-INSTANTIATOR/SYS+instantiator-FEDERATOR
 ---
 # Entity TEST+federator-A
 
