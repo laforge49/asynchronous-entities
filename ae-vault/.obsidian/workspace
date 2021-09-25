@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "8activities/8006-reportMarkdown.md",
+            "file": "8activities/8020-resources.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "8activities/8006-reportMarkdown.md",
+                "file": "8activities/8020-resources.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "8activities/8006-reportMarkdown.md",
+                "file": "8activities/8020-resources.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,6 +135,7 @@
   },
   "active": "c902587de11a02ea",
   "lastOpenFiles": [
+    "8activities/8020-resources.md",
     "8activities/8006-reportMarkdown.md",
     "8activities/8000-pendingActivities.md",
     "6blog/21/21-3 Q3/2138/8022-classifier-INSTANTIATOR.md",
@@ -143,7 +144,6 @@
     "6blog/21/21-3 Q3/2138/Untitled.md",
     "8activities/8022-classifier-INSTANTIATOR.md",
     "6blog/21/21-3 Q3/2138/8021-classifierValuesImmutable.md",
-    "9ROOT/SYS/classifier_value-DESCRIPTOR.md",
-    "9ROOT/SYS/instantiator-CLASSIFIER.md"
+    "9ROOT/SYS/classifier_value-DESCRIPTOR.md"
   ]
 }

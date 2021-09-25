@@ -214,6 +214,9 @@
     "this is a test
     same line
     \ndifferent line"
+  classifiers:
+    classifier-RESOURCES:
+      - ROOT+context-SYS
 - target_requestid: requestid-LOAD_SCRIPT
   target_name: context-TEST
 - target_requestid: requestid-ENTITY_REPORT
