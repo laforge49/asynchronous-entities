@@ -34,8 +34,11 @@
 
 (defn add-classifier-values-
   [classifier-values-map context-name entity-name classifier-kw classifier-values]
-  (doseq [classifier-value classifier-values]
-    (add-classifier-value- classifier-values-map context-name entity-name classifier-kw classifier-value)))
+  (reduce
+    (fn [classifier-values-map classifier-value]
+      (add-classifier-value- classifier-values-map context-name entity-name classifier-kw classifier-value))
+    classifier-values-map
+    classifier-values))
 
 (defn add-classifier-value
   [context-kw entity-name classifier-name classifier-value]
