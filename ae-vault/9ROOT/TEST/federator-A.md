@@ -18,11 +18,13 @@ DESCRIPTORS:
   - target_requestid: SYS+requestid-ADD_RELATIONS
     target_name: simple-GAMMA
     relations:
-      relation-BASIC: simple-ALPHA
+      relation-BASIC:
+      - simple-ALPHA
   - target_requestid: SYS+requestid-ADD_RELATIONS
     target_name: simple-BETA
     relations:
-      relation-BASIC: simple-ALPHA
+      relation-BASIC:
+      - simple-ALPHA
   SYS+descriptor_map-REQUESTID$operationid:
     SYS+requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid

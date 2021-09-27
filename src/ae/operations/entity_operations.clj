@@ -113,19 +113,30 @@
             (throw (Exception. "ADD RELATIONS requires a name on the entities being assigned a classifier")))
         relations-map
         (get params "relations")
+        new-relations-volatile
+        (:NEW-RELATIONS-VOLATILE env)
         this-map
         (reduce
-          (fn [this-map [relation relation-value]]
-            (let [old-relation-value
-                  (get-in this-map ["RELATIONS" relation])
-                  _ (if (some? old-relation-value)
-                      (throw (Exception. (str "ADD RELATIONS encountered a pre-existing value: " relation ":" old-relation-value))))
-                  this-map
-                  (assoc-in this-map ["RELATIONS" relation] relation-value)
-                  new-relations-voltile
-                  (:NEW-RELATIONS-VOLATILE env)]
-              (vswap! new-relations-voltile conj [this-name relation relation-value])
-              this-map))
+          (fn [this-map [relation new-relation-values]]
+            (if (not (vector? new-relation-values))
+              (throw (Exception. (str "ADD RELATIONS given a non-vector value for relation " relation ": " (prn-str new-relation-values)))))
+            (let [relation-values
+                  (get-in this-map ["RELATIONS" relation] [])
+                  relation-values
+                  (reduce
+                    (fn [relation-values new-value]
+                      (let [i
+                            (.indexOf relation-values new-value)
+                            relation-values
+                            (if (= i -1)
+                              (do
+                                (vswap! new-relations-volatile conj [this-name relation new-value])
+                                (conj relation-values new-value))
+                              relation-values)]
+                        relation-values))
+                    relation-values
+                    new-relation-values)]
+              (assoc-in this-map ["RELATIONS" relation] relation-values)))
           this-map
           relations-map)]
     [this-map this-map]))
@@ -164,9 +175,9 @@
 
 (defn typeOfFunction
   [env this-map params]
-    [this-map [(get-in this-map ["DESCRIPTORS" "SYS+descriptorDATA_TYPE"])
-               (get-in this-map ["DESCRIPTORS" "SYS+descriptorKEY_ENTITY"])
-               (get-in this-map ["DESCRIPTORS" "SYS+descriptorVALUE_ENTITY"])]])
+  [this-map [(get-in this-map ["DESCRIPTORS" "SYS+descriptorDATA_TYPE"])
+             (get-in this-map ["DESCRIPTORS" "SYS+descriptorKEY_ENTITY"])
+             (get-in this-map ["DESCRIPTORS" "SYS+descriptorVALUE_ENTITY"])]])
 
 (defn create-entity-operations
   [env]
@@ -180,5 +191,5 @@
   (k/register-function env {:operationid "ENTITY_REPORToperationid"
                             :goblock     entity-report-goblock})
   (k/register-function env {:operationid "operationidTYPE_OF"
-                            :function     typeOfFunction})
+                            :function    typeOfFunction})
   )
