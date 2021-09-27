@@ -102,8 +102,12 @@
           classifiers)
         relation-tags
         (reduce
-          (fn [tags [n v]]
-            (conj tags (str n "/" v)))
+          (fn [tags [n vs]]
+            (reduce
+              (fn [tags v]
+                (conj tags (str n "/" v)))
+              tags
+              vs))
           []
           relations)
         tags
