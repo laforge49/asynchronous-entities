@@ -73,13 +73,13 @@
       (try
         (let [name
               (get params "name")
-              relation-kw
+              relation-name
               (get params "relation")
-              relation-value-kw
+              relation-value
               (get params "relation-value")
               this-name
               (get this-map "NAME")]
-          (k/add-relation-value this-name name relation-kw relation-value-kw)
+          (k/add-relation-value this-name name relation-name relation-value)
           (a/>! operation-return-port [this-map nil this-map]))
         (catch Exception e
           (a/>! operation-return-port [this-map e nil]))))))
