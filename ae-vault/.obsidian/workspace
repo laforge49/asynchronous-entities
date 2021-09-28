@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "6blog/21/21-3 Q3/2139/2139.1 Monday (week 39), 9-27-2021.md",
+            "file": "6blog/21/21-3 Q3/2139/2139.2 Tuesday (week 39), 9-28-2021.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6blog/21/21-3 Q3/2139/2139.1 Monday (week 39), 9-27-2021.md",
+                "file": "6blog/21/21-3 Q3/2139/2139.2 Tuesday (week 39), 9-28-2021.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "6blog/21/21-3 Q3/2139/2139.1 Monday (week 39), 9-27-2021.md",
+                "file": "6blog/21/21-3 Q3/2139/2139.2 Tuesday (week 39), 9-28-2021.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,15 +135,15 @@
   },
   "active": "c902587de11a02ea",
   "lastOpenFiles": [
+    "6blog/21/21-3 Q3/2139/2139.2 Tuesday (week 39), 9-28-2021.md",
     "6blog/21/21-3 Q3/2139/2139.1 Monday (week 39), 9-27-2021.md",
-    "6blog/21/21-3 Q3/2138/8021-classifierValuesImmutable.md",
-    "6blog/21/21-3 Q3/2138/2138.4 Thursday (week 38), 9-23-2021.md",
-    "6blog/21/21-3 Q3/2138/2138.5 Friday (week 38), 9-24-2021.md",
-    "8activities/8020-resources.md",
-    "8activities/8009-renameEntities.md",
+    "6blog/21/21-3 Q3/2138/8021-firstClassRelations.md",
+    "6blog/21/21-3 Q3/2138/8022-classifier-INSTANTIATOR.md",
     "6blog/21/21-3 Q3/2138/2138.7 Sunday (week 38), 9-26-2021.md",
     "6blog/21/21-3 Q3/2139/Untitled.md",
-    "6blog/21/21-3 Q3/2138/2138.6 Saturday (week 38), 9-25-2021.md",
-    "6blog/21/21-3 Q3/2138/Untitled.md"
+    "8activities/8023-immutableClassifiers.md",
+    "8activities/Untitled.md",
+    "8activities/8020-resources.md",
+    "8activities/8000-pendingActivities.md"
   ]
 }
