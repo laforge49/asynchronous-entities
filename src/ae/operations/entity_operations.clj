@@ -113,6 +113,8 @@
             (throw (Exception. "ADD RELATIONS requires a name on the entities being assigned a classifier")))
         relations-map
         (get params "relations")
+        federation-vmap
+        (get env "FEDERATION-MAP-VOLATILE")
         new-relations-volatile
         (:NEW-RELATIONS-VOLATILE env)
         this-map
@@ -125,11 +127,19 @@
                   relation-values
                   (reduce
                     (fn [relation-values new-value]
-                      (let [i
+                      (let [obj-vmap
+                            (first (get @federation-vmap new-value))
+                            _ (if (nil? obj-vmap)
+                                (throw (Exception. (str "Federation is required by addRelations for object " new-value))))
+                            relation-subjects
+                            (get-in @obj-vmap ["INVERSE-RELATIONS" relation] [])
+                            i
                             (.indexOf relation-values new-value)
                             relation-values
                             (if (= i -1)
                               (do
+                                (vswap! obj-vmap assoc-in ["INVERSE-RELATIONS" relation]
+                                        (conj relation-subjects this-name))
                                 (vswap! new-relations-volatile conj [this-name relation new-value])
                                 (conj relation-values new-value))
                               relation-values)]
