@@ -371,8 +371,6 @@
         (get params "descriptors" {})
         classifiers
         (get params "classifiers" {})
-        relations
-        (get params "relations" {})
         content
         (get params "content$ml" "")
         invariant
@@ -389,7 +387,7 @@
         {"NAME"               name
          "DESCRIPTORS"        descriptors
          "CLASSIFIERS"        classifiers
-         "RELATIONS"          relations
+         "RELATIONS"          {}
          "CONTENT$ml"         content
          "REQUEST-PORT-STACK" request-port-stack}
         ]
