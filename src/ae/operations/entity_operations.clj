@@ -111,6 +111,8 @@
         (get this-map "NAME")
         _ (if (s/blank? this-name)
             (throw (Exception. "ADD RELATIONS requires a name on the entities being assigned a classifier")))
+        [_ this-context _]
+        (kw/name-as-keyword this-name)
         relations-map
         (get params "relations")
         federation-vmap
@@ -127,7 +129,12 @@
                   relation-values
                   (reduce
                     (fn [relation-values new-value]
-                      (let [obj-vmap
+                      (let [[_ value-context _]
+                            (kw/name-as-keyword new-value)
+                            _ (if (not= this-context value-context)
+                                (throw (Exception. (str "Relation subject and object must have same context: "
+                                                        this-name " " value-context))))
+                            obj-vmap
                             (first (get @federation-vmap new-value))
                             _ (if (nil? obj-vmap)
                                 (throw (Exception. (str "Federation is required by addRelations for object " new-value))))
