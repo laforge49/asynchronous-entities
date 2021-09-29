@@ -147,9 +147,3 @@ classifier:  SYS+classifier-RESOURCES
 
 Number of classifiers: 3
 
-3. Relation Values of context ROOT+context-SYS
-(Default context is context-SYS.)
-
-
-Number of relations: 0
-

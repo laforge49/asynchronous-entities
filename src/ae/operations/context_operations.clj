@@ -264,8 +264,7 @@
                    heading
                    content
                    (r/context-entities-report 1 this-name this-map)
-                   (r/context-classifier-values-report 2 this-name)
-                   (r/context-relation-values-report 3 this-name))
+                   (r/context-classifier-values-report 2 this-name))
               entity-ports
               (get this-map "ENTITY-PUBLIC-REQUEST-PORTS")]
           (io/make-parents file-name)

@@ -37,37 +37,6 @@
     (sorted-set)
     names-kws))
 
-(defn classifier-report
-  [n this-name this-map]
-  (let [[this-name-kw this-context-base-name this-base-name]
-        (kw/name-as-keyword this-name)
-        classifiers
-        (keys (get this-map "CLASSIFIERS"))
-        sorted-classifier-name2s
-        (short-names classifiers this-context-base-name)
-        lines
-        (reduce
-          (fn [lines [short-name name]]
-            (let [value
-                  (get-in this-map ["CLASSIFIERS" name])
-                  [value-kw context-base-name base-name]
-                  (kw/name-as-keyword value)
-                  short-value
-                  (if (= this-context-base-name context-base-name)
-                    (str "+" base-name)
-                    value)]
-              (conj lines (str short-name " = " short-value "\n"))))
-          []
-          sorted-classifier-name2s)
-        nbr
-        (count sorted-classifier-name2s)]
-    (str n ". Classifiers of entity " this-name "\n"
-         "(Default context is " this-context-base-name ".)\n\n"
-         (s/join lines)
-         (if (> nbr 0)
-           "\n")
-         "Number of classifiers: " nbr "\n\n")))
-
 (defn front-matter
   [this-map env]
   (let [this-name
@@ -205,56 +174,3 @@
          "(Default context is " this-base-name ".)\n\n"
          (s/join lines) "\n"
          "Number of classifiers: " (count classifiers) "\n\n")))
-
-(defn context-relation-values-report
-  [n this-name]
-  (let [[this-name-kw this-context-base-name this-base-name]
-        (kw/name-as-keyword this-name)
-        relation-registry
-        (k/get-relation-values-map this-name)
-        relation-names
-        (keys relation-registry)
-        sorted-relation-name2s
-        (short-names relation-names this-base-name)
-        lines
-        (reduce
-          (fn [lines [short-relation-name relation-name]]
-            (let [line
-                  (str "relation:  " short-relation-name "\n")
-                  lines
-                  (conj lines line)
-                  values-map
-                  (get relation-registry relation-name)
-                  values
-                  (keys values-map)
-                  sorted-value2s
-                  (short-names values this-base-name)
-                  lines
-                  (reduce
-                    (fn [lines [short-value value]]
-                      (let [line
-                            (str "  value:     " short-value "\n")
-                            lines
-                            (conj lines line)
-                            entity-names
-                            (get values-map value)
-                            sorted-entity-name2s
-                            (short-names entity-names this-base-name)
-                            lines
-                            (reduce
-                              (fn [lines [entity-short-name entity-name]]
-                                (conj lines (str "    entity:    " entity-short-name "\n")))
-                              lines
-                              sorted-entity-name2s)]
-                        lines))
-                    lines
-                    sorted-value2s)]
-              lines))
-          []
-          sorted-relation-name2s)
-        relations
-        (keys relation-registry)]
-    (str n ". Relation Values of context " this-name "\n"
-         "(Default context is " this-base-name ".)\n\n"
-         (s/join lines) "\n"
-         "Number of relations: " (count relations) "\n\n")))

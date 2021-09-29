@@ -74,13 +74,3 @@ classifier:  SYS+classifier-INSTANTIATOR
 
 Number of classifiers: 2
 
-3. Relation Values of context SYS+context-TEST
-(Default context is context-TEST.)
-
-relation:  TEST+relation-BASIC
-  value:     TEST+simple-ALPHA
-    entity:    TEST+simple-BETA
-    entity:    TEST+simple-GAMMA
-
-Number of relations: 1
-
