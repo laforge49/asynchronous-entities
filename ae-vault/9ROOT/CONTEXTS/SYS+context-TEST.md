@@ -9,8 +9,6 @@ DESCRIPTORS:
     - REGISTER_CLASSIFIERoperationid
     requestid-REGISTER_ENTITY:
     - REGISTER_ENTITYoperationid
-    requestid-REGISTER_RELATION:
-    - REGISTER_RELATIONoperationid
     requestid-ROUTE:
     - ROUTEoperationid
 TAGS:

@@ -86,39 +86,6 @@
               nil)))))
     return-port))
 
-(defn registerRelations
-  [env new-relations]
-  (let [return-port
-        (a/chan)]
-    (a/go-loop [new-relations new-relations]
-      (if (empty? new-relations)
-        (a/>! return-port [nil])
-        (recur
-          (try
-            (let [[entity-name relation relation-value]
-                  (peek new-relations)
-                  context-name
-                  (k/entityContextName entity-name)
-                  context-request-port
-                  (get env "CONTEXT-REQUEST-PORT")
-                  subrequest-return-port
-                  (a/chan)
-                  new-relations
-                  (pop new-relations)]
-              (a/>! context-request-port [env {"requestid"        "SYS+requestid-ROUTE"
-                                               "target_requestid" "SYS+requestid-REGISTER_RELATION"
-                                               "target_name"      context-name
-                                               "name"             entity-name
-                                               "relation"         relation
-                                               "relation-value"   relation-value
-                                               "return_port"      subrequest-return-port}])
-              (k/request-exception-check (a/<! subrequest-return-port))
-              new-relations)
-            (catch Exception e
-              (a/>! return-port [e])
-              nil)))))
-    return-port))
-
 (defn run-federation-goblock
   [env this-map params]
   (a/go
@@ -157,8 +124,6 @@
               (assoc env "NEW-CHILDREN-VOLATILE" (volatile! {}))
               env
               (assoc env :NEW-CLASSIFIERS-VOLATILE (volatile! []))
-              env
-              (assoc env :NEW-RELATIONS-VOLATILE (volatile! []))
               script
               (get descriptors "SYS+descriptor-SCRIPT$yaml")
               this-name
@@ -196,12 +161,6 @@
                                          ))
               _ (if (some? e)
                   (throw e))
-              _ [e]
-              _ (a/<! (registerRelations env
-                                         @(:NEW-RELATIONS-VOLATILE env)
-                                         ))
-              _ (if (some? e)
-                  (throw e))
               env
               (assoc env "FEDERATION-MAP" federation-map)
               env
@@ -210,8 +169,6 @@
               (assoc env "NEW-CHILDREN-VOLATILE" nil)
               env
               (assoc env :NEW-CLASSIFIERS-VOLATILE nil)
-              env
-              (assoc env :NEW-RELATIONS-VOLATILE nil)
               _ (a/>! federation-context-request-port [env {"requestid"   "SYS+requestid-RELEASE"
                                                             "return_port" subrequest-return-port}])
               _ (k/request-exception-check (a/<! subrequest-return-port))

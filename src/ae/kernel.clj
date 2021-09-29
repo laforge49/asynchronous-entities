@@ -8,16 +8,9 @@
 (def classifier-values-map-atom
   (atom {}))
 
-(def relation-values-map-atom
-  (atom {}))
-
 (defn get-classifier-values-map
   [context-name]
   (get @classifier-values-map-atom context-name))
-
-(defn get-relation-values-map
-  [context-name]
-  (get @relation-values-map-atom context-name))
 
 (defn add-classifier-value-
   [classifier-values-map context-name entity-name classifier-kw classifier-value]
@@ -45,22 +38,6 @@
   (if (vector? classifier-value)
     (swap! classifier-values-map-atom add-classifier-values- context-kw entity-name classifier-name classifier-value)
     (swap! classifier-values-map-atom add-classifier-value- context-kw entity-name classifier-name classifier-value)))
-
-(defn add-relation-value-
-  [relation-values-map context-name entity-name relation-name relation-value]
-  (let [names
-        (get-in relation-values-map [context-name relation-name relation-value] [])
-        i
-        (.indexOf names entity-name)
-        _ (if (> i -1)
-            (throw (Exception. (str relation-value " for " relation-name " already registered for " entity-name))))
-        names
-        (conj names entity-name)]
-    (assoc-in relation-values-map [context-name relation-name relation-value] names)))
-
-(defn add-relation-value
-  [context-name entity-name relation-name relation-value]
-  (swap! relation-values-map-atom add-relation-value- context-name entity-name relation-name relation-value))
 
 (def invariant-map-atom
   (atom {}))

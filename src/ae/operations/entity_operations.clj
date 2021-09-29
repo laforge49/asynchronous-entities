@@ -117,8 +117,6 @@
         (get params "relations")
         federation-vmap
         (get env "FEDERATION-MAP-VOLATILE")
-        new-relations-volatile
-        (:NEW-RELATIONS-VOLATILE env)
         this-map
         (reduce
           (fn [this-map [relation new-relation-values]]
@@ -147,7 +145,6 @@
                               (do
                                 (vswap! obj-vmap assoc-in ["INVERSE-RELATIONS" relation]
                                         (conj relation-subjects this-name))
-                                (vswap! new-relations-volatile conj [this-name relation new-value])
                                 (conj relation-values new-value))
                               relation-values)]
                         relation-values))
