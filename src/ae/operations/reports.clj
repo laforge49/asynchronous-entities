@@ -85,9 +85,20 @@
                           env)
         relations
         (get this-map "RELATIONS")
+        inverse-relations
+        (get this-map "INVERSE-RELATIONS")
+        inverse-relations
+        (k/unbind-context (str context-base-name "+")
+                          inverse-relations
+                          false
+                          env)
         fm
         {"DESCRIPTORS"
          descriptors}
+        fm
+        (if (empty? inverse-relations)
+          fm
+          (assoc fm "INVERSE-RELATIONS" inverse-relations))
         classifier-tags
         (reduce
           (fn [tags [n v]]
