@@ -5,6 +5,17 @@
             [tupelo.parse.yaml :as yaml]
             [ae.keywords :as kw]))
 
+(def entity-map-atom
+  (atom {}))
+
+(defn get-entity-map
+  [name]
+  (get @entity-map-atom name))
+
+(defn assoc-entity-map
+  [name entity-map]
+  (swap! entity-map-atom assoc name entity-map))
+
 (def classifier-values-map-atom
   (atom {}))
 
@@ -214,129 +225,130 @@
 (defn create-operation-dispatcher
   [this-map]
   (a/go-loop [this-map this-map]
-    (recur (try
-             (let [this-request-port-stack
-                   (get this-map "REQUEST-PORT-STACK")
-                   _ (if (nil? this-request-port-stack)
-                       (throw (Exception. (str "This request port stack is nil\n"
-                                               (prn-str this-map)))))
-                   this-request-port
-                   (peek this-request-port-stack)
-                   _ (if (nil? this-request-port)
-                       (throw (Exception. (str "This request port is nil\n"
-                                               (prn-str this-map)))))
-                   request
-                   (a/<! this-request-port)
-                   _ (if (not (vector? request))
-                       (throw (Exception. (str "Request is not a vector\n"
-                                               (prn-str request)
-                                               (prn-str this-map)))))
-                   _ (if (not= (count request) 2)
-                       (throw (Exception. (str "Request is not a 2-tuple\n"
-                                               (prn-str request)
-                                               (prn-str this-map)))))
-                   [env params]
-                   request
-                   return-port
-                   (get params "return_port")
-                   _ (if (nil? return-port)
-                       (throw (Exception. (str "Return port is nil\n"
-                                               (prn-str params)
-                                               (prn-str this-map)))))]
-               (try
-                 (let [this-name
-                       (get this-map "NAME")
-                       federation-map
-                       (get env "FEDERATION-MAP")
-                       target-map
-                       (if (federated? this-map)
-                         (first (get federation-map this-name))
-                         this-map)
-                       env
-                       (assoc env "active-request-port" this-request-port)
-                       requestid
-                       (get params "requestid")
-                       _ (if (nil? requestid)
-                           (throw (Exception. (str "Requestid port is nil\n"
-                                                   (prn-str params)
-                                                   (prn-str target-map)))))
-                       [this-map return-value]
-                       (case requestid
+    (recur
+      (try
+        (let [this-request-port-stack
+              (get this-map "REQUEST-PORT-STACK")
+              _ (if (nil? this-request-port-stack)
+                  (throw (Exception. (str "This request port stack is nil\n"
+                                          (prn-str this-map)))))
+              this-request-port
+              (peek this-request-port-stack)
+              _ (if (nil? this-request-port)
+                  (throw (Exception. (str "This request port is nil\n"
+                                          (prn-str this-map)))))
+              request
+              (a/<! this-request-port)
+              _ (if (not (vector? request))
+                  (throw (Exception. (str "Request is not a vector\n"
+                                          (prn-str request)
+                                          (prn-str this-map)))))
+              _ (if (not= (count request) 2)
+                  (throw (Exception. (str "Request is not a 2-tuple\n"
+                                          (prn-str request)
+                                          (prn-str this-map)))))
+              [env params]
+              request
+              return-port
+              (get params "return_port")
+              _ (if (nil? return-port)
+                  (throw (Exception. (str "Return port is nil\n"
+                                          (prn-str params)
+                                          (prn-str this-map)))))]
+          (try
+            (let [this-name
+                  (get this-map "NAME")
+                  federation-map
+                  (get env "FEDERATION-MAP")
+                  target-map
+                  (if (federated? this-map)
+                    (first (get federation-map this-name))
+                    this-map)
+                  env
+                  (assoc env "active-request-port" this-request-port)
+                  requestid
+                  (get params "requestid")
+                  _ (if (nil? requestid)
+                      (throw (Exception. (str "Requestid port is nil\n"
+                                              (prn-str params)
+                                              (prn-str target-map)))))
+                  [this-map return-value]
+                  (case requestid
 
-                         "SNAPSHOT"
-                         [target-map target-map]
+                    "SNAPSHOT"
+                    [target-map target-map]
 
-                         "PUSH-REQUEST-PORT"
-                         (let [this-descriptors
-                               (thisDescriptors target-map params)]
-                           (if (federated? target-map)
-                             (throw (Exception. (str "Inappropriate async request on federated entity.\n"
-                                                     (prn-str params)
-                                                     (prn-str target-map)))))
-                           (if (get this-descriptors "SYS+descriptor-INVARIANT$bool")
-                             [target-map [target-map nil]]
-                             (let [new-request-port
-                                   (get params "new-request-port")
-                                   this-map
-                                   (assoc target-map "REQUEST-PORT-STACK" (conj this-request-port-stack new-request-port))]
-                               [this-map [this-map new-request-port]])))
+                    "PUSH-REQUEST-PORT"
+                    (let [this-descriptors
+                          (thisDescriptors target-map params)]
+                      (if (federated? target-map)
+                        (throw (Exception. (str "Inappropriate async request on federated entity.\n"
+                                                (prn-str params)
+                                                (prn-str target-map)))))
+                      (if (get this-descriptors "SYS+descriptor-INVARIANT$bool")
+                        [target-map [target-map nil]]
+                        (let [new-request-port
+                              (get params "new-request-port")
+                              this-map
+                              (assoc target-map "REQUEST-PORT-STACK" (conj this-request-port-stack new-request-port))]
+                          [this-map [this-map new-request-port]])))
 
-                         "RESET-REQUEST-PORT"
-                         (let [this-map
-                               (get params "this-map")
-                               this-map
-                               (assoc this-map "REQUEST-PORT-STACK" (pop this-request-port-stack))]
-                           [this-map this-map])
+                    "RESET-REQUEST-PORT"
+                    (let [this-map
+                          (get params "this-map")
+                          this-map
+                          (assoc this-map "REQUEST-PORT-STACK" (pop this-request-port-stack))]
+                      [this-map this-map])
 
-                         ;;DEFAULT
-                         (let [
-                               _ (if (federated? target-map)
-                                   (throw (Exception. (str "Inappropriate async request on federated entity.\n"
-                                                           (prn-str params)
-                                                           (prn-str target-map)))))
+                    ;;DEFAULT
+                    (let [
+                          _ (if (federated? target-map)
+                              (throw (Exception. (str "Inappropriate async request on federated entity.\n"
+                                                      (prn-str params)
+                                                      (prn-str target-map)))))
 
-                               operationid
-                               (targetOperationid env target-map params)
-                               operation-return-port
-                               (a/chan)
-                               params
-                               (assoc params "operation-return-port" operation-return-port)
-                               operationid-submap
-                               (get @operationid-map-atom operationid)
-                               operation-goblock
-                               (:goblock operationid-submap)
-                               - (if (some? operation-goblock)
-                                   (operation-goblock env target-map params)
-                                   (throw (Exception. (str "Operationid-submap is empty\n"
-                                                           (prn-str params)
-                                                           (prn-str target-map)))))
-                               operation-return-value
-                               (a/<! operation-return-port)
-                               _ (if (not (vector? operation-return-value))
-                                   (throw (Exception. (str "Operation return value is not a vector\n"
-                                                           (prn-str operation-return-value)
-                                                           (prn-str params)
-                                                           (prn-str target-map)))))
-                               _ (if (not= (count operation-return-value) 3)
-                                   (throw (Exception. (str "Operation return value is not a 3-tuple\n"
-                                                           (prn-str operation-return-value)
-                                                           (prn-str params)
-                                                           (prn-str target-map)))))
-                               [this-map e return-value]
-                               operation-return-value]
-                           (if (some? e)
-                             (throw e))
-                           [this-map return-value]
-                           ))]
-                   (if (not= return-value :NO-RETURN)
-                     (a/>! return-port [nil return-value]))
-                   this-map)
-                 (catch Exception e
-                   (a/>! return-port [e nil])
-                   this-map)))
-             (catch Exception e
-               (stacktrace/print-stack-trace e)
-               this-map)))))
+                          operationid
+                          (targetOperationid env target-map params)
+                          operation-return-port
+                          (a/chan)
+                          params
+                          (assoc params "operation-return-port" operation-return-port)
+                          operationid-submap
+                          (get @operationid-map-atom operationid)
+                          operation-goblock
+                          (:goblock operationid-submap)
+                          - (if (some? operation-goblock)
+                              (operation-goblock env target-map params)
+                              (throw (Exception. (str "Operationid-submap is empty\n"
+                                                      (prn-str params)
+                                                      (prn-str target-map)))))
+                          operation-return-value
+                          (a/<! operation-return-port)
+                          _ (if (not (vector? operation-return-value))
+                              (throw (Exception. (str "Operation return value is not a vector\n"
+                                                      (prn-str operation-return-value)
+                                                      (prn-str params)
+                                                      (prn-str target-map)))))
+                          _ (if (not= (count operation-return-value) 3)
+                              (throw (Exception. (str "Operation return value is not a 3-tuple\n"
+                                                      (prn-str operation-return-value)
+                                                      (prn-str params)
+                                                      (prn-str target-map)))))
+                          [this-map e return-value]
+                          operation-return-value]
+                      (if (some? e)
+                        (throw e))
+                      [this-map return-value]
+                      ))]
+              (if (not= return-value :NO-RETURN)
+                (a/>! return-port [nil return-value]))
+              this-map)
+            (catch Exception e
+              (a/>! return-port [e nil])
+              this-map)))
+        (catch Exception e
+          (stacktrace/print-stack-trace e)
+          this-map)))))
 
 (defn create-entity
   [env params]
@@ -484,8 +496,8 @@
       (fn [m [k v]]
         (assoc m (unbind-context local-context-+ k false env)
                  (unbind-context local-context-+ v
-                               (or values-as-data (some? (s/index-of k "$")))
-                               env)))
+                                 (or values-as-data (some? (s/index-of k "$")))
+                                 env)))
       (sorted-map)
       edn)
 
