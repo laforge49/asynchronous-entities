@@ -377,6 +377,7 @@
          "DESCRIPTORS"        descriptors
          "CLASSIFIERS"        classifiers
          "RELATIONS"          {}
+         "INVERSE-RELATIONS"  {}
          "CONTENT$ml"         content
          "REQUEST-PORT-STACK" request-port-stack}
         ]
