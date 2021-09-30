@@ -13,6 +13,9 @@ Currently entities reside in a tree as go blocks, as that was the base case, wit
 The entity maps held by the go blocks:
 - The entity-map-atom now holds all the entity maps previously held by the go blocks, making them very accessible.
 
+Invariant maps
+- Invariant maps are just those entity maps that are marked invariant.
+
 The entity maps held by a federation:
 - While a federation is active, the FEDERATOR-NAME in the federator's env names the federator. This will be used to identify the active federation.
 - While a federation is active, the FEDERATOR-NAME in the entity maps will name the federation they are participating in.

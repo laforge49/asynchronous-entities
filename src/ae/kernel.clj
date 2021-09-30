@@ -8,6 +8,10 @@
 (def entity-map-atom
   (atom {}))
 
+(defn entity-keys
+  []
+  (keys @entity-map-atom))
+
 (defn get-entity-map
   [name]
   (get @entity-map-atom name))
@@ -50,24 +54,13 @@
     (swap! classifier-values-map-atom add-classifier-values- context-kw entity-name classifier-name classifier-value)
     (swap! classifier-values-map-atom add-classifier-value- context-kw entity-name classifier-name classifier-value)))
 
-(def invariant-map-atom
-  (atom {}))
-
 (defn get-invariant-map
   [entity-id]
-  (let [[_ context-base-name base-name]
-        (if (keyword? entity-id)
-          (kw/keyword-as-name entity-id)
-          (kw/name-as-keyword entity-id))]
-    (get-in @invariant-map-atom [context-base-name base-name])))
-
-(defn add-invariant-map
-  [entity-id this-map]
-  (let [[_ context-base-name base-name]
-        (if (keyword? entity-id)
-          (kw/keyword-as-name entity-id)
-          (kw/name-as-keyword entity-id))]
-    (swap! invariant-map-atom assoc-in [context-base-name base-name] this-map)))
+  (let [entity-map
+        (get-entity-map entity-id)]
+    (if (get-in entity-map ["DESCRIPTORS" "SYS+descriptor-INVARIANT$bool"])
+      entity-map
+      nil)))
 
 (defn get-invariant-descriptors
   [entity-kw]
@@ -391,8 +384,6 @@
          "REQUEST-PORT-STACK" request-port-stack}
         ]
     (assoc-entity-map name new-entity-map)
-    (if (= (get descriptors "SYS+descriptor-INVARIANT$bool") true)
-      (add-invariant-map name new-entity-map))
     (create-operation-dispatcher name)
     [new-public-request-port new-entity-map]))
 
