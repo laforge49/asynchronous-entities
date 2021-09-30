@@ -109,9 +109,11 @@
                                                        "name"             nil}])
               federation-context-request-port
               (k/request-exception-check (a/<! subrequest-return-port))
-              _ (a/>! federation-context-request-port [env {"requestid"       "SYS+requestid-ACQUIRE"
-                                                            :federation-names federation-names
-                                                            "return_port"     subrequest-return-port}])
+              env
+              (assoc env "FEDERATOR-NAME" this-name)
+              _ (a/>! federation-context-request-port [env {"requestid"        "SYS+requestid-ACQUIRE"
+                                                            "federation-names" federation-names
+                                                            "return_port"      subrequest-return-port}])
               federation-map
               (k/request-exception-check (a/<! subrequest-return-port))
               federation-vmap
@@ -122,8 +124,6 @@
                            federation-map))
               env
               (assoc env "FEDERATION-MAP-VOLATILE" federation-vmap)
-              env
-              (assoc env "FEDERATOR-NAME" this-name)
               env
               (assoc env "NEW-CHILDREN-VOLATILE" (volatile! {}))
               env

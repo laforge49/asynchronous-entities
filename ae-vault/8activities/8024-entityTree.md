@@ -10,5 +10,9 @@ Initially all activity was asynchronous. Synchronous access was added to support
 
 Currently entities reside in a tree as go blocks, as that was the base case, with synchronous access supported by various maps, each held by an atom. Simpler instead to put all entities into a single tree under an atom and place appropriate restrictions on access.
 
+The entity maps held by the go blocks:
 - The entity-map-atom now holds all the entity maps previously held by the go blocks, making them very accessible.
+
+The entity maps held by a federation:
 - While a federation is active, the FEDERATOR-NAME in the federator's env names the federator. This will be used to identify the active federation.
+- While a federation is active, the FEDERATOR-NAME in the entity maps will name the federation they are participating in.

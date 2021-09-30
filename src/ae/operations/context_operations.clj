@@ -182,7 +182,7 @@
           (get params "operation-return-port")]
       (try
         (let [federation-names
-              (:federation-names params)
+              (get params "federation-names")
               root-contexts-request-port
               (get env "CONTEXT-REQUEST-PORT")
               acquire-loop-port

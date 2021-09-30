@@ -280,8 +280,11 @@
 
                     "PUSH-REQUEST-PORT"
                     (let [this-descriptors
-                          (thisDescriptors target-map params)]
-                      (if (federated? target-map)
+                          (thisDescriptors target-map params)
+                          this-federator-name
+                          (get this-map "FEDERATOR-NAME")]
+                      (if (or (some? this-federator-name)
+                              (federated? target-map))
                         (throw (Exception. (str "Inappropriate async request on federated entity.\n"
                                                 (prn-str params)
                                                 (prn-str target-map)))))
@@ -290,14 +293,19 @@
                         (let [new-request-port
                               (get params "new-request-port")
                               this-map
-                              (assoc target-map "REQUEST-PORT-STACK" (conj this-request-port-stack new-request-port))]
+                              (assoc target-map "REQUEST-PORT-STACK" (conj this-request-port-stack new-request-port))
+                              federator-name
+                              (get env "FEDERATOR-NAME")]
+                          (assoc this-map "FEDERATOR-NAME" federator-name)
                           [this-map [this-map new-request-port]])))
 
                     "RESET-REQUEST-PORT"
                     (let [this-map
                           (get params "this-map")
                           this-map
-                          (assoc this-map "REQUEST-PORT-STACK" (pop this-request-port-stack))]
+                          (assoc this-map "REQUEST-PORT-STACK" (pop this-request-port-stack))
+                          this-map
+                          (assoc this-map "FEDERATOR-NAME" nil)]
                       [this-map this-map])
 
                     ;;DEFAULT
