@@ -94,6 +94,8 @@
       (try
         (let [root-contexts-request-port
               (get env "CONTEXT-REQUEST-PORT")
+              this-name
+              (get this-map "NAME")
               descriptors
               (get this-map "DESCRIPTORS")
               federation-names
@@ -120,6 +122,8 @@
                            federation-map))
               env
               (assoc env "FEDERATION-MAP-VOLATILE" federation-vmap)
+              env
+              (assoc env "FEDERATOR-NAME" this-name)
               env
               (assoc env "NEW-CHILDREN-VOLATILE" (volatile! {}))
               env
@@ -165,6 +169,8 @@
               (assoc env "FEDERATION-MAP" federation-map)
               env
               (assoc env "FEDERATION-MAP-VOLATILE" nil)
+              env
+              (assoc env "FEDERATOR-NAME" nil)
               env
               (assoc env "NEW-CHILDREN-VOLATILE" nil)
               env
