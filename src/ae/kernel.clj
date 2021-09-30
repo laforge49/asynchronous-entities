@@ -381,6 +381,7 @@
          "CONTENT$ml"         content
          "REQUEST-PORT-STACK" request-port-stack}
         ]
+    (assoc-entity-map name new-entity-map)
     (if (= (get descriptors "SYS+descriptor-INVARIANT$bool") true)
       (add-invariant-map name new-entity-map))
     (create-operation-dispatcher new-entity-map)
