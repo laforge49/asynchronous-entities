@@ -223,11 +223,13 @@
     (first operationids)))
 
 (defn create-operation-dispatcher
-  [this-map]
-  (a/go-loop [this-map this-map]
+  [this-name]
+  (a/go-loop [this-name this-name]
     (recur
       (try
-        (let [this-request-port-stack
+        (let [this-map
+              (get-entity-map this-name)
+              this-request-port-stack
               (get this-map "REQUEST-PORT-STACK")
               _ (if (nil? this-request-port-stack)
                   (throw (Exception. (str "This request port stack is nil\n"
@@ -256,9 +258,7 @@
                                           (prn-str params)
                                           (prn-str this-map)))))]
           (try
-            (let [this-name
-                  (get this-map "NAME")
-                  federation-map
+            (let [federation-map
                   (get env "FEDERATION-MAP")
                   target-map
                   (if (federated? this-map)
@@ -340,15 +340,16 @@
                         (throw e))
                       [this-map return-value]
                       ))]
+              (assoc-entity-map this-name this-map)
               (if (not= return-value :NO-RETURN)
                 (a/>! return-port [nil return-value]))
-              this-map)
+              this-name)
             (catch Exception e
               (a/>! return-port [e nil])
-              this-map)))
+              this-name)))
         (catch Exception e
           (stacktrace/print-stack-trace e)
-          this-map)))))
+          this-name)))))
 
 (defn create-entity
   [env params]
@@ -384,7 +385,7 @@
     (assoc-entity-map name new-entity-map)
     (if (= (get descriptors "SYS+descriptor-INVARIANT$bool") true)
       (add-invariant-map name new-entity-map))
-    (create-operation-dispatcher new-entity-map)
+    (create-operation-dispatcher name)
     [new-public-request-port new-entity-map]))
 
 (defn entityContextName
