@@ -158,6 +158,9 @@
 
 (defn routeFunction
   [env this-map params]
+  (println)
+  (println (prn-str params))
+  (println)
   (let [this-name
         (get this-map "NAME")
         federation-map-volatile
@@ -251,42 +254,36 @@
                                           (prn-str params)
                                           (prn-str this-map)))))]
           (try
-            (let [federation-map
-                  (get env "FEDERATION-MAP")
-                  target-map
-                  (if (federated? this-map)
-                    (first (get federation-map this-name))
-                    this-map)
-                  env
+            (let [env
                   (assoc env "active-request-port" this-request-port)
                   requestid
                   (get params "requestid")
                   _ (if (nil? requestid)
                       (throw (Exception. (str "Requestid port is nil\n"
                                               (prn-str params)
-                                              (prn-str target-map)))))
+                                              (prn-str this-map)))))
                   [this-map return-value]
                   (case requestid
 
                     "SNAPSHOT"
-                    [target-map target-map]
+                    [this-map this-map]
 
                     "PUSH-REQUEST-PORT"
                     (let [this-descriptors
-                          (thisDescriptors target-map params)
+                          (thisDescriptors this-map params)
                           this-federator-name
                           (get this-map "FEDERATOR-NAME")]
                       (if (or (some? this-federator-name)
-                              (federated? target-map))
+                              (federated? this-map))
                         (throw (Exception. (str "Inappropriate async request on federated entity.\n"
                                                 (prn-str params)
-                                                (prn-str target-map)))))
+                                                (prn-str this-map)))))
                       (if (get this-descriptors "SYS+descriptor-INVARIANT$bool")
-                        [target-map [target-map nil]]
+                        [this-map [this-map nil]]
                         (let [new-request-port
                               (get params "new-request-port")
                               this-map
-                              (assoc target-map "REQUEST-PORT-STACK" (conj this-request-port-stack new-request-port))
+                              (assoc this-map "REQUEST-PORT-STACK" (conj this-request-port-stack new-request-port))
                               federator-name
                               (get env "FEDERATOR-NAME")]
                           (assoc this-map "FEDERATOR-NAME" federator-name)
@@ -303,13 +300,13 @@
 
                     ;;DEFAULT
                     (let [
-                          _ (if (federated? target-map)
+                          _ (if (federated? this-map)
                               (throw (Exception. (str "Inappropriate async request on federated entity.\n"
                                                       (prn-str params)
-                                                      (prn-str target-map)))))
+                                                      (prn-str this-map)))))
 
                           operationid
-                          (targetOperationid env target-map params)
+                          (targetOperationid env this-map params)
                           operation-return-port
                           (a/chan)
                           params
@@ -319,22 +316,22 @@
                           operation-goblock
                           (:goblock operationid-submap)
                           - (if (some? operation-goblock)
-                              (operation-goblock env target-map params)
+                              (operation-goblock env this-map params)
                               (throw (Exception. (str "Operationid-submap is empty\n"
                                                       (prn-str params)
-                                                      (prn-str target-map)))))
+                                                      (prn-str this-map)))))
                           operation-return-value
                           (a/<! operation-return-port)
                           _ (if (not (vector? operation-return-value))
                               (throw (Exception. (str "Operation return value is not a vector\n"
                                                       (prn-str operation-return-value)
                                                       (prn-str params)
-                                                      (prn-str target-map)))))
+                                                      (prn-str this-map)))))
                           _ (if (not= (count operation-return-value) 3)
                               (throw (Exception. (str "Operation return value is not a 3-tuple\n"
                                                       (prn-str operation-return-value)
                                                       (prn-str params)
-                                                      (prn-str target-map)))))
+                                                      (prn-str this-map)))))
                           [this-map e return-value]
                           operation-return-value]
                       (if (some? e)
@@ -399,7 +396,7 @@
         "ROOT+context-SYS"
         (str "SYS+context-" entity-context-base-name)))))
 
-(defn validate-edn
+#_ (defn validate-edn
   [path context-map type-entity edn env]
   (println :path path)
   (let [[_ [data-type key-entity value-entity]]

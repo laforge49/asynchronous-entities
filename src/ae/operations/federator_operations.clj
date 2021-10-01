@@ -114,14 +114,14 @@
               _ (a/>! federation-context-request-port [env {"requestid"        "SYS+requestid-ACQUIRE"
                                                             "federation-names" federation-names
                                                             "return_port"      subrequest-return-port}])
-              federation-map
+              federation-map-1
               (k/request-exception-check (a/<! subrequest-return-port))
               federation-vmap
               (volatile! (reduce
                            (fn [federation-vmap [k [snap active-port]]]
                              (assoc federation-vmap k [(volatile! snap) active-port]))
                            {}
-                           federation-map))
+                           federation-map-1))
               env
               (assoc env "FEDERATION-MAP-VOLATILE" federation-vmap)
               env

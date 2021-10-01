@@ -32,9 +32,8 @@ TEST+instantiator-SIMPLE
 TEST+relation-BASIC
 TEST+simple-ALPHA
 TEST+simple-BETA
-TEST+simple-GAMMA
 
-Number of entities: 8
+Number of entities: 7
 
 2. Classifier Values of context SYS+context-TEST
 (Default context is context-TEST.)
@@ -53,7 +52,6 @@ classifier:  SYS+classifier-ENTITY_TYPE
   value:       TEST+classifier_value-SIMPLE
     entity:      TEST+simple-ALPHA
     entity:      TEST+simple-BETA
-    entity:      TEST+simple-GAMMA
 classifier:  SYS+classifier-INSTANTIATOR
   value:       SYS+instantiator-CLASSIFIER_VALUE
     entity:      TEST+classifier_value-SIMPLE
@@ -68,7 +66,6 @@ classifier:  SYS+classifier-INSTANTIATOR
   value:       TEST+instantiator-SIMPLE
     entity:      TEST+simple-ALPHA
     entity:      TEST+simple-BETA
-    entity:      TEST+simple-GAMMA
 
 Number of classifiers: 2
 

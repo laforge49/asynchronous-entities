@@ -60,5 +60,5 @@
         relations:
           relation-BASIC:
             - simple-ALPHA
-- target_requestid: SYS+requestid-RUN_FEDERATION
-  target_name: federator-A
+#- target_requestid: SYS+requestid-RUN_FEDERATION
+#  target_name: federator-A

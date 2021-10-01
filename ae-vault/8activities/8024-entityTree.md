@@ -19,3 +19,4 @@ Invariant maps
 The entity maps held by a federation:
 - While a federation is active, the FEDERATOR-NAME in the federator's env names the federator. This will be used to identify the active federation.
 - While a federation is active, the FEDERATOR-NAME in the entity maps will name the federation they are participating in.
+- Simplified async dispatch to ignore the federation entity map; federation temporarily disabled.
