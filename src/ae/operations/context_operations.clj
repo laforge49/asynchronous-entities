@@ -195,23 +195,20 @@
     (let [operation-return-port
           (get params "operation-return-port")]
       (try
-        (let [federation-map
-              (get env "FEDERATION-MAP")
-              subrequest-return-port
-              (a/chan)
-              ]
-          (doseq [en federation-map]
-            (let [[snap entity-request-port]
-                  (val en)]
-              (if (some? entity-request-port)
-                (a/>! entity-request-port [env {"requestid"   "RESET-REQUEST-PORT"
-                                                "this-map"    snap
-                                                "return_port" subrequest-return-port}]))))
-          (doseq [en federation-map]
-            (let [[vsnap entity-request-port]
-                  (val en)]
-              (if (some? entity-request-port)
-                (k/request-exception-check (a/<! subrequest-return-port)))))
+        (let [federation-names
+              (get env "FEDERATION-NAMES")]
+          (doseq [entity-name federation-names]
+            (let [entity-map
+                  (k/get-entity-map entity-name)
+                  request-port-stack
+                  (get entity-map "REQUEST-PORT-STACK")
+                  request-port
+                  (peek request-port-stack)
+                  sub-return-port
+                  (a/chan)]
+              (a/>! request-port [env {"requestid" "RESET-REQUEST-PORT"
+                                       "return_port" sub-return-port}])
+              (k/request-exception-check (a/<! sub-return-port))))
           (a/>! operation-return-port [this-map nil this-map]))
         (catch Exception e
           (a/>! operation-return-port [this-map e nil]))))))

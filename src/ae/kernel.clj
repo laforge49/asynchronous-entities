@@ -261,7 +261,6 @@
                       (throw (Exception. (str "Requestid port is nil\n"
                                               (prn-str params)
                                               (prn-str this-map)))))
-                  _ (println :asyncRequest requestid)
                   [this-map return-value]
                   (case requestid
 
@@ -292,8 +291,6 @@
 
                     "RESET-REQUEST-PORT"
                     (let [this-map
-                          (get params "this-map")
-                          this-map
                           (assoc this-map "REQUEST-PORT-STACK" (pop this-request-port-stack))
                           this-map
                           (assoc this-map "FEDERATOR-NAME" nil)]
