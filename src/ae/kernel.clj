@@ -16,9 +16,17 @@
   [name]
   (get @entity-map-atom name))
 
+(defn refresh-entity-map
+  [entity-map]
+  (get-entity-map (get entity-map "NAME")))
+
 (defn assoc-entity-map
   [name entity-map]
   (swap! entity-map-atom assoc name entity-map))
+
+(defn save-entity-map
+  [entity-map]
+  (assoc-entity-map (get entity-map "NAME") entity-map))
 
 (def classifier-values-map-atom
   (atom {}))
@@ -173,6 +181,7 @@
   (println)
   (println :routeFunction (prn-str params))
   (println)
+  (save-entity-map this-map)
   (let [target-name
         (get params "target_name")
         target-map
@@ -206,7 +215,7 @@
           [target-map nil]
           operationids)
         _ (assoc-entity-map target-name target-map)]
-    [this-map rv]))
+    [(refresh-entity-map this-map) rv]))
 
 (defn targetOperationid
   [env target-map params]
