@@ -62,6 +62,18 @@
       entity-map
       nil)))
 
+(defn get-federated-map
+  [entity-name env]
+  (let [env-federator-name
+        (get env "FEDERATOR-NAME")
+        entity-map
+        (get-entity-map entity-name)
+        this-federator-name
+        (get entity-map "FEDERATOR-NAME")]
+    (if (= this-federator-name env-federator-name)
+      entity-map
+      nil)))
+
 (defn get-invariant-descriptors
   [entity-kw]
   (let [this-map
@@ -159,23 +171,15 @@
 (defn routeFunction
   [env this-map params]
   (println)
-  (println (prn-str params))
+  (println :routeFunction (prn-str params))
   (println)
-  (let [this-name
-        (get this-map "NAME")
-        federation-map-volatile
-        (get env "FEDERATION-MAP-VOLATILE")
-        _ (if (federated? this-map)
-            (vreset! (first (get @federation-map-volatile this-name)) this-map))
-        target-name
+  (let [target-name
         (get params "target_name")
-        federation-entry
-        (if (nil? federation-map-volatile)
-          nil
-          (get @federation-map-volatile target-name))
         target-map
-        (if (some? federation-entry)
-          @(first federation-entry)
+        (get-federated-map target-name env)
+        target-map
+        (if (some? target-map)
+          target-map
           (get-invariant-map target-name))
         _ (if (nil? target-map)
             (throw (Exception. (str "Unreachable: " target-name "\n"
@@ -201,12 +205,7 @@
                 (fun env target-map params))))
           [target-map nil]
           operationids)
-        _ (if (federated? target-map)
-            (vreset! (first (get @federation-map-volatile target-name)) target-map))
-        this-map
-        (if (federated? this-map)
-          @(first (get @federation-map-volatile this-name))
-          this-map)]
+        _ (assoc-entity-map target-name target-map)]
     [this-map rv]))
 
 (defn targetOperationid
@@ -262,6 +261,7 @@
                       (throw (Exception. (str "Requestid port is nil\n"
                                               (prn-str params)
                                               (prn-str this-map)))))
+                  _ (println :asyncRequest requestid)
                   [this-map return-value]
                   (case requestid
 
@@ -285,8 +285,9 @@
                               this-map
                               (assoc this-map "REQUEST-PORT-STACK" (conj this-request-port-stack new-request-port))
                               federator-name
-                              (get env "FEDERATOR-NAME")]
-                          (assoc this-map "FEDERATOR-NAME" federator-name)
+                              (get env "FEDERATOR-NAME")
+                              this-map
+                              (assoc this-map "FEDERATOR-NAME" federator-name)]
                           [this-map [this-map new-request-port]])))
 
                     "RESET-REQUEST-PORT"

@@ -100,6 +100,8 @@
               (get this-map "DESCRIPTORS")
               federation-names
               (get descriptors "SYS+descriptor-FEDERATION_NAMES")
+              env
+              (assoc env "FEDERATION-NAMES" federation-names)
               subrequest-return-port
               (a/chan)
               _ (a/>! root-contexts-request-port [env {"requestid"        "SYS+requestid-ROUTE"
@@ -112,18 +114,8 @@
               env
               (assoc env "FEDERATOR-NAME" this-name)
               _ (a/>! federation-context-request-port [env {"requestid"        "SYS+requestid-ACQUIRE"
-                                                            "federation-names" federation-names
                                                             "return_port"      subrequest-return-port}])
-              federation-map-1
-              (k/request-exception-check (a/<! subrequest-return-port))
-              federation-vmap
-              (volatile! (reduce
-                           (fn [federation-vmap [k [snap active-port]]]
-                             (assoc federation-vmap k [(volatile! snap) active-port]))
-                           {}
-                           federation-map-1))
-              env
-              (assoc env "FEDERATION-MAP-VOLATILE" federation-vmap)
+              _ (k/request-exception-check (a/<! subrequest-return-port))
               env
               (assoc env "NEW-CHILDREN-VOLATILE" (volatile! {}))
               env
@@ -144,20 +136,12 @@
                           {}
                           request)]
                     (k/routeFunction env this-map request)))
-              federation-vmap
-              (get env "FEDERATION-MAP-VOLATILE")
-              federation-map
-              (reduce
-                (fn [federation-map [k [vsnap active-port]]]
-                  (assoc federation-map k [@vsnap active-port]))
-                {}
-                @federation-vmap)
-              [e federation-map]
-              (a/<! (registerChildren env
+#_              [e federation-map]
+#_              (a/<! (registerChildren env
                                       federation-map
                                       @(get env "NEW-CHILDREN-VOLATILE")))
-              _ (if (some? e)
-                  (throw e))
+;              _ (if (some? e)
+;                  (throw e))
               [e]
               (a/<! (registerClassifiers env
                                          @(:NEW-CLASSIFIERS-VOLATILE env)
@@ -165,10 +149,6 @@
                                          ))
               _ (if (some? e)
                   (throw e))
-              env
-              (assoc env "FEDERATION-MAP" federation-map)
-              env
-              (assoc env "FEDERATION-MAP-VOLATILE" nil)
               env
               (assoc env "FEDERATOR-NAME" nil)
               env

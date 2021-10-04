@@ -141,19 +141,20 @@
           (a/>! operation-return-port [this-map e nil]))))))
 
 (defn federation-acquire-loop
-  [root-contexts-request-port env federation-names]
-  (let [return-port
+  [root-contexts-request-port env]
+  (let [federation-names
+        (get env "FEDERATION-NAMES")
+        return-port
         (a/chan)]
-    (a/go-loop [federation-names-vec (reverse (sort federation-names))
-                federation-map {}]
+    (a/go-loop [federation-names-vec (reverse (sort federation-names))]
       (if (some? federation-names-vec)
         (if (empty? federation-names-vec)
-          (a/>! return-port [nil federation-map])
+          (a/>! return-port [nil nil])
           (let [federation-name
                 (peek federation-names-vec)
                 federation-names-vec
                 (pop federation-names-vec)
-                [federation-names-vec federation-map]
+                federation-names-vec
                 (try
                   (let [new-request-port
                         (a/chan)
@@ -165,14 +166,12 @@
                                                                  "new-request-port" new-request-port
                                                                  "return_port"      subrequest-return-port}])
                         [snap new-request-port]
-                        (k/request-exception-check (a/<! subrequest-return-port))
-                        federation-map
-                        (assoc federation-map federation-name [snap new-request-port])]
-                    [federation-names-vec federation-map])
+                        (k/request-exception-check (a/<! subrequest-return-port))]
+                    federation-names-vec)
                   (catch Exception e
                     (a/>! return-port [e nil])
-                    [nil nil]))]
-            (recur federation-names-vec federation-map)))))
+                    nil))]
+            (recur federation-names-vec)))))
     return-port))
 
 (defn federation-acquire-goblock
@@ -181,15 +180,12 @@
     (let [operation-return-port
           (get params "operation-return-port")]
       (try
-        (let [federation-names
-              (get params "federation-names")
-              root-contexts-request-port
+        (let [root-contexts-request-port
               (get env "CONTEXT-REQUEST-PORT")
               acquire-loop-port
-              (federation-acquire-loop root-contexts-request-port env federation-names)
-              federation-map
-              (k/request-exception-check (a/<! acquire-loop-port))]
-          (a/>! operation-return-port [this-map nil federation-map]))
+              (federation-acquire-loop root-contexts-request-port env)
+              _ (k/request-exception-check (a/<! acquire-loop-port))]
+          (a/>! operation-return-port [this-map nil nil]))
         (catch Exception e
           (a/>! operation-return-port [this-map e nil]))))))
 
