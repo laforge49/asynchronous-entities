@@ -46,9 +46,6 @@
     descriptor-READ_ONLY$bool: true
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-REQUESTID
-  name: requestid-REGISTER_CLASSIFIER
-- target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-REQUESTID
   name: requestid-REGISTER_ENTITY
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-REQUESTID
@@ -160,8 +157,6 @@
           - REGISTER_ENTITYoperationid
         requestid-ROUTE:
           - ROUTEoperationid
-        requestid-REGISTER_CLASSIFIER:
-          - REGISTER_CLASSIFIERoperationid
         requestid-ENTITY_REPORT:
           - CONTEXT_REPORToperationid
         requestid-LOAD_SCRIPT:

@@ -5,8 +5,6 @@ DESCRIPTORS:
     - CONTEXT_REPORToperationid
     SYS+requestid-LOAD_SCRIPT:
     - LOAD_SCRIPToperationid
-    SYS+requestid-REGISTER_CLASSIFIER:
-    - REGISTER_CLASSIFIERoperationid
     SYS+requestid-REGISTER_ENTITY:
     - REGISTER_ENTITYoperationid
     SYS+requestid-ROUTE:
@@ -47,13 +45,12 @@ SYS+requestid-ADD_DESCRIPTORS
 SYS+requestid-ADD_RELATIONS
 SYS+requestid-CONTEXT_REPORT
 SYS+requestid-INSTANTIATE
-SYS+requestid-REGISTER_CLASSIFIER
 SYS+requestid-REGISTER_ENTITY
 SYS+requestid-RELEASE
 SYS+requestid-ROUTE
 SYS+requestid-RUN_FEDERATION
 
-Number of entities: 35
+Number of entities: 34
 
 2. Classifier Values of context ROOT+context-SYS
 (Default context is context-SYS.)
@@ -95,7 +92,6 @@ classifier:  SYS+classifier-ENTITY_TYPE
     entity:      SYS+requestid-ADD_RELATIONS
     entity:      SYS+requestid-CONTEXT_REPORT
     entity:      SYS+requestid-INSTANTIATE
-    entity:      SYS+requestid-REGISTER_CLASSIFIER
     entity:      SYS+requestid-REGISTER_ENTITY
     entity:      SYS+requestid-RELEASE
     entity:      SYS+requestid-ROUTE
@@ -136,7 +132,6 @@ classifier:  SYS+classifier-INSTANTIATOR
     entity:      SYS+requestid-ADD_RELATIONS
     entity:      SYS+requestid-CONTEXT_REPORT
     entity:      SYS+requestid-INSTANTIATE
-    entity:      SYS+requestid-REGISTER_CLASSIFIER
     entity:      SYS+requestid-REGISTER_ENTITY
     entity:      SYS+requestid-RELEASE
     entity:      SYS+requestid-ROUTE

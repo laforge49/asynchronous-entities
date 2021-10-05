@@ -52,40 +52,6 @@
                   nil)))))))
     return-port))
 
-(defn registerClassifiers
-  [env new-classifiers new-children]
-  (let [return-port
-        (a/chan)]
-    (a/go-loop [new-classifiers new-classifiers]
-      (if (empty? new-classifiers)
-        (a/>! return-port [nil])
-        (recur
-          (try
-            (let [[entity-name classifier classifier-value]
-                  (peek new-classifiers)
-                  context-name
-                  (k/entityContextName entity-name)
-                  context-request-port
-                  (get env "CONTEXT-REQUEST-PORT")
-                  subrequest-return-port
-                  (a/chan)
-                  new-classifiers
-                  (pop new-classifiers)]
-              (when (not (contains? new-children entity-name))
-                (a/>! context-request-port [env {"requestid"        "SYS+requestid-ROUTE"
-                                                 "target_requestid" "SYS+requestid-REGISTER_CLASSIFIER"
-                                                 "target_name"      context-name
-                                                 "name"             entity-name
-                                                 "classifier"       classifier
-                                                 "classifier-value" classifier-value
-                                                 "return_port"      subrequest-return-port}])
-                (k/request-exception-check (a/<! subrequest-return-port)))
-              new-classifiers)
-            (catch Exception e
-              (a/>! return-port [e])
-              nil)))))
-    return-port))
-
 (defn run-federation-goblock
   [env this-map params]
   (a/go
@@ -118,8 +84,6 @@
               _ (k/request-exception-check (a/<! subrequest-return-port))
               env
               (assoc env "NEW-CHILDREN-VOLATILE" (volatile! {}))
-              env
-              (assoc env :NEW-CLASSIFIERS-VOLATILE (volatile! []))
               script
               (get descriptors "SYS+descriptor-SCRIPT$yaml")
               this-name
@@ -142,19 +106,10 @@
                                       @(get env "NEW-CHILDREN-VOLATILE")))
 ;              _ (if (some? e)
 ;                  (throw e))
-              [e]
-              (a/<! (registerClassifiers env
-                                         @(:NEW-CLASSIFIERS-VOLATILE env)
-                                         @(get env "NEW-CHILDREN-VOLATILE")
-                                         ))
-              _ (if (some? e)
-                  (throw e))
               env
               (assoc env "FEDERATOR-NAME" nil)
               env
               (assoc env "NEW-CHILDREN-VOLATILE" nil)
-              env
-              (assoc env :NEW-CLASSIFIERS-VOLATILE nil)
               _ (a/>! federation-context-request-port [env {"requestid"   "SYS+requestid-RELEASE"
                                                             "return_port" subrequest-return-port}])
               _ (k/request-exception-check (a/<! subrequest-return-port))

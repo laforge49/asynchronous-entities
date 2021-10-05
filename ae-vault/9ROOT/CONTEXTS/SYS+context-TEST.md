@@ -5,8 +5,6 @@ DESCRIPTORS:
     - CONTEXT_REPORToperationid
     requestid-LOAD_SCRIPT:
     - LOAD_SCRIPToperationid
-    requestid-REGISTER_CLASSIFIER:
-    - REGISTER_CLASSIFIERoperationid
     requestid-REGISTER_ENTITY:
     - REGISTER_ENTITYoperationid
     requestid-ROUTE:

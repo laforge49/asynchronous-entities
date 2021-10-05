@@ -46,25 +46,6 @@
         (catch Exception e
           (a/>! operation-return-port [this-map e nil]))))))
 
-(defn register-classifier-goblock
-  [env this-map params]
-  (a/go
-    (let [operation-return-port
-          (get params "operation-return-port")]
-      (try
-        (let [name
-              (get params "name")
-              classifier-kw
-              (get params "classifier")
-              classifier-value-kw
-              (get params "classifier-value")
-              this-name
-              (get this-map "NAME")]
-          (k/add-classifier-value this-name name classifier-kw classifier-value-kw)
-          (a/>! operation-return-port [this-map nil this-map]))
-        (catch Exception e
-          (a/>! operation-return-port [this-map e nil]))))))
-
 (defn route-goblock
   [env this-map params]
   (a/go
@@ -282,8 +263,6 @@
   [env]
   (k/register-function env {:operationid "REGISTER_ENTITYoperationid"
                             :goblock     register-entity-goblock})
-  (k/register-function env {:operationid "REGISTER_CLASSIFIERoperationid"
-                            :goblock     register-classifier-goblock})
   (k/register-function env {:operationid "ROUTEoperationid"
                             :goblock     route-goblock})
   (k/register-function env {:operationid "FEDERATION_ACQUIREoperationid"
