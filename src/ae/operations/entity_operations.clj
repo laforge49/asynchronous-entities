@@ -129,19 +129,19 @@
                             _ (if (not= this-context value-context)
                                 (throw (Exception. (str "Relation subject and object must have same context: "
                                                         this-name " " value-context))))
-                            obj-vmap
-                            (first (get @federation-vmap new-value))
-                            _ (if (nil? obj-vmap)
+                            obj-map
+                            (k/get-federated-map new-value env)
+                            _ (if (nil? obj-map)
                                 (throw (Exception. (str "Federation is required by addRelations for object " new-value))))
                             relation-subjects
-                            (get-in @obj-vmap ["INVERSE-RELATIONS" relation] [])
+                            (get-in obj-map ["INVERSE-RELATIONS" relation] [])
                             i
                             (.indexOf relation-values new-value)
                             relation-values
                             (if (= i -1)
-                              (do
-                                (vswap! obj-vmap assoc-in ["INVERSE-RELATIONS" relation]
-                                        (conj relation-subjects this-name))
+                              (let [obj-map
+                                    (assoc-in obj-map ["INVERSE-RELATIONS" relation] (conj relation-subjects this-name))]
+                                (k/assoc-entity-map new-value obj-map)
                                 (conj relation-values new-value))
                               relation-values)]
                         relation-values))

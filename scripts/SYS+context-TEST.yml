@@ -55,10 +55,10 @@
 #        relations:
 #          relation-BASIC:
 #            - simple-ALPHA
-#      - target_requestid: SYS+requestid-ADD_RELATIONS
-#        target_name: simple-BETA
-#        relations:
-#          relation-BASIC:
-#            - simple-ALPHA
+      - target_requestid: SYS+requestid-ADD_RELATIONS
+        target_name: simple-BETA
+        relations:
+          relation-BASIC:
+            - simple-ALPHA
 - target_requestid: SYS+requestid-RUN_FEDERATION
   target_name: federator-A
