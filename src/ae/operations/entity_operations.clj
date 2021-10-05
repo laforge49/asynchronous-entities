@@ -33,12 +33,10 @@
                       "classifiers"         instantiation-classifiers})
         [new-entity-public-request-port snap]
         (k/create-entity env params)
-        federation-map-volatile
-        (get env "FEDERATION-MAP-VOLATILE")
         new-children-volatile
         (get env "NEW-CHILDREN-VOLATILE")
         ]
-    (vswap! federation-map-volatile assoc name [(volatile! snap) initialization-port])
+    (k/assoc-entity-map name snap)
     (vswap! new-children-volatile assoc name new-entity-public-request-port)
     [this-map this-map]))
 

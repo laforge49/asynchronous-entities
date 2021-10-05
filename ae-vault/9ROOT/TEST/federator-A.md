@@ -4,10 +4,22 @@ DESCRIPTORS:
   - simple-ALPHA
   - simple-BETA
   SYS+descriptor-SCRIPT$yaml:
+  - target_requestid: SYS+requestid-INSTANTIATE
+    target_name: instantiator-SIMPLE
+    name: simple-GAMMA
   - target_requestid: SYS+requestid-ADD_DESCRIPTORS
     target_name: simple-ALPHA
     descriptors:
       descriptor-DEGREE_OF_POLISH$str: MIDDLING
+  - target_requestid: SYS+requestid-ADD_DESCRIPTORS
+    target_name: simple-GAMMA
+    descriptors:
+      descriptor-DEGREE_OF_POLISH$str: MIDDLING
+  - target_requestid: SYS+requestid-ADD_RELATIONS
+    target_name: simple-GAMMA
+    relations:
+      relation-BASIC:
+      - simple-ALPHA
   - target_requestid: SYS+requestid-ADD_RELATIONS
     target_name: simple-BETA
     relations:

@@ -5,51 +5,50 @@
             [ae.keywords :as kw]))
 
 (defn registerChildren
-  [env federation-map new-children]
+  [env new-children]
   (let [return-port
         (a/chan)]
-    (a/go-loop [lvec [federation-map new-children]]
-      (if (some? lvec)
-        (let [[federation-map new-children]
-              lvec]
-          (if (empty? new-children)
-            (a/>! return-port [nil federation-map])
-            (recur
-              (try
-                (let [child-names
-                      (keys new-children)
-                      entity-name
-                      (first child-names)
-                      context-name
-                      (k/entityContextName entity-name)
-                      [snap initialization-port]
-                      (get federation-map entity-name)
-                      entity-public-request-port
-                      (get new-children entity-name)
-                      subrequest-return-port
-                      (a/chan)
-                      _ (a/>! initialization-port [env {"requestid"   "RESET-REQUEST-PORT"
-                                                        "this-map"    snap
-                                                        "return_port" subrequest-return-port}])
-                      _ (k/request-exception-check (a/<! subrequest-return-port))
-                      context-request-port
-                      (get env "CONTEXT-REQUEST-PORT")
-                      _ (a/>! context-request-port [env {"requestid"                  "SYS+requestid-ROUTE"
-                                                         "target_requestid"           "SYS+requestid-REGISTER_ENTITY"
-                                                         "entity-public-request-port" entity-public-request-port
-                                                         "target_name"                context-name
-                                                         "name"                       (get snap "NAME")
-                                                         "classifiers"                (get snap "CLASSIFIERS")
-                                                         "return_port"                subrequest-return-port}])
-                      _ (k/request-exception-check (a/<! subrequest-return-port))
-                      federation-map
-                      (dissoc federation-map entity-name)
-                      new-children
-                      (dissoc new-children entity-name)]
-                  [federation-map new-children])
-                (catch Exception e
-                  (a/>! return-port [e nil])
-                  nil)))))))
+    (a/go-loop [new-children new-children]
+      (if (some? new-children)
+        (if (empty? new-children)
+          (a/>! return-port [nil])
+          (recur
+            (try
+              (let [child-names
+                    (keys new-children)
+                    entity-name
+                    (first child-names)
+                    context-name
+                    (k/entityContextName entity-name)
+                    snap
+                    (k/get-entity-map entity-name)
+                    request-port-stack
+                    (get snap "REQUEST-PORT-STACK")
+                    initialization-port
+                    (peek request-port-stack)
+                    entity-public-request-port
+                    (get new-children entity-name)
+                    subrequest-return-port
+                    (a/chan)
+                    _ (a/>! initialization-port [env {"requestid"   "RESET-REQUEST-PORT"
+                                                      "return_port" subrequest-return-port}])
+                    _ (k/request-exception-check (a/<! subrequest-return-port))
+                    context-request-port
+                    (get env "CONTEXT-REQUEST-PORT")
+                    _ (a/>! context-request-port [env {"requestid"                  "SYS+requestid-ROUTE"
+                                                       "target_requestid"           "SYS+requestid-REGISTER_ENTITY"
+                                                       "entity-public-request-port" entity-public-request-port
+                                                       "target_name"                context-name
+                                                       "name"                       (get snap "NAME")
+                                                       "classifiers"                (get snap "CLASSIFIERS")
+                                                       "return_port"                subrequest-return-port}])
+                    _ (k/request-exception-check (a/<! subrequest-return-port))
+                    new-children
+                    (dissoc new-children entity-name)]
+                new-children)
+              (catch Exception e
+                (a/>! return-port [e nil])
+                nil))))))
     return-port))
 
 (defn run-federation-goblock
@@ -79,8 +78,8 @@
               (k/request-exception-check (a/<! subrequest-return-port))
               env
               (assoc env "FEDERATOR-NAME" this-name)
-              _ (a/>! federation-context-request-port [env {"requestid"        "SYS+requestid-ACQUIRE"
-                                                            "return_port"      subrequest-return-port}])
+              _ (a/>! federation-context-request-port [env {"requestid"   "SYS+requestid-ACQUIRE"
+                                                            "return_port" subrequest-return-port}])
               _ (k/request-exception-check (a/<! subrequest-return-port))
               env
               (assoc env "NEW-CHILDREN-VOLATILE" (volatile! {}))
@@ -100,12 +99,11 @@
                           {}
                           request)]
                     (k/routeFunction env this-map request)))
-#_              [e federation-map]
-#_              (a/<! (registerChildren env
-                                      federation-map
+              [e]
+              (a/<! (registerChildren env
                                       @(get env "NEW-CHILDREN-VOLATILE")))
-;              _ (if (some? e)
-;                  (throw e))
+              _ (if (some? e)
+                  (throw e))
               env
               (assoc env "FEDERATOR-NAME" nil)
               env

@@ -70,6 +70,16 @@
       entity-map
       nil)))
 
+(defn get-child-map
+  [entity-name env]
+  (let [entity-map
+        (get-entity-map entity-name)
+        new-children-map
+        @(get env "NEW-CHILDREN-VOLATILE")]
+    (if (nil? (get new-children-map entity-name))
+      nil
+      entity-map)))
+
 (defn get-federated-map
   [entity-name env]
   (let [env-federator-name
@@ -178,14 +188,15 @@
 
 (defn routeFunction
   [env this-map params]
-  (println)
-  (println :routeFunction (prn-str params))
-  (println)
   (save-entity-map this-map)
   (let [target-name
         (get params "target_name")
         target-map
         (get-federated-map target-name env)
+        target-map
+        (if (some? target-map)
+          target-map
+          (get-child-map target-name env))
         target-map
         (if (some? target-map)
           target-map
@@ -213,8 +224,8 @@
                                           (prn-str this-map)))))
                 (fun env target-map params))))
           [target-map nil]
-          operationids)
-        _ (assoc-entity-map target-name target-map)]
+          operationids)]
+    (assoc-entity-map target-name target-map)
     [(refresh-entity-map this-map) rv]))
 
 (defn targetOperationid
@@ -270,6 +281,8 @@
                       (throw (Exception. (str "Requestid port is nil\n"
                                               (prn-str params)
                                               (prn-str this-map)))))
+                  this-map
+                  (get-entity-map this-name)
                   [this-map return-value]
                   (case requestid
 
@@ -403,51 +416,51 @@
         "ROOT+context-SYS"
         (str "SYS+context-" entity-context-base-name)))))
 
-#_ (defn validate-edn
-  [path context-map type-entity edn env]
-  (println :path path)
-  (let [[_ [data-type key-entity value-entity]]
-        (if (nil? type-entity)
-          [nil [nil nil nil]]
-          (let [params
-                {"requestid"        "SYS+requestid-ROUTE"
-                 "target_requestid" "SYS+requestidTYPE_OF"
-                 "target_name"      type-entity}]
-            (routeFunction env context-map params)))]
-    (cond
-      (string? edn)
-      (if (not= data-type "string")
-        (throw (Exception. (str "At " path ", expected a string, not\n" data-type "\n"
-                                (prn-str edn)
-                                (prn-str context-map)))))
+#_(defn validate-edn
+    [path context-map type-entity edn env]
+    (println :path path)
+    (let [[_ [data-type key-entity value-entity]]
+          (if (nil? type-entity)
+            [nil [nil nil nil]]
+            (let [params
+                  {"requestid"        "SYS+requestid-ROUTE"
+                   "target_requestid" "SYS+requestidTYPE_OF"
+                   "target_name"      type-entity}]
+              (routeFunction env context-map params)))]
+      (cond
+        (string? edn)
+        (if (not= data-type "string")
+          (throw (Exception. (str "At " path ", expected a string, not\n" data-type "\n"
+                                  (prn-str edn)
+                                  (prn-str context-map)))))
 
-      (vector? edn)
-      (if (not= data-type "vector")
-        (throw (Exception. (str "At " path ", expected a vector, not\n" data-type "\n"
-                                (prn-str edn)
-                                (prn-str context-map))))
-        (let [c
-              (count edn)]
-          (doseq [i (range c)]
-            (let [v
-                  (nth edn i)]
-              (println "vector" i (prn-str v))
-              (validate-edn (str path " " i) context-map value-entity v env)))))
+        (vector? edn)
+        (if (not= data-type "vector")
+          (throw (Exception. (str "At " path ", expected a vector, not\n" data-type "\n"
+                                  (prn-str edn)
+                                  (prn-str context-map))))
+          (let [c
+                (count edn)]
+            (doseq [i (range c)]
+              (let [v
+                    (nth edn i)]
+                (println "vector" i (prn-str v))
+                (validate-edn (str path " " i) context-map value-entity v env)))))
 
-      (map? edn)
-      (if (not= data-type "map")
-        (throw (Exception. (str "At " path ", expected a map, not\n" data-type "\n"
-                                (prn-str edn)
-                                (prn-str context-map))))
-        (doseq [[k v] edn]
-          (validate-edn (str path " key") context-map key-entity k env)
-          (validate-edn (str path " " (prn-str k)) context-map value-entity v env)))
+        (map? edn)
+        (if (not= data-type "map")
+          (throw (Exception. (str "At " path ", expected a map, not\n" data-type "\n"
+                                  (prn-str edn)
+                                  (prn-str context-map))))
+          (doseq [[k v] edn]
+            (validate-edn (str path " key") context-map key-entity k env)
+            (validate-edn (str path " " (prn-str k)) context-map value-entity v env)))
 
-      true
-      (if (not= data-type "undefined")
-        (throw (Exception. (str "At " path ", expected an undefined, not\n" data-type "\n"
-                                (prn-str edn)
-                                (prn-str context-map))))))))
+        true
+        (if (not= data-type "undefined")
+          (throw (Exception. (str "At " path ", expected an undefined, not\n" data-type "\n"
+                                  (prn-str edn)
+                                  (prn-str context-map))))))))
 
 (defn validate-entity-name
   [s]
