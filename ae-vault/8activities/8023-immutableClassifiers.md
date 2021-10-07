@@ -3,7 +3,7 @@ tags:
   - status/todo
 ---
 from [8000-pendingActivities](8000-pendingActivities.md)
-# 8022 Immutable Classifiers
+# 8023 Immutable Classifiers
 Created [2139.1 Monday (week 39), 9-27-2021](../6blog/21/21-3%20Q3/2139/2139.1%20Monday%20(week%2039),%209-27-2021.md)
 
 - Relations were separated from classifiers, as relations are not immutable.
