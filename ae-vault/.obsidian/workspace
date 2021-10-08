@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "6blog/21/21-3 Q3/2140/2140.3 Thursday (week 40), 10-7-2021.md",
+            "file": "8activities/8025-drop-SYS+instantiator-FEDERATION_CONTEXT.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6blog/21/21-3 Q3/2140/2140.3 Thursday (week 40), 10-7-2021.md",
+                "file": "8activities/8025-drop-SYS+instantiator-FEDERATION_CONTEXT.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "6blog/21/21-3 Q3/2140/2140.3 Thursday (week 40), 10-7-2021.md",
+                "file": "8activities/8025-drop-SYS+instantiator-FEDERATION_CONTEXT.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,8 +135,8 @@
   },
   "active": "c902587de11a02ea",
   "lastOpenFiles": [
-    "6blog/21/21-3 Q3/2140/2140.3 Thursday (week 40), 10-7-2021.md",
     "8activities/8025-drop-SYS+instantiator-FEDERATION_CONTEXT.md",
+    "6blog/21/21-3 Q3/2140/2140.3 Thursday (week 40), 10-7-2021.md",
     "6blog/21/21-3 Q3/2140/2140.2 Tuesday (week 40), 10-5-2021.md",
     "8activities/8000-pendingActivities.md",
     "8activities/8023-immutableClassifiers.md",

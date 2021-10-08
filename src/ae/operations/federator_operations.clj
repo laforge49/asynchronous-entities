@@ -47,8 +47,31 @@
                     (dissoc new-children entity-name)]
                 new-children)
               (catch Exception e
-                (a/>! return-port [e nil])
+                (a/>! return-port [e])
                 nil))))))
+    return-port))
+
+(defn federation-release
+  [env federation-names]
+  (let [return-port
+        (a/chan)]
+    (a/go
+      (try
+        (doseq [entity-name federation-names]
+          (let [entity-map
+                (k/get-entity-map entity-name)
+                request-port-stack
+                (get entity-map "REQUEST-PORT-STACK")
+                request-port
+                (peek request-port-stack)
+                sub-return-port
+                (a/chan)]
+            (a/>! request-port [env {"requestid" "RESET-REQUEST-PORT"
+                                     "return_port" sub-return-port}])
+            (k/request-exception-check (a/<! sub-return-port))))
+        (a/>! return-port [nil])
+        (catch Exception e
+          (a/>! return-port [e]))))
     return-port))
 
 (defn run-federation-goblock
@@ -108,9 +131,12 @@
               (assoc env "FEDERATOR-NAME" nil)
               env
               (assoc env "NEW-CHILDREN-VOLATILE" nil)
-              _ (a/>! federation-context-request-port [env {"requestid"   "SYS+requestid-RELEASE"
-                                                            "return_port" subrequest-return-port}])
-              _ (k/request-exception-check (a/<! subrequest-return-port))
+              sub-return-port
+              (federation-release env federation-names)
+              [e]
+              (a/<! sub-return-port)
+              _ (if (some? e)
+                  (throw e))
               _ (a/>! operation-return-port [this-map
                                              nil
                                              this-map])
