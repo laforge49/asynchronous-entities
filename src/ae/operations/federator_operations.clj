@@ -51,6 +51,38 @@
                 nil))))))
     return-port))
 
+(defn federation-acquire
+  [root-contexts-request-port federation-names env]
+  (let [return-port
+        (a/chan)]
+    (a/go-loop [federation-names-vec (reverse (sort federation-names))]
+      (if (some? federation-names-vec)
+        (if (empty? federation-names-vec)
+          (a/>! return-port [nil nil])
+          (let [federation-name
+                (peek federation-names-vec)
+                federation-names-vec
+                (pop federation-names-vec)
+                federation-names-vec
+                (try
+                  (let [new-request-port
+                        (a/chan)
+                        subrequest-return-port
+                        (a/chan)
+                        _ (a/>! root-contexts-request-port [env {"requestid"        "SYS+requestid-ROUTE"
+                                                                 "target_requestid" "PUSH-REQUEST-PORT"
+                                                                 "target_name"      federation-name
+                                                                 "new-request-port" new-request-port
+                                                                 "return_port"      subrequest-return-port}])
+                        [snap new-request-port]
+                        (k/request-exception-check (a/<! subrequest-return-port))]
+                    federation-names-vec)
+                  (catch Exception e
+                    (a/>! return-port [e nil])
+                    nil))]
+            (recur federation-names-vec)))))
+    return-port))
+
 (defn federation-release
   [env federation-names]
   (let [return-port
@@ -88,8 +120,6 @@
               (get this-map "DESCRIPTORS")
               federation-names
               (get descriptors "SYS+descriptor-FEDERATION_NAMES")
-              env
-              (assoc env "FEDERATION-NAMES" federation-names)
               subrequest-return-port
               (a/chan)
               _ (a/>! root-contexts-request-port [env {"requestid"        "SYS+requestid-ROUTE"
@@ -97,13 +127,14 @@
                                                        "target_name"      "SYS+instantiator-FEDERATION_CONTEXT"
                                                        "return_port"      subrequest-return-port
                                                        "name"             nil}])
-              federation-context-request-port
-              (k/request-exception-check (a/<! subrequest-return-port))
+              _ (k/request-exception-check (a/<! subrequest-return-port))
               env
               (assoc env "FEDERATOR-NAME" this-name)
-              _ (a/>! federation-context-request-port [env {"requestid"   "SYS+requestid-ACQUIRE"
-                                                            "return_port" subrequest-return-port}])
-              _ (k/request-exception-check (a/<! subrequest-return-port))
+              root-contexts-request-port
+              (get env "CONTEXT-REQUEST-PORT")
+              acquire-port
+              (federation-acquire root-contexts-request-port federation-names env)
+              _ (k/request-exception-check (a/<! acquire-port))
               env
               (assoc env "NEW-CHILDREN-VOLATILE" (volatile! {}))
               script
