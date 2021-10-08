@@ -11,6 +11,5 @@ from [0000-asynchronousEntities](../0000-asynchronousEntities.md)
 - [8012-changeDescriptors](8012-changeDescriptors.md)
 - [8020-resources](8020-resources.md)
 - [8023-immutableClassifiers](8023-immutableClassifiers.md)
-- [8025-drop-SYS+instantiator-FEDERATION_CONTEXT](8025-drop-SYS+instantiator-FEDERATION_CONTEXT.md)
 - next: 8026
 Pending activities are listed above. Completed activities have been moved to the into the Blog's week folder for when they were completed.

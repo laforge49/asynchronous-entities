@@ -121,79 +121,6 @@
         (catch Exception e
           (a/>! operation-return-port [this-map e nil]))))))
 
-(defn federation-acquire-loop
-  [root-contexts-request-port env]
-  (let [federation-names
-        (get env "FEDERATION-NAMES")
-        return-port
-        (a/chan)]
-    (a/go-loop [federation-names-vec (reverse (sort federation-names))]
-      (if (some? federation-names-vec)
-        (if (empty? federation-names-vec)
-          (a/>! return-port [nil nil])
-          (let [federation-name
-                (peek federation-names-vec)
-                federation-names-vec
-                (pop federation-names-vec)
-                federation-names-vec
-                (try
-                  (let [new-request-port
-                        (a/chan)
-                        subrequest-return-port
-                        (a/chan)
-                        _ (a/>! root-contexts-request-port [env {"requestid"        "SYS+requestid-ROUTE"
-                                                                 "target_requestid" "PUSH-REQUEST-PORT"
-                                                                 "target_name"      federation-name
-                                                                 "new-request-port" new-request-port
-                                                                 "return_port"      subrequest-return-port}])
-                        [snap new-request-port]
-                        (k/request-exception-check (a/<! subrequest-return-port))]
-                    federation-names-vec)
-                  (catch Exception e
-                    (a/>! return-port [e nil])
-                    nil))]
-            (recur federation-names-vec)))))
-    return-port))
-
-(defn federation-acquire-goblock
-  [env this-map params]
-  (a/go
-    (let [operation-return-port
-          (get params "operation-return-port")]
-      (try
-        (let [root-contexts-request-port
-              (get env "CONTEXT-REQUEST-PORT")
-              acquire-loop-port
-              (federation-acquire-loop root-contexts-request-port env)
-              _ (k/request-exception-check (a/<! acquire-loop-port))]
-          (a/>! operation-return-port [this-map nil nil]))
-        (catch Exception e
-          (a/>! operation-return-port [this-map e nil]))))))
-
-(defn federation-release-goblock
-  [env this-map params]
-  (a/go
-    (let [operation-return-port
-          (get params "operation-return-port")]
-      (try
-        (let [federation-names
-              (get env "FEDERATION-NAMES")]
-          (doseq [entity-name federation-names]
-            (let [entity-map
-                  (k/get-entity-map entity-name)
-                  request-port-stack
-                  (get entity-map "REQUEST-PORT-STACK")
-                  request-port
-                  (peek request-port-stack)
-                  sub-return-port
-                  (a/chan)]
-              (a/>! request-port [env {"requestid" "RESET-REQUEST-PORT"
-                                       "return_port" sub-return-port}])
-              (k/request-exception-check (a/<! sub-return-port))))
-          (a/>! operation-return-port [this-map nil this-map]))
-        (catch Exception e
-          (a/>! operation-return-port [this-map e nil]))))))
-
 (defn context-report-goblock
   [env this-map params]
   (a/go
@@ -265,10 +192,6 @@
                             :goblock     register-entity-goblock})
   (k/register-function env {:operationid "ROUTEoperationid"
                             :goblock     route-goblock})
-  (k/register-function env {:operationid "FEDERATION_ACQUIREoperationid"
-                            :goblock     federation-acquire-goblock})
-  (k/register-function env {:operationid "FEDERATION_RELEASEoperationid"
-                            :goblock     federation-release-goblock})
   (k/register-function env {:operationid "CONTEXT_REPORToperationid"
                             :goblock     context-report-goblock})
   (k/register-function env {:operationid "LOAD_SCRIPToperationid"

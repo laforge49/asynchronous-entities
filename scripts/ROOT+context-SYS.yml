@@ -32,9 +32,6 @@
       classifier-ENTITY_TYPE: classifier_value-REQUESTID
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-REQUESTID
-  name: requestid-ACQUIRE
-- target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-REQUESTID
   name: requestid-ADD_RELATIONS
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-REQUESTID
@@ -47,9 +44,6 @@
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-REQUESTID
   name: requestid-REGISTER_ENTITY
-- target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-REQUESTID
-  name: requestid-RELEASE
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-REQUESTID
   name: requestid-ROUTE
@@ -175,18 +169,6 @@
           - ENTITY_REPORToperationid
     descriptor-INSTANTIATION_CLASSIFIERS:
       classifier-ENTITY_TYPE: classifier_value-FEDERATOR
-- target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-INSTANTIATOR
-  name: instantiator-FEDERATION_CONTEXT
-  descriptors:
-    descriptor-INSTANTIATION_DESCRIPTORS:
-      descriptor_map-REQUESTID$operationid:
-        requestid-ACQUIRE:
-          - FEDERATION_ACQUIREoperationid
-        requestid-RELEASE:
-          - FEDERATION_RELEASEoperationid
-    descriptor-INSTANTIATION_CLASSIFIERS:
-      classifier-ENTITY_TYPE: classifier_value-FEDERATION_CONTEXT
 - target_requestid: requestid-INSTANTIATE
   target_name: instantiator-INSTANTIATOR
   name: instantiator-DATA_TYPE
