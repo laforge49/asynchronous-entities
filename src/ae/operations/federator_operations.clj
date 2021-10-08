@@ -120,14 +120,6 @@
               (get this-map "DESCRIPTORS")
               federation-names
               (get descriptors "SYS+descriptor-FEDERATION_NAMES")
-              subrequest-return-port
-              (a/chan)
-              _ (a/>! root-contexts-request-port [env {"requestid"        "SYS+requestid-ROUTE"
-                                                       "target_requestid" "SYS+requestid-INSTANTIATE"
-                                                       "target_name"      "SYS+instantiator-FEDERATION_CONTEXT"
-                                                       "return_port"      subrequest-return-port
-                                                       "name"             nil}])
-              _ (k/request-exception-check (a/<! subrequest-return-port))
               env
               (assoc env "FEDERATOR-NAME" this-name)
               root-contexts-request-port
