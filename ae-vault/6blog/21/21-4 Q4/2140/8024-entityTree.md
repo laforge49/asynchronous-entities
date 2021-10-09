@@ -4,7 +4,7 @@ tags:
 ---
 from [8000-pendingActivities](8000-pendingActivities.md)
 # 8024 Entity Tree
-Created [2139.3 Wednesday (week 39), 9-29-2021](../2139/2139.3%20Wednesday%20(week%2039),%209-29-2021.md)
+Created [2139.3 Wednesday (week 39), 9-29-2021](../../21-3%20Q3/2139/2139.3%20Wednesday%20(week%2039),%209-29-2021.md)
 
 Initially all activity was asynchronous. Synchronous access was added to support federations of entities. Then synchronous access was added to support immutable entity access. Now classifiers are immutable and there is a need for synchronous access to them, especially during federation creation. The result is a lot more code than is needed.
 
