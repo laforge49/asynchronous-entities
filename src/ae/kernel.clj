@@ -70,6 +70,30 @@
       entity-map
       nil)))
 
+(defn get-classifiers-map
+  [entity-name]
+  (let [entity-map
+        (get-entity-map entity-name)]
+    (get entity-map "CLASSIFIERS")))
+
+(defn get-classifier
+  [entity-name classifier-name]
+  (get (get-classifiers-map entity-name) classifier-name))
+
+(defn get-resources-set
+  [entity-name]
+  (let [resources-vec
+        (get-classifiers-map entity-name "RESOURCES")
+        [_ entity-context-base-name _]
+        (kw/name-as-keyword entity-name)]
+    (reduce
+      (fn [contexts-set context-name]
+        (let [[_ context-base-name _]
+              (kw/name-as-keyword context-name)]
+          (conj contexts-set context-base-name)))
+      #{entity-context-base-name}
+      resources-vec)))
+
 (defn get-child-map
   [entity-name env]
   (let [entity-map
