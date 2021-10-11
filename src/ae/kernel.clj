@@ -83,7 +83,7 @@
 (defn get-resources-set
   [entity-name]
   (let [resources-vec
-        (get-classifiers-map entity-name "RESOURCES")
+        (get-classifier entity-name "RESOURCES")
         [_ entity-context-base-name _]
         (kw/name-as-keyword entity-name)]
     (reduce
@@ -547,8 +547,8 @@
     true
     edn))
 
-(defn bind-context
-  [local-context edn values-as-data env]
+(defn bind-context-
+  [local-context resources-set edn values-as-data env]
   (cond
     (string? edn)
     (if values-as-data
@@ -564,15 +564,15 @@
       (fn [v item]
         (conj v (if values-as-data
                   item
-                  (bind-context local-context item values-as-data env))))
+                  (bind-context- local-context resources-set item values-as-data env))))
       []
       edn)
 
     (map? edn)
     (reduce
       (fn [m [k v]]
-        (assoc m (bind-context local-context k false env)
-                 (bind-context local-context v
+        (assoc m (bind-context- local-context resources-set k false env)
+                 (bind-context- local-context resources-set v
                                (or values-as-data (some? (s/index-of k "$")))
                                env)))
       (sorted-map)
@@ -581,16 +581,22 @@
     true
     edn))
 
+(defn bind-context
+  [full-context-name edn values-as-data env]
+  (let [resources-set
+        (get-resources-set full-context-name)
+        [_ _ base-name]
+        (kw/name-as-keyword full-context-name)
+        base-name
+        (if (s/starts-with? base-name "context-")
+          (subs base-name 8)
+          base-name)]
+    (bind-context- base-name resources-set edn values-as-data env)))
+
 (defn async-script
   [script-path yaml-script context-map env]
   (let [full-local-context
         (get context-map "NAME")
-        [_ _ local-context]
-        (kw/name-as-keyword full-local-context)
-        local-context
-        (if (s/starts-with? local-context "context-")
-          (subs local-context 8)
-          (throw (Exception. (str "unrecognized context: " local-context))))
         out
         (a/chan)]
     (a/go
@@ -604,7 +610,7 @@
                         (reduce
                           (fn [request [k v]]
                             (into request {k
-                                           (bind-context local-context v (some? (s/index-of k "$")) env)}))
+                                           (bind-context full-local-context v (some? (s/index-of k "$")) env)}))
                           {}
                           request)))
                 []
