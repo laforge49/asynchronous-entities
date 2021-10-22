@@ -133,8 +133,8 @@
               (get descriptors "SYS+descriptor-SCRIPT$yaml")
               this-name
               (get this-map "NAME")
-              [_ local-context _]
-              (kw/name-as-keyword this-name)
+              local-context
+              (k/entityContextName this-name)
               _ (doseq [request script]
                   (let [
                         request

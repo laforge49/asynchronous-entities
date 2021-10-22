@@ -81,18 +81,28 @@
   (get (get-classifiers-map entity-name) classifier-name))
 
 (defn get-resources-set
-  [entity-name]
+  [local-context-name]
   (let [resources-vec
-        (get-classifier entity-name "RESOURCES")
-        [_ entity-context-base-name _]
-        (kw/name-as-keyword entity-name)]
+        (get-classifier local-context-name "SYS+classifier-RESOURCES")
+        [_ _ entity-base-name]
+        (kw/name-as-keyword local-context-name)
+        short-context-name
+        (if (s/starts-with? entity-base-name "context-")
+          (subs entity-base-name 8)
+          entity-base-name)
+        resources-set
     (reduce
       (fn [contexts-set context-name]
-        (let [[_ context-base-name _]
-              (kw/name-as-keyword context-name)]
+        (let [[_ _ context-base-name]
+              (kw/name-as-keyword context-name)
+              context-base-name
+              (if (s/starts-with? context-base-name "context-")
+                (subs context-base-name 8)
+                context-base-name)]
           (conj contexts-set context-base-name)))
-      #{entity-context-base-name}
-      resources-vec)))
+      #{short-context-name}
+      resources-vec)]
+    resources-set))
 
 (defn get-child-map
   [entity-name env]
