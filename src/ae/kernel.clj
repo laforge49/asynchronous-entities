@@ -563,10 +563,17 @@
     (string? edn)
     (if values-as-data
       edn
-      (do
-        (validate-entity-name edn)
-        (if (some? (s/index-of edn "+"))
-          edn
+      (let [- (validate-entity-name edn)
+            ndx
+            (s/index-of edn "+")]
+        (if (some? ndx)
+          (let [ctx
+                (subs edn 0 ndx)]
+            (if (contains? resources-set ctx)
+              edn
+              (if (= edn "ROOT+context-SYS")
+                edn
+                (throw (Exception. (str "Undeclared resource used by " edn " in context " local-context))))))
           (str local-context "+" edn))))
 
     (vector? edn)
