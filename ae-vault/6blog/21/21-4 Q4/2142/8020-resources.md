@@ -12,4 +12,4 @@ The entities of a context can only reference entities in the same context or res
 - The test context now has a resources classifier with a value that is a vector with the sys context as its only item.
 - Contexts are now validated against resources during context binding.
 
-completed 2142.6
+completed [2142.6 Saturday (week 42), 10-23-2021](2142.6%20Saturday%20(week%2042),%2010-23-2021.md)

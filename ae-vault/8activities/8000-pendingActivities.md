@@ -8,5 +8,6 @@ from [0000-asynchronousEntities](../0000-asynchronousEntities.md)
 - [8009-renameEntities](8009-renameEntities.md)
 - [8011-changeRelations](8011-changeRelations.md)
 - [8012-changeDescriptors](8012-changeDescriptors.md)
-- next: 8026
+- [8026-class](8026-class.md)
+- next: 8027
 Pending activities are listed above. Completed activities have been moved to the into the Blog's week folder for when they were completed.
