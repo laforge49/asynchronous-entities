@@ -13,8 +13,8 @@ INVERSE-RELATIONS:
   - simple-GAMMA
   - simple-BETA
 TAGS:
+- SYS+classifier-CLASS/TEST+instantiator-SIMPLE
 - SYS+classifier-ENTITY_TYPE/TEST+classifier_value-SIMPLE
-- SYS+classifier-INSTANTIATOR/TEST+instantiator-SIMPLE
 ---
 # Entity TEST+simple-ALPHA
 

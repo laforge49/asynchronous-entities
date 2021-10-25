@@ -31,8 +31,8 @@ DESCRIPTORS:
     SYS+requestid-RUN_FEDERATION:
     - RUN_FEDERATIONoperationid
 TAGS:
+- SYS+classifier-CLASS/SYS+instantiator-FEDERATOR
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-FEDERATOR
-- SYS+classifier-INSTANTIATOR/SYS+instantiator-FEDERATOR
 ---
 # Entity TEST+federator-A
 

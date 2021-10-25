@@ -16,8 +16,8 @@ DESCRIPTORS:
     requestid-INSTANTIATE:
     - INSTANTIATEoperationid
 TAGS:
+- SYS+classifier-CLASS/SYS+instantiator-INSTANTIATOR
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-INSTANTIATOR
-- SYS+classifier-INSTANTIATOR/SYS+instantiator-INSTANTIATOR
 ---
 # Entity SYS+instantiator-DATA_TYPE
 

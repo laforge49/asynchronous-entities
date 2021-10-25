@@ -21,7 +21,7 @@
         instantiation-classifiers
         (get this-descriptors "SYS+descriptor-INSTANTIATION_CLASSIFIERS")
         instantiation-classifiers
-        (assoc instantiation-classifiers "SYS+classifier-INSTANTIATOR" this-name)
+        (assoc instantiation-classifiers "SYS+classifier-CLASS" this-name)
         instantiation-classifiers
         (into instantiation-classifiers (get params "classifiers"))
         initialization-port
@@ -57,7 +57,7 @@
         instantiation-classifiers
         (get this-descriptors "SYS+descriptor-INSTANTIATION_CLASSIFIERS")
         instantiation-classifiers
-        (assoc instantiation-classifiers "SYS+classifier-INSTANTIATOR" this-name)
+        (assoc instantiation-classifiers "SYS+classifier-CLASS" this-name)
         instantiation-classifiers
         (into instantiation-classifiers (get params "classifiers"))]
     (into params {"target_requestid" "SYS+requestid-REGISTER_ENTITY"

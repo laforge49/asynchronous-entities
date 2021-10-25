@@ -8,8 +8,8 @@ DESCRIPTORS:
     SYS+requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
 TAGS:
+- SYS+classifier-CLASS/TEST+instantiator-SIMPLE
 - SYS+classifier-ENTITY_TYPE/TEST+classifier_value-SIMPLE
-- SYS+classifier-INSTANTIATOR/TEST+instantiator-SIMPLE
 - TEST+relation-BASIC/TEST+simple-ALPHA
 ---
 # Entity TEST+simple-BETA

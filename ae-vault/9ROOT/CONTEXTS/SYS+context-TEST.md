@@ -10,8 +10,8 @@ DESCRIPTORS:
     requestid-ROUTE:
     - ROUTEoperationid
 TAGS:
+- SYS+classifier-CLASS/SYS+instantiator-CONTEXT
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-CONTEXT
-- SYS+classifier-INSTANTIATOR/SYS+instantiator-CONTEXT
 - SYS+classifier-RESOURCES/ROOT+context-SYS
 ---
 # Entity SYS+context-TEST
@@ -37,6 +37,21 @@ Number of entities: 8
 2. Classifier Values of context SYS+context-TEST
 (Default context is context-TEST.)
 
+classifier:  SYS+classifier-CLASS
+  value:       SYS+instantiator-CLASSIFIER_VALUE
+    entity:      TEST+classifier_value-SIMPLE
+  value:       SYS+instantiator-DESCRIPTOR
+    entity:      TEST+descriptor-DEGREE_OF_POLISH$str
+  value:       SYS+instantiator-FEDERATOR
+    entity:      TEST+federator-A
+  value:       SYS+instantiator-INSTANTIATOR
+    entity:      TEST+instantiator-SIMPLE
+  value:       SYS+instantiator-RELATION
+    entity:      TEST+relation-BASIC
+  value:       TEST+instantiator-SIMPLE
+    entity:      TEST+simple-ALPHA
+    entity:      TEST+simple-BETA
+    entity:      TEST+simple-GAMMA
 classifier:  SYS+classifier-ENTITY_TYPE
   value:       SYS+classifier_value-CLASSIFIER
     entity:      TEST+relation-BASIC
@@ -49,21 +64,6 @@ classifier:  SYS+classifier-ENTITY_TYPE
   value:       SYS+classifier_value-INSTANTIATOR
     entity:      TEST+instantiator-SIMPLE
   value:       TEST+classifier_value-SIMPLE
-    entity:      TEST+simple-ALPHA
-    entity:      TEST+simple-BETA
-    entity:      TEST+simple-GAMMA
-classifier:  SYS+classifier-INSTANTIATOR
-  value:       SYS+instantiator-CLASSIFIER_VALUE
-    entity:      TEST+classifier_value-SIMPLE
-  value:       SYS+instantiator-DESCRIPTOR
-    entity:      TEST+descriptor-DEGREE_OF_POLISH$str
-  value:       SYS+instantiator-FEDERATOR
-    entity:      TEST+federator-A
-  value:       SYS+instantiator-INSTANTIATOR
-    entity:      TEST+instantiator-SIMPLE
-  value:       SYS+instantiator-RELATION
-    entity:      TEST+relation-BASIC
-  value:       TEST+instantiator-SIMPLE
     entity:      TEST+simple-ALPHA
     entity:      TEST+simple-BETA
     entity:      TEST+simple-GAMMA
