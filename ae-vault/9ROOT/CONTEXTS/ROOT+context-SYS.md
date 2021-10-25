@@ -16,6 +16,14 @@ DESCRIPTORS:
 (Default context is context-SYS.)
 
 SYS+class-CLASS
+SYS+class-CLASSIFIER
+SYS+class-CLASSIFIER_VALUE
+SYS+class-CONTEXT
+SYS+class-DATA_TYPE
+SYS+class-DESCRIPTOR
+SYS+class-FEDERATOR
+SYS+class-RELATION
+SYS+class-REQUESTID
 SYS+classifier-ENTITY_TYPE
 SYS+classifier_value-CLASS
 SYS+classifier_value-CLASSIFIER
@@ -31,14 +39,6 @@ SYS+descriptor-INSTANTIATION_DESCRIPTORS
 SYS+descriptor-INVARIANT$bool
 SYS+descriptor-READ_ONLY$bool
 SYS+descriptor_map-REQUESTID$operationid
-SYS+instantiator-CLASSIFIER
-SYS+instantiator-CLASSIFIER_VALUE
-SYS+instantiator-CONTEXT
-SYS+instantiator-DATA_TYPE
-SYS+instantiator-DESCRIPTOR
-SYS+instantiator-FEDERATOR
-SYS+instantiator-RELATION
-SYS+instantiator-REQUESTID
 SYS+requestid-ADD_DESCRIPTORS
 SYS+requestid-ADD_RELATIONS
 SYS+requestid-CONTEXT_REPORT
@@ -54,17 +54,17 @@ Number of entities: 31
 
 classifier:  SYS+classifier-CLASS
   value:       SYS+class-CLASS
-    entity:      SYS+instantiator-CLASSIFIER
-    entity:      SYS+instantiator-CLASSIFIER_VALUE
-    entity:      SYS+instantiator-CONTEXT
-    entity:      SYS+instantiator-DATA_TYPE
-    entity:      SYS+instantiator-DESCRIPTOR
-    entity:      SYS+instantiator-FEDERATOR
-    entity:      SYS+instantiator-RELATION
-    entity:      SYS+instantiator-REQUESTID
-  value:       SYS+instantiator-CLASSIFIER
+    entity:      SYS+class-CLASSIFIER
+    entity:      SYS+class-CLASSIFIER_VALUE
+    entity:      SYS+class-CONTEXT
+    entity:      SYS+class-DATA_TYPE
+    entity:      SYS+class-DESCRIPTOR
+    entity:      SYS+class-FEDERATOR
+    entity:      SYS+class-RELATION
+    entity:      SYS+class-REQUESTID
+  value:       SYS+class-CLASSIFIER
     entity:      SYS+classifier-ENTITY_TYPE
-  value:       SYS+instantiator-CLASSIFIER_VALUE
+  value:       SYS+class-CLASSIFIER_VALUE
     entity:      SYS+classifier_value-CLASS
     entity:      SYS+classifier_value-CLASSIFIER
     entity:      SYS+classifier_value-CLASSIFIER_VALUE
@@ -73,15 +73,15 @@ classifier:  SYS+classifier-CLASS
     entity:      SYS+classifier_value-FEDERATION_CONTEXT
     entity:      SYS+classifier_value-FEDERATOR
     entity:      SYS+classifier_value-REQUESTID
-  value:       SYS+instantiator-CONTEXT
+  value:       SYS+class-CONTEXT
     entity:      SYS+context-TEST
-  value:       SYS+instantiator-DESCRIPTOR
+  value:       SYS+class-DESCRIPTOR
     entity:      SYS+descriptor-INSTANTIATION_CLASSIFIERS
     entity:      SYS+descriptor-INSTANTIATION_DESCRIPTORS
     entity:      SYS+descriptor-INVARIANT$bool
     entity:      SYS+descriptor-READ_ONLY$bool
     entity:      SYS+descriptor_map-REQUESTID$operationid
-  value:       SYS+instantiator-REQUESTID
+  value:       SYS+class-REQUESTID
     entity:      SYS+requestid-ADD_DESCRIPTORS
     entity:      SYS+requestid-ADD_RELATIONS
     entity:      SYS+requestid-CONTEXT_REPORT
@@ -92,14 +92,14 @@ classifier:  SYS+classifier-CLASS
 classifier:  SYS+classifier-ENTITY_TYPE
   value:       SYS+classifier_value-CLASS
     entity:      SYS+class-CLASS
-    entity:      SYS+instantiator-CLASSIFIER
-    entity:      SYS+instantiator-CLASSIFIER_VALUE
-    entity:      SYS+instantiator-CONTEXT
-    entity:      SYS+instantiator-DATA_TYPE
-    entity:      SYS+instantiator-DESCRIPTOR
-    entity:      SYS+instantiator-FEDERATOR
-    entity:      SYS+instantiator-RELATION
-    entity:      SYS+instantiator-REQUESTID
+    entity:      SYS+class-CLASSIFIER
+    entity:      SYS+class-CLASSIFIER_VALUE
+    entity:      SYS+class-CONTEXT
+    entity:      SYS+class-DATA_TYPE
+    entity:      SYS+class-DESCRIPTOR
+    entity:      SYS+class-FEDERATOR
+    entity:      SYS+class-RELATION
+    entity:      SYS+class-REQUESTID
   value:       SYS+classifier_value-CLASSIFIER
     entity:      SYS+classifier-ENTITY_TYPE
   value:       SYS+classifier_value-CLASSIFIER_VALUE

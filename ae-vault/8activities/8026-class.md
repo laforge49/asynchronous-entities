@@ -8,3 +8,4 @@ Changing instantiator to class may add some clarity.
 - Change SYS+classifier-INSTANTIATOR to SYS+classifier-CLASS
 - Change instantiator-INSTANTIATOR to class-CLASS
 - Change classifier_value-INSTANTIATOR to classifier_value-CLASS
+- Change instantiator- to class-

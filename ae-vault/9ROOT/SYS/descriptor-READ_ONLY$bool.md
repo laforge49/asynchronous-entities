@@ -5,7 +5,7 @@ DESCRIPTORS:
     requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
 TAGS:
-- SYS+classifier-CLASS/SYS+instantiator-DESCRIPTOR
+- SYS+classifier-CLASS/SYS+class-DESCRIPTOR
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-DESCRIPTOR
 ---
 # Entity SYS+descriptor-READ_ONLY$bool

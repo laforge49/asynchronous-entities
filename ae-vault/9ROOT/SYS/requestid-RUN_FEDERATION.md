@@ -5,7 +5,7 @@ DESCRIPTORS:
     requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
 TAGS:
-- SYS+classifier-CLASS/SYS+instantiator-REQUESTID
+- SYS+classifier-CLASS/SYS+class-REQUESTID
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-REQUESTID
 ---
 # Entity SYS+requestid-RUN_FEDERATION

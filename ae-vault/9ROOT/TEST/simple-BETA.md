@@ -8,7 +8,7 @@ DESCRIPTORS:
     SYS+requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
 TAGS:
-- SYS+classifier-CLASS/TEST+instantiator-SIMPLE
+- SYS+classifier-CLASS/TEST+class-SIMPLE
 - SYS+classifier-ENTITY_TYPE/TEST+classifier_value-SIMPLE
 - TEST+relation-BASIC/TEST+simple-ALPHA
 ---

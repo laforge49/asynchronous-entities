@@ -1,7 +1,7 @@
 ---
 DESCRIPTORS:
   descriptor-INSTANTIATION_CLASSIFIERS:
-    classifier-ENTITY_TYPE: classifier_value-REQUESTID
+    classifier-ENTITY_TYPE: classifier_value-DESCRIPTOR
   descriptor-INSTANTIATION_DESCRIPTORS:
     descriptor-INVARIANT$bool: true
     descriptor_map-REQUESTID$operationid:
@@ -17,5 +17,5 @@ TAGS:
 - SYS+classifier-CLASS/SYS+class-CLASS
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-CLASS
 ---
-# Entity SYS+instantiator-REQUESTID
+# Entity SYS+class-DESCRIPTOR
 

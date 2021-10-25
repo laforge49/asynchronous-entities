@@ -21,7 +21,7 @@
     classifier-ENTITY_TYPE: classifier_value-CLASS
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
-  name: instantiator-REQUESTID
+  name: class-REQUESTID
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
       descriptor-INVARIANT$bool: true
@@ -31,33 +31,33 @@
     descriptor-INSTANTIATION_CLASSIFIERS:
       classifier-ENTITY_TYPE: classifier_value-REQUESTID
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-REQUESTID
+  target_name: class-REQUESTID
   name: requestid-ADD_RELATIONS
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-REQUESTID
+  target_name: class-REQUESTID
   name: requestid-ADD_DESCRIPTORS
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-REQUESTID
+  target_name: class-REQUESTID
   name: requestid-INSTANTIATE
   descriptors:
     descriptor-READ_ONLY$bool: true
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-REQUESTID
+  target_name: class-REQUESTID
   name: requestid-REGISTER_ENTITY
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-REQUESTID
+  target_name: class-REQUESTID
   name: requestid-ROUTE
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-REQUESTID
+  target_name: class-REQUESTID
   name: requestid-RUN_FEDERATION
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-REQUESTID
+  target_name: class-REQUESTID
   name: requestid-CONTEXT_REPORT
   descriptors:
     descriptor-READ_ONLY$bool: true
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
-  name: instantiator-DESCRIPTOR
+  name: class-DESCRIPTOR
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
       descriptor-INVARIANT$bool: true
@@ -67,23 +67,23 @@
     descriptor-INSTANTIATION_CLASSIFIERS:
       classifier-ENTITY_TYPE: classifier_value-DESCRIPTOR
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-DESCRIPTOR
+  target_name: class-DESCRIPTOR
   name: descriptor-READ_ONLY$bool
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-DESCRIPTOR
+  target_name: class-DESCRIPTOR
   name: descriptor_map-REQUESTID$operationid
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-DESCRIPTOR
+  target_name: class-DESCRIPTOR
   name: descriptor-INVARIANT$bool
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-DESCRIPTOR
+  target_name: class-DESCRIPTOR
   name: descriptor-INSTANTIATION_DESCRIPTORS
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-DESCRIPTOR
+  target_name: class-DESCRIPTOR
   name: descriptor-INSTANTIATION_CLASSIFIERS
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
-  name: instantiator-CLASSIFIER
+  name: class-CLASSIFIER
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
       descriptor-INVARIANT$bool: true
@@ -94,7 +94,7 @@
       classifier-ENTITY_TYPE: classifier_value-CLASSIFIER
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
-  name: instantiator-RELATION
+  name: class-RELATION
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
       descriptor-INVARIANT$bool: true
@@ -104,11 +104,11 @@
     descriptor-INSTANTIATION_CLASSIFIERS:
       classifier-ENTITY_TYPE: classifier_value-CLASSIFIER
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-CLASSIFIER
+  target_name: class-CLASSIFIER
   name: classifier-ENTITY_TYPE
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
-  name: instantiator-CLASSIFIER_VALUE
+  name: class-CLASSIFIER_VALUE
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
       descriptor-INVARIANT$bool: true
@@ -118,32 +118,32 @@
     descriptor-INSTANTIATION_CLASSIFIERS:
       classifier-ENTITY_TYPE: classifier_value-CLASSIFIER_VALUE
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-CLASSIFIER_VALUE
+  target_name: class-CLASSIFIER_VALUE
   name: classifier_value-REQUESTID
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-CLASSIFIER_VALUE
+  target_name: class-CLASSIFIER_VALUE
   name: classifier_value-CLASSIFIER
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-CLASSIFIER_VALUE
+  target_name: class-CLASSIFIER_VALUE
   name: classifier_value-DESCRIPTOR
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-CLASSIFIER_VALUE
+  target_name: class-CLASSIFIER_VALUE
   name: classifier_value-CLASSIFIER_VALUE
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-CLASSIFIER_VALUE
+  target_name: class-CLASSIFIER_VALUE
   name: classifier_value-CONTEXT
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-CLASSIFIER_VALUE
+  target_name: class-CLASSIFIER_VALUE
   name: classifier_value-FEDERATOR
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-CLASSIFIER_VALUE
+  target_name: class-CLASSIFIER_VALUE
   name: classifier_value-FEDERATION_CONTEXT
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-CLASSIFIER_VALUE
+  target_name: class-CLASSIFIER_VALUE
   name: classifier_value-CLASS
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
-  name: instantiator-CONTEXT
+  name: class-CONTEXT
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
       descriptor_map-REQUESTID$operationid:
@@ -159,7 +159,7 @@
       classifier-ENTITY_TYPE: classifier_value-CONTEXT
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
-  name: instantiator-FEDERATOR
+  name: class-FEDERATOR
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
       descriptor_map-REQUESTID$operationid:
@@ -171,7 +171,7 @@
       classifier-ENTITY_TYPE: classifier_value-FEDERATOR
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
-  name: instantiator-DATA_TYPE
+  name: class-DATA_TYPE
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
       descriptor-INVARIANT$bool: true
@@ -183,7 +183,7 @@
     descriptor-INSTANTIATION_CLASSIFIERS:
       classifier-ENTITY_TYPE: classifier_value-DATA_TYPE
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-CONTEXT
+  target_name: class-CONTEXT
   name: context-TEST
   content$ml:
     "this is a test

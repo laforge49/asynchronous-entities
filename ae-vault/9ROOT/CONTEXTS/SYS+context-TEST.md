@@ -10,7 +10,7 @@ DESCRIPTORS:
     requestid-ROUTE:
     - ROUTEoperationid
 TAGS:
-- SYS+classifier-CLASS/SYS+instantiator-CONTEXT
+- SYS+classifier-CLASS/SYS+class-CONTEXT
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-CONTEXT
 - SYS+classifier-RESOURCES/ROOT+context-SYS
 ---
@@ -23,10 +23,10 @@ different line
 1. Registered Entities of context SYS+context-TEST
 (Default context is context-TEST.)
 
+TEST+class-SIMPLE
 TEST+classifier_value-SIMPLE
 TEST+descriptor-DEGREE_OF_POLISH$str
 TEST+federator-A
-TEST+instantiator-SIMPLE
 TEST+relation-BASIC
 TEST+simple-ALPHA
 TEST+simple-BETA
@@ -39,22 +39,22 @@ Number of entities: 8
 
 classifier:  SYS+classifier-CLASS
   value:       SYS+class-CLASS
-    entity:      TEST+instantiator-SIMPLE
-  value:       SYS+instantiator-CLASSIFIER_VALUE
+    entity:      TEST+class-SIMPLE
+  value:       SYS+class-CLASSIFIER_VALUE
     entity:      TEST+classifier_value-SIMPLE
-  value:       SYS+instantiator-DESCRIPTOR
+  value:       SYS+class-DESCRIPTOR
     entity:      TEST+descriptor-DEGREE_OF_POLISH$str
-  value:       SYS+instantiator-FEDERATOR
+  value:       SYS+class-FEDERATOR
     entity:      TEST+federator-A
-  value:       SYS+instantiator-RELATION
+  value:       SYS+class-RELATION
     entity:      TEST+relation-BASIC
-  value:       TEST+instantiator-SIMPLE
+  value:       TEST+class-SIMPLE
     entity:      TEST+simple-ALPHA
     entity:      TEST+simple-BETA
     entity:      TEST+simple-GAMMA
 classifier:  SYS+classifier-ENTITY_TYPE
   value:       SYS+classifier_value-CLASS
-    entity:      TEST+instantiator-SIMPLE
+    entity:      TEST+class-SIMPLE
   value:       SYS+classifier_value-CLASSIFIER
     entity:      TEST+relation-BASIC
   value:       SYS+classifier_value-CLASSIFIER_VALUE

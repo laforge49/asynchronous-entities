@@ -20,5 +20,5 @@ TAGS:
 - SYS+classifier-CLASS/SYS+class-CLASS
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-CLASS
 ---
-# Entity TEST+instantiator-SIMPLE
+# Entity TEST+class-SIMPLE
 

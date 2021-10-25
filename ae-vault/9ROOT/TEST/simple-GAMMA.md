@@ -9,7 +9,7 @@ DESCRIPTORS:
     - ENTITY_REPORToperationid
   descriptor-DEGREE_OF_POLISH$str: MIDDLING
 TAGS:
-- SYS+classifier-CLASS/TEST+instantiator-SIMPLE
+- SYS+classifier-CLASS/TEST+class-SIMPLE
 - SYS+classifier-ENTITY_TYPE/TEST+classifier_value-SIMPLE
 - TEST+relation-BASIC/TEST+simple-ALPHA
 ---

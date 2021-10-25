@@ -1,6 +1,6 @@
 - target_requestid: SYS+requestid-INSTANTIATE
   target_name: SYS+class-CLASS
-  name: instantiator-SIMPLE
+  name: class-SIMPLE
   descriptors:
     SYS+descriptor-INSTANTIATION_DESCRIPTORS:
       SYS+descriptor_map-REQUESTID$operationid:
@@ -13,26 +13,26 @@
     SYS+descriptor-INSTANTIATION_CLASSIFIERS:
       SYS+classifier-ENTITY_TYPE: classifier_value-SIMPLE
 - target_requestid: SYS+requestid-INSTANTIATE
-  target_name: SYS+instantiator-CLASSIFIER_VALUE
+  target_name: SYS+class-CLASSIFIER_VALUE
   name: classifier_value-SIMPLE
 - target_requestid: SYS+requestid-INSTANTIATE
-  target_name: instantiator-SIMPLE
+  target_name: class-SIMPLE
   name: simple-ALPHA
   content$ml:
     "this is a test
     same line
     \ndifferent line"
 - target_requestid: SYS+requestid-INSTANTIATE
-  target_name: instantiator-SIMPLE
+  target_name: class-SIMPLE
   name: simple-BETA
 - target_requestid: SYS+requestid-INSTANTIATE
-  target_name: SYS+instantiator-RELATION
+  target_name: SYS+class-RELATION
   name: relation-BASIC
 - target_requestid: SYS+requestid-INSTANTIATE
-  target_name: SYS+instantiator-DESCRIPTOR
+  target_name: SYS+class-DESCRIPTOR
   name: descriptor-DEGREE_OF_POLISH$str
 - target_requestid: SYS+requestid-INSTANTIATE
-  target_name: SYS+instantiator-FEDERATOR
+  target_name: SYS+class-FEDERATOR
   name: federator-A
   descriptors:
     SYS+descriptor-FEDERATION_NAMES:
@@ -40,7 +40,7 @@
       - simple-BETA
     SYS+descriptor-SCRIPT$yaml:
       - target_requestid: SYS+requestid-INSTANTIATE
-        target_name: instantiator-SIMPLE
+        target_name: class-SIMPLE
         name: simple-GAMMA
       - target_requestid: SYS+requestid-ADD_DESCRIPTORS
         target_name: simple-ALPHA

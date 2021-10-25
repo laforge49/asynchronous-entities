@@ -5,7 +5,7 @@ DESCRIPTORS:
   - simple-BETA
   SYS+descriptor-SCRIPT$yaml:
   - target_requestid: SYS+requestid-INSTANTIATE
-    target_name: instantiator-SIMPLE
+    target_name: class-SIMPLE
     name: simple-GAMMA
   - target_requestid: SYS+requestid-ADD_DESCRIPTORS
     target_name: simple-ALPHA
@@ -31,7 +31,7 @@ DESCRIPTORS:
     SYS+requestid-RUN_FEDERATION:
     - RUN_FEDERATIONoperationid
 TAGS:
-- SYS+classifier-CLASS/SYS+instantiator-FEDERATOR
+- SYS+classifier-CLASS/SYS+class-FEDERATOR
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-FEDERATOR
 ---
 # Entity TEST+federator-A
