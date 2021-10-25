@@ -53,6 +53,8 @@ classifier:  SYS+classifier-CLASS
     entity:      TEST+simple-BETA
     entity:      TEST+simple-GAMMA
 classifier:  SYS+classifier-ENTITY_TYPE
+  value:       SYS+classifier_value-CLASS
+    entity:      TEST+instantiator-SIMPLE
   value:       SYS+classifier_value-CLASSIFIER
     entity:      TEST+relation-BASIC
   value:       SYS+classifier_value-CLASSIFIER_VALUE
@@ -61,8 +63,6 @@ classifier:  SYS+classifier-ENTITY_TYPE
     entity:      TEST+descriptor-DEGREE_OF_POLISH$str
   value:       SYS+classifier_value-FEDERATOR
     entity:      TEST+federator-A
-  value:       SYS+classifier_value-INSTANTIATOR
-    entity:      TEST+instantiator-SIMPLE
   value:       TEST+classifier_value-SIMPLE
     entity:      TEST+simple-ALPHA
     entity:      TEST+simple-BETA
