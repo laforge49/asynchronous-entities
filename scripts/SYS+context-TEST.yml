@@ -1,5 +1,5 @@
 - target_requestid: SYS+requestid-INSTANTIATE
-  target_name: SYS+instantiator-INSTANTIATOR
+  target_name: SYS+class-CLASS
   name: instantiator-SIMPLE
   descriptors:
     SYS+descriptor-INSTANTIATION_DESCRIPTORS:

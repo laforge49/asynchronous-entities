@@ -38,14 +38,14 @@ Number of entities: 8
 (Default context is context-TEST.)
 
 classifier:  SYS+classifier-CLASS
+  value:       SYS+class-CLASS
+    entity:      TEST+instantiator-SIMPLE
   value:       SYS+instantiator-CLASSIFIER_VALUE
     entity:      TEST+classifier_value-SIMPLE
   value:       SYS+instantiator-DESCRIPTOR
     entity:      TEST+descriptor-DEGREE_OF_POLISH$str
   value:       SYS+instantiator-FEDERATOR
     entity:      TEST+federator-A
-  value:       SYS+instantiator-INSTANTIATOR
-    entity:      TEST+instantiator-SIMPLE
   value:       SYS+instantiator-RELATION
     entity:      TEST+relation-BASIC
   value:       TEST+instantiator-SIMPLE

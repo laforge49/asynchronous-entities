@@ -1,6 +1,6 @@
 - target_requestid: requestid-REGISTER_ENTITY
   target_name: ROOT+context-SYS
-  name: instantiator-INSTANTIATOR
+  name: class-CLASS
   descriptors:
     descriptor-INVARIANT$bool: true
     descriptor_map-REQUESTID$operationid:
@@ -20,7 +20,7 @@
   classifiers:
     classifier-ENTITY_TYPE: classifier_value-INSTANTIATOR
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-INSTANTIATOR
+  target_name: class-CLASS
   name: instantiator-REQUESTID
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
@@ -56,7 +56,7 @@
   descriptors:
     descriptor-READ_ONLY$bool: true
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-INSTANTIATOR
+  target_name: class-CLASS
   name: instantiator-DESCRIPTOR
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
@@ -82,7 +82,7 @@
   target_name: instantiator-DESCRIPTOR
   name: descriptor-INSTANTIATION_CLASSIFIERS
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-INSTANTIATOR
+  target_name: class-CLASS
   name: instantiator-CLASSIFIER
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
@@ -93,7 +93,7 @@
     descriptor-INSTANTIATION_CLASSIFIERS:
       classifier-ENTITY_TYPE: classifier_value-CLASSIFIER
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-INSTANTIATOR
+  target_name: class-CLASS
   name: instantiator-RELATION
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
@@ -107,7 +107,7 @@
   target_name: instantiator-CLASSIFIER
   name: classifier-ENTITY_TYPE
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-INSTANTIATOR
+  target_name: class-CLASS
   name: instantiator-CLASSIFIER_VALUE
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
@@ -142,7 +142,7 @@
   target_name: instantiator-CLASSIFIER_VALUE
   name: classifier_value-INSTANTIATOR
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-INSTANTIATOR
+  target_name: class-CLASS
   name: instantiator-CONTEXT
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
@@ -158,7 +158,7 @@
     descriptor-INSTANTIATION_CLASSIFIERS:
       classifier-ENTITY_TYPE: classifier_value-CONTEXT
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-INSTANTIATOR
+  target_name: class-CLASS
   name: instantiator-FEDERATOR
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:
@@ -170,7 +170,7 @@
     descriptor-INSTANTIATION_CLASSIFIERS:
       classifier-ENTITY_TYPE: classifier_value-FEDERATOR
 - target_requestid: requestid-INSTANTIATE
-  target_name: instantiator-INSTANTIATOR
+  target_name: class-CLASS
   name: instantiator-DATA_TYPE
   descriptors:
     descriptor-INSTANTIATION_DESCRIPTORS:

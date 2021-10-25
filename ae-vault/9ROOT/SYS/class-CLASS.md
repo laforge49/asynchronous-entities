@@ -18,5 +18,5 @@ DESCRIPTORS:
 TAGS:
 - SYS+classifier-ENTITY_TYPE/SYS+classifier_value-INSTANTIATOR
 ---
-# Entity SYS+instantiator-INSTANTIATOR
+# Entity SYS+class-CLASS
 
