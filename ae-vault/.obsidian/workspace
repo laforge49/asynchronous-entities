@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "6blog/21/21-4 Q4/2143/2143.1 Monday (week 43), 10-25-2021.md",
+            "file": "8activities/8028-fix names.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6blog/21/21-4 Q4/2143/2143.1 Monday (week 43), 10-25-2021.md",
+                "file": "8activities/8028-fix names.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -96,7 +96,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "6blog/21/21-4 Q4/2143/2143.1 Monday (week 43), 10-25-2021.md",
+                "file": "8activities/8028-fix names.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -119,15 +119,15 @@
   },
   "active": "c902587de11a02ea",
   "lastOpenFiles": [
-    "6blog/21/21-4 Q4/2143/2143.1 Monday (week 43), 10-25-2021.md",
-    "6blog/21/21-4 Q4/2143/8026-class.md",
+    "8activities/8028-fix names.md",
+    "6blog/21/21-4 Q4/2143/2143.3 Wednesday (week 43), 10-27-2021.md",
     "8activities/8000-pendingActivities.md",
-    "6blog/21/21-4 Q4/2142/2142.7 Sunday (week 42), 10-24-2021.md",
-    "8activities/8027-validate item name's root.md",
-    "6blog/21/21-4 Q4/2140/2140.4 Thursday (week 40), 10-7-2021.md",
-    "6blog/21/21-4 Q4/2140/2140.5 Friday (week 40), 10-8-2021.md",
-    "6blog/21/21-4 Q4/2142/2142.6 Saturday (week 42), 10-23-2021.md",
     "8activities/8012-changeDescriptors.md",
-    "6blog/6000-blog.md"
+    "8activities/8027-validate item name's root.md",
+    "6blog/21/21-4 Q4/2142/2142.7 Sunday (week 42), 10-24-2021.md",
+    "6blog/21/21-4 Q4/2143/2143.1 Monday (week 43), 10-25-2021.md",
+    "1wiki/1006-entityName.md",
+    "6blog/21/21-4 Q4/2143/8026-class.md",
+    "6blog/21/21-4 Q4/2140/2140.4 Thursday (week 40), 10-7-2021.md"
   ]
 }

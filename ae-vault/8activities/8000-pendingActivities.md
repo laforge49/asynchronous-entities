@@ -9,5 +9,6 @@ from [0000-asynchronousEntities](../0000-asynchronousEntities.md)
 - [8011-changeRelations](8011-changeRelations.md)
 - [8012-changeDescriptors](8012-changeDescriptors.md)
 - [8027-validate item name's root](8027-validate%20item%20name's%20root.md)
-- next: 8028
+- [8028-fix names](8028-fix%20names.md)
+- next: 8029
 Pending activities are listed above. Completed activities have been moved to the into the Blog's week folder for when they were completed.
