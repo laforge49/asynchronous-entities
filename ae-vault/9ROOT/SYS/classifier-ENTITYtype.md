@@ -2,11 +2,11 @@
 DESCRIPTORS:
   descriptor-INVARIANT$bool: true
   descriptor_map-REQUESTID$str:
-    requestid-ENTITY_REPORT:
+    requestid-ENTITYreport:
     - ENTITY_REPORToperationid
 TAGS:
 - SYS+classifier-CLASS/SYS+class-CLASSIFIER
-- SYS+classifier-ENTITY_TYPE/SYS+classifierVALUE-CLASSIFIER
+- SYS+classifier-ENTITYtype/SYS+classifierVALUE-CLASSIFIER
 ---
-# Entity SYS+classifier-ENTITY_TYPE
+# Entity SYS+classifier-ENTITYtype
 

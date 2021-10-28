@@ -1,17 +1,17 @@
 ---
 DESCRIPTORS:
   descriptor_map-REQUESTID$str:
-    requestid-ENTITY_REPORT:
+    requestid-ENTITYreport:
     - CONTEXT_REPORToperationid
     requestid-LOAD_SCRIPT:
     - LOAD_SCRIPToperationid
-    requestid-REGISTER_ENTITY:
+    requestid-REGISTERentity:
     - REGISTER_ENTITYoperationid
     requestid-ROUTE:
     - ROUTEoperationid
 TAGS:
 - SYS+classifier-CLASS/SYS+class-CONTEXT
-- SYS+classifier-ENTITY_TYPE/SYS+classifierVALUE-CONTEXT
+- SYS+classifier-ENTITYtype/SYS+classifierVALUE-CONTEXT
 - SYS+classifier-RESOURCES/ROOT+context-SYS
 ---
 # Entity SYS+context-TEST
@@ -52,7 +52,7 @@ classifier:  SYS+classifier-CLASS
     entity:      TEST+simple-ALPHA
     entity:      TEST+simple-BETA
     entity:      TEST+simple-GAMMA
-classifier:  SYS+classifier-ENTITY_TYPE
+classifier:  SYS+classifier-ENTITYtype
   value:       SYS+classifierVALUE-CLASS
     entity:      TEST+class-SIMPLE
   value:       SYS+classifierVALUE-CLASSIFIER

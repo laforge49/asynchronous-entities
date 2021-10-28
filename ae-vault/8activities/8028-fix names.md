@@ -14,3 +14,4 @@ The pattern for names is contextRoot+type_structureType-root$dataType, where the
 | *$operationid | *$str |
 | requestid-REGISTER_ENTITY | requestid-REGISTERentity |
 | requestid-ENTITY_REPORT | requestid-ENTITYreport |
+| classifier-ENTITY_TYPE | classifier-ENTITYtype |

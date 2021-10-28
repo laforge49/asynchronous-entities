@@ -11,7 +11,7 @@
         SYS+requestid-ENTITYreport:
           - ENTITY_REPORToperationid
     SYS+descriptors_map-INSTANCEclassifiers:
-      SYS+classifier-ENTITY_TYPE: classifierVALUE-SIMPLE
+      SYS+classifier-ENTITYtype: classifierVALUE-SIMPLE
 - target_requestid: SYS+requestid-INSTANTIATE
   target_name: SYS+class-CLASSIFIER_VALUE
   name: classifierVALUE-SIMPLE

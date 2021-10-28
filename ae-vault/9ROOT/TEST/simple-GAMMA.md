@@ -5,12 +5,12 @@ DESCRIPTORS:
     - ADD_DESCRIPTORSoperationid
     SYS+requestid-ADD_RELATIONS:
     - ADD_RELATIONSoperationid
-    SYS+requestid-ENTITY_REPORT:
+    SYS+requestid-ENTITYreport:
     - ENTITY_REPORToperationid
   descriptor-DEGREE_OF_POLISH$str: MIDDLING
 TAGS:
 - SYS+classifier-CLASS/TEST+class-SIMPLE
-- SYS+classifier-ENTITY_TYPE/TEST+classifierVALUE-SIMPLE
+- SYS+classifier-ENTITYtype/TEST+classifierVALUE-SIMPLE
 - TEST+relation-BASIC/TEST+simple-ALPHA
 ---
 # Entity TEST+simple-GAMMA

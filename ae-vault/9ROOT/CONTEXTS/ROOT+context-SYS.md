@@ -1,11 +1,11 @@
 ---
 DESCRIPTORS:
   SYS+descriptor_map-REQUESTID$str:
-    SYS+requestid-ENTITY_REPORT:
+    SYS+requestid-ENTITYreport:
     - CONTEXT_REPORToperationid
     SYS+requestid-LOAD_SCRIPT:
     - LOAD_SCRIPToperationid
-    SYS+requestid-REGISTER_ENTITY:
+    SYS+requestid-REGISTERentity:
     - REGISTER_ENTITYoperationid
     SYS+requestid-ROUTE:
     - ROUTEoperationid
@@ -24,7 +24,7 @@ SYS+class-DESCRIPTOR
 SYS+class-FEDERATOR
 SYS+class-RELATION
 SYS+class-REQUESTID
-SYS+classifier-ENTITY_TYPE
+SYS+classifier-ENTITYtype
 SYS+classifierVALUE-CLASS
 SYS+classifierVALUE-CLASSIFIER
 SYS+classifierVALUE-CLASSIFIER_VALUE
@@ -43,7 +43,7 @@ SYS+requestid-ADD_DESCRIPTORS
 SYS+requestid-ADD_RELATIONS
 SYS+requestid-CONTEXT_REPORT
 SYS+requestid-INSTANTIATE
-SYS+requestid-REGISTER_ENTITY
+SYS+requestid-REGISTERentity
 SYS+requestid-ROUTE
 SYS+requestid-RUN_FEDERATION
 
@@ -63,7 +63,7 @@ classifier:  SYS+classifier-CLASS
     entity:      SYS+class-RELATION
     entity:      SYS+class-REQUESTID
   value:       SYS+class-CLASSIFIER
-    entity:      SYS+classifier-ENTITY_TYPE
+    entity:      SYS+classifier-ENTITYtype
   value:       SYS+class-CLASSIFIER_VALUE
     entity:      SYS+classifierVALUE-CLASS
     entity:      SYS+classifierVALUE-CLASSIFIER
@@ -86,10 +86,10 @@ classifier:  SYS+classifier-CLASS
     entity:      SYS+requestid-ADD_RELATIONS
     entity:      SYS+requestid-CONTEXT_REPORT
     entity:      SYS+requestid-INSTANTIATE
-    entity:      SYS+requestid-REGISTER_ENTITY
+    entity:      SYS+requestid-REGISTERentity
     entity:      SYS+requestid-ROUTE
     entity:      SYS+requestid-RUN_FEDERATION
-classifier:  SYS+classifier-ENTITY_TYPE
+classifier:  SYS+classifier-ENTITYtype
   value:       SYS+classifierVALUE-CLASS
     entity:      SYS+class-CLASS
     entity:      SYS+class-CLASSIFIER
@@ -101,7 +101,7 @@ classifier:  SYS+classifier-ENTITY_TYPE
     entity:      SYS+class-RELATION
     entity:      SYS+class-REQUESTID
   value:       SYS+classifierVALUE-CLASSIFIER
-    entity:      SYS+classifier-ENTITY_TYPE
+    entity:      SYS+classifier-ENTITYtype
   value:       SYS+classifierVALUE-CLASSIFIER_VALUE
     entity:      SYS+classifierVALUE-CLASS
     entity:      SYS+classifierVALUE-CLASSIFIER
@@ -124,7 +124,7 @@ classifier:  SYS+classifier-ENTITY_TYPE
     entity:      SYS+requestid-ADD_RELATIONS
     entity:      SYS+requestid-CONTEXT_REPORT
     entity:      SYS+requestid-INSTANTIATE
-    entity:      SYS+requestid-REGISTER_ENTITY
+    entity:      SYS+requestid-REGISTERentity
     entity:      SYS+requestid-ROUTE
     entity:      SYS+requestid-RUN_FEDERATION
 classifier:  SYS+classifier-RESOURCES

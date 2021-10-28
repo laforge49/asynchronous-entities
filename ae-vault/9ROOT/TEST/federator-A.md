@@ -26,13 +26,13 @@ DESCRIPTORS:
       relation-BASIC:
       - simple-ALPHA
   SYS+descriptor_map-REQUESTID$str:
-    SYS+requestid-ENTITY_REPORT:
+    SYS+requestid-ENTITYreport:
     - ENTITY_REPORToperationid
     SYS+requestid-RUN_FEDERATION:
     - RUN_FEDERATIONoperationid
 TAGS:
 - SYS+classifier-CLASS/SYS+class-FEDERATOR
-- SYS+classifier-ENTITY_TYPE/SYS+classifierVALUE-FEDERATOR
+- SYS+classifier-ENTITYtype/SYS+classifierVALUE-FEDERATOR
 ---
 # Entity TEST+federator-A
 

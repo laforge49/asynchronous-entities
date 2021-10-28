@@ -2,22 +2,22 @@
 DESCRIPTORS:
   descriptor-INVARIANT$bool: true
   descriptor_map-REQUESTID$str:
-    requestid-ENTITY_REPORT:
+    requestid-ENTITYreport:
     - ENTITY_REPORToperationid
     requestid-INSTANTIATE:
     - INSTANTIATEoperationid
   descriptors_map-INSTANCEclassifiers:
-    classifier-ENTITY_TYPE: classifierVALUE-DATA_TYPE
+    classifier-ENTITYtype: classifierVALUE-DATA_TYPE
   descriptors_map-INSTANCEdescriptors:
     descriptor-INVARIANT$bool: true
     descriptor_map-REQUESTID$str:
-      requestid-ENTITY_REPORT:
+      requestid-ENTITYreport:
       - ENTITY_REPORToperationid
       requestid-TYPE_OF:
       - operationidTYPE_OF
 TAGS:
 - SYS+classifier-CLASS/SYS+class-CLASS
-- SYS+classifier-ENTITY_TYPE/SYS+classifierVALUE-CLASS
+- SYS+classifier-ENTITYtype/SYS+classifierVALUE-CLASS
 ---
 # Entity SYS+class-DATA_TYPE
 
