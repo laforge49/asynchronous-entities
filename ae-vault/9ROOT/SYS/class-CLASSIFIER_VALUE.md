@@ -8,7 +8,7 @@ DESCRIPTORS:
     - INSTANTIATEoperationid
   descriptors_map-INSTANCE_CLASSIFIERS:
     classifier-ENTITY_TYPE: classifierVALUE-CLASSIFIER_VALUE
-  descriptors_map-INSTANCE_DESCRIPTORS:
+  descriptors_map-INSTANCEdescriptors:
     descriptor-INVARIANT$bool: true
     descriptor_map-REQUESTID$str:
       requestid-ENTITY_REPORT:

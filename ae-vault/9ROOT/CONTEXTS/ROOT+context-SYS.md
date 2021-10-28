@@ -38,7 +38,7 @@ SYS+descriptor-INVARIANT$bool
 SYS+descriptor-READ_ONLY$bool
 SYS+descriptor_map-REQUESTID$str
 SYS+descriptors_map-INSTANCE_CLASSIFIERS
-SYS+descriptors_map-INSTANCE_DESCRIPTORS
+SYS+descriptors_map-INSTANCEdescriptors
 SYS+requestid-ADD_DESCRIPTORS
 SYS+requestid-ADD_RELATIONS
 SYS+requestid-CONTEXT_REPORT
@@ -80,7 +80,7 @@ classifier:  SYS+classifier-CLASS
     entity:      SYS+descriptor-READ_ONLY$bool
     entity:      SYS+descriptor_map-REQUESTID$str
     entity:      SYS+descriptors_map-INSTANCE_CLASSIFIERS
-    entity:      SYS+descriptors_map-INSTANCE_DESCRIPTORS
+    entity:      SYS+descriptors_map-INSTANCEdescriptors
   value:       SYS+class-REQUESTID
     entity:      SYS+requestid-ADD_DESCRIPTORS
     entity:      SYS+requestid-ADD_RELATIONS
@@ -118,7 +118,7 @@ classifier:  SYS+classifier-ENTITY_TYPE
     entity:      SYS+descriptor-READ_ONLY$bool
     entity:      SYS+descriptor_map-REQUESTID$str
     entity:      SYS+descriptors_map-INSTANCE_CLASSIFIERS
-    entity:      SYS+descriptors_map-INSTANCE_DESCRIPTORS
+    entity:      SYS+descriptors_map-INSTANCEdescriptors
   value:       SYS+classifierVALUE-REQUESTID
     entity:      SYS+requestid-ADD_DESCRIPTORS
     entity:      SYS+requestid-ADD_RELATIONS

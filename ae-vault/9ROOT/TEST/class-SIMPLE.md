@@ -8,7 +8,7 @@ DESCRIPTORS:
     - INSTANTIATEoperationid
   SYS+descriptors_map-INSTANCE_CLASSIFIERS:
     SYS+classifier-ENTITY_TYPE: classifierVALUE-SIMPLE
-  SYS+descriptors_map-INSTANCE_DESCRIPTORS:
+  SYS+descriptors_map-INSTANCEdescriptors:
     SYS+descriptor_map-REQUESTID$str:
       SYS+requestid-ADD_DESCRIPTORS:
       - ADD_DESCRIPTORSoperationid

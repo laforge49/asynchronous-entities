@@ -2,7 +2,7 @@
   target_name: SYS+class-CLASS
   name: class-SIMPLE
   descriptors:
-    SYS+descriptors_map-INSTANCE_DESCRIPTORS:
+    SYS+descriptors_map-INSTANCEdescriptors:
       SYS+descriptor_map-REQUESTID$str:
         SYS+requestid-ADD_DESCRIPTORS:
           - ADD_DESCRIPTORSoperationid
