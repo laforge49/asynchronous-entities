@@ -1,4 +1,4 @@
-- target_requestid: requestid-REGISTER_ENTITY
+- target_requestid: requestid-REGISTERentity
   target_name: ROOT+context-SYS
   name: class-CLASS
   descriptors:
@@ -43,7 +43,7 @@
     descriptor-READ_ONLY$bool: true
 - target_requestid: requestid-INSTANTIATE
   target_name: class-REQUESTID
-  name: requestid-REGISTER_ENTITY
+  name: requestid-REGISTERentity
 - target_requestid: requestid-INSTANTIATE
   target_name: class-REQUESTID
   name: requestid-ROUTE
@@ -147,7 +147,7 @@
   descriptors:
     descriptors_map-INSTANCEdescriptors:
       descriptor_map-REQUESTID$str:
-        requestid-REGISTER_ENTITY:
+        requestid-REGISTERentity:
           - REGISTER_ENTITYoperationid
         requestid-ROUTE:
           - ROUTEoperationid

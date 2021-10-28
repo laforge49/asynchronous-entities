@@ -9,6 +9,8 @@ The pattern for names is contextRoot+type_structureType-root$dataType, where the
 | old | new |
 |----------------------------------|----------------------------------|
 | descriptor-INSTANTIATION_DESCRIPTORS | descriptors_map-INSTANCEdescriptors |
-| descriptor-INSTANTIATION_CLASSIFIERS | descriptors_map-INSTANCE_CLASSIFIERS |
+| descriptor-INSTANTIATION_CLASSIFIERS | descriptors_map-INSTANCEclassifiers |
 | classifier_value-* | classifierVALUE-* |
 | *$operationid | *$str |
+| requestid-REGISTER_ENTITY | requestid-REGISTERentity |
+| requestid-ENTITY_REPORT | requestid-ENTITYreport |

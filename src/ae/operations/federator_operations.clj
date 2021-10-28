@@ -36,7 +36,7 @@
                     context-request-port
                     (get env "CONTEXT-REQUEST-PORT")
                     _ (a/>! context-request-port [env {"requestid"                  "SYS+requestid-ROUTE"
-                                                       "target_requestid"           "SYS+requestid-REGISTER_ENTITY"
+                                                       "target_requestid"           "SYS+requestid-REGISTERentity"
                                                        "entity-public-request-port" entity-public-request-port
                                                        "target_name"                context-name
                                                        "name"                       (get snap "NAME")
