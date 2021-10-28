@@ -37,7 +37,7 @@ SYS+context-TEST
 SYS+descriptor-INVARIANT$bool
 SYS+descriptor-READ_ONLY$bool
 SYS+descriptor_map-REQUESTID$str
-SYS+descriptors_map-INSTANCE_CLASSIFIERS
+SYS+descriptors_map-INSTANCEclassifiers
 SYS+descriptors_map-INSTANCEdescriptors
 SYS+requestid-ADD_DESCRIPTORS
 SYS+requestid-ADD_RELATIONS
@@ -79,7 +79,7 @@ classifier:  SYS+classifier-CLASS
     entity:      SYS+descriptor-INVARIANT$bool
     entity:      SYS+descriptor-READ_ONLY$bool
     entity:      SYS+descriptor_map-REQUESTID$str
-    entity:      SYS+descriptors_map-INSTANCE_CLASSIFIERS
+    entity:      SYS+descriptors_map-INSTANCEclassifiers
     entity:      SYS+descriptors_map-INSTANCEdescriptors
   value:       SYS+class-REQUESTID
     entity:      SYS+requestid-ADD_DESCRIPTORS
@@ -117,7 +117,7 @@ classifier:  SYS+classifier-ENTITY_TYPE
     entity:      SYS+descriptor-INVARIANT$bool
     entity:      SYS+descriptor-READ_ONLY$bool
     entity:      SYS+descriptor_map-REQUESTID$str
-    entity:      SYS+descriptors_map-INSTANCE_CLASSIFIERS
+    entity:      SYS+descriptors_map-INSTANCEclassifiers
     entity:      SYS+descriptors_map-INSTANCEdescriptors
   value:       SYS+classifierVALUE-REQUESTID
     entity:      SYS+requestid-ADD_DESCRIPTORS

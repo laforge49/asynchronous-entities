@@ -10,7 +10,7 @@
           - ADD_RELATIONSoperationid
         SYS+requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
-    SYS+descriptors_map-INSTANCE_CLASSIFIERS:
+    SYS+descriptors_map-INSTANCEclassifiers:
       SYS+classifier-ENTITY_TYPE: classifierVALUE-SIMPLE
 - target_requestid: SYS+requestid-INSTANTIATE
   target_name: SYS+class-CLASSIFIER_VALUE

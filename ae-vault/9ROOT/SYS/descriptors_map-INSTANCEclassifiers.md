@@ -8,5 +8,5 @@ TAGS:
 - SYS+classifier-CLASS/SYS+class-DESCRIPTOR
 - SYS+classifier-ENTITY_TYPE/SYS+classifierVALUE-DESCRIPTOR
 ---
-# Entity SYS+descriptors_map-INSTANCE_DESCRIPTORS
+# Entity SYS+descriptors_map-INSTANCEclassifiers
 

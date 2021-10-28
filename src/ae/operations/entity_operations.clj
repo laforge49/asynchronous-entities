@@ -19,7 +19,7 @@
         instantiation-descriptors
         (into instantiation-descriptors (get params "descriptors"))
         instantiation-classifiers
-        (get this-descriptors "SYS+descriptors_map-INSTANCE_CLASSIFIERS")
+        (get this-descriptors "SYS+descriptors_map-INSTANCEclassifiers")
         instantiation-classifiers
         (assoc instantiation-classifiers "SYS+classifier-CLASS" this-name)
         instantiation-classifiers
@@ -55,7 +55,7 @@
         instantiation-descriptors
         (into instantiation-descriptors (get params "descriptors"))
         instantiation-classifiers
-        (get this-descriptors "SYS+descriptors_map-INSTANCE_CLASSIFIERS")
+        (get this-descriptors "SYS+descriptors_map-INSTANCEclassifiers")
         instantiation-classifiers
         (assoc instantiation-classifiers "SYS+classifier-CLASS" this-name)
         instantiation-classifiers

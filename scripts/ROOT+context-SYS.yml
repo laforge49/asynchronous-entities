@@ -15,7 +15,7 @@
           - INSTANTIATEoperationid
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
-    descriptors_map-INSTANCE_CLASSIFIERS:
+    descriptors_map-INSTANCEclassifiers:
       classifier-ENTITY_TYPE: classifierVALUE-CLASS
   classifiers:
     classifier-ENTITY_TYPE: classifierVALUE-CLASS
@@ -28,7 +28,7 @@
       descriptor_map-REQUESTID$str:
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
-    descriptors_map-INSTANCE_CLASSIFIERS:
+    descriptors_map-INSTANCEclassifiers:
       classifier-ENTITY_TYPE: classifierVALUE-REQUESTID
 - target_requestid: requestid-INSTANTIATE
   target_name: class-REQUESTID
@@ -64,7 +64,7 @@
       descriptor_map-REQUESTID$str:
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
-    descriptors_map-INSTANCE_CLASSIFIERS:
+    descriptors_map-INSTANCEclassifiers:
       classifier-ENTITY_TYPE: classifierVALUE-DESCRIPTOR
 - target_requestid: requestid-INSTANTIATE
   target_name: class-DESCRIPTOR
@@ -80,7 +80,7 @@
   name: descriptors_map-INSTANCEdescriptors
 - target_requestid: requestid-INSTANTIATE
   target_name: class-DESCRIPTOR
-  name: descriptors_map-INSTANCE_CLASSIFIERS
+  name: descriptors_map-INSTANCEclassifiers
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
   name: class-CLASSIFIER
@@ -90,7 +90,7 @@
       descriptor_map-REQUESTID$str:
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
-    descriptors_map-INSTANCE_CLASSIFIERS:
+    descriptors_map-INSTANCEclassifiers:
       classifier-ENTITY_TYPE: classifierVALUE-CLASSIFIER
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
@@ -101,7 +101,7 @@
       descriptor_map-REQUESTID$str:
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
-    descriptors_map-INSTANCE_CLASSIFIERS:
+    descriptors_map-INSTANCEclassifiers:
       classifier-ENTITY_TYPE: classifierVALUE-CLASSIFIER
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASSIFIER
@@ -115,7 +115,7 @@
       descriptor_map-REQUESTID$str:
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
-    descriptors_map-INSTANCE_CLASSIFIERS:
+    descriptors_map-INSTANCEclassifiers:
       classifier-ENTITY_TYPE: classifierVALUE-CLASSIFIER_VALUE
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASSIFIER_VALUE
@@ -155,7 +155,7 @@
           - CONTEXT_REPORToperationid
         requestid-LOAD_SCRIPT:
           - LOAD_SCRIPToperationid
-    descriptors_map-INSTANCE_CLASSIFIERS:
+    descriptors_map-INSTANCEclassifiers:
       classifier-ENTITY_TYPE: classifierVALUE-CONTEXT
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
@@ -167,7 +167,7 @@
           - RUN_FEDERATIONoperationid
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
-    descriptors_map-INSTANCE_CLASSIFIERS:
+    descriptors_map-INSTANCEclassifiers:
       classifier-ENTITY_TYPE: classifierVALUE-FEDERATOR
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
@@ -180,7 +180,7 @@
           - ENTITY_REPORToperationid
         requestid-TYPE_OF:
           - operationidTYPE_OF
-    descriptors_map-INSTANCE_CLASSIFIERS:
+    descriptors_map-INSTANCEclassifiers:
       classifier-ENTITY_TYPE: classifierVALUE-DATA_TYPE
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CONTEXT

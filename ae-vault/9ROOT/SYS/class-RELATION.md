@@ -6,7 +6,7 @@ DESCRIPTORS:
     - ENTITY_REPORToperationid
     requestid-INSTANTIATE:
     - INSTANTIATEoperationid
-  descriptors_map-INSTANCE_CLASSIFIERS:
+  descriptors_map-INSTANCEclassifiers:
     classifier-ENTITY_TYPE: classifierVALUE-CLASSIFIER
   descriptors_map-INSTANCEdescriptors:
     descriptor-INVARIANT$bool: true

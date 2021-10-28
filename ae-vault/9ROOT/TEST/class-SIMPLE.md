@@ -6,7 +6,7 @@ DESCRIPTORS:
     - ENTITY_REPORToperationid
     SYS+requestid-INSTANTIATE:
     - INSTANTIATEoperationid
-  SYS+descriptors_map-INSTANCE_CLASSIFIERS:
+  SYS+descriptors_map-INSTANCEclassifiers:
     SYS+classifier-ENTITY_TYPE: classifierVALUE-SIMPLE
   SYS+descriptors_map-INSTANCEdescriptors:
     SYS+descriptor_map-REQUESTID$str:
