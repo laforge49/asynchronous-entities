@@ -1,13 +1,13 @@
 ---
 DESCRIPTORS:
-  descriptor-INSTANTIATION_CLASSIFIERS:
-    classifier-ENTITY_TYPE: classifier_value-CONTEXT
   descriptor-INVARIANT$bool: true
   descriptor_map-REQUESTID$operationid:
     requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
     requestid-INSTANTIATE:
     - INSTANTIATEoperationid
+  descriptors_map-INSTANCE_CLASSIFIERS:
+    classifier-ENTITY_TYPE: classifier_value-CONTEXT
   descriptors_map-INSTANCE_DESCRIPTORS:
     descriptor_map-REQUESTID$operationid:
       requestid-ENTITY_REPORT:

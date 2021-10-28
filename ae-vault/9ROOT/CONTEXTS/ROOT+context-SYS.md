@@ -34,10 +34,10 @@ SYS+classifier_value-FEDERATION_CONTEXT
 SYS+classifier_value-FEDERATOR
 SYS+classifier_value-REQUESTID
 SYS+context-TEST
-SYS+descriptor-INSTANTIATION_CLASSIFIERS
 SYS+descriptor-INVARIANT$bool
 SYS+descriptor-READ_ONLY$bool
 SYS+descriptor_map-REQUESTID$operationid
+SYS+descriptors_map-INSTANCE_CLASSIFIERS
 SYS+descriptors_map-INSTANCE_DESCRIPTORS
 SYS+requestid-ADD_DESCRIPTORS
 SYS+requestid-ADD_RELATIONS
@@ -76,10 +76,10 @@ classifier:  SYS+classifier-CLASS
   value:       SYS+class-CONTEXT
     entity:      SYS+context-TEST
   value:       SYS+class-DESCRIPTOR
-    entity:      SYS+descriptor-INSTANTIATION_CLASSIFIERS
     entity:      SYS+descriptor-INVARIANT$bool
     entity:      SYS+descriptor-READ_ONLY$bool
     entity:      SYS+descriptor_map-REQUESTID$operationid
+    entity:      SYS+descriptors_map-INSTANCE_CLASSIFIERS
     entity:      SYS+descriptors_map-INSTANCE_DESCRIPTORS
   value:       SYS+class-REQUESTID
     entity:      SYS+requestid-ADD_DESCRIPTORS
@@ -114,10 +114,10 @@ classifier:  SYS+classifier-ENTITY_TYPE
   value:       SYS+classifier_value-CONTEXT
     entity:      SYS+context-TEST
   value:       SYS+classifier_value-DESCRIPTOR
-    entity:      SYS+descriptor-INSTANTIATION_CLASSIFIERS
     entity:      SYS+descriptor-INVARIANT$bool
     entity:      SYS+descriptor-READ_ONLY$bool
     entity:      SYS+descriptor_map-REQUESTID$operationid
+    entity:      SYS+descriptors_map-INSTANCE_CLASSIFIERS
     entity:      SYS+descriptors_map-INSTANCE_DESCRIPTORS
   value:       SYS+classifier_value-REQUESTID
     entity:      SYS+requestid-ADD_DESCRIPTORS

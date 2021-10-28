@@ -9,3 +9,4 @@ The pattern for names is contextRoot+type_structureType-root$dataType, where the
 | old | new |
 |----------------------------------|----------------------------------|
 | descriptor-INSTANTIATION_DESCRIPTORS | descriptors_map-INSTANCE_DESCRIPTORS |
+| descriptor-INSTANTIATION_CLASSIFIERS | descriptors_map-INSTANCE_CLASSIFIERS |
