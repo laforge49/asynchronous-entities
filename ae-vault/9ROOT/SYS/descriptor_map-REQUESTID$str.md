@@ -5,8 +5,8 @@ DESCRIPTORS:
     requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
 TAGS:
-- SYS+classifier-CLASS/SYS+class-REQUESTID
-- SYS+classifier-ENTITY_TYPE/SYS+classifierVALUE-REQUESTID
+- SYS+classifier-CLASS/SYS+class-DESCRIPTOR
+- SYS+classifier-ENTITY_TYPE/SYS+classifierVALUE-DESCRIPTOR
 ---
-# Entity SYS+requestid-ADD_RELATIONS
+# Entity SYS+descriptor_map-REQUESTID$str
 

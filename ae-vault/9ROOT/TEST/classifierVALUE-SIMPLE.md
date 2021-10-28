@@ -1,7 +1,7 @@
 ---
 DESCRIPTORS:
   SYS+descriptor-INVARIANT$bool: true
-  SYS+descriptor_map-REQUESTID$operationid:
+  SYS+descriptor_map-REQUESTID$str:
     SYS+requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
 TAGS:

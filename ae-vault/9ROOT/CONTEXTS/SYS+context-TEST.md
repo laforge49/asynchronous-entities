@@ -1,6 +1,6 @@
 ---
 DESCRIPTORS:
-  descriptor_map-REQUESTID$operationid:
+  descriptor_map-REQUESTID$str:
     requestid-ENTITY_REPORT:
     - CONTEXT_REPORToperationid
     requestid-LOAD_SCRIPT:

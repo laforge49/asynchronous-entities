@@ -2,7 +2,7 @@
 DESCRIPTORS:
   descriptor-INVARIANT$bool: true
   descriptor-READ_ONLY$bool: true
-  descriptor_map-REQUESTID$operationid:
+  descriptor_map-REQUESTID$str:
     requestid-ENTITY_REPORT:
     - ENTITY_REPORToperationid
 TAGS:

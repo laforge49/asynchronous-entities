@@ -1,6 +1,6 @@
 ---
 DESCRIPTORS:
-  SYS+descriptor_map-REQUESTID$operationid:
+  SYS+descriptor_map-REQUESTID$str:
     SYS+requestid-ENTITY_REPORT:
     - CONTEXT_REPORToperationid
     SYS+requestid-LOAD_SCRIPT:
@@ -36,7 +36,7 @@ SYS+classifierVALUE-REQUESTID
 SYS+context-TEST
 SYS+descriptor-INVARIANT$bool
 SYS+descriptor-READ_ONLY$bool
-SYS+descriptor_map-REQUESTID$operationid
+SYS+descriptor_map-REQUESTID$str
 SYS+descriptors_map-INSTANCE_CLASSIFIERS
 SYS+descriptors_map-INSTANCE_DESCRIPTORS
 SYS+requestid-ADD_DESCRIPTORS
@@ -78,7 +78,7 @@ classifier:  SYS+classifier-CLASS
   value:       SYS+class-DESCRIPTOR
     entity:      SYS+descriptor-INVARIANT$bool
     entity:      SYS+descriptor-READ_ONLY$bool
-    entity:      SYS+descriptor_map-REQUESTID$operationid
+    entity:      SYS+descriptor_map-REQUESTID$str
     entity:      SYS+descriptors_map-INSTANCE_CLASSIFIERS
     entity:      SYS+descriptors_map-INSTANCE_DESCRIPTORS
   value:       SYS+class-REQUESTID
@@ -116,7 +116,7 @@ classifier:  SYS+classifier-ENTITY_TYPE
   value:       SYS+classifierVALUE-DESCRIPTOR
     entity:      SYS+descriptor-INVARIANT$bool
     entity:      SYS+descriptor-READ_ONLY$bool
-    entity:      SYS+descriptor_map-REQUESTID$operationid
+    entity:      SYS+descriptor_map-REQUESTID$str
     entity:      SYS+descriptors_map-INSTANCE_CLASSIFIERS
     entity:      SYS+descriptors_map-INSTANCE_DESCRIPTORS
   value:       SYS+classifierVALUE-REQUESTID

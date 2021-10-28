@@ -3,14 +3,14 @@
   name: class-CLASS
   descriptors:
     descriptor-INVARIANT$bool: true
-    descriptor_map-REQUESTID$operationid:
+    descriptor_map-REQUESTID$str:
       requestid-INSTANTIATE:
         - INSTANTIATEoperationid
       requestid-ENTITY_REPORT:
         - ENTITY_REPORToperationid
     descriptors_map-INSTANCE_DESCRIPTORS:
       descriptor-INVARIANT$bool: true
-      descriptor_map-REQUESTID$operationid:
+      descriptor_map-REQUESTID$str:
         requestid-INSTANTIATE:
           - INSTANTIATEoperationid
         requestid-ENTITY_REPORT:
@@ -25,7 +25,7 @@
   descriptors:
     descriptors_map-INSTANCE_DESCRIPTORS:
       descriptor-INVARIANT$bool: true
-      descriptor_map-REQUESTID$operationid:
+      descriptor_map-REQUESTID$str:
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCE_CLASSIFIERS:
@@ -61,7 +61,7 @@
   descriptors:
     descriptors_map-INSTANCE_DESCRIPTORS:
       descriptor-INVARIANT$bool: true
-      descriptor_map-REQUESTID$operationid:
+      descriptor_map-REQUESTID$str:
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCE_CLASSIFIERS:
@@ -71,7 +71,7 @@
   name: descriptor-READ_ONLY$bool
 - target_requestid: requestid-INSTANTIATE
   target_name: class-DESCRIPTOR
-  name: descriptor_map-REQUESTID$operationid
+  name: descriptor_map-REQUESTID$str
 - target_requestid: requestid-INSTANTIATE
   target_name: class-DESCRIPTOR
   name: descriptor-INVARIANT$bool
@@ -87,7 +87,7 @@
   descriptors:
     descriptors_map-INSTANCE_DESCRIPTORS:
       descriptor-INVARIANT$bool: true
-      descriptor_map-REQUESTID$operationid:
+      descriptor_map-REQUESTID$str:
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCE_CLASSIFIERS:
@@ -98,7 +98,7 @@
   descriptors:
     descriptors_map-INSTANCE_DESCRIPTORS:
       descriptor-INVARIANT$bool: true
-      descriptor_map-REQUESTID$operationid:
+      descriptor_map-REQUESTID$str:
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCE_CLASSIFIERS:
@@ -112,7 +112,7 @@
   descriptors:
     descriptors_map-INSTANCE_DESCRIPTORS:
       descriptor-INVARIANT$bool: true
-      descriptor_map-REQUESTID$operationid:
+      descriptor_map-REQUESTID$str:
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCE_CLASSIFIERS:
@@ -146,7 +146,7 @@
   name: class-CONTEXT
   descriptors:
     descriptors_map-INSTANCE_DESCRIPTORS:
-      descriptor_map-REQUESTID$operationid:
+      descriptor_map-REQUESTID$str:
         requestid-REGISTER_ENTITY:
           - REGISTER_ENTITYoperationid
         requestid-ROUTE:
@@ -162,7 +162,7 @@
   name: class-FEDERATOR
   descriptors:
     descriptors_map-INSTANCE_DESCRIPTORS:
-      descriptor_map-REQUESTID$operationid:
+      descriptor_map-REQUESTID$str:
         requestid-RUN_FEDERATION:
           - RUN_FEDERATIONoperationid
         requestid-ENTITY_REPORT:
@@ -175,7 +175,7 @@
   descriptors:
     descriptors_map-INSTANCE_DESCRIPTORS:
       descriptor-INVARIANT$bool: true
-      descriptor_map-REQUESTID$operationid:
+      descriptor_map-REQUESTID$str:
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
         requestid-TYPE_OF:

@@ -1,6 +1,6 @@
 ---
 DESCRIPTORS:
-  SYS+descriptor_map-REQUESTID$operationid:
+  SYS+descriptor_map-REQUESTID$str:
     SYS+requestid-ADD_DESCRIPTORS:
     - ADD_DESCRIPTORSoperationid
     SYS+requestid-ADD_RELATIONS:
