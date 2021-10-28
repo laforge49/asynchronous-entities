@@ -26,7 +26,7 @@
                            {"name"        "ROOT+context-SYS"
                             "descriptors" {"SYS+descriptor_map-REQUESTID$str" {"SYS+requestid-REGISTERentity"     ["REGISTER_ENTITYoperationid"]
                                                                                       "SYS+requestid-ROUTE"               ["ROUTEoperationid"]
-                                                                                      "SYS+requestid-ENTITY_REPORT"       ["CONTEXT_REPORToperationid"]
+                                                                                      "SYS+requestid-ENTITYreport"       ["CONTEXT_REPORToperationid"]
                                                                                       "SYS+requestid-LOAD_SCRIPT"         ["LOAD_SCRIPToperationid"]}}})
           env
           (assoc env "CONTEXT-REQUEST-PORT" context-request-port)

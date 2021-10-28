@@ -6,14 +6,14 @@
     descriptor_map-REQUESTID$str:
       requestid-INSTANTIATE:
         - INSTANTIATEoperationid
-      requestid-ENTITY_REPORT:
+      requestid-ENTITYreport:
         - ENTITY_REPORToperationid
     descriptors_map-INSTANCEdescriptors:
       descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTID$str:
         requestid-INSTANTIATE:
           - INSTANTIATEoperationid
-        requestid-ENTITY_REPORT:
+        requestid-ENTITYreport:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCEclassifiers:
       classifier-ENTITY_TYPE: classifierVALUE-CLASS
@@ -26,7 +26,7 @@
     descriptors_map-INSTANCEdescriptors:
       descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTID$str:
-        requestid-ENTITY_REPORT:
+        requestid-ENTITYreport:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCEclassifiers:
       classifier-ENTITY_TYPE: classifierVALUE-REQUESTID
@@ -62,7 +62,7 @@
     descriptors_map-INSTANCEdescriptors:
       descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTID$str:
-        requestid-ENTITY_REPORT:
+        requestid-ENTITYreport:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCEclassifiers:
       classifier-ENTITY_TYPE: classifierVALUE-DESCRIPTOR
@@ -88,7 +88,7 @@
     descriptors_map-INSTANCEdescriptors:
       descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTID$str:
-        requestid-ENTITY_REPORT:
+        requestid-ENTITYreport:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCEclassifiers:
       classifier-ENTITY_TYPE: classifierVALUE-CLASSIFIER
@@ -99,7 +99,7 @@
     descriptors_map-INSTANCEdescriptors:
       descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTID$str:
-        requestid-ENTITY_REPORT:
+        requestid-ENTITYreport:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCEclassifiers:
       classifier-ENTITY_TYPE: classifierVALUE-CLASSIFIER
@@ -113,7 +113,7 @@
     descriptors_map-INSTANCEdescriptors:
       descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTID$str:
-        requestid-ENTITY_REPORT:
+        requestid-ENTITYreport:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCEclassifiers:
       classifier-ENTITY_TYPE: classifierVALUE-CLASSIFIER_VALUE
@@ -151,7 +151,7 @@
           - REGISTER_ENTITYoperationid
         requestid-ROUTE:
           - ROUTEoperationid
-        requestid-ENTITY_REPORT:
+        requestid-ENTITYreport:
           - CONTEXT_REPORToperationid
         requestid-LOAD_SCRIPT:
           - LOAD_SCRIPToperationid
@@ -165,7 +165,7 @@
       descriptor_map-REQUESTID$str:
         requestid-RUN_FEDERATION:
           - RUN_FEDERATIONoperationid
-        requestid-ENTITY_REPORT:
+        requestid-ENTITYreport:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCEclassifiers:
       classifier-ENTITY_TYPE: classifierVALUE-FEDERATOR
@@ -176,7 +176,7 @@
     descriptors_map-INSTANCEdescriptors:
       descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTID$str:
-        requestid-ENTITY_REPORT:
+        requestid-ENTITYreport:
           - ENTITY_REPORToperationid
         requestid-TYPE_OF:
           - operationidTYPE_OF
@@ -194,5 +194,5 @@
       - ROOT+context-SYS
 - target_requestid: requestid-LOAD_SCRIPT
   target_name: context-TEST
-- target_requestid: requestid-ENTITY_REPORT
+- target_requestid: requestid-ENTITYreport
   target_name: ROOT+context-SYS

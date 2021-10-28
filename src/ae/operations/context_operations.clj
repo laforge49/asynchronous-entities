@@ -154,7 +154,7 @@
           (doseq [[entity-kw entity-port] entity-ports]
             (let [subrequest-return-port
                   (a/chan)]
-              (a/>! entity-port [env {"requestid"   "SYS+requestid-ENTITY_REPORT"
+              (a/>! entity-port [env {"requestid"   "SYS+requestid-ENTITYreport"
                                       "return_port" subrequest-return-port}])
               (k/request-exception-check (a/<! subrequest-return-port))
               )

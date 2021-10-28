@@ -8,7 +8,7 @@
           - ADD_DESCRIPTORSoperationid
         SYS+requestid-ADD_RELATIONS:
           - ADD_RELATIONSoperationid
-        SYS+requestid-ENTITY_REPORT:
+        SYS+requestid-ENTITYreport:
           - ENTITY_REPORToperationid
     SYS+descriptors_map-INSTANCEclassifiers:
       SYS+classifier-ENTITY_TYPE: classifierVALUE-SIMPLE
