@@ -11,10 +11,10 @@
         SYS+requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     SYS+descriptors_map-INSTANCE_CLASSIFIERS:
-      SYS+classifier-ENTITY_TYPE: classifier_value-SIMPLE
+      SYS+classifier-ENTITY_TYPE: classifierVALUE-SIMPLE
 - target_requestid: SYS+requestid-INSTANTIATE
   target_name: SYS+class-CLASSIFIER_VALUE
-  name: classifier_value-SIMPLE
+  name: classifierVALUE-SIMPLE
 - target_requestid: SYS+requestid-INSTANTIATE
   target_name: class-SIMPLE
   name: simple-ALPHA

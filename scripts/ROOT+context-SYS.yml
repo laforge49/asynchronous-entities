@@ -16,9 +16,9 @@
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCE_CLASSIFIERS:
-      classifier-ENTITY_TYPE: classifier_value-CLASS
+      classifier-ENTITY_TYPE: classifierVALUE-CLASS
   classifiers:
-    classifier-ENTITY_TYPE: classifier_value-CLASS
+    classifier-ENTITY_TYPE: classifierVALUE-CLASS
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
   name: class-REQUESTID
@@ -29,7 +29,7 @@
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCE_CLASSIFIERS:
-      classifier-ENTITY_TYPE: classifier_value-REQUESTID
+      classifier-ENTITY_TYPE: classifierVALUE-REQUESTID
 - target_requestid: requestid-INSTANTIATE
   target_name: class-REQUESTID
   name: requestid-ADD_RELATIONS
@@ -65,7 +65,7 @@
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCE_CLASSIFIERS:
-      classifier-ENTITY_TYPE: classifier_value-DESCRIPTOR
+      classifier-ENTITY_TYPE: classifierVALUE-DESCRIPTOR
 - target_requestid: requestid-INSTANTIATE
   target_name: class-DESCRIPTOR
   name: descriptor-READ_ONLY$bool
@@ -91,7 +91,7 @@
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCE_CLASSIFIERS:
-      classifier-ENTITY_TYPE: classifier_value-CLASSIFIER
+      classifier-ENTITY_TYPE: classifierVALUE-CLASSIFIER
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
   name: class-RELATION
@@ -102,7 +102,7 @@
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCE_CLASSIFIERS:
-      classifier-ENTITY_TYPE: classifier_value-CLASSIFIER
+      classifier-ENTITY_TYPE: classifierVALUE-CLASSIFIER
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASSIFIER
   name: classifier-ENTITY_TYPE
@@ -116,31 +116,31 @@
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCE_CLASSIFIERS:
-      classifier-ENTITY_TYPE: classifier_value-CLASSIFIER_VALUE
+      classifier-ENTITY_TYPE: classifierVALUE-CLASSIFIER_VALUE
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASSIFIER_VALUE
-  name: classifier_value-REQUESTID
+  name: classifierVALUE-REQUESTID
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASSIFIER_VALUE
-  name: classifier_value-CLASSIFIER
+  name: classifierVALUE-CLASSIFIER
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASSIFIER_VALUE
-  name: classifier_value-DESCRIPTOR
+  name: classifierVALUE-DESCRIPTOR
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASSIFIER_VALUE
-  name: classifier_value-CLASSIFIER_VALUE
+  name: classifierVALUE-CLASSIFIER_VALUE
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASSIFIER_VALUE
-  name: classifier_value-CONTEXT
+  name: classifierVALUE-CONTEXT
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASSIFIER_VALUE
-  name: classifier_value-FEDERATOR
+  name: classifierVALUE-FEDERATOR
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASSIFIER_VALUE
-  name: classifier_value-FEDERATION_CONTEXT
+  name: classifierVALUE-FEDERATION_CONTEXT
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASSIFIER_VALUE
-  name: classifier_value-CLASS
+  name: classifierVALUE-CLASS
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
   name: class-CONTEXT
@@ -156,7 +156,7 @@
         requestid-LOAD_SCRIPT:
           - LOAD_SCRIPToperationid
     descriptors_map-INSTANCE_CLASSIFIERS:
-      classifier-ENTITY_TYPE: classifier_value-CONTEXT
+      classifier-ENTITY_TYPE: classifierVALUE-CONTEXT
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
   name: class-FEDERATOR
@@ -168,7 +168,7 @@
         requestid-ENTITY_REPORT:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCE_CLASSIFIERS:
-      classifier-ENTITY_TYPE: classifier_value-FEDERATOR
+      classifier-ENTITY_TYPE: classifierVALUE-FEDERATOR
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
   name: class-DATA_TYPE
@@ -181,7 +181,7 @@
         requestid-TYPE_OF:
           - operationidTYPE_OF
     descriptors_map-INSTANCE_CLASSIFIERS:
-      classifier-ENTITY_TYPE: classifier_value-DATA_TYPE
+      classifier-ENTITY_TYPE: classifierVALUE-DATA_TYPE
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CONTEXT
   name: context-TEST

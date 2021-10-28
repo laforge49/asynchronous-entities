@@ -7,7 +7,7 @@ DESCRIPTORS:
     - ENTITY_REPORToperationid
 TAGS:
 - SYS+classifier-CLASS/SYS+class-REQUESTID
-- SYS+classifier-ENTITY_TYPE/SYS+classifier_value-REQUESTID
+- SYS+classifier-ENTITY_TYPE/SYS+classifierVALUE-REQUESTID
 ---
 # Entity SYS+requestid-INSTANTIATE
 

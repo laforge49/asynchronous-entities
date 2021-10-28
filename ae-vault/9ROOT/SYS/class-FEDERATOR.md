@@ -7,7 +7,7 @@ DESCRIPTORS:
     requestid-INSTANTIATE:
     - INSTANTIATEoperationid
   descriptors_map-INSTANCE_CLASSIFIERS:
-    classifier-ENTITY_TYPE: classifier_value-FEDERATOR
+    classifier-ENTITY_TYPE: classifierVALUE-FEDERATOR
   descriptors_map-INSTANCE_DESCRIPTORS:
     descriptor_map-REQUESTID$operationid:
       requestid-ENTITY_REPORT:
@@ -16,7 +16,7 @@ DESCRIPTORS:
       - RUN_FEDERATIONoperationid
 TAGS:
 - SYS+classifier-CLASS/SYS+class-CLASS
-- SYS+classifier-ENTITY_TYPE/SYS+classifier_value-CLASS
+- SYS+classifier-ENTITY_TYPE/SYS+classifierVALUE-CLASS
 ---
 # Entity SYS+class-FEDERATOR
 

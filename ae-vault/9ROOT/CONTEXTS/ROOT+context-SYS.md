@@ -25,14 +25,14 @@ SYS+class-FEDERATOR
 SYS+class-RELATION
 SYS+class-REQUESTID
 SYS+classifier-ENTITY_TYPE
-SYS+classifier_value-CLASS
-SYS+classifier_value-CLASSIFIER
-SYS+classifier_value-CLASSIFIER_VALUE
-SYS+classifier_value-CONTEXT
-SYS+classifier_value-DESCRIPTOR
-SYS+classifier_value-FEDERATION_CONTEXT
-SYS+classifier_value-FEDERATOR
-SYS+classifier_value-REQUESTID
+SYS+classifierVALUE-CLASS
+SYS+classifierVALUE-CLASSIFIER
+SYS+classifierVALUE-CLASSIFIER_VALUE
+SYS+classifierVALUE-CONTEXT
+SYS+classifierVALUE-DESCRIPTOR
+SYS+classifierVALUE-FEDERATION_CONTEXT
+SYS+classifierVALUE-FEDERATOR
+SYS+classifierVALUE-REQUESTID
 SYS+context-TEST
 SYS+descriptor-INVARIANT$bool
 SYS+descriptor-READ_ONLY$bool
@@ -65,14 +65,14 @@ classifier:  SYS+classifier-CLASS
   value:       SYS+class-CLASSIFIER
     entity:      SYS+classifier-ENTITY_TYPE
   value:       SYS+class-CLASSIFIER_VALUE
-    entity:      SYS+classifier_value-CLASS
-    entity:      SYS+classifier_value-CLASSIFIER
-    entity:      SYS+classifier_value-CLASSIFIER_VALUE
-    entity:      SYS+classifier_value-CONTEXT
-    entity:      SYS+classifier_value-DESCRIPTOR
-    entity:      SYS+classifier_value-FEDERATION_CONTEXT
-    entity:      SYS+classifier_value-FEDERATOR
-    entity:      SYS+classifier_value-REQUESTID
+    entity:      SYS+classifierVALUE-CLASS
+    entity:      SYS+classifierVALUE-CLASSIFIER
+    entity:      SYS+classifierVALUE-CLASSIFIER_VALUE
+    entity:      SYS+classifierVALUE-CONTEXT
+    entity:      SYS+classifierVALUE-DESCRIPTOR
+    entity:      SYS+classifierVALUE-FEDERATION_CONTEXT
+    entity:      SYS+classifierVALUE-FEDERATOR
+    entity:      SYS+classifierVALUE-REQUESTID
   value:       SYS+class-CONTEXT
     entity:      SYS+context-TEST
   value:       SYS+class-DESCRIPTOR
@@ -90,7 +90,7 @@ classifier:  SYS+classifier-CLASS
     entity:      SYS+requestid-ROUTE
     entity:      SYS+requestid-RUN_FEDERATION
 classifier:  SYS+classifier-ENTITY_TYPE
-  value:       SYS+classifier_value-CLASS
+  value:       SYS+classifierVALUE-CLASS
     entity:      SYS+class-CLASS
     entity:      SYS+class-CLASSIFIER
     entity:      SYS+class-CLASSIFIER_VALUE
@@ -100,26 +100,26 @@ classifier:  SYS+classifier-ENTITY_TYPE
     entity:      SYS+class-FEDERATOR
     entity:      SYS+class-RELATION
     entity:      SYS+class-REQUESTID
-  value:       SYS+classifier_value-CLASSIFIER
+  value:       SYS+classifierVALUE-CLASSIFIER
     entity:      SYS+classifier-ENTITY_TYPE
-  value:       SYS+classifier_value-CLASSIFIER_VALUE
-    entity:      SYS+classifier_value-CLASS
-    entity:      SYS+classifier_value-CLASSIFIER
-    entity:      SYS+classifier_value-CLASSIFIER_VALUE
-    entity:      SYS+classifier_value-CONTEXT
-    entity:      SYS+classifier_value-DESCRIPTOR
-    entity:      SYS+classifier_value-FEDERATION_CONTEXT
-    entity:      SYS+classifier_value-FEDERATOR
-    entity:      SYS+classifier_value-REQUESTID
-  value:       SYS+classifier_value-CONTEXT
+  value:       SYS+classifierVALUE-CLASSIFIER_VALUE
+    entity:      SYS+classifierVALUE-CLASS
+    entity:      SYS+classifierVALUE-CLASSIFIER
+    entity:      SYS+classifierVALUE-CLASSIFIER_VALUE
+    entity:      SYS+classifierVALUE-CONTEXT
+    entity:      SYS+classifierVALUE-DESCRIPTOR
+    entity:      SYS+classifierVALUE-FEDERATION_CONTEXT
+    entity:      SYS+classifierVALUE-FEDERATOR
+    entity:      SYS+classifierVALUE-REQUESTID
+  value:       SYS+classifierVALUE-CONTEXT
     entity:      SYS+context-TEST
-  value:       SYS+classifier_value-DESCRIPTOR
+  value:       SYS+classifierVALUE-DESCRIPTOR
     entity:      SYS+descriptor-INVARIANT$bool
     entity:      SYS+descriptor-READ_ONLY$bool
     entity:      SYS+descriptor_map-REQUESTID$operationid
     entity:      SYS+descriptors_map-INSTANCE_CLASSIFIERS
     entity:      SYS+descriptors_map-INSTANCE_DESCRIPTORS
-  value:       SYS+classifier_value-REQUESTID
+  value:       SYS+classifierVALUE-REQUESTID
     entity:      SYS+requestid-ADD_DESCRIPTORS
     entity:      SYS+requestid-ADD_RELATIONS
     entity:      SYS+requestid-CONTEXT_REPORT

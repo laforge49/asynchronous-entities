@@ -11,7 +11,7 @@ DESCRIPTORS:
     - ROUTEoperationid
 TAGS:
 - SYS+classifier-CLASS/SYS+class-CONTEXT
-- SYS+classifier-ENTITY_TYPE/SYS+classifier_value-CONTEXT
+- SYS+classifier-ENTITY_TYPE/SYS+classifierVALUE-CONTEXT
 - SYS+classifier-RESOURCES/ROOT+context-SYS
 ---
 # Entity SYS+context-TEST
@@ -24,7 +24,7 @@ different line
 (Default context is context-TEST.)
 
 TEST+class-SIMPLE
-TEST+classifier_value-SIMPLE
+TEST+classifierVALUE-SIMPLE
 TEST+descriptor-DEGREE_OF_POLISH$str
 TEST+federator-A
 TEST+relation-BASIC
@@ -41,7 +41,7 @@ classifier:  SYS+classifier-CLASS
   value:       SYS+class-CLASS
     entity:      TEST+class-SIMPLE
   value:       SYS+class-CLASSIFIER_VALUE
-    entity:      TEST+classifier_value-SIMPLE
+    entity:      TEST+classifierVALUE-SIMPLE
   value:       SYS+class-DESCRIPTOR
     entity:      TEST+descriptor-DEGREE_OF_POLISH$str
   value:       SYS+class-FEDERATOR
@@ -53,17 +53,17 @@ classifier:  SYS+classifier-CLASS
     entity:      TEST+simple-BETA
     entity:      TEST+simple-GAMMA
 classifier:  SYS+classifier-ENTITY_TYPE
-  value:       SYS+classifier_value-CLASS
+  value:       SYS+classifierVALUE-CLASS
     entity:      TEST+class-SIMPLE
-  value:       SYS+classifier_value-CLASSIFIER
+  value:       SYS+classifierVALUE-CLASSIFIER
     entity:      TEST+relation-BASIC
-  value:       SYS+classifier_value-CLASSIFIER_VALUE
-    entity:      TEST+classifier_value-SIMPLE
-  value:       SYS+classifier_value-DESCRIPTOR
+  value:       SYS+classifierVALUE-CLASSIFIER_VALUE
+    entity:      TEST+classifierVALUE-SIMPLE
+  value:       SYS+classifierVALUE-DESCRIPTOR
     entity:      TEST+descriptor-DEGREE_OF_POLISH$str
-  value:       SYS+classifier_value-FEDERATOR
+  value:       SYS+classifierVALUE-FEDERATOR
     entity:      TEST+federator-A
-  value:       TEST+classifier_value-SIMPLE
+  value:       TEST+classifierVALUE-SIMPLE
     entity:      TEST+simple-ALPHA
     entity:      TEST+simple-BETA
     entity:      TEST+simple-GAMMA

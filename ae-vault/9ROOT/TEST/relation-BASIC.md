@@ -6,7 +6,7 @@ DESCRIPTORS:
     - ENTITY_REPORToperationid
 TAGS:
 - SYS+classifier-CLASS/SYS+class-RELATION
-- SYS+classifier-ENTITY_TYPE/SYS+classifier_value-CLASSIFIER
+- SYS+classifier-ENTITY_TYPE/SYS+classifierVALUE-CLASSIFIER
 ---
 # Entity TEST+relation-BASIC
 

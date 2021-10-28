@@ -7,7 +7,7 @@ DESCRIPTORS:
     SYS+requestid-INSTANTIATE:
     - INSTANTIATEoperationid
   SYS+descriptors_map-INSTANCE_CLASSIFIERS:
-    SYS+classifier-ENTITY_TYPE: classifier_value-SIMPLE
+    SYS+classifier-ENTITY_TYPE: classifierVALUE-SIMPLE
   SYS+descriptors_map-INSTANCE_DESCRIPTORS:
     SYS+descriptor_map-REQUESTID$operationid:
       SYS+requestid-ADD_DESCRIPTORS:
@@ -18,7 +18,7 @@ DESCRIPTORS:
       - ENTITY_REPORToperationid
 TAGS:
 - SYS+classifier-CLASS/SYS+class-CLASS
-- SYS+classifier-ENTITY_TYPE/SYS+classifier_value-CLASS
+- SYS+classifier-ENTITY_TYPE/SYS+classifierVALUE-CLASS
 ---
 # Entity TEST+class-SIMPLE
 
