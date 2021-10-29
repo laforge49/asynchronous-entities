@@ -1,6 +1,6 @@
 ---
 tags:
-  - status/todo
+  - status/completed
 ---
 from [8000-pendingActivities](8000-pendingActivities.md)
 # 8028 Fix Names
@@ -26,3 +26,5 @@ The pattern for names is contextRoot+type_structureType-root$dataType, where the
 | requestid-REGISTER_ENTITY | requestid-REGISTERentity |
 | requestid-RUN_FEDERATION | requestid-RUNfederation |
 | requestid-TYPE_OF | requestid-TYPEof |
+
+completed [2143.5 Friday (week 43), 10-29-2021](2143.5%20Friday%20(week%2043),%2010-29-2021.md)
