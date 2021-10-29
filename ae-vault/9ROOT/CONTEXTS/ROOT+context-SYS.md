@@ -41,13 +41,12 @@ SYS+descriptors_map-INSTANCEclassifiers
 SYS+descriptors_map-INSTANCEdescriptors
 SYS+requestid-ADDdescriptors
 SYS+requestid-ADDrelations
-SYS+requestid-CONTEXT_REPORT
 SYS+requestid-INSTANTIATE
 SYS+requestid-REGISTERentity
 SYS+requestid-ROUTE
 SYS+requestid-RUNfederation
 
-Number of entities: 31
+Number of entities: 30
 
 2. Classifier Values of context ROOT+context-SYS
 (Default context is context-SYS.)
@@ -84,7 +83,6 @@ classifier:  SYS+classifier-CLASS
   value:       SYS+class-REQUESTID
     entity:      SYS+requestid-ADDdescriptors
     entity:      SYS+requestid-ADDrelations
-    entity:      SYS+requestid-CONTEXT_REPORT
     entity:      SYS+requestid-INSTANTIATE
     entity:      SYS+requestid-REGISTERentity
     entity:      SYS+requestid-ROUTE
@@ -122,7 +120,6 @@ classifier:  SYS+classifier-ENTITYtype
   value:       SYS+classifierVALUE-REQUESTID
     entity:      SYS+requestid-ADDdescriptors
     entity:      SYS+requestid-ADDrelations
-    entity:      SYS+requestid-CONTEXT_REPORT
     entity:      SYS+requestid-INSTANTIATE
     entity:      SYS+requestid-REGISTERentity
     entity:      SYS+requestid-ROUTE

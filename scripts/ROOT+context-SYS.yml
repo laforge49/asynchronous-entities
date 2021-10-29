@@ -51,11 +51,6 @@
   target_name: class-REQUESTID
   name: requestid-RUNfederation
 - target_requestid: requestid-INSTANTIATE
-  target_name: class-REQUESTID
-  name: requestid-CONTEXT_REPORT
-  descriptors:
-    descriptor-READ_ONLY$bool: true
-- target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
   name: class-DESCRIPTOR
   descriptors:
