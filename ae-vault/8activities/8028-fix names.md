@@ -12,6 +12,7 @@ The pattern for names is contextRoot+type_structureType-root$dataType, where the
 | classifier-ENTITY_TYPE | classifier-ENTITYtype |
 | classifier_value-... | classifierVALUE-... |
 | classifierVALUE-CLASSIFIER_VALUE | classifierVALUE-CLASSIFIERvalue |
+| classifierVALUE-FEDERATION_CONTEXT | classifierVALUE-FEDERATIONcontext |
 | classifierVALUE-DATA_TYPE | classifierVALUE-DATAtype |
 | descriptor-INSTANTIATION_DESCRIPTORS | descriptors_map-INSTANCEdescriptors |
 | descriptor-INSTANTIATION_CLASSIFIERS | descriptors_map-INSTANCEclassifiers |

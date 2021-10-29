@@ -8,5 +8,5 @@ TAGS:
 - SYS+classifier-CLASS/SYS+class-CLASSIFIER_VALUE
 - SYS+classifier-ENTITYtype/SYS+classifierVALUE-CLASSIFIERvalue
 ---
-# Entity SYS+classifierVALUE-FEDERATION_CONTEXT
+# Entity SYS+classifierVALUE-FEDERATIONcontext
 

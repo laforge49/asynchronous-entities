@@ -30,7 +30,7 @@ SYS+classifierVALUE-CLASSIFIER
 SYS+classifierVALUE-CLASSIFIERvalue
 SYS+classifierVALUE-CONTEXT
 SYS+classifierVALUE-DESCRIPTOR
-SYS+classifierVALUE-FEDERATION_CONTEXT
+SYS+classifierVALUE-FEDERATIONcontext
 SYS+classifierVALUE-FEDERATOR
 SYS+classifierVALUE-REQUESTID
 SYS+context-TEST
@@ -69,7 +69,7 @@ classifier:  SYS+classifier-CLASS
     entity:      SYS+classifierVALUE-CLASSIFIERvalue
     entity:      SYS+classifierVALUE-CONTEXT
     entity:      SYS+classifierVALUE-DESCRIPTOR
-    entity:      SYS+classifierVALUE-FEDERATION_CONTEXT
+    entity:      SYS+classifierVALUE-FEDERATIONcontext
     entity:      SYS+classifierVALUE-FEDERATOR
     entity:      SYS+classifierVALUE-REQUESTID
   value:       SYS+class-CONTEXT
@@ -106,7 +106,7 @@ classifier:  SYS+classifier-ENTITYtype
     entity:      SYS+classifierVALUE-CLASSIFIERvalue
     entity:      SYS+classifierVALUE-CONTEXT
     entity:      SYS+classifierVALUE-DESCRIPTOR
-    entity:      SYS+classifierVALUE-FEDERATION_CONTEXT
+    entity:      SYS+classifierVALUE-FEDERATIONcontext
     entity:      SYS+classifierVALUE-FEDERATOR
     entity:      SYS+classifierVALUE-REQUESTID
   value:       SYS+classifierVALUE-CONTEXT

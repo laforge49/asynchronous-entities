@@ -132,7 +132,7 @@
   name: classifierVALUE-FEDERATOR
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASSIFIER_VALUE
-  name: classifierVALUE-FEDERATION_CONTEXT
+  name: classifierVALUE-FEDERATIONcontext
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASSIFIER_VALUE
   name: classifierVALUE-CLASS
