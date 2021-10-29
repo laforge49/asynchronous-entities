@@ -35,7 +35,7 @@
   name: requestid-ADD_RELATIONS
 - target_requestid: requestid-INSTANTIATE
   target_name: class-REQUESTID
-  name: requestid-ADD_DESCRIPTORS
+  name: requestid-ADDdescriptors
 - target_requestid: requestid-INSTANTIATE
   target_name: class-REQUESTID
   name: requestid-INSTANTIATE

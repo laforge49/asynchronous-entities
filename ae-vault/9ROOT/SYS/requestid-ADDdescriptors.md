@@ -8,5 +8,5 @@ TAGS:
 - SYS+classifier-CLASS/SYS+class-REQUESTID
 - SYS+classifier-ENTITYtype/SYS+classifierVALUE-REQUESTID
 ---
-# Entity SYS+requestid-ADD_DESCRIPTORS
+# Entity SYS+requestid-ADDdescriptors
 

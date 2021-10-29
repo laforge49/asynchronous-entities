@@ -7,11 +7,11 @@ DESCRIPTORS:
   - target_requestid: SYS+requestid-INSTANTIATE
     target_name: class-SIMPLE
     name: simple-GAMMA
-  - target_requestid: SYS+requestid-ADD_DESCRIPTORS
+  - target_requestid: SYS+requestid-ADDdescriptors
     target_name: simple-ALPHA
     descriptors:
       descriptor-DEGREE_OF_POLISH$str: MIDDLING
-  - target_requestid: SYS+requestid-ADD_DESCRIPTORS
+  - target_requestid: SYS+requestid-ADDdescriptors
     target_name: simple-GAMMA
     descriptors:
       descriptor-DEGREE_OF_POLISH$str: MIDDLING

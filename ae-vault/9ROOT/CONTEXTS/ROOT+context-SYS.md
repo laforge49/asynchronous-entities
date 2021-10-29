@@ -39,8 +39,8 @@ SYS+descriptor-READ_ONLY$bool
 SYS+descriptor_map-REQUESTID$str
 SYS+descriptors_map-INSTANCEclassifiers
 SYS+descriptors_map-INSTANCEdescriptors
-SYS+requestid-ADD_DESCRIPTORS
 SYS+requestid-ADD_RELATIONS
+SYS+requestid-ADDdescriptors
 SYS+requestid-CONTEXT_REPORT
 SYS+requestid-INSTANTIATE
 SYS+requestid-REGISTERentity
@@ -82,8 +82,8 @@ classifier:  SYS+classifier-CLASS
     entity:      SYS+descriptors_map-INSTANCEclassifiers
     entity:      SYS+descriptors_map-INSTANCEdescriptors
   value:       SYS+class-REQUESTID
-    entity:      SYS+requestid-ADD_DESCRIPTORS
     entity:      SYS+requestid-ADD_RELATIONS
+    entity:      SYS+requestid-ADDdescriptors
     entity:      SYS+requestid-CONTEXT_REPORT
     entity:      SYS+requestid-INSTANTIATE
     entity:      SYS+requestid-REGISTERentity
@@ -120,8 +120,8 @@ classifier:  SYS+classifier-ENTITYtype
     entity:      SYS+descriptors_map-INSTANCEclassifiers
     entity:      SYS+descriptors_map-INSTANCEdescriptors
   value:       SYS+classifierVALUE-REQUESTID
-    entity:      SYS+requestid-ADD_DESCRIPTORS
     entity:      SYS+requestid-ADD_RELATIONS
+    entity:      SYS+requestid-ADDdescriptors
     entity:      SYS+requestid-CONTEXT_REPORT
     entity:      SYS+requestid-INSTANTIATE
     entity:      SYS+requestid-REGISTERentity

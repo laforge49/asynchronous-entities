@@ -10,10 +10,10 @@ DESCRIPTORS:
     SYS+classifier-ENTITYtype: classifierVALUE-SIMPLE
   SYS+descriptors_map-INSTANCEdescriptors:
     SYS+descriptor_map-REQUESTID$str:
-      SYS+requestid-ADD_DESCRIPTORS:
-      - ADD_DESCRIPTORSoperationid
       SYS+requestid-ADD_RELATIONS:
       - ADD_RELATIONSoperationid
+      SYS+requestid-ADDdescriptors:
+      - ADD_DESCRIPTORSoperationid
       SYS+requestid-ENTITYreport:
       - ENTITY_REPORToperationid
 TAGS:
