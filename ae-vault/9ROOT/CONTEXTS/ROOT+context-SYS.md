@@ -3,7 +3,7 @@ DESCRIPTORS:
   SYS+descriptor_map-REQUESTID$str:
     SYS+requestid-ENTITYreport:
     - CONTEXT_REPORToperationid
-    SYS+requestid-LOAD_SCRIPT:
+    SYS+requestid-LOADscript:
     - LOAD_SCRIPToperationid
     SYS+requestid-REGISTERentity:
     - REGISTER_ENTITYoperationid

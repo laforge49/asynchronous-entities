@@ -27,7 +27,7 @@
                             "descriptors" {"SYS+descriptor_map-REQUESTID$str" {"SYS+requestid-REGISTERentity"     ["REGISTER_ENTITYoperationid"]
                                                                                       "SYS+requestid-ROUTE"               ["ROUTEoperationid"]
                                                                                       "SYS+requestid-ENTITYreport"       ["CONTEXT_REPORToperationid"]
-                                                                                      "SYS+requestid-LOAD_SCRIPT"         ["LOAD_SCRIPToperationid"]}}})
+                                                                                      "SYS+requestid-LOADscript"         ["LOAD_SCRIPToperationid"]}}})
           env
           (assoc env "CONTEXT-REQUEST-PORT" context-request-port)
           script-path

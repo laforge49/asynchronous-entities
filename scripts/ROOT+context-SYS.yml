@@ -148,7 +148,7 @@
           - ROUTEoperationid
         requestid-ENTITYreport:
           - CONTEXT_REPORToperationid
-        requestid-LOAD_SCRIPT:
+        requestid-LOADscript:
           - LOAD_SCRIPToperationid
     descriptors_map-INSTANCEclassifiers:
       classifier-ENTITYtype: classifierVALUE-CONTEXT
@@ -187,7 +187,7 @@
   classifiers:
     classifier-RESOURCES:
       - ROOT+context-SYS
-- target_requestid: requestid-LOAD_SCRIPT
+- target_requestid: requestid-LOADscript
   target_name: context-TEST
 - target_requestid: requestid-ENTITYreport
   target_name: ROOT+context-SYS

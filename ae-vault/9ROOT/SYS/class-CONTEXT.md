@@ -12,7 +12,7 @@ DESCRIPTORS:
     descriptor_map-REQUESTID$str:
       requestid-ENTITYreport:
       - CONTEXT_REPORToperationid
-      requestid-LOAD_SCRIPT:
+      requestid-LOADscript:
       - LOAD_SCRIPToperationid
       requestid-REGISTERentity:
       - REGISTER_ENTITYoperationid

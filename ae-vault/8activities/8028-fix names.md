@@ -17,5 +17,6 @@ The pattern for names is contextRoot+type_structureType-root$dataType, where the
 | requestid-ADD_RELATIONS | requestid-ADDrelations |
 | requestid-CONTEXT_REPORT | unused, deleted |
 | requestid-ENTITY_REPORT | requestid-ENTITYreport |
+| requestid-LOAD_SCRIPT | requestid-LOADscript |
 | requestid-REGISTER_ENTITY | requestid-REGISTERentity |
 | requestid-RUN_FEDERATION | requestid-RUNfederation |
