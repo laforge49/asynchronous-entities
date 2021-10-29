@@ -57,7 +57,7 @@ classifier:  SYS+classifier-ENTITYtype
     entity:      TEST+class-SIMPLE
   value:       SYS+classifierVALUE-CLASSIFIER
     entity:      TEST+relation-BASIC
-  value:       SYS+classifierVALUE-CLASSIFIER_VALUE
+  value:       SYS+classifierVALUE-CLASSIFIERvalue
     entity:      TEST+classifierVALUE-SIMPLE
   value:       SYS+classifierVALUE-DESCRIPTOR
     entity:      TEST+descriptor-DEGREE_OF_POLISH$str

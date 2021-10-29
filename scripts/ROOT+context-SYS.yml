@@ -111,7 +111,7 @@
         requestid-ENTITYreport:
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCEclassifiers:
-      classifier-ENTITYtype: classifierVALUE-CLASSIFIER_VALUE
+      classifier-ENTITYtype: classifierVALUE-CLASSIFIERvalue
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASSIFIER_VALUE
   name: classifierVALUE-REQUESTID
@@ -123,7 +123,7 @@
   name: classifierVALUE-DESCRIPTOR
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASSIFIER_VALUE
-  name: classifierVALUE-CLASSIFIER_VALUE
+  name: classifierVALUE-CLASSIFIERvalue
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASSIFIER_VALUE
   name: classifierVALUE-CONTEXT
