@@ -17,5 +17,5 @@ TAGS:
 - SYS+classifier-CLASS/SYS+class-CLASS
 - SYS+classifier-ENTITYtype/SYS+classifierVALUE-CLASS
 ---
-# Entity SYS+class-CLASSIFIER_VALUE
+# Entity SYS+class-CLASSIFIERvalue
 

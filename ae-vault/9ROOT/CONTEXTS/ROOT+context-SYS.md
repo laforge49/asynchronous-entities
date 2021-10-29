@@ -17,7 +17,7 @@ DESCRIPTORS:
 
 SYS+class-CLASS
 SYS+class-CLASSIFIER
-SYS+class-CLASSIFIER_VALUE
+SYS+class-CLASSIFIERvalue
 SYS+class-CONTEXT
 SYS+class-DATA_TYPE
 SYS+class-DESCRIPTOR
@@ -54,7 +54,7 @@ Number of entities: 30
 classifier:  SYS+classifier-CLASS
   value:       SYS+class-CLASS
     entity:      SYS+class-CLASSIFIER
-    entity:      SYS+class-CLASSIFIER_VALUE
+    entity:      SYS+class-CLASSIFIERvalue
     entity:      SYS+class-CONTEXT
     entity:      SYS+class-DATA_TYPE
     entity:      SYS+class-DESCRIPTOR
@@ -63,7 +63,7 @@ classifier:  SYS+classifier-CLASS
     entity:      SYS+class-REQUESTID
   value:       SYS+class-CLASSIFIER
     entity:      SYS+classifier-ENTITYtype
-  value:       SYS+class-CLASSIFIER_VALUE
+  value:       SYS+class-CLASSIFIERvalue
     entity:      SYS+classifierVALUE-CLASS
     entity:      SYS+classifierVALUE-CLASSIFIER
     entity:      SYS+classifierVALUE-CLASSIFIERvalue
@@ -91,7 +91,7 @@ classifier:  SYS+classifier-ENTITYtype
   value:       SYS+classifierVALUE-CLASS
     entity:      SYS+class-CLASS
     entity:      SYS+class-CLASSIFIER
-    entity:      SYS+class-CLASSIFIER_VALUE
+    entity:      SYS+class-CLASSIFIERvalue
     entity:      SYS+class-CONTEXT
     entity:      SYS+class-DATA_TYPE
     entity:      SYS+class-DESCRIPTOR

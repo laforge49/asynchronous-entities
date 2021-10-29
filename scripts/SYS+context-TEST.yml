@@ -13,7 +13,7 @@
     SYS+descriptors_map-INSTANCEclassifiers:
       SYS+classifier-ENTITYtype: classifierVALUE-SIMPLE
 - target_requestid: SYS+requestid-INSTANTIATE
-  target_name: SYS+class-CLASSIFIER_VALUE
+  target_name: SYS+class-CLASSIFIERvalue
   name: classifierVALUE-SIMPLE
 - target_requestid: SYS+requestid-INSTANTIATE
   target_name: class-SIMPLE

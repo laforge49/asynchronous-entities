@@ -103,7 +103,7 @@
   name: classifier-ENTITYtype
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
-  name: class-CLASSIFIER_VALUE
+  name: class-CLASSIFIERvalue
   descriptors:
     descriptors_map-INSTANCEdescriptors:
       descriptor-INVARIANT$bool: true
@@ -113,28 +113,28 @@
     descriptors_map-INSTANCEclassifiers:
       classifier-ENTITYtype: classifierVALUE-CLASSIFIERvalue
 - target_requestid: requestid-INSTANTIATE
-  target_name: class-CLASSIFIER_VALUE
+  target_name: class-CLASSIFIERvalue
   name: classifierVALUE-REQUESTID
 - target_requestid: requestid-INSTANTIATE
-  target_name: class-CLASSIFIER_VALUE
+  target_name: class-CLASSIFIERvalue
   name: classifierVALUE-CLASSIFIER
 - target_requestid: requestid-INSTANTIATE
-  target_name: class-CLASSIFIER_VALUE
+  target_name: class-CLASSIFIERvalue
   name: classifierVALUE-DESCRIPTOR
 - target_requestid: requestid-INSTANTIATE
-  target_name: class-CLASSIFIER_VALUE
+  target_name: class-CLASSIFIERvalue
   name: classifierVALUE-CLASSIFIERvalue
 - target_requestid: requestid-INSTANTIATE
-  target_name: class-CLASSIFIER_VALUE
+  target_name: class-CLASSIFIERvalue
   name: classifierVALUE-CONTEXT
 - target_requestid: requestid-INSTANTIATE
-  target_name: class-CLASSIFIER_VALUE
+  target_name: class-CLASSIFIERvalue
   name: classifierVALUE-FEDERATOR
 - target_requestid: requestid-INSTANTIATE
-  target_name: class-CLASSIFIER_VALUE
+  target_name: class-CLASSIFIERvalue
   name: classifierVALUE-FEDERATIONcontext
 - target_requestid: requestid-INSTANTIATE
-  target_name: class-CLASSIFIER_VALUE
+  target_name: class-CLASSIFIERvalue
   name: classifierVALUE-CLASS
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS

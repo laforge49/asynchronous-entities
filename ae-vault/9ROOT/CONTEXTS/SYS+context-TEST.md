@@ -40,7 +40,7 @@ Number of entities: 8
 classifier:  SYS+classifier-CLASS
   value:       SYS+class-CLASS
     entity:      TEST+class-SIMPLE
-  value:       SYS+class-CLASSIFIER_VALUE
+  value:       SYS+class-CLASSIFIERvalue
     entity:      TEST+classifierVALUE-SIMPLE
   value:       SYS+class-DESCRIPTOR
     entity:      TEST+descriptor-DEGREE_OF_POLISH$str
