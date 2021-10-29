@@ -11,6 +11,7 @@ The pattern for names is contextRoot+type_structureType-root$dataType, where the
 | ...$operationid | ...$str |
 | classifier-ENTITY_TYPE | classifier-ENTITYtype |
 | classifier_value-... | classifierVALUE-... |
+| classifierVALUE-DATA_TYPE | classifierVALUE-DATAtype |
 | descriptor-INSTANTIATION_DESCRIPTORS | descriptors_map-INSTANCEdescriptors |
 | descriptor-INSTANTIATION_CLASSIFIERS | descriptors_map-INSTANCEclassifiers |
 | requestid-ADD_DESCRIPTORS | requestid-ADDdescriptors |

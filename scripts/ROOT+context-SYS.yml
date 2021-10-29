@@ -176,7 +176,7 @@
         requestid-TYPEof:
           - operationidTYPE_OF
     descriptors_map-INSTANCEclassifiers:
-      classifier-ENTITYtype: classifierVALUE-DATA_TYPE
+      classifier-ENTITYtype: classifierVALUE-DATAtype
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CONTEXT
   name: context-TEST
