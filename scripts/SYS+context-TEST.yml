@@ -6,7 +6,7 @@
       SYS+descriptor_map-REQUESTID$str:
         SYS+requestid-ADDdescriptors:
           - ADD_DESCRIPTORSoperationid
-        SYS+requestid-ADD_RELATIONS:
+        SYS+requestid-ADDrelations:
           - ADD_RELATIONSoperationid
         SYS+requestid-ENTITYreport:
           - ENTITY_REPORToperationid
@@ -50,15 +50,15 @@
         target_name: simple-GAMMA
         descriptors:
           descriptor-DEGREE_OF_POLISH$str: MIDDLING
-      - target_requestid: SYS+requestid-ADD_RELATIONS
+      - target_requestid: SYS+requestid-ADDrelations
         target_name: simple-GAMMA
         relations:
           relation-BASIC:
             - simple-ALPHA
-      - target_requestid: SYS+requestid-ADD_RELATIONS
+      - target_requestid: SYS+requestid-ADDrelations
         target_name: simple-BETA
         relations:
           relation-BASIC:
             - simple-ALPHA
-- target_requestid: SYS+requestid-RUN_FEDERATION
+- target_requestid: SYS+requestid-RUNfederation
   target_name: federator-A

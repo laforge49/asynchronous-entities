@@ -12,7 +12,7 @@ DESCRIPTORS:
     descriptor_map-REQUESTID$str:
       requestid-ENTITYreport:
       - ENTITY_REPORToperationid
-      requestid-RUN_FEDERATION:
+      requestid-RUNfederation:
       - RUN_FEDERATIONoperationid
 TAGS:
 - SYS+classifier-CLASS/SYS+class-CLASS

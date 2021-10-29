@@ -39,13 +39,13 @@ SYS+descriptor-READ_ONLY$bool
 SYS+descriptor_map-REQUESTID$str
 SYS+descriptors_map-INSTANCEclassifiers
 SYS+descriptors_map-INSTANCEdescriptors
-SYS+requestid-ADD_RELATIONS
 SYS+requestid-ADDdescriptors
+SYS+requestid-ADDrelations
 SYS+requestid-CONTEXT_REPORT
 SYS+requestid-INSTANTIATE
 SYS+requestid-REGISTERentity
 SYS+requestid-ROUTE
-SYS+requestid-RUN_FEDERATION
+SYS+requestid-RUNfederation
 
 Number of entities: 31
 
@@ -82,13 +82,13 @@ classifier:  SYS+classifier-CLASS
     entity:      SYS+descriptors_map-INSTANCEclassifiers
     entity:      SYS+descriptors_map-INSTANCEdescriptors
   value:       SYS+class-REQUESTID
-    entity:      SYS+requestid-ADD_RELATIONS
     entity:      SYS+requestid-ADDdescriptors
+    entity:      SYS+requestid-ADDrelations
     entity:      SYS+requestid-CONTEXT_REPORT
     entity:      SYS+requestid-INSTANTIATE
     entity:      SYS+requestid-REGISTERentity
     entity:      SYS+requestid-ROUTE
-    entity:      SYS+requestid-RUN_FEDERATION
+    entity:      SYS+requestid-RUNfederation
 classifier:  SYS+classifier-ENTITYtype
   value:       SYS+classifierVALUE-CLASS
     entity:      SYS+class-CLASS
@@ -120,13 +120,13 @@ classifier:  SYS+classifier-ENTITYtype
     entity:      SYS+descriptors_map-INSTANCEclassifiers
     entity:      SYS+descriptors_map-INSTANCEdescriptors
   value:       SYS+classifierVALUE-REQUESTID
-    entity:      SYS+requestid-ADD_RELATIONS
     entity:      SYS+requestid-ADDdescriptors
+    entity:      SYS+requestid-ADDrelations
     entity:      SYS+requestid-CONTEXT_REPORT
     entity:      SYS+requestid-INSTANTIATE
     entity:      SYS+requestid-REGISTERentity
     entity:      SYS+requestid-ROUTE
-    entity:      SYS+requestid-RUN_FEDERATION
+    entity:      SYS+requestid-RUNfederation
 classifier:  SYS+classifier-RESOURCES
   value:       ROOT+context-SYS
     entity:      SYS+context-TEST

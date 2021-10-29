@@ -15,12 +15,12 @@ DESCRIPTORS:
     target_name: simple-GAMMA
     descriptors:
       descriptor-DEGREE_OF_POLISH$str: MIDDLING
-  - target_requestid: SYS+requestid-ADD_RELATIONS
+  - target_requestid: SYS+requestid-ADDrelations
     target_name: simple-GAMMA
     relations:
       relation-BASIC:
       - simple-ALPHA
-  - target_requestid: SYS+requestid-ADD_RELATIONS
+  - target_requestid: SYS+requestid-ADDrelations
     target_name: simple-BETA
     relations:
       relation-BASIC:
@@ -28,7 +28,7 @@ DESCRIPTORS:
   SYS+descriptor_map-REQUESTID$str:
     SYS+requestid-ENTITYreport:
     - ENTITY_REPORToperationid
-    SYS+requestid-RUN_FEDERATION:
+    SYS+requestid-RUNfederation:
     - RUN_FEDERATIONoperationid
 TAGS:
 - SYS+classifier-CLASS/SYS+class-FEDERATOR

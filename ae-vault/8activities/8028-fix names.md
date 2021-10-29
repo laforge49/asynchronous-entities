@@ -14,5 +14,7 @@ The pattern for names is contextRoot+type_structureType-root$dataType, where the
 | descriptor-INSTANTIATION_DESCRIPTORS | descriptors_map-INSTANCEdescriptors |
 | descriptor-INSTANTIATION_CLASSIFIERS | descriptors_map-INSTANCEclassifiers |
 | requestid-ADD_DESCRIPTORS | requestid-ADDdescriptors |
+| requestid-ADD_RELATIONS | requestid-ADDrelations |
 | requestid-ENTITY_REPORT | requestid-ENTITYreport |
 | requestid-REGISTER_ENTITY | requestid-REGISTERentity |
+| requestid-RUN_FEDERATION | requestid-RUNfederation |

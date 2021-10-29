@@ -32,7 +32,7 @@
       classifier-ENTITYtype: classifierVALUE-REQUESTID
 - target_requestid: requestid-INSTANTIATE
   target_name: class-REQUESTID
-  name: requestid-ADD_RELATIONS
+  name: requestid-ADDrelations
 - target_requestid: requestid-INSTANTIATE
   target_name: class-REQUESTID
   name: requestid-ADDdescriptors
@@ -49,7 +49,7 @@
   name: requestid-ROUTE
 - target_requestid: requestid-INSTANTIATE
   target_name: class-REQUESTID
-  name: requestid-RUN_FEDERATION
+  name: requestid-RUNfederation
 - target_requestid: requestid-INSTANTIATE
   target_name: class-REQUESTID
   name: requestid-CONTEXT_REPORT
@@ -163,7 +163,7 @@
   descriptors:
     descriptors_map-INSTANCEdescriptors:
       descriptor_map-REQUESTID$str:
-        requestid-RUN_FEDERATION:
+        requestid-RUNfederation:
           - RUN_FEDERATIONoperationid
         requestid-ENTITYreport:
           - ENTITY_REPORToperationid
