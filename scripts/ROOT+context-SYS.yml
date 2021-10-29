@@ -166,7 +166,7 @@
       classifier-ENTITYtype: classifierVALUE-FEDERATOR
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
-  name: class-DATA_TYPE
+  name: class-DATAtype
   descriptors:
     descriptors_map-INSTANCEdescriptors:
       descriptor-INVARIANT$bool: true

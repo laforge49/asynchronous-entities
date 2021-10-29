@@ -19,7 +19,7 @@ SYS+class-CLASS
 SYS+class-CLASSIFIER
 SYS+class-CLASSIFIERvalue
 SYS+class-CONTEXT
-SYS+class-DATA_TYPE
+SYS+class-DATAtype
 SYS+class-DESCRIPTOR
 SYS+class-FEDERATOR
 SYS+class-RELATION
@@ -56,7 +56,7 @@ classifier:  SYS+classifier-CLASS
     entity:      SYS+class-CLASSIFIER
     entity:      SYS+class-CLASSIFIERvalue
     entity:      SYS+class-CONTEXT
-    entity:      SYS+class-DATA_TYPE
+    entity:      SYS+class-DATAtype
     entity:      SYS+class-DESCRIPTOR
     entity:      SYS+class-FEDERATOR
     entity:      SYS+class-RELATION
@@ -93,7 +93,7 @@ classifier:  SYS+classifier-ENTITYtype
     entity:      SYS+class-CLASSIFIER
     entity:      SYS+class-CLASSIFIERvalue
     entity:      SYS+class-CONTEXT
-    entity:      SYS+class-DATA_TYPE
+    entity:      SYS+class-DATAtype
     entity:      SYS+class-DESCRIPTOR
     entity:      SYS+class-FEDERATOR
     entity:      SYS+class-RELATION
