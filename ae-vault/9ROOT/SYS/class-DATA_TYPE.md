@@ -13,7 +13,7 @@ DESCRIPTORS:
     descriptor_map-REQUESTID$str:
       requestid-ENTITYreport:
       - ENTITY_REPORToperationid
-      requestid-TYPE_OF:
+      requestid-TYPEof:
       - operationidTYPE_OF
 TAGS:
 - SYS+classifier-CLASS/SYS+class-CLASS

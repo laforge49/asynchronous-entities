@@ -20,3 +20,4 @@ The pattern for names is contextRoot+type_structureType-root$dataType, where the
 | requestid-LOAD_SCRIPT | requestid-LOADscript |
 | requestid-REGISTER_ENTITY | requestid-REGISTERentity |
 | requestid-RUN_FEDERATION | requestid-RUNfederation |
+| requestid-TYPE_OF | requestid-TYPEof |
