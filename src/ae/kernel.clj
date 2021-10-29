@@ -458,7 +458,7 @@
             [nil [nil nil nil]]
             (let [params
                   {"requestid"        "SYS+requestid-ROUTE"
-                   "target_requestid" "SYS+requestidTYPE_OF"
+                   "target_requestid" "SYS+requestidTYPEof"
                    "target_name"      type-entity}]
               (routeFunction env context-map params)))]
       (cond
