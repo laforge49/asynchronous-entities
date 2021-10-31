@@ -10,11 +10,11 @@ DESCRIPTORS:
   - target_requestid: SYS+requestid-ADDdescriptors
     target_name: simple-ALPHA
     descriptors:
-      descriptor-DEGREE_OF_POLISH$str: MIDDLING
+      descriptor-DEGREEofPOLISH$str: MIDDLING
   - target_requestid: SYS+requestid-ADDdescriptors
     target_name: simple-GAMMA
     descriptors:
-      descriptor-DEGREE_OF_POLISH$str: MIDDLING
+      descriptor-DEGREEofPOLISH$str: MIDDLING
   - target_requestid: SYS+requestid-ADDrelations
     target_name: simple-GAMMA
     relations:

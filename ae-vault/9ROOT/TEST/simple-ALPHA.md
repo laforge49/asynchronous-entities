@@ -7,7 +7,7 @@ DESCRIPTORS:
     - ADD_RELATIONSoperationid
     SYS+requestid-ENTITYreport:
     - ENTITY_REPORToperationid
-  descriptor-DEGREE_OF_POLISH$str: MIDDLING
+  descriptor-DEGREEofPOLISH$str: MIDDLING
 INVERSE-RELATIONS:
   relation-BASIC:
   - simple-GAMMA

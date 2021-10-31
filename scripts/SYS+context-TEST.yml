@@ -30,7 +30,7 @@
   name: relation-BASIC
 - target_requestid: SYS+requestid-INSTANTIATE
   target_name: SYS+class-DESCRIPTOR
-  name: descriptor-DEGREE_OF_POLISH$str
+  name: descriptor-DEGREEofPOLISH$str
 - target_requestid: SYS+requestid-INSTANTIATE
   target_name: SYS+class-FEDERATOR
   name: federator-A
@@ -45,11 +45,11 @@
       - target_requestid: SYS+requestid-ADDdescriptors
         target_name: simple-ALPHA
         descriptors:
-          descriptor-DEGREE_OF_POLISH$str: MIDDLING
+          descriptor-DEGREEofPOLISH$str: MIDDLING
       - target_requestid: SYS+requestid-ADDdescriptors
         target_name: simple-GAMMA
         descriptors:
-          descriptor-DEGREE_OF_POLISH$str: MIDDLING
+          descriptor-DEGREEofPOLISH$str: MIDDLING
       - target_requestid: SYS+requestid-ADDrelations
         target_name: simple-GAMMA
         relations:

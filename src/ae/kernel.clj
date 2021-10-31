@@ -91,17 +91,17 @@
           (subs entity-base-name 8)
           entity-base-name)
         resources-set
-    (reduce
-      (fn [contexts-set context-name]
-        (let [[_ _ context-base-name]
-              (kw/name-as-keyword context-name)
-              context-base-name
-              (if (s/starts-with? context-base-name "context-")
-                (subs context-base-name 8)
-                context-base-name)]
-          (conj contexts-set context-base-name)))
-      #{short-context-name}
-      resources-vec)]
+        (reduce
+          (fn [contexts-set context-name]
+            (let [[_ _ context-base-name]
+                  (kw/name-as-keyword context-name)
+                  context-base-name
+                  (if (s/starts-with? context-base-name "context-")
+                    (subs context-base-name 8)
+                    context-base-name)]
+              (conj contexts-set context-base-name)))
+          #{short-context-name}
+          resources-vec)]
     resources-set))
 
 (defn get-child-map
@@ -498,16 +498,23 @@
 
 (defn validate-entity-name
   [s]
-  (let [dot-ndx
-        (s/index-of s ".")
-        h-ndx
+  (if (some? (s/index-of s "."))
+      (throw (Exception. (str "Name " s " should not contain a ."))))
+  (if (some? (s/index-of s "/"))
+      (throw (Exception. (str "Name " s " should not contain a /"))))
+  (if (not= (s/index-of s "+") (s/last-index-of s "+"))
+      (throw (Exception. (str "Name " s " should not contain two +'s"))))
+  (if (not= (s/index-of s "_") (s/last-index-of s "_"))
+    (throw (Exception. (str "Name " s " should not contain two _'s"))))
+  (if (not= (s/index-of s "-") (s/last-index-of s "-"))
+    (throw (Exception. (str "Name " s " should not contain two -'s"))))
+  (if (not= (s/index-of s "$") (s/last-index-of s "$"))
+    (throw (Exception. (str "Name " s " should not contain two $'s"))))
+  (let [h-ndx
         (s/index-of s "-")
         d-ndx
         (s/index-of s "$")]
     (cond
-      (some? dot-ndx)
-      (throw (Exception. (str "Name " s " should not contain a .")))
-
       (nil? h-ndx)
       (throw (Exception. (str "Name " s " is missing a -")))
 
@@ -590,8 +597,8 @@
       (fn [m [k v]]
         (assoc m (bind-context- local-context resources-set k false env)
                  (bind-context- local-context resources-set v
-                               (or values-as-data (some? (s/index-of k "$")))
-                               env)))
+                                (or values-as-data (some? (s/index-of k "$")))
+                                env)))
       (sorted-map)
       edn)
 

@@ -8,5 +8,5 @@ TAGS:
 - SYS+classifier-CLASS/SYS+class-DESCRIPTOR
 - SYS+classifier-ENTITYtype/SYS+classifierVALUE-DESCRIPTOR
 ---
-# Entity TEST+descriptor-DEGREE_OF_POLISH$str
+# Entity TEST+descriptor-DEGREEofPOLISH$str
 

@@ -25,7 +25,7 @@ different line
 
 TEST+class-SIMPLE
 TEST+classifierVALUE-SIMPLE
-TEST+descriptor-DEGREE_OF_POLISH$str
+TEST+descriptor-DEGREEofPOLISH$str
 TEST+federator-A
 TEST+relation-BASIC
 TEST+simple-ALPHA
@@ -43,7 +43,7 @@ classifier:  SYS+classifier-CLASS
   value:       SYS+class-CLASSIFIERvalue
     entity:      TEST+classifierVALUE-SIMPLE
   value:       SYS+class-DESCRIPTOR
-    entity:      TEST+descriptor-DEGREE_OF_POLISH$str
+    entity:      TEST+descriptor-DEGREEofPOLISH$str
   value:       SYS+class-FEDERATOR
     entity:      TEST+federator-A
   value:       SYS+class-RELATION
@@ -60,7 +60,7 @@ classifier:  SYS+classifier-ENTITYtype
   value:       SYS+classifierVALUE-CLASSIFIERvalue
     entity:      TEST+classifierVALUE-SIMPLE
   value:       SYS+classifierVALUE-DESCRIPTOR
-    entity:      TEST+descriptor-DEGREE_OF_POLISH$str
+    entity:      TEST+descriptor-DEGREEofPOLISH$str
   value:       SYS+classifierVALUE-FEDERATOR
     entity:      TEST+federator-A
   value:       TEST+classifierVALUE-SIMPLE
