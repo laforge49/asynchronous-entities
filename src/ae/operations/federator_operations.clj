@@ -119,7 +119,7 @@
               descriptors
               (get this-map "DESCRIPTORS")
               federation-names
-              (get descriptors "SYS+descriptor-FEDERATION_NAMES")
+              (get descriptors "SYS+descriptor_map-FEDERATIONnames")
               env
               (assoc env "FEDERATOR-NAME" this-name)
               root-contexts-request-port

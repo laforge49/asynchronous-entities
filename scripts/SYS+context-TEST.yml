@@ -35,7 +35,7 @@
   target_name: SYS+class-FEDERATOR
   name: federator-A
   descriptors:
-    SYS+descriptor-FEDERATION_NAMES:
+    SYS+descriptor_map-FEDERATIONnames:
       - simple-ALPHA
       - simple-BETA
     SYS+descriptor-SCRIPT$yaml:
