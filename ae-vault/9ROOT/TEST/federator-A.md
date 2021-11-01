@@ -22,14 +22,14 @@ DESCRIPTORS:
     relations:
       relation-BASIC:
       - simple-ALPHA
-  SYS+descriptor_map-FEDERATIONnames:
-  - simple-ALPHA
-  - simple-BETA
   SYS+descriptor_map-REQUESTID$str:
     SYS+requestid-ENTITYreport:
     - ENTITY_REPORToperationid
     SYS+requestid-RUNfederation:
     - RUN_FEDERATIONoperationid
+  SYS+descriptor_vec-FEDERATIONnames:
+  - simple-ALPHA
+  - simple-BETA
 TAGS:
 - SYS+classifier-CLASS/SYS+class-FEDERATOR
 - SYS+classifier-ENTITYtype/SYS+classifierVALUE-FEDERATOR
