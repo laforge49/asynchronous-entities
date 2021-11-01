@@ -213,7 +213,7 @@
               read-only
               (if (nil? request-descriptors)
                 true
-                (get request-descriptors "SYS+descriptor-READ_ONLY$bool"))]
+                (get request-descriptors "SYS+descriptor-READonly$bool"))]
           (if (not read-only)
             (throw (Exception. (str "Can not apply " requestid " to invariant " (get target-map "NAME")
                                     (prn-str params)
@@ -510,27 +510,45 @@
     (throw (Exception. (str "Name " s " should not contain two -'s"))))
   (if (not= (s/index-of s "$") (s/last-index-of s "$"))
     (throw (Exception. (str "Name " s " should not contain two $'s"))))
-  (let [h-ndx
+  (let [p-ndx
+        (s/index-of s "+")
+        p-ndx
+        (if (some? p-ndx)
+          p-ndx
+          0)
+        u-ndx
+        (s/index-of s "_")
+        h-ndx
         (s/index-of s "-")
+        _ (if (nil? h-ndx)
+            (throw (Exception. (str "Name " s " is missing a -"))))
+        u-ndx
+        (if (some? u-ndx)
+          u-ndx
+          h-ndx)
         d-ndx
-        (s/index-of s "$")]
-    (cond
-      (nil? h-ndx)
-      (throw (Exception. (str "Name " s " is missing a -")))
-
-      (and (some? d-ndx)
-           (> h-ndx d-ndx))
-      (throw (Exception. (str "Name " s " has a $ before the -")))
-
-      (= h-ndx 0)
-      (throw (Exception. (str "Name " s " begins with a -")))
-
-      (= h-ndx (dec (count s)))
-      (throw (Exception. (str "Name " s " ends with a -")))
-
-      (and (some? d-ndx)
-           (= h-ndx (dec d-ndx)))
-      (throw (Exception. (str "Name " s " has a $ immediately following the -"))))))
+        (s/index-of s "$")
+        d-ndx
+        (if (some? d-ndx)
+          d-ndx
+          (count s))
+        typ-len
+        (- u-ndx p-ndx)
+        styp-len
+        (- h-ndx u-ndx)
+        root-len
+        (- d-ndx h-ndx)
+        dtyp-len
+        (- (count s) d-ndx)]
+    (if (< typ-len 1)
+      (throw (Exception. (str "Name " s " lacks a properly delineated type"))))
+    (if (< styp-len 0)
+      (throw (Exception. (str "Name " s " has an improperly delineated structure type"))))
+    (if (< root-len 1)
+      (throw (Exception. (str "Name " s " lacks a properly delineated root"))))
+    (if (< dtyp-len 0)
+      (throw (Exception. (str "Name " s " has an improperly delineated data type"))))
+    ))
 
 (defn unbind-context
   [local-context-+ edn values-as-data env]

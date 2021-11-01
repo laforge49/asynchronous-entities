@@ -40,7 +40,7 @@
   target_name: class-REQUESTID
   name: requestid-INSTANTIATE
   descriptors:
-    descriptor-READ_ONLY$bool: true
+    descriptor-READonly$bool: true
 - target_requestid: requestid-INSTANTIATE
   target_name: class-REQUESTID
   name: requestid-REGISTERentity
@@ -63,7 +63,7 @@
       classifier-ENTITYtype: classifierVALUE-DESCRIPTOR
 - target_requestid: requestid-INSTANTIATE
   target_name: class-DESCRIPTOR
-  name: descriptor-READ_ONLY$bool
+  name: descriptor-READonly$bool
 - target_requestid: requestid-INSTANTIATE
   target_name: class-DESCRIPTOR
   name: descriptor_map-REQUESTID$str
