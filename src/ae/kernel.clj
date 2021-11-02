@@ -498,57 +498,61 @@
 
 (defn validate-entity-name
   [s]
-  (if (some? (s/index-of s "."))
-      (throw (Exception. (str "Name " s " should not contain a ."))))
-  (if (some? (s/index-of s "/"))
-      (throw (Exception. (str "Name " s " should not contain a /"))))
-  (if (not= (s/index-of s "+") (s/last-index-of s "+"))
-      (throw (Exception. (str "Name " s " should not contain two +'s"))))
-  (if (not= (s/index-of s "_") (s/last-index-of s "_"))
-    (throw (Exception. (str "Name " s " should not contain two _'s"))))
-  (if (not= (s/index-of s "-") (s/last-index-of s "-"))
-    (throw (Exception. (str "Name " s " should not contain two -'s"))))
-  (if (not= (s/index-of s "$") (s/last-index-of s "$"))
-    (throw (Exception. (str "Name " s " should not contain two $'s"))))
-  (let [p-ndx
-        (s/index-of s "+")
+  (let [
+        - (if (some? (s/index-of s "."))
+            (throw (Exception. (str "Name " s " should not contain a ."))))
+        - (if (some? (s/index-of s "/"))
+            (throw (Exception. (str "Name " s " should not contain a /"))))
         p-ndx
-        (if (some? p-ndx)
-          p-ndx
-          0)
+        (s/index-of s "+")
+        - (if (not= p-ndx (s/last-index-of s "+"))
+            (throw (Exception. (str "Name " s " should not contain two +'s"))))
         u-ndx
         (s/index-of s "_")
+        - (if (not= u-ndx (s/last-index-of s "_"))
+            (throw (Exception. (str "Name " s " should not contain two _'s"))))
         h-ndx
         (s/index-of s "-")
+        - (if (not= h-ndx (s/last-index-of s "-"))
+            (throw (Exception. (str "Name " s " should not contain two -'s"))))
+        d-ndx
+        (s/index-of s "$")
+        - (if (not= d-ndx (s/last-index-of s "$"))
+            (throw (Exception. (str "Name " s " should not contain two $'s"))))
         _ (if (nil? h-ndx)
             (throw (Exception. (str "Name " s " is missing a -"))))
-        u-ndx
+        typ-start
+        (if (some? p-ndx)
+          (inc p-ndx)
+          0)
+        typ-end
         (if (some? u-ndx)
           u-ndx
           h-ndx)
-        d-ndx
-        (s/index-of s "$")
-        d-ndx
+        _ (if (> typ-start typ-end)
+          (throw (Exception. (str "Name " s " lacks a properly delineated type"))))
+        typ
+        (subs s typ-start typ-end)
+        _ (if (empty? typ)
+          (throw (Exception. (str "Name " s " has no type"))))
+        styp
+        (if (nil? u-ndx)
+          ""
+          (if (> u-ndx h-ndx)
+            (throw (Exception. (str "Name " s " has an improperly delineated structure type")))
+            (subs s (inc u-ndx) h-ndx)))
+        root-end
         (if (some? d-ndx)
           d-ndx
           (count s))
-        typ-len
-        (- u-ndx p-ndx)
-        styp-len
-        (- h-ndx u-ndx)
-        root-len
-        (- d-ndx h-ndx)
-        dtyp-len
-        (- (count s) d-ndx)]
-    (if (< typ-len 1)
-      (throw (Exception. (str "Name " s " lacks a properly delineated type"))))
-    (if (< styp-len 0)
-      (throw (Exception. (str "Name " s " has an improperly delineated structure type"))))
-    (if (< root-len 1)
-      (throw (Exception. (str "Name " s " lacks a properly delineated root"))))
-    (if (< dtyp-len 0)
-      (throw (Exception. (str "Name " s " has an improperly delineated data type"))))
-    ))
+        _ (if (> h-ndx root-end)
+          (throw (Exception. (str "Name " s " lacks a properly delineated root"))))
+        root
+        (subs s (inc h-ndx) root-end)
+        dtyp
+        (if (nil? d-ndx)
+          ""
+          (subs s (inc d-ndx)))]))
 
 (defn unbind-context
   [local-context-+ edn values-as-data env]
