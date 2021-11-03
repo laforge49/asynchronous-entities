@@ -534,13 +534,15 @@
         typ
         (subs s typ-start typ-end)
         _ (if (empty? typ)
-          (throw (Exception. (str "Name " s " has no type"))))
+          (throw (Exception. (str "Name " s " has an empty type"))))
         styp
         (if (nil? u-ndx)
-          ""
+          nil
           (if (> u-ndx h-ndx)
             (throw (Exception. (str "Name " s " has an improperly delineated structure type")))
             (subs s (inc u-ndx) h-ndx)))
+        _ (if (and (some? u-ndx) (empty? styp))
+          (throw (Exception. (str "Name " s " has a _ but the structure type is empty"))))
         root-end
         (if (some? d-ndx)
           d-ndx
@@ -549,10 +551,14 @@
           (throw (Exception. (str "Name " s " lacks a properly delineated root"))))
         root
         (subs s (inc h-ndx) root-end)
+        _ (if (empty? root)
+            (throw (Exception. (str "Name " s " has an empty root"))))
         dtyp
         (if (nil? d-ndx)
-          ""
-          (subs s (inc d-ndx)))]))
+          nil
+          (subs s (inc d-ndx)))
+        _ (if (and (some? d-ndx) (empty? dtyp))
+            (throw (Exception. (str "Name " s " has a $ but the data type is empty"))))]))
 
 (defn unbind-context
   [local-context-+ edn values-as-data env]
