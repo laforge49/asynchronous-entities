@@ -496,7 +496,7 @@
                                   (prn-str edn)
                                   (prn-str context-map))))))))
 
-(defn validate-entity-name
+(defn parse-entity-name
   [s]
   (let [
         - (if (some? (s/index-of s "."))
@@ -558,7 +558,8 @@
           nil
           (subs s (inc d-ndx)))
         _ (if (and (some? d-ndx) (empty? dtyp))
-            (throw (Exception. (str "Name " s " has a $ but the data type is empty"))))]))
+            (throw (Exception. (str "Name " s " has a $ but the data type is empty"))))]
+    [typ styp root dtyp]))
 
 (defn unbind-context
   [local-context-+ edn values-as-data env]
@@ -598,7 +599,8 @@
     (string? edn)
     (if values-as-data
       edn
-      (let [- (validate-entity-name edn)
+      (let [[typ styp root dtyp]
+            (parse-entity-name edn)
             ndx
             (s/index-of edn "+")]
         (if (some? ndx)
@@ -623,10 +625,12 @@
     (map? edn)
     (reduce
       (fn [m [k v]]
+        (let [[typ styp root dtyp]
+              (parse-entity-name k)]
         (assoc m (bind-context- local-context resources-set k false env)
                  (bind-context- local-context resources-set v
-                                (or values-as-data (some? (s/index-of k "$")))
-                                env)))
+                                (or values-as-data (some? dtyp))
+                                env))))
       (sorted-map)
       edn)
 
