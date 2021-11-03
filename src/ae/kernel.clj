@@ -499,6 +499,9 @@
 (def styp-set
   #{"map" "vec"})
 
+(def dtyp-set
+  #{"bool" "str" "yaml"})
+
 (defn parse-entity-name
   [s]
   (let [
@@ -564,6 +567,8 @@
             (throw (Exception. (str "Name " s " has a $ but the data type is empty"))))]
     (if (and (some? styp) (not (contains? styp-set styp)))
       (throw (Exception. (str "Name " s " has an unknown structure type: " styp))))
+    (if (and (some? dtyp) (not (contains? dtyp-set dtyp)))
+      (throw (Exception. (str "Name " s " has an unknown data type: " dtyp))))
     [typ styp root dtyp]))
 
 (defn unbind-context
