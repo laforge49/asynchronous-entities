@@ -496,6 +496,9 @@
                                   (prn-str edn)
                                   (prn-str context-map))))))))
 
+(def styp-set
+  #{"map" "vec"})
+
 (defn parse-entity-name
   [s]
   (let [
@@ -559,6 +562,8 @@
           (subs s (inc d-ndx)))
         _ (if (and (some? d-ndx) (empty? dtyp))
             (throw (Exception. (str "Name " s " has a $ but the data type is empty"))))]
+    (if (and (some? styp) (not (contains? styp-set styp)))
+      (throw (Exception. (str "Name " s " has an unknown structure type: " styp))))
     [typ styp root dtyp]))
 
 (defn unbind-context
