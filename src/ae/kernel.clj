@@ -521,6 +521,10 @@
         (s/index-of s "-")
         - (if (not= h-ndx (s/last-index-of s "-"))
             (throw (Exception. (str "Name " s " should not contain two -'s"))))
+        c-ndx
+        (s/index-of s "^")
+        - (if (not= c-ndx (s/last-index-of s "^"))
+            (throw (Exception. (str "Name " s " should not contain two ^'s"))))
         d-ndx
         (s/index-of s "$")
         - (if (not= d-ndx (s/last-index-of s "$"))
@@ -536,11 +540,11 @@
           u-ndx
           h-ndx)
         _ (if (> typ-start typ-end)
-          (throw (Exception. (str "Name " s " lacks a properly delineated type"))))
+            (throw (Exception. (str "Name " s " lacks a properly delineated type"))))
         typ
         (subs s typ-start typ-end)
         _ (if (empty? typ)
-          (throw (Exception. (str "Name " s " has an empty type"))))
+            (throw (Exception. (str "Name " s " has an empty type"))))
         styp
         (if (nil? u-ndx)
           nil
@@ -548,17 +552,31 @@
             (throw (Exception. (str "Name " s " has an improperly delineated structure type")))
             (subs s (inc u-ndx) h-ndx)))
         _ (if (and (some? u-ndx) (empty? styp))
-          (throw (Exception. (str "Name " s " has a _ but the structure type is empty"))))
+            (throw (Exception. (str "Name " s " has a _ but the structure type is empty"))))
+        _ (if (= (= styp "map") (nil? c-ndx))
+            (throw (Exception. (str "Name " s " Can include a ^ if and only if the structure type is map"))))
         root-end
-        (if (some? d-ndx)
-          d-ndx
-          (count s))
+        (if (some? c-ndx)
+          c-ndx
+          (if (some? d-ndx)
+            d-ndx
+            (count s)))
         _ (if (> h-ndx root-end)
-          (throw (Exception. (str "Name " s " lacks a properly delineated root"))))
+            (throw (Exception. (str "Name " s " lacks a properly delineated root"))))
         root
         (subs s (inc h-ndx) root-end)
         _ (if (empty? root)
             (throw (Exception. (str "Name " s " has an empty root"))))
+        ktyp
+        (if (nil? c-ndx)
+          nil
+          (if (some? d-ndx)
+            (if (> d-ndx c-ndx)
+              (subs s (inc c-ndx) d-ndx)
+              (throw (Exception. (str "Name " s " has an improperly delineated key type"))))
+            (subs s (inc c-ndx))))
+        _ (if (and (some? c-ndx) (empty? ktyp))
+            (throw (Exception. (str "Name " s " has a * but the key type is empty"))))
         dtyp
         (if (nil? d-ndx)
           nil
@@ -637,10 +655,10 @@
       (fn [m [k v]]
         (let [[typ styp root dtyp]
               (parse-entity-name k)]
-        (assoc m (bind-context- local-context resources-set k false env)
-                 (bind-context- local-context resources-set v
-                                (or values-as-data (some? dtyp))
-                                env))))
+          (assoc m (bind-context- local-context resources-set k false env)
+                   (bind-context- local-context resources-set v
+                                  (or values-as-data (some? dtyp))
+                                  env))))
       (sorted-map)
       edn)
 
