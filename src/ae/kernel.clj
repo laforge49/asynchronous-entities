@@ -587,7 +587,7 @@
       (throw (Exception. (str "Name " s " has an unknown structure type: " styp))))
     (if (and (some? dtyp) (not (contains? dtyp-set dtyp)))
       (throw (Exception. (str "Name " s " has an unknown data type: " dtyp))))
-    [typ styp root dtyp]))
+    [typ styp root ktyp dtyp]))
 
 (defn unbind-context
   [local-context-+ edn values-as-data env]
@@ -627,7 +627,7 @@
     (string? edn)
     (if values-as-data
       edn
-      (let [[typ styp root dtyp]
+      (let [[typ styp root ktyp dtyp]
             (parse-entity-name edn)
             ndx
             (s/index-of edn "+")]
@@ -653,7 +653,7 @@
     (map? edn)
     (reduce
       (fn [m [k v]]
-        (let [[typ styp root dtyp]
+        (let [[typ styp root ktyp dtyp]
               (parse-entity-name k)]
           (assoc m (bind-context- local-context resources-set k false env)
                    (bind-context- local-context resources-set v
