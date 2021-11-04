@@ -1,4 +1,4 @@
-- target_requestid: SYS+requestid-INSTANTIATE
+- param-TARGETrequestid: SYS+requestid-INSTANTIATE
   target_name: SYS+class-CLASS
   name: class-SIMPLE
   descriptors:
@@ -12,26 +12,26 @@
           - ENTITY_REPORToperationid
     SYS+descriptors_map-INSTANCE^classifier:
       SYS+classifier-ENTITYtype: classifierVALUE-SIMPLE
-- target_requestid: SYS+requestid-INSTANTIATE
+- param-TARGETrequestid: SYS+requestid-INSTANTIATE
   target_name: SYS+class-CLASSIFIERvalue
   name: classifierVALUE-SIMPLE
-- target_requestid: SYS+requestid-INSTANTIATE
+- param-TARGETrequestid: SYS+requestid-INSTANTIATE
   target_name: class-SIMPLE
   name: simple-ALPHA
   content$ml:
     "this is a test
     same line
     \ndifferent line"
-- target_requestid: SYS+requestid-INSTANTIATE
+- param-TARGETrequestid: SYS+requestid-INSTANTIATE
   target_name: class-SIMPLE
   name: simple-BETA
-- target_requestid: SYS+requestid-INSTANTIATE
+- param-TARGETrequestid: SYS+requestid-INSTANTIATE
   target_name: SYS+class-RELATION
   name: relation-BASIC
-- target_requestid: SYS+requestid-INSTANTIATE
+- param-TARGETrequestid: SYS+requestid-INSTANTIATE
   target_name: SYS+class-DESCRIPTOR
   name: descriptor-DEGREEofPOLISH$str
-- target_requestid: SYS+requestid-INSTANTIATE
+- param-TARGETrequestid: SYS+requestid-INSTANTIATE
   target_name: SYS+class-FEDERATOR
   name: federator-A
   descriptors:
@@ -39,26 +39,26 @@
       - simple-ALPHA
       - simple-BETA
     SYS+descriptor-SCRIPT$yaml:
-      - target_requestid: SYS+requestid-INSTANTIATE
+      - param-TARGETrequestid: SYS+requestid-INSTANTIATE
         target_name: class-SIMPLE
         name: simple-GAMMA
-      - target_requestid: SYS+requestid-ADDdescriptors
+      - param-TARGETrequestid: SYS+requestid-ADDdescriptors
         target_name: simple-ALPHA
         descriptors:
           descriptor-DEGREEofPOLISH$str: MIDDLING
-      - target_requestid: SYS+requestid-ADDdescriptors
+      - param-TARGETrequestid: SYS+requestid-ADDdescriptors
         target_name: simple-GAMMA
         descriptors:
           descriptor-DEGREEofPOLISH$str: MIDDLING
-      - target_requestid: SYS+requestid-ADDrelations
+      - param-TARGETrequestid: SYS+requestid-ADDrelations
         target_name: simple-GAMMA
         relations:
           relation-BASIC:
             - simple-ALPHA
-      - target_requestid: SYS+requestid-ADDrelations
+      - param-TARGETrequestid: SYS+requestid-ADDrelations
         target_name: simple-BETA
         relations:
           relation-BASIC:
             - simple-ALPHA
-- target_requestid: SYS+requestid-RUNfederation
+- param-TARGETrequestid: SYS+requestid-RUNfederation
   target_name: federator-A
