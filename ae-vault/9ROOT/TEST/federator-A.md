@@ -22,7 +22,7 @@ DESCRIPTORS:
     relations:
       relation-BASIC:
       - simple-ALPHA
-  SYS+descriptor_map-REQUESTID$str:
+  SYS+descriptor_map-REQUESTS^requestid$str:
     SYS+requestid-ENTITYreport:
     - ENTITY_REPORToperationid
     SYS+requestid-RUNfederation:

@@ -3,19 +3,19 @@
   name: class-CLASS
   descriptors:
     descriptor-INVARIANT$bool: true
-    descriptor_map-REQUESTID$str:
+    descriptor_map-REQUESTS^requestid$str:
       requestid-INSTANTIATE:
         - INSTANTIATEoperationid
       requestid-ENTITYreport:
         - ENTITY_REPORToperationid
-    descriptors_map-INSTANCEdescriptors:
+    descriptors_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_map-REQUESTID$str:
+      descriptor_map-REQUESTS^requestid$str:
         requestid-INSTANTIATE:
           - INSTANTIATEoperationid
         requestid-ENTITYreport:
           - ENTITY_REPORToperationid
-    descriptors_map-INSTANCEclassifiers:
+    descriptors_map-INSTANCE^classifier:
       classifier-ENTITYtype: classifierVALUE-CLASS
   classifiers:
     classifier-ENTITYtype: classifierVALUE-CLASS
@@ -23,12 +23,12 @@
   target_name: class-CLASS
   name: class-REQUESTID
   descriptors:
-    descriptors_map-INSTANCEdescriptors:
+    descriptors_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_map-REQUESTID$str:
+      descriptor_map-REQUESTS^requestid$str:
         requestid-ENTITYreport:
           - ENTITY_REPORToperationid
-    descriptors_map-INSTANCEclassifiers:
+    descriptors_map-INSTANCE^classifier:
       classifier-ENTITYtype: classifierVALUE-REQUESTID
 - target_requestid: requestid-INSTANTIATE
   target_name: class-REQUESTID
@@ -54,49 +54,49 @@
   target_name: class-CLASS
   name: class-DESCRIPTOR
   descriptors:
-    descriptors_map-INSTANCEdescriptors:
+    descriptors_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_map-REQUESTID$str:
+      descriptor_map-REQUESTS^requestid$str:
         requestid-ENTITYreport:
           - ENTITY_REPORToperationid
-    descriptors_map-INSTANCEclassifiers:
+    descriptors_map-INSTANCE^classifier:
       classifier-ENTITYtype: classifierVALUE-DESCRIPTOR
 - target_requestid: requestid-INSTANTIATE
   target_name: class-DESCRIPTOR
   name: descriptor-READonly$bool
 - target_requestid: requestid-INSTANTIATE
   target_name: class-DESCRIPTOR
-  name: descriptor_map-REQUESTID$str
+  name: descriptor_map-REQUESTS^requestid$str
 - target_requestid: requestid-INSTANTIATE
   target_name: class-DESCRIPTOR
   name: descriptor-INVARIANT$bool
 - target_requestid: requestid-INSTANTIATE
   target_name: class-DESCRIPTOR
-  name: descriptors_map-INSTANCEdescriptors
+  name: descriptors_map-INSTANCE^descriptor
 - target_requestid: requestid-INSTANTIATE
   target_name: class-DESCRIPTOR
-  name: descriptors_map-INSTANCEclassifiers
+  name: descriptors_map-INSTANCE^classifier
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
   name: class-CLASSIFIER
   descriptors:
-    descriptors_map-INSTANCEdescriptors:
+    descriptors_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_map-REQUESTID$str:
+      descriptor_map-REQUESTS^requestid$str:
         requestid-ENTITYreport:
           - ENTITY_REPORToperationid
-    descriptors_map-INSTANCEclassifiers:
+    descriptors_map-INSTANCE^classifier:
       classifier-ENTITYtype: classifierVALUE-CLASSIFIER
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
   name: class-RELATION
   descriptors:
-    descriptors_map-INSTANCEdescriptors:
+    descriptors_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_map-REQUESTID$str:
+      descriptor_map-REQUESTS^requestid$str:
         requestid-ENTITYreport:
           - ENTITY_REPORToperationid
-    descriptors_map-INSTANCEclassifiers:
+    descriptors_map-INSTANCE^classifier:
       classifier-ENTITYtype: classifierVALUE-CLASSIFIER
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASSIFIER
@@ -105,12 +105,12 @@
   target_name: class-CLASS
   name: class-CLASSIFIERvalue
   descriptors:
-    descriptors_map-INSTANCEdescriptors:
+    descriptors_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_map-REQUESTID$str:
+      descriptor_map-REQUESTS^requestid$str:
         requestid-ENTITYreport:
           - ENTITY_REPORToperationid
-    descriptors_map-INSTANCEclassifiers:
+    descriptors_map-INSTANCE^classifier:
       classifier-ENTITYtype: classifierVALUE-CLASSIFIERvalue
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASSIFIERvalue
@@ -140,8 +140,8 @@
   target_name: class-CLASS
   name: class-CONTEXT
   descriptors:
-    descriptors_map-INSTANCEdescriptors:
-      descriptor_map-REQUESTID$str:
+    descriptors_map-INSTANCE^descriptor:
+      descriptor_map-REQUESTS^requestid$str:
         requestid-REGISTERentity:
           - REGISTER_ENTITYoperationid
         requestid-ROUTE:
@@ -150,32 +150,32 @@
           - CONTEXT_REPORToperationid
         requestid-LOADscript:
           - LOAD_SCRIPToperationid
-    descriptors_map-INSTANCEclassifiers:
+    descriptors_map-INSTANCE^classifier:
       classifier-ENTITYtype: classifierVALUE-CONTEXT
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
   name: class-FEDERATOR
   descriptors:
-    descriptors_map-INSTANCEdescriptors:
-      descriptor_map-REQUESTID$str:
+    descriptors_map-INSTANCE^descriptor:
+      descriptor_map-REQUESTS^requestid$str:
         requestid-RUNfederation:
           - RUN_FEDERATIONoperationid
         requestid-ENTITYreport:
           - ENTITY_REPORToperationid
-    descriptors_map-INSTANCEclassifiers:
+    descriptors_map-INSTANCE^classifier:
       classifier-ENTITYtype: classifierVALUE-FEDERATOR
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CLASS
   name: class-DATAtype
   descriptors:
-    descriptors_map-INSTANCEdescriptors:
+    descriptors_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_map-REQUESTID$str:
+      descriptor_map-REQUESTS^requestid$str:
         requestid-ENTITYreport:
           - ENTITY_REPORToperationid
         requestid-TYPEof:
           - operationidTYPE_OF
-    descriptors_map-INSTANCEclassifiers:
+    descriptors_map-INSTANCE^classifier:
       classifier-ENTITYtype: classifierVALUE-DATAtype
 - target_requestid: requestid-INSTANTIATE
   target_name: class-CONTEXT

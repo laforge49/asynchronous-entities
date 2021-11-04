@@ -1,7 +1,7 @@
 ---
 DESCRIPTORS:
   descriptor-INVARIANT$bool: true
-  descriptor_map-REQUESTID$str:
+  descriptor_map-REQUESTS^requestid$str:
     requestid-ENTITYreport:
     - ENTITY_REPORToperationid
 TAGS:

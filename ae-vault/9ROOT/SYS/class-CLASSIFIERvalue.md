@@ -1,16 +1,16 @@
 ---
 DESCRIPTORS:
   descriptor-INVARIANT$bool: true
-  descriptor_map-REQUESTID$str:
+  descriptor_map-REQUESTS^requestid$str:
     requestid-ENTITYreport:
     - ENTITY_REPORToperationid
     requestid-INSTANTIATE:
     - INSTANTIATEoperationid
-  descriptors_map-INSTANCEclassifiers:
+  descriptors_map-INSTANCE^classifier:
     classifier-ENTITYtype: classifierVALUE-CLASSIFIERvalue
-  descriptors_map-INSTANCEdescriptors:
+  descriptors_map-INSTANCE^descriptor:
     descriptor-INVARIANT$bool: true
-    descriptor_map-REQUESTID$str:
+    descriptor_map-REQUESTS^requestid$str:
       requestid-ENTITYreport:
       - ENTITY_REPORToperationid
 TAGS:
