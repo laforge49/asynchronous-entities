@@ -2,23 +2,23 @@
 DESCRIPTORS:
   SYS+descriptor-SCRIPT$yaml:
   - param-TARGETrequestid: SYS+requestid-INSTANTIATE
-    target_name: class-SIMPLE
+    param-TARGETname: class-SIMPLE
     name: simple-GAMMA
   - param-TARGETrequestid: SYS+requestid-ADDdescriptors
-    target_name: simple-ALPHA
+    param-TARGETname: simple-ALPHA
     descriptors:
       descriptor-DEGREEofPOLISH$str: MIDDLING
   - param-TARGETrequestid: SYS+requestid-ADDdescriptors
-    target_name: simple-GAMMA
+    param-TARGETname: simple-GAMMA
     descriptors:
       descriptor-DEGREEofPOLISH$str: MIDDLING
   - param-TARGETrequestid: SYS+requestid-ADDrelations
-    target_name: simple-GAMMA
+    param-TARGETname: simple-GAMMA
     relations:
       relation-BASIC:
       - simple-ALPHA
   - param-TARGETrequestid: SYS+requestid-ADDrelations
-    target_name: simple-BETA
+    param-TARGETname: simple-BETA
     relations:
       relation-BASIC:
       - simple-ALPHA

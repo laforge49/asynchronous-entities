@@ -1,5 +1,5 @@
 - param-TARGETrequestid: SYS+requestid-INSTANTIATE
-  target_name: SYS+class-CLASS
+  param-TARGETname: SYS+class-CLASS
   name: class-SIMPLE
   descriptors:
     SYS+descriptors_map-INSTANCE^descriptor:
@@ -13,26 +13,26 @@
     SYS+descriptors_map-INSTANCE^classifier:
       SYS+classifier-ENTITYtype: classifierVALUE-SIMPLE
 - param-TARGETrequestid: SYS+requestid-INSTANTIATE
-  target_name: SYS+class-CLASSIFIERvalue
+  param-TARGETname: SYS+class-CLASSIFIERvalue
   name: classifierVALUE-SIMPLE
 - param-TARGETrequestid: SYS+requestid-INSTANTIATE
-  target_name: class-SIMPLE
+  param-TARGETname: class-SIMPLE
   name: simple-ALPHA
   content$ml:
     "this is a test
     same line
     \ndifferent line"
 - param-TARGETrequestid: SYS+requestid-INSTANTIATE
-  target_name: class-SIMPLE
+  param-TARGETname: class-SIMPLE
   name: simple-BETA
 - param-TARGETrequestid: SYS+requestid-INSTANTIATE
-  target_name: SYS+class-RELATION
+  param-TARGETname: SYS+class-RELATION
   name: relation-BASIC
 - param-TARGETrequestid: SYS+requestid-INSTANTIATE
-  target_name: SYS+class-DESCRIPTOR
+  param-TARGETname: SYS+class-DESCRIPTOR
   name: descriptor-DEGREEofPOLISH$str
 - param-TARGETrequestid: SYS+requestid-INSTANTIATE
-  target_name: SYS+class-FEDERATOR
+  param-TARGETname: SYS+class-FEDERATOR
   name: federator-A
   descriptors:
     SYS+descriptor_vec-FEDERATIONnames:
@@ -40,25 +40,25 @@
       - simple-BETA
     SYS+descriptor-SCRIPT$yaml:
       - param-TARGETrequestid: SYS+requestid-INSTANTIATE
-        target_name: class-SIMPLE
+        param-TARGETname: class-SIMPLE
         name: simple-GAMMA
       - param-TARGETrequestid: SYS+requestid-ADDdescriptors
-        target_name: simple-ALPHA
+        param-TARGETname: simple-ALPHA
         descriptors:
           descriptor-DEGREEofPOLISH$str: MIDDLING
       - param-TARGETrequestid: SYS+requestid-ADDdescriptors
-        target_name: simple-GAMMA
+        param-TARGETname: simple-GAMMA
         descriptors:
           descriptor-DEGREEofPOLISH$str: MIDDLING
       - param-TARGETrequestid: SYS+requestid-ADDrelations
-        target_name: simple-GAMMA
+        param-TARGETname: simple-GAMMA
         relations:
           relation-BASIC:
             - simple-ALPHA
       - param-TARGETrequestid: SYS+requestid-ADDrelations
-        target_name: simple-BETA
+        param-TARGETname: simple-BETA
         relations:
           relation-BASIC:
             - simple-ALPHA
 - param-TARGETrequestid: SYS+requestid-RUNfederation
-  target_name: federator-A
+  param-TARGETname: federator-A

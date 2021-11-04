@@ -224,7 +224,7 @@
   [env this-map params]
   (save-entity-map this-map)
   (let [target-name
-        (get params "target_name")
+        (get params "param-TARGETname")
         target-map
         (get-federated-map target-name env)
         target-map
@@ -459,7 +459,7 @@
             (let [params
                   {"requestid"        "SYS+requestid-ROUTE"
                    "param-TARGETrequestid" "SYS+requestidTYPEof"
-                   "target_name"      type-entity}]
+                   "param-TARGETname"      type-entity}]
               (routeFunction env context-map params)))]
       (cond
         (string? edn)

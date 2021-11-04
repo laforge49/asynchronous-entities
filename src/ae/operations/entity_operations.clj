@@ -27,7 +27,7 @@
         initialization-port
         (a/chan)
         params
-        (into params {"target_name"         name
+        (into params {"param-TARGETname"         name
                       "initialization-port" initialization-port
                       "descriptors"         instantiation-descriptors
                       "classifiers"         instantiation-classifiers})
@@ -61,7 +61,7 @@
         instantiation-classifiers
         (into instantiation-classifiers (get params "classifiers"))]
     (into params {"param-TARGETrequestid" "SYS+requestid-REGISTERentity"
-                  "target_name"      target-name
+                  "param-TARGETname"      target-name
                   "descriptors"      instantiation-descriptors
                   "classifiers"      instantiation-classifiers})))
 
