@@ -1,7 +1,7 @@
 - param-TARGETrequestid: SYS+requestid-INSTANTIATE
   param-TARGETname: SYS+class-CLASS
   param-NAME: class-SIMPLE
-  descriptors:
+  param_map-DESCRIPTORS^descriptor:
     SYS+descriptors_map-INSTANCE^descriptor:
       SYS+descriptor_map-REQUESTS^requestid$str:
         SYS+requestid-ADDdescriptors:
@@ -34,7 +34,7 @@
 - param-TARGETrequestid: SYS+requestid-INSTANTIATE
   param-TARGETname: SYS+class-FEDERATOR
   param-NAME: federator-A
-  descriptors:
+  param_map-DESCRIPTORS^descriptor:
     SYS+descriptor_vec-FEDERATIONnames:
       - simple-ALPHA
       - simple-BETA
@@ -44,11 +44,11 @@
         param-NAME: simple-GAMMA
       - param-TARGETrequestid: SYS+requestid-ADDdescriptors
         param-TARGETname: simple-ALPHA
-        descriptors:
+        param_map-DESCRIPTORS^descriptor:
           descriptor-DEGREEofPOLISH$str: MIDDLING
       - param-TARGETrequestid: SYS+requestid-ADDdescriptors
         param-TARGETname: simple-GAMMA
-        descriptors:
+        param_map-DESCRIPTORS^descriptor:
           descriptor-DEGREEofPOLISH$str: MIDDLING
       - param-TARGETrequestid: SYS+requestid-ADDrelations
         param-TARGETname: simple-GAMMA

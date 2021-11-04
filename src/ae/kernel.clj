@@ -410,7 +410,7 @@
         request-port-stack
         [new-public-request-port]
         descriptors
-        (get params "descriptors" {})
+        (get params "param_map-DESCRIPTORS^descriptor" {})
         classifiers
         (get params "classifiers" {})
         content

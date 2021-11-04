@@ -17,7 +17,7 @@
         instantiation-descriptors
         (get this-descriptors "SYS+descriptors_map-INSTANCE^descriptor")
         instantiation-descriptors
-        (into instantiation-descriptors (get params "descriptors"))
+        (into instantiation-descriptors (get params "param_map-DESCRIPTORS^descriptor"))
         instantiation-classifiers
         (get this-descriptors "SYS+descriptors_map-INSTANCE^classifier")
         instantiation-classifiers
@@ -29,7 +29,7 @@
         params
         (into params {"param-TARGETname"         name
                       "initialization-port" initialization-port
-                      "descriptors"         instantiation-descriptors
+                      "param_map-DESCRIPTORS^descriptor"         instantiation-descriptors
                       "classifiers"         instantiation-classifiers})
         [new-entity-public-request-port snap]
         (k/create-entity env params)
@@ -53,7 +53,7 @@
         instantiation-descriptors
         (get this-descriptors "SYS+descriptors_map-INSTANCE^descriptor")
         instantiation-descriptors
-        (into instantiation-descriptors (get params "descriptors"))
+        (into instantiation-descriptors (get params "param_map-DESCRIPTORS^descriptor"))
         instantiation-classifiers
         (get this-descriptors "SYS+descriptors_map-INSTANCE^classifier")
         instantiation-classifiers
@@ -62,7 +62,7 @@
         (into instantiation-classifiers (get params "classifiers"))]
     (into params {"param-TARGETrequestid" "SYS+requestid-REGISTERentity"
                   "param-TARGETname"      target-name
-                  "descriptors"      instantiation-descriptors
+                  "param_map-DESCRIPTORS^descriptor"      instantiation-descriptors
                   "classifiers"      instantiation-classifiers})))
 
 (defn instantiate-goblock
@@ -85,7 +85,7 @@
 (defn addDescriptorsFunction
   [env this-map params]
   (let [descriptors-map
-        (get params "descriptors")
+        (get params "param_map-DESCRIPTORS^descriptor")
         this-map
         (reduce
           (fn [this-map [descriptor descriptor-value]]

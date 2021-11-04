@@ -6,11 +6,11 @@ DESCRIPTORS:
     param-NAME: simple-GAMMA
   - param-TARGETrequestid: SYS+requestid-ADDdescriptors
     param-TARGETname: simple-ALPHA
-    descriptors:
+    param_map-DESCRIPTORS^descriptor:
       descriptor-DEGREEofPOLISH$str: MIDDLING
   - param-TARGETrequestid: SYS+requestid-ADDdescriptors
     param-TARGETname: simple-GAMMA
-    descriptors:
+    param_map-DESCRIPTORS^descriptor:
       descriptor-DEGREEofPOLISH$str: MIDDLING
   - param-TARGETrequestid: SYS+requestid-ADDrelations
     param-TARGETname: simple-GAMMA

@@ -1,7 +1,7 @@
 - param-TARGETrequestid: requestid-REGISTERentity
   param-TARGETname: ROOT+context-SYS
   param-NAME: class-CLASS
-  descriptors:
+  param_map-DESCRIPTORS^descriptor:
     descriptor-INVARIANT$bool: true
     descriptor_map-REQUESTS^requestid$str:
       requestid-INSTANTIATE:
@@ -22,7 +22,7 @@
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASS
   param-NAME: class-REQUESTID
-  descriptors:
+  param_map-DESCRIPTORS^descriptor:
     descriptors_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTS^requestid$str:
@@ -39,7 +39,7 @@
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-REQUESTID
   param-NAME: requestid-INSTANTIATE
-  descriptors:
+  param_map-DESCRIPTORS^descriptor:
     descriptor-READonly$bool: true
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-REQUESTID
@@ -53,7 +53,7 @@
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASS
   param-NAME: class-DESCRIPTOR
-  descriptors:
+  param_map-DESCRIPTORS^descriptor:
     descriptors_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTS^requestid$str:
@@ -79,7 +79,7 @@
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASS
   param-NAME: class-CLASSIFIER
-  descriptors:
+  param_map-DESCRIPTORS^descriptor:
     descriptors_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTS^requestid$str:
@@ -90,7 +90,7 @@
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASS
   param-NAME: class-RELATION
-  descriptors:
+  param_map-DESCRIPTORS^descriptor:
     descriptors_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTS^requestid$str:
@@ -104,7 +104,7 @@
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASS
   param-NAME: class-CLASSIFIERvalue
-  descriptors:
+  param_map-DESCRIPTORS^descriptor:
     descriptors_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTS^requestid$str:
@@ -139,7 +139,7 @@
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASS
   param-NAME: class-CONTEXT
-  descriptors:
+  param_map-DESCRIPTORS^descriptor:
     descriptors_map-INSTANCE^descriptor:
       descriptor_map-REQUESTS^requestid$str:
         requestid-REGISTERentity:
@@ -155,7 +155,7 @@
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASS
   param-NAME: class-FEDERATOR
-  descriptors:
+  param_map-DESCRIPTORS^descriptor:
     descriptors_map-INSTANCE^descriptor:
       descriptor_map-REQUESTS^requestid$str:
         requestid-RUNfederation:
@@ -167,7 +167,7 @@
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASS
   param-NAME: class-DATAtype
-  descriptors:
+  param_map-DESCRIPTORS^descriptor:
     descriptors_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_map-REQUESTS^requestid$str:
