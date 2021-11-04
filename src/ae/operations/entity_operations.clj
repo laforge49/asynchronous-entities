@@ -9,7 +9,7 @@
 (defn instantiateFunction
   [env this-map params]
   (let [name
-        (get params "name")
+        (get params "param-NAME")
         this-name
         (get this-map "NAME")
         this-descriptors
@@ -43,7 +43,7 @@
 (defn instantiateOperation
   [env this-map params]
   (let [context-name
-        (get params "name")
+        (get params "param-NAME")
         target-name
         (k/entityContextName context-name)
         this-name

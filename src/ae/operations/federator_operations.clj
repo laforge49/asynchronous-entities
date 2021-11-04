@@ -39,7 +39,7 @@
                                                        "param-TARGETrequestid"           "SYS+requestid-REGISTERentity"
                                                        "entity-public-request-port" entity-public-request-port
                                                        "param-TARGETname"                context-name
-                                                       "name"                       (get snap "NAME")
+                                                       "param-NAME"                       (get snap "NAME")
                                                        "classifiers"                (get snap "CLASSIFIERS")
                                                        "return_port"                subrequest-return-port}])
                     _ (k/request-exception-check (a/<! subrequest-return-port))

@@ -11,7 +11,7 @@
   (let [this-name
         (get this-map "NAME")
         name
-        (get params "name")
+        (get params "param-NAME")
         _ (if (some? (get params "initialization-port"))
             (throw (Exception. (str "An initialization port is not compatible with non-federated registration of entity "
                                     name))))

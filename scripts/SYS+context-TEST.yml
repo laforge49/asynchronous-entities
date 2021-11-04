@@ -1,6 +1,6 @@
 - param-TARGETrequestid: SYS+requestid-INSTANTIATE
   param-TARGETname: SYS+class-CLASS
-  name: class-SIMPLE
+  param-NAME: class-SIMPLE
   descriptors:
     SYS+descriptors_map-INSTANCE^descriptor:
       SYS+descriptor_map-REQUESTS^requestid$str:
@@ -14,26 +14,26 @@
       SYS+classifier-ENTITYtype: classifierVALUE-SIMPLE
 - param-TARGETrequestid: SYS+requestid-INSTANTIATE
   param-TARGETname: SYS+class-CLASSIFIERvalue
-  name: classifierVALUE-SIMPLE
+  param-NAME: classifierVALUE-SIMPLE
 - param-TARGETrequestid: SYS+requestid-INSTANTIATE
   param-TARGETname: class-SIMPLE
-  name: simple-ALPHA
+  param-NAME: simple-ALPHA
   content$ml:
     "this is a test
     same line
     \ndifferent line"
 - param-TARGETrequestid: SYS+requestid-INSTANTIATE
   param-TARGETname: class-SIMPLE
-  name: simple-BETA
+  param-NAME: simple-BETA
 - param-TARGETrequestid: SYS+requestid-INSTANTIATE
   param-TARGETname: SYS+class-RELATION
-  name: relation-BASIC
+  param-NAME: relation-BASIC
 - param-TARGETrequestid: SYS+requestid-INSTANTIATE
   param-TARGETname: SYS+class-DESCRIPTOR
-  name: descriptor-DEGREEofPOLISH$str
+  param-NAME: descriptor-DEGREEofPOLISH$str
 - param-TARGETrequestid: SYS+requestid-INSTANTIATE
   param-TARGETname: SYS+class-FEDERATOR
-  name: federator-A
+  param-NAME: federator-A
   descriptors:
     SYS+descriptor_vec-FEDERATIONnames:
       - simple-ALPHA
@@ -41,7 +41,7 @@
     SYS+descriptor-SCRIPT$yaml:
       - param-TARGETrequestid: SYS+requestid-INSTANTIATE
         param-TARGETname: class-SIMPLE
-        name: simple-GAMMA
+        param-NAME: simple-GAMMA
       - param-TARGETrequestid: SYS+requestid-ADDdescriptors
         param-TARGETname: simple-ALPHA
         descriptors:

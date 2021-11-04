@@ -3,7 +3,7 @@ DESCRIPTORS:
   SYS+descriptor-SCRIPT$yaml:
   - param-TARGETrequestid: SYS+requestid-INSTANTIATE
     param-TARGETname: class-SIMPLE
-    name: simple-GAMMA
+    param-NAME: simple-GAMMA
   - param-TARGETrequestid: SYS+requestid-ADDdescriptors
     param-TARGETname: simple-ALPHA
     descriptors:

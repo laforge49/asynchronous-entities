@@ -1,6 +1,6 @@
 - param-TARGETrequestid: requestid-REGISTERentity
   param-TARGETname: ROOT+context-SYS
-  name: class-CLASS
+  param-NAME: class-CLASS
   descriptors:
     descriptor-INVARIANT$bool: true
     descriptor_map-REQUESTS^requestid$str:
@@ -21,7 +21,7 @@
     classifier-ENTITYtype: classifierVALUE-CLASS
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASS
-  name: class-REQUESTID
+  param-NAME: class-REQUESTID
   descriptors:
     descriptors_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
@@ -32,27 +32,27 @@
       classifier-ENTITYtype: classifierVALUE-REQUESTID
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-REQUESTID
-  name: requestid-ADDrelations
+  param-NAME: requestid-ADDrelations
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-REQUESTID
-  name: requestid-ADDdescriptors
+  param-NAME: requestid-ADDdescriptors
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-REQUESTID
-  name: requestid-INSTANTIATE
+  param-NAME: requestid-INSTANTIATE
   descriptors:
     descriptor-READonly$bool: true
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-REQUESTID
-  name: requestid-REGISTERentity
+  param-NAME: requestid-REGISTERentity
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-REQUESTID
-  name: requestid-ROUTE
+  param-NAME: requestid-ROUTE
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-REQUESTID
-  name: requestid-RUNfederation
+  param-NAME: requestid-RUNfederation
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASS
-  name: class-DESCRIPTOR
+  param-NAME: class-DESCRIPTOR
   descriptors:
     descriptors_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
@@ -63,22 +63,22 @@
       classifier-ENTITYtype: classifierVALUE-DESCRIPTOR
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-DESCRIPTOR
-  name: descriptor-READonly$bool
+  param-NAME: descriptor-READonly$bool
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-DESCRIPTOR
-  name: descriptor_map-REQUESTS^requestid$str
+  param-NAME: descriptor_map-REQUESTS^requestid$str
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-DESCRIPTOR
-  name: descriptor-INVARIANT$bool
+  param-NAME: descriptor-INVARIANT$bool
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-DESCRIPTOR
-  name: descriptors_map-INSTANCE^descriptor
+  param-NAME: descriptors_map-INSTANCE^descriptor
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-DESCRIPTOR
-  name: descriptors_map-INSTANCE^classifier
+  param-NAME: descriptors_map-INSTANCE^classifier
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASS
-  name: class-CLASSIFIER
+  param-NAME: class-CLASSIFIER
   descriptors:
     descriptors_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
@@ -89,7 +89,7 @@
       classifier-ENTITYtype: classifierVALUE-CLASSIFIER
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASS
-  name: class-RELATION
+  param-NAME: class-RELATION
   descriptors:
     descriptors_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
@@ -100,10 +100,10 @@
       classifier-ENTITYtype: classifierVALUE-CLASSIFIER
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASSIFIER
-  name: classifier-ENTITYtype
+  param-NAME: classifier-ENTITYtype
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASS
-  name: class-CLASSIFIERvalue
+  param-NAME: class-CLASSIFIERvalue
   descriptors:
     descriptors_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
@@ -114,31 +114,31 @@
       classifier-ENTITYtype: classifierVALUE-CLASSIFIERvalue
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASSIFIERvalue
-  name: classifierVALUE-REQUESTID
+  param-NAME: classifierVALUE-REQUESTID
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASSIFIERvalue
-  name: classifierVALUE-CLASSIFIER
+  param-NAME: classifierVALUE-CLASSIFIER
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASSIFIERvalue
-  name: classifierVALUE-DESCRIPTOR
+  param-NAME: classifierVALUE-DESCRIPTOR
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASSIFIERvalue
-  name: classifierVALUE-CLASSIFIERvalue
+  param-NAME: classifierVALUE-CLASSIFIERvalue
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASSIFIERvalue
-  name: classifierVALUE-CONTEXT
+  param-NAME: classifierVALUE-CONTEXT
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASSIFIERvalue
-  name: classifierVALUE-FEDERATOR
+  param-NAME: classifierVALUE-FEDERATOR
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASSIFIERvalue
-  name: classifierVALUE-FEDERATIONcontext
+  param-NAME: classifierVALUE-FEDERATIONcontext
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASSIFIERvalue
-  name: classifierVALUE-CLASS
+  param-NAME: classifierVALUE-CLASS
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASS
-  name: class-CONTEXT
+  param-NAME: class-CONTEXT
   descriptors:
     descriptors_map-INSTANCE^descriptor:
       descriptor_map-REQUESTS^requestid$str:
@@ -154,7 +154,7 @@
       classifier-ENTITYtype: classifierVALUE-CONTEXT
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASS
-  name: class-FEDERATOR
+  param-NAME: class-FEDERATOR
   descriptors:
     descriptors_map-INSTANCE^descriptor:
       descriptor_map-REQUESTS^requestid$str:
@@ -166,7 +166,7 @@
       classifier-ENTITYtype: classifierVALUE-FEDERATOR
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASS
-  name: class-DATAtype
+  param-NAME: class-DATAtype
   descriptors:
     descriptors_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
@@ -179,7 +179,7 @@
       classifier-ENTITYtype: classifierVALUE-DATAtype
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CONTEXT
-  name: context-TEST
+  param-NAME: context-TEST
   content$ml:
     "this is a test
     same line
