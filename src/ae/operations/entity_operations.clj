@@ -76,7 +76,7 @@
               route-params
               (instantiateOperation env this-map params)
               route-params
-              (assoc route-params "param-REQUESTID" "SYS+requestid-ROUTE")]
+              (assoc route-params "SYS+param-REQUESTID" "SYS+requestid-ROUTE")]
           (a/>! operation-return-port [this-map nil :NO-RETURN])
           (a/>! context-request-port [env route-params]))
         (catch Exception e

@@ -179,7 +179,7 @@
 (defn targetOperationids
   [env target-map params]
   (let [requestid
-        (get params "param-REQUESTID")
+        (get params "SYS+param-REQUESTID")
         _ (if (nil? requestid)
             (throw (Exception. (str "Requestid is nil\n"
                                     (prn-str params)
@@ -242,7 +242,7 @@
         requestid
         (get params "param-TARGETrequestid")
         params
-        (assoc params "param-REQUESTID" requestid)
+        (assoc params "SYS+param-REQUESTID" requestid)
         operationids
         (targetOperationids env target-map params)
         [target-map rv]
@@ -301,7 +301,7 @@
               [env params]
               request
               return-port
-              (get params "param-RETURN$chan")
+              (get params "SYS+param-RETURN$chan")
               _ (if (nil? return-port)
                   (throw (Exception. (str "Return port is nil\n"
                                           (prn-str params)
@@ -310,7 +310,7 @@
             (let [env
                   (assoc env "active-request-port" this-request-port)
                   requestid
-                  (get params "param-REQUESTID")
+                  (get params "SYS+param-REQUESTID")
                   _ (if (nil? requestid)
                       (throw (Exception. (str "Requestid port is nil\n"
                                               (prn-str params)
@@ -457,7 +457,7 @@
           (if (nil? type-entity)
             [nil [nil nil nil]]
             (let [params
-                  {"param-REQUESTID"        "SYS+requestid-ROUTE"
+                  {"SYS+param-REQUESTID"        "SYS+requestid-ROUTE"
                    "param-TARGETrequestid" "SYS+requestidTYPEof"
                    "param-TARGETname"      type-entity}]
               (routeFunction env context-map params)))]
@@ -705,9 +705,9 @@
               (get env "CONTEXT-REQUEST-PORT")]
           (doseq [request-params edn-script]
             (let [request-params
-                  (assoc request-params "param-REQUESTID" "SYS+requestid-ROUTE")
+                  (assoc request-params "SYS+param-REQUESTID" "SYS+requestid-ROUTE")
                   request-params
-                  (assoc request-params "param-RETURN$chan" return-port0)]
+                  (assoc request-params "SYS+param-RETURN$chan" return-port0)]
               (a/>! context-request-port [env request-params])
               (request-exception-check (a/<! return-port0))))
           ;(validate-edn script-path context-map "SYS+list-SCRIPT" edn-script env)

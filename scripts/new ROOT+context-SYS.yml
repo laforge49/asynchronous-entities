@@ -1,0 +1,21 @@
+- param-TARGETrequestid: requestid-REGISTERentity
+  param-TARGETname: ROOT+context-SYS
+  param-NAME: class-CLASS
+  param_map-DESCRIPTORS^descriptor:
+    descriptor-INVARIANT$bool: true
+    descriptor_map-REQUESTS^requestid$str:
+      requestid-INSTANTIATE:
+        - INSTANTIATEoperationid
+      requestid-ENTITYreport:
+        - ENTITY_REPORToperationid
+    descriptors_map-INSTANCE^descriptor:
+      descriptor-INVARIANT$bool: true
+      descriptor_map-REQUESTS^requestid$str:
+        requestid-INSTANTIATE:
+          - INSTANTIATEoperationid
+        requestid-ENTITYreport:
+          - ENTITY_REPORToperationid
+    descriptors_map-INSTANCE^classifier:
+      classifier-ENTITYtype: classifierVALUE-CLASS
+  param_map-CLASSIFIERS^classifier:
+    classifier-ENTITYtype: classifierVALUE-CLASS
