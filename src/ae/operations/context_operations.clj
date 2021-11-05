@@ -30,7 +30,7 @@
             this-map
             (assoc-in this-map ["ENTITY-PUBLIC-REQUEST-PORTS" new-entity-kw] entity-public-request-port)
             classifiers
-            (get params "classifiers")]
+            (get params "param_map-CLASSIFIERS^classifier")]
         (if (some? classifiers)
           (doseq [[classifier-kw classifier-value-kw] classifiers]
             (k/add-classifier-value this-name name classifier-kw classifier-value-kw)))

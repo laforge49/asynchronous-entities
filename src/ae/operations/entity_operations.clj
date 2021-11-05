@@ -23,14 +23,14 @@
         instantiation-classifiers
         (assoc instantiation-classifiers "SYS+classifier-CLASS" this-name)
         instantiation-classifiers
-        (into instantiation-classifiers (get params "classifiers"))
+        (into instantiation-classifiers (get params "param_map-CLASSIFIERS^classifier"))
         initialization-port
         (a/chan)
         params
         (into params {"param-TARGETname"         name
                       "initialization-port" initialization-port
                       "param_map-DESCRIPTORS^descriptor"         instantiation-descriptors
-                      "classifiers"         instantiation-classifiers})
+                      "param_map-CLASSIFIERS^classifier"         instantiation-classifiers})
         [new-entity-public-request-port snap]
         (k/create-entity env params)
         new-children-volatile
@@ -59,11 +59,11 @@
         instantiation-classifiers
         (assoc instantiation-classifiers "SYS+classifier-CLASS" this-name)
         instantiation-classifiers
-        (into instantiation-classifiers (get params "classifiers"))]
+        (into instantiation-classifiers (get params "param_map-CLASSIFIERS^classifier"))]
     (into params {"param-TARGETrequestid" "SYS+requestid-REGISTERentity"
                   "param-TARGETname"      target-name
                   "param_map-DESCRIPTORS^descriptor"      instantiation-descriptors
-                  "classifiers"      instantiation-classifiers})))
+                  "param_map-CLASSIFIERS^classifier"      instantiation-classifiers})))
 
 (defn instantiate-goblock
   [env this-map params]

@@ -17,7 +17,7 @@
           - ENTITY_REPORToperationid
     descriptors_map-INSTANCE^classifier:
       classifier-ENTITYtype: classifierVALUE-CLASS
-  classifiers:
+  param_map-CLASSIFIERS^classifier:
     classifier-ENTITYtype: classifierVALUE-CLASS
 - param-TARGETrequestid: requestid-INSTANTIATE
   param-TARGETname: class-CLASS
@@ -184,7 +184,7 @@
     "this is a test
     same line
     \ndifferent line"
-  classifiers:
+  param_map-CLASSIFIERS^classifier:
     classifier-RESOURCES:
       - ROOT+context-SYS
 - param-TARGETrequestid: requestid-LOADscript

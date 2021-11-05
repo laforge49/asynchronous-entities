@@ -412,7 +412,7 @@
         descriptors
         (get params "param_map-DESCRIPTORS^descriptor" {})
         classifiers
-        (get params "classifiers" {})
+        (get params "param_map-CLASSIFIERS^classifier" {})
         content
         (get params "param-content$ml" "")
         invariant
