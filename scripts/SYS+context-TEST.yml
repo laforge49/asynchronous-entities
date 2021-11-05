@@ -18,7 +18,7 @@
 - param-TARGETrequestid: SYS+requestid-INSTANTIATE
   param-TARGETname: class-SIMPLE
   param-NAME: simple-ALPHA
-  content$ml:
+  param-content$ml:
     "this is a test
     same line
     \ndifferent line"

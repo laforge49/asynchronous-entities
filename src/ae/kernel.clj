@@ -414,7 +414,7 @@
         classifiers
         (get params "classifiers" {})
         content
-        (get params "content$ml" "")
+        (get params "param-content$ml" "")
         invariant
         (get descriptors "SYS+descriptor-INVARIANT$bool")
         initialization-port
