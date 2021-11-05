@@ -89,7 +89,7 @@
                   (get params "param-TARGETrequestid")]
               (a/>! operation-return-port [this-map nil :NO-RETURN])
               (a/>! active-request-port [env
-                                         (assoc params "param-requestid" target-requestid)]))
+                                         (assoc params "param-REQUESTID" target-requestid)]))
             (if (= local-context target-context-base-name)
               (let [entity-public-request-ports
                     (get this-map "ENTITY-PUBLIC-REQUEST-PORTS")
@@ -104,7 +104,7 @@
                                              nil
                                              :NO-RETURN])
                 (a/>! target-entity-request-port [env
-                                                  (assoc params "param-requestid" target-requestid)]))
+                                                  (assoc params "param-REQUESTID" target-requestid)]))
               (let [target-context-entity-kw
                     (keyword "SYS" (str "context-" target-context-base-name))
                     entity-public-request-ports
@@ -117,7 +117,7 @@
                                              nil
                                              :NO-RETURN])
                 (a/>! target-entity-request-port [env
-                                                  (assoc params "param-requestid" "SYS+requestid-ROUTE")])))))
+                                                  (assoc params "param-REQUESTID" "SYS+requestid-ROUTE")])))))
         (catch Exception e
           (a/>! operation-return-port [this-map e nil]))))))
 
@@ -154,8 +154,8 @@
           (doseq [[entity-kw entity-port] entity-ports]
             (let [subrequest-return-port
                   (a/chan)]
-              (a/>! entity-port [env {"param-requestid"   "SYS+requestid-ENTITYreport"
-                                      "return_port" subrequest-return-port}])
+              (a/>! entity-port [env {"param-REQUESTID"   "SYS+requestid-ENTITYreport"
+                                      "param-RETURN$chan" subrequest-return-port}])
               (k/request-exception-check (a/<! subrequest-return-port))
               )
             )
@@ -169,7 +169,7 @@
     (let [operation-return-port
           (get params "operation-return-port")
           return-port
-          (get params "return_port")]
+          (get params "param-RETURN$chan")]
       (a/>! operation-return-port [this-map nil :NO-RETURN])
       (try
         (let [this-name
