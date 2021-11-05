@@ -179,7 +179,7 @@
 (defn targetOperationids
   [env target-map params]
   (let [requestid
-        (get params "requestid")
+        (get params "param-requestid")
         _ (if (nil? requestid)
             (throw (Exception. (str "Requestid is nil\n"
                                     (prn-str params)
@@ -242,7 +242,7 @@
         requestid
         (get params "param-TARGETrequestid")
         params
-        (assoc params "requestid" requestid)
+        (assoc params "param-requestid" requestid)
         operationids
         (targetOperationids env target-map params)
         [target-map rv]
@@ -310,7 +310,7 @@
             (let [env
                   (assoc env "active-request-port" this-request-port)
                   requestid
-                  (get params "requestid")
+                  (get params "param-requestid")
                   _ (if (nil? requestid)
                       (throw (Exception. (str "Requestid port is nil\n"
                                               (prn-str params)
@@ -457,7 +457,7 @@
           (if (nil? type-entity)
             [nil [nil nil nil]]
             (let [params
-                  {"requestid"        "SYS+requestid-ROUTE"
+                  {"param-requestid"        "SYS+requestid-ROUTE"
                    "param-TARGETrequestid" "SYS+requestidTYPEof"
                    "param-TARGETname"      type-entity}]
               (routeFunction env context-map params)))]
@@ -705,7 +705,7 @@
               (get env "CONTEXT-REQUEST-PORT")]
           (doseq [request-params edn-script]
             (let [request-params
-                  (assoc request-params "requestid" "SYS+requestid-ROUTE")
+                  (assoc request-params "param-requestid" "SYS+requestid-ROUTE")
                   request-params
                   (assoc request-params "return_port" return-port0)]
               (a/>! context-request-port [env request-params])
