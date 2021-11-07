@@ -70,3 +70,63 @@
             - ENTITY_REPORToperationid
       descriptors_map-INSTANCE^classifier:
         classifier-ENTITYtype: classifierVALUE-DESCRIPTOR
+- request_map-REQUEST^param:
+    param-TARGETrequestid: requestid-INSTANTIATE
+    param-TARGETname: class-DESCRIPTOR
+    param-NAME: descriptor-READonly$bool
+- request_map-REQUEST^param:
+    param-TARGETrequestid: requestid-INSTANTIATE
+    param-TARGETname: class-DESCRIPTOR
+    param-NAME: descriptor_map-REQUESTS^requestid$str
+- request_map-REQUEST^param:
+    param-TARGETrequestid: requestid-INSTANTIATE
+    param-TARGETname: class-DESCRIPTOR
+    param-NAME: descriptor-INVARIANT$bool
+- request_map-REQUEST^param:
+    param-TARGETrequestid: requestid-INSTANTIATE
+    param-TARGETname: class-DESCRIPTOR
+    param-NAME: descriptors_map-INSTANCE^descriptor
+- request_map-REQUEST^param:
+    param-TARGETrequestid: requestid-INSTANTIATE
+    param-TARGETname: class-DESCRIPTOR
+    param-NAME: descriptors_map-INSTANCE^classifier
+- request_map-REQUEST^param:
+    param-TARGETrequestid: requestid-INSTANTIATE
+    param-TARGETname: class-CLASS
+    param-NAME: class-CLASSIFIER
+    param_map-DESCRIPTORS^descriptor:
+      descriptors_map-INSTANCE^descriptor:
+        descriptor-INVARIANT$bool: true
+        descriptor_map-REQUESTS^requestid$str:
+          requestid-ENTITYreport:
+            - ENTITY_REPORToperationid
+      descriptors_map-INSTANCE^classifier:
+        classifier-ENTITYtype: classifierVALUE-CLASSIFIER
+- request_map-REQUEST^param:
+    param-TARGETrequestid: requestid-INSTANTIATE
+    param-TARGETname: class-CLASS
+    param-NAME: class-RELATION
+    param_map-DESCRIPTORS^descriptor:
+      descriptors_map-INSTANCE^descriptor:
+        descriptor-INVARIANT$bool: true
+        descriptor_map-REQUESTS^requestid$str:
+          requestid-ENTITYreport:
+            - ENTITY_REPORToperationid
+      descriptors_map-INSTANCE^classifier:
+        classifier-ENTITYtype: classifierVALUE-CLASSIFIER
+- request_map-REQUEST^param:
+    param-TARGETrequestid: requestid-INSTANTIATE
+    param-TARGETname: class-CLASSIFIER
+    param-NAME: classifier-ENTITYtype
+- request_map-REQUEST^param:
+    param-TARGETrequestid: requestid-INSTANTIATE
+    param-TARGETname: class-CLASS
+    param-NAME: class-CLASSIFIERvalue
+    param_map-DESCRIPTORS^descriptor:
+      descriptors_map-INSTANCE^descriptor:
+        descriptor-INVARIANT$bool: true
+        descriptor_map-REQUESTS^requestid$str:
+          requestid-ENTITYreport:
+            - ENTITY_REPORToperationid
+      descriptors_map-INSTANCE^classifier:
+        classifier-ENTITYtype: classifierVALUE-CLASSIFIERvalue
