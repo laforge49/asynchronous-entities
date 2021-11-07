@@ -32,3 +32,41 @@
             - ENTITY_REPORToperationid
       descriptors_map-INSTANCE^classifier:
         classifier-ENTITYtype: classifierVALUE-REQUESTID
+- request_map-REQUEST^param:
+    param-TARGETrequestid: requestid-INSTANTIATE
+    param-TARGETname: class-REQUESTID
+    param-NAME: requestid-ADDrelations
+- request_map-REQUEST^param:
+    param-TARGETrequestid: requestid-INSTANTIATE
+    param-TARGETname: class-REQUESTID
+    param-NAME: requestid-ADDdescriptors
+- request_map-REQUEST^param:
+    param-TARGETrequestid: requestid-INSTANTIATE
+    param-TARGETname: class-REQUESTID
+    param-NAME: requestid-INSTANTIATE
+    param_map-DESCRIPTORS^descriptor:
+      descriptor-READonly$bool: true
+- request_map-REQUEST^param:
+    param-TARGETrequestid: requestid-INSTANTIATE
+    param-TARGETname: class-REQUESTID
+    param-NAME: requestid-REGISTERentity
+- request_map-REQUEST^param:
+    param-TARGETrequestid: requestid-INSTANTIATE
+    param-TARGETname: class-REQUESTID
+    param-NAME: requestid-ROUTE
+- request_map-REQUEST^param:
+    param-TARGETrequestid: requestid-INSTANTIATE
+    param-TARGETname: class-REQUESTID
+    param-NAME: requestid-RUNfederation
+- request_map-REQUEST^param:
+    param-TARGETrequestid: requestid-INSTANTIATE
+    param-TARGETname: class-CLASS
+    param-NAME: class-DESCRIPTOR
+    param_map-DESCRIPTORS^descriptor:
+      descriptors_map-INSTANCE^descriptor:
+        descriptor-INVARIANT$bool: true
+        descriptor_map-REQUESTS^requestid$str:
+          requestid-ENTITYreport:
+            - ENTITY_REPORToperationid
+      descriptors_map-INSTANCE^classifier:
+        classifier-ENTITYtype: classifierVALUE-DESCRIPTOR
