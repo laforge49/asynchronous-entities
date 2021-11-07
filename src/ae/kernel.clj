@@ -224,7 +224,7 @@
   [env this-map params]
   (save-entity-map this-map)
   (let [target-name
-        (get params "param-TARGETname")
+        (get params "SYS+param-TARGETname")
         target-map
         (get-federated-map target-name env)
         target-map
@@ -459,7 +459,7 @@
             (let [params
                   {"SYS+param-REQUESTID"        "SYS+requestid-ROUTE"
                    "param-TARGETrequestid" "SYS+requestidTYPEof"
-                   "param-TARGETname"      type-entity}]
+                   "SYS+param-TARGETname"      type-entity}]
               (routeFunction env context-map params)))]
       (cond
         (string? edn)
@@ -678,6 +678,44 @@
     (bind-context- base-name resources-set edn values-as-data env)))
 
 (defn async-script
+  [script-path yaml-script context-map env]
+  (let [full-local-context
+        (get context-map "NAME")
+        out
+        (a/chan)]
+    (a/go
+      (try
+        (let [edn-script
+              (yaml/parse-raw yaml-script)
+              edn-script
+              (reduce
+                (fn [edn-script request]
+                  (conj edn-script
+                        (bind-context full-local-context request false env)))
+                []
+                edn-script)
+              return-port0
+              (a/chan)
+              context-request-port
+              (get env "CONTEXT-REQUEST-PORT")]
+          (doseq [request-map edn-script]
+            (let [request-params
+                  (val (first request-map))
+                  request-params
+                  (assoc request-params "SYS+param-REQUESTID" "SYS+requestid-ROUTE")
+                  request-params
+                  (assoc request-params "SYS+param-RETURN$chan" return-port0)]
+              (println :request-params request-params)
+              (a/>! context-request-port [env request-params])
+              (request-exception-check (a/<! return-port0))))
+          ;(validate-edn script-path context-map "SYS+list-SCRIPT" edn-script env)
+          )
+        (a/>! out [nil])
+        (catch Exception e
+          (a/>! out [e]))))
+    out))
+
+#_ (defn async-script
   [script-path yaml-script context-map env]
   (let [full-local-context
         (get context-map "NAME")
