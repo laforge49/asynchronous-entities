@@ -300,9 +300,6 @@
                                           (prn-str this-map)))))
               [env params]
               request
-              _ (println :dispatcher :params (prn-str params))
-              _ (println :dispatcher :this-map (prn-str this-map))
-              _ (println)
               return-port
               (get params "SYS+param-RETURN$chan")
               _ (if (nil? return-port)
@@ -708,7 +705,6 @@
                   (assoc request-params "SYS+param-REQUESTID" "SYS+requestid-ROUTE")
                   request-params
                   (assoc request-params "SYS+param-RETURN$chan" return-port0)]
-              (println :script-request :request-params (prn-str request-params))
               (a/>! context-request-port [env request-params])
               (request-exception-check (a/<! return-port0))))
           ;(validate-edn script-path context-map "SYS+list-SCRIPT" edn-script env)
