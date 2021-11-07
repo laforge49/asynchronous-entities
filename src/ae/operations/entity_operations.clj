@@ -9,7 +9,7 @@
 (defn instantiateFunction
   [env this-map params]
   (let [name
-        (get params "param-NAME")
+        (get params "SYS+param-NAME")
         this-name
         (get this-map "NAME")
         this-descriptors
@@ -43,7 +43,7 @@
 (defn instantiateOperation
   [env this-map params]
   (let [context-name
-        (get params "param-NAME")
+        (get params "SYS+param-NAME")
         target-name
         (k/entityContextName context-name)
         this-name
@@ -60,7 +60,7 @@
         (assoc instantiation-classifiers "SYS+classifier-CLASS" this-name)
         instantiation-classifiers
         (into instantiation-classifiers (get params "param_map-CLASSIFIERS^classifier"))]
-    (into params {"param-TARGETrequestid" "SYS+requestid-REGISTERentity"
+    (into params {"SYS+param-TARGETrequestid" "SYS+requestid-REGISTERentity"
                   "SYS+param-TARGETname"      target-name
                   "param_map-DESCRIPTORS^descriptor"      instantiation-descriptors
                   "param_map-CLASSIFIERS^classifier"      instantiation-classifiers})))

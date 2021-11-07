@@ -240,7 +240,7 @@
                                     (prn-str params)
                                     (prn-str this-map)))))
         requestid
-        (get params "param-TARGETrequestid")
+        (get params "SYS+param-TARGETrequestid")
         params
         (assoc params "SYS+param-REQUESTID" requestid)
         operationids
@@ -300,6 +300,9 @@
                                           (prn-str this-map)))))
               [env params]
               request
+              _ (println :dispatcher :params (prn-str params))
+              _ (println :dispatcher :this-map (prn-str this-map))
+              _ (println)
               return-port
               (get params "SYS+param-RETURN$chan")
               _ (if (nil? return-port)
@@ -414,7 +417,7 @@
         classifiers
         (get params "param_map-CLASSIFIERS^classifier" {})
         content
-        (get params "param-content$ml" "")
+        (get params "SYS+param-content$ml" "")
         invariant
         (get descriptors "SYS+descriptor-INVARIANT$bool")
         initialization-port
@@ -424,7 +427,7 @@
           request-port-stack
           (conj request-port-stack initialization-port))
         name
-        (get params "param-NAME")
+        (get params "SYS+param-NAME")
         new-entity-map
         {"NAME"               name
          "DESCRIPTORS"        descriptors
@@ -458,7 +461,7 @@
             [nil [nil nil nil]]
             (let [params
                   {"SYS+param-REQUESTID"        "SYS+requestid-ROUTE"
-                   "param-TARGETrequestid" "SYS+requestidTYPEof"
+                   "SYS+param-TARGETrequestid" "SYS+requestidTYPEof"
                    "SYS+param-TARGETname"      type-entity}]
               (routeFunction env context-map params)))]
       (cond
@@ -705,7 +708,7 @@
                   (assoc request-params "SYS+param-REQUESTID" "SYS+requestid-ROUTE")
                   request-params
                   (assoc request-params "SYS+param-RETURN$chan" return-port0)]
-              (println :request-params request-params)
+              (println :script-request :request-params (prn-str request-params))
               (a/>! context-request-port [env request-params])
               (request-exception-check (a/<! return-port0))))
           ;(validate-edn script-path context-map "SYS+list-SCRIPT" edn-script env)
