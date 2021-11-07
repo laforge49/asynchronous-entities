@@ -20,3 +20,15 @@
         classifier-ENTITYtype: classifierVALUE-CLASS
     param_map-CLASSIFIERS^classifier:
       classifier-ENTITYtype: classifierVALUE-CLASS
+- request_map-REQUEST^param:
+    param-TARGETrequestid: requestid-INSTANTIATE
+    param-TARGETname: class-CLASS
+    param-NAME: class-REQUESTID
+    param_map-DESCRIPTORS^descriptor:
+      descriptors_map-INSTANCE^descriptor:
+        descriptor-INVARIANT$bool: true
+        descriptor_map-REQUESTS^requestid$str:
+          requestid-ENTITYreport:
+            - ENTITY_REPORToperationid
+      descriptors_map-INSTANCE^classifier:
+        classifier-ENTITYtype: classifierVALUE-REQUESTID

@@ -410,9 +410,9 @@
         request-port-stack
         [new-public-request-port]
         descriptors
-        (get params "param_map-DESCRIPTORS^descriptor" {})
+        (get params "SYS+param_map-DESCRIPTORS^descriptor" {})
         classifiers
-        (get params "param_map-CLASSIFIERS^classifier" {})
+        (get params "SYS+param_map-CLASSIFIERS^classifier" {})
         content
         (get params "SYS+param-content$ml" "")
         invariant
@@ -457,7 +457,7 @@
           (if (nil? type-entity)
             [nil [nil nil nil]]
             (let [params
-                  {"SYS+param-REQUESTID"        "SYS+requestid-ROUTE"
+                  {"SYS+param-REQUESTID"       "SYS+requestid-ROUTE"
                    "SYS+param-TARGETrequestid" "SYS+requestidTYPEof"
                    "SYS+param-TARGETname"      type-entity}]
               (routeFunction env context-map params)))]
@@ -714,42 +714,42 @@
           (a/>! out [e]))))
     out))
 
-#_ (defn async-script
-  [script-path yaml-script context-map env]
-  (let [full-local-context
-        (get context-map "NAME")
-        out
-        (a/chan)]
-    (a/go
-      (try
-        (let [edn-script
-              (yaml/parse-raw yaml-script)
-              edn-script
-              (reduce
-                (fn [edn-script request]
-                  (conj edn-script
-                        (reduce
-                          (fn [request [k v]]
-                            (into request {k
-                                           (bind-context full-local-context v (some? (s/index-of k "$")) env)}))
-                          {}
-                          request)))
-                []
-                edn-script)
-              return-port0
-              (a/chan)
-              context-request-port
-              (get env "CONTEXT-REQUEST-PORT")]
-          (doseq [request-params edn-script]
-            (let [request-params
-                  (assoc request-params "SYS+param-REQUESTID" "SYS+requestid-ROUTE")
-                  request-params
-                  (assoc request-params "SYS+param-RETURN$chan" return-port0)]
-              (a/>! context-request-port [env request-params])
-              (request-exception-check (a/<! return-port0))))
-          ;(validate-edn script-path context-map "SYS+list-SCRIPT" edn-script env)
-          )
-        (a/>! out [nil])
-        (catch Exception e
-          (a/>! out [e]))))
-    out))
+#_(defn async-script
+    [script-path yaml-script context-map env]
+    (let [full-local-context
+          (get context-map "NAME")
+          out
+          (a/chan)]
+      (a/go
+        (try
+          (let [edn-script
+                (yaml/parse-raw yaml-script)
+                edn-script
+                (reduce
+                  (fn [edn-script request]
+                    (conj edn-script
+                          (reduce
+                            (fn [request [k v]]
+                              (into request {k
+                                             (bind-context full-local-context v (some? (s/index-of k "$")) env)}))
+                            {}
+                            request)))
+                  []
+                  edn-script)
+                return-port0
+                (a/chan)
+                context-request-port
+                (get env "CONTEXT-REQUEST-PORT")]
+            (doseq [request-params edn-script]
+              (let [request-params
+                    (assoc request-params "SYS+param-REQUESTID" "SYS+requestid-ROUTE")
+                    request-params
+                    (assoc request-params "SYS+param-RETURN$chan" return-port0)]
+                (a/>! context-request-port [env request-params])
+                (request-exception-check (a/<! return-port0))))
+            ;(validate-edn script-path context-map "SYS+list-SCRIPT" edn-script env)
+            )
+          (a/>! out [nil])
+          (catch Exception e
+            (a/>! out [e]))))
+      out))

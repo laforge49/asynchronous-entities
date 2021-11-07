@@ -17,20 +17,20 @@
         instantiation-descriptors
         (get this-descriptors "SYS+descriptors_map-INSTANCE^descriptor")
         instantiation-descriptors
-        (into instantiation-descriptors (get params "param_map-DESCRIPTORS^descriptor"))
+        (into instantiation-descriptors (get params "SYS+param_map-DESCRIPTORS^descriptor"))
         instantiation-classifiers
         (get this-descriptors "SYS+descriptors_map-INSTANCE^classifier")
         instantiation-classifiers
         (assoc instantiation-classifiers "SYS+classifier-CLASS" this-name)
         instantiation-classifiers
-        (into instantiation-classifiers (get params "param_map-CLASSIFIERS^classifier"))
+        (into instantiation-classifiers (get params "SYS+param_map-CLASSIFIERS^classifier"))
         initialization-port
         (a/chan)
         params
-        (into params {"SYS+param-TARGETname"         name
-                      "initialization-port" initialization-port
-                      "param_map-DESCRIPTORS^descriptor"         instantiation-descriptors
-                      "param_map-CLASSIFIERS^classifier"         instantiation-classifiers})
+        (into params {"SYS+param-TARGETname"                 name
+                      "initialization-port"                  initialization-port
+                      "SYS+param_map-DESCRIPTORS^descriptor" instantiation-descriptors
+                      "SYS+param_map-CLASSIFIERS^classifier" instantiation-classifiers})
         [new-entity-public-request-port snap]
         (k/create-entity env params)
         new-children-volatile
@@ -53,17 +53,17 @@
         instantiation-descriptors
         (get this-descriptors "SYS+descriptors_map-INSTANCE^descriptor")
         instantiation-descriptors
-        (into instantiation-descriptors (get params "param_map-DESCRIPTORS^descriptor"))
+        (into instantiation-descriptors (get params "SYS+param_map-DESCRIPTORS^descriptor"))
         instantiation-classifiers
         (get this-descriptors "SYS+descriptors_map-INSTANCE^classifier")
         instantiation-classifiers
         (assoc instantiation-classifiers "SYS+classifier-CLASS" this-name)
         instantiation-classifiers
-        (into instantiation-classifiers (get params "param_map-CLASSIFIERS^classifier"))]
-    (into params {"SYS+param-TARGETrequestid" "SYS+requestid-REGISTERentity"
-                  "SYS+param-TARGETname"      target-name
-                  "param_map-DESCRIPTORS^descriptor"      instantiation-descriptors
-                  "param_map-CLASSIFIERS^classifier"      instantiation-classifiers})))
+        (into instantiation-classifiers (get params "SYS+param_map-CLASSIFIERS^classifier"))]
+    (into params {"SYS+param-TARGETrequestid"            "SYS+requestid-REGISTERentity"
+                  "SYS+param-TARGETname"                 target-name
+                  "SYS+param_map-DESCRIPTORS^descriptor" instantiation-descriptors
+                  "SYS+param_map-CLASSIFIERS^classifier" instantiation-classifiers})))
 
 (defn instantiate-goblock
   [env this-map params]
@@ -85,7 +85,7 @@
 (defn addDescriptorsFunction
   [env this-map params]
   (let [descriptors-map
-        (get params "param_map-DESCRIPTORS^descriptor")
+        (get params "SYS+param_map-DESCRIPTORS^descriptor")
         this-map
         (reduce
           (fn [this-map [descriptor descriptor-value]]
