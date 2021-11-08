@@ -108,6 +108,69 @@
 
 (defn run-federation-goblock
   [env this-map params]
+  (println :run-federation-goblock)
+  (a/go
+    (let [operation-return-port
+          (get params "operation-return-port")]
+      (try
+        (let [root-contexts-request-port
+              (get env "CONTEXT-REQUEST-PORT")
+              this-name
+              (get this-map "NAME")
+              descriptors
+              (get this-map "DESCRIPTORS")
+              federation-names
+              (get descriptors "SYS+descriptor_vec-FEDERATIONnames")
+              env
+              (assoc env "FEDERATOR-NAME" this-name)
+              root-contexts-request-port
+              (get env "CONTEXT-REQUEST-PORT")
+              acquire-port
+              (federation-acquire root-contexts-request-port federation-names env)
+              _ (k/request-exception-check (a/<! acquire-port))
+              env
+              (assoc env "NEW-CHILDREN-VOLATILE" (volatile! {}))
+              script
+              (get descriptors "SYS+descriptor-SCRIPT$yaml")
+              this-name
+              (get this-map "NAME")
+              local-context
+              (k/entityContextName this-name)
+              _ (println :script (prn-str script))
+              _ (doseq [request script]
+                  (let [
+                        request
+                        (reduce
+                          (fn [request [k v]]
+                            (into request {k
+                                           (k/bind-context local-context v (some? (s/index-of k "$")) env)}))
+                          {}
+                          request)]
+                    (k/routeFunction env this-map request)))
+              [e]
+              (a/<! (registerChildren env
+                                      @(get env "NEW-CHILDREN-VOLATILE")))
+              _ (if (some? e)
+                  (throw e))
+              env
+              (assoc env "FEDERATOR-NAME" nil)
+              env
+              (assoc env "NEW-CHILDREN-VOLATILE" nil)
+              sub-return-port
+              (federation-release env federation-names)
+              [e]
+              (a/<! sub-return-port)
+              _ (if (some? e)
+                  (throw e))
+              _ (a/>! operation-return-port [this-map
+                                             nil
+                                             this-map])
+              ])
+        (catch Exception e
+          (a/>! operation-return-port [this-map e nil]))))))
+
+#_ (defn run-federation-goblock
+  [env this-map params]
   (a/go
     (let [operation-return-port
           (get params "operation-return-port")]

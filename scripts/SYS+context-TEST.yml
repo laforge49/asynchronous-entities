@@ -1,64 +1,72 @@
-- param-TARGETrequestid: SYS+requestid-INSTANTIATE
-  param-TARGETname: SYS+class-CLASS
-  param-NAME: class-SIMPLE
-  param_map-DESCRIPTORS^descriptor:
-    SYS+descriptors_map-INSTANCE^descriptor:
-      SYS+descriptor_map-REQUESTS^requestid$str:
-        SYS+requestid-ADDdescriptors:
-          - ADD_DESCRIPTORSoperationid
-        SYS+requestid-ADDrelations:
-          - ADD_RELATIONSoperationid
-        SYS+requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
-    SYS+descriptors_map-INSTANCE^classifier:
-      SYS+classifier-ENTITYtype: classifierVALUE-SIMPLE
-- param-TARGETrequestid: SYS+requestid-INSTANTIATE
-  param-TARGETname: SYS+class-CLASSIFIERvalue
-  param-NAME: classifierVALUE-SIMPLE
-- param-TARGETrequestid: SYS+requestid-INSTANTIATE
-  param-TARGETname: class-SIMPLE
-  param-NAME: simple-ALPHA
-  param-content$ml:
-    "this is a test
-    same line
-    \ndifferent line"
-- param-TARGETrequestid: SYS+requestid-INSTANTIATE
-  param-TARGETname: class-SIMPLE
-  param-NAME: simple-BETA
-- param-TARGETrequestid: SYS+requestid-INSTANTIATE
-  param-TARGETname: SYS+class-RELATION
-  param-NAME: relation-BASIC
-- param-TARGETrequestid: SYS+requestid-INSTANTIATE
-  param-TARGETname: SYS+class-DESCRIPTOR
-  param-NAME: descriptor-DEGREEofPOLISH$str
-- param-TARGETrequestid: SYS+requestid-INSTANTIATE
-  param-TARGETname: SYS+class-FEDERATOR
-  param-NAME: federator-A
-  param_map-DESCRIPTORS^descriptor:
-    SYS+descriptor_vec-FEDERATIONnames:
-      - simple-ALPHA
-      - simple-BETA
-    SYS+descriptor-SCRIPT$yaml:
-      - param-TARGETrequestid: SYS+requestid-INSTANTIATE
-        param-TARGETname: class-SIMPLE
-        param-NAME: simple-GAMMA
-      - param-TARGETrequestid: SYS+requestid-ADDdescriptors
-        param-TARGETname: simple-ALPHA
-        param_map-DESCRIPTORS^descriptor:
-          descriptor-DEGREEofPOLISH$str: MIDDLING
-      - param-TARGETrequestid: SYS+requestid-ADDdescriptors
-        param-TARGETname: simple-GAMMA
-        param_map-DESCRIPTORS^descriptor:
-          descriptor-DEGREEofPOLISH$str: MIDDLING
-      - param-TARGETrequestid: SYS+requestid-ADDrelations
-        param-TARGETname: simple-GAMMA
-        relations:
-          relation-BASIC:
-            - simple-ALPHA
-      - param-TARGETrequestid: SYS+requestid-ADDrelations
-        param-TARGETname: simple-BETA
-        relations:
-          relation-BASIC:
-            - simple-ALPHA
-- param-TARGETrequestid: SYS+requestid-RUNfederation
-  param-TARGETname: federator-A
+- request_map-REQUEST^param:
+    SYS+param-TARGETrequestid: SYS+requestid-INSTANTIATE
+    SYS+param-TARGETname: SYS+class-CLASS
+    SYS+param-NAME: class-SIMPLE
+    SYS+param_map-DESCRIPTORS^descriptor:
+      SYS+descriptors_map-INSTANCE^descriptor:
+        SYS+descriptor_map-REQUESTS^requestid$str:
+          SYS+requestid-ADDdescriptors:
+            - ADD_DESCRIPTORSoperationid
+          SYS+requestid-ADDrelations:
+            - ADD_RELATIONSoperationid
+          SYS+requestid-ENTITYreport:
+            - ENTITY_REPORToperationid
+      SYS+descriptors_map-INSTANCE^classifier:
+        SYS+classifier-ENTITYtype: classifierVALUE-SIMPLE
+- request_map-REQUEST^param:
+    SYS+param-TARGETrequestid: SYS+requestid-INSTANTIATE
+    SYS+param-TARGETname: SYS+class-CLASSIFIERvalue
+    SYS+param-NAME: classifierVALUE-SIMPLE
+- request_map-REQUEST^param:
+    SYS+param-TARGETrequestid: SYS+requestid-INSTANTIATE
+    SYS+param-TARGETname: class-SIMPLE
+    SYS+param-NAME: simple-ALPHA
+    SYS+param-content$ml:
+      "this is a test
+      same line
+      \ndifferent line"
+- request_map-REQUEST^param:
+    SYS+param-TARGETrequestid: SYS+requestid-INSTANTIATE
+    SYS+param-TARGETname: class-SIMPLE
+    SYS+param-NAME: simple-BETA
+- request_map-REQUEST^param:
+    SYS+param-TARGETrequestid: SYS+requestid-INSTANTIATE
+    SYS+param-TARGETname: SYS+class-RELATION
+    SYS+param-NAME: relation-BASIC
+- request_map-REQUEST^param:
+    SYS+param-TARGETrequestid: SYS+requestid-INSTANTIATE
+    SYS+param-TARGETname: SYS+class-DESCRIPTOR
+    SYS+param-NAME: descriptor-DEGREEofPOLISH$str
+#- request_map-REQUEST^param:
+#    SYS+param-TARGETrequestid: SYS+requestid-INSTANTIATE
+#    SYS+param-TARGETname: SYS+class-FEDERATOR
+#    SYS+param-NAME: federator-A
+#    SYS+param_map-DESCRIPTORS^descriptor:
+#      SYS+descriptor_vec-FEDERATIONnames:
+#        - simple-ALPHA
+#        - simple-BETA
+#      SYS+descriptor-SCRIPT$yaml:
+#        - param-TARGETrequestid: SYS+requestid-INSTANTIATE
+#          param-TARGETname: class-SIMPLE
+#          param-NAME: simple-GAMMA
+#        - param-TARGETrequestid: SYS+requestid-ADDdescriptors
+#          param-TARGETname: simple-ALPHA
+#          param_map-DESCRIPTORS^descriptor:
+#            descriptor-DEGREEofPOLISH$str: MIDDLING
+#        - param-TARGETrequestid: SYS+requestid-ADDdescriptors
+#          param-TARGETname: simple-GAMMA
+#          param_map-DESCRIPTORS^descriptor:
+#            descriptor-DEGREEofPOLISH$str: MIDDLING
+#        - param-TARGETrequestid: SYS+requestid-ADDrelations
+#          param-TARGETname: simple-GAMMA
+#          relations:
+#            relation-BASIC:
+#              - simple-ALPHA
+#        - param-TARGETrequestid: SYS+requestid-ADDrelations
+#          param-TARGETname: simple-BETA
+#          relations:
+#            relation-BASIC:
+#              - simple-ALPHA
+#- request_map-REQUEST^param:
+#    param-TARGETrequestid: SYS+requestid-RUNfederation
+#    param-TARGETname: federator-A

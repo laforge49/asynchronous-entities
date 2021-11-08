@@ -217,9 +217,9 @@
     param_map-CLASSIFIERS^classifier:
       classifier-RESOURCES:
         - ROOT+context-SYS
-#- request_map-REQUEST^param:
-#    param-TARGETrequestid: requestid-LOADscript
-#    param-TARGETname: context-TEST
+- request_map-REQUEST^param:
+    param-TARGETrequestid: requestid-LOADscript
+    param-TARGETname: context-TEST
 - request_map-REQUEST^param:
     param-TARGETrequestid: requestid-ENTITYreport
     param-TARGETname: ROOT+context-SYS

@@ -23,12 +23,42 @@ different line
 1. Registered Entities of context SYS+context-TEST
 (Default context is context-TEST.)
 
+TEST+class-SIMPLE
+TEST+classifierVALUE-SIMPLE
+TEST+descriptor-DEGREEofPOLISH$str
+TEST+relation-BASIC
+TEST+simple-ALPHA
+TEST+simple-BETA
 
-Number of entities: 0
+Number of entities: 6
 
 2. Classifier Values of context SYS+context-TEST
 (Default context is context-TEST.)
 
+classifier:  SYS+classifier-CLASS
+  value:       SYS+class-CLASS
+    entity:      TEST+class-SIMPLE
+  value:       SYS+class-CLASSIFIERvalue
+    entity:      TEST+classifierVALUE-SIMPLE
+  value:       SYS+class-DESCRIPTOR
+    entity:      TEST+descriptor-DEGREEofPOLISH$str
+  value:       SYS+class-RELATION
+    entity:      TEST+relation-BASIC
+  value:       TEST+class-SIMPLE
+    entity:      TEST+simple-ALPHA
+    entity:      TEST+simple-BETA
+classifier:  SYS+classifier-ENTITYtype
+  value:       SYS+classifierVALUE-CLASS
+    entity:      TEST+class-SIMPLE
+  value:       SYS+classifierVALUE-CLASSIFIER
+    entity:      TEST+relation-BASIC
+  value:       SYS+classifierVALUE-CLASSIFIERvalue
+    entity:      TEST+classifierVALUE-SIMPLE
+  value:       SYS+classifierVALUE-DESCRIPTOR
+    entity:      TEST+descriptor-DEGREEofPOLISH$str
+  value:       TEST+classifierVALUE-SIMPLE
+    entity:      TEST+simple-ALPHA
+    entity:      TEST+simple-BETA
 
-Number of classifiers: 0
+Number of classifiers: 2
 
