@@ -500,7 +500,7 @@
   #{"map" "vec"})
 
 (def dtyp-set
-  #{"bool" "str" "yaml"})
+  #{"bool" "str" "yaml" "ml"})
 
 (defn parse-entity-name
   [s]
