@@ -26,11 +26,12 @@ different line
 TEST+class-SIMPLE
 TEST+classifierVALUE-SIMPLE
 TEST+descriptor-DEGREEofPOLISH$str
+TEST+federator-A
 TEST+relation-BASIC
 TEST+simple-ALPHA
 TEST+simple-BETA
 
-Number of entities: 6
+Number of entities: 7
 
 2. Classifier Values of context SYS+context-TEST
 (Default context is context-TEST.)
@@ -42,6 +43,8 @@ classifier:  SYS+classifier-CLASS
     entity:      TEST+classifierVALUE-SIMPLE
   value:       SYS+class-DESCRIPTOR
     entity:      TEST+descriptor-DEGREEofPOLISH$str
+  value:       SYS+class-FEDERATOR
+    entity:      TEST+federator-A
   value:       SYS+class-RELATION
     entity:      TEST+relation-BASIC
   value:       TEST+class-SIMPLE
@@ -56,6 +59,8 @@ classifier:  SYS+classifier-ENTITYtype
     entity:      TEST+classifierVALUE-SIMPLE
   value:       SYS+classifierVALUE-DESCRIPTOR
     entity:      TEST+descriptor-DEGREEofPOLISH$str
+  value:       SYS+classifierVALUE-FEDERATOR
+    entity:      TEST+federator-A
   value:       TEST+classifierVALUE-SIMPLE
     entity:      TEST+simple-ALPHA
     entity:      TEST+simple-BETA
