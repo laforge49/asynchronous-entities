@@ -622,10 +622,10 @@
     edn))
 
 (defn bind-context-
-  [local-context resources-set edn values-as-data env]
+  [local-context resources-set edn parent-dtyp env]
   (cond
     (string? edn)
-    (if values-as-data
+    (if (some? parent-dtyp)
       edn
       (let [[typ styp root ktyp dtyp]
             (parse-entity-name edn)
@@ -644,9 +644,9 @@
     (vector? edn)
     (reduce
       (fn [v item]
-        (conj v (if values-as-data
+        (conj v (if (some? parent-dtyp)
                   item
-                  (bind-context- local-context resources-set item values-as-data env))))
+                  (bind-context- local-context resources-set item nil env))))
       []
       edn)
 
@@ -654,11 +654,15 @@
     (reduce
       (fn [m [k v]]
         (let [[typ styp root ktyp dtyp]
-              (parse-entity-name k)]
-          (assoc m (bind-context- local-context resources-set k false env)
-                   (bind-context- local-context resources-set v
-                                  (or values-as-data (some? dtyp))
-                                  env))))
+              (parse-entity-name k)
+              _ (if (and (some? parent-dtyp) (some? dtyp))
+                  (throw (Exception. (str "Both key " (pr-str k) " and the parent map have a data type for content: " (pr-str v)))))
+              dtyp
+              (if (some? dtyp)
+                dtyp
+                parent-dtyp)]
+          (assoc m (bind-context- local-context resources-set k nil env)
+                   (bind-context- local-context resources-set v dtyp env))))
       (sorted-map)
       edn)
 
@@ -667,9 +671,7 @@
 
 (defn bind-context
   [full-context-name edn dtyp env]
-  (let [values-as-data
-        (some? dtyp)
-        resources-set
+  (let [resources-set
         (get-resources-set full-context-name)
         [_ _ base-name]
         (kw/name-as-keyword full-context-name)
@@ -677,7 +679,7 @@
         (if (s/starts-with? base-name "context-")
           (subs base-name 8)
           base-name)]
-    (bind-context- base-name resources-set edn values-as-data env)))
+    (bind-context- base-name resources-set edn dtyp env)))
 
 (defn async-script
   [script-path yaml-script context-map env]
