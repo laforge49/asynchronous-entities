@@ -21,7 +21,7 @@
     SYS+param-TARGETrequestid: SYS+requestid-INSTANTIATE
     SYS+param-TARGETname: class-SIMPLE
     SYS+param-NAME: simple-ALPHA
-    SYS+param-content$ml:
+    SYS+param-content$str:
       "this is a test
       same line
       \ndifferent line"
@@ -45,7 +45,7 @@
       SYS+descriptor_vec-FEDERATIONnames:
         - simple-ALPHA
         - simple-BETA
-      SYS+descriptor-SCRIPT$yaml:
+      SYS+descriptor-SCRIPT:
         - request_map-REQUEST^param:
             SYS+param-TARGETrequestid: SYS+requestid-INSTANTIATE
             SYS+param-TARGETname: class-SIMPLE

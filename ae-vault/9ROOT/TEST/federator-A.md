@@ -1,29 +1,29 @@
 ---
 DESCRIPTORS:
-  SYS+descriptor-SCRIPT$yaml:
+  SYS+descriptor-SCRIPT:
   - request_map-REQUEST^param:
-      SYS+param-TARGETrequestid: SYS+requestid-INSTANTIATE
-      SYS+param-TARGETname: class-SIMPLE
       SYS+param-NAME: simple-GAMMA
+      SYS+param-TARGETname: class-SIMPLE
+      SYS+param-TARGETrequestid: SYS+requestid-INSTANTIATE
   - request_map-REQUEST^param:
-      SYS+param-TARGETrequestid: SYS+requestid-ADDdescriptors
       SYS+param-TARGETname: simple-ALPHA
-      SYS+param_map-DESCRIPTORS^descriptor:
-        descriptor-DEGREEofPOLISH$str: MIDDLING
-  - request_map-REQUEST^param:
       SYS+param-TARGETrequestid: SYS+requestid-ADDdescriptors
-      SYS+param-TARGETname: simple-GAMMA
       SYS+param_map-DESCRIPTORS^descriptor:
         descriptor-DEGREEofPOLISH$str: MIDDLING
   - request_map-REQUEST^param:
-      SYS+param-TARGETrequestid: SYS+requestid-ADDrelations
       SYS+param-TARGETname: simple-GAMMA
+      SYS+param-TARGETrequestid: SYS+requestid-ADDdescriptors
+      SYS+param_map-DESCRIPTORS^descriptor:
+        descriptor-DEGREEofPOLISH$str: MIDDLING
+  - request_map-REQUEST^param:
+      SYS+param-TARGETname: simple-GAMMA
+      SYS+param-TARGETrequestid: SYS+requestid-ADDrelations
       SYS+param-relations:
         relation-BASIC:
         - simple-ALPHA
   - request_map-REQUEST^param:
-      SYS+param-TARGETrequestid: SYS+requestid-ADDrelations
       SYS+param-TARGETname: simple-BETA
+      SYS+param-TARGETrequestid: SYS+requestid-ADDrelations
       SYS+param-relations:
         relation-BASIC:
         - simple-ALPHA

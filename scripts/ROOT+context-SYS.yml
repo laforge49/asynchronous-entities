@@ -210,7 +210,7 @@
     param-TARGETrequestid: requestid-INSTANTIATE
     param-TARGETname: class-CONTEXT
     param-NAME: context-TEST
-    param-content$ml:
+    param-content$str:
       "this is a test
       same line
       \ndifferent line"

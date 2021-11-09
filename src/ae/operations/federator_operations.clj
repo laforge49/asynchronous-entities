@@ -130,7 +130,7 @@
               env
               (assoc env "NEW-CHILDREN-VOLATILE" (volatile! {}))
               script
-              (get descriptors "SYS+descriptor-SCRIPT$yaml")
+              (get descriptors "SYS+descriptor-SCRIPT")
               this-name
               (get this-map "NAME")
               local-context

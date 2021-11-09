@@ -414,7 +414,7 @@
         classifiers
         (get params "SYS+param_map-CLASSIFIERS^classifier" {})
         content
-        (get params "SYS+param-content$ml" "")
+        (get params "SYS+param-content$str" "")
         invariant
         (get descriptors "SYS+descriptor-INVARIANT$bool")
         initialization-port
@@ -626,7 +626,9 @@
   (cond
     (string? edn)
     (if (some? parent-dtyp)
-      edn
+      (if (= parent-dtyp "str")
+        edn
+        (throw (Exception. (str (pr-str edn) " is not of type " parent-dtyp))))
       (let [[typ styp root ktyp dtyp]
             (parse-entity-name edn)
             ndx
