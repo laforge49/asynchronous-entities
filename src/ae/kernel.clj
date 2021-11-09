@@ -666,8 +666,10 @@
     edn))
 
 (defn bind-context
-  [full-context-name edn values-as-data env]
-  (let [resources-set
+  [full-context-name edn dtyp env]
+  (let [values-as-data
+        (some? dtyp)
+        resources-set
         (get-resources-set full-context-name)
         [_ _ base-name]
         (kw/name-as-keyword full-context-name)
@@ -691,7 +693,7 @@
               (reduce
                 (fn [edn-script request]
                   (conj edn-script
-                        (bind-context full-local-context request false env)))
+                        (bind-context full-local-context request nil env)))
                 []
                 edn-script)
               return-port0
@@ -713,43 +715,3 @@
         (catch Exception e
           (a/>! out [e]))))
     out))
-
-#_(defn async-script
-    [script-path yaml-script context-map env]
-    (let [full-local-context
-          (get context-map "NAME")
-          out
-          (a/chan)]
-      (a/go
-        (try
-          (let [edn-script
-                (yaml/parse-raw yaml-script)
-                edn-script
-                (reduce
-                  (fn [edn-script request]
-                    (conj edn-script
-                          (reduce
-                            (fn [request [k v]]
-                              (into request {k
-                                             (bind-context full-local-context v (some? (s/index-of k "$")) env)}))
-                            {}
-                            request)))
-                  []
-                  edn-script)
-                return-port0
-                (a/chan)
-                context-request-port
-                (get env "CONTEXT-REQUEST-PORT")]
-            (doseq [request-params edn-script]
-              (let [request-params
-                    (assoc request-params "SYS+param-REQUESTID" "SYS+requestid-ROUTE")
-                    request-params
-                    (assoc request-params "SYS+param-RETURN$chan" return-port0)]
-                (a/>! context-request-port [env request-params])
-                (request-exception-check (a/<! return-port0))))
-            ;(validate-edn script-path context-map "SYS+list-SCRIPT" edn-script env)
-            )
-          (a/>! out [nil])
-          (catch Exception e
-            (a/>! out [e]))))
-      out))
