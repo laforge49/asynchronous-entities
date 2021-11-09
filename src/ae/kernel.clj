@@ -500,7 +500,7 @@
   #{"map" "vec"})
 
 (def dtyp-set
-  #{"bool" "str" "yaml" "ml"})
+  #{"bool" "str"})
 
 (defn parse-entity-name
   [s]
@@ -666,8 +666,13 @@
       (sorted-map)
       edn)
 
+    (boolean? edn)
+    (if (= parent-dtyp "bool")
+      edn
+      (throw (Exception. (str (pr-str edn) "is boolean, not " parent-dtyp))))
+
     true
-    edn))
+    (throw (Exception. (str "Data type " (pr-str parent-dtyp) " does not match value: " (pr-str edn))))))
 
 (defn bind-context
   [full-context-name edn dtyp env]
