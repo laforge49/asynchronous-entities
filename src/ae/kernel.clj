@@ -646,9 +646,7 @@
     (vector? edn)
     (reduce
       (fn [v item]
-        (conj v (if (some? parent-dtyp)
-                  item
-                  (bind-context- local-context resources-set item nil env))))
+        (conj v (bind-context- local-context resources-set item parent-dtyp env)))
       []
       edn)
 
