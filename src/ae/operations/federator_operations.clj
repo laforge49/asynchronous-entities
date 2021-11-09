@@ -108,7 +108,6 @@
 
 (defn run-federation-goblock
   [env this-map params]
-  (println :run-federation-goblock)
   (a/go
     (let [operation-return-port
           (get params "operation-return-port")]
@@ -136,17 +135,12 @@
               (get this-map "NAME")
               local-context
               (k/entityContextName this-name)
-              _ (println :script (prn-str script))
               _ (doseq [request script]
-                  (let [
-                        request
-                        (reduce
-                          (fn [request [k v]]
-                            (into request {k
-                                           (k/bind-context local-context v (some? (s/index-of k "$")) env)}))
-                          {}
-                          request)]
-                    (k/routeFunction env this-map request)))
+                  (let [request-params
+                        (val (first request))
+                        request-params
+                        (k/bind-context local-context request-params false env)]
+                    (k/routeFunction env this-map request-params)))
               [e]
               (a/<! (registerChildren env
                                       @(get env "NEW-CHILDREN-VOLATILE")))

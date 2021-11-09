@@ -72,6 +72,6 @@
             SYS+param-relations:
               relation-BASIC:
                 - simple-ALPHA
-#- request_map-REQUEST^param:
-#    SYS+param-TARGETrequestid: SYS+requestid-RUNfederation
-#    SYS+param-TARGETname: federator-A
+- request_map-REQUEST^param:
+    SYS+param-TARGETrequestid: SYS+requestid-RUNfederation
+    SYS+param-TARGETname: federator-A

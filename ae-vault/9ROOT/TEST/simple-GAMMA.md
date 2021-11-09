@@ -8,15 +8,10 @@ DESCRIPTORS:
     SYS+requestid-ENTITYreport:
     - ENTITY_REPORToperationid
   descriptor-DEGREEofPOLISH$str: MIDDLING
-INVERSE-RELATIONS:
-  relation-BASIC:
-  - simple-GAMMA
-  - simple-BETA
 TAGS:
 - SYS+classifier-CLASS/TEST+class-SIMPLE
 - SYS+classifier-ENTITYtype/TEST+classifierVALUE-SIMPLE
+- TEST+relation-BASIC/TEST+simple-ALPHA
 ---
-# Entity TEST+simple-ALPHA
+# Entity TEST+simple-GAMMA
 
-this is a test same line 
-different line

@@ -10,6 +10,7 @@ DESCRIPTORS:
 TAGS:
 - SYS+classifier-CLASS/TEST+class-SIMPLE
 - SYS+classifier-ENTITYtype/TEST+classifierVALUE-SIMPLE
+- TEST+relation-BASIC/TEST+simple-ALPHA
 ---
 # Entity TEST+simple-BETA
 

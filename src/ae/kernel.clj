@@ -236,7 +236,7 @@
           target-map
           (get-invariant-map target-name))
         _ (if (nil? target-map)
-            (throw (Exception. (str "Unreachable: " target-name "\n"
+            (throw (Exception. (str "Unreachable: " (prn-str target-name) "\n"
                                     (prn-str params)
                                     (prn-str this-map)))))
         requestid
