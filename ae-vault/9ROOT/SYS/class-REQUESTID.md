@@ -1,7 +1,7 @@
 ---
 DESCRIPTORS:
   descriptor-INVARIANT$bool: true
-  descriptor_map-REQUESTS^requestid$str:
+  descriptor_mapvec-REQUESTS^requestid$str:
     requestid-ENTITYreport:
     - ENTITY_REPORToperationid
     requestid-INSTANTIATE:
@@ -10,7 +10,7 @@ DESCRIPTORS:
     classifier-ENTITYtype: classifierVALUE-REQUESTID
   descriptors_map-INSTANCE^descriptor:
     descriptor-INVARIANT$bool: true
-    descriptor_map-REQUESTS^requestid$str:
+    descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
       - ENTITY_REPORToperationid
 TAGS:

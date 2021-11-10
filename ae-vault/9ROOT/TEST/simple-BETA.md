@@ -1,6 +1,6 @@
 ---
 DESCRIPTORS:
-  SYS+descriptor_map-REQUESTS^requestid$str:
+  SYS+descriptor_mapvec-REQUESTS^requestid$str:
     SYS+requestid-ADDdescriptors:
     - ADD_DESCRIPTORSoperationid
     SYS+requestid-ADDrelations:
@@ -10,7 +10,6 @@ DESCRIPTORS:
 TAGS:
 - SYS+classifier-CLASS/TEST+class-SIMPLE
 - SYS+classifier-ENTITYtype/TEST+classifierVALUE-SIMPLE
-- TEST+relation-BASIC/TEST+simple-ALPHA
 ---
 # Entity TEST+simple-BETA
 

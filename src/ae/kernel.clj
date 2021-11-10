@@ -83,7 +83,7 @@
 (defn get-resources-set
   [local-context-name]
   (let [resources-vec
-        (get-classifier local-context-name "SYS+classifier-RESOURCES")
+        (get-classifier local-context-name "SYS+classifier_vec-RESOURCES")
         [_ _ entity-base-name]
         (kw/name-as-keyword local-context-name)
         short-context-name
@@ -187,7 +187,7 @@
         this-descriptors
         (thisDescriptors target-map params)
         this-requestid-map
-        (get this-descriptors "SYS+descriptor_map-REQUESTS^requestid$str")
+        (get this-descriptors "SYS+descriptor_mapvec-REQUESTS^requestid$str")
         _ (if (nil? this-requestid-map)
             (throw (Exception. (str "Requestid map is nil\n"
                                     (prn-str params)
@@ -497,7 +497,7 @@
                                   (prn-str context-map))))))))
 
 (def styp-set
-  #{"map" "vec" "mapmap"})
+  #{"map" "vec" "mapmap" "mapvec" "vecmap"})
 
 (def dtyp-set
   #{"bool" "str"})
@@ -553,8 +553,8 @@
             (subs s (inc u-ndx) h-ndx)))
         _ (if (and (some? u-ndx) (empty? styp))
             (throw (Exception. (str "Name " s " has a _ but the structure type is empty"))))
-        _ (if (= (= styp "map") (nil? c-ndx))
-            (throw (Exception. (str "Name " s " Can include a ^ if and only if the structure type is map"))))
+        _ (if (not= (and (some? styp) (s/starts-with? styp "map")) (some? c-ndx))
+            (throw (Exception. (str "Name " s " Can include a ^ if and only if the structure type starts with map"))))
         root-end
         (if (some? c-ndx)
           c-ndx
@@ -626,11 +626,11 @@
   (cond
     (string? edn)
     (if (some? parent-styp)
-      (throw (Exception. (str (pr-str edn) " is not of structure type " parent-styp)))
+      (throw (Exception. (str (pr-str edn) " is a scalar, not structure type " (pr-str parent-styp))))
       (if (some? parent-dtyp)
         (if (= parent-dtyp "str")
           edn
-          (throw (Exception. (str (pr-str edn) " is not of data type " parent-dtyp))))
+          (throw (Exception. (str (pr-str edn) " is not of data type " (pr-str parent-dtyp)))))
         (let [[typ styp root ktyp dtyp]
               (parse-entity-name edn)
               ndx
@@ -646,39 +646,56 @@
             (str local-context "+" edn)))))
 
     (vector? edn)
-    (reduce
-      (fn [v item]
-        (conj v (bind-context- local-context resources-set item nil parent-dtyp env)))
-      []
-      edn)
+    (if (not (s/starts-with? parent-styp "vec"))
+      (throw (Exception. (str (pr-str edn) " is a vector, not structure typ " (pr-str parent-styp))))
+      (let [styp
+            (if (= parent-styp "vecmap")
+              "map"
+              nil)]
+        (reduce
+          (fn [v item]
+            (conj v (bind-context- local-context resources-set item styp parent-dtyp env)))
+          []
+          edn)))
 
     (map? edn)
     (reduce
       (fn [m [k v]]
         (let [[typ styp root ktyp dtyp]
               (parse-entity-name k)
+              _ (if (and (some? parent-styp) (some? styp) (not= parent-styp "map"))
+                  (throw (Exception. (str "Both key " (pr-str k) " and the parent map (structure typ " parent-styp ") have a structure type for content: " (pr-str v)))))
+              styp
+              (if (some? styp)
+                styp
+                (if (= parent-styp "mapmap")
+                  "map"
+                  (if (= parent-styp "mapvec")
+                    "vec"
+                    (if (= parent-styp "map")
+                      nil
+                      (throw (Exception. (str (pr-str edn) " is a map, not structure typ " (pr-str parent-styp))))))))
               _ (if (and (some? parent-dtyp) (some? dtyp))
                   (throw (Exception. (str "Both key " (pr-str k) " and the parent map have a data type for content: " (pr-str v)))))
               dtyp
               (if (some? dtyp)
                 dtyp
                 parent-dtyp)
-              styp
-              (if (= parent-styp "mapmap")
-                "map"
-                nil)]
+              ]
           (assoc m (bind-context- local-context resources-set k nil nil env)
                    (bind-context- local-context resources-set v styp dtyp env))))
       (sorted-map)
       edn)
 
     (boolean? edn)
-    (if (= parent-dtyp "bool")
-      edn
-      (throw (Exception. (str (pr-str edn) "is boolean, not " parent-dtyp))))
+    (if (some? parent-styp)
+      (throw (Exception. (str (pr-str edn) "is a scalar, not structure typ " (pr-str parent-styp))))
+      (if (= parent-dtyp "bool")
+        edn
+        (throw (Exception. (str (pr-str edn) "is boolean, not " parent-dtyp)))))
 
     true
-    (throw (Exception. (str "Data type " (pr-str parent-dtyp) " does not match value: " (pr-str edn))))))
+    (throw (Exception. (str "Data type " (pr-str parent-dtyp) " is not known, value: " (pr-str edn))))))
 
 (defn bind-context
   [full-context-name edn styp dtyp env]
@@ -706,7 +723,7 @@
               (reduce
                 (fn [edn-script request-maps]
                   (conj edn-script
-                        (bind-context full-local-context request-maps "mapmap" nil env)))
+                        (bind-context full-local-context request-maps "map" nil env)))
                 []
                 edn-script)
               return-port0

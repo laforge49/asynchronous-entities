@@ -1,7 +1,7 @@
 ---
 DESCRIPTORS:
   SYS+descriptor-INVARIANT$bool: true
-  SYS+descriptor_map-REQUESTS^requestid$str:
+  SYS+descriptor_mapvec-REQUESTS^requestid$str:
     SYS+requestid-ENTITYreport:
     - ENTITY_REPORToperationid
     SYS+requestid-INSTANTIATE:
@@ -9,7 +9,7 @@ DESCRIPTORS:
   SYS+descriptors_map-INSTANCE^classifier:
     SYS+classifier-ENTITYtype: classifierVALUE-SIMPLE
   SYS+descriptors_map-INSTANCE^descriptor:
-    SYS+descriptor_map-REQUESTS^requestid$str:
+    SYS+descriptor_mapvec-REQUESTS^requestid$str:
       SYS+requestid-ADDdescriptors:
       - ADD_DESCRIPTORSoperationid
       SYS+requestid-ADDrelations:

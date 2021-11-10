@@ -1,6 +1,6 @@
 ---
 DESCRIPTORS:
-  SYS+descriptor_map-REQUESTS^requestid$str:
+  SYS+descriptor_mapvec-REQUESTS^requestid$str:
     SYS+requestid-ENTITYreport:
     - CONTEXT_REPORToperationid
     SYS+requestid-LOADscript:
@@ -36,7 +36,7 @@ SYS+classifierVALUE-REQUESTID
 SYS+context-TEST
 SYS+descriptor-INVARIANT$bool
 SYS+descriptor-READonly$bool
-SYS+descriptor_map-REQUESTS^requestid$str
+SYS+descriptor_mapvec-REQUESTS^requestid$str
 SYS+descriptors_map-INSTANCE^classifier
 SYS+descriptors_map-INSTANCE^descriptor
 SYS+requestid-ADDdescriptors
@@ -77,7 +77,7 @@ classifier:  SYS+classifier-CLASS
   value:       SYS+class-DESCRIPTOR
     entity:      SYS+descriptor-INVARIANT$bool
     entity:      SYS+descriptor-READonly$bool
-    entity:      SYS+descriptor_map-REQUESTS^requestid$str
+    entity:      SYS+descriptor_mapvec-REQUESTS^requestid$str
     entity:      SYS+descriptors_map-INSTANCE^classifier
     entity:      SYS+descriptors_map-INSTANCE^descriptor
   value:       SYS+class-REQUESTID
@@ -114,7 +114,7 @@ classifier:  SYS+classifier-ENTITYtype
   value:       SYS+classifierVALUE-DESCRIPTOR
     entity:      SYS+descriptor-INVARIANT$bool
     entity:      SYS+descriptor-READonly$bool
-    entity:      SYS+descriptor_map-REQUESTS^requestid$str
+    entity:      SYS+descriptor_mapvec-REQUESTS^requestid$str
     entity:      SYS+descriptors_map-INSTANCE^classifier
     entity:      SYS+descriptors_map-INSTANCE^descriptor
   value:       SYS+classifierVALUE-REQUESTID
@@ -124,7 +124,7 @@ classifier:  SYS+classifier-ENTITYtype
     entity:      SYS+requestid-REGISTERentity
     entity:      SYS+requestid-ROUTE
     entity:      SYS+requestid-RUNfederation
-classifier:  SYS+classifier-RESOURCES
+classifier:  SYS+classifier_vec-RESOURCES
   value:       ROOT+context-SYS
     entity:      SYS+context-TEST
 

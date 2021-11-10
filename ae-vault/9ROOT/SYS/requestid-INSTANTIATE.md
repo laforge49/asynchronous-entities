@@ -2,7 +2,7 @@
 DESCRIPTORS:
   descriptor-INVARIANT$bool: true
   descriptor-READonly$bool: true
-  descriptor_map-REQUESTS^requestid$str:
+  descriptor_mapvec-REQUESTS^requestid$str:
     requestid-ENTITYreport:
     - ENTITY_REPORToperationid
 TAGS:

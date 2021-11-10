@@ -1,6 +1,14 @@
 ---
 DESCRIPTORS:
-  SYS+descriptor-SCRIPT:
+  SYS+descriptor_mapvec-REQUESTS^requestid$str:
+    SYS+requestid-ENTITYreport:
+    - ENTITY_REPORToperationid
+    SYS+requestid-RUNfederation:
+    - RUN_FEDERATIONoperationid
+  SYS+descriptor_vec-FEDERATIONnames:
+  - simple-ALPHA
+  - simple-BETA
+  SYS+descriptor_vec-SCRIPT:
   - request_map-REQUEST^param:
       SYS+param-NAME: simple-GAMMA
       SYS+param-TARGETname: class-SIMPLE
@@ -19,22 +27,14 @@ DESCRIPTORS:
       SYS+param-TARGETname: simple-GAMMA
       SYS+param-TARGETrequestid: SYS+requestid-ADDrelations
       SYS+param-relations:
-        relation-BASIC:
+        relation_vec-BASIC:
         - simple-ALPHA
   - request_map-REQUEST^param:
       SYS+param-TARGETname: simple-BETA
       SYS+param-TARGETrequestid: SYS+requestid-ADDrelations
       SYS+param-relations:
-        relation-BASIC:
+        relation_vec-BASIC:
         - simple-ALPHA
-  SYS+descriptor_map-REQUESTS^requestid$str:
-    SYS+requestid-ENTITYreport:
-    - ENTITY_REPORToperationid
-    SYS+requestid-RUNfederation:
-    - RUN_FEDERATIONoperationid
-  SYS+descriptor_vec-FEDERATIONnames:
-  - simple-ALPHA
-  - simple-BETA
 TAGS:
 - SYS+classifier-CLASS/SYS+class-FEDERATOR
 - SYS+classifier-ENTITYtype/SYS+classifierVALUE-FEDERATOR

@@ -4,7 +4,7 @@
     SYS+param-NAME: class-SIMPLE
     SYS+param_map-DESCRIPTORS^descriptor:
       SYS+descriptors_map-INSTANCE^descriptor:
-        SYS+descriptor_map-REQUESTS^requestid$str:
+        SYS+descriptor_mapvec-REQUESTS^requestid$str:
           SYS+requestid-ADDdescriptors:
             - ADD_DESCRIPTORSoperationid
           SYS+requestid-ADDrelations:
@@ -32,7 +32,7 @@
 - request_map-REQUEST^param:
     SYS+param-TARGETrequestid: SYS+requestid-INSTANTIATE
     SYS+param-TARGETname: SYS+class-RELATION
-    SYS+param-NAME: relation-BASIC
+    SYS+param-NAME: relation_vec-BASIC
 - request_map-REQUEST^param:
     SYS+param-TARGETrequestid: SYS+requestid-INSTANTIATE
     SYS+param-TARGETname: SYS+class-DESCRIPTOR
@@ -45,7 +45,7 @@
       SYS+descriptor_vec-FEDERATIONnames:
         - simple-ALPHA
         - simple-BETA
-      SYS+descriptor-SCRIPT:
+      SYS+descriptor_vec-SCRIPT:
         - request_map-REQUEST^param:
             SYS+param-TARGETrequestid: SYS+requestid-INSTANTIATE
             SYS+param-TARGETname: class-SIMPLE
@@ -64,13 +64,13 @@
             SYS+param-TARGETrequestid: SYS+requestid-ADDrelations
             SYS+param-TARGETname: simple-GAMMA
             SYS+param-relations:
-              relation-BASIC:
+              relation_vec-BASIC:
                 - simple-ALPHA
         - request_map-REQUEST^param:
             SYS+param-TARGETrequestid: SYS+requestid-ADDrelations
             SYS+param-TARGETname: simple-BETA
             SYS+param-relations:
-              relation-BASIC:
+              relation_vec-BASIC:
                 - simple-ALPHA
 - request_map-REQUEST^param:
     SYS+param-TARGETrequestid: SYS+requestid-RUNfederation

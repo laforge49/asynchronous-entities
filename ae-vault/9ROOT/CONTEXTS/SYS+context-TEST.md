@@ -1,6 +1,6 @@
 ---
 DESCRIPTORS:
-  descriptor_map-REQUESTS^requestid$str:
+  descriptor_mapvec-REQUESTS^requestid$str:
     requestid-ENTITYreport:
     - CONTEXT_REPORToperationid
     requestid-LOADscript:
@@ -12,7 +12,7 @@ DESCRIPTORS:
 TAGS:
 - SYS+classifier-CLASS/SYS+class-CONTEXT
 - SYS+classifier-ENTITYtype/SYS+classifierVALUE-CONTEXT
-- SYS+classifier-RESOURCES/ROOT+context-SYS
+- SYS+classifier_vec-RESOURCES/ROOT+context-SYS
 ---
 # Entity SYS+context-TEST
 
@@ -27,12 +27,11 @@ TEST+class-SIMPLE
 TEST+classifierVALUE-SIMPLE
 TEST+descriptor-DEGREEofPOLISH$str
 TEST+federator-A
-TEST+relation-BASIC
+TEST+relation_vec-BASIC
 TEST+simple-ALPHA
 TEST+simple-BETA
-TEST+simple-GAMMA
 
-Number of entities: 8
+Number of entities: 7
 
 2. Classifier Values of context SYS+context-TEST
 (Default context is context-TEST.)
@@ -47,16 +46,15 @@ classifier:  SYS+classifier-CLASS
   value:       SYS+class-FEDERATOR
     entity:      TEST+federator-A
   value:       SYS+class-RELATION
-    entity:      TEST+relation-BASIC
+    entity:      TEST+relation_vec-BASIC
   value:       TEST+class-SIMPLE
     entity:      TEST+simple-ALPHA
     entity:      TEST+simple-BETA
-    entity:      TEST+simple-GAMMA
 classifier:  SYS+classifier-ENTITYtype
   value:       SYS+classifierVALUE-CLASS
     entity:      TEST+class-SIMPLE
   value:       SYS+classifierVALUE-CLASSIFIER
-    entity:      TEST+relation-BASIC
+    entity:      TEST+relation_vec-BASIC
   value:       SYS+classifierVALUE-CLASSIFIERvalue
     entity:      TEST+classifierVALUE-SIMPLE
   value:       SYS+classifierVALUE-DESCRIPTOR
@@ -66,7 +64,6 @@ classifier:  SYS+classifier-ENTITYtype
   value:       TEST+classifierVALUE-SIMPLE
     entity:      TEST+simple-ALPHA
     entity:      TEST+simple-BETA
-    entity:      TEST+simple-GAMMA
 
 Number of classifiers: 2
 

@@ -1,7 +1,7 @@
 ---
 DESCRIPTORS:
   descriptor-INVARIANT$bool: true
-  descriptor_map-REQUESTS^requestid$str:
+  descriptor_mapvec-REQUESTS^requestid$str:
     requestid-ENTITYreport:
     - ENTITY_REPORToperationid
     requestid-INSTANTIATE:
@@ -9,7 +9,7 @@ DESCRIPTORS:
   descriptors_map-INSTANCE^classifier:
     classifier-ENTITYtype: classifierVALUE-FEDERATOR
   descriptors_map-INSTANCE^descriptor:
-    descriptor_map-REQUESTS^requestid$str:
+    descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
       - ENTITY_REPORToperationid
       requestid-RUNfederation:

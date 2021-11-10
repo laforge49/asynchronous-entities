@@ -4,14 +4,14 @@
     param-NAME: class-CLASS
     param_map-DESCRIPTORS^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_map-REQUESTS^requestid$str:
+      descriptor_mapvec-REQUESTS^requestid$str:
         requestid-INSTANTIATE:
           - INSTANTIATEoperationid
         requestid-ENTITYreport:
           - ENTITY_REPORToperationid
       descriptors_map-INSTANCE^descriptor:
         descriptor-INVARIANT$bool: true
-        descriptor_map-REQUESTS^requestid$str:
+        descriptor_mapvec-REQUESTS^requestid$str:
           requestid-INSTANTIATE:
             - INSTANTIATEoperationid
           requestid-ENTITYreport:
@@ -27,7 +27,7 @@
     param_map-DESCRIPTORS^descriptor:
       descriptors_map-INSTANCE^descriptor:
         descriptor-INVARIANT$bool: true
-        descriptor_map-REQUESTS^requestid$str:
+        descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
       descriptors_map-INSTANCE^classifier:
@@ -65,7 +65,7 @@
     param_map-DESCRIPTORS^descriptor:
       descriptors_map-INSTANCE^descriptor:
         descriptor-INVARIANT$bool: true
-        descriptor_map-REQUESTS^requestid$str:
+        descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
       descriptors_map-INSTANCE^classifier:
@@ -77,7 +77,7 @@
 - request_map-REQUEST^param:
     param-TARGETrequestid: requestid-INSTANTIATE
     param-TARGETname: class-DESCRIPTOR
-    param-NAME: descriptor_map-REQUESTS^requestid$str
+    param-NAME: descriptor_mapvec-REQUESTS^requestid$str
 - request_map-REQUEST^param:
     param-TARGETrequestid: requestid-INSTANTIATE
     param-TARGETname: class-DESCRIPTOR
@@ -97,7 +97,7 @@
     param_map-DESCRIPTORS^descriptor:
       descriptors_map-INSTANCE^descriptor:
         descriptor-INVARIANT$bool: true
-        descriptor_map-REQUESTS^requestid$str:
+        descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
       descriptors_map-INSTANCE^classifier:
@@ -109,7 +109,7 @@
     param_map-DESCRIPTORS^descriptor:
       descriptors_map-INSTANCE^descriptor:
         descriptor-INVARIANT$bool: true
-        descriptor_map-REQUESTS^requestid$str:
+        descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
       descriptors_map-INSTANCE^classifier:
@@ -125,7 +125,7 @@
     param_map-DESCRIPTORS^descriptor:
       descriptors_map-INSTANCE^descriptor:
         descriptor-INVARIANT$bool: true
-        descriptor_map-REQUESTS^requestid$str:
+        descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
       descriptors_map-INSTANCE^classifier:
@@ -168,7 +168,7 @@
     param-NAME: class-CONTEXT
     param_map-DESCRIPTORS^descriptor:
       descriptors_map-INSTANCE^descriptor:
-        descriptor_map-REQUESTS^requestid$str:
+        descriptor_mapvec-REQUESTS^requestid$str:
           requestid-REGISTERentity:
             - REGISTER_ENTITYoperationid
           requestid-ROUTE:
@@ -185,7 +185,7 @@
     param-NAME: class-FEDERATOR
     param_map-DESCRIPTORS^descriptor:
       descriptors_map-INSTANCE^descriptor:
-        descriptor_map-REQUESTS^requestid$str:
+        descriptor_mapvec-REQUESTS^requestid$str:
           requestid-RUNfederation:
             - RUN_FEDERATIONoperationid
           requestid-ENTITYreport:
@@ -199,7 +199,7 @@
     param_map-DESCRIPTORS^descriptor:
       descriptors_map-INSTANCE^descriptor:
         descriptor-INVARIANT$bool: true
-        descriptor_map-REQUESTS^requestid$str:
+        descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
           requestid-TYPEof:
@@ -215,7 +215,7 @@
       same line
       \ndifferent line"
     param_map-CLASSIFIERS^classifier:
-      classifier-RESOURCES:
+      classifier_vec-RESOURCES:
         - ROOT+context-SYS
 - request_map-REQUEST^param:
     param-TARGETrequestid: requestid-LOADscript
