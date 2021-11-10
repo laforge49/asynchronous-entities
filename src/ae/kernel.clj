@@ -625,23 +625,25 @@
   [local-context resources-set edn parent-styp parent-dtyp env]
   (cond
     (string? edn)
-    (if (some? parent-dtyp)
-      (if (= parent-dtyp "str")
-        edn
-        (throw (Exception. (str (pr-str edn) " is not of type " parent-dtyp))))
-      (let [[typ styp root ktyp dtyp]
-            (parse-entity-name edn)
-            ndx
-            (s/index-of edn "+")]
-        (if (some? ndx)
-          (let [ctx
-                (subs edn 0 ndx)]
-            (if (contains? resources-set ctx)
-              edn
-              (if (= edn "ROOT+context-SYS")
+    (if (some? parent-styp)
+      (throw (Exception. (str (pr-str edn) " is not of structure type " parent-styp)))
+      (if (some? parent-dtyp)
+        (if (= parent-dtyp "str")
+          edn
+          (throw (Exception. (str (pr-str edn) " is not of data type " parent-dtyp))))
+        (let [[typ styp root ktyp dtyp]
+              (parse-entity-name edn)
+              ndx
+              (s/index-of edn "+")]
+          (if (some? ndx)
+            (let [ctx
+                  (subs edn 0 ndx)]
+              (if (contains? resources-set ctx)
                 edn
-                (throw (Exception. (str "Undeclared resource used by " edn " in context " local-context))))))
-          (str local-context "+" edn))))
+                (if (= edn "ROOT+context-SYS")
+                  edn
+                  (throw (Exception. (str "Undeclared resource used by " edn " in context " local-context))))))
+            (str local-context "+" edn)))))
 
     (vector? edn)
     (reduce
