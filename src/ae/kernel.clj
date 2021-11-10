@@ -497,7 +497,7 @@
                                   (prn-str context-map))))))))
 
 (def styp-set
-  #{"map" "vec"})
+  #{"map" "vec" "mapmap"})
 
 (def dtyp-set
   #{"bool" "str"})
@@ -675,7 +675,7 @@
     (throw (Exception. (str "Data type " (pr-str parent-dtyp) " does not match value: " (pr-str edn))))))
 
 (defn bind-context
-  [full-context-name edn dtyp env]
+  [full-context-name edn styp dtyp env]
   (let [resources-set
         (get-resources-set full-context-name)
         [_ _ base-name]
@@ -698,9 +698,9 @@
               (yaml/parse-raw yaml-script)
               edn-script
               (reduce
-                (fn [edn-script request]
+                (fn [edn-script request-maps]
                   (conj edn-script
-                        (bind-context full-local-context request nil env)))
+                        (bind-context full-local-context request-maps "mapmap" nil env)))
                 []
                 edn-script)
               return-port0

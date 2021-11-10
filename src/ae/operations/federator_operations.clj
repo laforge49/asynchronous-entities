@@ -139,7 +139,7 @@
                   (let [request-params
                         (val (first request))
                         request-params
-                        (k/bind-context local-context request-params nil env)]
+                        (k/bind-context local-context request-params "map" nil env)]
                     (k/routeFunction env this-map request-params)))
               [e]
               (a/<! (registerChildren env
