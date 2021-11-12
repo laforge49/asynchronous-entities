@@ -30,8 +30,9 @@ TEST+federator-A
 TEST+relation_vec-BASIC
 TEST+simple-ALPHA
 TEST+simple-BETA
+TEST+simple-GAMMA
 
-Number of entities: 7
+Number of entities: 8
 
 2. Classifier Values of context SYS+context-TEST
 (Default context is context-TEST.)
@@ -50,6 +51,7 @@ classifier:  SYS+classifier-CLASS
   value:       TEST+class-SIMPLE
     entity:      TEST+simple-ALPHA
     entity:      TEST+simple-BETA
+    entity:      TEST+simple-GAMMA
 classifier:  SYS+classifier-ENTITYtype
   value:       SYS+classifierVALUE-CLASS
     entity:      TEST+class-SIMPLE
@@ -64,6 +66,7 @@ classifier:  SYS+classifier-ENTITYtype
   value:       TEST+classifierVALUE-SIMPLE
     entity:      TEST+simple-ALPHA
     entity:      TEST+simple-BETA
+    entity:      TEST+simple-GAMMA
 
 Number of classifiers: 2
 

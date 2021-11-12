@@ -130,7 +130,7 @@
               env
               (assoc env "NEW-CHILDREN-VOLATILE" (volatile! {}))
               script
-              (get descriptors "SYS+descriptor-SCRIPT")
+              (get descriptors "SYS+descriptor_vec-SCRIPT")
               this-name
               (get this-map "NAME")
               local-context
@@ -139,7 +139,7 @@
                   (let [request-params
                         (val (first request))
                         request-params
-                        (k/bind-context local-context request-params "mapvec" nil env)]
+                        (k/bind-context local-context request-params "map" nil env)]
                     (k/routeFunction env this-map request-params)))
               [e]
               (a/<! (registerChildren env

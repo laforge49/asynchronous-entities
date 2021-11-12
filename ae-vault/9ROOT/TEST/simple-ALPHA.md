@@ -7,6 +7,11 @@ DESCRIPTORS:
     - ADD_RELATIONSoperationid
     SYS+requestid-ENTITYreport:
     - ENTITY_REPORToperationid
+  descriptor-DEGREEofPOLISH$str: MIDDLING
+INVERSE-RELATIONS:
+  relation_vec-BASIC:
+  - simple-GAMMA
+  - simple-BETA
 TAGS:
 - SYS+classifier-CLASS/TEST+class-SIMPLE
 - SYS+classifier-ENTITYtype/TEST+classifierVALUE-SIMPLE
