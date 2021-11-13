@@ -8,4 +8,4 @@ Adding named (value) type to the form of a name: contextRoot+type_structureType-
 
 A named type can only be present when no data type is present. Like data (value) type, a named type applies to the value when the name with the named type is used as a key. Again, like data type, the named type is used to validate the scalar, vector values or map values associated with the key containing the named type.
 
-When both named type and data type are nil, the associated value is an unconstrained name.
+When a named type has a value of ?, then the value is an unconstrained name.
