@@ -698,7 +698,7 @@
     (throw (Exception. (str "Data type " (pr-str parent-dtyp) " is not known, value: " (pr-str edn))))))
 
 (defn bind-context
-  [full-context-name edn styp dtyp env]
+  [full-context-name edn styp ktyp dtyp env]
   (let [resources-set
         (get-resources-set full-context-name)
         [_ _ base-name]
@@ -723,7 +723,7 @@
               (reduce
                 (fn [edn-script request-maps]
                   (conj edn-script
-                        (bind-context full-local-context request-maps "map" nil env)))
+                        (bind-context full-local-context request-maps "map" nil nil env)))
                 []
                 edn-script)
               return-port0
