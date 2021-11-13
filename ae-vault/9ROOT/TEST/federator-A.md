@@ -8,7 +8,7 @@ DESCRIPTORS:
   SYS+descriptor_vec-FEDERATIONnames:
   - simple-ALPHA
   - simple-BETA
-  SYS+descriptor_vec-SCRIPT:
+  SYS+descriptor_vecmap-SCRIPT^request:
   - request_map-REQUEST^param:
       SYS+param-NAME: simple-GAMMA
       SYS+param-TARGETname: class-SIMPLE

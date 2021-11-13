@@ -130,7 +130,7 @@
               env
               (assoc env "NEW-CHILDREN-VOLATILE" (volatile! {}))
               script
-              (get descriptors "SYS+descriptor_vec-SCRIPT")
+              (get descriptors "SYS+descriptor_vecmap-SCRIPT^request")
               this-name
               (get this-map "NAME")
               local-context

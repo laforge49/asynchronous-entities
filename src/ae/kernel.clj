@@ -553,7 +553,9 @@
             (subs s (inc u-ndx) h-ndx)))
         _ (if (and (some? u-ndx) (empty? styp))
             (throw (Exception. (str "Name " s " has a _ but the structure type is empty"))))
-        _ (if (not= (and (some? styp) (s/starts-with? styp "map")) (some? c-ndx))
+        _ (if (not= (and (some? styp)
+                         (or (s/starts-with? styp "map") (s/ends-with? styp "map")))
+                    (some? c-ndx))
             (throw (Exception. (str "Name " s " Can include a ^ if and only if the structure type starts with map"))))
         root-end
         (if (some? c-ndx)
@@ -678,7 +680,7 @@
                       nil
                       (throw (Exception. (str (pr-str edn) " is a map, not structure typ " (pr-str parent-styp))))))))
               _ (if (not= typ parent-ktyp)
-                  (println (str (pr-str k) " is not the expected key type: " (pr-str parent-ktyp))))
+                  (throw (Exception. (str (pr-str k) " is not the expected key type: " (pr-str parent-ktyp)))))
               _ (if (and (some? parent-dtyp) (some? dtyp))
                   (throw (Exception. (str "Both key " (pr-str k) " and the parent map have a data type for content: " (pr-str v)))))
               dtyp
