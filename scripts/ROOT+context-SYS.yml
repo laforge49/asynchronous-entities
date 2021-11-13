@@ -9,7 +9,7 @@
           - INSTANTIATEoperationid
         requestid-ENTITYreport:
           - ENTITY_REPORToperationid
-      descriptors_map-INSTANCE^descriptor:
+      descriptor_map-INSTANCE^descriptor:
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-INSTANTIATE:
@@ -25,7 +25,7 @@
     param-TARGETname: class-CLASS
     param-NAME: class-REQUESTID
     param_map-DESCRIPTORS^descriptor:
-      descriptors_map-INSTANCE^descriptor:
+      descriptor_map-INSTANCE^descriptor:
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
@@ -63,7 +63,7 @@
     param-TARGETname: class-CLASS
     param-NAME: class-DESCRIPTOR
     param_map-DESCRIPTORS^descriptor:
-      descriptors_map-INSTANCE^descriptor:
+      descriptor_map-INSTANCE^descriptor:
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
@@ -85,7 +85,7 @@
 - request_map-REQUEST^param:
     param-TARGETrequestid: requestid-INSTANTIATE
     param-TARGETname: class-DESCRIPTOR
-    param-NAME: descriptors_map-INSTANCE^descriptor
+    param-NAME: descriptor_map-INSTANCE^descriptor
 - request_map-REQUEST^param:
     param-TARGETrequestid: requestid-INSTANTIATE
     param-TARGETname: class-DESCRIPTOR
@@ -95,7 +95,7 @@
     param-TARGETname: class-CLASS
     param-NAME: class-CLASSIFIER
     param_map-DESCRIPTORS^descriptor:
-      descriptors_map-INSTANCE^descriptor:
+      descriptor_map-INSTANCE^descriptor:
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
@@ -107,7 +107,7 @@
     param-TARGETname: class-CLASS
     param-NAME: class-RELATION
     param_map-DESCRIPTORS^descriptor:
-      descriptors_map-INSTANCE^descriptor:
+      descriptor_map-INSTANCE^descriptor:
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
@@ -123,7 +123,7 @@
     param-TARGETname: class-CLASS
     param-NAME: class-CLASSIFIERvalue
     param_map-DESCRIPTORS^descriptor:
-      descriptors_map-INSTANCE^descriptor:
+      descriptor_map-INSTANCE^descriptor:
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
@@ -167,7 +167,7 @@
     param-TARGETname: class-CLASS
     param-NAME: class-CONTEXT
     param_map-DESCRIPTORS^descriptor:
-      descriptors_map-INSTANCE^descriptor:
+      descriptor_map-INSTANCE^descriptor:
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-REGISTERentity:
             - REGISTER_ENTITYoperationid
@@ -184,7 +184,7 @@
     param-TARGETname: class-CLASS
     param-NAME: class-FEDERATOR
     param_map-DESCRIPTORS^descriptor:
-      descriptors_map-INSTANCE^descriptor:
+      descriptor_map-INSTANCE^descriptor:
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-RUNfederation:
             - RUN_FEDERATIONoperationid
@@ -197,7 +197,7 @@
     param-TARGETname: class-CLASS
     param-NAME: class-DATAtype
     param_map-DESCRIPTORS^descriptor:
-      descriptors_map-INSTANCE^descriptor:
+      descriptor_map-INSTANCE^descriptor:
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:

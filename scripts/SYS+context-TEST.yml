@@ -3,7 +3,7 @@
     SYS+param-TARGETname: SYS+class-CLASS
     SYS+param-NAME: class-SIMPLE
     SYS+param_map-DESCRIPTORS^descriptor:
-      SYS+descriptors_map-INSTANCE^descriptor:
+      SYS+descriptor_map-INSTANCE^descriptor:
         SYS+descriptor_mapvec-REQUESTS^requestid$str:
           SYS+requestid-ADDdescriptors:
             - ADD_DESCRIPTORSoperationid

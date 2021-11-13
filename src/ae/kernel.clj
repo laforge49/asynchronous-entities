@@ -622,28 +622,30 @@
     edn))
 
 (defn bind-context-
-  [local-context resources-set edn parent-styp parent-dtyp env]
+  [local-context resources-set edn parent-styp parent-ktyp parent-dtyp env]
   (cond
     (string? edn)
     (if (some? parent-styp)
       (throw (Exception. (str (pr-str edn) " is a scalar, not structure type " (pr-str parent-styp))))
-      (if (some? parent-dtyp)
-        (if (= parent-dtyp "str")
-          edn
-          (throw (Exception. (str (pr-str edn) " is not of data type " (pr-str parent-dtyp)))))
-        (let [[typ styp root ktyp dtyp]
-              (parse-entity-name edn)
-              ndx
-              (s/index-of edn "+")]
-          (if (some? ndx)
-            (let [ctx
-                  (subs edn 0 ndx)]
-              (if (contains? resources-set ctx)
-                edn
-                (if (= edn "ROOT+context-SYS")
+      (if (some? parent-ktyp)
+        (throw (Exception. (str (pr-str edn) " is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
+        (if (some? parent-dtyp)
+          (if (= parent-dtyp "str")
+            edn
+            (throw (Exception. (str (pr-str edn) " is not of data type " (pr-str parent-dtyp)))))
+          (let [[typ styp root ktyp dtyp]
+                (parse-entity-name edn)
+                ndx
+                (s/index-of edn "+")]
+            (if (some? ndx)
+              (let [ctx
+                    (subs edn 0 ndx)]
+                (if (contains? resources-set ctx)
                   edn
-                  (throw (Exception. (str "Undeclared resource used by " edn " in context " local-context))))))
-            (str local-context "+" edn)))))
+                  (if (= edn "ROOT+context-SYS")
+                    edn
+                    (throw (Exception. (str "Undeclared resource used by " edn " in context " local-context))))))
+              (str local-context "+" edn))))))
 
     (vector? edn)
     (if (not (s/starts-with? parent-styp "vec"))
@@ -654,7 +656,7 @@
               nil)]
         (reduce
           (fn [v item]
-            (conj v (bind-context- local-context resources-set item styp parent-dtyp env)))
+            (conj v (bind-context- local-context resources-set item styp parent-ktyp parent-dtyp env)))
           []
           edn)))
 
@@ -675,6 +677,8 @@
                     (if (= parent-styp "map")
                       nil
                       (throw (Exception. (str (pr-str edn) " is a map, not structure typ " (pr-str parent-styp))))))))
+              _ (if (not= typ parent-ktyp)
+                  (println (str (pr-str k) " is not the expected key type: " (pr-str parent-ktyp))))
               _ (if (and (some? parent-dtyp) (some? dtyp))
                   (throw (Exception. (str "Both key " (pr-str k) " and the parent map have a data type for content: " (pr-str v)))))
               dtyp
@@ -682,17 +686,19 @@
                 dtyp
                 parent-dtyp)
               ]
-          (assoc m (bind-context- local-context resources-set k nil nil env)
-                   (bind-context- local-context resources-set v styp dtyp env))))
+          (assoc m (bind-context- local-context resources-set k nil nil nil env)
+                   (bind-context- local-context resources-set v styp ktyp dtyp env))))
       (sorted-map)
       edn)
 
     (boolean? edn)
     (if (some? parent-styp)
       (throw (Exception. (str (pr-str edn) "is a scalar, not structure typ " (pr-str parent-styp))))
-      (if (= parent-dtyp "bool")
-        edn
-        (throw (Exception. (str (pr-str edn) "is boolean, not " parent-dtyp)))))
+      (if (some? parent-ktyp)
+        (throw (Exception. (str (pr-str edn) " is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
+        (if (= parent-dtyp "bool")
+          edn
+          (throw (Exception. (str (pr-str edn) "is boolean, not " parent-dtyp))))))
 
     true
     (throw (Exception. (str "Data type " (pr-str parent-dtyp) " is not known, value: " (pr-str edn))))))
@@ -707,7 +713,7 @@
         (if (s/starts-with? base-name "context-")
           (subs base-name 8)
           base-name)]
-    (bind-context- base-name resources-set edn styp dtyp env)))
+    (bind-context- base-name resources-set edn styp ktyp dtyp env)))
 
 (defn async-script
   [script-path yaml-script context-map env]
