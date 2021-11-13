@@ -11,7 +11,7 @@
             - ADD_RELATIONSoperationid
           SYS+requestid-ENTITYreport:
             - ENTITY_REPORToperationid
-      SYS+descriptors_map-INSTANCE^classifier:
+      SYS+descriptor_map-INSTANCE^classifier:
         SYS+classifier-ENTITYtype: classifierVALUE-SIMPLE
 - request_map-REQUEST^param:
     SYS+param-TARGETrequestid: SYS+requestid-INSTANTIATE
