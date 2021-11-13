@@ -26,13 +26,13 @@ DESCRIPTORS:
   - request_map-REQUEST^param:
       SYS+param-TARGETname: simple-GAMMA
       SYS+param-TARGETrequestid: SYS+requestid-ADDrelations
-      SYS+param-relations:
+      SYS+param_map-relations^relation:
         relation_vec-BASIC:
         - simple-ALPHA
   - request_map-REQUEST^param:
       SYS+param-TARGETname: simple-BETA
       SYS+param-TARGETrequestid: SYS+requestid-ADDrelations
-      SYS+param-relations:
+      SYS+param_map-relations^relation:
         relation_vec-BASIC:
         - simple-ALPHA
 TAGS:
