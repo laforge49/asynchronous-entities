@@ -723,7 +723,7 @@
               (reduce
                 (fn [edn-script request-maps]
                   (conj edn-script
-                        (bind-context full-local-context request-maps "map" nil nil env)))
+                        (bind-context full-local-context request-maps "map" "request" nil env)))
                 []
                 edn-script)
               return-port0
