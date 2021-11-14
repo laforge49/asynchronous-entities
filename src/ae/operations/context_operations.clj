@@ -86,7 +86,7 @@
               (kw/name-as-keyword target-entity-name)]
           (if (= this-name target-entity-name)
             (let [target-requestid
-                  (get params "SYS+param-TARGETrequestid")]
+                  (get params "SYS+param-TARGET&requestid")]
               (a/>! operation-return-port [this-map nil :NO-RETURN])
               (a/>! active-request-port [env
                                          (assoc params "SYS+param-REQUESTID" target-requestid)]))
@@ -96,7 +96,7 @@
                     target-entity-request-port
                     (target-entity-kw entity-public-request-ports)
                     target-requestid
-                    (get params "SYS+param-TARGETrequestid")]
+                    (get params "SYS+param-TARGET&requestid")]
                 (if (nil? target-entity-request-port)
                   (throw (Exception. (str "Entity " target-entity-name " is not registered in " this-name "\n"
                                           (prn-str params)))))

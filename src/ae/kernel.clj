@@ -240,7 +240,7 @@
                                     (prn-str params)
                                     (prn-str this-map)))))
         requestid
-        (get params "SYS+param-TARGETrequestid")
+        (get params "SYS+param-TARGET&requestid")
         params
         (assoc params "SYS+param-REQUESTID" requestid)
         operationids
@@ -458,7 +458,7 @@
             [nil [nil nil nil]]
             (let [params
                   {"SYS+param-REQUESTID"       "SYS+requestid-ROUTE"
-                   "SYS+param-TARGETrequestid" "SYS+requestidTYPEof"
+                   "SYS+param-TARGET&requestid" "SYS+requestidTYPEof"
                    "SYS+param-TARGETname"      type-entity}]
               (routeFunction env context-map params)))]
       (cond

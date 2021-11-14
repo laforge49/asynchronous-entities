@@ -60,7 +60,7 @@
         (assoc instantiation-classifiers "SYS+classifier-CLASS" this-name)
         instantiation-classifiers
         (into instantiation-classifiers (get params "SYS+param_map-CLASSIFIERS^classifier"))]
-    (into params {"SYS+param-TARGETrequestid"            "SYS+requestid-REGISTERentity"
+    (into params {"SYS+param-TARGET&requestid"            "SYS+requestid-REGISTERentity"
                   "SYS+param-TARGETname"                 target-name
                   "SYS+param_map-DESCRIPTORS^descriptor" instantiation-descriptors
                   "SYS+param_map-CLASSIFIERS^classifier" instantiation-classifiers})))

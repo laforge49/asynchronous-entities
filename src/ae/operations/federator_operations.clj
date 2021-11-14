@@ -36,7 +36,7 @@
                     context-request-port
                     (get env "CONTEXT-REQUEST-PORT")
                     _ (a/>! context-request-port [env {"SYS+param-REQUESTID"                  "SYS+requestid-ROUTE"
-                                                       "SYS+param-TARGETrequestid"            "SYS+requestid-REGISTERentity"
+                                                       "SYS+param-TARGET&requestid"            "SYS+requestid-REGISTERentity"
                                                        "entity-public-request-port"           entity-public-request-port
                                                        "SYS+param-TARGETname"                 context-name
                                                        "SYS+param-NAME"                       (get snap "NAME")
@@ -70,7 +70,7 @@
                         subrequest-return-port
                         (a/chan)
                         _ (a/>! root-contexts-request-port [env {"SYS+param-REQUESTID"       "SYS+requestid-ROUTE"
-                                                                 "SYS+param-TARGETrequestid" "PUSH-REQUEST-PORT"
+                                                                 "SYS+param-TARGET&requestid" "PUSH-REQUEST-PORT"
                                                                  "SYS+param-TARGETname"      federation-name
                                                                  "new-request-port"          new-request-port
                                                                  "SYS+param-RETURN$chan"     subrequest-return-port}])
