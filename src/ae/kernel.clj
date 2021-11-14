@@ -657,6 +657,8 @@
                 (parse-entity-name edn)
                 ndx
                 (s/index-of edn "+")]
+            (if (nil? parent-ntyp)
+              (throw (Exception. (str "There is no name type for " (pr-str edn)))))
             (if (some? ndx)
               (let [ctx
                     (subs edn 0 ndx)]
@@ -709,7 +711,7 @@
               (if (some? dtyp)
                 dtyp
                 parent-dtyp)]
-          (assoc m (bind-context- local-context resources-set k nil nil nil nil env)
+          (assoc m (bind-context- local-context resources-set k nil nil "?" nil env)
                    (bind-context- local-context resources-set v styp ktyp ntyp dtyp env))))
       (sorted-map)
       edn)
@@ -721,7 +723,10 @@
         (throw (Exception. (str (pr-str edn) " is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
         (if (= parent-dtyp "bool")
           edn
-          (throw (Exception. (str (pr-str edn) "is boolean, not " parent-dtyp))))))
+          (throw (Exception. (str (pr-str edn) "is boolean, not "
+                                  (if (nil? parent-dtyp)
+                                    "a name"
+                                    parent-dtyp)))))))
 
     true
     (throw (Exception. (str "Data type " (pr-str parent-dtyp) " is not known, value: " (pr-str edn))))))
