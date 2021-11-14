@@ -642,7 +642,7 @@
     edn))
 
 (defn bind-context-
-  [local-context resources-set edn parent-styp parent-ktyp parent-dtyp env]
+  [local-context resources-set edn parent-styp parent-ktyp parent-ntyp parent-dtyp env]
   (cond
     (string? edn)
     (if (some? parent-styp)
@@ -676,7 +676,7 @@
               nil)]
         (reduce
           (fn [v item]
-            (conj v (bind-context- local-context resources-set item styp parent-ktyp parent-dtyp env)))
+            (conj v (bind-context- local-context resources-set item styp parent-ktyp parent-ntyp parent-dtyp env)))
           []
           edn)))
 
@@ -706,8 +706,8 @@
                 dtyp
                 parent-dtyp)
               ]
-          (assoc m (bind-context- local-context resources-set k nil nil nil env)
-                   (bind-context- local-context resources-set v styp ktyp dtyp env))))
+          (assoc m (bind-context- local-context resources-set k nil nil nil nil env)
+                   (bind-context- local-context resources-set v styp ktyp nil dtyp env))))
       (sorted-map)
       edn)
 
@@ -733,7 +733,7 @@
         (if (s/starts-with? base-name "context-")
           (subs base-name 8)
           base-name)]
-    (bind-context- base-name resources-set edn styp ktyp dtyp env)))
+    (bind-context- base-name resources-set edn styp ktyp ntyp dtyp env)))
 
 (defn async-script
   [script-path yaml-script context-map env]
