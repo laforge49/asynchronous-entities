@@ -38,8 +38,8 @@
                     _ (a/>! context-request-port [env {"SYS+param-REQUESTID"                  "SYS+requestid-ROUTE"
                                                        "SYS+param-TARGET&requestid"            "SYS+requestid-REGISTERentity"
                                                        "entity-public-request-port"           entity-public-request-port
-                                                       "SYS+param-TARGETname"                 context-name
-                                                       "SYS+param-NAME"                       (get snap "NAME")
+                                                       "SYS+param-TARGETname&?"                 context-name
+                                                       "SYS+param-NAME&?"                       (get snap "NAME")
                                                        "SYS+param_map-CLASSIFIERS^classifier" (get snap "CLASSIFIERS")
                                                        "SYS+param-RETURN$chan"                subrequest-return-port}])
                     _ (k/request-exception-check (a/<! subrequest-return-port))
@@ -71,7 +71,7 @@
                         (a/chan)
                         _ (a/>! root-contexts-request-port [env {"SYS+param-REQUESTID"       "SYS+requestid-ROUTE"
                                                                  "SYS+param-TARGET&requestid" "PUSH-REQUEST-PORT"
-                                                                 "SYS+param-TARGETname"      federation-name
+                                                                 "SYS+param-TARGETname&?"      federation-name
                                                                  "new-request-port"          new-request-port
                                                                  "SYS+param-RETURN$chan"     subrequest-return-port}])
                         [snap new-request-port]

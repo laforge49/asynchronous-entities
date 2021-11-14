@@ -224,7 +224,7 @@
   [env this-map params]
   (save-entity-map this-map)
   (let [target-name
-        (get params "SYS+param-TARGETname")
+        (get params "SYS+param-TARGETname&?")
         target-map
         (get-federated-map target-name env)
         target-map
@@ -424,7 +424,7 @@
           request-port-stack
           (conj request-port-stack initialization-port))
         name
-        (get params "SYS+param-NAME")
+        (get params "SYS+param-NAME&?")
         new-entity-map
         {"NAME"               name
          "DESCRIPTORS"        descriptors
@@ -459,7 +459,7 @@
             (let [params
                   {"SYS+param-REQUESTID"       "SYS+requestid-ROUTE"
                    "SYS+param-TARGET&requestid" "SYS+requestidTYPEof"
-                   "SYS+param-TARGETname"      type-entity}]
+                   "SYS+param-TARGETname&?"      type-entity}]
               (routeFunction env context-map params)))]
       (cond
         (string? edn)

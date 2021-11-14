@@ -23,7 +23,7 @@
           _ (create-operations env)
           [context-request-port context-map]
           (k/create-entity env
-                           {"SYS+param-NAME"                       "ROOT+context-SYS"
+                           {"SYS+param-NAME&?"                       "ROOT+context-SYS"
                             "SYS+param_map-DESCRIPTORS^descriptor" {"SYS+descriptor_mapvec-REQUESTS^requestid$str" {"SYS+requestid-REGISTERentity" ["REGISTER_ENTITYoperationid"]
                                                                                                                  "SYS+requestid-ROUTE"          ["ROUTEoperationid"]
                                                                                                                  "SYS+requestid-ENTITYreport"   ["CONTEXT_REPORToperationid"]

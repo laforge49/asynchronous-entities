@@ -11,7 +11,7 @@
   (let [this-name
         (get this-map "NAME")
         name
-        (get params "SYS+param-NAME")
+        (get params "SYS+param-NAME&?")
         _ (if (some? (get params "initialization-port"))
             (throw (Exception. (str "An initialization port is not compatible with non-federated registration of entity "
                                     name))))
@@ -72,13 +72,13 @@
                 (subs local-context 8)
                 (throw (Exception. (str "unrecognized context: " local-context))))
               target-entity-name
-              (get params "SYS+param-TARGETname")
+              (get params "SYS+param-TARGETname&?")
               _ (if (nil? target-entity-name)
-                  (throw (Exception. (str "SYS+param-TARGETname is nil\n"
+                  (throw (Exception. (str "SYS+param-TARGETname&? is nil\n"
                                           (prn-str params)
                                           (prn-str this-map)))))
               _ (if (not (string? target-entity-name))
-                  (throw (Exception. (str "SYS+param-TARGETname is not a string\n"
+                  (throw (Exception. (str "SYS+param-TARGETname&? is not a string\n"
                                           (prn-str target-entity-name)
                                           (prn-str params)
                                           (prn-str this-map)))))
