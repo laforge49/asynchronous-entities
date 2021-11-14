@@ -109,7 +109,7 @@
         [_ this-context _]
         (kw/name-as-keyword this-name)
         relations-map
-        (get params "SYS+param_map-relations^relation")
+        (get params "SYS+param_map-relations^relation&?")
         federation-vmap
         (get env "FEDERATION-MAP-VOLATILE")
         this-map
