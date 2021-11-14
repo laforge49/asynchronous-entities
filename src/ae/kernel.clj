@@ -457,9 +457,9 @@
           (if (nil? type-entity)
             [nil [nil nil nil]]
             (let [params
-                  {"SYS+param-REQUESTID"       "SYS+requestid-ROUTE"
+                  {"SYS+param-REQUESTID"        "SYS+requestid-ROUTE"
                    "SYS+param-TARGET&requestid" "SYS+requestidTYPEof"
-                   "SYS+param-TARGETname&?"      type-entity}]
+                   "SYS+param-TARGETname&?"     type-entity}]
               (routeFunction env context-map params)))]
       (cond
         (string? edn)
@@ -566,9 +566,11 @@
         root-end
         (if (some? c-ndx)
           c-ndx
-          (if (some? d-ndx)
-            d-ndx
-            (count s)))
+          (if (some? a-ndx)
+            a-ndx
+            (if (some? d-ndx)
+              d-ndx
+              (count s))))
         _ (if (> h-ndx root-end)
             (throw (Exception. (str "Name " s " lacks a properly delineated root"))))
         root
@@ -578,13 +580,18 @@
         ktyp
         (if (nil? c-ndx)
           nil
-          (if (some? d-ndx)
-            (if (> d-ndx c-ndx)
-              (subs s (inc c-ndx) d-ndx)
+          (if (some? a-ndx)
+            (if (> a-ndx c-ndx)
+              (subs s (inc c-ndx) a-ndx)
               (throw (Exception. (str "Name " s " has an improperly delineated key type"))))
-            (subs s (inc c-ndx))))
+            (if (some? d-ndx)
+              (if (> d-ndx c-ndx)
+                (subs s (inc c-ndx) d-ndx)
+                (throw (Exception. (str "Name " s " has an improperly delineated key type"))))
+              (subs s (inc c-ndx)))))
         _ (if (and (some? c-ndx) (empty? ktyp))
-            (throw (Exception. (str "Name " s " has a * but the key type is empty"))))
+            (throw (Exception. (str "Name " s " has a ^ but the key type is empty"))))
+        
         dtyp
         (if (nil? d-ndx)
           nil
