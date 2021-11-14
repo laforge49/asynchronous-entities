@@ -591,7 +591,12 @@
               (subs s (inc c-ndx)))))
         _ (if (and (some? c-ndx) (empty? ktyp))
             (throw (Exception. (str "Name " s " has a ^ but the key type is empty"))))
-        
+        ntyp
+        (if (nil? a-ndx)
+          nil
+          (subs s (inc a-ndx)))
+        _ (if (and (some? a-ndx) (empty? ntyp))
+            (throw (Exception. (str "Name " s " has a & but the named type is empty"))))
         dtyp
         (if (nil? d-ndx)
           nil
