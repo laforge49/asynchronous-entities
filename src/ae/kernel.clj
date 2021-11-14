@@ -607,7 +607,7 @@
       (throw (Exception. (str "Name " s " has an unknown structure type: " styp))))
     (if (and (some? dtyp) (not (contains? dtyp-set dtyp)))
       (throw (Exception. (str "Name " s " has an unknown data type: " dtyp))))
-    [typ styp root ktyp dtyp]))
+    [typ styp root ktyp ntyp dtyp]))
 
 (defn unbind-context
   [local-context-+ edn values-as-data env]
@@ -653,7 +653,7 @@
           (if (= parent-dtyp "str")
             edn
             (throw (Exception. (str (pr-str edn) " is not of data type " (pr-str parent-dtyp)))))
-          (let [[typ styp root ktyp dtyp]
+          (let [[typ styp root ktyp n typ dtyp]
                 (parse-entity-name edn)
                 ndx
                 (s/index-of edn "+")]
@@ -683,7 +683,7 @@
     (map? edn)
     (reduce
       (fn [m [k v]]
-        (let [[typ styp root ktyp dtyp]
+        (let [[typ styp root ktyp ntyp dtyp]
               (parse-entity-name k)
               _ (if (and (some? parent-styp) (some? styp) (not= parent-styp "map"))
                   (throw (Exception. (str "Both key " (pr-str k) " and the parent map (structure typ " parent-styp ") have a structure type for content: " (pr-str v)))))
