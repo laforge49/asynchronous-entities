@@ -42,7 +42,7 @@
     SYS+param-TARGETname&?: SYS+class-FEDERATOR
     SYS+param-NAME&?: federator-A
     SYS+param_map-DESCRIPTORS^descriptor:
-      SYS+descriptor_vec-FEDERATIONnames:
+      SYS+descriptor_vec-FEDERATIONnames&?:
         - simple-ALPHA
         - simple-BETA
       SYS+descriptor_vecmap-SCRIPT^request:

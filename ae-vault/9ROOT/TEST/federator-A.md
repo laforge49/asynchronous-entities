@@ -5,7 +5,7 @@ DESCRIPTORS:
     - ENTITY_REPORToperationid
     SYS+requestid-RUNfederation:
     - RUN_FEDERATIONoperationid
-  SYS+descriptor_vec-FEDERATIONnames:
+  SYS+descriptor_vec-FEDERATIONnames&?:
   - simple-ALPHA
   - simple-BETA
   SYS+descriptor_vecmap-SCRIPT^request:
