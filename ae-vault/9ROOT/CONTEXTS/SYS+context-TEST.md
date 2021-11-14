@@ -12,7 +12,7 @@ DESCRIPTORS:
 TAGS:
 - SYS+classifier-CLASS/SYS+class-CONTEXT
 - SYS+classifier-ENTITYtype&classifierVALUE/SYS+classifierVALUE-CONTEXT
-- SYS+classifier_vec-RESOURCES/ROOT+context-SYS
+- SYS+classifier_vec-RESOURCES&context/ROOT+context-SYS
 ---
 # Entity SYS+context-TEST
 

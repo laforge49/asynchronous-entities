@@ -124,7 +124,7 @@ classifier:  SYS+classifier-ENTITYtype&classifierVALUE
     entity:      SYS+requestid-REGISTERentity
     entity:      SYS+requestid-ROUTE
     entity:      SYS+requestid-RUNfederation
-classifier:  SYS+classifier_vec-RESOURCES
+classifier:  SYS+classifier_vec-RESOURCES&context
   value:       ROOT+context-SYS
     entity:      SYS+context-TEST
 

@@ -215,7 +215,7 @@
       same line
       \ndifferent line"
     param_map-CLASSIFIERS^classifier:
-      classifier_vec-RESOURCES:
+      classifier_vec-RESOURCES&context:
         - ROOT+context-SYS
 - request_map-REQUEST^param:
     param-TARGET&requestid: requestid-LOADscript
