@@ -505,30 +505,36 @@
 (defn parse-entity-name
   [s]
   (let [
-        - (if (some? (s/index-of s "."))
+        _ (if (some? (s/index-of s "."))
             (throw (Exception. (str "Name " s " should not contain a ."))))
-        - (if (some? (s/index-of s "/"))
+        _ (if (some? (s/index-of s "/"))
             (throw (Exception. (str "Name " s " should not contain a /"))))
         p-ndx
         (s/index-of s "+")
-        - (if (not= p-ndx (s/last-index-of s "+"))
+        _ (if (not= p-ndx (s/last-index-of s "+"))
             (throw (Exception. (str "Name " s " should not contain two +'s"))))
         u-ndx
         (s/index-of s "_")
-        - (if (not= u-ndx (s/last-index-of s "_"))
+        _ (if (not= u-ndx (s/last-index-of s "_"))
             (throw (Exception. (str "Name " s " should not contain two _'s"))))
         h-ndx
         (s/index-of s "-")
-        - (if (not= h-ndx (s/last-index-of s "-"))
+        _ (if (not= h-ndx (s/last-index-of s "-"))
             (throw (Exception. (str "Name " s " should not contain two -'s"))))
         c-ndx
         (s/index-of s "^")
-        - (if (not= c-ndx (s/last-index-of s "^"))
+        _ (if (not= c-ndx (s/last-index-of s "^"))
             (throw (Exception. (str "Name " s " should not contain two ^'s"))))
+        a-ndx
+        (s/index-of s "&")
+        _ (if (not= a-ndx (s/last-index-of s "&"))
+            (throw (Exception. (str "Name " s " should not contain two &'s"))))
         d-ndx
         (s/index-of s "$")
-        - (if (not= d-ndx (s/last-index-of s "$"))
+        _ (if (not= d-ndx (s/last-index-of s "$"))
             (throw (Exception. (str "Name " s " should not contain two $'s"))))
+        _ (if (and (some? a-ndx) (some? d-ndx))
+            (throw (Exception. (str "Name " s " can not have both & and $"))))
         _ (if (nil? h-ndx)
             (throw (Exception. (str "Name " s " is missing a -"))))
         typ-start
