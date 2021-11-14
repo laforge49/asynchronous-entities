@@ -653,7 +653,7 @@
           (if (= parent-dtyp "str")
             edn
             (throw (Exception. (str (pr-str edn) " is not of data type " (pr-str parent-dtyp)))))
-          (let [[typ styp root ktyp n typ dtyp]
+          (let [[typ styp root ktyp ntyp dtyp]
                 (parse-entity-name edn)
                 ndx
                 (s/index-of edn "+")]
