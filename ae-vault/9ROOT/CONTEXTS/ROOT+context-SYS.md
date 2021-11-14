@@ -24,7 +24,7 @@ SYS+class-DESCRIPTOR
 SYS+class-FEDERATOR
 SYS+class-RELATION
 SYS+class-REQUESTID
-SYS+classifier-ENTITYtype
+SYS+classifier-ENTITYtype&classifierVALUE
 SYS+classifierVALUE-CLASS
 SYS+classifierVALUE-CLASSIFIER
 SYS+classifierVALUE-CLASSIFIERvalue
@@ -62,7 +62,7 @@ classifier:  SYS+classifier-CLASS
     entity:      SYS+class-RELATION
     entity:      SYS+class-REQUESTID
   value:       SYS+class-CLASSIFIER
-    entity:      SYS+classifier-ENTITYtype
+    entity:      SYS+classifier-ENTITYtype&classifierVALUE
   value:       SYS+class-CLASSIFIERvalue
     entity:      SYS+classifierVALUE-CLASS
     entity:      SYS+classifierVALUE-CLASSIFIER
@@ -87,7 +87,7 @@ classifier:  SYS+classifier-CLASS
     entity:      SYS+requestid-REGISTERentity
     entity:      SYS+requestid-ROUTE
     entity:      SYS+requestid-RUNfederation
-classifier:  SYS+classifier-ENTITYtype
+classifier:  SYS+classifier-ENTITYtype&classifierVALUE
   value:       SYS+classifierVALUE-CLASS
     entity:      SYS+class-CLASS
     entity:      SYS+class-CLASSIFIER
@@ -99,7 +99,7 @@ classifier:  SYS+classifier-ENTITYtype
     entity:      SYS+class-RELATION
     entity:      SYS+class-REQUESTID
   value:       SYS+classifierVALUE-CLASSIFIER
-    entity:      SYS+classifier-ENTITYtype
+    entity:      SYS+classifier-ENTITYtype&classifierVALUE
   value:       SYS+classifierVALUE-CLASSIFIERvalue
     entity:      SYS+classifierVALUE-CLASS
     entity:      SYS+classifierVALUE-CLASSIFIER

@@ -37,7 +37,7 @@ DESCRIPTORS:
         - simple-ALPHA
 TAGS:
 - SYS+classifier-CLASS/SYS+class-FEDERATOR
-- SYS+classifier-ENTITYtype/SYS+classifierVALUE-FEDERATOR
+- SYS+classifier-ENTITYtype&classifierVALUE/SYS+classifierVALUE-FEDERATOR
 ---
 # Entity TEST+federator-A
 

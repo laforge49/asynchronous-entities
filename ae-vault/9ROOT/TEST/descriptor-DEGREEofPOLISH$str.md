@@ -6,7 +6,7 @@ DESCRIPTORS:
     - ENTITY_REPORToperationid
 TAGS:
 - SYS+classifier-CLASS/SYS+class-DESCRIPTOR
-- SYS+classifier-ENTITYtype/SYS+classifierVALUE-DESCRIPTOR
+- SYS+classifier-ENTITYtype&classifierVALUE/SYS+classifierVALUE-DESCRIPTOR
 ---
 # Entity TEST+descriptor-DEGREEofPOLISH$str
 

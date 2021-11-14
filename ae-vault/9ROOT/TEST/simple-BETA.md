@@ -9,7 +9,7 @@ DESCRIPTORS:
     - ENTITY_REPORToperationid
 TAGS:
 - SYS+classifier-CLASS/TEST+class-SIMPLE
-- SYS+classifier-ENTITYtype/TEST+classifierVALUE-SIMPLE
+- SYS+classifier-ENTITYtype&classifierVALUE/TEST+classifierVALUE-SIMPLE
 - TEST+relation_vec-BASIC/TEST+simple-ALPHA
 ---
 # Entity TEST+simple-BETA

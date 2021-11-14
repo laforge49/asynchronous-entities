@@ -17,9 +17,9 @@
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
       descriptor_map-INSTANCE^classifier:
-        classifier-ENTITYtype: classifierVALUE-CLASS
+        classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASS
     param_map-CLASSIFIERS^classifier:
-      classifier-ENTITYtype: classifierVALUE-CLASS
+      classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASS
 - request_map-REQUEST^param:
     param-TARGET&requestid: requestid-INSTANTIATE
     param-TARGETname&?: class-CLASS
@@ -31,7 +31,7 @@
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
       descriptor_map-INSTANCE^classifier:
-        classifier-ENTITYtype: classifierVALUE-REQUESTID
+        classifier-ENTITYtype&classifierVALUE: classifierVALUE-REQUESTID
 - request_map-REQUEST^param:
     param-TARGET&requestid: requestid-INSTANTIATE
     param-TARGETname&?: class-REQUESTID
@@ -69,7 +69,7 @@
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
       descriptor_map-INSTANCE^classifier:
-        classifier-ENTITYtype: classifierVALUE-DESCRIPTOR
+        classifier-ENTITYtype&classifierVALUE: classifierVALUE-DESCRIPTOR
 - request_map-REQUEST^param:
     param-TARGET&requestid: requestid-INSTANTIATE
     param-TARGETname&?: class-DESCRIPTOR
@@ -101,7 +101,7 @@
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
       descriptor_map-INSTANCE^classifier:
-        classifier-ENTITYtype: classifierVALUE-CLASSIFIER
+        classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASSIFIER
 - request_map-REQUEST^param:
     param-TARGET&requestid: requestid-INSTANTIATE
     param-TARGETname&?: class-CLASS
@@ -113,11 +113,11 @@
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
       descriptor_map-INSTANCE^classifier:
-        classifier-ENTITYtype: classifierVALUE-CLASSIFIER
+        classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASSIFIER
 - request_map-REQUEST^param:
     param-TARGET&requestid: requestid-INSTANTIATE
     param-TARGETname&?: class-CLASSIFIER
-    param-NAME&?: classifier-ENTITYtype
+    param-NAME&?: classifier-ENTITYtype&classifierVALUE
 - request_map-REQUEST^param:
     param-TARGET&requestid: requestid-INSTANTIATE
     param-TARGETname&?: class-CLASS
@@ -129,7 +129,7 @@
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
       descriptor_map-INSTANCE^classifier:
-        classifier-ENTITYtype: classifierVALUE-CLASSIFIERvalue
+        classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASSIFIERvalue
 - request_map-REQUEST^param:
     param-TARGET&requestid: requestid-INSTANTIATE
     param-TARGETname&?: class-CLASSIFIERvalue
@@ -178,7 +178,7 @@
           requestid-LOADscript:
             - LOAD_SCRIPToperationid
       descriptor_map-INSTANCE^classifier:
-        classifier-ENTITYtype: classifierVALUE-CONTEXT
+        classifier-ENTITYtype&classifierVALUE: classifierVALUE-CONTEXT
 - request_map-REQUEST^param:
     param-TARGET&requestid: requestid-INSTANTIATE
     param-TARGETname&?: class-CLASS
@@ -191,7 +191,7 @@
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
       descriptor_map-INSTANCE^classifier:
-        classifier-ENTITYtype: classifierVALUE-FEDERATOR
+        classifier-ENTITYtype&classifierVALUE: classifierVALUE-FEDERATOR
 - request_map-REQUEST^param:
     param-TARGET&requestid: requestid-INSTANTIATE
     param-TARGETname&?: class-CLASS
@@ -205,7 +205,7 @@
           requestid-TYPEof:
             - operationidTYPE_OF
       descriptor_map-INSTANCE^classifier:
-        classifier-ENTITYtype: classifierVALUE-DATAtype
+        classifier-ENTITYtype&classifierVALUE: classifierVALUE-DATAtype
 - request_map-REQUEST^param:
     param-TARGET&requestid: requestid-INSTANTIATE
     param-TARGETname&?: class-CONTEXT

@@ -11,7 +11,7 @@ DESCRIPTORS:
     - ROUTEoperationid
 TAGS:
 - SYS+classifier-CLASS/SYS+class-CONTEXT
-- SYS+classifier-ENTITYtype/SYS+classifierVALUE-CONTEXT
+- SYS+classifier-ENTITYtype&classifierVALUE/SYS+classifierVALUE-CONTEXT
 - SYS+classifier_vec-RESOURCES/ROOT+context-SYS
 ---
 # Entity SYS+context-TEST
@@ -52,7 +52,7 @@ classifier:  SYS+classifier-CLASS
     entity:      TEST+simple-ALPHA
     entity:      TEST+simple-BETA
     entity:      TEST+simple-GAMMA
-classifier:  SYS+classifier-ENTITYtype
+classifier:  SYS+classifier-ENTITYtype&classifierVALUE
   value:       SYS+classifierVALUE-CLASS
     entity:      TEST+class-SIMPLE
   value:       SYS+classifierVALUE-CLASSIFIER

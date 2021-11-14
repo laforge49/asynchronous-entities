@@ -14,7 +14,7 @@ INVERSE-RELATIONS:
   - simple-BETA
 TAGS:
 - SYS+classifier-CLASS/TEST+class-SIMPLE
-- SYS+classifier-ENTITYtype/TEST+classifierVALUE-SIMPLE
+- SYS+classifier-ENTITYtype&classifierVALUE/TEST+classifierVALUE-SIMPLE
 ---
 # Entity TEST+simple-ALPHA
 

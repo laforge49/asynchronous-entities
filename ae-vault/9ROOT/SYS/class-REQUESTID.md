@@ -2,7 +2,7 @@
 DESCRIPTORS:
   descriptor-INVARIANT$bool: true
   descriptor_map-INSTANCE^classifier:
-    classifier-ENTITYtype: classifierVALUE-REQUESTID
+    classifier-ENTITYtype&classifierVALUE: classifierVALUE-REQUESTID
   descriptor_map-INSTANCE^descriptor:
     descriptor-INVARIANT$bool: true
     descriptor_mapvec-REQUESTS^requestid$str:
@@ -15,7 +15,7 @@ DESCRIPTORS:
     - INSTANTIATEoperationid
 TAGS:
 - SYS+classifier-CLASS/SYS+class-CLASS
-- SYS+classifier-ENTITYtype/SYS+classifierVALUE-CLASS
+- SYS+classifier-ENTITYtype&classifierVALUE/SYS+classifierVALUE-CLASS
 ---
 # Entity SYS+class-REQUESTID
 

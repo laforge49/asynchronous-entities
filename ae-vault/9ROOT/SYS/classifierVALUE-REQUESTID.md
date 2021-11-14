@@ -6,7 +6,7 @@ DESCRIPTORS:
     - ENTITY_REPORToperationid
 TAGS:
 - SYS+classifier-CLASS/SYS+class-CLASSIFIERvalue
-- SYS+classifier-ENTITYtype/SYS+classifierVALUE-CLASSIFIERvalue
+- SYS+classifier-ENTITYtype&classifierVALUE/SYS+classifierVALUE-CLASSIFIERvalue
 ---
 # Entity SYS+classifierVALUE-REQUESTID
 
