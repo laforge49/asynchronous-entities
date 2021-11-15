@@ -364,7 +364,7 @@
                           operation-return-port
                           (a/chan)
                           params
-                          (assoc params "operation-return-port" operation-return-port)
+                          (assoc params "SYS+param-OPERATIONreturnport" operation-return-port)
                           operationid-submap
                           (get @operationid-map-atom operationid)
                           operation-goblock

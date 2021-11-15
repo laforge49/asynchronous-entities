@@ -69,7 +69,7 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (get params "operation-return-port")]
+          (get params "SYS+param-OPERATIONreturnport")]
       (try
         (let [context-request-port
               (get env "CONTEXT-REQUEST-PORT")
@@ -154,7 +154,7 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (get params "operation-return-port")]
+          (get params "SYS+param-OPERATIONreturnport")]
       (try
         (let [this-name
               (get this-map "NAME")

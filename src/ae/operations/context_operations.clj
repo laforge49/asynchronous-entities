@@ -40,7 +40,7 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (get params "operation-return-port")]
+          (get params "SYS+param-OPERATIONreturnport")]
       (try
         (a/>! operation-return-port (registerEntityOperation env this-map params))
         (catch Exception e
@@ -50,7 +50,7 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (get params "operation-return-port")]
+          (get params "SYS+param-OPERATIONreturnport")]
       (try
         (let [active-request-port
               (get env "active-request-port")
@@ -125,7 +125,7 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (get params "operation-return-port")]
+          (get params "SYS+param-OPERATIONreturnport")]
       (try
         (let [this-name
               (get this-map "NAME")
@@ -167,7 +167,7 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (get params "operation-return-port")
+          (get params "SYS+param-OPERATIONreturnport")
           return-port
           (get params "SYS+param-RETURN$chan")]
       (a/>! operation-return-port [this-map nil :NO-RETURN])

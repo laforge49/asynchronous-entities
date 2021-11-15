@@ -110,7 +110,7 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (get params "operation-return-port")]
+          (get params "SYS+param-OPERATIONreturnport")]
       (try
         (let [root-contexts-request-port
               (get env "CONTEXT-REQUEST-PORT")
