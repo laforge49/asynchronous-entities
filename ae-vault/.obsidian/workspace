@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "8activities/8000-pendingActivities.md",
+            "file": "6blog/21/21-4 Q4/2146/2146.1 Monday (week 46), 11-15-2021.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "8activities/8000-pendingActivities.md",
+                "file": "6blog/21/21-4 Q4/2146/2146.1 Monday (week 46), 11-15-2021.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -96,7 +96,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "8activities/8000-pendingActivities.md",
+                "file": "6blog/21/21-4 Q4/2146/2146.1 Monday (week 46), 11-15-2021.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -119,15 +119,15 @@
   },
   "active": "c902587de11a02ea",
   "lastOpenFiles": [
+    "6blog/21/21-4 Q4/2146/2146.1 Monday (week 46), 11-15-2021.md",
+    "8activities/8006-reportMarkdown.md",
+    "9ROOT/CONTEXTS/SYS+context-TEST.md",
+    "9ROOT/SYS/class-CLASSIFIER.md",
+    "9ROOT/SYS/class-CLASS.md",
+    "9ROOT/CONTEXTS/ROOT+context-SYS.md",
     "8activities/8000-pendingActivities.md",
     "6blog/21/21-3 Q3/2132/8002-convertReadme.md",
     "6blog/21/21-3 Q3/2133/8001-recursiveDecent.md",
-    "6blog/21/21-4 Q4/2146/2146.1 Monday (week 46), 11-15-2021.md",
-    "6blog/21/21-4 Q4/2146/8005-reportBacklinks.md",
-    "6blog/21/21-4 Q4/2146/8009-renameEntities.md",
-    "8activities/8006-reportMarkdown.md",
-    "6blog/21/21-4 Q4/2145/2145.7 Sunday (week 45), 11-14-2021.md",
-    "8activities/8004-validation.md",
-    "6blog/21/21-4 Q4/2145/2145.6 Saturday (week 45), 11-13-2021.md"
+    "6blog/21/21-4 Q4/2146/8005-reportBacklinks.md"
   ]
 }
