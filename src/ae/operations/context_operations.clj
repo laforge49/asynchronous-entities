@@ -12,7 +12,7 @@
         (get this-map "NAME")
         name
         (get params "SYS+param-NAME&?")
-        _ (if (some? (get params "initialization-port"))
+        _ (if (some? (get params "SYS+param-INITIALIZATIONport"))
             (throw (Exception. (str "An initialization port is not compatible with non-federated registration of entity "
                                     name))))
         entity-public-request-port

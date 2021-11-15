@@ -418,7 +418,7 @@
         invariant
         (get descriptors "SYS+descriptor-INVARIANT$bool")
         initialization-port
-        (get params "initialization-port")
+        (get params "SYS+param-INITIALIZATIONport")
         request-port-stack
         (if (or invariant (nil? initialization-port))
           request-port-stack
