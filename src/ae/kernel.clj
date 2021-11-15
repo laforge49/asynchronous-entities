@@ -336,7 +336,7 @@
                       (if (get this-descriptors "SYS+descriptor-INVARIANT$bool")
                         [this-map [this-map nil]]
                         (let [new-request-port
-                              (get params "SYS+NEWrequestport")
+                              (get params "SYS+param-NEWrequestport")
                               this-map
                               (assoc this-map "REQUEST-PORT-STACK" (conj this-request-port-stack new-request-port))
                               federator-name

@@ -72,7 +72,7 @@
                         _ (a/>! root-contexts-request-port [env {"SYS+param-REQUESTID"       "SYS+requestid-ROUTE"
                                                                  "SYS+param-TARGET&requestid" "PUSH-REQUEST-PORT"
                                                                  "SYS+param-TARGETname&?"      federation-name
-                                                                 "SYS+NEWrequestport"          new-request-port
+                                                                 "SYS+param-NEWrequestport"          new-request-port
                                                                  "SYS+param-RETURN$chan"     subrequest-return-port}])
                         [snap new-request-port]
                         (k/request-exception-check (a/<! subrequest-return-port))]
