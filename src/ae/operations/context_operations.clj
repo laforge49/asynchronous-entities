@@ -16,7 +16,7 @@
             (throw (Exception. (str "An initialization port is not compatible with non-federated registration of entity "
                                     name))))
         entity-public-request-port
-        (get params "entity-public-request-port")
+        (get params "SYS+param-ENTITYpublicREQUESTPORT")
         entity-public-request-port
         (if (some? entity-public-request-port)
           entity-public-request-port

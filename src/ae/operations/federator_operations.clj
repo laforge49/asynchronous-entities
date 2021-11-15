@@ -37,7 +37,7 @@
                     (get env "CONTEXT-REQUEST-PORT")
                     _ (a/>! context-request-port [env {"SYS+param-REQUESTID"                  "SYS+requestid-ROUTE"
                                                        "SYS+param-TARGET&requestid"            "SYS+requestid-REGISTERentity"
-                                                       "entity-public-request-port"           entity-public-request-port
+                                                       "SYS+param-ENTITYpublicREQUESTPORT"           entity-public-request-port
                                                        "SYS+param-TARGETname&?"                 context-name
                                                        "SYS+param-NAME&?"                       (get snap "NAME")
                                                        "SYS+param_map-CLASSIFIERS^classifier" (get snap "CLASSIFIERS")
