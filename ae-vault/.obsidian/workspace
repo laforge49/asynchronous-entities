@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "8activities/8004-validation.md",
+            "file": "6blog/21/21-4 Q4/2146/2146.1 Monday (week 46), 11-15-2021.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "8activities/8004-validation.md",
+                "file": "6blog/21/21-4 Q4/2146/2146.1 Monday (week 46), 11-15-2021.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -96,7 +96,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "8activities/8004-validation.md",
+                "file": "6blog/21/21-4 Q4/2146/2146.1 Monday (week 46), 11-15-2021.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -119,15 +119,15 @@
   },
   "active": "c902587de11a02ea",
   "lastOpenFiles": [
+    "6blog/21/21-4 Q4/2146/2146.1 Monday (week 46), 11-15-2021.md",
+    "6blog/21/21-4 Q4/2145/2145.7 Sunday (week 45), 11-14-2021.md",
     "8activities/8004-validation.md",
     "6blog/21/21-4 Q4/2145/2145.6 Saturday (week 45), 11-13-2021.md",
-    "6blog/21/21-4 Q4/2145/2145.7 Sunday (week 45), 11-14-2021.md",
     "6blog/21/21-4 Q4/2145/8032-namedType.md",
     "8activities/8000-pendingActivities.md",
     "6blog/21/21-4 Q4/2144/8029-keyType.md",
     "6blog/21/21-4 Q4/2144/8030-requestParameters.md",
     "6blog/21/21-4 Q4/2145/8031-requests.md",
-    "8activities/8012-changeDescriptors.md",
-    "6blog/21/21-4 Q4/2145/2145.5 Friday (week 45), 11-12-2021.md"
+    "8activities/8012-changeDescriptors.md"
   ]
 }
