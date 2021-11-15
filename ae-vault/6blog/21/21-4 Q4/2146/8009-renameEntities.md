@@ -1,6 +1,6 @@
 ---
 tags:
-  - status/todo
+  - status/dropped
 ---
 from [8000-pendingActivities](8000-pendingActivities.md)
 # 8009 Rename Entities

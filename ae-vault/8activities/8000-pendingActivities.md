@@ -5,7 +5,6 @@ from [0000-asynchronousEntities](../0000-asynchronousEntities.md)
 - [8004-validation](8004-validation.md)
 - [8005-reportBacklinks](8005-reportBacklinks.md)
 - [8006-reportMarkdown](8006-reportMarkdown.md)
-- [8009-renameEntities](8009-renameEntities.md)
 - [8011-changeRelations](8011-changeRelations.md)
 - [8012-changeDescriptors](8012-changeDescriptors.md)
 - next: 8033
