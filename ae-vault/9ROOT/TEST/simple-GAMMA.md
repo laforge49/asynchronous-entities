@@ -13,8 +13,6 @@ FACETS:
       SYS+requestid-ENTITYreport:
       - ENTITY_REPORToperationid
     descriptor-DEGREEofPOLISH$str: MIDDLING
-  FEDERATOR-NAME: nil
-  INVERSE-RELATIONS: {}
   NAME: simple-GAMMA
   RELATIONS:
     relation_vec-BASIC:

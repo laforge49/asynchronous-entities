@@ -1,6 +1,5 @@
 ---
 FACETS:
-  CLASSIFIERS: {}
   CONTENT$ml: ''
   DESCRIPTORS:
     SYS+descriptor_mapvec-REQUESTS^requestid$str:
@@ -43,9 +42,7 @@ FACETS:
     descriptor_map-INSTANCE^classifier: clojure.core.async.chan
     classifierVALUE-REQUESTID: clojure.core.async.chan
     context-TEST: clojure.core.async.chan
-  INVERSE-RELATIONS: {}
   NAME: context-SYS
-  RELATIONS: {}
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
 ---

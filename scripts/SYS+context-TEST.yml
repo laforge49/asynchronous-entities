@@ -6,11 +6,11 @@
       SYS+descriptor_map-INSTANCE^descriptor:
         SYS+descriptor_mapvec-REQUESTS^requestid$str:
           SYS+requestid-ADDdescriptors:
-            - ADD_DESCRIPTORSoperationid
+          - ADD_DESCRIPTORSoperationid
           SYS+requestid-ADDrelations:
-            - ADD_RELATIONSoperationid
+          - ADD_RELATIONSoperationid
           SYS+requestid-ENTITYreport:
-            - ENTITY_REPORToperationid
+          - ENTITY_REPORToperationid
       SYS+descriptor_map-INSTANCE^classifier:
         SYS+classifier-ENTITYtype&classifierVALUE: classifierVALUE-SIMPLE
 - request_map-REQUEST^param:
@@ -43,35 +43,35 @@
     SYS+param-NAME&?: federator-A
     SYS+param_map-DESCRIPTORS^descriptor:
       SYS+descriptor_vec-FEDERATIONnames&?:
-        - simple-ALPHA
-        - simple-BETA
+      - simple-ALPHA
+      - simple-BETA
       SYS+descriptor_vecmap-SCRIPT^request:
-        - request_map-REQUEST^param:
-            SYS+param-TARGET&requestid: SYS+requestid-INSTANTIATE
-            SYS+param-TARGETname&?: class-SIMPLE
-            SYS+param-NAME&?: simple-GAMMA
-        - request_map-REQUEST^param:
-            SYS+param-TARGET&requestid: SYS+requestid-ADDdescriptors
-            SYS+param-TARGETname&?: simple-ALPHA
-            SYS+param_map-DESCRIPTORS^descriptor:
-              descriptor-DEGREEofPOLISH$str: MIDDLING
-        - request_map-REQUEST^param:
-            SYS+param-TARGET&requestid: SYS+requestid-ADDdescriptors
-            SYS+param-TARGETname&?: simple-GAMMA
-            SYS+param_map-DESCRIPTORS^descriptor:
-              descriptor-DEGREEofPOLISH$str: MIDDLING
-        - request_map-REQUEST^param:
-            SYS+param-TARGET&requestid: SYS+requestid-ADDrelations
-            SYS+param-TARGETname&?: simple-GAMMA
-            SYS+param_map-relations^relation&?:
-              relation_vec-BASIC:
-                - simple-ALPHA
-        - request_map-REQUEST^param:
-            SYS+param-TARGET&requestid: SYS+requestid-ADDrelations
-            SYS+param-TARGETname&?: simple-BETA
-            SYS+param_map-relations^relation&?:
-              relation_vec-BASIC:
-                - simple-ALPHA
+      - request_map-REQUEST^param:
+          SYS+param-TARGET&requestid: SYS+requestid-INSTANTIATE
+          SYS+param-TARGETname&?: class-SIMPLE
+          SYS+param-NAME&?: simple-GAMMA
+      - request_map-REQUEST^param:
+          SYS+param-TARGET&requestid: SYS+requestid-ADDdescriptors
+          SYS+param-TARGETname&?: simple-ALPHA
+          SYS+param_map-DESCRIPTORS^descriptor:
+            descriptor-DEGREEofPOLISH$str: MIDDLING
+      - request_map-REQUEST^param:
+          SYS+param-TARGET&requestid: SYS+requestid-ADDdescriptors
+          SYS+param-TARGETname&?: simple-GAMMA
+          SYS+param_map-DESCRIPTORS^descriptor:
+            descriptor-DEGREEofPOLISH$str: MIDDLING
+      - request_map-REQUEST^param:
+          SYS+param-TARGET&requestid: SYS+requestid-ADDrelations
+          SYS+param-TARGETname&?: simple-GAMMA
+          SYS+param_map-relations^relation&?:
+            relation_vec-BASIC:
+            - simple-ALPHA
+      - request_map-REQUEST^param:
+          SYS+param-TARGET&requestid: SYS+requestid-ADDrelations
+          SYS+param-TARGETname&?: simple-BETA
+          SYS+param_map-relations^relation&?:
+            relation_vec-BASIC:
+            - simple-ALPHA
 - request_map-REQUEST^param:
     SYS+param-TARGET&requestid: SYS+requestid-RUNfederation
     SYS+param-TARGETname&?: federator-A

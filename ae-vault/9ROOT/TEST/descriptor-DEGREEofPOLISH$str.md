@@ -9,9 +9,7 @@ FACETS:
     SYS+descriptor_mapvec-REQUESTS^requestid$str:
       SYS+requestid-ENTITYreport:
       - ENTITY_REPORToperationid
-  INVERSE-RELATIONS: {}
   NAME: descriptor-DEGREEofPOLISH$str
-  RELATIONS: {}
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
 ---

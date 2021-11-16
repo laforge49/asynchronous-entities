@@ -9,9 +9,7 @@ FACETS:
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
       - ENTITY_REPORToperationid
-  INVERSE-RELATIONS: {}
   NAME: descriptor_map-INSTANCE^descriptor
-  RELATIONS: {}
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
 ---

@@ -631,10 +631,14 @@
     (map? edn)
     (reduce
       (fn [m [k v]]
-        (assoc m (unbind-context local-context-+ k false env)
-                 (unbind-context local-context-+ v
-                                 (or values-as-data (some? (s/index-of k "$")))
-                                 env)))
+        (if (or (nil? v)
+                (and (map? v) (empty? v))
+                (and (vector? v) (empty? v)))
+          m
+          (assoc m (unbind-context local-context-+ k false env)
+                   (unbind-context local-context-+ v
+                                   (or values-as-data (some? (s/index-of k "$")))
+                                   env))))
       (sorted-map)
       edn)
 

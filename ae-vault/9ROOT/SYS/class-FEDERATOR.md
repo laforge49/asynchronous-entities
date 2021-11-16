@@ -19,9 +19,7 @@ FACETS:
       - ENTITY_REPORToperationid
       requestid-INSTANTIATE:
       - INSTANTIATEoperationid
-  INVERSE-RELATIONS: {}
   NAME: class-FEDERATOR
-  RELATIONS: {}
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
 ---

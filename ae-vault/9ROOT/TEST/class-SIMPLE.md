@@ -21,9 +21,7 @@ FACETS:
       - ENTITY_REPORToperationid
       SYS+requestid-INSTANTIATE:
       - INSTANTIATEoperationid
-  INVERSE-RELATIONS: {}
   NAME: class-SIMPLE
-  RELATIONS: {}
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
 ---

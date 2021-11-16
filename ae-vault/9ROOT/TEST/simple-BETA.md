@@ -12,8 +12,6 @@ FACETS:
       - ADD_RELATIONSoperationid
       SYS+requestid-ENTITYreport:
       - ENTITY_REPORToperationid
-  FEDERATOR-NAME: nil
-  INVERSE-RELATIONS: {}
   NAME: simple-BETA
   RELATIONS:
     relation_vec-BASIC:

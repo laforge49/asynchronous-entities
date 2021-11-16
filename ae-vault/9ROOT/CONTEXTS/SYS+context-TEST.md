@@ -25,9 +25,7 @@ FACETS:
     simple-ALPHA: clojure.core.async.chan
     simple-BETA: clojure.core.async.chan
     simple-GAMMA: clojure.core.async.chan
-  INVERSE-RELATIONS: {}
   NAME: context-TEST
-  RELATIONS: {}
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
 ---

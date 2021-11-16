@@ -9,9 +9,7 @@ FACETS:
     SYS+descriptor_mapvec-REQUESTS^requestid$str:
       SYS+requestid-ENTITYreport:
       - ENTITY_REPORToperationid
-  INVERSE-RELATIONS: {}
   NAME: classifierVALUE-SIMPLE
-  RELATIONS: {}
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
 ---

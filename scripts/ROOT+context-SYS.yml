@@ -6,16 +6,16 @@
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-INSTANTIATE:
-          - INSTANTIATEoperationid
+        - INSTANTIATEoperationid
         requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+        - ENTITY_REPORToperationid
       descriptor_map-INSTANCE^descriptor:
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-INSTANTIATE:
-            - INSTANTIATEoperationid
+          - INSTANTIATEoperationid
           requestid-ENTITYreport:
-            - ENTITY_REPORToperationid
+          - ENTITY_REPORToperationid
       descriptor_map-INSTANCE^classifier:
         classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASS
     param_map-CLASSIFIERS^classifier:
@@ -29,7 +29,7 @@
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
-            - ENTITY_REPORToperationid
+          - ENTITY_REPORToperationid
       descriptor_map-INSTANCE^classifier:
         classifier-ENTITYtype&classifierVALUE: classifierVALUE-REQUESTID
 - request_map-REQUEST^param:
@@ -67,7 +67,7 @@
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
-            - ENTITY_REPORToperationid
+          - ENTITY_REPORToperationid
       descriptor_map-INSTANCE^classifier:
         classifier-ENTITYtype&classifierVALUE: classifierVALUE-DESCRIPTOR
 - request_map-REQUEST^param:
@@ -99,7 +99,7 @@
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
-            - ENTITY_REPORToperationid
+          - ENTITY_REPORToperationid
       descriptor_map-INSTANCE^classifier:
         classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASSIFIER
 - request_map-REQUEST^param:
@@ -111,7 +111,7 @@
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
-            - ENTITY_REPORToperationid
+          - ENTITY_REPORToperationid
       descriptor_map-INSTANCE^classifier:
         classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASSIFIER
 - request_map-REQUEST^param:
@@ -127,7 +127,7 @@
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
-            - ENTITY_REPORToperationid
+          - ENTITY_REPORToperationid
       descriptor_map-INSTANCE^classifier:
         classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASSIFIERvalue
 - request_map-REQUEST^param:
@@ -170,13 +170,13 @@
       descriptor_map-INSTANCE^descriptor:
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-REGISTERentity:
-            - REGISTER_ENTITYoperationid
+          - REGISTER_ENTITYoperationid
           requestid-ROUTE:
-            - ROUTEoperationid
+          - ROUTEoperationid
           requestid-ENTITYreport:
-            - CONTEXT_REPORToperationid
+          - CONTEXT_REPORToperationid
           requestid-LOADscript:
-            - LOAD_SCRIPToperationid
+          - LOAD_SCRIPToperationid
       descriptor_map-INSTANCE^classifier:
         classifier-ENTITYtype&classifierVALUE: classifierVALUE-CONTEXT
 - request_map-REQUEST^param:
@@ -187,9 +187,9 @@
       descriptor_map-INSTANCE^descriptor:
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-RUNfederation:
-            - RUN_FEDERATIONoperationid
+          - RUN_FEDERATIONoperationid
           requestid-ENTITYreport:
-            - ENTITY_REPORToperationid
+          - ENTITY_REPORToperationid
       descriptor_map-INSTANCE^classifier:
         classifier-ENTITYtype&classifierVALUE: classifierVALUE-FEDERATOR
 - request_map-REQUEST^param:
@@ -201,9 +201,9 @@
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
-            - ENTITY_REPORToperationid
+          - ENTITY_REPORToperationid
           requestid-TYPEof:
-            - operationidTYPE_OF
+          - operationidTYPE_OF
       descriptor_map-INSTANCE^classifier:
         classifier-ENTITYtype&classifierVALUE: classifierVALUE-DATAtype
 - request_map-REQUEST^param:
@@ -216,7 +216,7 @@
       \ndifferent line"
     param_map-CLASSIFIERS^classifier:
       classifier_vec-RESOURCES&context:
-        - ROOT+context-SYS
+      - ROOT+context-SYS
 - request_map-REQUEST^param:
     param-TARGET&requestid: requestid-LOADscript
     param-TARGETname&?: context-TEST

@@ -13,13 +13,11 @@ FACETS:
       SYS+requestid-ENTITYreport:
       - ENTITY_REPORToperationid
     descriptor-DEGREEofPOLISH$str: MIDDLING
-  FEDERATOR-NAME: nil
   INVERSE-RELATIONS:
     relation_vec-BASIC:
     - simple-GAMMA
     - simple-BETA
   NAME: simple-ALPHA
-  RELATIONS: {}
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
 ---

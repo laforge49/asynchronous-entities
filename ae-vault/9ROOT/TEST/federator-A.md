@@ -40,9 +40,7 @@ FACETS:
         SYS+param_map-relations^relation&?:
           relation_vec-BASIC:
           - simple-ALPHA
-  INVERSE-RELATIONS: {}
   NAME: federator-A
-  RELATIONS: {}
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
 ---
