@@ -27,8 +27,8 @@
         initialization-port
         (a/chan)
         params
-        (into params {"SYS+param-TARGETname&?"                 name
-                      "SYS+param-INITIALIZATIONport"                  initialization-port
+        (into params {"SYS+param-TARGETname&?"               name
+                      "SYS+param-INITIALIZATIONport"         initialization-port
                       "SYS+param_map-DESCRIPTORS^descriptor" instantiation-descriptors
                       "SYS+param_map-CLASSIFIERS^classifier" instantiation-classifiers})
         [new-entity-public-request-port snap]
@@ -60,8 +60,8 @@
         (assoc instantiation-classifiers "SYS+classifier-CLASS" this-name)
         instantiation-classifiers
         (into instantiation-classifiers (get params "SYS+param_map-CLASSIFIERS^classifier"))]
-    (into params {"SYS+param-TARGET&requestid"            "SYS+requestid-REGISTERentity"
-                  "SYS+param-TARGETname&?"                 target-name
+    (into params {"SYS+param-TARGET&requestid"           "SYS+requestid-REGISTERentity"
+                  "SYS+param-TARGETname&?"               target-name
                   "SYS+param_map-DESCRIPTORS^descriptor" instantiation-descriptors
                   "SYS+param_map-CLASSIFIERS^classifier" instantiation-classifiers})))
 
