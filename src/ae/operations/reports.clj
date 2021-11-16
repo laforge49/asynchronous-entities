@@ -43,60 +43,14 @@
         (get this-map "NAME")
         [name-kw context-base-name base-name]
         (kw/name-as-keyword this-name)
-        classifiers
-        (get this-map "CLASSIFIERS")
-        descriptors
-        (get this-map "DESCRIPTORS")
-        descriptors
+        facets
         (k/unbind-context (str context-base-name "+")
-                          descriptors
-                          false
-                          env)
-        relations
-        (get this-map "RELATIONS")
-        inverse-relations
-        (get this-map "INVERSE-RELATIONS")
-        inverse-relations
-        (k/unbind-context (str context-base-name "+")
-                          inverse-relations
+                          this-map
                           false
                           env)
         fm
-        {"DESCRIPTORS"
-         descriptors}
-        fm
-        (if (empty? inverse-relations)
-          fm
-          (assoc fm "INVERSE-RELATIONS" inverse-relations))
-        classifier-tags
-        (reduce
-          (fn [tags [n v]]
-            (if (vector? v)
-              (reduce
-                (fn [tags i]
-                  (conj tags (str n "/" i)))
-                tags
-                v)
-              (conj tags (str n "/" v))))
-          []
-          classifiers)
-        relation-tags
-        (reduce
-          (fn [tags [n vs]]
-            (reduce
-              (fn [tags v]
-                (conj tags (str n "/" v)))
-              tags
-              vs))
-          []
-          relations)
-        tags
-        (into classifier-tags relation-tags)
-        fm
-        (if (empty? tags)
-          fm
-          (assoc fm "TAGS" tags))
-        ]
+        {"FACETS"
+         facets}]
     (str "---\n"
          (yaml/edn->yaml fm)
          "---\n")))

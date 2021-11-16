@@ -1,12 +1,19 @@
 ---
-DESCRIPTORS:
-  descriptor-INVARIANT$bool: true
-  descriptor_mapvec-REQUESTS^requestid$str:
-    requestid-ENTITYreport:
-    - ENTITY_REPORToperationid
-TAGS:
-- SYS+classifier-CLASS/SYS+class-CLASSIFIERvalue
-- SYS+classifier-ENTITYtype&classifierVALUE/SYS+classifierVALUE-CLASSIFIERvalue
+FACETS:
+  CLASSIFIERS:
+    classifier-CLASS: class-CLASSIFIERvalue
+    classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASSIFIERvalue
+  CONTENT$ml: ''
+  DESCRIPTORS:
+    descriptor-INVARIANT$bool: true
+    descriptor_mapvec-REQUESTS^requestid$str:
+      requestid-ENTITYreport:
+      - ENTITY_REPORToperationid
+  INVERSE-RELATIONS: {}
+  NAME: classifierVALUE-CLASSIFIERvalue
+  RELATIONS: {}
+  REQUEST-PORT-STACK:
+  - clojure.core.async.chan
 ---
 # Entity SYS+classifierVALUE-CLASSIFIERvalue
 

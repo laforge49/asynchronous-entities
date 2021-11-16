@@ -638,8 +638,17 @@
       (sorted-map)
       edn)
 
+    (boolean? edn)
+    edn
+
+    (keyword? edn)
+    (name edn)
+
+    (= (class edn) clojure.core.async.impl.channels.ManyToManyChannel)
+    "clojure.core.async.chan"
+
     true
-    edn))
+    (pr-str (class edn))))
 
 (defn bind-context-
   [local-context resources-set edn parent-styp parent-ktyp parent-ntyp parent-dtyp env]

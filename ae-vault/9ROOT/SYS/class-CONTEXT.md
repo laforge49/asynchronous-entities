@@ -1,26 +1,33 @@
 ---
-DESCRIPTORS:
-  descriptor-INVARIANT$bool: true
-  descriptor_map-INSTANCE^classifier:
-    classifier-ENTITYtype&classifierVALUE: classifierVALUE-CONTEXT
-  descriptor_map-INSTANCE^descriptor:
+FACETS:
+  CLASSIFIERS:
+    classifier-CLASS: class-CLASS
+    classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASS
+  CONTENT$ml: ''
+  DESCRIPTORS:
+    descriptor-INVARIANT$bool: true
+    descriptor_map-INSTANCE^classifier:
+      classifier-ENTITYtype&classifierVALUE: classifierVALUE-CONTEXT
+    descriptor_map-INSTANCE^descriptor:
+      descriptor_mapvec-REQUESTS^requestid$str:
+        requestid-ENTITYreport:
+        - CONTEXT_REPORToperationid
+        requestid-LOADscript:
+        - LOAD_SCRIPToperationid
+        requestid-REGISTERentity:
+        - REGISTER_ENTITYoperationid
+        requestid-ROUTE:
+        - ROUTEoperationid
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
-      - CONTEXT_REPORToperationid
-      requestid-LOADscript:
-      - LOAD_SCRIPToperationid
-      requestid-REGISTERentity:
-      - REGISTER_ENTITYoperationid
-      requestid-ROUTE:
-      - ROUTEoperationid
-  descriptor_mapvec-REQUESTS^requestid$str:
-    requestid-ENTITYreport:
-    - ENTITY_REPORToperationid
-    requestid-INSTANTIATE:
-    - INSTANTIATEoperationid
-TAGS:
-- SYS+classifier-CLASS/SYS+class-CLASS
-- SYS+classifier-ENTITYtype&classifierVALUE/SYS+classifierVALUE-CLASS
+      - ENTITY_REPORToperationid
+      requestid-INSTANTIATE:
+      - INSTANTIATEoperationid
+  INVERSE-RELATIONS: {}
+  NAME: class-CONTEXT
+  RELATIONS: {}
+  REQUEST-PORT-STACK:
+  - clojure.core.async.chan
 ---
 # Entity SYS+class-CONTEXT
 

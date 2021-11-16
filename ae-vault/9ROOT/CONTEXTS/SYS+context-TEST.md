@@ -1,18 +1,35 @@
 ---
-DESCRIPTORS:
-  descriptor_mapvec-REQUESTS^requestid$str:
-    requestid-ENTITYreport:
-    - CONTEXT_REPORToperationid
-    requestid-LOADscript:
-    - LOAD_SCRIPToperationid
-    requestid-REGISTERentity:
-    - REGISTER_ENTITYoperationid
-    requestid-ROUTE:
-    - ROUTEoperationid
-TAGS:
-- SYS+classifier-CLASS/SYS+class-CONTEXT
-- SYS+classifier-ENTITYtype&classifierVALUE/SYS+classifierVALUE-CONTEXT
-- SYS+classifier_vec-RESOURCES&context/ROOT+context-SYS
+FACETS:
+  CLASSIFIERS:
+    classifier-CLASS: class-CONTEXT
+    classifier-ENTITYtype&classifierVALUE: classifierVALUE-CONTEXT
+    classifier_vec-RESOURCES&context:
+    - ROOT+context-SYS
+  CONTENT$ml: "this is a test same line \ndifferent line"
+  DESCRIPTORS:
+    descriptor_mapvec-REQUESTS^requestid$str:
+      requestid-ENTITYreport:
+      - CONTEXT_REPORToperationid
+      requestid-LOADscript:
+      - LOAD_SCRIPToperationid
+      requestid-REGISTERentity:
+      - REGISTER_ENTITYoperationid
+      requestid-ROUTE:
+      - ROUTEoperationid
+  ENTITY-PUBLIC-REQUEST-PORTS:
+    class-SIMPLE: clojure.core.async.chan
+    classifierVALUE-SIMPLE: clojure.core.async.chan
+    descriptor-DEGREEofPOLISH$str: clojure.core.async.chan
+    federator-A: clojure.core.async.chan
+    relation_vec-BASIC: clojure.core.async.chan
+    simple-ALPHA: clojure.core.async.chan
+    simple-BETA: clojure.core.async.chan
+    simple-GAMMA: clojure.core.async.chan
+  INVERSE-RELATIONS: {}
+  NAME: context-TEST
+  RELATIONS: {}
+  REQUEST-PORT-STACK:
+  - clojure.core.async.chan
 ---
 # Entity SYS+context-TEST
 

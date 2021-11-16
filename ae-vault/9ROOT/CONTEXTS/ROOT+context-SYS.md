@@ -1,14 +1,53 @@
 ---
-DESCRIPTORS:
-  SYS+descriptor_mapvec-REQUESTS^requestid$str:
-    SYS+requestid-ENTITYreport:
-    - CONTEXT_REPORToperationid
-    SYS+requestid-LOADscript:
-    - LOAD_SCRIPToperationid
-    SYS+requestid-REGISTERentity:
-    - REGISTER_ENTITYoperationid
-    SYS+requestid-ROUTE:
-    - ROUTEoperationid
+FACETS:
+  CLASSIFIERS: {}
+  CONTENT$ml: ''
+  DESCRIPTORS:
+    SYS+descriptor_mapvec-REQUESTS^requestid$str:
+      SYS+requestid-ENTITYreport:
+      - CONTEXT_REPORToperationid
+      SYS+requestid-LOADscript:
+      - LOAD_SCRIPToperationid
+      SYS+requestid-REGISTERentity:
+      - REGISTER_ENTITYoperationid
+      SYS+requestid-ROUTE:
+      - ROUTEoperationid
+  ENTITY-PUBLIC-REQUEST-PORTS:
+    requestid-REGISTERentity: clojure.core.async.chan
+    class-CLASSIFIERvalue: clojure.core.async.chan
+    descriptor-READonly$bool: clojure.core.async.chan
+    requestid-RUNfederation: clojure.core.async.chan
+    class-RELATION: clojure.core.async.chan
+    class-DATAtype: clojure.core.async.chan
+    requestid-ADDdescriptors: clojure.core.async.chan
+    classifierVALUE-DESCRIPTOR: clojure.core.async.chan
+    classifier-ENTITYtype&classifierVALUE: clojure.core.async.chan
+    classifierVALUE-CLASSIFIER: clojure.core.async.chan
+    requestid-ROUTE: clojure.core.async.chan
+    class-REQUESTID: clojure.core.async.chan
+    classifierVALUE-CLASS: clojure.core.async.chan
+    class-CLASS: clojure.core.async.chan
+    descriptor_map-INSTANCE^descriptor: clojure.core.async.chan
+    requestid-INSTANTIATE: clojure.core.async.chan
+    class-DESCRIPTOR: clojure.core.async.chan
+    class-CLASSIFIER: clojure.core.async.chan
+    classifierVALUE-FEDERATOR: clojure.core.async.chan
+    descriptor_mapvec-REQUESTS^requestid$str: clojure.core.async.chan
+    classifierVALUE-FEDERATIONcontext: clojure.core.async.chan
+    requestid-ADDrelations: clojure.core.async.chan
+    class-FEDERATOR: clojure.core.async.chan
+    class-CONTEXT: clojure.core.async.chan
+    classifierVALUE-CLASSIFIERvalue: clojure.core.async.chan
+    descriptor-INVARIANT$bool: clojure.core.async.chan
+    classifierVALUE-CONTEXT: clojure.core.async.chan
+    descriptor_map-INSTANCE^classifier: clojure.core.async.chan
+    classifierVALUE-REQUESTID: clojure.core.async.chan
+    context-TEST: clojure.core.async.chan
+  INVERSE-RELATIONS: {}
+  NAME: context-SYS
+  RELATIONS: {}
+  REQUEST-PORT-STACK:
+  - clojure.core.async.chan
 ---
 # Entity ROOT+context-SYS
 
