@@ -1,6 +1,18 @@
 ---
 SYS+gem-FACETS^facet:
-  ENTITY-PUBLIC-REQUEST-PORTS:
+  SYS+facet-CONTENT$str: ''
+  SYS+facet-NAME&?: context-SYS
+  SYS+facet_map-DESCRIPTORS^descriptor:
+    SYS+descriptor_mapvec-REQUESTS^requestid$str:
+      SYS+requestid-ENTITYreport:
+      - CONTEXT_REPORToperationid
+      SYS+requestid-LOADscript:
+      - LOAD_SCRIPToperationid
+      SYS+requestid-REGISTERentity:
+      - REGISTER_ENTITYoperationid
+      SYS+requestid-ROUTE:
+      - ROUTEoperationid
+  SYS+facet_map-ENTITYpublicREQUESTports$chan:
     requestid-REGISTERentity: clojure.core.async.chan
     class-CLASSIFIERvalue: clojure.core.async.chan
     descriptor-READonly$bool: clojure.core.async.chan
@@ -31,18 +43,6 @@ SYS+gem-FACETS^facet:
     descriptor_map-INSTANCE^classifier: clojure.core.async.chan
     classifierVALUE-REQUESTID: clojure.core.async.chan
     context-TEST: clojure.core.async.chan
-  SYS+facet-CONTENT$str: ''
-  SYS+facet-NAME&?: context-SYS
-  SYS+facet_map-DESCRIPTORS^descriptor:
-    SYS+descriptor_mapvec-REQUESTS^requestid$str:
-      SYS+requestid-ENTITYreport:
-      - CONTEXT_REPORToperationid
-      SYS+requestid-LOADscript:
-      - LOAD_SCRIPToperationid
-      SYS+requestid-REGISTERentity:
-      - REGISTER_ENTITYoperationid
-      SYS+requestid-ROUTE:
-      - ROUTEoperationid
   SYS+facet_vec-REQUESTportSTACK$chan:
   - clojure.core.async.chan
 ---

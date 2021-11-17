@@ -25,10 +25,10 @@
       [this-map nil entity-public-request-port]
       (let [[new-entity-kw _ _]
             (kw/name-as-keyword name)
-            _ (if (some? (get-in this-map ["ENTITY-PUBLIC-REQUEST-PORTS" new-entity-kw]))
+            _ (if (some? (get-in this-map ["SYS+facet_map-ENTITYpublicREQUESTports$chan" new-entity-kw]))
                 (throw (Exception. (str "Entity " name " already exists in " this-name))))
             this-map
-            (assoc-in this-map ["ENTITY-PUBLIC-REQUEST-PORTS" new-entity-kw] entity-public-request-port)
+            (assoc-in this-map ["SYS+facet_map-ENTITYpublicREQUESTports$chan" new-entity-kw] entity-public-request-port)
             classifiers
             (get params "SYS+param_map-CLASSIFIERS^classifier")]
         (if (some? classifiers)
@@ -92,7 +92,7 @@
                                          (assoc params "SYS+param-REQUESTID" target-requestid)]))
             (if (= local-context target-context-base-name)
               (let [entity-public-request-ports
-                    (get this-map "ENTITY-PUBLIC-REQUEST-PORTS")
+                    (get this-map "SYS+facet_map-ENTITYpublicREQUESTports$chan")
                     target-entity-request-port
                     (target-entity-kw entity-public-request-ports)
                     target-requestid
@@ -108,7 +108,7 @@
               (let [target-context-entity-kw
                     (keyword "SYS" (str "context-" target-context-base-name))
                     entity-public-request-ports
-                    (get this-map "ENTITY-PUBLIC-REQUEST-PORTS")
+                    (get this-map "SYS+facet_map-ENTITYpublicREQUESTports$chan")
                     target-entity-request-port
                     (target-context-entity-kw entity-public-request-ports)]
                 (if (nil? target-entity-request-port)
@@ -148,7 +148,7 @@
                    (r/context-entities-report 1 this-name this-map)
                    (r/context-classifier-values-report 2 this-name))
               entity-ports
-              (get this-map "ENTITY-PUBLIC-REQUEST-PORTS")]
+              (get this-map "SYS+facet_map-ENTITYpublicREQUESTports$chan")]
           (io/make-parents file-name)
           (spit file-name report)
           (doseq [[entity-kw entity-port] entity-ports]

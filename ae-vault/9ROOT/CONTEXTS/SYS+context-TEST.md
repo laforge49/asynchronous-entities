@@ -1,14 +1,5 @@
 ---
 gem-FACETS^facet:
-  ENTITY-PUBLIC-REQUEST-PORTS:
-    class-SIMPLE: clojure.core.async.chan
-    classifierVALUE-SIMPLE: clojure.core.async.chan
-    descriptor-DEGREEofPOLISH$str: clojure.core.async.chan
-    federator-A: clojure.core.async.chan
-    relation_vec-BASIC: clojure.core.async.chan
-    simple-ALPHA: clojure.core.async.chan
-    simple-BETA: clojure.core.async.chan
-    simple-GAMMA: clojure.core.async.chan
   facet-CONTENT$str: "this is a test same line \ndifferent line"
   facet-NAME&?: context-TEST
   facet_map-CLASSIFIERS^classifier:
@@ -26,6 +17,15 @@ gem-FACETS^facet:
       - REGISTER_ENTITYoperationid
       requestid-ROUTE:
       - ROUTEoperationid
+  facet_map-ENTITYpublicREQUESTports$chan:
+    class-SIMPLE: clojure.core.async.chan
+    classifierVALUE-SIMPLE: clojure.core.async.chan
+    descriptor-DEGREEofPOLISH$str: clojure.core.async.chan
+    federator-A: clojure.core.async.chan
+    relation_vec-BASIC: clojure.core.async.chan
+    simple-ALPHA: clojure.core.async.chan
+    simple-BETA: clojure.core.async.chan
+    simple-GAMMA: clojure.core.async.chan
   facet_vec-REQUESTportSTACK$chan:
   - clojure.core.async.chan
 ---
