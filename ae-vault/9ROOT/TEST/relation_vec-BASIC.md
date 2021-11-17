@@ -1,5 +1,5 @@
 ---
-FACETS:
+SYS+gem-FACETS^facet:
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
   SYS+facet-CLASSIFIERS^classifier:

@@ -49,7 +49,10 @@
                           false
                           env)
         fm
-        {"FACETS"
+        {(if (= context-base-name "SYS")
+           "gem-FACETS^facet"
+           "SYS+gem-FACETS^facet")
+
          facets}]
     (str "---\n"
          (yaml/edn->yaml fm)

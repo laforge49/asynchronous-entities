@@ -1,5 +1,5 @@
 ---
-FACETS:
+SYS+gem-FACETS^facet:
   INVERSE-RELATIONS:
     relation_vec-BASIC:
     - simple-GAMMA

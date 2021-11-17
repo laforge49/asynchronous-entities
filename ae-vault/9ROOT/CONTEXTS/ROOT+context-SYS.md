@@ -1,5 +1,5 @@
 ---
-FACETS:
+SYS+gem-FACETS^facet:
   ENTITY-PUBLIC-REQUEST-PORTS:
     requestid-REGISTERentity: clojure.core.async.chan
     class-CLASSIFIERvalue: clojure.core.async.chan

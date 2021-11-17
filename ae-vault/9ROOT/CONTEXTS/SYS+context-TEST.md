@@ -1,5 +1,5 @@
 ---
-FACETS:
+gem-FACETS^facet:
   ENTITY-PUBLIC-REQUEST-PORTS:
     class-SIMPLE: clojure.core.async.chan
     classifierVALUE-SIMPLE: clojure.core.async.chan

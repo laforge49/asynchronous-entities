@@ -1,5 +1,5 @@
 ---
-FACETS:
+SYS+gem-FACETS^facet:
   RELATIONS:
     relation_vec-BASIC:
     - simple-ALPHA
