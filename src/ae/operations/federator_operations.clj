@@ -117,7 +117,7 @@
               this-name
               (get this-map "SYS+facet-NAME&?")
               descriptors
-              (get this-map "DESCRIPTORS")
+              (get this-map "SYS+facet-DESCRIPTORS^descriptor")
               federation-names
               (get descriptors "SYS+descriptor_vec-FEDERATIONnames&?")
               env

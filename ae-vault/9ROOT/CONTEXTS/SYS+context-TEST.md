@@ -1,15 +1,5 @@
 ---
 FACETS:
-  DESCRIPTORS:
-    descriptor_mapvec-REQUESTS^requestid$str:
-      requestid-ENTITYreport:
-      - CONTEXT_REPORToperationid
-      requestid-LOADscript:
-      - LOAD_SCRIPToperationid
-      requestid-REGISTERentity:
-      - REGISTER_ENTITYoperationid
-      requestid-ROUTE:
-      - ROUTEoperationid
   ENTITY-PUBLIC-REQUEST-PORTS:
     class-SIMPLE: clojure.core.async.chan
     classifierVALUE-SIMPLE: clojure.core.async.chan
@@ -27,6 +17,16 @@ FACETS:
     classifier_vec-RESOURCES&context:
     - ROOT+context-SYS
   facet-CONTENT$str: "this is a test same line \ndifferent line"
+  facet-DESCRIPTORS^descriptor:
+    descriptor_mapvec-REQUESTS^requestid$str:
+      requestid-ENTITYreport:
+      - CONTEXT_REPORToperationid
+      requestid-LOADscript:
+      - LOAD_SCRIPToperationid
+      requestid-REGISTERentity:
+      - REGISTER_ENTITYoperationid
+      requestid-ROUTE:
+      - ROUTEoperationid
   facet-NAME&?: context-TEST
 ---
 # Entity SYS+context-TEST

@@ -1,6 +1,12 @@
 ---
 FACETS:
-  DESCRIPTORS:
+  REQUEST-PORT-STACK:
+  - clojure.core.async.chan
+  SYS+facet-CLASSIFIERS^classifier:
+    SYS+classifier-CLASS: SYS+class-FEDERATOR
+    SYS+classifier-ENTITYtype&classifierVALUE: SYS+classifierVALUE-FEDERATOR
+  SYS+facet-CONTENT$str: ''
+  SYS+facet-DESCRIPTORS^descriptor:
     SYS+descriptor_mapvec-REQUESTS^requestid$str:
       SYS+requestid-ENTITYreport:
       - ENTITY_REPORToperationid
@@ -36,12 +42,6 @@ FACETS:
         SYS+param_map-relations^relation&?:
           relation_vec-BASIC:
           - simple-ALPHA
-  REQUEST-PORT-STACK:
-  - clojure.core.async.chan
-  SYS+facet-CLASSIFIERS^classifier:
-    SYS+classifier-CLASS: SYS+class-FEDERATOR
-    SYS+classifier-ENTITYtype&classifierVALUE: SYS+classifierVALUE-FEDERATOR
-  SYS+facet-CONTENT$str: ''
   SYS+facet-NAME&?: federator-A
 ---
 # Entity TEST+federator-A

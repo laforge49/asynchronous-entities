@@ -1,15 +1,5 @@
 ---
 FACETS:
-  DESCRIPTORS:
-    SYS+descriptor_mapvec-REQUESTS^requestid$str:
-      SYS+requestid-ENTITYreport:
-      - CONTEXT_REPORToperationid
-      SYS+requestid-LOADscript:
-      - LOAD_SCRIPToperationid
-      SYS+requestid-REGISTERentity:
-      - REGISTER_ENTITYoperationid
-      SYS+requestid-ROUTE:
-      - ROUTEoperationid
   ENTITY-PUBLIC-REQUEST-PORTS:
     requestid-REGISTERentity: clojure.core.async.chan
     class-CLASSIFIERvalue: clojure.core.async.chan
@@ -44,6 +34,16 @@ FACETS:
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
   SYS+facet-CONTENT$str: ''
+  SYS+facet-DESCRIPTORS^descriptor:
+    SYS+descriptor_mapvec-REQUESTS^requestid$str:
+      SYS+requestid-ENTITYreport:
+      - CONTEXT_REPORToperationid
+      SYS+requestid-LOADscript:
+      - LOAD_SCRIPToperationid
+      SYS+requestid-REGISTERentity:
+      - REGISTER_ENTITYoperationid
+      SYS+requestid-ROUTE:
+      - ROUTEoperationid
   SYS+facet-NAME&?: context-SYS
 ---
 # Entity ROOT+context-SYS

@@ -13,7 +13,7 @@
         this-name
         (get this-map "SYS+facet-NAME&?")
         this-descriptors
-        (get this-map "DESCRIPTORS")
+        (get this-map "SYS+facet-DESCRIPTORS^descriptor")
         instantiation-descriptors
         (get this-descriptors "SYS+descriptor_map-INSTANCE^descriptor")
         instantiation-descriptors
@@ -49,7 +49,7 @@
         this-name
         (get this-map "SYS+facet-NAME&?")
         this-descriptors
-        (get this-map "DESCRIPTORS")
+        (get this-map "SYS+facet-DESCRIPTORS^descriptor")
         instantiation-descriptors
         (get this-descriptors "SYS+descriptor_map-INSTANCE^descriptor")
         instantiation-descriptors
@@ -90,11 +90,11 @@
         (reduce
           (fn [this-map [descriptor descriptor-value]]
             (let [old-descriptor-value
-                  (get-in this-map ["DESCRIPTORS" descriptor])
+                  (get-in this-map ["SYS+facet-DESCRIPTORS^descriptor" descriptor])
                   _ (if (some? old-descriptor-value)
                       (throw (Exception. (str "ADD DESCRIPTOR encountered a pre-existing value: " old-descriptor-value))))
                   this-map
-                  (assoc-in this-map ["DESCRIPTORS" descriptor] descriptor-value)]
+                  (assoc-in this-map ["SYS+facet-DESCRIPTORS^descriptor" descriptor] descriptor-value)]
               this-map))
           this-map
           descriptors-map)]
@@ -184,9 +184,9 @@
 
 (defn typeOfFunction
   [env this-map params]
-  [this-map [(get-in this-map ["DESCRIPTORS" "SYS+descriptorDATA_TYPE"])
-             (get-in this-map ["DESCRIPTORS" "SYS+descriptorKEY_ENTITY"])
-             (get-in this-map ["DESCRIPTORS" "SYS+descriptorVALUE_ENTITY"])]])
+  [this-map [(get-in this-map ["SYS+facet-DESCRIPTORS^descriptor" "SYS+descriptorDATA_TYPE"])
+             (get-in this-map ["SYS+facet-DESCRIPTORS^descriptor" "SYS+descriptorKEY_ENTITY"])
+             (get-in this-map ["SYS+facet-DESCRIPTORS^descriptor" "SYS+descriptorVALUE_ENTITY"])]])
 
 (defn create-entity-operations
   [env]

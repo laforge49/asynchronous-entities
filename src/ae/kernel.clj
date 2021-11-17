@@ -66,7 +66,7 @@
   [entity-id]
   (let [entity-map
         (get-entity-map entity-id)]
-    (if (get-in entity-map ["DESCRIPTORS" "SYS+descriptor-INVARIANT$bool"])
+    (if (get-in entity-map ["SYS+facet-DESCRIPTORS^descriptor" "SYS+descriptor-INVARIANT$bool"])
       entity-map
       nil)))
 
@@ -132,7 +132,7 @@
         (get-invariant-map entity-kw)]
     (if (nil? this-map)
       nil
-      (get this-map "DESCRIPTORS"))))
+      (get this-map "SYS+facet-DESCRIPTORS^descriptor"))))
 
 (def operationid-map-atom
   (atom {}))
@@ -169,7 +169,7 @@
 (defn thisDescriptors
   [this-map params]
   (let [this-descriptors
-        (get this-map "DESCRIPTORS")]
+        (get this-map "SYS+facet-DESCRIPTORS^descriptor")]
     (if (nil? this-descriptors)
       (throw (Exception. (str "Descriptors is nil\n"
                               (prn-str params)
@@ -207,7 +207,7 @@
         (throw (Exception. (str "Operationid is nil\n"
                                 (prn-str params)
                                 (prn-str target-map)))))
-      (if (= (get-in target-map ["DESCRIPTORS" "SYS+descriptor-INVARIANT$bool"]) true)
+      (if (= (get-in target-map ["SYS+facet-DESCRIPTORS^descriptor" "SYS+descriptor-INVARIANT$bool"]) true)
         (let [request-descriptors
               (get-invariant-descriptors requestid)
               read-only
@@ -427,7 +427,7 @@
         (get params "SYS+param-NAME&?")
         new-entity-map
         {"SYS+facet-NAME&?"               name
-         "DESCRIPTORS"        descriptors
+         "SYS+facet-DESCRIPTORS^descriptor"        descriptors
          "SYS+facet-CLASSIFIERS^classifier"        classifiers
          "RELATIONS"          {}
          "INVERSE-RELATIONS"  {}

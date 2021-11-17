@@ -1,6 +1,12 @@
 ---
 FACETS:
-  DESCRIPTORS:
+  REQUEST-PORT-STACK:
+  - clojure.core.async.chan
+  facet-CLASSIFIERS^classifier:
+    classifier-CLASS: class-CLASS
+    classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASS
+  facet-CONTENT$str: ''
+  facet-DESCRIPTORS^descriptor:
     descriptor-INVARIANT$bool: true
     descriptor_map-INSTANCE^classifier:
       classifier-ENTITYtype&classifierVALUE: classifierVALUE-REQUESTID
@@ -14,12 +20,6 @@ FACETS:
       - ENTITY_REPORToperationid
       requestid-INSTANTIATE:
       - INSTANTIATEoperationid
-  REQUEST-PORT-STACK:
-  - clojure.core.async.chan
-  facet-CLASSIFIERS^classifier:
-    classifier-CLASS: class-CLASS
-    classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASS
-  facet-CONTENT$str: ''
   facet-NAME&?: class-REQUESTID
 ---
 # Entity SYS+class-REQUESTID
