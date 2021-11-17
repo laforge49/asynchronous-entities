@@ -500,7 +500,7 @@
   #{"map" "vec" "mapmap" "mapvec" "vecmap"})
 
 (def dtyp-set
-  #{"bool" "str"})
+  #{"bool" "str" "chan"})
 
 (defn parse-entity-name
   [s]
