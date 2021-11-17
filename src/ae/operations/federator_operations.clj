@@ -23,7 +23,7 @@
                     snap
                     (k/get-entity-map entity-name)
                     request-port-stack
-                    (get snap "REQUEST-PORT-STACK")
+                    (get snap "SYS+facet_vec-REQUESTportSTACK$chan")
                     initialization-port
                     (peek request-port-stack)
                     entity-public-request-port
@@ -93,7 +93,7 @@
           (let [entity-map
                 (k/get-entity-map entity-name)
                 request-port-stack
-                (get entity-map "REQUEST-PORT-STACK")
+                (get entity-map "SYS+facet_vec-REQUESTportSTACK$chan")
                 request-port
                 (peek request-port-stack)
                 sub-return-port

@@ -31,8 +31,6 @@ SYS+gem-FACETS^facet:
     descriptor_map-INSTANCE^classifier: clojure.core.async.chan
     classifierVALUE-REQUESTID: clojure.core.async.chan
     context-TEST: clojure.core.async.chan
-  REQUEST-PORT-STACK:
-  - clojure.core.async.chan
   SYS+facet-CONTENT$str: ''
   SYS+facet-NAME&?: context-SYS
   SYS+facet_map-DESCRIPTORS^descriptor:
@@ -45,6 +43,8 @@ SYS+gem-FACETS^facet:
       - REGISTER_ENTITYoperationid
       SYS+requestid-ROUTE:
       - ROUTEoperationid
+  SYS+facet_vec-REQUESTportSTACK$chan:
+  - clojure.core.async.chan
 ---
 # Entity ROOT+context-SYS
 

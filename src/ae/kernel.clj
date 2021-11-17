@@ -163,7 +163,7 @@
 (defn federated?
   [this-map]
   (let [this-request-port-stack
-        (get this-map "REQUEST-PORT-STACK")]
+        (get this-map "SYS+facet_vec-REQUESTportSTACK$chan")]
     (> (count this-request-port-stack) 1)))
 
 (defn thisDescriptors
@@ -279,7 +279,7 @@
         (let [this-map
               (get-entity-map this-name)
               this-request-port-stack
-              (get this-map "REQUEST-PORT-STACK")
+              (get this-map "SYS+facet_vec-REQUESTportSTACK$chan")
               _ (if (nil? this-request-port-stack)
                   (throw (Exception. (str "This request port stack is nil\n"
                                           (prn-str this-map)))))
@@ -338,7 +338,7 @@
                         (let [new-request-port
                               (get params "SYS+param-NEWrequestport")
                               this-map
-                              (assoc this-map "REQUEST-PORT-STACK" (conj this-request-port-stack new-request-port))
+                              (assoc this-map "SYS+facet_vec-REQUESTportSTACK$chan" (conj this-request-port-stack new-request-port))
                               federator-name
                               (get env "FEDERATOR-NAME")
                               this-map
@@ -347,7 +347,7 @@
 
                     "RESET-REQUEST-PORT"
                     (let [this-map
-                          (assoc this-map "REQUEST-PORT-STACK" (pop this-request-port-stack))
+                          (assoc this-map "SYS+facet_vec-REQUESTportSTACK$chan" (pop this-request-port-stack))
                           this-map
                           (assoc this-map "FEDERATOR-NAME" nil)]
                       [this-map this-map])
@@ -432,7 +432,7 @@
          "SYS+facet_map-RELATIONS^relation&?"          {}
          "SYS+facet_map-INVERSErelations^relation&?"  {}
          "SYS+facet-CONTENT$str"         content
-         "REQUEST-PORT-STACK" request-port-stack}
+         "SYS+facet_vec-REQUESTportSTACK$chan" request-port-stack}
         ]
     (assoc-entity-map name new-entity-map)
     (create-operation-dispatcher name)
@@ -609,6 +609,8 @@
       (throw (Exception. (str "Name " s " has an unknown data type: " dtyp))))
     [typ styp root ktyp ntyp dtyp]))
 
+(def testChanClass (class (a/chan)))
+
 (defn unbind-context
   [local-context-+ edn values-as-data env]
   (cond
@@ -622,9 +624,7 @@
     (vector? edn)
     (reduce
       (fn [v item]
-        (conj v (if values-as-data
-                  item
-                  (unbind-context local-context-+ item values-as-data env))))
+        (conj v (unbind-context local-context-+ item values-as-data env)))
       []
       edn)
 
@@ -648,7 +648,7 @@
     (keyword? edn)
     (name edn)
 
-    (= (class edn) clojure.core.async.impl.channels.ManyToManyChannel)
+    (= (class edn) testChanClass)
     "clojure.core.async.chan"
 
     true

@@ -1,7 +1,5 @@
 ---
 gem-FACETS^facet:
-  REQUEST-PORT-STACK:
-  - clojure.core.async.chan
   facet-CONTENT$str: ''
   facet-NAME&?: classifier-ENTITYtype&classifierVALUE
   facet_map-CLASSIFIERS^classifier:
@@ -12,6 +10,8 @@ gem-FACETS^facet:
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
       - ENTITY_REPORToperationid
+  facet_vec-REQUESTportSTACK$chan:
+  - clojure.core.async.chan
 ---
 # Entity SYS+classifier-ENTITYtype&classifierVALUE
 

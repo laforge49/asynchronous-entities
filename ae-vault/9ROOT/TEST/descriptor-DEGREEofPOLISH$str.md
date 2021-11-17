@@ -1,7 +1,5 @@
 ---
 SYS+gem-FACETS^facet:
-  REQUEST-PORT-STACK:
-  - clojure.core.async.chan
   SYS+facet-CONTENT$str: ''
   SYS+facet-NAME&?: descriptor-DEGREEofPOLISH$str
   SYS+facet_map-CLASSIFIERS^classifier:
@@ -12,6 +10,8 @@ SYS+gem-FACETS^facet:
     SYS+descriptor_mapvec-REQUESTS^requestid$str:
       SYS+requestid-ENTITYreport:
       - ENTITY_REPORToperationid
+  SYS+facet_vec-REQUESTportSTACK$chan:
+  - clojure.core.async.chan
 ---
 # Entity TEST+descriptor-DEGREEofPOLISH$str
 

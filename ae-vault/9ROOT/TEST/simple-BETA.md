@@ -1,7 +1,5 @@
 ---
 SYS+gem-FACETS^facet:
-  REQUEST-PORT-STACK:
-  - clojure.core.async.chan
   SYS+facet-CONTENT$str: ''
   SYS+facet-NAME&?: simple-BETA
   SYS+facet_map-CLASSIFIERS^classifier:
@@ -18,6 +16,8 @@ SYS+gem-FACETS^facet:
   SYS+facet_map-RELATIONS^relation&?:
     relation_vec-BASIC:
     - simple-ALPHA
+  SYS+facet_vec-REQUESTportSTACK$chan:
+  - clojure.core.async.chan
 ---
 # Entity TEST+simple-BETA
 

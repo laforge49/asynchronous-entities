@@ -1,7 +1,5 @@
 ---
 SYS+gem-FACETS^facet:
-  REQUEST-PORT-STACK:
-  - clojure.core.async.chan
   SYS+facet-CONTENT$str: "this is a test same line \ndifferent line"
   SYS+facet-NAME&?: simple-ALPHA
   SYS+facet_map-CLASSIFIERS^classifier:
@@ -20,6 +18,8 @@ SYS+gem-FACETS^facet:
     relation_vec-BASIC:
     - simple-GAMMA
     - simple-BETA
+  SYS+facet_vec-REQUESTportSTACK$chan:
+  - clojure.core.async.chan
 ---
 # Entity TEST+simple-ALPHA
 

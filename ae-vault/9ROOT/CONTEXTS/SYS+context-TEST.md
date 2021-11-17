@@ -9,8 +9,6 @@ gem-FACETS^facet:
     simple-ALPHA: clojure.core.async.chan
     simple-BETA: clojure.core.async.chan
     simple-GAMMA: clojure.core.async.chan
-  REQUEST-PORT-STACK:
-  - clojure.core.async.chan
   facet-CONTENT$str: "this is a test same line \ndifferent line"
   facet-NAME&?: context-TEST
   facet_map-CLASSIFIERS^classifier:
@@ -28,6 +26,8 @@ gem-FACETS^facet:
       - REGISTER_ENTITYoperationid
       requestid-ROUTE:
       - ROUTEoperationid
+  facet_vec-REQUESTportSTACK$chan:
+  - clojure.core.async.chan
 ---
 # Entity SYS+context-TEST
 
