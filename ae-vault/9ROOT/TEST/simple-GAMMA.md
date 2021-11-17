@@ -1,8 +1,5 @@
 ---
 SYS+gem-FACETS^facet:
-  RELATIONS:
-    relation_vec-BASIC:
-    - simple-ALPHA
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
   SYS+facet-CLASSIFIERS^classifier:
@@ -19,6 +16,9 @@ SYS+gem-FACETS^facet:
       - ENTITY_REPORToperationid
     descriptor-DEGREEofPOLISH$str: MIDDLING
   SYS+facet-NAME&?: simple-GAMMA
+  SYS+facet-RELATIONS^relation&?:
+    relation_vec-BASIC:
+    - simple-ALPHA
 ---
 # Entity TEST+simple-GAMMA
 

@@ -429,7 +429,7 @@
         {"SYS+facet-NAME&?"               name
          "SYS+facet-DESCRIPTORS^descriptor"        descriptors
          "SYS+facet-CLASSIFIERS^classifier"        classifiers
-         "RELATIONS"          {}
+         "SYS+facet-RELATIONS^relation&?"          {}
          "INVERSE-RELATIONS"  {}
          "SYS+facet-CONTENT$str"         content
          "REQUEST-PORT-STACK" request-port-stack}

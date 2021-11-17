@@ -118,7 +118,7 @@
             (if (not (vector? new-relation-values))
               (throw (Exception. (str "ADD RELATIONS given a non-vector value for relation " relation ": " (prn-str new-relation-values)))))
             (let [relation-values
-                  (get-in this-map ["RELATIONS" relation] [])
+                  (get-in this-map ["SYS+facet-RELATIONS^relation&?" relation] [])
                   relation-values
                   (reduce
                     (fn [relation-values new-value]
@@ -145,7 +145,7 @@
                         relation-values))
                     relation-values
                     new-relation-values)]
-              (assoc-in this-map ["RELATIONS" relation] relation-values)))
+              (assoc-in this-map ["SYS+facet-RELATIONS^relation&?" relation] relation-values)))
           this-map
           relations-map)]
     [this-map this-map]))
