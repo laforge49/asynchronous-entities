@@ -66,7 +66,7 @@
   [entity-id]
   (let [entity-map
         (get-entity-map entity-id)]
-    (if (get-in entity-map ["SYS+facet-DESCRIPTORS^descriptor" "SYS+descriptor-INVARIANT$bool"])
+    (if (get-in entity-map ["SYS+facet_map-DESCRIPTORS^descriptor" "SYS+descriptor-INVARIANT$bool"])
       entity-map
       nil)))
 
@@ -132,7 +132,7 @@
         (get-invariant-map entity-kw)]
     (if (nil? this-map)
       nil
-      (get this-map "SYS+facet-DESCRIPTORS^descriptor"))))
+      (get this-map "SYS+facet_map-DESCRIPTORS^descriptor"))))
 
 (def operationid-map-atom
   (atom {}))
@@ -169,7 +169,7 @@
 (defn thisDescriptors
   [this-map params]
   (let [this-descriptors
-        (get this-map "SYS+facet-DESCRIPTORS^descriptor")]
+        (get this-map "SYS+facet_map-DESCRIPTORS^descriptor")]
     (if (nil? this-descriptors)
       (throw (Exception. (str "Descriptors is nil\n"
                               (prn-str params)
@@ -207,7 +207,7 @@
         (throw (Exception. (str "Operationid is nil\n"
                                 (prn-str params)
                                 (prn-str target-map)))))
-      (if (= (get-in target-map ["SYS+facet-DESCRIPTORS^descriptor" "SYS+descriptor-INVARIANT$bool"]) true)
+      (if (= (get-in target-map ["SYS+facet_map-DESCRIPTORS^descriptor" "SYS+descriptor-INVARIANT$bool"]) true)
         (let [request-descriptors
               (get-invariant-descriptors requestid)
               read-only
@@ -427,10 +427,10 @@
         (get params "SYS+param-NAME&?")
         new-entity-map
         {"SYS+facet-NAME&?"               name
-         "SYS+facet-DESCRIPTORS^descriptor"        descriptors
+         "SYS+facet_map-DESCRIPTORS^descriptor"        descriptors
          "SYS+facet_map-CLASSIFIERS^classifier"        classifiers
-         "SYS+facet-RELATIONS^relation&?"          {}
-         "INVERSE-RELATIONS"  {}
+         "SYS+facet_map-RELATIONS^relation&?"          {}
+         "SYS+facet_map-INVERSErelations^relation&?"  {}
          "SYS+facet-CONTENT$str"         content
          "REQUEST-PORT-STACK" request-port-stack}
         ]

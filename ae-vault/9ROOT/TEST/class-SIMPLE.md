@@ -3,7 +3,11 @@ SYS+gem-FACETS^facet:
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
   SYS+facet-CONTENT$str: ''
-  SYS+facet-DESCRIPTORS^descriptor:
+  SYS+facet-NAME&?: class-SIMPLE
+  SYS+facet_map-CLASSIFIERS^classifier:
+    SYS+classifier-CLASS: SYS+class-CLASS
+    SYS+classifier-ENTITYtype&classifierVALUE: SYS+classifierVALUE-CLASS
+  SYS+facet_map-DESCRIPTORS^descriptor:
     SYS+descriptor-INVARIANT$bool: true
     SYS+descriptor_map-INSTANCE^classifier:
       SYS+classifier-ENTITYtype&classifierVALUE: classifierVALUE-SIMPLE
@@ -20,10 +24,6 @@ SYS+gem-FACETS^facet:
       - ENTITY_REPORToperationid
       SYS+requestid-INSTANTIATE:
       - INSTANTIATEoperationid
-  SYS+facet-NAME&?: class-SIMPLE
-  SYS+facet_map-CLASSIFIERS^classifier:
-    SYS+classifier-CLASS: SYS+class-CLASS
-    SYS+classifier-ENTITYtype&classifierVALUE: SYS+classifierVALUE-CLASS
 ---
 # Entity TEST+class-SIMPLE
 

@@ -3,7 +3,10 @@ gem-FACETS^facet:
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
   facet-CONTENT$str: ''
-  facet-DESCRIPTORS^descriptor:
+  facet-NAME&?: class-CLASS
+  facet_map-CLASSIFIERS^classifier:
+    classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASS
+  facet_map-DESCRIPTORS^descriptor:
     descriptor-INVARIANT$bool: true
     descriptor_map-INSTANCE^classifier:
       classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASS
@@ -19,9 +22,6 @@ gem-FACETS^facet:
       - ENTITY_REPORToperationid
       requestid-INSTANTIATE:
       - INSTANTIATEoperationid
-  facet-NAME&?: class-CLASS
-  facet_map-CLASSIFIERS^classifier:
-    classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASS
 ---
 # Entity SYS+class-CLASS
 

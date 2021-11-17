@@ -34,7 +34,8 @@ SYS+gem-FACETS^facet:
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
   SYS+facet-CONTENT$str: ''
-  SYS+facet-DESCRIPTORS^descriptor:
+  SYS+facet-NAME&?: context-SYS
+  SYS+facet_map-DESCRIPTORS^descriptor:
     SYS+descriptor_mapvec-REQUESTS^requestid$str:
       SYS+requestid-ENTITYreport:
       - CONTEXT_REPORToperationid
@@ -44,7 +45,6 @@ SYS+gem-FACETS^facet:
       - REGISTER_ENTITYoperationid
       SYS+requestid-ROUTE:
       - ROUTEoperationid
-  SYS+facet-NAME&?: context-SYS
 ---
 # Entity ROOT+context-SYS
 

@@ -13,7 +13,7 @@
         this-name
         (get this-map "SYS+facet-NAME&?")
         this-descriptors
-        (get this-map "SYS+facet-DESCRIPTORS^descriptor")
+        (get this-map "SYS+facet_map-DESCRIPTORS^descriptor")
         instantiation-descriptors
         (get this-descriptors "SYS+descriptor_map-INSTANCE^descriptor")
         instantiation-descriptors
@@ -49,7 +49,7 @@
         this-name
         (get this-map "SYS+facet-NAME&?")
         this-descriptors
-        (get this-map "SYS+facet-DESCRIPTORS^descriptor")
+        (get this-map "SYS+facet_map-DESCRIPTORS^descriptor")
         instantiation-descriptors
         (get this-descriptors "SYS+descriptor_map-INSTANCE^descriptor")
         instantiation-descriptors
@@ -90,11 +90,11 @@
         (reduce
           (fn [this-map [descriptor descriptor-value]]
             (let [old-descriptor-value
-                  (get-in this-map ["SYS+facet-DESCRIPTORS^descriptor" descriptor])
+                  (get-in this-map ["SYS+facet_map-DESCRIPTORS^descriptor" descriptor])
                   _ (if (some? old-descriptor-value)
                       (throw (Exception. (str "ADD DESCRIPTOR encountered a pre-existing value: " old-descriptor-value))))
                   this-map
-                  (assoc-in this-map ["SYS+facet-DESCRIPTORS^descriptor" descriptor] descriptor-value)]
+                  (assoc-in this-map ["SYS+facet_map-DESCRIPTORS^descriptor" descriptor] descriptor-value)]
               this-map))
           this-map
           descriptors-map)]
@@ -118,7 +118,7 @@
             (if (not (vector? new-relation-values))
               (throw (Exception. (str "ADD RELATIONS given a non-vector value for relation " relation ": " (prn-str new-relation-values)))))
             (let [relation-values
-                  (get-in this-map ["SYS+facet-RELATIONS^relation&?" relation] [])
+                  (get-in this-map ["SYS+facet_map-RELATIONS^relation&?" relation] [])
                   relation-values
                   (reduce
                     (fn [relation-values new-value]
@@ -132,20 +132,20 @@
                             _ (if (nil? obj-map)
                                 (throw (Exception. (str "Federation is required by addRelations for object " new-value))))
                             relation-subjects
-                            (get-in obj-map ["INVERSE-RELATIONS" relation] [])
+                            (get-in obj-map ["SYS+facet_map-INVERSErelations^relation&?" relation] [])
                             i
                             (.indexOf relation-values new-value)
                             relation-values
                             (if (= i -1)
                               (let [obj-map
-                                    (assoc-in obj-map ["INVERSE-RELATIONS" relation] (conj relation-subjects this-name))]
+                                    (assoc-in obj-map ["SYS+facet_map-INVERSErelations^relation&?" relation] (conj relation-subjects this-name))]
                                 (k/assoc-entity-map new-value obj-map)
                                 (conj relation-values new-value))
                               relation-values)]
                         relation-values))
                     relation-values
                     new-relation-values)]
-              (assoc-in this-map ["SYS+facet-RELATIONS^relation&?" relation] relation-values)))
+              (assoc-in this-map ["SYS+facet_map-RELATIONS^relation&?" relation] relation-values)))
           this-map
           relations-map)]
     [this-map this-map]))
@@ -184,9 +184,9 @@
 
 (defn typeOfFunction
   [env this-map params]
-  [this-map [(get-in this-map ["SYS+facet-DESCRIPTORS^descriptor" "SYS+descriptorDATA_TYPE"])
-             (get-in this-map ["SYS+facet-DESCRIPTORS^descriptor" "SYS+descriptorKEY_ENTITY"])
-             (get-in this-map ["SYS+facet-DESCRIPTORS^descriptor" "SYS+descriptorVALUE_ENTITY"])]])
+  [this-map [(get-in this-map ["SYS+facet_map-DESCRIPTORS^descriptor" "SYS+descriptorDATA_TYPE"])
+             (get-in this-map ["SYS+facet_map-DESCRIPTORS^descriptor" "SYS+descriptorKEY_ENTITY"])
+             (get-in this-map ["SYS+facet_map-DESCRIPTORS^descriptor" "SYS+descriptorVALUE_ENTITY"])]])
 
 (defn create-entity-operations
   [env]
