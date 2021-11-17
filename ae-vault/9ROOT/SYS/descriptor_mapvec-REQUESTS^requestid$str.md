@@ -1,9 +1,5 @@
 ---
 FACETS:
-  CLASSIFIERS:
-    classifier-CLASS: class-DESCRIPTOR
-    classifier-ENTITYtype&classifierVALUE: classifierVALUE-DESCRIPTOR
-  CONTENT$ml: ''
   DESCRIPTORS:
     descriptor-INVARIANT$bool: true
     descriptor_mapvec-REQUESTS^requestid$str:
@@ -12,6 +8,10 @@ FACETS:
   NAME: descriptor_mapvec-REQUESTS^requestid$str
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
+  aspect-CLASSIFIERS^classifier:
+    classifier-CLASS: class-DESCRIPTOR
+    classifier-ENTITYtype&classifierVALUE: classifierVALUE-DESCRIPTOR
+  aspect-CONTENT$str: ''
 ---
 # Entity SYS+descriptor_mapvec-REQUESTS^requestid$str
 

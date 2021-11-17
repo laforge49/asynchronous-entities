@@ -1,9 +1,5 @@
 ---
 FACETS:
-  CLASSIFIERS:
-    SYS+classifier-CLASS: SYS+class-FEDERATOR
-    SYS+classifier-ENTITYtype&classifierVALUE: SYS+classifierVALUE-FEDERATOR
-  CONTENT$ml: ''
   DESCRIPTORS:
     SYS+descriptor_mapvec-REQUESTS^requestid$str:
       SYS+requestid-ENTITYreport:
@@ -43,6 +39,10 @@ FACETS:
   NAME: federator-A
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
+  SYS+aspect-CLASSIFIERS^classifier:
+    SYS+classifier-CLASS: SYS+class-FEDERATOR
+    SYS+classifier-ENTITYtype&classifierVALUE: SYS+classifierVALUE-FEDERATOR
+  SYS+aspect-CONTENT$str: ''
 ---
 # Entity TEST+federator-A
 

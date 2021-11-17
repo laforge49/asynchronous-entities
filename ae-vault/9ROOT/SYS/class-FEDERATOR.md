@@ -1,9 +1,5 @@
 ---
 FACETS:
-  CLASSIFIERS:
-    classifier-CLASS: class-CLASS
-    classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASS
-  CONTENT$ml: ''
   DESCRIPTORS:
     descriptor-INVARIANT$bool: true
     descriptor_map-INSTANCE^classifier:
@@ -22,6 +18,10 @@ FACETS:
   NAME: class-FEDERATOR
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
+  aspect-CLASSIFIERS^classifier:
+    classifier-CLASS: class-CLASS
+    classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASS
+  aspect-CONTENT$str: ''
 ---
 # Entity SYS+class-FEDERATOR
 

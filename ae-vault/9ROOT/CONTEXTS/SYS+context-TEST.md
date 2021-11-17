@@ -1,11 +1,5 @@
 ---
 FACETS:
-  CLASSIFIERS:
-    classifier-CLASS: class-CONTEXT
-    classifier-ENTITYtype&classifierVALUE: classifierVALUE-CONTEXT
-    classifier_vec-RESOURCES&context:
-    - ROOT+context-SYS
-  CONTENT$ml: "this is a test same line \ndifferent line"
   DESCRIPTORS:
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
@@ -28,6 +22,12 @@ FACETS:
   NAME: context-TEST
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
+  aspect-CLASSIFIERS^classifier:
+    classifier-CLASS: class-CONTEXT
+    classifier-ENTITYtype&classifierVALUE: classifierVALUE-CONTEXT
+    classifier_vec-RESOURCES&context:
+    - ROOT+context-SYS
+  aspect-CONTENT$str: "this is a test same line \ndifferent line"
 ---
 # Entity SYS+context-TEST
 

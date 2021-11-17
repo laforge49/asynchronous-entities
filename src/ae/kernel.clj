@@ -74,7 +74,7 @@
   [entity-name]
   (let [entity-map
         (get-entity-map entity-name)]
-    (get entity-map "CLASSIFIERS")))
+    (get entity-map "SYS+aspect-CLASSIFIERS^classifier")))
 
 (defn get-classifier
   [entity-name classifier-name]
@@ -428,10 +428,10 @@
         new-entity-map
         {"NAME"               name
          "DESCRIPTORS"        descriptors
-         "CLASSIFIERS"        classifiers
+         "SYS+aspect-CLASSIFIERS^classifier"        classifiers
          "RELATIONS"          {}
          "INVERSE-RELATIONS"  {}
-         "CONTENT$ml"         content
+         "SYS+aspect-CONTENT$str"         content
          "REQUEST-PORT-STACK" request-port-stack}
         ]
     (assoc-entity-map name new-entity-map)

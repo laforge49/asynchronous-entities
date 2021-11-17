@@ -1,9 +1,5 @@
 ---
 FACETS:
-  CLASSIFIERS:
-    SYS+classifier-CLASS: SYS+class-DESCRIPTOR
-    SYS+classifier-ENTITYtype&classifierVALUE: SYS+classifierVALUE-DESCRIPTOR
-  CONTENT$ml: ''
   DESCRIPTORS:
     SYS+descriptor-INVARIANT$bool: true
     SYS+descriptor_mapvec-REQUESTS^requestid$str:
@@ -12,6 +8,10 @@ FACETS:
   NAME: descriptor-DEGREEofPOLISH$str
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
+  SYS+aspect-CLASSIFIERS^classifier:
+    SYS+classifier-CLASS: SYS+class-DESCRIPTOR
+    SYS+classifier-ENTITYtype&classifierVALUE: SYS+classifierVALUE-DESCRIPTOR
+  SYS+aspect-CONTENT$str: ''
 ---
 # Entity TEST+descriptor-DEGREEofPOLISH$str
 

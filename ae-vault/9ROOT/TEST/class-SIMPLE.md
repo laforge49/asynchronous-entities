@@ -1,9 +1,5 @@
 ---
 FACETS:
-  CLASSIFIERS:
-    SYS+classifier-CLASS: SYS+class-CLASS
-    SYS+classifier-ENTITYtype&classifierVALUE: SYS+classifierVALUE-CLASS
-  CONTENT$ml: ''
   DESCRIPTORS:
     SYS+descriptor-INVARIANT$bool: true
     SYS+descriptor_map-INSTANCE^classifier:
@@ -24,6 +20,10 @@ FACETS:
   NAME: class-SIMPLE
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
+  SYS+aspect-CLASSIFIERS^classifier:
+    SYS+classifier-CLASS: SYS+class-CLASS
+    SYS+classifier-ENTITYtype&classifierVALUE: SYS+classifierVALUE-CLASS
+  SYS+aspect-CONTENT$str: ''
 ---
 # Entity TEST+class-SIMPLE
 

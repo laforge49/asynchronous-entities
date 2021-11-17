@@ -1,6 +1,5 @@
 ---
 FACETS:
-  CONTENT$ml: ''
   DESCRIPTORS:
     SYS+descriptor_mapvec-REQUESTS^requestid$str:
       SYS+requestid-ENTITYreport:
@@ -45,6 +44,7 @@ FACETS:
   NAME: context-SYS
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
+  SYS+aspect-CONTENT$str: ''
 ---
 # Entity ROOT+context-SYS
 

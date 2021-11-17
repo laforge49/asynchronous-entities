@@ -136,7 +136,7 @@
               heading
               (str "# Entity " this-name "\n\n")
               content
-              (get this-map "CONTENT$ml")
+              (get this-map "SYS+aspect-CONTENT$str")
               content
               (if (= (count content) 0)
                 ""

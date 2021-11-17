@@ -1,9 +1,5 @@
 ---
 FACETS:
-  CLASSIFIERS:
-    classifier-CLASS: class-REQUESTID
-    classifier-ENTITYtype&classifierVALUE: classifierVALUE-REQUESTID
-  CONTENT$ml: ''
   DESCRIPTORS:
     descriptor-INVARIANT$bool: true
     descriptor-READonly$bool: true
@@ -13,6 +9,10 @@ FACETS:
   NAME: requestid-INSTANTIATE
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
+  aspect-CLASSIFIERS^classifier:
+    classifier-CLASS: class-REQUESTID
+    classifier-ENTITYtype&classifierVALUE: classifierVALUE-REQUESTID
+  aspect-CONTENT$str: ''
 ---
 # Entity SYS+requestid-INSTANTIATE
 

@@ -23,7 +23,7 @@
         instantiation-classifiers
         (assoc instantiation-classifiers "SYS+classifier-CLASS" this-name)
         instantiation-classifiers
-        (into instantiation-classifiers (get params "SYS+param_map-CLASSIFIERS^classifier"))
+        (into instantiation-classifiers (get params "SYS+param_map-SYS+aspect-CLASSIFIERS^classifier"))
         initialization-port
         (a/chan)
         params
@@ -167,7 +167,7 @@
               heading
               (str "# Entity " this-name "\n\n")
               content
-              (get this-map "CONTENT$ml")
+              (get this-map "SYS+aspect-CONTENT$str")
               content
               (if (= (count content) 0)
                 ""
