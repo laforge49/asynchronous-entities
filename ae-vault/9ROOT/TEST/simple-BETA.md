@@ -2,9 +2,6 @@
 SYS+gem-FACETS^facet:
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
-  SYS+facet-CLASSIFIERS^classifier:
-    SYS+classifier-CLASS: class-SIMPLE
-    SYS+classifier-ENTITYtype&classifierVALUE: classifierVALUE-SIMPLE
   SYS+facet-CONTENT$str: ''
   SYS+facet-DESCRIPTORS^descriptor:
     SYS+descriptor_mapvec-REQUESTS^requestid$str:
@@ -18,6 +15,9 @@ SYS+gem-FACETS^facet:
   SYS+facet-RELATIONS^relation&?:
     relation_vec-BASIC:
     - simple-ALPHA
+  SYS+facet_map-CLASSIFIERS^classifier:
+    SYS+classifier-CLASS: class-SIMPLE
+    SYS+classifier-ENTITYtype&classifierVALUE: classifierVALUE-SIMPLE
 ---
 # Entity TEST+simple-BETA
 

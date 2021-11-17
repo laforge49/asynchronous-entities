@@ -2,9 +2,6 @@
 gem-FACETS^facet:
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
-  facet-CLASSIFIERS^classifier:
-    classifier-CLASS: class-CLASSIFIER
-    classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASSIFIER
   facet-CONTENT$str: ''
   facet-DESCRIPTORS^descriptor:
     descriptor-INVARIANT$bool: true
@@ -12,6 +9,9 @@ gem-FACETS^facet:
       requestid-ENTITYreport:
       - ENTITY_REPORToperationid
   facet-NAME&?: classifier-ENTITYtype&classifierVALUE
+  facet_map-CLASSIFIERS^classifier:
+    classifier-CLASS: class-CLASSIFIER
+    classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASSIFIER
 ---
 # Entity SYS+classifier-ENTITYtype&classifierVALUE
 

@@ -11,11 +11,6 @@ gem-FACETS^facet:
     simple-GAMMA: clojure.core.async.chan
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
-  facet-CLASSIFIERS^classifier:
-    classifier-CLASS: class-CONTEXT
-    classifier-ENTITYtype&classifierVALUE: classifierVALUE-CONTEXT
-    classifier_vec-RESOURCES&context:
-    - ROOT+context-SYS
   facet-CONTENT$str: "this is a test same line \ndifferent line"
   facet-DESCRIPTORS^descriptor:
     descriptor_mapvec-REQUESTS^requestid$str:
@@ -28,6 +23,11 @@ gem-FACETS^facet:
       requestid-ROUTE:
       - ROUTEoperationid
   facet-NAME&?: context-TEST
+  facet_map-CLASSIFIERS^classifier:
+    classifier-CLASS: class-CONTEXT
+    classifier-ENTITYtype&classifierVALUE: classifierVALUE-CONTEXT
+    classifier_vec-RESOURCES&context:
+    - ROOT+context-SYS
 ---
 # Entity SYS+context-TEST
 

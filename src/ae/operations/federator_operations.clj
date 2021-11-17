@@ -40,7 +40,7 @@
                                                        "SYS+param-ENTITYpublicREQUESTPORT"           entity-public-request-port
                                                        "SYS+param-TARGETname&?"                 context-name
                                                        "SYS+param-NAME&?"                       (get snap "SYS+facet-NAME&?")
-                                                       "SYS+param_map-CLASSIFIERS^classifier" (get snap "SYS+facet-CLASSIFIERS^classifier")
+                                                       "SYS+param_map-CLASSIFIERS^classifier" (get snap "SYS+facet_map-CLASSIFIERS^classifier")
                                                        "SYS+param-RETURN$chan"                subrequest-return-port}])
                     _ (k/request-exception-check (a/<! subrequest-return-port))
                     new-children

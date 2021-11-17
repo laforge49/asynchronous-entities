@@ -74,7 +74,7 @@
   [entity-name]
   (let [entity-map
         (get-entity-map entity-name)]
-    (get entity-map "SYS+facet-CLASSIFIERS^classifier")))
+    (get entity-map "SYS+facet_map-CLASSIFIERS^classifier")))
 
 (defn get-classifier
   [entity-name classifier-name]
@@ -428,7 +428,7 @@
         new-entity-map
         {"SYS+facet-NAME&?"               name
          "SYS+facet-DESCRIPTORS^descriptor"        descriptors
-         "SYS+facet-CLASSIFIERS^classifier"        classifiers
+         "SYS+facet_map-CLASSIFIERS^classifier"        classifiers
          "SYS+facet-RELATIONS^relation&?"          {}
          "INVERSE-RELATIONS"  {}
          "SYS+facet-CONTENT$str"         content
