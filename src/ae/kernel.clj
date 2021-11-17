@@ -733,12 +733,24 @@
 
     (boolean? edn)
     (if (some? parent-styp)
-      (throw (Exception. (str (pr-str edn) "is a scalar, not structure typ " (pr-str parent-styp))))
+      (throw (Exception. (str (pr-str edn) " is a scalar, not structure typ " (pr-str parent-styp))))
       (if (some? parent-ktyp)
         (throw (Exception. (str (pr-str edn) " is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
         (if (= parent-dtyp "bool")
           edn
           (throw (Exception. (str (pr-str edn) "is boolean, not "
+                                  (if (nil? parent-dtyp)
+                                    "a name"
+                                    parent-dtyp)))))))
+
+    (= (class edn) clojure.core.async.impl.channels.ManyToManyChannel)
+    (if (some? parent-styp)
+      (throw (Exception. (str "clojure.core.async.chan is a scalar, not structure typ " (pr-str parent-styp))))
+      (if (some? parent-ktyp)
+        (throw (Exception. (str "clojure.core.async.chan is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
+        (if (= parent-dtyp "chan")
+          edn
+          (throw (Exception. (str "clojure.core.async.chan is not "
                                   (if (nil? parent-dtyp)
                                     "a name"
                                     parent-dtyp)))))))
