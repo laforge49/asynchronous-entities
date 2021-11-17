@@ -41,10 +41,10 @@ FACETS:
     descriptor_map-INSTANCE^classifier: clojure.core.async.chan
     classifierVALUE-REQUESTID: clojure.core.async.chan
     context-TEST: clojure.core.async.chan
-  NAME: context-SYS
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
-  SYS+aspect-CONTENT$str: ''
+  SYS+facet-CONTENT$str: ''
+  SYS+facet-NAME&?: context-SYS
 ---
 # Entity ROOT+context-SYS
 

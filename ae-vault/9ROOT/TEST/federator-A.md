@@ -36,13 +36,13 @@ FACETS:
         SYS+param_map-relations^relation&?:
           relation_vec-BASIC:
           - simple-ALPHA
-  NAME: federator-A
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
-  SYS+aspect-CLASSIFIERS^classifier:
+  SYS+facet-CLASSIFIERS^classifier:
     SYS+classifier-CLASS: SYS+class-FEDERATOR
     SYS+classifier-ENTITYtype&classifierVALUE: SYS+classifierVALUE-FEDERATOR
-  SYS+aspect-CONTENT$str: ''
+  SYS+facet-CONTENT$str: ''
+  SYS+facet-NAME&?: federator-A
 ---
 # Entity TEST+federator-A
 

@@ -19,13 +19,13 @@ FACETS:
       - ENTITY_REPORToperationid
       requestid-INSTANTIATE:
       - INSTANTIATEoperationid
-  NAME: class-CONTEXT
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
-  aspect-CLASSIFIERS^classifier:
+  facet-CLASSIFIERS^classifier:
     classifier-CLASS: class-CLASS
     classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASS
-  aspect-CONTENT$str: ''
+  facet-CONTENT$str: ''
+  facet-NAME&?: class-CONTEXT
 ---
 # Entity SYS+class-CONTEXT
 

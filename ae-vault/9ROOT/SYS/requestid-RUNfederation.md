@@ -5,13 +5,13 @@ FACETS:
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
       - ENTITY_REPORToperationid
-  NAME: requestid-RUNfederation
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
-  aspect-CLASSIFIERS^classifier:
+  facet-CLASSIFIERS^classifier:
     classifier-CLASS: class-REQUESTID
     classifier-ENTITYtype&classifierVALUE: classifierVALUE-REQUESTID
-  aspect-CONTENT$str: ''
+  facet-CONTENT$str: ''
+  facet-NAME&?: requestid-RUNfederation
 ---
 # Entity SYS+requestid-RUNfederation
 

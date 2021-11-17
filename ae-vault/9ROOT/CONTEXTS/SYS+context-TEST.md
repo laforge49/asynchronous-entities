@@ -19,15 +19,15 @@ FACETS:
     simple-ALPHA: clojure.core.async.chan
     simple-BETA: clojure.core.async.chan
     simple-GAMMA: clojure.core.async.chan
-  NAME: context-TEST
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
-  aspect-CLASSIFIERS^classifier:
+  facet-CLASSIFIERS^classifier:
     classifier-CLASS: class-CONTEXT
     classifier-ENTITYtype&classifierVALUE: classifierVALUE-CONTEXT
     classifier_vec-RESOURCES&context:
     - ROOT+context-SYS
-  aspect-CONTENT$str: "this is a test same line \ndifferent line"
+  facet-CONTENT$str: "this is a test same line \ndifferent line"
+  facet-NAME&?: context-TEST
 ---
 # Entity SYS+context-TEST
 

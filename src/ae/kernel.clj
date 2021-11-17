@@ -18,7 +18,7 @@
 
 (defn refresh-entity-map
   [entity-map]
-  (get-entity-map (get entity-map "NAME")))
+  (get-entity-map (get entity-map "SYS+facet-NAME&?")))
 
 (defn assoc-entity-map
   [name entity-map]
@@ -26,7 +26,7 @@
 
 (defn save-entity-map
   [entity-map]
-  (assoc-entity-map (get entity-map "NAME") entity-map))
+  (assoc-entity-map (get entity-map "SYS+facet-NAME&?") entity-map))
 
 (def classifier-values-map-atom
   (atom {}))
@@ -74,7 +74,7 @@
   [entity-name]
   (let [entity-map
         (get-entity-map entity-name)]
-    (get entity-map "SYS+aspect-CLASSIFIERS^classifier")))
+    (get entity-map "SYS+facet-CLASSIFIERS^classifier")))
 
 (defn get-classifier
   [entity-name classifier-name]
@@ -215,7 +215,7 @@
                 true
                 (get request-descriptors "SYS+descriptor-READonly$bool"))]
           (if (not read-only)
-            (throw (Exception. (str "Can not apply " requestid " to invariant " (get target-map "NAME")
+            (throw (Exception. (str "Can not apply " requestid " to invariant " (get target-map "SYS+facet-NAME&?")
                                     (prn-str params)
                                     (prn-str target-map))))))))
     operationids))
@@ -426,12 +426,12 @@
         name
         (get params "SYS+param-NAME&?")
         new-entity-map
-        {"NAME"               name
+        {"SYS+facet-NAME&?"               name
          "DESCRIPTORS"        descriptors
-         "SYS+aspect-CLASSIFIERS^classifier"        classifiers
+         "SYS+facet-CLASSIFIERS^classifier"        classifiers
          "RELATIONS"          {}
          "INVERSE-RELATIONS"  {}
-         "SYS+aspect-CONTENT$str"         content
+         "SYS+facet-CONTENT$str"         content
          "REQUEST-PORT-STACK" request-port-stack}
         ]
     (assoc-entity-map name new-entity-map)
@@ -761,7 +761,7 @@
 (defn async-script
   [script-path yaml-script context-map env]
   (let [full-local-context
-        (get context-map "NAME")
+        (get context-map "SYS+facet-NAME&?")
         out
         (a/chan)]
     (a/go

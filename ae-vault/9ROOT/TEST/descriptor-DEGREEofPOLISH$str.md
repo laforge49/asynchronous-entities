@@ -5,13 +5,13 @@ FACETS:
     SYS+descriptor_mapvec-REQUESTS^requestid$str:
       SYS+requestid-ENTITYreport:
       - ENTITY_REPORToperationid
-  NAME: descriptor-DEGREEofPOLISH$str
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
-  SYS+aspect-CLASSIFIERS^classifier:
+  SYS+facet-CLASSIFIERS^classifier:
     SYS+classifier-CLASS: SYS+class-DESCRIPTOR
     SYS+classifier-ENTITYtype&classifierVALUE: SYS+classifierVALUE-DESCRIPTOR
-  SYS+aspect-CONTENT$str: ''
+  SYS+facet-CONTENT$str: ''
+  SYS+facet-NAME&?: descriptor-DEGREEofPOLISH$str
 ---
 # Entity TEST+descriptor-DEGREEofPOLISH$str
 

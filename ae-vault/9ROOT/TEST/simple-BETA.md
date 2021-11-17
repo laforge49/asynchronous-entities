@@ -8,16 +8,16 @@ FACETS:
       - ADD_RELATIONSoperationid
       SYS+requestid-ENTITYreport:
       - ENTITY_REPORToperationid
-  NAME: simple-BETA
   RELATIONS:
     relation_vec-BASIC:
     - simple-ALPHA
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
-  SYS+aspect-CLASSIFIERS^classifier:
+  SYS+facet-CLASSIFIERS^classifier:
     SYS+classifier-CLASS: class-SIMPLE
     SYS+classifier-ENTITYtype&classifierVALUE: classifierVALUE-SIMPLE
-  SYS+aspect-CONTENT$str: ''
+  SYS+facet-CONTENT$str: ''
+  SYS+facet-NAME&?: simple-BETA
 ---
 # Entity TEST+simple-BETA
 

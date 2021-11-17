@@ -13,13 +13,13 @@ FACETS:
     relation_vec-BASIC:
     - simple-GAMMA
     - simple-BETA
-  NAME: simple-ALPHA
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
-  SYS+aspect-CLASSIFIERS^classifier:
+  SYS+facet-CLASSIFIERS^classifier:
     SYS+classifier-CLASS: class-SIMPLE
     SYS+classifier-ENTITYtype&classifierVALUE: classifierVALUE-SIMPLE
-  SYS+aspect-CONTENT$str: "this is a test same line \ndifferent line"
+  SYS+facet-CONTENT$str: "this is a test same line \ndifferent line"
+  SYS+facet-NAME&?: simple-ALPHA
 ---
 # Entity TEST+simple-ALPHA
 

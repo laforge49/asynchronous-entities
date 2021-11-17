@@ -9,7 +9,7 @@
 (defn registerEntityOperation
   [env this-map params]
   (let [this-name
-        (get this-map "NAME")
+        (get this-map "SYS+facet-NAME&?")
         name
         (get params "SYS+param-NAME&?")
         _ (if (some? (get params "SYS+param-INITIALIZATIONport"))
@@ -55,7 +55,7 @@
         (let [active-request-port
               (get env "active-request-port")
               this-name
-              (get this-map "NAME")
+              (get this-map "SYS+facet-NAME&?")
               _ (if (nil? this-name)
                   (throw (Exception. (str "NAME is nil\n"
                                           (prn-str params)
@@ -128,7 +128,7 @@
           (get params "SYS+param-OPERATIONreturnport")]
       (try
         (let [this-name
-              (get this-map "NAME")
+              (get this-map "SYS+facet-NAME&?")
               [_ _ base-name]
               (kw/name-as-keyword this-name)
               file-name
@@ -136,7 +136,7 @@
               heading
               (str "# Entity " this-name "\n\n")
               content
-              (get this-map "SYS+aspect-CONTENT$str")
+              (get this-map "SYS+facet-CONTENT$str")
               content
               (if (= (count content) 0)
                 ""
@@ -173,7 +173,7 @@
       (a/>! operation-return-port [this-map nil :NO-RETURN])
       (try
         (let [this-name
-              (get this-map "NAME")
+              (get this-map "SYS+facet-NAME&?")
               script-path
               (str "scripts/" this-name ".yml")
               yaml-script

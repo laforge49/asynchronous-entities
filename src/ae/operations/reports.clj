@@ -40,7 +40,7 @@
 (defn front-matter
   [this-map env]
   (let [this-name
-        (get this-map "NAME")
+        (get this-map "SYS+facet-NAME&?")
         [name-kw context-base-name base-name]
         (kw/name-as-keyword this-name)
         facets

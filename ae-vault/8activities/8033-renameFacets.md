@@ -3,6 +3,6 @@ tags:
   - status/todo
 ---
 from [8000-pendingActivities](8000-pendingActivities.md)
-# 8033 Rename Aspects
+# 8033 Rename Facets
 
-Aspects should be given valid names.
+Facets should be given valid names.

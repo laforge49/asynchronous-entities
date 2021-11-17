@@ -17,13 +17,13 @@ FACETS:
       - ENTITY_REPORToperationid
       SYS+requestid-INSTANTIATE:
       - INSTANTIATEoperationid
-  NAME: class-SIMPLE
   REQUEST-PORT-STACK:
   - clojure.core.async.chan
-  SYS+aspect-CLASSIFIERS^classifier:
+  SYS+facet-CLASSIFIERS^classifier:
     SYS+classifier-CLASS: SYS+class-CLASS
     SYS+classifier-ENTITYtype&classifierVALUE: SYS+classifierVALUE-CLASS
-  SYS+aspect-CONTENT$str: ''
+  SYS+facet-CONTENT$str: ''
+  SYS+facet-NAME&?: class-SIMPLE
 ---
 # Entity TEST+class-SIMPLE
 

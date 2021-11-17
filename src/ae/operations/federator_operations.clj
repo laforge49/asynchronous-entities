@@ -39,8 +39,8 @@
                                                        "SYS+param-TARGET&requestid"            "SYS+requestid-REGISTERentity"
                                                        "SYS+param-ENTITYpublicREQUESTPORT"           entity-public-request-port
                                                        "SYS+param-TARGETname&?"                 context-name
-                                                       "SYS+param-NAME&?"                       (get snap "NAME")
-                                                       "SYS+param_map-CLASSIFIERS^classifier" (get snap "SYS+aspect-CLASSIFIERS^classifier")
+                                                       "SYS+param-NAME&?"                       (get snap "SYS+facet-NAME&?")
+                                                       "SYS+param_map-CLASSIFIERS^classifier" (get snap "SYS+facet-CLASSIFIERS^classifier")
                                                        "SYS+param-RETURN$chan"                subrequest-return-port}])
                     _ (k/request-exception-check (a/<! subrequest-return-port))
                     new-children
@@ -115,7 +115,7 @@
         (let [root-contexts-request-port
               (get env "CONTEXT-REQUEST-PORT")
               this-name
-              (get this-map "NAME")
+              (get this-map "SYS+facet-NAME&?")
               descriptors
               (get this-map "DESCRIPTORS")
               federation-names
@@ -132,7 +132,7 @@
               script
               (get descriptors "SYS+descriptor_vecmap-SCRIPT^request")
               this-name
-              (get this-map "NAME")
+              (get this-map "SYS+facet-NAME&?")
               local-context
               (k/entityContextName this-name)
               _ (doseq [request script]

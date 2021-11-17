@@ -11,7 +11,7 @@
   (let [name
         (get params "SYS+param-NAME&?")
         this-name
-        (get this-map "NAME")
+        (get this-map "SYS+facet-NAME&?")
         this-descriptors
         (get this-map "DESCRIPTORS")
         instantiation-descriptors
@@ -23,7 +23,7 @@
         instantiation-classifiers
         (assoc instantiation-classifiers "SYS+classifier-CLASS" this-name)
         instantiation-classifiers
-        (into instantiation-classifiers (get params "SYS+param_map-SYS+aspect-CLASSIFIERS^classifier"))
+        (into instantiation-classifiers (get params "SYS+param_map-SYS+facet-CLASSIFIERS^classifier"))
         initialization-port
         (a/chan)
         params
@@ -47,7 +47,7 @@
         target-name
         (k/entityContextName context-name)
         this-name
-        (get this-map "NAME")
+        (get this-map "SYS+facet-NAME&?")
         this-descriptors
         (get this-map "DESCRIPTORS")
         instantiation-descriptors
@@ -103,7 +103,7 @@
 (defn addRelationsFunction
   [env this-map params]
   (let [this-name
-        (get this-map "NAME")
+        (get this-map "SYS+facet-NAME&?")
         _ (if (s/blank? this-name)
             (throw (Exception. "ADD RELATIONS requires a name on the entities being assigned a classifier")))
         [_ this-context _]
@@ -157,7 +157,7 @@
           (get params "SYS+param-OPERATIONreturnport")]
       (try
         (let [this-name
-              (get this-map "NAME")
+              (get this-map "SYS+facet-NAME&?")
               [name-kw context-base-name base-name]
               (kw/name-as-keyword this-name)
               file-name
@@ -167,7 +167,7 @@
               heading
               (str "# Entity " this-name "\n\n")
               content
-              (get this-map "SYS+aspect-CONTENT$str")
+              (get this-map "SYS+facet-CONTENT$str")
               content
               (if (= (count content) 0)
                 ""
