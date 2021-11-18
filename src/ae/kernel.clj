@@ -426,13 +426,13 @@
         name
         (get params "SYS+param-NAME&?")
         new-entity-map
-        {"SYS+facet-NAME&?"               name
-         "SYS+facet_map-DESCRIPTORS^descriptor"        descriptors
-         "SYS+facet_map-CLASSIFIERS^classifier"        classifiers
-         "SYS+facet_map-RELATIONS^relation&?"          {}
-         "SYS+facet_map-INVERSErelations^relation&?"  {}
-         "SYS+facet-CONTENT$str"         content
-         "SYS+facet_vec-REQUESTportSTACK$chan" request-port-stack}
+        {"SYS+facet-NAME&?"                          name
+         "SYS+facet_map-DESCRIPTORS^descriptor"      descriptors
+         "SYS+facet_map-CLASSIFIERS^classifier"      classifiers
+         "SYS+facet_map-RELATIONS^relation&?"        {}
+         "SYS+facet_map-INVERSErelations^relation&?" {}
+         "SYS+facet-CONTENT$str"                     content
+         "SYS+facet_vec-REQUESTportSTACK$chan"       request-port-stack}
         ]
     (assoc-entity-map name new-entity-map)
     (create-operation-dispatcher name)
@@ -705,15 +705,13 @@
               _ (if (and (some? parent-styp) (some? styp) (not= parent-styp "map"))
                   (throw (Exception. (str "Both key " (pr-str k) " and the parent map (structure typ " parent-styp ") have a structure type for content: " (pr-str v)))))
               styp
-              (if (some? styp)
-                styp
-                (if (= parent-styp "mapmap")
-                  "map"
-                  (if (= parent-styp "mapvec")
-                    "vec"
-                    (if (= parent-styp "map")
-                      nil
-                      (throw (Exception. (str (pr-str edn) " is a map, not structure typ " (pr-str parent-styp))))))))
+              (if (= parent-styp "mapmap")
+                "map"
+                (if (= parent-styp "mapvec")
+                  "vec"
+                  (if (= parent-styp "map")
+                    styp
+                    (throw (Exception. (str (pr-str edn) " is a map, not structure typ " (pr-str parent-styp)))))))
               _ (if (not= typ parent-ktyp)
                   (throw (Exception. (str (pr-str k) " is not the expected key type: " (pr-str parent-ktyp)))))
               _ (if (and (some? parent-dtyp) (some? dtyp))
