@@ -714,16 +714,10 @@
                     (throw (Exception. (str (pr-str edn) " is a map, not structure typ " (pr-str parent-styp)))))))
               _ (if (not= typ parent-ktyp)
                   (throw (Exception. (str (pr-str k) " is not the expected key type: " (pr-str parent-ktyp)))))
-              _ (if (and (some? parent-dtyp) (some? dtyp))
-                  (throw (Exception. (str "Both key " (pr-str k) " and the parent map have a data type for content: " (pr-str v)))))
-              ntyp
-              (if (some? ntyp)
-                ntyp
-                parent-ntyp)
-              dtyp
-              (if (some? dtyp)
-                dtyp
-                parent-dtyp)]
+              [ntyp dtyp]
+              (if (or (some? parent-ntyp) (some? parent-dtyp))
+                [parent-ntyp parent-dtyp]
+                [ntyp dtyp])]
           (assoc m (bind-context- local-context resources-set k nil nil "?" nil env)
                    (bind-context- local-context resources-set v styp ktyp ntyp dtyp env))))
       (sorted-map)
