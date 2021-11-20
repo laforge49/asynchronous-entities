@@ -18,14 +18,14 @@ gem-FACETS^facet:
       requestid-ROUTE:
       - ROUTEoperationid
   facet_map-ENTITYpublicREQUESTports$chan:
-    class-SIMPLE: clojure.core.async.chan
-    classifierVALUE-SIMPLE: clojure.core.async.chan
-    descriptor-DEGREEofPOLISH$str: clojure.core.async.chan
-    federator-A: clojure.core.async.chan
-    relation_vec-BASIC: clojure.core.async.chan
-    simple-ALPHA: clojure.core.async.chan
-    simple-BETA: clojure.core.async.chan
-    simple-GAMMA: clojure.core.async.chan
+    TEST+class-SIMPLE: clojure.core.async.chan
+    TEST+classifierVALUE-SIMPLE: clojure.core.async.chan
+    TEST+descriptor-DEGREEofPOLISH$str: clojure.core.async.chan
+    TEST+federator-A: clojure.core.async.chan
+    TEST+relation_vec-BASIC: clojure.core.async.chan
+    TEST+simple-ALPHA: clojure.core.async.chan
+    TEST+simple-BETA: clojure.core.async.chan
+    TEST+simple-GAMMA: clojure.core.async.chan
   facet_vec-REQUESTportSTACK$chan:
   - clojure.core.async.chan
 ---

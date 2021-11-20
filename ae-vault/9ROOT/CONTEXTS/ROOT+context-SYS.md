@@ -13,36 +13,36 @@ SYS+gem-FACETS^facet:
       SYS+requestid-ROUTE:
       - ROUTEoperationid
   SYS+facet_map-ENTITYpublicREQUESTports$chan:
-    requestid-REGISTERentity: clojure.core.async.chan
-    class-CLASSIFIERvalue: clojure.core.async.chan
-    descriptor-READonly$bool: clojure.core.async.chan
-    requestid-RUNfederation: clojure.core.async.chan
-    class-RELATION: clojure.core.async.chan
-    class-DATAtype: clojure.core.async.chan
-    requestid-ADDdescriptors: clojure.core.async.chan
-    classifierVALUE-DESCRIPTOR: clojure.core.async.chan
-    classifier-ENTITYtype&classifierVALUE: clojure.core.async.chan
-    classifierVALUE-CLASSIFIER: clojure.core.async.chan
-    requestid-ROUTE: clojure.core.async.chan
-    class-REQUESTID: clojure.core.async.chan
-    classifierVALUE-CLASS: clojure.core.async.chan
-    class-CLASS: clojure.core.async.chan
-    descriptor_map-INSTANCE^descriptor: clojure.core.async.chan
-    requestid-INSTANTIATE: clojure.core.async.chan
-    class-DESCRIPTOR: clojure.core.async.chan
-    class-CLASSIFIER: clojure.core.async.chan
-    classifierVALUE-FEDERATOR: clojure.core.async.chan
-    descriptor_mapvec-REQUESTS^requestid$str: clojure.core.async.chan
-    classifierVALUE-FEDERATIONcontext: clojure.core.async.chan
-    requestid-ADDrelations: clojure.core.async.chan
-    class-FEDERATOR: clojure.core.async.chan
-    class-CONTEXT: clojure.core.async.chan
-    classifierVALUE-CLASSIFIERvalue: clojure.core.async.chan
-    descriptor-INVARIANT$bool: clojure.core.async.chan
-    classifierVALUE-CONTEXT: clojure.core.async.chan
-    descriptor_map-INSTANCE^classifier: clojure.core.async.chan
-    classifierVALUE-REQUESTID: clojure.core.async.chan
-    context-TEST: clojure.core.async.chan
+    SYS+classifierVALUE-FEDERATIONcontext: clojure.core.async.chan
+    SYS+requestid-INSTANTIATE: clojure.core.async.chan
+    SYS+class-CLASSIFIERvalue: clojure.core.async.chan
+    SYS+classifierVALUE-REQUESTID: clojure.core.async.chan
+    SYS+descriptor_map-INSTANCE^descriptor: clojure.core.async.chan
+    SYS+descriptor_mapvec-REQUESTS^requestid$str: clojure.core.async.chan
+    SYS+class-FEDERATOR: clojure.core.async.chan
+    SYS+requestid-ADDdescriptors: clojure.core.async.chan
+    SYS+requestid-RUNfederation: clojure.core.async.chan
+    SYS+classifierVALUE-CONTEXT: clojure.core.async.chan
+    SYS+class-CLASSIFIER: clojure.core.async.chan
+    SYS+class-RELATION: clojure.core.async.chan
+    SYS+class-DESCRIPTOR: clojure.core.async.chan
+    SYS+requestid-ADDrelations: clojure.core.async.chan
+    SYS+class-DATAtype: clojure.core.async.chan
+    SYS+classifierVALUE-CLASSIFIER: clojure.core.async.chan
+    SYS+classifierVALUE-DESCRIPTOR: clojure.core.async.chan
+    SYS+descriptor_map-INSTANCE^classifier: clojure.core.async.chan
+    SYS+requestid-REGISTERentity: clojure.core.async.chan
+    SYS+class-CLASS: clojure.core.async.chan
+    SYS+requestid-ROUTE: clojure.core.async.chan
+    SYS+class-CONTEXT: clojure.core.async.chan
+    SYS+class-REQUESTID: clojure.core.async.chan
+    SYS+descriptor-READonly$bool: clojure.core.async.chan
+    SYS+descriptor-INVARIANT$bool: clojure.core.async.chan
+    SYS+classifierVALUE-CLASSIFIERvalue: clojure.core.async.chan
+    SYS+context-TEST: clojure.core.async.chan
+    SYS+classifierVALUE-CLASS: clojure.core.async.chan
+    SYS+classifier-ENTITYtype&classifierVALUE: clojure.core.async.chan
+    SYS+classifierVALUE-FEDERATOR: clojure.core.async.chan
   SYS+facet_vec-REQUESTportSTACK$chan:
   - clojure.core.async.chan
 ---

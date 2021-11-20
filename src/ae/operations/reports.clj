@@ -5,37 +5,24 @@
             [ae.keywords :as kw]))
 
 (defn short-names
-  [names-kws default-context-name]
+  [names default-context-name]
   (reduce
     (fn [sorted-names name-or-kw]
-      (if (keyword? name-or-kw)
-        (let [[name context-base-name base-name]
-              (kw/keyword-as-name name-or-kw)
-              +pos
-              (s/index-of name "+")
-              name2
-              (if (= default-context-name context-base-name)
-                [(if (nil? name)
-                   base-name
-                   (str "+" base-name))
-                 name]
-                [name name])]
-          (conj sorted-names name2))
-        (let [[name-kw context-base-name base-name]
-              (kw/name-as-keyword name-or-kw)
-              +pos
-              (s/index-of name-or-kw "+")
-              name2
-              (if (= default-context-name context-base-name)
-                [(if (nil? +pos)
-                   base-name
-                   (str "+" base-name))
-                 name-or-kw]
-                [name-or-kw name-or-kw])]
-          (conj sorted-names name2))
+      (let [[name-kw context-base-name base-name]
+            (kw/name-as-keyword name-or-kw)
+            +pos
+            (s/index-of name-or-kw "+")
+            name2
+            (if (= default-context-name context-base-name)
+              [(if (nil? +pos)
+                 base-name
+                 (str "+" base-name))
+               name-or-kw]
+              [name-or-kw name-or-kw])]
+        (conj sorted-names name2)
         ))
     (sorted-set)
-    names-kws))
+    names))
 
 (defn front-matter
   [this-map env]
