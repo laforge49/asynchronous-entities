@@ -25,7 +25,12 @@
       [this-map nil entity-public-request-port]
       (if (some? (get-in this-map ["SYS+facet_map-ENTITYpublicREQUESTports$chan" name]))
         (throw (Exception. (str "Entity " name " already exists in " this-name)))
-        (let [this-map
+        (let [
+              this-map
+              (if (nil? (get this-map "SYS+facet_map-ENTITYpublicREQUESTports$chan"))
+                (assoc this-map "SYS+facet_map-ENTITYpublicREQUESTports$chan" (sorted-map))
+                this-map)
+              this-map
               (assoc-in this-map ["SYS+facet_map-ENTITYpublicREQUESTports$chan" name] entity-public-request-port)
               classifiers
               (get params "SYS+param_map-CLASSIFIERS^classifier")]

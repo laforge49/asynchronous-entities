@@ -410,9 +410,9 @@
         request-port-stack
         [new-public-request-port]
         descriptors
-        (get params "SYS+param_map-DESCRIPTORS^descriptor" {})
+        (get params "SYS+param_map-DESCRIPTORS^descriptor" (sorted-map))
         classifiers
-        (get params "SYS+param_map-CLASSIFIERS^classifier" {})
+        (get params "SYS+param_map-CLASSIFIERS^classifier" (sorted-map))
         content
         (get params "SYS+param-content$str" "")
         invariant
@@ -429,8 +429,8 @@
         {"SYS+facet-NAME&?"                          name
          "SYS+facet_map-DESCRIPTORS^descriptor"      descriptors
          "SYS+facet_map-CLASSIFIERS^classifier"      classifiers
-         "SYS+facet_map-RELATIONS^relation&?"        {}
-         "SYS+facet_map-INVERSErelations^relation&?" {}
+         "SYS+facet_map-RELATIONS^relation&?"        (sorted-map)
+         "SYS+facet_map-INVERSErelations^relation&?" (sorted-map)
          "SYS+facet-CONTENT$str"                     content
          "SYS+facet_vec-REQUESTportSTACK$chan"       request-port-stack}
         ]
