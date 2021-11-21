@@ -685,7 +685,7 @@
     true
     (throw (Exception. (str "Data type " (pr-str parent-dtyp) " is not known, value: " (pr-str edn))))))
 
-(defn validate-name
+(defn validate-names
   [full-context-name edn styp ktyp ntyp dtyp env]
   (let [[_ _ base-name]
         (kw/name-as-keyword full-context-name)
@@ -794,7 +794,7 @@
 
 (defn bind-context
   [full-context-name edn styp ktyp ntyp dtyp env]
-  (validate-name full-context-name edn styp ktyp ntyp dtyp env)
+  (validate-names full-context-name edn styp ktyp ntyp dtyp env)
   (let [resources-set
         (get-resources-set full-context-name)
         [_ _ base-name]
