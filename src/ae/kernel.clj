@@ -744,62 +744,42 @@
   [local-context resources-set edn parent-styp parent-ktyp parent-ntyp parent-dtyp env]
   (cond
     (string? edn)
-    (if (some? parent-styp)
-      (throw (Exception. (str (pr-str edn) " is a scalar, not structure type " (pr-str parent-styp))))
-      (if (some? parent-ktyp)
-        (throw (Exception. (str (pr-str edn) " is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
-        (if (some? parent-dtyp)
-          (if (= parent-dtyp "str")
-            edn
-            (throw (Exception. (str (pr-str edn) " is not of data type " (pr-str parent-dtyp)))))
-          (let [[typ styp root ktyp ntyp dtyp]
-                (parse-entity-name edn)
-                ndx
-                (s/index-of edn "+")]
-            (if (nil? parent-ntyp)
-              (throw (Exception. (str "There is no name type for " (pr-str edn)))))
-            (if (and (not= parent-ntyp "?") (not= typ parent-ntyp))
-              (throw (Exception. (str (pr-str edn) " is not of name type " parent-ntyp))))
-            (if (some? ndx)
-              (let [ctx
-                    (subs edn 0 ndx)]
-                (if (contains? resources-set ctx)
-                  edn
-                  (if (= edn "ROOT+context-SYS")
-                    edn
-                    (throw (Exception. (str "Undeclared resource used by " edn " in context " local-context))))))
-              (str local-context "+" edn))))))
+    (if (some? parent-dtyp)
+      edn
+      (let [ndx
+            (s/index-of edn "+")]
+        (if (some? ndx)
+          (let [ctx
+                (subs edn 0 ndx)]
+            (if (contains? resources-set ctx)
+              edn
+              (if (= edn "ROOT+context-SYS")
+                edn
+                (throw (Exception. (str "Undeclared resource used by " edn " in context " local-context))))))
+          (str local-context "+" edn))))
 
     (vector? edn)
-    (if (not (s/starts-with? parent-styp "vec"))
-      (throw (Exception. (str (pr-str edn) " is a vector, not structure typ " (pr-str parent-styp))))
-      (let [styp
-            (if (= parent-styp "vecmap")
-              "map"
-              nil)]
-        (reduce
-          (fn [v item]
-            (conj v (bind-context- local-context resources-set item styp parent-ktyp parent-ntyp parent-dtyp env)))
-          []
-          edn)))
+    (let [styp
+          (if (= parent-styp "vecmap")
+            "map"
+            nil)]
+      (reduce
+        (fn [v item]
+          (conj v (bind-context- local-context resources-set item styp parent-ktyp parent-ntyp parent-dtyp env)))
+        []
+        edn))
 
     (map? edn)
     (reduce
       (fn [m [k v]]
         (let [[typ styp root ktyp ntyp dtyp]
               (parse-entity-name k)
-              _ (if (and (some? parent-styp) (some? styp) (not= parent-styp "map"))
-                  (throw (Exception. (str "Both key " (pr-str k) " and the parent map (structure typ " parent-styp ") have a structure type for content: " (pr-str v)))))
               styp
               (if (= parent-styp "mapmap")
                 "map"
                 (if (= parent-styp "mapvec")
                   "vec"
-                  (if (= parent-styp "map")
-                    styp
-                    (throw (Exception. (str (pr-str edn) " is a map, not structure typ " (pr-str parent-styp)))))))
-              _ (if (not= typ parent-ktyp)
-                  (throw (Exception. (str (pr-str k) " is not the expected key type: " (pr-str parent-ktyp)))))
+                  styp))
               [ntyp dtyp]
               (if (or (some? parent-ntyp) (some? parent-dtyp))
                 [parent-ntyp parent-dtyp]
@@ -809,32 +789,8 @@
       (sorted-map)
       edn)
 
-    (boolean? edn)
-    (if (some? parent-styp)
-      (throw (Exception. (str (pr-str edn) " is a scalar, not structure typ " (pr-str parent-styp))))
-      (if (some? parent-ktyp)
-        (throw (Exception. (str (pr-str edn) " is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
-        (if (= parent-dtyp "bool")
-          edn
-          (throw (Exception. (str (pr-str edn) "is boolean, not "
-                                  (if (nil? parent-dtyp)
-                                    "a name"
-                                    parent-dtyp)))))))
-
-    (= (class edn) clojure.core.async.impl.channels.ManyToManyChannel)
-    (if (some? parent-styp)
-      (throw (Exception. (str "clojure.core.async.chan is a scalar, not structure typ " (pr-str parent-styp))))
-      (if (some? parent-ktyp)
-        (throw (Exception. (str "clojure.core.async.chan is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
-        (if (= parent-dtyp "chan")
-          edn
-          (throw (Exception. (str "clojure.core.async.chan is not "
-                                  (if (nil? parent-dtyp)
-                                    "a name"
-                                    parent-dtyp)))))))
-
     true
-    (throw (Exception. (str "Data type " (pr-str parent-dtyp) " is not known, value: " (pr-str edn))))))
+    edn))
 
 (defn bind-context
   [full-context-name edn styp ktyp ntyp dtyp env]
