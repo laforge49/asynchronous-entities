@@ -618,8 +618,7 @@
       (if (some? parent-ktyp)
         (throw (Exception. (str (pr-str edn) " is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
         (if (some? parent-dtyp)
-          (if (= parent-dtyp "str")
-            edn
+          (if (not= parent-dtyp "str")
             (throw (Exception. (str (pr-str edn) " is not of data type " (pr-str parent-dtyp)))))
           (let [[typ styp root ktyp ntyp dtyp]
                 (parse-entity-name edn)]
@@ -635,45 +634,38 @@
             (if (= parent-styp "vecmap")
               "map"
               nil)]
-        (reduce
-          (fn [v item]
-            (conj v (validate-name- local-context item styp parent-ktyp parent-ntyp parent-dtyp env)))
-          []
-          edn)))
+        (doseq [item edn]
+          (validate-name- local-context item styp parent-ktyp parent-ntyp parent-dtyp env))))
 
     (map? edn)
-    (reduce
-      (fn [m [k v]]
-        (let [[typ styp root ktyp ntyp dtyp]
-              (parse-entity-name k)
-              _ (if (and (some? parent-styp) (some? styp) (not= parent-styp "map"))
-                  (throw (Exception. (str "Both key " (pr-str k) " and the parent map (structure typ " parent-styp ") have a structure type for content: " (pr-str v)))))
-              styp
-              (if (= parent-styp "mapmap")
-                "map"
-                (if (= parent-styp "mapvec")
-                  "vec"
-                  (if (= parent-styp "map")
-                    styp
-                    (throw (Exception. (str (pr-str edn) " is a map, not structure typ " (pr-str parent-styp)))))))
-              _ (if (not= typ parent-ktyp)
-                  (throw (Exception. (str (pr-str k) " is not the expected key type: " (pr-str parent-ktyp)))))
-              [ntyp dtyp]
-              (if (or (some? parent-ntyp) (some? parent-dtyp))
-                [parent-ntyp parent-dtyp]
-                [ntyp dtyp])]
-          (assoc m (validate-name- local-context k nil nil "?" nil env)
-                   (validate-name- local-context v styp ktyp ntyp dtyp env))))
-      (sorted-map)
-      edn)
+    (doseq [[k v] edn]
+      (let [[typ styp root ktyp ntyp dtyp]
+            (parse-entity-name k)
+            _ (if (and (some? parent-styp) (some? styp) (not= parent-styp "map"))
+                (throw (Exception. (str "Both key " (pr-str k) " and the parent map (structure typ " parent-styp ") have a structure type for content: " (pr-str v)))))
+            styp
+            (if (= parent-styp "mapmap")
+              "map"
+              (if (= parent-styp "mapvec")
+                "vec"
+                (if (= parent-styp "map")
+                  styp
+                  (throw (Exception. (str (pr-str edn) " is a map, not structure typ " (pr-str parent-styp)))))))
+            _ (if (not= typ parent-ktyp)
+                (throw (Exception. (str (pr-str k) " is not the expected key type: " (pr-str parent-ktyp)))))
+            [ntyp dtyp]
+            (if (or (some? parent-ntyp) (some? parent-dtyp))
+              [parent-ntyp parent-dtyp]
+              [ntyp dtyp])]
+        (validate-name- local-context k nil nil "?" nil env)
+        (validate-name- local-context v styp ktyp ntyp dtyp env)))
 
     (boolean? edn)
     (if (some? parent-styp)
       (throw (Exception. (str (pr-str edn) " is a scalar, not structure typ " (pr-str parent-styp))))
       (if (some? parent-ktyp)
         (throw (Exception. (str (pr-str edn) " is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
-        (if (= parent-dtyp "bool")
-          edn
+        (if (not= parent-dtyp "bool")
           (throw (Exception. (str (pr-str edn) "is boolean, not "
                                   (if (nil? parent-dtyp)
                                     "a name"
@@ -684,8 +676,7 @@
       (throw (Exception. (str "clojure.core.async.chan is a scalar, not structure typ " (pr-str parent-styp))))
       (if (some? parent-ktyp)
         (throw (Exception. (str "clojure.core.async.chan is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
-        (if (= parent-dtyp "chan")
-          edn
+        (if (not= parent-dtyp "chan")
           (throw (Exception. (str "clojure.core.async.chan is not "
                                   (if (nil? parent-dtyp)
                                     "a name"
