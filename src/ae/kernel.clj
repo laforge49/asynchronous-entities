@@ -610,7 +610,7 @@
     [typ styp root ktyp ntyp dtyp]))
 
 (defn validate-name-
-  [local-context resources-set edn parent-styp parent-ktyp parent-ntyp parent-dtyp env]
+  [local-context edn parent-styp parent-ktyp parent-ntyp parent-dtyp env]
   (cond
     (string? edn)
     (if (some? parent-styp)
@@ -622,22 +622,11 @@
             edn
             (throw (Exception. (str (pr-str edn) " is not of data type " (pr-str parent-dtyp)))))
           (let [[typ styp root ktyp ntyp dtyp]
-                (parse-entity-name edn)
-                ndx
-                (s/index-of edn "+")]
+                (parse-entity-name edn)]
             (if (nil? parent-ntyp)
               (throw (Exception. (str "There is no name type for " (pr-str edn)))))
             (if (and (not= parent-ntyp "?") (not= typ parent-ntyp))
-              (throw (Exception. (str (pr-str edn) " is not of name type " parent-ntyp))))
-            (if (some? ndx)
-              (let [ctx
-                    (subs edn 0 ndx)]
-                (if (contains? resources-set ctx)
-                  edn
-                  (if (= edn "ROOT+context-SYS")
-                    edn
-                    (throw (Exception. (str "Undeclared resource used by " edn " in context " local-context))))))
-              (str local-context "+" edn))))))
+              (throw (Exception. (str (pr-str edn) " is not of name type " parent-ntyp))))))))
 
     (vector? edn)
     (if (not (s/starts-with? parent-styp "vec"))
@@ -648,7 +637,7 @@
               nil)]
         (reduce
           (fn [v item]
-            (conj v (validate-name- local-context resources-set item styp parent-ktyp parent-ntyp parent-dtyp env)))
+            (conj v (validate-name- local-context item styp parent-ktyp parent-ntyp parent-dtyp env)))
           []
           edn)))
 
@@ -673,8 +662,8 @@
               (if (or (some? parent-ntyp) (some? parent-dtyp))
                 [parent-ntyp parent-dtyp]
                 [ntyp dtyp])]
-          (assoc m (validate-name- local-context resources-set k nil nil "?" nil env)
-                   (validate-name- local-context resources-set v styp ktyp ntyp dtyp env))))
+          (assoc m (validate-name- local-context k nil nil "?" nil env)
+                   (validate-name- local-context v styp ktyp ntyp dtyp env))))
       (sorted-map)
       edn)
 
@@ -707,15 +696,13 @@
 
 (defn validate-name
   [full-context-name edn styp ktyp ntyp dtyp env]
-  (let [resources-set
-        (get-resources-set full-context-name)
-        [_ _ base-name]
+  (let [[_ _ base-name]
         (kw/name-as-keyword full-context-name)
         base-name
         (if (s/starts-with? base-name "context-")
           (subs base-name 8)
           base-name)]
-    (validate-name- base-name resources-set edn styp ktyp ntyp dtyp env)))
+    (validate-name- base-name edn styp ktyp ntyp dtyp env)))
 
 (def testChanClass (class (a/chan)))
 
