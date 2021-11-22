@@ -698,10 +698,11 @@
 (def testChanClass (class (a/chan)))
 
 (defn unbind-context
-  [local-context-+ edn values-as-data env]
+  [local-context-+ edn parent-dtyp env]
+  #_ (validate-names full-context-name edn parent-styp parent-ktyp parent-ntyp parent-dtyp env)
   (cond
     (string? edn)
-    (if values-as-data
+    (if (some? parent-dtyp)
       edn
       (if (s/starts-with? edn local-context-+)
         (subs edn (count local-context-+))
@@ -710,7 +711,7 @@
     (vector? edn)
     (reduce
       (fn [v item]
-        (conj v (unbind-context local-context-+ item values-as-data env)))
+        (conj v (unbind-context local-context-+ item parent-dtyp env)))
       []
       edn)
 
@@ -721,10 +722,14 @@
                 (and (map? v) (empty? v))
                 (and (vector? v) (empty? v)))
           m
-          (assoc m (unbind-context local-context-+ k false env)
-                   (unbind-context local-context-+ v
-                                   (or values-as-data (some? (s/index-of k "$")))
-                                   env))))
+          (let [[typ styp root ktyp ntyp dtyp]
+                (parse-entity-name k)
+                dtyp
+                (if (some? parent-dtyp)
+                  parent-dtyp
+                  dtyp)]
+          (assoc m (unbind-context local-context-+ k nil env)
+                   (unbind-context local-context-+ v dtyp env)))))
       (sorted-map)
       edn)
 

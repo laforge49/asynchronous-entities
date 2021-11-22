@@ -30,10 +30,11 @@
         (get this-map "SYS+facet-NAME&?")
         [name-kw context-base-name base-name]
         (kw/name-as-keyword this-name)
+        _ (println :context-base-name context-base-name)
         facets
         (k/unbind-context (str context-base-name "+")
                           this-map
-                          false
+                          nil
                           env)
         fm
         {(if (= context-base-name "SYS")
@@ -50,7 +51,7 @@
   (let [[this-name-kw this-context-base-name this-base-name]
         (kw/name-as-keyword this-name)
         entities
-        (keys (get this-map "SYS+facet_map-ENTITYpublicREQUESTports$chan"))
+        (keys (get this-map "SYS+facet_map-ENTITYpublicREQUESTports^?$chan"))
         sorted-names
         (short-names entities this-base-name)
         lines

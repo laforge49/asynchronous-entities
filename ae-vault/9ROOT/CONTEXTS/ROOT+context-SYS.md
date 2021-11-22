@@ -12,7 +12,7 @@ SYS+gem-FACETS^facet:
       - REGISTER_ENTITYoperationid
       SYS+requestid-ROUTE:
       - ROUTEoperationid
-  SYS+facet_map-ENTITYpublicREQUESTports$chan:
+  SYS+facet_map-ENTITYpublicREQUESTports^?$chan:
     SYS+classifierVALUE-FEDERATIONcontext: clojure.core.async.chan
     SYS+requestid-INSTANTIATE: clojure.core.async.chan
     SYS+class-CLASSIFIERvalue: clojure.core.async.chan
