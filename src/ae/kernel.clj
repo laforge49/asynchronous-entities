@@ -651,7 +651,7 @@
                 (if (= parent-styp "map")
                   styp
                   (throw (Exception. (str (pr-str edn) " is a map, not structure typ " (pr-str parent-styp)))))))
-            _ (if (not= typ parent-ktyp)
+            _ (if (and (not= parent-ktyp "?") (not= typ parent-ktyp))
                 (throw (Exception. (str (pr-str k) " is not the expected key type: " (pr-str parent-ktyp)))))
             [ntyp dtyp]
             (if (or (some? parent-ntyp) (some? parent-dtyp))

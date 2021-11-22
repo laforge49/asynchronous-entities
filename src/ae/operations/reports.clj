@@ -30,7 +30,6 @@
         (get this-map "SYS+facet-NAME&?")
         [name-kw context-base-name base-name]
         (kw/name-as-keyword this-name)
-        _ (println :context-base-name context-base-name)
         facets
         (k/unbind-context (str context-base-name "+")
                           this-map
