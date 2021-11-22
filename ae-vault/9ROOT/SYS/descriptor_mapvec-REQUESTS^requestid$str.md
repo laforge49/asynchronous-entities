@@ -4,7 +4,6 @@ gem_map-FACETS^facet:
   facet-NAME&?: descriptor_mapvec-REQUESTS^requestid$str
   facet_map-CLASSIFIERS^classifier:
     classifier-CLASS&class: class-DESCRIPTOR
-    classifier-ENTITYtype&classifierVALUE: classifierVALUE-DESCRIPTOR
   facet_map-DESCRIPTORS^descriptor:
     descriptor-INVARIANT$bool: true
     descriptor_mapvec-REQUESTS^requestid$str:

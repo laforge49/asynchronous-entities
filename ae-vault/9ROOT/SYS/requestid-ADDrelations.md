@@ -4,7 +4,6 @@ gem_map-FACETS^facet:
   facet-NAME&?: requestid-ADDrelations
   facet_map-CLASSIFIERS^classifier:
     classifier-CLASS&class: class-REQUESTID
-    classifier-ENTITYtype&classifierVALUE: classifierVALUE-REQUESTID
   facet_map-DESCRIPTORS^descriptor:
     descriptor-INVARIANT$bool: true
     descriptor_mapvec-REQUESTS^requestid$str:

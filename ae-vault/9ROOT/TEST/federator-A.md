@@ -4,7 +4,6 @@ SYS+gem_map-FACETS^facet:
   SYS+facet-NAME&?: federator-A
   SYS+facet_map-CLASSIFIERS^classifier:
     SYS+classifier-CLASS&class: SYS+class-FEDERATOR
-    SYS+classifier-ENTITYtype&classifierVALUE: SYS+classifierVALUE-FEDERATOR
   SYS+facet_map-DESCRIPTORS^descriptor:
     SYS+descriptor_mapvec-REQUESTS^requestid$str:
       SYS+requestid-ENTITYreport:

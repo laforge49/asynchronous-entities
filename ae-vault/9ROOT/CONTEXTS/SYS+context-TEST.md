@@ -4,7 +4,6 @@ gem_map-FACETS^facet:
   facet-NAME&?: context-TEST
   facet_map-CLASSIFIERS^classifier:
     classifier-CLASS&class: class-CONTEXT
-    classifier-ENTITYtype&classifierVALUE: classifierVALUE-CONTEXT
     classifier_vec-RESOURCES&context:
     - ROOT+context-SYS
   facet_map-DESCRIPTORS^descriptor:
@@ -19,7 +18,6 @@ gem_map-FACETS^facet:
       - ROUTEoperationid
   facet_map?-ENTITYpublicREQUESTports^?$chan:
     TEST+class-SIMPLE: clojure.core.async.chan
-    TEST+classifierVALUE-SIMPLE: clojure.core.async.chan
     TEST+descriptor-DEGREEofPOLISH$str: clojure.core.async.chan
     TEST+federator-A: clojure.core.async.chan
     TEST+relation_vec-BASIC: clojure.core.async.chan
@@ -39,7 +37,6 @@ different line
 (Default context is context-TEST.)
 
 TEST+class-SIMPLE
-TEST+classifierVALUE-SIMPLE
 TEST+descriptor-DEGREEofPOLISH$str
 TEST+federator-A
 TEST+relation_vec-BASIC
@@ -47,7 +44,7 @@ TEST+simple-ALPHA
 TEST+simple-BETA
 TEST+simple-GAMMA
 
-Number of entities: 8
+Number of entities: 7
 
 2. Classifier Values of context SYS+context-TEST
 (Default context is context-TEST.)
@@ -55,8 +52,6 @@ Number of entities: 8
 classifier:  SYS+classifier-CLASS&class
   value:       SYS+class-CLASS
     entity:      TEST+class-SIMPLE
-  value:       SYS+class-CLASSIFIERvalue
-    entity:      TEST+classifierVALUE-SIMPLE
   value:       SYS+class-DESCRIPTOR
     entity:      TEST+descriptor-DEGREEofPOLISH$str
   value:       SYS+class-FEDERATOR
@@ -67,21 +62,6 @@ classifier:  SYS+classifier-CLASS&class
     entity:      TEST+simple-ALPHA
     entity:      TEST+simple-BETA
     entity:      TEST+simple-GAMMA
-classifier:  SYS+classifier-ENTITYtype&classifierVALUE
-  value:       SYS+classifierVALUE-CLASS
-    entity:      TEST+class-SIMPLE
-  value:       SYS+classifierVALUE-CLASSIFIER
-    entity:      TEST+relation_vec-BASIC
-  value:       SYS+classifierVALUE-CLASSIFIERvalue
-    entity:      TEST+classifierVALUE-SIMPLE
-  value:       SYS+classifierVALUE-DESCRIPTOR
-    entity:      TEST+descriptor-DEGREEofPOLISH$str
-  value:       SYS+classifierVALUE-FEDERATOR
-    entity:      TEST+federator-A
-  value:       TEST+classifierVALUE-SIMPLE
-    entity:      TEST+simple-ALPHA
-    entity:      TEST+simple-BETA
-    entity:      TEST+simple-GAMMA
 
-Number of classifiers: 2
+Number of classifiers: 1
 

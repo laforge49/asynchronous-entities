@@ -4,11 +4,8 @@ gem_map-FACETS^facet:
   facet-NAME&?: class-CLASSIFIER
   facet_map-CLASSIFIERS^classifier:
     classifier-CLASS&class: class-CLASS
-    classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASS
   facet_map-DESCRIPTORS^descriptor:
     descriptor-INVARIANT$bool: true
-    descriptor_map-INSTANCE^classifier:
-      classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASSIFIER
     descriptor_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:

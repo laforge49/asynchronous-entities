@@ -4,7 +4,6 @@ SYS+gem_map-FACETS^facet:
   SYS+facet-NAME&?: descriptor-DEGREEofPOLISH$str
   SYS+facet_map-CLASSIFIERS^classifier:
     SYS+classifier-CLASS&class: SYS+class-DESCRIPTOR
-    SYS+classifier-ENTITYtype&classifierVALUE: SYS+classifierVALUE-DESCRIPTOR
   SYS+facet_map-DESCRIPTORS^descriptor:
     SYS+descriptor-INVARIANT$bool: true
     SYS+descriptor_mapvec-REQUESTS^requestid$str:
