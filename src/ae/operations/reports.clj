@@ -30,6 +30,7 @@
         (get this-map "SYS+facet-NAME&?")
         [name-kw context-base-name base-name]
         (kw/name-as-keyword this-name)
+        _ (k/validate-names this-name this-map "map" "facet" nil nil env)
         facets
         (k/unbind-context (str context-base-name "+")
                           this-map
@@ -37,8 +38,8 @@
                           env)
         fm
         {(if (= context-base-name "SYS")
-           "gem-FACETS^facet"
-           "SYS+gem-FACETS^facet")
+           "gem_map-FACETS^facet"
+           "SYS+gem_map-FACETS^facet")
 
          facets}]
     (str "---\n"
@@ -50,7 +51,7 @@
   (let [[this-name-kw this-context-base-name this-base-name]
         (kw/name-as-keyword this-name)
         entities
-        (keys (get this-map "SYS+facet_map-ENTITYpublicREQUESTports^?$chan"))
+        (keys (get this-map "SYS+facet_map?-ENTITYpublicREQUESTports^?$chan"))
         sorted-names
         (short-names entities this-base-name)
         lines

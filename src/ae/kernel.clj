@@ -117,11 +117,11 @@
 (defn get-federated-map
   [entity-name env]
   (let [env-federator-name
-        (get env "FEDERATOR-NAME")
+        (get env "SYS+facet-FEDERATORname&federator")
         entity-map
         (get-entity-map entity-name)
         this-federator-name
-        (get entity-map "FEDERATOR-NAME")]
+        (get entity-map "SYS+facet-FEDERATORname&federator")]
     (if (= this-federator-name env-federator-name)
       entity-map
       nil)))
@@ -327,7 +327,7 @@
                     (let [this-descriptors
                           (thisDescriptors this-map params)
                           this-federator-name
-                          (get this-map "FEDERATOR-NAME")]
+                          (get this-map "SYS+facet-FEDERATORname&federator")]
                       (if (or (some? this-federator-name)
                               (federated? this-map))
                         (throw (Exception. (str "Inappropriate async request on federated entity.\n"
@@ -340,16 +340,16 @@
                               this-map
                               (assoc this-map "SYS+facet_vec-REQUESTportSTACK$chan" (conj this-request-port-stack new-request-port))
                               federator-name
-                              (get env "FEDERATOR-NAME")
+                              (get env "SYS+facet-FEDERATORname&federator")
                               this-map
-                              (assoc this-map "FEDERATOR-NAME" federator-name)]
+                              (assoc this-map "SYS+facet-FEDERATORname&federator" federator-name)]
                           [this-map [this-map new-request-port]])))
 
                     "RESET-REQUEST-PORT"
                     (let [this-map
                           (assoc this-map "SYS+facet_vec-REQUESTportSTACK$chan" (pop this-request-port-stack))
                           this-map
-                          (assoc this-map "FEDERATOR-NAME" nil)]
+                          (assoc this-map "SYS+facet-FEDERATORname&federator" nil)]
                       [this-map this-map])
 
                     ;;DEFAULT
@@ -497,7 +497,7 @@
                                   (prn-str context-map))))))))
 
 (def styp-set
-  #{"map" "vec" "mapmap" "mapvec" "vecmap"})
+  #{"map" "vec" "mapmap" "mapvec" "vecmap" "map?"})
 
 (def dtyp-set
   #{"bool" "str" "chan"})
@@ -609,13 +609,13 @@
       (throw (Exception. (str "Name " s " has an unknown data type: " dtyp))))
     [typ styp root ktyp ntyp dtyp]))
 
-(defn validate-name-
+(defn validate-names-
   [local-context edn parent-styp parent-ktyp parent-ntyp parent-dtyp env]
   (cond
     (string? edn)
-    (if (some? parent-styp)
+    (if (and (some? parent-styp) (not= parent-styp "?"))
       (throw (Exception. (str (pr-str edn) " is a scalar, not structure type " (pr-str parent-styp))))
-      (if (some? parent-ktyp)
+      (if (and (some? parent-ktyp) (not= parent-ktyp "?"))
         (throw (Exception. (str (pr-str edn) " is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
         (if (some? parent-dtyp)
           (if (not= parent-dtyp "str")
@@ -628,42 +628,47 @@
               (throw (Exception. (str (pr-str edn) " is not of name type " parent-ntyp))))))))
 
     (vector? edn)
-    (if (not (s/starts-with? parent-styp "vec"))
+    (if (and (not (s/starts-with? parent-styp "vec")) (not= parent-styp "?"))
       (throw (Exception. (str (pr-str edn) " is a vector, not structure typ " (pr-str parent-styp))))
       (let [styp
             (if (= parent-styp "vecmap")
               "map"
               nil)]
         (doseq [item edn]
-          (validate-name- local-context item styp parent-ktyp parent-ntyp parent-dtyp env))))
+          (validate-names- local-context item styp parent-ktyp parent-ntyp parent-dtyp env))))
 
     (map? edn)
     (doseq [[k v] edn]
-      (let [[typ styp root ktyp ntyp dtyp]
-            (parse-entity-name k)
-            _ (if (and (some? parent-styp) (some? styp) (not= parent-styp "map"))
-                (throw (Exception. (str "Both key " (pr-str k) " and the parent map (structure typ " parent-styp ") have a structure type for content: " (pr-str v)))))
-            styp
-            (if (= parent-styp "mapmap")
-              "map"
-              (if (= parent-styp "mapvec")
-                "vec"
-                (if (= parent-styp "map")
-                  styp
-                  (throw (Exception. (str (pr-str edn) " is a map, not structure typ " (pr-str parent-styp)))))))
-            _ (if (and (not= parent-ktyp "?") (not= typ parent-ktyp))
-                (throw (Exception. (str (pr-str k) " is not the expected key type: " (pr-str parent-ktyp)))))
-            [ntyp dtyp]
-            (if (or (some? parent-ntyp) (some? parent-dtyp))
-              [parent-ntyp parent-dtyp]
-              [ntyp dtyp])]
-        (validate-name- local-context k nil nil "?" nil env)
-        (validate-name- local-context v styp ktyp ntyp dtyp env)))
+      (if (some? v)
+        (let [[typ styp root ktyp ntyp dtyp]
+              (parse-entity-name k)
+              styp
+              (if (= parent-styp "mapmap")
+                "map"
+                (if (= parent-styp "mapvec")
+                  "vec"
+                  (if (= parent-styp "map?")
+                    "?"
+                    (if (= parent-styp "map")
+                      styp
+                      (throw (Exception. (str (pr-str edn) " is a map, not structure typ " (pr-str parent-styp))))))))
+              _ (if (and (not= parent-ktyp "?") (not= typ parent-ktyp))
+                  (throw (Exception. (str (pr-str k) " is not the expected key type: " (pr-str parent-ktyp)))))
+              ktyp
+              (if (= parent-ktyp "?")
+                "?"
+                ktyp)
+              [ntyp dtyp]
+              (if (or (some? parent-ntyp) (some? parent-dtyp))
+                [parent-ntyp parent-dtyp]
+                [ntyp dtyp])]
+          (validate-names- local-context k nil nil "?" nil env)
+          (validate-names- local-context v styp ktyp ntyp dtyp env))))
 
     (boolean? edn)
-    (if (some? parent-styp)
+    (if (and (some? parent-styp) (not= parent-styp "?"))
       (throw (Exception. (str (pr-str edn) " is a scalar, not structure typ " (pr-str parent-styp))))
-      (if (some? parent-ktyp)
+      (if (and (some? parent-ktyp) (not= parent-ktyp "?"))
         (throw (Exception. (str (pr-str edn) " is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
         (if (not= parent-dtyp "bool")
           (throw (Exception. (str (pr-str edn) "is boolean, not "
@@ -672,9 +677,9 @@
                                     parent-dtyp)))))))
 
     (= (class edn) clojure.core.async.impl.channels.ManyToManyChannel)
-    (if (some? parent-styp)
+    (if (and (some? parent-styp) (not= parent-styp "?"))
       (throw (Exception. (str "clojure.core.async.chan is a scalar, not structure typ " (pr-str parent-styp))))
-      (if (some? parent-ktyp)
+      (if (and (some? parent-ktyp) (not= parent-ktyp "?"))
         (throw (Exception. (str "clojure.core.async.chan is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
         (if (not= parent-dtyp "chan")
           (throw (Exception. (str "clojure.core.async.chan is not "
@@ -693,13 +698,13 @@
         (if (s/starts-with? base-name "context-")
           (subs base-name 8)
           base-name)]
-    (validate-name- base-name edn styp ktyp ntyp dtyp env)))
+    (validate-names- base-name edn styp ktyp ntyp dtyp env)))
 
 (def testChanClass (class (a/chan)))
 
 (defn unbind-context
   [local-context-+ edn parent-dtyp env]
-  #_ (validate-names full-context-name edn parent-styp parent-ktyp parent-ntyp parent-dtyp env)
+  #_(validate-names full-context-name edn parent-styp parent-ktyp parent-ntyp parent-dtyp env)
   (cond
     (string? edn)
     (if (some? parent-dtyp)
@@ -728,8 +733,8 @@
                 (if (some? parent-dtyp)
                   parent-dtyp
                   dtyp)]
-          (assoc m (unbind-context local-context-+ k nil env)
-                   (unbind-context local-context-+ v dtyp env)))))
+            (assoc m (unbind-context local-context-+ k nil env)
+                     (unbind-context local-context-+ v dtyp env)))))
       (sorted-map)
       edn)
 

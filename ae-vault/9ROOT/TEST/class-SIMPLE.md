@@ -1,9 +1,9 @@
 ---
-SYS+gem-FACETS^facet:
+SYS+gem_map-FACETS^facet:
   SYS+facet-CONTENT$str: ''
   SYS+facet-NAME&?: class-SIMPLE
   SYS+facet_map-CLASSIFIERS^classifier:
-    SYS+classifier-CLASS: SYS+class-CLASS
+    SYS+classifier-CLASS&class: SYS+class-CLASS
     SYS+classifier-ENTITYtype&classifierVALUE: SYS+classifierVALUE-CLASS
   SYS+facet_map-DESCRIPTORS^descriptor:
     SYS+descriptor-INVARIANT$bool: true

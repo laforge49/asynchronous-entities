@@ -1,9 +1,9 @@
 ---
-gem-FACETS^facet:
+gem_map-FACETS^facet:
   facet-CONTENT$str: "this is a test same line \ndifferent line"
   facet-NAME&?: context-TEST
   facet_map-CLASSIFIERS^classifier:
-    classifier-CLASS: class-CONTEXT
+    classifier-CLASS&class: class-CONTEXT
     classifier-ENTITYtype&classifierVALUE: classifierVALUE-CONTEXT
     classifier_vec-RESOURCES&context:
     - ROOT+context-SYS
@@ -17,7 +17,7 @@ gem-FACETS^facet:
       - REGISTER_ENTITYoperationid
       requestid-ROUTE:
       - ROUTEoperationid
-  facet_map-ENTITYpublicREQUESTports^?$chan:
+  facet_map?-ENTITYpublicREQUESTports^?$chan:
     TEST+class-SIMPLE: clojure.core.async.chan
     TEST+classifierVALUE-SIMPLE: clojure.core.async.chan
     TEST+descriptor-DEGREEofPOLISH$str: clojure.core.async.chan
@@ -52,7 +52,7 @@ Number of entities: 8
 2. Classifier Values of context SYS+context-TEST
 (Default context is context-TEST.)
 
-classifier:  SYS+classifier-CLASS
+classifier:  SYS+classifier-CLASS&class
   value:       SYS+class-CLASS
     entity:      TEST+class-SIMPLE
   value:       SYS+class-CLASSIFIERvalue

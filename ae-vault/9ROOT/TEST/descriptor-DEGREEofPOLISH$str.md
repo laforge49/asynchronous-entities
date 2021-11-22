@@ -1,9 +1,9 @@
 ---
-SYS+gem-FACETS^facet:
+SYS+gem_map-FACETS^facet:
   SYS+facet-CONTENT$str: ''
   SYS+facet-NAME&?: descriptor-DEGREEofPOLISH$str
   SYS+facet_map-CLASSIFIERS^classifier:
-    SYS+classifier-CLASS: SYS+class-DESCRIPTOR
+    SYS+classifier-CLASS&class: SYS+class-DESCRIPTOR
     SYS+classifier-ENTITYtype&classifierVALUE: SYS+classifierVALUE-DESCRIPTOR
   SYS+facet_map-DESCRIPTORS^descriptor:
     SYS+descriptor-INVARIANT$bool: true

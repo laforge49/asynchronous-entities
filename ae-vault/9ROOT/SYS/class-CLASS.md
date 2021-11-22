@@ -1,5 +1,5 @@
 ---
-gem-FACETS^facet:
+gem_map-FACETS^facet:
   facet-CONTENT$str: ''
   facet-NAME&?: class-CLASS
   facet_map-CLASSIFIERS^classifier:

@@ -121,7 +121,7 @@
               federation-names
               (get descriptors "SYS+descriptor_vec-FEDERATIONnames&?")
               env
-              (assoc env "FEDERATOR-NAME" this-name)
+              (assoc env "SYS+facet-FEDERATORname&federator" this-name)
               root-contexts-request-port
               (get env "CONTEXT-REQUEST-PORT")
               acquire-port
@@ -147,7 +147,7 @@
               _ (if (some? e)
                   (throw e))
               env
-              (assoc env "FEDERATOR-NAME" nil)
+              (assoc env "SYS+facet-FEDERATORname&federator" nil)
               env
               (assoc env "NEW-CHILDREN-VOLATILE" nil)
               sub-return-port

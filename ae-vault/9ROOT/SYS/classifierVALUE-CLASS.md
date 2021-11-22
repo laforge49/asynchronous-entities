@@ -1,9 +1,9 @@
 ---
-gem-FACETS^facet:
+gem_map-FACETS^facet:
   facet-CONTENT$str: ''
   facet-NAME&?: classifierVALUE-CLASS
   facet_map-CLASSIFIERS^classifier:
-    classifier-CLASS: class-CLASSIFIERvalue
+    classifier-CLASS&class: class-CLASSIFIERvalue
     classifier-ENTITYtype&classifierVALUE: classifierVALUE-CLASSIFIERvalue
   facet_map-DESCRIPTORS^descriptor:
     descriptor-INVARIANT$bool: true

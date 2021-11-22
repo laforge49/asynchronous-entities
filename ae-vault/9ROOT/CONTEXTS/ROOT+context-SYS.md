@@ -1,5 +1,5 @@
 ---
-SYS+gem-FACETS^facet:
+SYS+gem_map-FACETS^facet:
   SYS+facet-CONTENT$str: ''
   SYS+facet-NAME&?: context-SYS
   SYS+facet_map-DESCRIPTORS^descriptor:
@@ -12,7 +12,7 @@ SYS+gem-FACETS^facet:
       - REGISTER_ENTITYoperationid
       SYS+requestid-ROUTE:
       - ROUTEoperationid
-  SYS+facet_map-ENTITYpublicREQUESTports^?$chan:
+  SYS+facet_map?-ENTITYpublicREQUESTports^?$chan:
     SYS+classifierVALUE-FEDERATIONcontext: clojure.core.async.chan
     SYS+requestid-INSTANTIATE: clojure.core.async.chan
     SYS+class-CLASSIFIERvalue: clojure.core.async.chan
@@ -87,7 +87,7 @@ Number of entities: 30
 2. Classifier Values of context ROOT+context-SYS
 (Default context is context-SYS.)
 
-classifier:  SYS+classifier-CLASS
+classifier:  SYS+classifier-CLASS&class
   value:       SYS+class-CLASS
     entity:      SYS+class-CLASSIFIER
     entity:      SYS+class-CLASSIFIERvalue

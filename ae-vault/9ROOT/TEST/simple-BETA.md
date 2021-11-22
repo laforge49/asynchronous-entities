@@ -1,9 +1,9 @@
 ---
-SYS+gem-FACETS^facet:
+SYS+gem_map-FACETS^facet:
   SYS+facet-CONTENT$str: ''
   SYS+facet-NAME&?: simple-BETA
   SYS+facet_map-CLASSIFIERS^classifier:
-    SYS+classifier-CLASS: class-SIMPLE
+    SYS+classifier-CLASS&class: class-SIMPLE
     SYS+classifier-ENTITYtype&classifierVALUE: classifierVALUE-SIMPLE
   SYS+facet_map-DESCRIPTORS^descriptor:
     SYS+descriptor_mapvec-REQUESTS^requestid$str:
