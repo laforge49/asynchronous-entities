@@ -695,9 +695,6 @@
     (boolean? edn)
     edn
 
-    (keyword? edn)
-    (name edn)
-
     (= (class edn) testChanClass)
     "clojure.core.async.chan"
 
