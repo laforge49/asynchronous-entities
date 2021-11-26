@@ -563,8 +563,8 @@
       (throw (Exception. (str "Name " s " has an unknown data type: " dtyp))))
     [typ styp root ktyp ntyp dtyp]))
 
-(defn validate-names-
-  [local-context edn parent-styp parent-ktyp parent-ntyp parent-dtyp env]
+(defn validate-names
+  [edn parent-styp parent-ktyp parent-ntyp parent-dtyp env]
   (cond
     (string? edn)
     (if (and (some? parent-styp) (not= parent-styp "?"))
@@ -589,7 +589,7 @@
               "map"
               nil)]
         (doseq [item edn]
-          (validate-names- local-context item styp parent-ktyp parent-ntyp parent-dtyp env))))
+          (validate-names item styp parent-ktyp parent-ntyp parent-dtyp env))))
 
     (map? edn)
     (doseq [[k v] edn]
@@ -616,8 +616,8 @@
               (if (or (some? parent-ntyp) (some? parent-dtyp))
                 [parent-ntyp parent-dtyp]
                 [ntyp dtyp])]
-          (validate-names- local-context k nil nil "?" nil env)
-          (validate-names- local-context v styp ktyp ntyp dtyp env))))
+          (validate-names k nil nil "?" nil env)
+          (validate-names v styp ktyp ntyp dtyp env))))
 
     (boolean? edn)
     (if (and (some? parent-styp) (not= parent-styp "?"))
@@ -643,16 +643,6 @@
 
     true
     (throw (Exception. (str "Data type " (pr-str parent-dtyp) " is not known, value: " (pr-str edn))))))
-
-(defn validate-names
-  [full-context-name edn styp ktyp ntyp dtyp env]
-  (let [[_ _ base-name]
-        (kw/name-as-keyword full-context-name)
-        base-name
-        (if (s/starts-with? base-name "context-")
-          (subs base-name 8)
-          base-name)]
-    (validate-names- base-name edn styp ktyp ntyp dtyp env)))
 
 (def testChanClass (class (a/chan)))
 
@@ -754,7 +744,7 @@
 
 (defn bind-context
   [full-context-name edn styp ktyp ntyp dtyp env]
-  (validate-names full-context-name edn styp ktyp ntyp dtyp env)
+  (validate-names edn styp ktyp ntyp dtyp env)
   (let [resources-set
         (get-resources-set full-context-name)
         [_ _ base-name]
