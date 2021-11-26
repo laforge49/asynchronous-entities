@@ -450,52 +450,6 @@
         "ROOT+context-SYS"
         (str "SYS+context-" entity-context-base-name)))))
 
-#_(defn validate-edn
-    [path context-map type-entity edn env]
-    (println :path path)
-    (let [[_ [data-type key-entity value-entity]]
-          (if (nil? type-entity)
-            [nil [nil nil nil]]
-            (let [params
-                  {"SYS+param-REQUESTID"        "SYS+requestid-ROUTE"
-                   "SYS+param-TARGET&requestid" "SYS+requestidTYPEof"
-                   "SYS+param-TARGETname&?"     type-entity}]
-              (routeFunction env context-map params)))]
-      (cond
-        (string? edn)
-        (if (not= data-type "string")
-          (throw (Exception. (str "At " path ", expected a string, not\n" data-type "\n"
-                                  (prn-str edn)
-                                  (prn-str context-map)))))
-
-        (vector? edn)
-        (if (not= data-type "vector")
-          (throw (Exception. (str "At " path ", expected a vector, not\n" data-type "\n"
-                                  (prn-str edn)
-                                  (prn-str context-map))))
-          (let [c
-                (count edn)]
-            (doseq [i (range c)]
-              (let [v
-                    (nth edn i)]
-                (println "vector" i (prn-str v))
-                (validate-edn (str path " " i) context-map value-entity v env)))))
-
-        (map? edn)
-        (if (not= data-type "map")
-          (throw (Exception. (str "At " path ", expected a map, not\n" data-type "\n"
-                                  (prn-str edn)
-                                  (prn-str context-map))))
-          (doseq [[k v] edn]
-            (validate-edn (str path " key") context-map key-entity k env)
-            (validate-edn (str path " " (prn-str k)) context-map value-entity v env)))
-
-        true
-        (if (not= data-type "undefined")
-          (throw (Exception. (str "At " path ", expected an undefined, not\n" data-type "\n"
-                                  (prn-str edn)
-                                  (prn-str context-map))))))))
-
 (def styp-set
   #{"map" "vec" "mapmap" "mapvec" "vecmap" "map?"})
 
