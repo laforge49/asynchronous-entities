@@ -658,7 +658,6 @@
 
 (defn unbind-context
   [local-context-+ edn parent-dtyp env]
-  #_(validate-names full-context-name edn parent-styp parent-ktyp parent-ntyp parent-dtyp env)
   (cond
     (string? edn)
     (if (some? parent-dtyp)
