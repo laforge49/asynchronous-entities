@@ -52,7 +52,7 @@
     return-port))
 
 (defn federation-acquire
-  [root-contexts-request-port federation-names env]
+  [federation-names env]
   (let [return-port
         (a/chan)]
     (a/go-loop [federation-names-vec (reverse (sort federation-names))]
@@ -122,10 +122,8 @@
               (get descriptors "SYS+descriptor_vec-FEDERATIONnames&?")
               env
               (assoc env "SYS+facet-FEDERATORname&federator" this-name)
-              root-contexts-request-port
-              (k/get-sys-request-port)
               acquire-port
-              (federation-acquire root-contexts-request-port federation-names env)
+              (federation-acquire federation-names env)
               _ (k/request-exception-check (a/<! acquire-port))
               env
               (assoc env "NEW-CHILDREN-VOLATILE" (volatile! {}))
