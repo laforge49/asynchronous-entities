@@ -27,8 +27,7 @@
         initialization-port
         (a/chan)
         params
-        (into params {"SYS+param-TARGETname&?"               name
-                      "SYS+param-INITIALIZATIONport"         initialization-port
+        (into params {"SYS+param-INITIALIZATIONport"         initialization-port
                       "SYS+param_map-DESCRIPTORS^descriptor" instantiation-descriptors
                       "SYS+param_map-CLASSIFIERS^classifier" instantiation-classifiers})
         [new-entity-public-request-port snap]
