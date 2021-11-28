@@ -8,10 +8,6 @@
 (def entity-map-atom
   (atom {}))
 
-(defn entity-keys
-  []
-  (keys @entity-map-atom))
-
 (defn get-entity-map
   [name]
   (get @entity-map-atom name))
@@ -270,6 +266,15 @@
                               (prn-str params)
                               (prn-str target-map)))))
     (first operationids)))
+
+(defn get-public-request-port
+  [name]
+  (let [this-map
+        (get-entity-map name)
+        request-port-stack
+        (get this-map "SYS+facet_vec-REQUESTportSTACK$chan")
+        ]
+    (first request-port-stack)))
 
 (defn create-operation-dispatcher
   [this-name]
