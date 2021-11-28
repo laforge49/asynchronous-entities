@@ -276,6 +276,10 @@
         ]
     (first request-port-stack)))
 
+(defn get-sys-request-port
+  []
+  (get-public-request-port "ROOT+context-SYS"))
+
 (defn create-operation-dispatcher
   [this-name]
   (a/go-loop [this-name this-name]
@@ -780,7 +784,7 @@
               return-port0
               (a/chan)
               context-request-port
-              (get env "CONTEXT-REQUEST-PORT")]
+              (get-sys-request-port)]
           (doseq [request-map edn-script]
             (let [request-params
                   (val (first request-map))

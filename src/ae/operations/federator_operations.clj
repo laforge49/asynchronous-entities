@@ -34,7 +34,7 @@
                                                       "SYS+param-RETURN$chan" subrequest-return-port}])
                     _ (k/request-exception-check (a/<! subrequest-return-port))
                     context-request-port
-                    (get env "CONTEXT-REQUEST-PORT")
+                    (k/get-sys-request-port)
                     _ (a/>! context-request-port [env {"SYS+param-REQUESTID"                  "SYS+requestid-ROUTE"
                                                        "SYS+param-TARGET&requestid"            "SYS+requestid-REGISTERentity"
                                                        "SYS+param-ENTITYpublicREQUESTPORT"           entity-public-request-port
@@ -113,7 +113,7 @@
           (get params "SYS+param-OPERATIONreturnport")]
       (try
         (let [root-contexts-request-port
-              (get env "CONTEXT-REQUEST-PORT")
+              (k/get-sys-request-port)
               this-name
               (get this-map "SYS+facet-NAME&?")
               descriptors
@@ -123,7 +123,7 @@
               env
               (assoc env "SYS+facet-FEDERATORname&federator" this-name)
               root-contexts-request-port
-              (get env "CONTEXT-REQUEST-PORT")
+              (k/get-sys-request-port)
               acquire-port
               (federation-acquire root-contexts-request-port federation-names env)
               _ (k/request-exception-check (a/<! acquire-port))

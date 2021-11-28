@@ -72,7 +72,7 @@
           (get params "SYS+param-OPERATIONreturnport")]
       (try
         (let [context-request-port
-              (get env "CONTEXT-REQUEST-PORT")
+              (k/get-sys-request-port)
               route-params
               (instantiateOperation env this-map params)
               route-params
