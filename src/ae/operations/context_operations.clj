@@ -49,81 +49,6 @@
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))))
 
-  (defn route-goblock
-    [env this-map params]
-    (a/go
-      (let [operation-return-port
-            (get params "SYS+param-OPERATIONreturnport")]
-        (try
-          (let [active-request-port
-                (get env "active-request-port")
-                this-name
-                (get this-map "SYS+facet-NAME&?")
-                _ (if (nil? this-name)
-                    (throw (Exception. (str "NAME is nil\n"
-                                            (prn-str params)
-                                            (prn-str this-map)))))
-                _ (if (not (string? this-name))
-                    (throw (Exception. (str "NAME is not a string\n"
-                                            (prn this-name)
-                                            (prn-str params)
-                                            (prn-str this-map)))))
-                [_ _ local-context]
-                (kw/name-as-keyword this-name)
-                local-context
-                (if (s/starts-with? local-context "context-")
-                  (subs local-context 8)
-                  (throw (Exception. (str "unrecognized context: " local-context))))
-                target-entity-name
-                (get params "SYS+param-TARGETname&?")
-                _ (if (nil? target-entity-name)
-                    (throw (Exception. (str "SYS+param-TARGETname&? is nil\n"
-                                            (prn-str params)
-                                            (prn-str this-map)))))
-                _ (if (not (string? target-entity-name))
-                    (throw (Exception. (str "SYS+param-TARGETname&? is not a string\n"
-                                            (prn-str target-entity-name)
-                                            (prn-str params)
-                                            (prn-str this-map)))))
-                [target-entity-kw target-context-base-name _]
-                (kw/name-as-keyword target-entity-name)]
-            (if (= this-name target-entity-name)
-              (let [target-requestid
-                    (get params "SYS+param-TARGET&requestid")]
-                (a/>! operation-return-port [this-map nil :NO-RETURN])
-                (a/>! active-request-port [env
-                                           (assoc params "SYS+param-REQUESTID" target-requestid)]))
-              (if (= local-context target-context-base-name)
-                (let [entity-public-request-ports
-                      (get this-map "SYS+facet_map?-ENTITYpublicREQUESTports^?$chan")
-                      target-entity-request-port
-                      (get entity-public-request-ports target-entity-name)
-                      target-requestid
-                      (get params "SYS+param-TARGET&requestid")]
-                  (if (nil? target-entity-request-port)
-                    (throw (Exception. (str "Entity " target-entity-name " is not registered in " this-name "\n"
-                                            (prn-str params)))))
-                  (a/>! operation-return-port [this-map
-                                               nil
-                                               :NO-RETURN])
-                  (a/>! target-entity-request-port [env
-                                                    (assoc params "SYS+param-REQUESTID" target-requestid)]))
-                (let [target-context-entity-name
-                      (str "SYS+context-" target-context-base-name)
-                      entity-public-request-ports
-                      (get this-map "SYS+facet_map?-ENTITYpublicREQUESTports^?$chan")
-                      target-entity-request-port
-                      (get entity-public-request-ports target-context-entity-name)]
-                  (if (nil? target-entity-request-port)
-                    (throw (Exception. (str "Entity " local-context "+context-" target-context-base-name " is not registered in " this-name))))
-                  (a/>! operation-return-port [this-map
-                                               nil
-                                               :NO-RETURN])
-                  (a/>! target-entity-request-port [env
-                                                    (assoc params "SYS+param-REQUESTID" "SYS+requestid-ROUTE")])))))
-          (catch Exception e
-            (a/>! operation-return-port [this-map e nil]))))))
-
   (defn context-report-goblock
     [env this-map params]
     (a/go
@@ -193,8 +118,6 @@
     [env]
     (k/register-function env {:operationid "REGISTER_ENTITYoperationid"
                               :goblock     register-entity-goblock})
-    (k/register-function env {:operationid "ROUTEoperationid"
-                              :goblock     route-goblock})
     (k/register-function env {:operationid "CONTEXT_REPORToperationid"
                               :goblock     context-report-goblock})
     (k/register-function env {:operationid "LOAD_SCRIPToperationid"
