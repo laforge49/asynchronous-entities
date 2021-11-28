@@ -20,6 +20,8 @@
                     (first child-names)
                     context-name
                     (k/entityContextName entity-name)
+                    context-request-port
+                    (k/get-public-request-port context-name)
                     snap
                     (k/get-entity-map entity-name)
                     request-port-stack
@@ -33,10 +35,7 @@
                     _ (a/>! initialization-port [env {"SYS+param-REQUESTID"   "RESET-REQUEST-PORT"
                                                       "SYS+param-RETURN$chan" subrequest-return-port}])
                     _ (k/request-exception-check (a/<! subrequest-return-port))
-                    context-request-port
-                    (k/get-sys-request-port)
-                    _ (a/>! context-request-port [env {"SYS+param-REQUESTID"                  "SYS+requestid-ROUTE"
-                                                       "SYS+param-TARGET&requestid"           "SYS+requestid-REGISTERentity"
+                    _ (a/>! context-request-port [env {"SYS+param-REQUESTID"                  "SYS+requestid-REGISTERentity"
                                                        "SYS+param-ENTITYpublicREQUESTPORT"    entity-public-request-port
                                                        "SYS+param-TARGETname&?"               context-name
                                                        "SYS+param-NAME&?"                     (get snap "SYS+facet-NAME&?")
