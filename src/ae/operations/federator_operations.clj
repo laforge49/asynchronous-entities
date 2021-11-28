@@ -36,10 +36,10 @@
                     context-request-port
                     (k/get-sys-request-port)
                     _ (a/>! context-request-port [env {"SYS+param-REQUESTID"                  "SYS+requestid-ROUTE"
-                                                       "SYS+param-TARGET&requestid"            "SYS+requestid-REGISTERentity"
-                                                       "SYS+param-ENTITYpublicREQUESTPORT"           entity-public-request-port
-                                                       "SYS+param-TARGETname&?"                 context-name
-                                                       "SYS+param-NAME&?"                       (get snap "SYS+facet-NAME&?")
+                                                       "SYS+param-TARGET&requestid"           "SYS+requestid-REGISTERentity"
+                                                       "SYS+param-ENTITYpublicREQUESTPORT"    entity-public-request-port
+                                                       "SYS+param-TARGETname&?"               context-name
+                                                       "SYS+param-NAME&?"                     (get snap "SYS+facet-NAME&?")
                                                        "SYS+param_map-CLASSIFIERS^classifier" (get snap "SYS+facet_map-CLASSIFIERS^classifier")
                                                        "SYS+param-RETURN$chan"                subrequest-return-port}])
                     _ (k/request-exception-check (a/<! subrequest-return-port))
@@ -61,6 +61,8 @@
           (a/>! return-port [nil nil])
           (let [federation-name
                 (peek federation-names-vec)
+                federation-request-port
+                (k/get-public-request-port federation-name)
                 federation-names-vec
                 (pop federation-names-vec)
                 federation-names-vec
@@ -69,11 +71,9 @@
                         (a/chan)
                         subrequest-return-port
                         (a/chan)
-                        _ (a/>! root-contexts-request-port [env {"SYS+param-REQUESTID"       "SYS+requestid-ROUTE"
-                                                                 "SYS+param-TARGET&requestid" "PUSH-REQUEST-PORT"
-                                                                 "SYS+param-TARGETname&?"      federation-name
-                                                                 "SYS+param-NEWrequestport"          new-request-port
-                                                                 "SYS+param-RETURN$chan"     subrequest-return-port}])
+                        _ (a/>! federation-request-port [env {"SYS+param-REQUESTID"      "PUSH-REQUEST-PORT"
+                                                              "SYS+param-NEWrequestport" new-request-port
+                                                              "SYS+param-RETURN$chan"    subrequest-return-port}])
                         [snap new-request-port]
                         (k/request-exception-check (a/<! subrequest-return-port))]
                     federation-names-vec)
