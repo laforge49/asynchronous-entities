@@ -112,9 +112,7 @@
     (let [operation-return-port
           (get params "SYS+param-OPERATIONreturnport")]
       (try
-        (let [root-contexts-request-port
-              (k/get-sys-request-port)
-              this-name
+        (let [this-name
               (get this-map "SYS+facet-NAME&?")
               descriptors
               (get this-map "SYS+facet_map-DESCRIPTORS^descriptor")
