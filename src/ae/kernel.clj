@@ -782,24 +782,22 @@
                 []
                 edn-script)
               return-port0
-              (a/chan)
-              context-request-port
-              (get-sys-request-port)]
+              (a/chan)]
           (doseq [request-map edn-script]
             (let [request-params
                   (val (first request-map))
-                  request-params
-                  (assoc request-params "SYS+param-REQUESTID" "SYS+requestid-ROUTE")
+                  ;request-params
+                  ;(assoc request-params "SYS+param-REQUESTID" "SYS+requestid-ROUTE")
                   request-params
                   (assoc request-params "SYS+param-RETURN$chan" return-port0)
                   target-requestid
                   (get request-params "SYS+param-TARGET&requestid")
+                  request-params
+                  (assoc request-params "SYS+param-REQUESTID" target-requestid)
                   target-name
                   (get request-params "SYS+param-TARGETname&?")
                   target-request-port
                   (get-public-request-port target-name)
-                  request-params
-                  (assoc request-params "SYS+param-REQUESTID" target-requestid)
                   ]
               (a/>! target-request-port [env request-params])
               (request-exception-check (a/<! return-port0))))
