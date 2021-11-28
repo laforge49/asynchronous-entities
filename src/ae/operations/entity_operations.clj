@@ -60,9 +60,7 @@
         (assoc instantiation-classifiers "SYS+classifier-CLASS&class" this-name)
         instantiation-classifiers
         (into instantiation-classifiers (get params "SYS+param_map-CLASSIFIERS^classifier"))]
-    (into params {"SYS+param-TARGET&requestid"           "SYS+requestid-REGISTERentity"
-                  "SYS+param-TARGETname&?"               target-name
-                  "SYS+param_map-DESCRIPTORS^descriptor" instantiation-descriptors
+    (into params {"SYS+param_map-DESCRIPTORS^descriptor" instantiation-descriptors
                   "SYS+param_map-CLASSIFIERS^classifier" instantiation-classifiers})))
 
 (defn instantiate-goblock
@@ -71,13 +69,18 @@
     (let [operation-return-port
           (get params "SYS+param-OPERATIONreturnport")]
       (try
-        (let [context-request-port
-              (k/get-sys-request-port)
+        (let [context-name
+              (get params "SYS+param-NAME&?")
+              target-name
+              (k/entityContextName context-name)
+              context-request-port
+              (k/get-public-request-port target-name)
               route-params
               (instantiateOperation env this-map params)
               route-params
-              (assoc route-params "SYS+param-REQUESTID" "SYS+requestid-ROUTE")]
+              (assoc route-params "SYS+param-REQUESTID" "SYS+requestid-REGISTERentity")]
           (a/>! operation-return-port [this-map nil :NO-RETURN])
+          ;(println :route-params (prn-str route-params))
           (a/>! context-request-port [env route-params]))
         (catch Exception e
           (a/>! operation-return-port [this-map e nil]))))))
