@@ -791,10 +791,18 @@
                   request-params
                   (assoc request-params "SYS+param-REQUESTID" "SYS+requestid-ROUTE")
                   request-params
-                  (assoc request-params "SYS+param-RETURN$chan" return-port0)]
-              (a/>! context-request-port [env request-params])
+                  (assoc request-params "SYS+param-RETURN$chan" return-port0)
+                  target-requestid
+                  (get request-params "SYS+param-TARGET&requestid")
+                  target-name
+                  (get request-params "SYS+param-TARGETname&?")
+                  target-request-port
+                  (get-public-request-port target-name)
+                  request-params
+                  (assoc request-params "SYS+param-REQUESTID" target-requestid)
+                  ]
+              (a/>! target-request-port [env request-params])
               (request-exception-check (a/<! return-port0))))
-          ;(validate-edn script-path context-map "SYS+list-SCRIPT" edn-script env)
           )
         (a/>! out [nil])
         (catch Exception e
