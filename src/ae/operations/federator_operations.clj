@@ -37,7 +37,6 @@
                     _ (k/request-exception-check (a/<! subrequest-return-port))
                     _ (a/>! context-request-port [env {"SYS+param-REQUESTID"                  "SYS+requestid-REGISTERentity"
                                                        "SYS+param-ENTITYpublicREQUESTPORT"    entity-public-request-port
-                                                       "SYS+param-TARGETname&?"               context-name
                                                        "SYS+param-NAME&?"                     (get snap "SYS+facet-NAME&?")
                                                        "SYS+param_map-CLASSIFIERS^classifier" (get snap "SYS+facet_map-CLASSIFIERS^classifier")
                                                        "SYS+param-RETURN$chan"                subrequest-return-port}])
