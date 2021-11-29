@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "6blog/21/21-4 Q4/2148/2148.1 Monday (week 48). 11-29-2021.md",
+            "file": "8activities/8004-validation.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6blog/21/21-4 Q4/2148/2148.1 Monday (week 48). 11-29-2021.md",
+                "file": "8activities/8004-validation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -96,7 +96,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "6blog/21/21-4 Q4/2148/2148.1 Monday (week 48). 11-29-2021.md",
+                "file": "8activities/8004-validation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -119,6 +119,7 @@
   },
   "active": "c902587de11a02ea",
   "lastOpenFiles": [
+    "8activities/8004-validation.md",
     "6blog/21/21-4 Q4/2148/2148.1 Monday (week 48). 11-29-2021.md",
     "6blog/21/21-4 Q4/2148/8035-synchronous routing.md",
     "8activities/8000-pendingActivities.md",
@@ -127,7 +128,6 @@
     "8activities/8012-changeDescriptors.md",
     "9ROOT/CONTEXTS/ROOT+context-SYS.md",
     "6blog/21/21-4 Q4/2146/2146.7 Sunday (week 46), 11-21-2021.md",
-    "6blog/21/21-4 Q4/2146/2146.1 Monday (week 46), 11-15-2021.md",
-    "6blog/21/21-4 Q4/2146/2146.6 Saturday (week 46), 11-20-2021.md"
+    "6blog/21/21-4 Q4/2146/2146.1 Monday (week 46), 11-15-2021.md"
   ]
 }
