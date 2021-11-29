@@ -5,12 +5,12 @@
             [tupelo.parse.yaml :as yaml]
             [ae.keywords :as kw]))
 
-(def entity-map-atom
+(def entities-map-atom
   (atom {}))
 
 (defn get-entity-map
   [name]
-  (get @entity-map-atom name))
+  (get @entities-map-atom name))
 
 (defn refresh-entity-map
   [entity-map]
@@ -18,7 +18,7 @@
 
 (defn assoc-entity-map
   [name entity-map]
-  (swap! entity-map-atom assoc name entity-map))
+  (swap! entities-map-atom assoc name entity-map))
 
 (defn save-entity-map
   [entity-map]

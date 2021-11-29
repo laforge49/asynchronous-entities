@@ -33,20 +33,7 @@ this is a test same line
 different line
 
 ---
-1. Registered Entities of context SYS+context-TEST
-(Default context is context-TEST.)
-
-TEST+class-SIMPLE
-TEST+descriptor-DEGREEofPOLISH$str
-TEST+federator-A
-TEST+relation_vec-BASIC
-TEST+simple-ALPHA
-TEST+simple-BETA
-TEST+simple-GAMMA
-
-Number of entities: 7
-
-2. Classifier Values of context SYS+context-TEST
+1. Classifier Values of context SYS+context-TEST
 (Default context is context-TEST.)
 
 classifier:  SYS+classifier-CLASS&class

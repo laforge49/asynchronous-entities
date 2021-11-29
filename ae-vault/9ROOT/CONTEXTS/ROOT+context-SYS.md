@@ -37,32 +37,7 @@ SYS+gem_map-FACETS^facet:
 ---
 # Entity ROOT+context-SYS
 
-1. Registered Entities of context ROOT+context-SYS
-(Default context is context-SYS.)
-
-SYS+class-CLASS
-SYS+class-CLASSIFIER
-SYS+class-CONTEXT
-SYS+class-DESCRIPTOR
-SYS+class-FEDERATOR
-SYS+class-RELATION
-SYS+class-REQUESTID
-SYS+context-TEST
-SYS+descriptor-INVARIANT$bool
-SYS+descriptor-READonly$bool
-SYS+descriptor_map-INSTANCE^classifier
-SYS+descriptor_map-INSTANCE^descriptor
-SYS+descriptor_mapvec-REQUESTS^requestid$str
-SYS+requestid-ADDdescriptors
-SYS+requestid-ADDrelations
-SYS+requestid-INSTANTIATE
-SYS+requestid-REGISTERentity
-SYS+requestid-ROUTE
-SYS+requestid-RUNfederation
-
-Number of entities: 19
-
-2. Classifier Values of context ROOT+context-SYS
+1. Classifier Values of context ROOT+context-SYS
 (Default context is context-SYS.)
 
 classifier:  SYS+classifier-CLASS&class

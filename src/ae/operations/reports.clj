@@ -46,27 +46,6 @@
          (yaml/edn->yaml fm)
          "---\n")))
 
-(defn context-entities-report
-  [n this-name this-map]
-  (let [[this-name-kw this-context-base-name this-base-name]
-        (kw/name-as-keyword this-name)
-        entities
-        (keys (get this-map "SYS+facet_map?-ENTITYpublicREQUESTports^?$chan"))
-        sorted-names
-        (short-names entities this-base-name)
-        lines
-        (reduce
-          (fn [lines short-name]
-            (conj lines
-                  (str (first short-name)
-                       "\n")))
-          []
-          sorted-names)]
-    (str n ". Registered Entities of context " this-name "\n"
-         "(Default context is " this-base-name ".)\n\n"
-         (s/join lines) "\n"
-         "Number of entities: " (count sorted-names) "\n\n")))
-
 (defn context-classifier-values-report
   [n this-name]
   (let [[this-name-kw this-context-base-name this-base-name]

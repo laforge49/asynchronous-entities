@@ -57,8 +57,6 @@
         (try
           (let [this-name
                 (get this-map "SYS+facet-NAME&?")
-                [_ _ base-name]
-                (kw/name-as-keyword this-name)
                 file-name
                 (str "ae-vault/9ROOT/CONTEXTS/" this-name ".md")
                 heading
@@ -73,20 +71,30 @@
                 (str (r/front-matter this-map env)
                      heading
                      content
-                     (r/context-entities-report 1 this-name this-map)
-                     (r/context-classifier-values-report 2 this-name))
-                entity-ports
-                (get this-map "SYS+facet_map?-ENTITYpublicREQUESTports^?$chan")]
+                     (r/context-classifier-values-report 1 this-name))
+                [_ _ context-base-name]
+                (kw/name-as-keyword this-name)
+                context-base-name
+                (if (s/starts-with? context-base-name "context-")
+                  (subs context-base-name 8)
+                  context-base-name)
+                context-prefix
+                (str context-base-name "+")
+                entities-map
+                @k/entities-map-atom]
             (io/make-parents file-name)
             (spit file-name report)
-            (doseq [[entity-name entity-port] entity-ports]
-              (let [subrequest-return-port
-                    (a/chan)]
-                (a/>! entity-port [env {"SYS+param-REQUESTID"   "SYS+requestid-ENTITYreport"
-                                        "SYS+param-RETURN$chan" subrequest-return-port}])
-                (k/request-exception-check (a/<! subrequest-return-port))
-                )
-              )
+            (doseq [[entity-name entity-map] entities-map]
+              (if (s/starts-with? entity-name context-prefix)
+                (let [request-port-stack
+                      (get entity-map "SYS+facet_vec-REQUESTportSTACK$chan")
+                      entity-port
+                      (first request-port-stack)
+                      subrequest-return-port
+                      (a/chan)]
+                  (a/>! entity-port [env {"SYS+param-REQUESTID"   "SYS+requestid-ENTITYreport"
+                                          "SYS+param-RETURN$chan" subrequest-return-port}])
+                  (k/request-exception-check (a/<! subrequest-return-port)))))
             (a/>! operation-return-port [this-map nil this-map]))
           (catch Exception e
             (a/>! operation-return-port [this-map e nil]))))))
