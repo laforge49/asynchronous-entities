@@ -16,14 +16,6 @@ gem_map-FACETS^facet:
       - REGISTER_ENTITYoperationid
       requestid-ROUTE:
       - ROUTEoperationid
-  facet_map?-ENTITYpublicREQUESTports^?$chan:
-    TEST+class-SIMPLE: clojure.core.async.chan
-    TEST+descriptor-DEGREEofPOLISH$str: clojure.core.async.chan
-    TEST+federator-A: clojure.core.async.chan
-    TEST+relation_vec-BASIC: clojure.core.async.chan
-    TEST+simple-ALPHA: clojure.core.async.chan
-    TEST+simple-BETA: clojure.core.async.chan
-    TEST+simple-GAMMA: clojure.core.async.chan
   facet_vec-REQUESTportSTACK$chan:
   - clojure.core.async.chan
 ---

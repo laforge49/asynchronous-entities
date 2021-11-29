@@ -21,21 +21,12 @@
         (if (some? entity-public-request-port)
           entity-public-request-port
           (first (k/create-entity env params)))]
-    (if (some? (get-in this-map ["SYS+facet_map?-ENTITYpublicREQUESTports^?$chan" name]))
-      (throw (Exception. (str "Entity " name " already exists in " this-name)))
-      (let [
-            this-map
-            (if (nil? (get this-map "SYS+facet_map?-ENTITYpublicREQUESTports^?$chan"))
-              (assoc this-map "SYS+facet_map?-ENTITYpublicREQUESTports^?$chan" (sorted-map))
-              this-map)
-            this-map
-            (assoc-in this-map ["SYS+facet_map?-ENTITYpublicREQUESTports^?$chan" name] entity-public-request-port)
-            classifiers
-            (get params "SYS+param_map-CLASSIFIERS^classifier")]
-        (if (some? classifiers)
-          (doseq [[classifier-kw classifier-value-kw] classifiers]
-            (k/add-classifier-value this-name name classifier-kw classifier-value-kw)))
-        [this-map nil entity-public-request-port]))))
+    (let [classifiers
+          (get params "SYS+param_map-CLASSIFIERS^classifier")]
+      (if (some? classifiers)
+        (doseq [[classifier-kw classifier-value-kw] classifiers]
+          (k/add-classifier-value this-name name classifier-kw classifier-value-kw)))
+      [this-map nil entity-public-request-port])))
 
 (defn register-entity-goblock
   [env this-map params]

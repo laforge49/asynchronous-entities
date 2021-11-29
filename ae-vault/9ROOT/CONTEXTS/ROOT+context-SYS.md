@@ -12,26 +12,6 @@ SYS+gem_map-FACETS^facet:
       - REGISTER_ENTITYoperationid
       SYS+requestid-ROUTE:
       - ROUTEoperationid
-  SYS+facet_map?-ENTITYpublicREQUESTports^?$chan:
-    SYS+requestid-INSTANTIATE: clojure.core.async.chan
-    SYS+descriptor_map-INSTANCE^descriptor: clojure.core.async.chan
-    SYS+descriptor_mapvec-REQUESTS^requestid$str: clojure.core.async.chan
-    SYS+class-FEDERATOR: clojure.core.async.chan
-    SYS+requestid-ADDdescriptors: clojure.core.async.chan
-    SYS+requestid-RUNfederation: clojure.core.async.chan
-    SYS+class-CLASSIFIER: clojure.core.async.chan
-    SYS+class-RELATION: clojure.core.async.chan
-    SYS+class-DESCRIPTOR: clojure.core.async.chan
-    SYS+requestid-ADDrelations: clojure.core.async.chan
-    SYS+descriptor_map-INSTANCE^classifier: clojure.core.async.chan
-    SYS+requestid-REGISTERentity: clojure.core.async.chan
-    SYS+class-CLASS: clojure.core.async.chan
-    SYS+requestid-ROUTE: clojure.core.async.chan
-    SYS+class-CONTEXT: clojure.core.async.chan
-    SYS+class-REQUESTID: clojure.core.async.chan
-    SYS+descriptor-READonly$bool: clojure.core.async.chan
-    SYS+descriptor-INVARIANT$bool: clojure.core.async.chan
-    SYS+context-TEST: clojure.core.async.chan
   SYS+facet_vec-REQUESTportSTACK$chan:
   - clojure.core.async.chan
 ---
