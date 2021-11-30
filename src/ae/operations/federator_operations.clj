@@ -150,6 +150,10 @@
               (a/<! sub-return-port)
               _ (if (some? e)
                   (throw e))
+              _ (doseq [request script]
+                  (let [request-params
+                        (val (first request))]
+                    (k/validate-names request-params "map" "param" nil nil env)))
               _ (a/>! operation-return-port [this-map
                                              nil
                                              this-map])

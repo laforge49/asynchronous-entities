@@ -753,7 +753,6 @@
 
 (defn bind-context
   [full-context-name edn styp ktyp ntyp dtyp env]
-  (validate-names edn styp ktyp ntyp dtyp env)
   (let [resources-set
         (get-resources-set full-context-name)
         [_ _ base-name]
@@ -776,9 +775,9 @@
               (yaml/parse-raw yaml-script)
               edn-script
               (reduce
-                (fn [edn-script request-maps]
+                (fn [edn-script request-map]
                   (conj edn-script
-                        (bind-context full-local-context request-maps "map" "request" nil nil env)))
+                        (bind-context full-local-context request-map "map" "request" nil nil env)))
                 []
                 edn-script)
               return-port0
@@ -801,7 +800,8 @@
                   ]
               (a/>! target-request-port [env request-params])
               (request-exception-check (a/<! return-port0))))
-          )
+          (doseq [request-map edn-script]
+            (validate-names request-map "map" "request" nil nil env)))
         (a/>! out [nil])
         (catch Exception e
           (a/>! out [e]))))
