@@ -17,8 +17,9 @@
           subrequest-return-port
           (a/chan)
           request
-          (assoc request subrequest-return-port subrequest-return-port)
-          ]
+          (assoc request "SYS+param-RETURN$chan" subrequest-return-port)
+          _ (a/>! request-port [env request])]
+      (k/request-exception-check (a/<! subrequest-return-port))
       (println :request request))
     (a/>! exit-chan [nil]))
   )

@@ -39,12 +39,6 @@
           e
           (first (a/<!! exit-chan))
           _ (if (some? e)
-              (throw e))
-          subrequest-return-port
-          (a/chan)]
-      (a/>!! context-request-port [env {"SYS+param-REQUESTID"   "SYS+requestid-LOADscript"
-                                        "SYS+param-NAME&?"      "ROOT+context-SYS"
-                                        "SYS+param-RETURN$chan" subrequest-return-port}])
-      (k/request-exception-check (a/<!! subrequest-return-port)))
+              (throw e))])
     (catch Exception e
       (stacktrace/print-stack-trace e))))
