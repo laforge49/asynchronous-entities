@@ -16,7 +16,9 @@
           (k/get-public-request-port target-name)
           subrequest-return-port
           (a/chan)
+          request
+          (assoc request subrequest-return-port subrequest-return-port)
           ]
-      (println :request-port request-port))
+      (println :request request))
     (a/>! exit-chan [nil]))
   )
