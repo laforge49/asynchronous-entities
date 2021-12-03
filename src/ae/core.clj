@@ -30,11 +30,11 @@
                                                                      "SYS+requestid-ROUTE"          ["ROUTEoperationid"]
                                                                      "SYS+requestid-ENTITYreport"   ["CONTEXT_REPORToperationid"]
                                                                      "SYS+requestid-LOADscript"     ["LOAD_SCRIPToperationid"]}}})
-          exit-port
+          exit-chan
           (a/chan 1)
-          _ (l/create-later env exit-port)
+          _ (l/create-later env exit-chan)
           e
-          (first (a/<!! exit-port))
+          (first (a/<!! exit-chan))
           _ (if (some? e)
               (throw e))
           subrequest-return-port
