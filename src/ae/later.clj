@@ -13,7 +13,10 @@
           target-name
           (get request "SYS+param-TARGETname&?")
           request-port
-          (k/get-public-request-port target-name)]
+          (k/get-public-request-port target-name)
+          subrequest-return-port
+          (a/chan)
+          ]
       (println :request-port request-port))
     (a/>! exit-chan [nil]))
   )
