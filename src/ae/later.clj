@@ -8,5 +8,12 @@
 (defn create-later
   [env exit-chan]
   (a/go
+    (let [[env request]
+          (a/<! later-chan)
+          target-name
+          (get request "SYS+param-TARGETname&?")
+          request-port
+          (k/get-public-request-port target-name)]
+      (println :request-port request-port))
     (a/>! exit-chan [nil]))
   )
