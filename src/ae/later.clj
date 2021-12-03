@@ -7,5 +7,6 @@
 
 (defn create-later
   [env exit-chan]
-  (a/>!! exit-chan [nil])
+  (a/go
+    (a/>! exit-chan [nil]))
   )
