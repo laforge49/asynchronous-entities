@@ -3,6 +3,7 @@
             [clojure.stacktrace :as stacktrace]
             [clojure.java.io :as io]
             [ae.kernel :as k]
+            [ae.later :as l]
             [ae.operations.context-operations :as co]
             [ae.operations.entity-operations :as eo]
             [ae.operations.federator-operations :as fo]
@@ -21,20 +22,19 @@
     (let [env
           {}
           _ (create-operations env)
-          [_ context-map]
+          [context-request-port context-map]
           (k/create-entity env
-                           {"SYS+param-NAME&?"                       "ROOT+context-SYS"
-                            "SYS+param_map-DESCRIPTORS^descriptor" {"SYS+descriptor_mapvec-REQUESTS^requestid$str" {"SYS+requestid-REGISTERentity" ["REGISTER_ENTITYoperationid"]
-                                                                                                                 "SYS+requestid-ROUTE"          ["ROUTEoperationid"]
-                                                                                                                 "SYS+requestid-ENTITYreport"   ["CONTEXT_REPORToperationid"]
-                                                                                                                 "SYS+requestid-LOADscript"     ["LOAD_SCRIPToperationid"]}}})
-          script-path
-          "scripts/ROOT+context-SYS.yml"
-          yaml-script
-          (slurp script-path)
-          [e]
-          (a/<!! (k/async-script script-path yaml-script context-map env))]
-      (if (some? e)
-        (throw e)))
+                           {"SYS+param-NAME&?"                     "ROOT+context-SYS"
+                            "SYS+param_map-DESCRIPTORS^descriptor" {"SYS+descriptor_mapvec-REQUESTS^requestid$str"
+                                                                    {"SYS+requestid-REGISTERentity" ["REGISTER_ENTITYoperationid"]
+                                                                     "SYS+requestid-ROUTE"          ["ROUTEoperationid"]
+                                                                     "SYS+requestid-ENTITYreport"   ["CONTEXT_REPORToperationid"]
+                                                                     "SYS+requestid-LOADscript"     ["LOAD_SCRIPToperationid"]}}})
+          subrequest-return-port
+          (a/chan)
+          _ (a/>!! context-request-port [env {"SYS+param-REQUESTID"   "SYS+requestid-LOADscript"
+                                              "SYS+param-NAME&?"      "ROOT+context-SYS"
+                                              "SYS+param-RETURN$chan" subrequest-return-port}])
+          _ (k/request-exception-check (a/<!! subrequest-return-port))])
     (catch Exception e
       (stacktrace/print-stack-trace e))))
