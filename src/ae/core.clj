@@ -30,7 +30,13 @@
                                                                      "SYS+requestid-ROUTE"          ["ROUTEoperationid"]
                                                                      "SYS+requestid-ENTITYreport"   ["CONTEXT_REPORToperationid"]
                                                                      "SYS+requestid-LOADscript"     ["LOAD_SCRIPToperationid"]}}})
-          _ (l/create-later env)
+          exit-port
+          (a/chan 1)
+          _ (l/create-later env exit-port)
+          e
+          (first (a/<!! exit-port))
+          _ (if (some? e)
+              (throw e))
           subrequest-return-port
           (a/chan)
           _ (a/>!! context-request-port [env {"SYS+param-REQUESTID"   "SYS+requestid-LOADscript"

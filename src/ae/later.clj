@@ -6,5 +6,6 @@
 (def later-chan (a/chan))
 
 (defn create-later
-  [env]
+  [env exit-port]
+  (a/>!! exit-port [nil])
   )
