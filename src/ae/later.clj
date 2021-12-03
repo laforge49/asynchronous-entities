@@ -7,19 +7,26 @@
 
 (defn create-later
   [env exit-chan]
-  (a/go
-    (let [[env request]
-          (a/<! later-chan)
-          target-name
-          (get request "SYS+param-TARGETname&?")
-          request-port
-          (k/get-public-request-port target-name)
-          subrequest-return-port
-          (a/chan)
-          request
-          (assoc request "SYS+param-RETURN$chan" subrequest-return-port)
-          _ (a/>! request-port [env request])]
-      (k/request-exception-check (a/<! subrequest-return-port))
-      (println :request request))
-    (a/>! exit-chan [nil]))
-  )
+  (a/go-loop [more true]
+    (if more
+      (let [[v c]
+            (a/alts! [later-chan] :default nil)]
+        (if (nil? v)
+          (a/>! exit-chan [nil])
+          (recur (try
+                   (let [[env request]
+                         v
+                         target-name
+                         (get request "SYS+param-TARGETname&?")
+                         request-port
+                         (k/get-public-request-port target-name)
+                         subrequest-return-port
+                         (a/chan)
+                         request
+                         (assoc request "SYS+param-RETURN$chan" subrequest-return-port)]
+                     (a/>! request-port [env request])
+                     (k/request-exception-check (a/<! subrequest-return-port)))
+                   true
+                   (catch Exception e
+                     (a/>! exit-chan [e])
+                     false))))))))
