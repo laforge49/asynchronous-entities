@@ -7,7 +7,7 @@
 
 (defn create-later
   [env exit-chan]
-  (a/go-loop [more true]
+  (a/go-loop [[more requests] [true nil]]
     (if more
       (let [[v c]
             (a/alts! [later-chan] :default nil)]
@@ -18,6 +18,8 @@
                          v
                          request
                          (first requests)
+                         requests
+                         (next requests)
                          target-name
                          (get request "SYS+param-TARGETname&?")
                          request-port
@@ -28,7 +30,7 @@
                          (assoc request "SYS+param-RETURN$chan" subrequest-return-port)]
                      (a/>! request-port [env request])
                      (k/request-exception-check (a/<! subrequest-return-port)))
-                   true
+                   [true nil]
                    (catch Exception e
                      (a/>! exit-chan [e])
-                     false))))))))
+                     [false nil]))))))))
