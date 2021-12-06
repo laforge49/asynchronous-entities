@@ -14,8 +14,10 @@
         (if (nil? v)
           (a/>! exit-chan [nil])
           (recur (try
-                   (let [[env request]
+                   (let [[env requests]
                          v
+                         request
+                         (first requests)
                          target-name
                          (get request "SYS+param-TARGETname&?")
                          request-port

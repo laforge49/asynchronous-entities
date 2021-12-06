@@ -52,7 +52,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 390.5
+    "width": 302
   },
   "right": {
     "id": "865b2a78d762c7e1",
@@ -101,21 +101,13 @@
                 "unlinkedCollapsed": true
               }
             }
-          },
-          {
-            "id": "5d161a68ef3c832f",
-            "type": "leaf",
-            "state": {
-              "type": "calendar",
-              "state": {}
-            }
           }
         ],
         "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 326
+    "width": 100
   },
   "active": "4331bf41315b1b1d",
   "lastOpenFiles": [
