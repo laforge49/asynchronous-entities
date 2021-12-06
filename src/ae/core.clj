@@ -30,14 +30,12 @@
                                                                      "SYS+requestid-ROUTE"          ["ROUTEoperationid"]
                                                                      "SYS+requestid-ENTITYreport"   ["CONTEXT_REPORToperationid"]
                                                                      "SYS+requestid-LOADscript"     ["LOAD_SCRIPToperationid"]}}})
-          exit-chan
-          (a/chan 1)
           _ (a/>!! l/later-chan [env [{"request_map-REQUEST^param" {"SYS+param-REQUESTID"    "SYS+requestid-LOADscript"
                                                                     "SYS+param-TARGETname&?" "ROOT+context-SYS"
                                                                     "SYS+param-NAME&?"       "ROOT+context-SYS"}}]])
-          _ (l/create-later env exit-chan)
+          _ (l/create-later env)
           e
-          (first (a/<!! exit-chan))
+          (first (a/<!! l/exit-chan))
           _ (if (some? e)
               (throw e))])
     (catch Exception e

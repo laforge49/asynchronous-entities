@@ -3,10 +3,13 @@
             [clojure.string :as s]
             [ae.kernel :as k]))
 
+(def exit-chan
+  (a/chan 1))
+
 (def later-chan (a/chan 100))
 
 (defn create-later
-  [env exit-chan]
+  [env]
   (a/go-loop [[more env requests] [true nil nil]]
     (if more
       (let [[env requests]
