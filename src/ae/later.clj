@@ -9,8 +9,10 @@
   [env exit-chan]
   (a/go-loop [[more env requests] [true nil nil]]
     (if more
-      (let [[[env requests] c]
-            (a/alts! [later-chan] :default [nil nil])]
+      (let [[env requests]
+            (if (some? requests)
+              [env requests]
+              (first (a/alts! [later-chan] :default [nil nil])))]
         (if (nil? requests)
           (a/>! exit-chan [nil])
           (recur (try
