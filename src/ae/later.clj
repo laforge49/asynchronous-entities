@@ -18,19 +18,21 @@
           (recur (try
                    (let [request
                          (first requests)
+                         params
+                         (get request "request_map-REQUEST^param")
                          requests
                          (next requests)
                          target-name
-                         (get request "SYS+param-TARGETname&?")
+                         (get params "SYS+param-TARGETname&?")
                          request-port
                          (k/get-public-request-port target-name)
                          subrequest-return-port
                          (a/chan)
-                         request
-                         (assoc request "SYS+param-RETURN$chan" subrequest-return-port)]
-                     (a/>! request-port [env request])
-                     (k/request-exception-check (a/<! subrequest-return-port)))
-                   [true env nil]
+                         params
+                         (assoc params "SYS+param-RETURN$chan" subrequest-return-port)]
+                     (a/>! request-port [env params])
+                     (k/request-exception-check (a/<! subrequest-return-port))
+                     [true env requests])
                    (catch Exception e
                      (a/>! exit-chan [e])
                      [false nil nil]))))))))
