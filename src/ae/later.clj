@@ -6,12 +6,16 @@
 (def exit-chan
   (a/chan 1))
 
+(def active-count-atom (atom 0))
+
 (defn go-later
   [env requests]
+  (swap! active-count-atom inc)
   (a/go-loop [[more env requests] [true env requests]]
     (if more
       (if (nil? requests)
-        (a/>! exit-chan [nil])
+        (if (= (swap! active-count-atom dec) 0)
+          (a/>! exit-chan [nil]))
         (recur (try
                  (let [request
                        (first requests)
