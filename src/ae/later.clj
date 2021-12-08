@@ -13,7 +13,7 @@
 (defn go-later
   [env requests]
   (let [env
-        (assoc env "SYS+env_atmvecvec-requests&request" [requests])]
+        (assoc env "SYS+env_atmvecseq-requests&request" [(seq requests)])]
     (swap! active-count-atom inc)
     (a/go-loop [[more env requests] [true env requests]]
       (if more
