@@ -33,7 +33,7 @@
         [new-entity-public-request-port snap]
         (k/create-entity env params)
         new-children-volatile
-        (get env "NEW-CHILDREN-VOLATILE")
+        (get env "SYS+env_volmap-CHILDREN&?")
         ]
     (k/assoc-entity-map name snap)
     (vswap! new-children-volatile assoc name new-entity-public-request-port)

@@ -105,7 +105,7 @@
   (let [entity-map
         (get-entity-map entity-name)
         new-children-map
-        @(get env "NEW-CHILDREN-VOLATILE")]
+        @(get env "SYS+env_volmap-CHILDREN&?")]
     (if (nil? (get new-children-map entity-name))
       nil
       entity-map)))

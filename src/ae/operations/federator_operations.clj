@@ -122,7 +122,7 @@
               (federation-acquire federation-names env)
               _ (k/request-exception-check (a/<! acquire-port))
               env
-              (assoc env "NEW-CHILDREN-VOLATILE" (volatile! {}))
+              (assoc env "SYS+env_volmap-CHILDREN&?" (volatile! {}))
               script
               (get descriptors "SYS+descriptor_vecmap-SCRIPT^request")
               this-name
@@ -137,13 +137,13 @@
                     (k/routeFunction env this-map request-params)))
               [e]
               (a/<! (registerChildren env
-                                      @(get env "NEW-CHILDREN-VOLATILE")))
+                                      @(get env "SYS+env_volmap-CHILDREN&?")))
               _ (if (some? e)
                   (throw e))
               env
               (assoc env "SYS+env-FEDERATORname&federator" nil)
               env
-              (assoc env "NEW-CHILDREN-VOLATILE" nil)
+              (assoc env "SYS+env_volmap-CHILDREN&?" nil)
               sub-return-port
               (federation-release env federation-names)
               [e]
