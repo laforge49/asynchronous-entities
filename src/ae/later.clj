@@ -8,13 +8,16 @@
 
 (def active-count-atom (atom 0))
 
+(def live-atom (atom true))
+
 (defn go-later
   [env requests]
   (swap! active-count-atom inc)
   (a/go-loop [[more env requests] [true env requests]]
     (if more
       (if (nil? requests)
-        (if (= (swap! active-count-atom dec) 0)
+        (when (= (swap! active-count-atom dec) 0)
+          (reset! live-atom false)
           (a/>! exit-chan [nil]))
         (recur (try
                  (let [request
@@ -33,7 +36,8 @@
                        (assoc params "SYS+param-RETURN$chan" subrequest-return-port)]
                    (a/>! request-port [env params])
                    (k/request-exception-check (a/<! subrequest-return-port))
-                   [true env requests])
+                   [@live-atom env requests])
                  (catch Exception e
                    (a/>! exit-chan [e])
+                   (reset! live-atom false)
                    [false nil nil])))))))
