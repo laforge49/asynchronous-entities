@@ -117,7 +117,7 @@
               federation-names
               (get descriptors "SYS+descriptor_vec-FEDERATIONnames&?")
               env
-              (assoc env "SYS+facet-FEDERATORname&federator" this-name)
+              (assoc env "SYS+env-FEDERATORname&federator" this-name)
               acquire-port
               (federation-acquire federation-names env)
               _ (k/request-exception-check (a/<! acquire-port))
@@ -141,7 +141,7 @@
               _ (if (some? e)
                   (throw e))
               env
-              (assoc env "SYS+facet-FEDERATORname&federator" nil)
+              (assoc env "SYS+env-FEDERATORname&federator" nil)
               env
               (assoc env "NEW-CHILDREN-VOLATILE" nil)
               sub-return-port

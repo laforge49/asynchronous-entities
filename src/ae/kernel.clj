@@ -113,7 +113,7 @@
 (defn get-federated-map
   [entity-name env]
   (let [env-federator-name
-        (get env "SYS+facet-FEDERATORname&federator")
+        (get env "SYS+env-FEDERATORname&federator")
         entity-map
         (get-entity-map entity-name)
         this-federator-name
@@ -349,7 +349,7 @@
                               this-map
                               (assoc this-map "SYS+facet_vec-REQUESTportSTACK$chan" (conj this-request-port-stack new-request-port))
                               federator-name
-                              (get env "SYS+facet-FEDERATORname&federator")
+                              (get env "SYS+env-FEDERATORname&federator")
                               this-map
                               (assoc this-map "SYS+facet-FEDERATORname&federator" federator-name)]
                           [this-map [this-map new-request-port]])))
