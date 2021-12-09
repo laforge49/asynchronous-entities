@@ -10,6 +10,16 @@
 
 (def live-atom (atom true))
 
+(defn push-later
+  [env requests]
+  (let [requeststackatom
+        (get env "SYS+env_atmvec-requeststackatom$seq")]
+    (if (nil? requeststackatom)
+      (throw (Exception. (str "unable to locate SYS+env_atmvec-requeststackatom$seq\n"
+                              (prn-str env)
+                              (prn-str requests)))))
+    (swap! requeststackatom conj (seq requests))))
+
 (defn go-later
   [env requests]
   (let [requeststackatom
