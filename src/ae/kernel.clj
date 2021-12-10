@@ -316,9 +316,7 @@
                                           (prn-str params)
                                           (prn-str this-map)))))]
           (try
-            (let [env
-                  (assoc env "active-request-port" this-request-port)
-                  requestid
+            (let [requestid
                   (get params "SYS+param-REQUESTID")
                   _ (if (nil? requestid)
                       (throw (Exception. (str "Requestid port is nil\n"
@@ -765,6 +763,7 @@
 
 (defn async-script
   [script-path yaml-script context-map env]
+  ;(println :env (prn-str env))
   (let [full-local-context
         (get context-map "SYS+facet-NAME&?")
         out
