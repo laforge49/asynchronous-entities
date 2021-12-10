@@ -784,8 +784,6 @@
           (doseq [request-map edn-script]
             (let [request-params
                   (val (first request-map))
-                  ;request-params
-                  ;(assoc request-params "SYS+param-REQUESTID" "SYS+requestid-ROUTE")
                   request-params
                   (assoc request-params "SYS+param-RETURN$chan" return-port0)
                   target-requestid
