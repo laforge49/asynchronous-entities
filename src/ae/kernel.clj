@@ -276,10 +276,6 @@
         ]
     (first request-port-stack)))
 
-(defn get-sys-request-port
-  []
-  (get-public-request-port "ROOT+context-SYS"))
-
 (defn create-operation-dispatcher
   [this-name]
   (a/go-loop [this-name this-name]
