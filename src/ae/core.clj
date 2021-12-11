@@ -27,12 +27,11 @@
                            {"SYS+param-NAME&?"                     "ROOT+context-SYS"
                             "SYS+param_map-DESCRIPTORS^descriptor" {"SYS+descriptor_mapvec-REQUESTS^requestid$str"
                                                                     {"SYS+requestid-REGISTERentity" ["REGISTER_ENTITYoperationid"]
-                                                                     "SYS+requestid-ROUTE"          ["ROUTEoperationid"]
-                                                                     "SYS+requestid-ENTITYreport"   ["CONTEXT_REPORToperationid"]
+                                                                    "SYS+requestid-ENTITYreport"   ["CONTEXT_REPORToperationid"]
                                                                      "SYS+requestid-LOADscript"     ["LOAD_SCRIPToperationid"]}}})
-          _ (l/go-later env [{"request_map-REQUEST^param" {"SYS+param-REQUESTID&requestid"        "SYS+requestid-LOADscript"
-                                                               "SYS+param-TARGETname&?" "ROOT+context-SYS"
-                                                               "SYS+param-NAME&?"       "ROOT+context-SYS"}}])
+          _ (l/go-later env [{"request_map-REQUEST^param" {"SYS+param-REQUESTID&requestid" "SYS+requestid-LOADscript"
+                                                           "SYS+param-TARGETname&?"        "ROOT+context-SYS"
+                                                           "SYS+param-NAME&?"              "ROOT+context-SYS"}}])
           e
           (first (a/<!! l/exit-chan))
           _ (if (some? e)

@@ -14,8 +14,6 @@ gem_map-FACETS^facet:
         - LOAD_SCRIPToperationid
         requestid-REGISTERentity:
         - REGISTER_ENTITYoperationid
-        requestid-ROUTE:
-        - ROUTEoperationid
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
       - ENTITY_REPORToperationid

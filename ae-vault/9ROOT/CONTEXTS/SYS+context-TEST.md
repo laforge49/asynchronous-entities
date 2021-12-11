@@ -14,8 +14,6 @@ gem_map-FACETS^facet:
       - LOAD_SCRIPToperationid
       requestid-REGISTERentity:
       - REGISTER_ENTITYoperationid
-      requestid-ROUTE:
-      - ROUTEoperationid
   facet_vec-REQUESTportSTACK$chan:
   - clojure.core.async.chan
 ---

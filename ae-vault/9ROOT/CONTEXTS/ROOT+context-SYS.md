@@ -10,8 +10,6 @@ SYS+gem_map-FACETS^facet:
       - LOAD_SCRIPToperationid
       SYS+requestid-REGISTERentity:
       - REGISTER_ENTITYoperationid
-      SYS+requestid-ROUTE:
-      - ROUTEoperationid
   SYS+facet_vec-REQUESTportSTACK$chan:
   - clojure.core.async.chan
 ---
@@ -41,7 +39,6 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+requestid-ADDrelations
     entity:      SYS+requestid-INSTANTIATE
     entity:      SYS+requestid-REGISTERentity
-    entity:      SYS+requestid-ROUTE
     entity:      SYS+requestid-RUNfederation
 classifier:  SYS+classifier_vec-RESOURCES&context
   value:       ROOT+context-SYS

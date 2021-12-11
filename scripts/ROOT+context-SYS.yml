@@ -47,10 +47,6 @@
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&?: class-REQUESTID
-    param-NAME&?: requestid-ROUTE
-- request_map-REQUEST^param:
-    param-REQUESTID&requestid: requestid-INSTANTIATE
-    param-TARGETname&?: class-REQUESTID
     param-NAME&?: requestid-RUNfederation
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -111,8 +107,6 @@
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-REGISTERentity:
           - REGISTER_ENTITYoperationid
-          requestid-ROUTE:
-          - ROUTEoperationid
           requestid-ENTITYreport:
           - CONTEXT_REPORToperationid
           requestid-LOADscript:
