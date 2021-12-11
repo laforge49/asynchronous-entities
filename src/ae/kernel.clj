@@ -778,10 +778,6 @@
                   (val (first request-map))
                   request-params
                   (assoc request-params "SYS+param-RETURN$chan" return-port0)
-                  target-requestid
-                  (get request-params "SYS+param-TARGET&requestid")
-                  request-params
-                  (assoc request-params "SYS+param-REQUESTID&requestid" target-requestid)
                   target-name
                   (get request-params "SYS+param-TARGETname&?")
                   target-request-port
