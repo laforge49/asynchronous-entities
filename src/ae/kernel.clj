@@ -175,7 +175,7 @@
 (defn targetOperationids
   [env target-map params]
   (let [requestid
-        (get params "SYS+param-REQUESTID")
+        (get params "SYS+param-REQUESTID&requestid")
         _ (if (nil? requestid)
             (throw (Exception. (str "Requestid is nil\n"
                                     (prn-str params)
@@ -235,10 +235,6 @@
             (throw (Exception. (str "Unreachable: " (prn-str target-name) "\n"
                                     (prn-str params)
                                     (prn-str this-map)))))
-        requestid
-        (get params "SYS+param-TARGET&requestid")
-        params
-        (assoc params "SYS+param-REQUESTID" requestid)
         operationids
         (targetOperationids env target-map params)
         [target-map rv]
@@ -313,7 +309,7 @@
                                           (prn-str this-map)))))]
           (try
             (let [requestid
-                  (get params "SYS+param-REQUESTID")
+                  (get params "SYS+param-REQUESTID&requestid")
                   _ (if (nil? requestid)
                       (throw (Exception. (str "Requestid port is nil\n"
                                               (prn-str params)
@@ -785,7 +781,7 @@
                   target-requestid
                   (get request-params "SYS+param-TARGET&requestid")
                   request-params
-                  (assoc request-params "SYS+param-REQUESTID" target-requestid)
+                  (assoc request-params "SYS+param-REQUESTID&requestid" target-requestid)
                   target-name
                   (get request-params "SYS+param-TARGETname&?")
                   target-request-port

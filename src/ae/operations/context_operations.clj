@@ -81,7 +81,7 @@
                     (first request-port-stack)
                     subrequest-return-port
                     (a/chan)]
-                (a/>! entity-port [env {"SYS+param-REQUESTID"   "SYS+requestid-ENTITYreport"
+                (a/>! entity-port [env {"SYS+param-REQUESTID&requestid"   "SYS+requestid-ENTITYreport"
                                         "SYS+param-RETURN$chan" subrequest-return-port}])
                 (k/request-exception-check (a/<! subrequest-return-port)))))
           (a/>! operation-return-port [this-map nil this-map]))

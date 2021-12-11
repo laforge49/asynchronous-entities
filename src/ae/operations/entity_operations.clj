@@ -77,7 +77,7 @@
               route-params
               (instantiateOperation env this-map params)
               route-params
-              (assoc route-params "SYS+param-REQUESTID" "SYS+requestid-REGISTERentity")]
+              (assoc route-params "SYS+param-REQUESTID&requestid" "SYS+requestid-REGISTERentity")]
           (a/>! operation-return-port [this-map nil :NO-RETURN])
           ;(println :route-params (prn-str route-params))
           (a/>! context-request-port [env route-params]))

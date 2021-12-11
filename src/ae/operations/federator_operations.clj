@@ -32,10 +32,10 @@
                     (get new-children entity-name)
                     subrequest-return-port
                     (a/chan)
-                    _ (a/>! initialization-port [env {"SYS+param-REQUESTID"   "RESET-REQUEST-PORT"
+                    _ (a/>! initialization-port [env {"SYS+param-REQUESTID&requestid"   "RESET-REQUEST-PORT"
                                                       "SYS+param-RETURN$chan" subrequest-return-port}])
                     _ (k/request-exception-check (a/<! subrequest-return-port))
-                    _ (a/>! context-request-port [env {"SYS+param-REQUESTID"                  "SYS+requestid-REGISTERentity"
+                    _ (a/>! context-request-port [env {"SYS+param-REQUESTID&requestid"                  "SYS+requestid-REGISTERentity"
                                                        "SYS+param-ENTITYpublicREQUESTPORT"    entity-public-request-port
                                                        "SYS+param-NAME&?"                     (get snap "SYS+facet-NAME&?")
                                                        "SYS+param_map-CLASSIFIERS^classifier" (get snap "SYS+facet_map-CLASSIFIERS^classifier")
@@ -69,7 +69,7 @@
                         (a/chan)
                         subrequest-return-port
                         (a/chan)
-                        _ (a/>! federation-request-port [env {"SYS+param-REQUESTID"      "PUSH-REQUEST-PORT"
+                        _ (a/>! federation-request-port [env {"SYS+param-REQUESTID&requestid"      "PUSH-REQUEST-PORT"
                                                               "SYS+param-NEWrequestport" new-request-port
                                                               "SYS+param-RETURN$chan"    subrequest-return-port}])
                         [snap new-request-port]
@@ -96,7 +96,7 @@
                 (peek request-port-stack)
                 sub-return-port
                 (a/chan)]
-            (a/>! request-port [env {"SYS+param-REQUESTID"   "RESET-REQUEST-PORT"
+            (a/>! request-port [env {"SYS+param-REQUESTID&requestid"   "RESET-REQUEST-PORT"
                                      "SYS+param-RETURN$chan" sub-return-port}])
             (k/request-exception-check (a/<! sub-return-port))))
         (a/>! return-port [nil])

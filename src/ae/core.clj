@@ -30,7 +30,7 @@
                                                                      "SYS+requestid-ROUTE"          ["ROUTEoperationid"]
                                                                      "SYS+requestid-ENTITYreport"   ["CONTEXT_REPORToperationid"]
                                                                      "SYS+requestid-LOADscript"     ["LOAD_SCRIPToperationid"]}}})
-          _ (l/go-later env [{"request_map-REQUEST^param" {"SYS+param-REQUESTID"        "SYS+requestid-LOADscript"
+          _ (l/go-later env [{"request_map-REQUEST^param" {"SYS+param-REQUESTID&requestid"        "SYS+requestid-LOADscript"
                                                                "SYS+param-TARGETname&?" "ROOT+context-SYS"
                                                                "SYS+param-NAME&?"       "ROOT+context-SYS"}}])
           e
