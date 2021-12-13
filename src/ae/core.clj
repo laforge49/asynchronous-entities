@@ -34,6 +34,9 @@
           _ (l/go-later env [{"request_map-REQUEST^param" {"SYS+param-REQUESTID&requestid" "SYS+requestid-LOADscript"
                                                            "SYS+param-TARGETname&?"        "ROOT+context-SYS"
                                                            "SYS+param-NAME&?"              "ROOT+context-SYS"}}])
+          _ (l/go-later env [{"request_map-REQUEST^param" {"SYS+param-REQUESTID&requestid" "SYS+requestid-EVALscript"
+                                                           "SYS+param-TARGETname&?"        "ROOT+context-SYS"
+                                                           "SYS+param-NAME&?"              "ROOT+context-SYS"}}])
           e
           (first (a/<!! l/exit-chan))
           _ (if (some? e)

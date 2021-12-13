@@ -95,6 +95,30 @@
           (get params "SYS+param-OPERATIONreturnport")
           return-port
           (get params "SYS+param-RETURN$chan")]
+      (try
+        (let [this-name
+              (get this-map "SYS+facet-NAME&?")
+              script-path
+              (str "scripts/" this-name ".yml")
+              yaml-script
+              (slurp script-path)
+              edn-script
+              (k/parse-bind-script yaml-script this-map env)
+              this-map
+              (assoc-in this-map
+                        ["SYS+facet_map-DESCRIPTORS^descriptor" "SYS+descriptor_vecmap-SCRIPT^request"]
+                        edn-script)]
+          (a/>! operation-return-port [this-map nil nil]))
+        (catch Exception e
+          (a/>! return-port [e nil]))))))
+
+(defn eval-script-goblock
+  [env this-map params]
+  (a/go
+    (let [operation-return-port
+          (get params "SYS+param-OPERATIONreturnport")
+          return-port
+          (get params "SYS+param-RETURN$chan")]
       (a/>! operation-return-port [this-map nil :NO-RETURN])
       (try
         (let [this-name
@@ -123,4 +147,6 @@
                             :goblock     context-report-goblock})
   (k/register-function env {:operationid "LOAD_SCRIPToperationid"
                             :goblock     load-script-goblock})
+  (k/register-function env {:operationid "EVAL_SCRIPToperationid"
+                            :goblock     eval-script-goblock})
   )

@@ -16,6 +16,75 @@ gem_map-FACETS^facet:
       - LOAD_SCRIPToperationid
       requestid-REGISTERentity:
       - REGISTER_ENTITYoperationid
+    descriptor_vecmap-SCRIPT^request:
+    - TEST+request_map-REQUEST^param:
+        param-NAME&?: TEST+class-SIMPLE
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&?: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ADDdescriptors:
+              - ADD_DESCRIPTORSoperationid
+              requestid-ADDrelations:
+              - ADD_RELATIONSoperationid
+              requestid-ENTITYreport:
+              - ENTITY_REPORToperationid
+    - TEST+request_map-REQUEST^param:
+        param-NAME&?: TEST+simple-ALPHA
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&?: TEST+class-SIMPLE
+        param-content$str: "this is a test same line \ndifferent line"
+    - TEST+request_map-REQUEST^param:
+        param-NAME&?: TEST+simple-BETA
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&?: TEST+class-SIMPLE
+    - TEST+request_map-REQUEST^param:
+        param-NAME&?: TEST+relation_vec-BASIC
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&?: class-RELATION
+    - TEST+request_map-REQUEST^param:
+        param-NAME&?: TEST+descriptor-DEGREEofPOLISH$str
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&?: class-DESCRIPTOR
+    - TEST+request_map-REQUEST^param:
+        param-NAME&?: TEST+federator-A
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&?: class-FEDERATOR
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_vec-FEDERATIONnames&?:
+          - TEST+simple-ALPHA
+          - TEST+simple-BETA
+          descriptor_vecmap-SCRIPT^request:
+          - TEST+request_map-REQUEST^param:
+              param-NAME&?: TEST+simple-GAMMA
+              param-REQUESTID&requestid: requestid-INSTANTIATE
+              param-TARGETname&?: TEST+class-SIMPLE
+          - TEST+request_map-REQUEST^param:
+              param-REQUESTID&requestid: requestid-ADDdescriptors
+              param-TARGETname&?: TEST+simple-ALPHA
+              param_map-DESCRIPTORS^descriptor:
+                TEST+descriptor-DEGREEofPOLISH$str: MIDDLING
+          - TEST+request_map-REQUEST^param:
+              param-REQUESTID&requestid: requestid-ADDdescriptors
+              param-TARGETname&?: TEST+simple-GAMMA
+              param_map-DESCRIPTORS^descriptor:
+                TEST+descriptor-DEGREEofPOLISH$str: MIDDLING
+          - TEST+request_map-REQUEST^param:
+              param-REQUESTID&requestid: requestid-ADDrelations
+              param-TARGETname&?: TEST+simple-GAMMA
+              param_map-relations^relation&?:
+                TEST+relation_vec-BASIC:
+                - TEST+simple-ALPHA
+          - TEST+request_map-REQUEST^param:
+              param-REQUESTID&requestid: requestid-ADDrelations
+              param-TARGETname&?: TEST+simple-BETA
+              param_map-relations^relation&?:
+                TEST+relation_vec-BASIC:
+                - TEST+simple-ALPHA
+    - TEST+request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-RUNfederation
+        param-TARGETname&?: TEST+federator-A
   facet_vec-REQUESTportSTACK$chan:
   - clojure.core.async.chan
 ---
