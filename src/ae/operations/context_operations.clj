@@ -121,14 +121,9 @@
           (get params "SYS+param-RETURN$chan")]
       (a/>! operation-return-port [this-map nil :NO-RETURN])
       (try
-        (let [this-name
-              (get this-map "SYS+facet-NAME&?")
-              script-path
-              (str "scripts/" this-name ".yml")
-              yaml-script
-              (slurp script-path)
-              edn-script
-              (k/parse-bind-script yaml-script this-map env)
+        (let [edn-script
+              (get-in this-map
+                      ["SYS+facet_map-DESCRIPTORS^descriptor" "SYS+descriptor_vecmap-SCRIPT^request"])
               [e]
               (a/<! (k/eval-async-script edn-script env))]
           (if (some? e)
