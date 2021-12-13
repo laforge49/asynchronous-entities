@@ -754,7 +754,7 @@
     (bind-context- base-name resources-set edn styp ktyp ntyp dtyp env)))
 
 (defn async-script
-  [script-path yaml-script this-map env]
+  [yaml-script this-map env]
   ;(println :env (prn-str env))
   (let [full-local-context
         (get this-map "SYS+facet-NAME&?")

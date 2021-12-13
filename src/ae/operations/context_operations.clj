@@ -104,7 +104,7 @@
               yaml-script
               (slurp script-path)
               [e edn-script]
-              (a/<! (k/async-script script-path yaml-script this-map env))]
+              (a/<! (k/async-script yaml-script this-map env))]
           (if (some? e)
             (throw e))
           (doseq [request-map edn-script]
