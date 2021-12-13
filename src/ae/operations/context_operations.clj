@@ -81,8 +81,8 @@
                     (first request-port-stack)
                     subrequest-return-port
                     (a/chan)]
-                (a/>! entity-port [env {"SYS+param-REQUESTID&requestid"   "SYS+requestid-ENTITYreport"
-                                        "SYS+param-RETURN$chan" subrequest-return-port}])
+                (a/>! entity-port [env {"SYS+param-REQUESTID&requestid" "SYS+requestid-ENTITYreport"
+                                        "SYS+param-RETURN$chan"         subrequest-return-port}])
                 (k/request-exception-check (a/<! subrequest-return-port)))))
           (a/>! operation-return-port [this-map nil this-map]))
         (catch Exception e
@@ -92,9 +92,7 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (get params "SYS+param-OPERATIONreturnport")
-          return-port
-          (get params "SYS+param-RETURN$chan")]
+          (get params "SYS+param-OPERATIONreturnport")]
       (try
         (let [this-name
               (get this-map "SYS+facet-NAME&?")
@@ -106,11 +104,12 @@
               (k/parse-bind-script yaml-script this-map env)
               this-map
               (assoc-in this-map
-                        ["SYS+facet_map-DESCRIPTORS^descriptor" "SYS+descriptor_vecmap-SCRIPT^request"]
+                        ["SYS+facet_map-DESCRIPTORS^descriptor"
+                         "SYS+descriptor_vecmap-SCRIPT^request"]
                         edn-script)]
           (a/>! operation-return-port [this-map nil nil]))
         (catch Exception e
-          (a/>! return-port [e nil]))))))
+          (a/>! operation-return-port [this-map e nil]))))))
 
 (defn eval-script-goblock
   [env this-map params]
@@ -123,7 +122,8 @@
       (try
         (let [edn-script
               (get-in this-map
-                      ["SYS+facet_map-DESCRIPTORS^descriptor" "SYS+descriptor_vecmap-SCRIPT^request"])
+                      ["SYS+facet_map-DESCRIPTORS^descriptor"
+                       "SYS+descriptor_vecmap-SCRIPT^request"])
               [e]
               (a/<! (k/eval-async-script edn-script env))]
           (if (some? e)
