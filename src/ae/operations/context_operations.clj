@@ -103,8 +103,10 @@
               (str "scripts/" this-name ".yml")
               yaml-script
               (slurp script-path)
-              [e edn-script]
-              (a/<! (k/async-script yaml-script this-map env))]
+              edn-script
+              (k/parse-bind-script yaml-script this-map env)
+              [e]
+              (a/<! (k/eval-async-script edn-script env))]
           (if (some? e)
             (throw e))
           (doseq [request-map edn-script]

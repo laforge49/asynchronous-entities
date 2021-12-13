@@ -766,12 +766,10 @@
       []
       edn-script)))
 
-(defn async-script
-  [yaml-script this-map env]
+(defn eval-async-script
+  [edn-script env]
   (let [out
-        (a/chan)
-        edn-script
-        (parse-bind-script yaml-script this-map env)]
+        (a/chan)]
     (a/go
       (try
         (let [return-port0
@@ -788,7 +786,7 @@
                   ]
               (a/>! target-request-port [env request-params])
               (request-exception-check (a/<! return-port0))))
-          (a/>! out [nil edn-script]))
+          (a/>! out [nil]))
         (catch Exception e
-          (a/>! out [e nil]))))
+          (a/>! out [e]))))
     out))
