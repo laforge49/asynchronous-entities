@@ -6,16 +6,16 @@
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-INSTANTIATE:
-        - INSTANTIATEoperationid
+          - INSTANTIATEoperationid
         requestid-ENTITYreport:
-        - ENTITY_REPORToperationid
+          - ENTITY_REPORToperationid
       descriptor_map-INSTANCE^descriptor:
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-INSTANTIATE:
-          - INSTANTIATEoperationid
+            - INSTANTIATEoperationid
           requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+            - ENTITY_REPORToperationid
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&?: class-CLASS
@@ -25,7 +25,7 @@
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+            - ENTITY_REPORToperationid
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&?: class-REQUESTID
@@ -57,7 +57,7 @@
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+            - ENTITY_REPORToperationid
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&?: class-DESCRIPTOR
@@ -87,7 +87,7 @@
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+            - ENTITY_REPORToperationid
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&?: class-CLASS
@@ -97,7 +97,7 @@
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+            - ENTITY_REPORToperationid
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&?: class-CLASS
@@ -106,11 +106,13 @@
       descriptor_map-INSTANCE^descriptor:
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-REGISTERentity:
-          - REGISTER_ENTITYoperationid
+            - REGISTER_ENTITYoperationid
           requestid-ENTITYreport:
-          - CONTEXT_REPORToperationid
+            - CONTEXT_REPORToperationid
           requestid-LOADscript:
-          - LOAD_SCRIPToperationid
+            - LOAD_SCRIPToperationid
+          requestid-EVALscript:
+            - EVAL_SCRIPToperationid
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&?: class-CLASS
@@ -119,9 +121,9 @@
       descriptor_map-INSTANCE^descriptor:
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-RUNfederation:
-          - RUN_FEDERATIONoperationid
+            - RUN_FEDERATIONoperationid
           requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+            - ENTITY_REPORToperationid
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&?: class-CONTEXT
@@ -132,7 +134,7 @@
       \ndifferent line"
     param_map-CLASSIFIERS^classifier:
       classifier_vec-RESOURCES&context:
-      - ROOT+context-SYS
+        - ROOT+context-SYS
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-LOADscript
     param-TARGETname&?: context-TEST

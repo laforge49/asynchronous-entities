@@ -10,6 +10,8 @@ gem_map-FACETS^facet:
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
       - CONTEXT_REPORToperationid
+      requestid-EVALscript:
+      - EVAL_SCRIPToperationid
       requestid-LOADscript:
       - LOAD_SCRIPToperationid
       requestid-REGISTERentity:
