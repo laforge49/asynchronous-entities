@@ -753,25 +753,28 @@
           base-name)]
     (bind-context- base-name resources-set edn styp ktyp ntyp dtyp env)))
 
-(defn async-script
+(defn parse-bind-script
   [yaml-script this-map env]
-  ;(println :env (prn-str env))
   (let [full-local-context
         (get this-map "SYS+facet-NAME&?")
-        out
-        (a/chan)]
+        edn-script
+        (yaml/parse-raw yaml-script)]
+    (reduce
+      (fn [edn-script request-map]
+        (conj edn-script
+              (bind-context full-local-context request-map "map" "request" nil nil env)))
+      []
+      edn-script)))
+
+(defn async-script
+  [yaml-script this-map env]
+  (let [out
+        (a/chan)
+        edn-script
+        (parse-bind-script yaml-script this-map env)]
     (a/go
       (try
-        (let [edn-script
-              (yaml/parse-raw yaml-script)
-              edn-script
-              (reduce
-                (fn [edn-script request-map]
-                  (conj edn-script
-                        (bind-context full-local-context request-map "map" "request" nil nil env)))
-                []
-                edn-script)
-              return-port0
+        (let [return-port0
               (a/chan)]
           (doseq [request-map edn-script]
             (let [request-params
