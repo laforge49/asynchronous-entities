@@ -787,7 +787,7 @@
               (request-exception-check (a/<! return-port0))))
           (doseq [request-map edn-script]
             (validate-names request-map "map" "request" nil nil env))
-          (a/>! out [nil]))
+          (a/>! out [nil edn-script]))
         (catch Exception e
-          (a/>! out [e]))))
+          (a/>! out [e nil]))))
     out))
