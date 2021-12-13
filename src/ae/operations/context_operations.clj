@@ -103,10 +103,12 @@
               (str "scripts/" this-name ".yml")
               yaml-script
               (slurp script-path)
-              [e]
+              [e edn-script]
               (a/<! (k/async-script script-path yaml-script this-map env))]
           (if (some? e)
             (throw e))
+          (doseq [request-map edn-script]
+            (k/validate-names request-map "map" "request" nil nil env))
           (a/>! return-port [nil nil]))
         (catch Exception e
           (a/>! return-port [e nil]))))))
