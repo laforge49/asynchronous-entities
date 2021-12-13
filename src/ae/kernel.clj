@@ -754,10 +754,10 @@
     (bind-context- base-name resources-set edn styp ktyp ntyp dtyp env)))
 
 (defn async-script
-  [script-path yaml-script context-map env]
+  [script-path yaml-script this-map env]
   ;(println :env (prn-str env))
   (let [full-local-context
-        (get context-map "SYS+facet-NAME&?")
+        (get this-map "SYS+facet-NAME&?")
         out
         (a/chan)]
     (a/go
@@ -786,8 +786,8 @@
               (a/>! target-request-port [env request-params])
               (request-exception-check (a/<! return-port0))))
           (doseq [request-map edn-script]
-            (validate-names request-map "map" "request" nil nil env)))
-        (a/>! out [nil])
+            (validate-names request-map "map" "request" nil nil env))
+          (a/>! out [nil]))
         (catch Exception e
           (a/>! out [e]))))
     out))
