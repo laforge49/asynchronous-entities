@@ -6,6 +6,8 @@ SYS+gem_map-FACETS^facet:
     SYS+descriptor_mapvec-REQUESTS^requestid$str:
       SYS+requestid-ENTITYreport:
       - CONTEXT_REPORToperationid
+      SYS+requestid-EVALscript:
+      - EVAL_SCRIPToperationid
       SYS+requestid-LOADscript:
       - LOAD_SCRIPToperationid
       SYS+requestid-REGISTERentity:
