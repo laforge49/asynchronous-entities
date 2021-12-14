@@ -16,6 +16,8 @@ gem_map-FACETS^facet:
         - LOAD_SCRIPToperationid
         requestid-REGISTERentity:
         - REGISTER_ENTITYoperationid
+        requestid-VALIDATEscriptNAMES:
+        - VALIDATE_SCRIPT_NAMESoperationid
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
       - ENTITY_REPORToperationid

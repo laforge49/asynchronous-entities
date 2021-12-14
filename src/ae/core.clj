@@ -23,14 +23,15 @@
           {}
           _ (create-operations env)
           [context-request-port context-map]
-          (k/create-entity env
-                           {"SYS+param-NAME&?"                     "ROOT+context-SYS"
-                            "SYS+param_map-DESCRIPTORS^descriptor" {"SYS+descriptor_mapvec-REQUESTS^requestid$str"
-                                                                    {"SYS+requestid-REGISTERentity" ["REGISTER_ENTITYoperationid"]
-                                                                     "SYS+requestid-ENTITYreport"   ["CONTEXT_REPORToperationid"]
-                                                                     "SYS+requestid-LOADscript"     ["LOAD_SCRIPToperationid"]
-                                                                     "SYS+requestid-EVALscript"     ["EVAL_SCRIPToperationid"]
-                                                                     }}})
+          (k/create-entity env {"SYS+param-NAME&?"
+                                "ROOT+context-SYS"
+                                "SYS+param_map-DESCRIPTORS^descriptor"
+                                {"SYS+descriptor_mapvec-REQUESTS^requestid$str"
+                                 {"SYS+requestid-REGISTERentity"  ["REGISTER_ENTITYoperationid"]
+                                  "SYS+requestid-ENTITYreport"    ["CONTEXT_REPORToperationid"]
+                                  "SYS+requestid-LOADscript"      ["LOAD_SCRIPToperationid"]
+                                  "SYS+requestid-EVALscript"      ["EVAL_SCRIPToperationid"]
+                                  "requestid-VALIDATEscriptNAMES" ["VALIDATE_SCRIPT_NAMESoperationid"]}}})
           _ (l/go-later env [{"request_map-REQUEST^param" {"SYS+param-REQUESTID&requestid" "SYS+requestid-LOADscript"
                                                            "SYS+param-TARGETname&?"        "ROOT+context-SYS"
                                                            "SYS+param-NAME&?"              "ROOT+context-SYS"}}])

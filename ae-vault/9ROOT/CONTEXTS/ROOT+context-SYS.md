@@ -12,6 +12,8 @@ SYS+gem_map-FACETS^facet:
       - LOAD_SCRIPToperationid
       SYS+requestid-REGISTERentity:
       - REGISTER_ENTITYoperationid
+      requestid-VALIDATEscriptNAMES:
+      - VALIDATE_SCRIPT_NAMESoperationid
     SYS+descriptor_vecmap-SCRIPT^request:
     - SYS+request_map-REQUEST^param:
         SYS+param-NAME&?: SYS+class-CLASS
@@ -128,6 +130,8 @@ SYS+gem_map-FACETS^facet:
               - LOAD_SCRIPToperationid
               SYS+requestid-REGISTERentity:
               - REGISTER_ENTITYoperationid
+              SYS+requestid-VALIDATEscriptNAMES:
+              - VALIDATE_SCRIPT_NAMESoperationid
     - SYS+request_map-REQUEST^param:
         SYS+param-NAME&?: SYS+class-FEDERATOR
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
