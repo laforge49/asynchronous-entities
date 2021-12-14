@@ -158,4 +158,6 @@
                             :goblock     load-script-goblock})
   (k/register-function env {:operationid "EVAL_SCRIPToperationid"
                             :goblock     eval-script-goblock})
+  (k/register-function env {:operationid "VALIDATE_SCRIPT_NAMESoperationid"
+                            :goblock     validate-script-names-goblock})
   )
