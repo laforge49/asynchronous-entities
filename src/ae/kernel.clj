@@ -765,28 +765,3 @@
               (bind-context full-local-context request-map "map" "request" nil nil env)))
       []
       edn-script)))
-
-(defn eval-async-script
-  [edn-script env]
-  (let [out
-        (a/chan)]
-    (a/go
-      (try
-        (let [return-port0
-              (a/chan)]
-          (doseq [request-map edn-script]
-            (let [request-params
-                  (val (first request-map))
-                  request-params
-                  (assoc request-params "SYS+param-RETURN$chan" return-port0)
-                  target-name
-                  (get request-params "SYS+param-TARGETname&?")
-                  target-request-port
-                  (get-public-request-port target-name)
-                  ]
-              (a/>! target-request-port [env request-params])
-              (request-exception-check (a/<! return-port0))))
-          (a/>! out [nil]))
-        (catch Exception e
-          (a/>! out [e]))))
-    out))

@@ -3,6 +3,7 @@
             [clojure.string :as s]
             [clojure.java.io :as io]
             [ae.operations.reports :as r]
+            [ae.later :as l]
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
@@ -125,7 +126,7 @@
                       ["SYS+facet_map-DESCRIPTORS^descriptor"
                        "SYS+descriptor_vecmap-SCRIPT^request"])
               [e]
-              (a/<! (k/eval-async-script edn-script env))]
+              (a/<! (l/eval-async-script edn-script env))]
           (if (some? e)
             (throw e))
           (a/>! return-port [nil nil]))

@@ -63,3 +63,15 @@
                   (a/>! exit-chan [e])
                   (reset! live-atom false)))
               (recur))))))))
+
+(defn eval-async-script
+  [edn-script env]
+  (let [out
+        (a/chan)]
+    (a/go
+      (try
+        (go-later env edn-script)
+        (a/>! out [nil])
+        (catch Exception e
+          (a/>! out [e]))))
+    out))
