@@ -128,11 +128,25 @@
               (a/<! (k/eval-async-script edn-script env))]
           (if (some? e)
             (throw e))
-          (doseq [request-map edn-script]
-            (k/validate-names request-map "map" "request" nil nil env))
           (a/>! return-port [nil nil]))
         (catch Exception e
           (a/>! return-port [e nil]))))))
+
+(defn validate-script-names-goblock
+  [env this-map params]
+  (a/go
+    (let [operation-return-port
+          (get params "SYS+param-OPERATIONreturnport")]
+      (try
+        (let [edn-script
+              (get-in this-map
+                      ["SYS+facet_map-DESCRIPTORS^descriptor"
+                       "SYS+descriptor_vecmap-SCRIPT^request"])]
+          (doseq [request-map edn-script]
+            (k/validate-names request-map "map" "request" nil nil env))
+          (a/>! operation-return-port [this-map nil nil]))
+        (catch Exception e
+          (a/>! operation-return-port [this-map e nil]))))))
 
 (defn create-context-operations
   [env]
