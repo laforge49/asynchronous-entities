@@ -40,15 +40,15 @@
                 (let [requests
                       (peek requeststack)
                       _ (swap! requeststackatom pop)]
-                  (if (not (empty? requests))
+                  (if (and (not (empty? requests)) (not (empty? (first requests))))
                     (let [request
                           (first requests)
                           nextrequests
                           (next requests)
                           _ (if (some? nextrequests)
-                              (swap! requeststackatom conj (next requests)))
+                              (swap! requeststackatom conj nextrequests))
                           params
-                          (get request "request_map-REQUEST^param")
+                          (get request "SYS+request_map-REQUEST^param")
                           target-name
                           (get params "SYS+param-TARGETname&?")
                           request-port
@@ -57,6 +57,7 @@
                           (a/chan)
                           params
                           (assoc params "SYS+param-RETURN$chan" subrequest-return-port)]
+                      (if (nil? request-port) (println request))
                       (a/>! request-port [env params])
                       (k/request-exception-check (a/<! subrequest-return-port)))))
                 (catch Exception e
