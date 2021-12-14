@@ -31,13 +31,13 @@
                                   "SYS+requestid-ENTITYreport"    ["CONTEXT_REPORToperationid"]
                                   "SYS+requestid-LOADscript"      ["LOAD_SCRIPToperationid"]
                                   "SYS+requestid-EVALscript"      ["EVAL_SCRIPToperationid"]
-                                  "requestid-VALIDATEscriptNAMES" ["VALIDATE_SCRIPT_NAMESoperationid"]}}})
+                                  "SYS+requestid-VALIDATEscriptNAMES" ["VALIDATE_SCRIPT_NAMESoperationid"]}}})
           _ (l/go-later env [{"request_map-REQUEST^param" {"SYS+param-REQUESTID&requestid" "SYS+requestid-LOADscript"
-                                                           "SYS+param-TARGETname&?"        "ROOT+context-SYS"
-                                                           "SYS+param-NAME&?"              "ROOT+context-SYS"}}])
+                                                           "SYS+param-TARGETname&?"        "ROOT+context-SYS"}}])
           _ (l/go-later env [{"request_map-REQUEST^param" {"SYS+param-REQUESTID&requestid" "SYS+requestid-EVALscript"
-                                                           "SYS+param-TARGETname&?"        "ROOT+context-SYS"
-                                                           "SYS+param-NAME&?"              "ROOT+context-SYS"}}])
+                                                           "SYS+param-TARGETname&?"        "ROOT+context-SYS"}}])
+          _ (l/go-later env [{"request_map-REQUEST^param" {"SYS+param-REQUESTID&requestid" "SYS+requestid-VALIDATEscriptNAMES"
+                                                           "SYS+param-TARGETname&?"        "ROOT+context-SYS"}}])
           e
           (first (a/<!! l/exit-chan))
           _ (if (some? e)

@@ -139,10 +139,10 @@
         - ROOT+context-SYS
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-LOADscript
-    param-TARGETname&?: context-TEST
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-EVALscript
-    param-TARGETname&?: context-TEST
+- request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-VALIDATEscriptNAMES
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-ENTITYreport
     param-TARGETname&?: ROOT+context-SYS
