@@ -116,19 +116,16 @@
   [env this-map params]
   (a/go
     (let [operation-return-port
-          (get params "SYS+param-OPERATIONreturnport")
-          return-port
-          (get params "SYS+param-RETURN$chan")]
-      (a/>! operation-return-port [this-map nil :NO-RETURN])
+          (get params "SYS+param-OPERATIONreturnport")]
       (try
         (let [edn-script
               (get-in this-map
                       ["SYS+facet_map-DESCRIPTORS^descriptor"
                        "SYS+descriptor_vecmap-SCRIPT^request"])]
               (l/go-later env edn-script)
-          (a/>! return-port [nil nil]))
+          (a/>! operation-return-port [this-map nil nil]))
         (catch Exception e
-          (a/>! return-port [e nil]))))))
+          (a/>! operation-return-port [this-map e nil]))))))
 
 (defn validate-script-names-goblock
   [env this-map params]
