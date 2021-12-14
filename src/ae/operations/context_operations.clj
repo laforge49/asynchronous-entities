@@ -124,11 +124,8 @@
         (let [edn-script
               (get-in this-map
                       ["SYS+facet_map-DESCRIPTORS^descriptor"
-                       "SYS+descriptor_vecmap-SCRIPT^request"])
-              [e]
-              (a/<! (l/eval-async-script edn-script env))]
-          (if (some? e)
-            (throw e))
+                       "SYS+descriptor_vecmap-SCRIPT^request"])]
+              (l/go-later env edn-script)
           (a/>! return-port [nil nil]))
         (catch Exception e
           (a/>! return-port [e nil]))))))
