@@ -122,7 +122,7 @@
               (get-in this-map
                       ["SYS+facet_map-DESCRIPTORS^descriptor"
                        "SYS+descriptor_vecmap-SCRIPT^request"])]
-              (l/go-later env edn-script)
+              (l/push-later env edn-script)
           (a/>! operation-return-port [this-map nil nil]))
         (catch Exception e
           (a/>! operation-return-port [this-map e nil]))))))

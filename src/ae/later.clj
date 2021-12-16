@@ -6,34 +6,69 @@
 (def exit-chan
   (a/chan 1))
 
-(def active-count-atom (atom 0))
+(def active-count-atom- (atom 0))
 
-(def live-atom (atom true))
+(def live-atom- (atom true))
+
+(defn validate-requests-
+  [requests]
+  (if (not (vector? requests))
+    (throw (Exception. (str "Requests is not a vector: " (prn-str requests)))))
+  (if (= (count requests) 0)
+    (throw (Exception. (str "Requests is empty: " (prn-str requests))))))
 
 (defn push-later
   [env requests]
-  (let [requeststackatom
-        (get env "SYS+env_atmvec-requeststackatom$seq")]
-    (if (nil? requeststackatom)
-      (throw (Exception. (str "unable to locate SYS+env_atmvec-requeststackatom$seq\n"
-                              (prn-str env)
-                              (prn-str requests)))))
-    (swap! requeststackatom conj (seq requests))))
+  (validate-requests- requests)
+  (let [requestvecatom
+        (get env "SYS+env_atmvec-requestvecatom$?")]
+    (if (nil? requestvecatom)
+      (throw (Exception. (str "unable to locate SYS+env_atmvec-requestvecatom$?\n"
+                              (prn-str :env env)))))
+    (swap! requestvecatom (fn [[request-on-deck requestseq-stack]]
+                            [request-on-deck (conj requestseq-stack (seq requests))]))))
+
+(defn pop-request-
+  [env]
+  (let [requestvecatom
+        (get env "SYS+env_atmvec-requestvecatom$?")]
+    (swap! requestvecatom (fn [[request-on-deck requestseq-stack]]
+                            (if (empty? requestseq-stack)
+                              [nil []]
+                              (let [requestseq
+                                    (peek requestseq-stack)
+                                    requestseq-stack
+                                    (pop requestseq-stack)]
+                                (if (nil? requestseq)
+                                  [nil requestseq-stack]
+                                  (let [request-on-deck
+                                        (first requestseq)
+                                        requestseq
+                                        (next requestseq)
+                                        requestseq-stack
+                                        (if (nil? requestseq)
+                                          requestseq-stack
+                                          (conj requestseq-stack requestseq))]
+                                    [request-on-deck requestseq-stack]))))))
+    (first @requestvecatom)))
 
 (defn go-later
   [env requests]
-  (let [requeststackatom
-        (atom [(seq requests)])
+  (if (some? (get env "SYS+env_atmvec-requestvecatom$?"))
+    (throw (Exception. (str "SYS+env_atmvec-requeststackatom$seq is already present in env"))))
+  (validate-requests- requests)
+  (let [requestvecatom
+        (atom [nil [(seq requests)]])
         env
         (assoc env "SYS+env_atmvec-requeststackatom$seq" requeststackatom)]
-    (swap! active-count-atom inc)
+    (swap! active-count-atom- inc)
     (a/go-loop []
-      (if @live-atom
+      (if @live-atom-
         (let [requeststack
               @requeststackatom]
           (if (empty? requeststack)
-            (when (= (swap! active-count-atom dec) 0)
-              (reset! live-atom false)
+            (when (= (swap! active-count-atom- dec) 0)
+              (reset! live-atom- false)
               (a/>! exit-chan [nil]))
             (do
               (try
@@ -62,5 +97,5 @@
                       (k/request-exception-check (a/<! subrequest-return-port)))))
                 (catch Exception e
                   (a/>! exit-chan [e])
-                  (reset! live-atom false)))
+                  (reset! live-atom- false)))
               (recur))))))))
