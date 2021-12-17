@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "6blog/21/21-4 Q4/2149/2149.5 Friday (week 49), 12-10-2021.md",
+            "file": "6blog/21/21-4 Q4/2150/2150.5 Friday (week 50), 12-17-2021.md",
             "mode": "source"
           }
         }
@@ -52,7 +52,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 302
+    "width": 368
   },
   "right": {
     "id": "865b2a78d762c7e1",
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6blog/21/21-4 Q4/2149/2149.5 Friday (week 49), 12-10-2021.md",
+                "file": "6blog/21/21-4 Q4/2150/2150.5 Friday (week 50), 12-17-2021.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -96,7 +96,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "6blog/21/21-4 Q4/2149/2149.5 Friday (week 49), 12-10-2021.md",
+                "file": "6blog/21/21-4 Q4/2150/2150.5 Friday (week 50), 12-17-2021.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -111,15 +111,15 @@
   },
   "active": "4331bf41315b1b1d",
   "lastOpenFiles": [
-    "6blog/21/21-4 Q4/2149/2149.5 Friday (week 49), 12-10-2021.md",
-    "8activities/8000-pendingActivities.md",
+    "6blog/21/21-4 Q4/2150/2150.5 Friday (week 50), 12-17-2021.md",
     "6blog/21/21-4 Q4/2149/8036 laterGoblock.md",
+    "6blog/21/21-4 Q4/2149/2149.5 Friday (week 49), 12-10-2021.md",
+    "6blog/21/21-4 Q4/2150/Untitled.md",
+    "8activities/8000-pendingActivities.md",
     "6blog/21/21-4 Q4/2148/2148.4 Tuesday (week 48), 12-2-2021.md",
     "6blog/21/21-4 Q4/2148/8035-synchronous routing.md",
     "6blog/21/21-4 Q4/2148/2148.1 Monday (week 48). 11-29-2021.md",
     "8activities/8004-validation.md",
-    "8activities/8012-changeDescriptors.md",
-    "6blog/21/21-4 Q4/2147/2147.1 Monday (week 47), 11-22-2021.md",
-    "6blog/21/21-4 Q4/2147/2147.5 Friday (week 47), 11-26-2021.md"
+    "8activities/8012-changeDescriptors.md"
   ]
 }
