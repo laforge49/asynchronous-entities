@@ -55,46 +55,43 @@
 (defn go-later
   [env requests]
   (if (some? (get env "SYS+env_atmvec-requestvecatom$?"))
-    (throw (Exception. (str "SYS+env_atmvec-requeststackatom$seq is already present in env"))))
+    (throw (Exception. (str "SYS+env_atmvec-requestvecatom$? is already present in env"))))
   (validate-requests- requests)
   (let [requestvecatom
         (atom [nil [(seq requests)]])
         env
-        (assoc env "SYS+env_atmvec-requeststackatom$seq" requeststackatom)]
+        (assoc env "SYS+env_atmvec-requestvecatom$?" requestvecatom)]
     (swap! active-count-atom- inc)
     (a/go-loop []
       (if @live-atom-
-        (let [requeststack
-              @requeststackatom]
-          (if (empty? requeststack)
+        (let [request
+              (pop-request- env)]
+          (if (nil? request)
             (when (= (swap! active-count-atom- dec) 0)
               (reset! live-atom- false)
               (a/>! exit-chan [nil]))
             (do
               (try
-                (let [requests
-                      (peek requeststack)
-                      _ (swap! requeststackatom pop)]
-                  (if (and (not (empty? requests)) (not (empty? (first requests))))
-                    (let [request
-                          (first requests)
-                          nextrequests
-                          (next requests)
-                          _ (if (some? nextrequests)
-                              (swap! requeststackatom conj nextrequests))
-                          params
-                          (get request "SYS+request_map-REQUEST^param")
-                          target-name
-                          (get params "SYS+param-TARGETname&?")
-                          request-port
-                          (k/get-public-request-port target-name)
-                          subrequest-return-port
-                          (a/chan)
-                          params
-                          (assoc params "SYS+param-RETURN$chan" subrequest-return-port)]
-                      (if (nil? request-port) (println request))
-                      (a/>! request-port [env params])
-                      (k/request-exception-check (a/<! subrequest-return-port)))))
+                (let [params
+                      (get request "SYS+request_map-REQUEST^param")
+                      _ (if (nil? params)
+                          (throw (Exception. (str "Missing SYS+request_map-REQUEST^param\n"
+                                                  :request " "(prn-str request)))))
+                      target-name
+                      (get params "SYS+param-TARGETname&?")
+                      _ (if (nil? target-name)
+                          (throw (Exception. (str "Missing SYS+param-TARGETname&?\n"
+                                                  :params " " (prn-str params)))))
+                      request-port
+                      (k/get-public-request-port target-name)
+                      subrequest-return-port
+                      (a/chan)
+                      params
+                      (assoc params "SYS+param-RETURN$chan" subrequest-return-port)]
+                  (if (nil? request-port)
+                    (throw (Exception. (str "Undefined target: " (prn-str target-name)))))
+                  (a/>! request-port [env params])
+                  (k/request-exception-check (a/<! subrequest-return-port)))
                 (catch Exception e
                   (a/>! exit-chan [e])
                   (reset! live-atom- false)))
