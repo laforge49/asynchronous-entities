@@ -32,24 +32,25 @@
   [env]
   (let [requestvecatom
         (get env "SYS+env_atmvec-requestvecatom$?")]
-    (swap! requestvecatom (fn [[request-on-deck requestseq-stack]]
-                            (if (empty? requestseq-stack)
-                              [nil []]
-                              (let [requestseq
-                                    (peek requestseq-stack)
-                                    requestseq-stack
-                                    (pop requestseq-stack)]
-                                (if (nil? requestseq)
-                                  [nil requestseq-stack]
-                                  (let [request-on-deck
-                                        (first requestseq)
-                                        requestseq
-                                        (next requestseq)
-                                        requestseq-stack
-                                        (if (nil? requestseq)
-                                          requestseq-stack
-                                          (conj requestseq-stack requestseq))]
-                                    [request-on-deck requestseq-stack]))))))
+    (swap! requestvecatom
+           (fn [[request-on-deck requestseq-stack]]
+             (if (empty? requestseq-stack)
+               [nil []]
+               (let [requestseq
+                     (peek requestseq-stack)
+                     requestseq-stack
+                     (pop requestseq-stack)]
+                 (if (nil? requestseq)
+                   [nil requestseq-stack]
+                   (let [request-on-deck
+                         (first requestseq)
+                         requestseq
+                         (next requestseq)
+                         requestseq-stack
+                         (if (nil? requestseq)
+                           requestseq-stack
+                           (conj requestseq-stack requestseq))]
+                     [request-on-deck requestseq-stack]))))))
     (first @requestvecatom)))
 
 (defn go-later
@@ -76,7 +77,7 @@
                       (get request "SYS+request_map-REQUEST^param")
                       _ (if (nil? params)
                           (throw (Exception. (str "Missing SYS+request_map-REQUEST^param\n"
-                                                  :request " "(prn-str request)))))
+                                                  :request " " (prn-str request)))))
                       target-name
                       (get params "SYS+param-TARGETname&?")
                       _ (if (nil? target-name)
