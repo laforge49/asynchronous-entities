@@ -578,7 +578,8 @@
             (if (nil? parent-ntyp)
               (throw (Exception. (str "There is no name type for " (pr-str edn)))))
             (if (and (not= parent-ntyp "?") (not= typ parent-ntyp))
-              (throw (Exception. (str (pr-str edn) " is not of name type " parent-ntyp))))))))
+              (throw (Exception. (str (pr-str edn) " is not of name type " parent-ntyp))))
+            ))))
 
     (vector? edn)
     (if (and (not (s/starts-with? parent-styp "vec")) (not= parent-styp "?"))
