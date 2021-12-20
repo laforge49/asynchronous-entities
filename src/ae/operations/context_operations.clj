@@ -71,20 +71,20 @@
               context-prefix
               (str context-base-name "+")
               entities-map
-              @k/entities-map-atom]
+              @k/entities-map-atom
+              requests
+              (reduce
+                (fn [requests entity-name]
+                  (if (s/starts-with? entity-name context-prefix)
+                    (conj requests {"SYS+request_map-REQUEST^param"
+                                    {"SYS+param-REQUESTID&requestid" "SYS+requestid-ENTITYreport"
+                                     "SYS+param-TARGETname&?"        entity-name}})
+                    requests))
+                []
+                (keys entities-map))]
           (io/make-parents file-name)
           (spit file-name report)
-          (doseq [[entity-name entity-map] entities-map]
-            (if (s/starts-with? entity-name context-prefix)
-              (let [request-port-stack
-                    (get entity-map "SYS+facet_vec-REQUESTportSTACK$chan")
-                    entity-port
-                    (first request-port-stack)
-                    subrequest-return-port
-                    (a/chan)]
-                (a/>! entity-port [env {"SYS+param-REQUESTID&requestid" "SYS+requestid-ENTITYreport"
-                                        "SYS+param-RETURN$chan"         subrequest-return-port}])
-                (k/request-exception-check (a/<! subrequest-return-port)))))
+          (l/push-later env requests)
           (a/>! operation-return-port [this-map nil this-map]))
         (catch Exception e
           (a/>! operation-return-port [this-map e nil]))))))
@@ -122,7 +122,7 @@
               (get-in this-map
                       ["SYS+facet_map-DESCRIPTORS^descriptor"
                        "SYS+descriptor_vecmap-SCRIPT^request"])]
-              (l/push-later env edn-script)
+          (l/push-later env edn-script)
           (a/>! operation-return-port [this-map nil nil]))
         (catch Exception e
           (a/>! operation-return-port [this-map e nil]))))))
