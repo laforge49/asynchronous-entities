@@ -76,9 +76,9 @@
               requests
               [{"SYS+request_map-REQUEST^param" params}]]
           (l/push-later env requests)
-          (a/>! operation-return-port [this-map nil nil]))
+          (a/>! operation-return-port [this-map nil]))
         (catch Exception e
-          (a/>! operation-return-port [this-map e nil]))))))
+          (a/>! operation-return-port [this-map e]))))))
 
 (defn addDescriptorsFunction
   [env this-map params]
@@ -174,9 +174,9 @@
                    content)]
           (io/make-parents file-name)
           (spit file-name report)
-          (a/>! operation-return-port [this-map nil this-map]))
+          (a/>! operation-return-port [this-map nil]))
         (catch Exception e
-          (a/>! operation-return-port [this-map e nil]))))))
+          (a/>! operation-return-port [this-map e]))))))
 
 (defn create-entity-operations
   [env]

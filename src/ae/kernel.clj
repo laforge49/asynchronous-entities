@@ -351,8 +351,7 @@
                       [this-map])
 
                     ;;DEFAULT
-                    (let [
-                          _ (if (federated? this-map)
+                    (let [_ (if (federated? this-map)
                               (throw (Exception. (str "Inappropriate async request on federated entity.\n"
                                                       (prn-str params)
                                                       (prn-str this-map)))))
@@ -376,15 +375,15 @@
                           (a/<! operation-return-port)
                           _ (if (not (vector? operation-return-value))
                               (throw (Exception. (str "Operation return value is not a vector\n"
-                                                      (prn-str operation-return-value)
-                                                      (prn-str params)
-                                                      (prn-str this-map)))))
-                          _ (if (not= (count operation-return-value) 3)
-                              (throw (Exception. (str "Operation return value is not a 3-tuple\n"
-                                                      (prn-str operation-return-value)
-                                                      (prn-str params)
-                                                      (prn-str this-map)))))
-                          [this-map e return-value]
+                                                      (prn-str :operation-return-value operation-return-value)
+                                                      (prn-str :params params)
+                                                      (prn-str :this-map this-map)))))
+                          _ (if (not= (count operation-return-value) 2)
+                              (throw (Exception. (str "Operation return value is not a 2-tuple\n"
+                                                      (prn-str :operation-return-value operation-return-value)
+                                                      (prn-str :params params)
+                                                      (prn-str :this-map this-map)))))
+                          [this-map e]
                           operation-return-value]
                       (if (some? e)
                         (throw e))

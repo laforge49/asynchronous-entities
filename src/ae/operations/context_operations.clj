@@ -21,13 +21,13 @@
         entity-public-request-port
         (if (some? entity-public-request-port)
           entity-public-request-port
-          (first (k/create-entity env params)))]
-    (let [classifiers
-          (get params "SYS+param_map-CLASSIFIERS^classifier")]
-      (if (some? classifiers)
-        (doseq [[classifier-kw classifier-value-kw] classifiers]
-          (k/add-classifier-value this-name name classifier-kw classifier-value-kw)))
-      [this-map nil entity-public-request-port])))
+          (first (k/create-entity env params)))
+        classifiers
+        (get params "SYS+param_map-CLASSIFIERS^classifier")]
+    (if (some? classifiers)
+      (doseq [[classifier-kw classifier-value-kw] classifiers]
+        (k/add-classifier-value this-name name classifier-kw classifier-value-kw)))
+    [this-map nil]))
 
 (defn register-entity-goblock
   [env this-map params]
@@ -37,7 +37,7 @@
       (try
         (a/>! operation-return-port (registerEntityOperation env this-map params))
         (catch Exception e
-          (a/>! operation-return-port [this-map e nil]))))))
+          (a/>! operation-return-port [this-map e]))))))
 
 (defn context-report-goblock
   [env this-map params]
@@ -85,9 +85,9 @@
           (io/make-parents file-name)
           (spit file-name report)
           (l/push-later env requests)
-          (a/>! operation-return-port [this-map nil this-map]))
+          (a/>! operation-return-port [this-map nil]))
         (catch Exception e
-          (a/>! operation-return-port [this-map e nil]))))))
+          (a/>! operation-return-port [this-map e]))))))
 
 (defn load-script-goblock
   [env this-map params]
@@ -108,9 +108,9 @@
                         ["SYS+facet_map-DESCRIPTORS^descriptor"
                          "SYS+descriptor_vecmap-SCRIPT^request"]
                         edn-script)]
-          (a/>! operation-return-port [this-map nil nil]))
+          (a/>! operation-return-port [this-map nil]))
         (catch Exception e
-          (a/>! operation-return-port [this-map e nil]))))))
+          (a/>! operation-return-port [this-map e]))))))
 
 (defn eval-script-goblock
   [env this-map params]
@@ -123,9 +123,9 @@
                       ["SYS+facet_map-DESCRIPTORS^descriptor"
                        "SYS+descriptor_vecmap-SCRIPT^request"])]
           (l/push-later env edn-script)
-          (a/>! operation-return-port [this-map nil nil]))
+          (a/>! operation-return-port [this-map nil]))
         (catch Exception e
-          (a/>! operation-return-port [this-map e nil]))))))
+          (a/>! operation-return-port [this-map e]))))))
 
 (defn validate-script-names-goblock
   [env this-map params]
@@ -139,9 +139,9 @@
                        "SYS+descriptor_vecmap-SCRIPT^request"])]
           (doseq [request-map edn-script]
             (k/validate-names request-map "map" "request" nil nil env))
-          (a/>! operation-return-port [this-map nil nil]))
+          (a/>! operation-return-port [this-map nil]))
         (catch Exception e
-          (a/>! operation-return-port [this-map e nil]))))))
+          (a/>! operation-return-port [this-map e]))))))
 
 (defn create-context-operations
   [env]

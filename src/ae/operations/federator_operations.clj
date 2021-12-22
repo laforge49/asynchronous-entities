@@ -154,11 +154,10 @@
                         (val (first request))]
                     (k/validate-names request-params "map" "param" nil nil env)))
               _ (a/>! operation-return-port [this-map
-                                             nil
-                                             this-map])
+                                             nil])
               ])
         (catch Exception e
-          (a/>! operation-return-port [this-map e nil]))))))
+          (a/>! operation-return-port [this-map e]))))))
 
 (defn create-federator-operations
   [env]
