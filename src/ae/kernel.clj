@@ -148,13 +148,12 @@
   [request-return-value]
   (if (not (vector? request-return-value))
     (throw (Exception. (prn-str "Request return value is not a vector " request-return-value)))
-    (if (not= (count request-return-value) 2)
-      (throw (Exception. (prn-str "Request return value is not a 2-tuple " request-return-value)))
-      (let [[ex val]
+    (if (not= (count request-return-value) 1)
+      (throw (Exception. (prn-str "Request return value is not a 1-tuple " request-return-value)))
+      (let [[ex]
             request-return-value]
         (if (some? ex)
-          (throw ex)
-          val)))))
+          (throw ex))))))
 
 (defn federated?
   [this-map]
@@ -316,11 +315,11 @@
                                               (prn-str this-map)))))
                   this-map
                   (get-entity-map this-name)
-                  [this-map return-value]
+                  [this-map]
                   (case requestid
 
                     "SNAPSHOT"
-                    [this-map this-map]
+                    [this-map]
 
                     "PUSH-REQUEST-PORT"
                     (let [this-descriptors
@@ -333,7 +332,7 @@
                                                 (prn-str params)
                                                 (prn-str this-map)))))
                       (if (get this-descriptors "SYS+descriptor-INVARIANT$bool")
-                        [this-map [this-map nil]]
+                        [this-map]
                         (let [new-request-port
                               (get params "SYS+param-NEWrequestport")
                               this-map
@@ -342,14 +341,14 @@
                               (get env "SYS+env-FEDERATORname&federator")
                               this-map
                               (assoc this-map "SYS+facet-FEDERATORname&federator" federator-name)]
-                          [this-map [this-map new-request-port]])))
+                          [this-map])))
 
                     "RESET-REQUEST-PORT"
                     (let [this-map
                           (assoc this-map "SYS+facet_vec-REQUESTportSTACK$chan" (pop this-request-port-stack))
                           this-map
                           (assoc this-map "SYS+facet-FEDERATORname&federator" nil)]
-                      [this-map this-map])
+                      [this-map])
 
                     ;;DEFAULT
                     (let [
@@ -389,13 +388,13 @@
                           operation-return-value]
                       (if (some? e)
                         (throw e))
-                      [this-map return-value]
+                      [this-map]
                       ))]
               (assoc-entity-map this-name this-map)
-              (a/>! return-port [nil return-value])
+              (a/>! return-port [nil])
               this-name)
             (catch Exception e
-              (a/>! return-port [e nil])
+              (a/>! return-port [e])
               this-name)))
         (catch Exception e
           (stacktrace/print-stack-trace e)

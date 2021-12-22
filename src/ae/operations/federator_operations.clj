@@ -56,7 +56,7 @@
     (a/go-loop [federation-names-vec (reverse (sort federation-names))]
       (if (some? federation-names-vec)
         (if (empty? federation-names-vec)
-          (a/>! return-port [nil nil])
+          (a/>! return-port [nil])
           (let [federation-name
                 (peek federation-names-vec)
                 federation-request-port
@@ -72,8 +72,7 @@
                         _ (a/>! federation-request-port [env {"SYS+param-REQUESTID&requestid"      "PUSH-REQUEST-PORT"
                                                               "SYS+param-NEWrequestport" new-request-port
                                                               "SYS+param-RETURN$chan"    subrequest-return-port}])
-                        [snap new-request-port]
-                        (k/request-exception-check (a/<! subrequest-return-port))]
+                        _ (k/request-exception-check (a/<! subrequest-return-port))]
                     federation-names-vec)
                   (catch Exception e
                     (a/>! return-port [e nil])
