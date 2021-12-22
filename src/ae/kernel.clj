@@ -392,8 +392,7 @@
                       [this-map return-value]
                       ))]
               (assoc-entity-map this-name this-map)
-              (if (not= return-value :NO-RETURN)
-                (a/>! return-port [nil return-value]))
+              (a/>! return-port [nil return-value])
               this-name)
             (catch Exception e
               (a/>! return-port [e nil])
