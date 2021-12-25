@@ -14,5 +14,7 @@
     "todo"
   ],
   "showUnsupportedFiles": true,
-  "attachmentFolderPath": "/"
+  "attachmentFolderPath": "/",
+  "legacyEditor": false,
+  "livePreview": true
 }
