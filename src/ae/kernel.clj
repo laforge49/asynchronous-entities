@@ -576,6 +576,8 @@
               (throw (Exception. (str "There is no name type for " (pr-str edn)))))
             (if (and (not= parent-ntyp "?") (not= typ parent-ntyp))
               (throw (Exception. (str (pr-str edn) " is not of name type " parent-ntyp))))
+            (if (nil? (get-entity-map edn))
+              (throw (Exception. (str "No such entity: " (pr-str edn)))))
             ))))
 
     (vector? edn)
