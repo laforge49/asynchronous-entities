@@ -36,6 +36,10 @@
     param-NAME&?: param-REQUESTID&requestid
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
+    param-TARGETname&?: class-PARAM
+    param-NAME&?: param-TARGETname&?
+- request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&?: class-CLASS
     param-NAME&?: class-REQUESTID
     param_map-DESCRIPTORS^descriptor:
