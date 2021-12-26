@@ -44,6 +44,10 @@ SYS+gem_map-FACETS^facet:
               SYS+requestid-ENTITYreport:
               - ENTITY_REPORToperationid
     - SYS+request_map-REQUEST^param:
+        SYS+param-NAME&%: SYS+param-CONTENT$str
+        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
+        SYS+param-TARGETname&%: SYS+class-PARAM
+    - SYS+request_map-REQUEST^param:
         SYS+param-NAME&%: SYS+param-NAME&%
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
         SYS+param-TARGETname&%: SYS+class-PARAM
@@ -204,10 +208,10 @@ SYS+gem_map-FACETS^facet:
               SYS+requestid-RUNfederation:
               - RUN_FEDERATIONoperationid
     - SYS+request_map-REQUEST^param:
+        SYS+param-CONTENT$str: "this is a test same line \ndifferent line"
         SYS+param-NAME&%: SYS+context-TEST
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
         SYS+param-TARGETname&%: SYS+class-CONTEXT
-        SYS+param-content$str: "this is a test same line \ndifferent line"
         SYS+param_map-CLASSIFIERS^classifier:
           SYS+classifier_vec-RESOURCES&context:
           - context-SYS
@@ -251,6 +255,7 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+descriptor_map-INSTANCE^descriptor
     entity:      SYS+descriptor_mapvec-REQUESTS^requestid$str
   value:       SYS+class-PARAM
+    entity:      SYS+param-CONTENT$str
     entity:      SYS+param-NAME&%
     entity:      SYS+param-REQUESTID&requestid
     entity:      SYS+param-TARGETname&%

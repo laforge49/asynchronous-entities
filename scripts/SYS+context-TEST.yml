@@ -15,7 +15,7 @@
     SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
     SYS+param-TARGETname&%: class-SIMPLE
     SYS+param-NAME&%: simple-ALPHA
-    SYS+param-content$str:
+    SYS+param-CONTENT$str:
       "this is a test
       same line
       \ndifferent line"

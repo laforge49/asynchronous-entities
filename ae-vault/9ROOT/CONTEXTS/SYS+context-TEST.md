@@ -33,10 +33,10 @@ gem_map-FACETS^facet:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
     - request_map-REQUEST^param:
+        param-CONTENT$str: "this is a test same line \ndifferent line"
         param-NAME&%: TEST+simple-ALPHA
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: TEST+class-SIMPLE
-        param-content$str: "this is a test same line \ndifferent line"
     - request_map-REQUEST^param:
         param-NAME&%: TEST+simple-BETA
         param-REQUESTID&requestid: requestid-INSTANTIATE

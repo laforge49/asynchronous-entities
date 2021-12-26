@@ -410,7 +410,7 @@
         classifiers
         (get params "SYS+param_map-CLASSIFIERS^classifier" (sorted-map))
         content
-        (get params "SYS+param-content$str" "")
+        (get params "SYS+param-CONTENT$str" "")
         invariant
         (get descriptors "SYS+descriptor-INVARIANT$bool")
         initialization-port
