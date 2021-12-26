@@ -14,7 +14,7 @@
 
 (defn refresh-entity-map
   [entity-map]
-  (get-entity-map (get entity-map "SYS+facet-NAME&?")))
+  (get-entity-map (get entity-map "SYS+facet-NAME&%")))
 
 (defn assoc-entity-map
   [name entity-map]
@@ -22,7 +22,7 @@
 
 (defn save-entity-map
   [entity-map]
-  (assoc-entity-map (get entity-map "SYS+facet-NAME&?") entity-map))
+  (assoc-entity-map (get entity-map "SYS+facet-NAME&%") entity-map))
 
 (def classifier-values-map-atom
   (atom {}))
@@ -105,7 +105,7 @@
   (let [entity-map
         (get-entity-map entity-name)
         new-children-map
-        @(get env "SYS+env_volmap-CHILDREN&?")]
+        @(get env "SYS+env_volmap-CHILDREN&%")]
     (if (nil? (get new-children-map entity-name))
       nil
       entity-map)))
@@ -210,7 +210,7 @@
                 true
                 (get request-descriptors "SYS+descriptor-READonly$bool"))]
           (if (not read-only)
-            (throw (Exception. (str "Can not apply " requestid " to invariant " (get target-map "SYS+facet-NAME&?")
+            (throw (Exception. (str "Can not apply " requestid " to invariant " (get target-map "SYS+facet-NAME&%")
                                     (prn-str params)
                                     (prn-str target-map))))))))
     operationids))
@@ -219,7 +219,7 @@
   [env this-map params]
   (save-entity-map this-map)
   (let [target-name
-        (get params "SYS+param-TARGETname&?")
+        (get params "SYS+param-TARGETname&%")
         target-map
         (get-federated-map target-name env)
         target-map
@@ -420,13 +420,13 @@
           request-port-stack
           (conj request-port-stack initialization-port))
         name
-        (get params "SYS+param-NAME&?")
+        (get params "SYS+param-NAME&%")
         new-entity-map
-        {"SYS+facet-NAME&?"                          name
+        {"SYS+facet-NAME&%"                          name
          "SYS+facet_map-DESCRIPTORS^descriptor"      descriptors
          "SYS+facet_map-CLASSIFIERS^classifier"      classifiers
-         "SYS+facet_map-RELATIONS^relation&?"        (sorted-map)
-         "SYS+facet_map-INVERSErelations^relation&?" (sorted-map)
+         "SYS+facet_map-RELATIONS^relation&%"        (sorted-map)
+         "SYS+facet_map-INVERSErelations^relation&%" (sorted-map)
          "SYS+facet-CONTENT$str"                     content
          "SYS+facet_vec-REQUESTportSTACK$chan"       request-port-stack}
         ]
@@ -447,7 +447,7 @@
         (str "SYS+context-" entity-context-base-name)))))
 
 (def styp-set
-  #{"map" "vec" "mapmap" "mapvec" "vecmap" "map?"})
+  #{"map" "vec" "mapmap" "mapvec" "vecmap"})
 
 (def dtyp-set
   #{"bool" "str" "chan"})
@@ -563,9 +563,9 @@
   [edn parent-styp parent-ktyp parent-ntyp parent-dtyp env]
   (cond
     (string? edn)
-    (if (and (some? parent-styp) (not= parent-styp "?"))
+    (if (and (some? parent-styp) (not= parent-styp "%"))
       (throw (Exception. (str (pr-str edn) " is a scalar, not structure type " (pr-str parent-styp))))
-      (if (and (some? parent-ktyp) (not= parent-ktyp "?"))
+      (if (and (some? parent-ktyp) (not= parent-ktyp "%"))
         (throw (Exception. (str (pr-str edn) " is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
         (if (some? parent-dtyp)
           (if (not= parent-dtyp "str")
@@ -574,13 +574,13 @@
                 (parse-entity-name edn)]
             (if (nil? parent-ntyp)
               (throw (Exception. (str "There is no name type for " (pr-str edn)))))
-            (if (and (not= parent-ntyp "?") (not= typ parent-ntyp))
+            (if (and (not= parent-ntyp "%") (not= typ parent-ntyp))
               (throw (Exception. (str (pr-str edn) " is not of name type " parent-ntyp))))
             (if (nil? (get-entity-map edn))
               (println "No such entity: " (pr-str edn)))))))
 
     (vector? edn)
-    (if (and (not (s/starts-with? parent-styp "vec")) (not= parent-styp "?"))
+    (if (and (not (s/starts-with? parent-styp "vec")) (not= parent-styp "%"))
       (throw (Exception. (str (pr-str edn) " is a vector, not structure typ " (pr-str parent-styp))))
       (let [styp
             (if (= parent-styp "vecmap")
@@ -599,28 +599,26 @@
                 "map"
                 (if (= parent-styp "mapvec")
                   "vec"
-                  (if (= parent-styp "map?")
-                    "?"
-                    (if (= parent-styp "map")
-                      styp
-                      (throw (Exception. (str (pr-str edn) " is a map, not structure typ " (pr-str parent-styp))))))))
-              _ (if (and (not= parent-ktyp "?") (not= typ parent-ktyp))
+                  (if (= parent-styp "map")
+                    styp
+                    (throw (Exception. (str (pr-str edn) " is a map, not structure typ " (pr-str parent-styp)))))))
+              _ (if (and (not= parent-ktyp "%") (not= typ parent-ktyp))
                   (throw (Exception. (str (pr-str k) " is not the expected key type: " (pr-str parent-ktyp)))))
               ktyp
-              (if (= parent-ktyp "?")
-                "?"
+              (if (= parent-ktyp "%")
+                "%"
                 ktyp)
               [ntyp dtyp]
               (if (or (some? parent-ntyp) (some? parent-dtyp))
                 [parent-ntyp parent-dtyp]
                 [ntyp dtyp])]
-          (validate-names k nil nil "?" nil env)
+          (validate-names k nil nil "%" nil env)
           (validate-names v styp ktyp ntyp dtyp env))))
 
     (boolean? edn)
-    (if (and (some? parent-styp) (not= parent-styp "?"))
+    (if (and (some? parent-styp) (not= parent-styp "%"))
       (throw (Exception. (str (pr-str edn) " is a scalar, not structure typ " (pr-str parent-styp))))
-      (if (and (some? parent-ktyp) (not= parent-ktyp "?"))
+      (if (and (some? parent-ktyp) (not= parent-ktyp "%"))
         (throw (Exception. (str (pr-str edn) " is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
         (if (not= parent-dtyp "bool")
           (throw (Exception. (str (pr-str edn) "is boolean, not "
@@ -629,9 +627,9 @@
                                     parent-dtyp)))))))
 
     (= (class edn) clojure.core.async.impl.channels.ManyToManyChannel)
-    (if (and (some? parent-styp) (not= parent-styp "?"))
+    (if (and (some? parent-styp) (not= parent-styp "%"))
       (throw (Exception. (str "clojure.core.async.chan is a scalar, not structure typ " (pr-str parent-styp))))
-      (if (and (some? parent-ktyp) (not= parent-ktyp "?"))
+      (if (and (some? parent-ktyp) (not= parent-ktyp "%"))
         (throw (Exception. (str "clojure.core.async.chan is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
         (if (not= parent-dtyp "chan")
           (throw (Exception. (str "clojure.core.async.chan is not "
@@ -732,7 +730,7 @@
               (if (or (some? parent-ntyp) (some? parent-dtyp))
                 [parent-ntyp parent-dtyp]
                 [ntyp dtyp])]
-          (assoc m (bind-context- local-context resources-set k nil nil "?" nil env)
+          (assoc m (bind-context- local-context resources-set k nil nil "%" nil env)
                    (bind-context- local-context resources-set v styp ktyp ntyp dtyp env))))
       (sorted-map)
       edn)
@@ -755,7 +753,7 @@
 (defn parse-bind-script
   [yaml-script this-map env]
   (let [full-local-context
-        (get this-map "SYS+facet-NAME&?")
+        (get this-map "SYS+facet-NAME&%")
         edn-script
         (yaml/parse-raw yaml-script)]
     (reduce

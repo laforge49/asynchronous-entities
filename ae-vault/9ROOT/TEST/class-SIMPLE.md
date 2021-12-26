@@ -1,7 +1,7 @@
 ---
 SYS+gem_map-FACETS^facet:
   SYS+facet-CONTENT$str: ''
-  SYS+facet-NAME&?: class-SIMPLE
+  SYS+facet-NAME&%: class-SIMPLE
   SYS+facet_map-CLASSIFIERS^classifier:
     SYS+classifier-CLASS&class: SYS+class-CLASS
   SYS+facet_map-DESCRIPTORS^descriptor:

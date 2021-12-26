@@ -10,9 +10,9 @@
 (defn registerEntityOperation
   [env this-map params]
   (let [this-name
-        (get this-map "SYS+facet-NAME&?")
+        (get this-map "SYS+facet-NAME&%")
         name
-        (get params "SYS+param-NAME&?")
+        (get params "SYS+param-NAME&%")
         _ (if (some? (get params "SYS+param-INITIALIZATIONport"))
             (throw (Exception. (str "An initialization port is not compatible with non-federated registration of entity "
                                     name))))
@@ -46,7 +46,7 @@
           (get params "SYS+param-OPERATIONreturnport")]
       (try
         (let [this-name
-              (get this-map "SYS+facet-NAME&?")
+              (get this-map "SYS+facet-NAME&%")
               file-name
               (str "ae-vault/9ROOT/CONTEXTS/" this-name ".md")
               heading
@@ -78,7 +78,7 @@
                   (if (s/starts-with? entity-name context-prefix)
                     (conj requests {"SYS+request_map-REQUEST^param"
                                     {"SYS+param-REQUESTID&requestid" "SYS+requestid-ENTITYreport"
-                                     "SYS+param-TARGETname&?"        entity-name}})
+                                     "SYS+param-TARGETname&%"        entity-name}})
                     requests))
                 []
                 (keys entities-map))]
@@ -96,7 +96,7 @@
           (get params "SYS+param-OPERATIONreturnport")]
       (try
         (let [this-name
-              (get this-map "SYS+facet-NAME&?")
+              (get this-map "SYS+facet-NAME&%")
               script-path
               (str "scripts/" this-name ".yml")
               yaml-script

@@ -79,9 +79,9 @@
                           (throw (Exception. (str "Missing SYS+request_map-REQUEST^param\n"
                                                   :request " " (prn-str request)))))
                       target-name
-                      (get params "SYS+param-TARGETname&?")
+                      (get params "SYS+param-TARGETname&%")
                       _ (if (nil? target-name)
-                          (throw (Exception. (str "Missing SYS+param-TARGETname&?\n"
+                          (throw (Exception. (str "Missing SYS+param-TARGETname&%\n"
                                                   :params " " (prn-str params)))))
                       request-port
                       (k/get-public-request-port target-name)

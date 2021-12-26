@@ -1,7 +1,7 @@
 ---
 SYS+gem_map-FACETS^facet:
   SYS+facet-CONTENT$str: ''
-  SYS+facet-NAME&?: simple-GAMMA
+  SYS+facet-NAME&%: simple-GAMMA
   SYS+facet_map-CLASSIFIERS^classifier:
     SYS+classifier-CLASS&class: class-SIMPLE
   SYS+facet_map-DESCRIPTORS^descriptor:
@@ -13,7 +13,7 @@ SYS+gem_map-FACETS^facet:
       SYS+requestid-ENTITYreport:
       - ENTITY_REPORToperationid
     descriptor-DEGREEofPOLISH$str: MIDDLING
-  SYS+facet_map-RELATIONS^relation&?:
+  SYS+facet_map-RELATIONS^relation&%:
     relation_vec-BASIC:
     - simple-ALPHA
   SYS+facet_vec-REQUESTportSTACK$chan:

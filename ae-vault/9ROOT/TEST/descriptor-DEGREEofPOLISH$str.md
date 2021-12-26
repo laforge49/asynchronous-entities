@@ -1,7 +1,7 @@
 ---
 SYS+gem_map-FACETS^facet:
   SYS+facet-CONTENT$str: ''
-  SYS+facet-NAME&?: descriptor-DEGREEofPOLISH$str
+  SYS+facet-NAME&%: descriptor-DEGREEofPOLISH$str
   SYS+facet_map-CLASSIFIERS^classifier:
     SYS+classifier-CLASS&class: SYS+class-DESCRIPTOR
   SYS+facet_map-DESCRIPTORS^descriptor:

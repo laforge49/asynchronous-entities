@@ -10,9 +10,9 @@
 (defn instantiateFunction
   [env this-map params]
   (let [name
-        (get params "SYS+param-NAME&?")
+        (get params "SYS+param-NAME&%")
         this-name
-        (get this-map "SYS+facet-NAME&?")
+        (get this-map "SYS+facet-NAME&%")
         this-descriptors
         (get this-map "SYS+facet_map-DESCRIPTORS^descriptor")
         instantiation-descriptors
@@ -34,7 +34,7 @@
         [new-entity-public-request-port snap]
         (k/create-entity env params)
         new-children-volatile
-        (get env "SYS+env_volmap-CHILDREN&?")
+        (get env "SYS+env_volmap-CHILDREN&%")
         ]
     (k/assoc-entity-map name snap)
     (vswap! new-children-volatile assoc name new-entity-public-request-port)
@@ -43,11 +43,11 @@
 (defn instantiateOperation
   [env this-map params]
   (let [context-name
-        (get params "SYS+param-NAME&?")
+        (get params "SYS+param-NAME&%")
         target-name
         (k/entityContextName context-name)
         this-name
-        (get this-map "SYS+facet-NAME&?")
+        (get this-map "SYS+facet-NAME&%")
         this-descriptors
         (get this-map "SYS+facet_map-DESCRIPTORS^descriptor")
         instantiation-descriptors
@@ -61,7 +61,7 @@
         instantiation-classifiers
         (into instantiation-classifiers (get params "SYS+param_map-CLASSIFIERS^classifier"))]
     (into params {"SYS+param-REQUESTID&requestid"        "SYS+requestid-REGISTERentity"
-                  "SYS+param-TARGETname&?"               target-name
+                  "SYS+param-TARGETname&%"               target-name
                   "SYS+param_map-DESCRIPTORS^descriptor" instantiation-descriptors
                   "SYS+param_map-CLASSIFIERS^classifier" instantiation-classifiers})))
 
@@ -101,20 +101,20 @@
 (defn addRelationsFunction
   [env this-map params]
   (let [this-name
-        (get this-map "SYS+facet-NAME&?")
+        (get this-map "SYS+facet-NAME&%")
         _ (if (s/blank? this-name)
             (throw (Exception. "ADD RELATIONS requires a name on the entities being assigned a classifier")))
         [_ this-context _]
         (kw/name-as-keyword this-name)
         relations-map
-        (get params "SYS+param_map-relations^relation&?")
+        (get params "SYS+param_map-relations^relation&%")
         this-map
         (reduce
           (fn [this-map [relation new-relation-values]]
             (if (not (vector? new-relation-values))
               (throw (Exception. (str "ADD RELATIONS given a non-vector value for relation " relation ": " (prn-str new-relation-values)))))
             (let [relation-values
-                  (get-in this-map ["SYS+facet_map-RELATIONS^relation&?" relation] [])
+                  (get-in this-map ["SYS+facet_map-RELATIONS^relation&%" relation] [])
                   relation-values
                   (reduce
                     (fn [relation-values new-value]
@@ -128,20 +128,20 @@
                             _ (if (nil? obj-map)
                                 (throw (Exception. (str "Federation is required by addRelations for object " new-value))))
                             relation-subjects
-                            (get-in obj-map ["SYS+facet_map-INVERSErelations^relation&?" relation] [])
+                            (get-in obj-map ["SYS+facet_map-INVERSErelations^relation&%" relation] [])
                             i
                             (.indexOf relation-values new-value)
                             relation-values
                             (if (= i -1)
                               (let [obj-map
-                                    (assoc-in obj-map ["SYS+facet_map-INVERSErelations^relation&?" relation] (conj relation-subjects this-name))]
+                                    (assoc-in obj-map ["SYS+facet_map-INVERSErelations^relation&%" relation] (conj relation-subjects this-name))]
                                 (k/assoc-entity-map new-value obj-map)
                                 (conj relation-values new-value))
                               relation-values)]
                         relation-values))
                     relation-values
                     new-relation-values)]
-              (assoc-in this-map ["SYS+facet_map-RELATIONS^relation&?" relation] relation-values)))
+              (assoc-in this-map ["SYS+facet_map-RELATIONS^relation&%" relation] relation-values)))
           this-map
           relations-map)]
     [this-map this-map]))
@@ -153,7 +153,7 @@
           (get params "SYS+param-OPERATIONreturnport")]
       (try
         (let [this-name
-              (get this-map "SYS+facet-NAME&?")
+              (get this-map "SYS+facet-NAME&%")
               [name-kw context-base-name base-name]
               (kw/name-as-keyword this-name)
               file-name

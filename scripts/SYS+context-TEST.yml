@@ -1,7 +1,7 @@
 - SYS+request_map-REQUEST^param:
     SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-    SYS+param-TARGETname&?: SYS+class-CLASS
-    SYS+param-NAME&?: class-SIMPLE
+    SYS+param-TARGETname&%: SYS+class-CLASS
+    SYS+param-NAME&%: class-SIMPLE
     SYS+param_map-DESCRIPTORS^descriptor:
       SYS+descriptor_map-INSTANCE^descriptor:
         SYS+descriptor_mapvec-REQUESTS^requestid$str:
@@ -13,59 +13,59 @@
           - ENTITY_REPORToperationid
 - SYS+request_map-REQUEST^param:
     SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-    SYS+param-TARGETname&?: class-SIMPLE
-    SYS+param-NAME&?: simple-ALPHA
+    SYS+param-TARGETname&%: class-SIMPLE
+    SYS+param-NAME&%: simple-ALPHA
     SYS+param-content$str:
       "this is a test
       same line
       \ndifferent line"
 - SYS+request_map-REQUEST^param:
     SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-    SYS+param-TARGETname&?: class-SIMPLE
-    SYS+param-NAME&?: simple-BETA
+    SYS+param-TARGETname&%: class-SIMPLE
+    SYS+param-NAME&%: simple-BETA
 - SYS+request_map-REQUEST^param:
     SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-    SYS+param-TARGETname&?: SYS+class-RELATION
-    SYS+param-NAME&?: relation_vec-BASIC
+    SYS+param-TARGETname&%: SYS+class-RELATION
+    SYS+param-NAME&%: relation_vec-BASIC
 - SYS+request_map-REQUEST^param:
     SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-    SYS+param-TARGETname&?: SYS+class-DESCRIPTOR
-    SYS+param-NAME&?: descriptor-DEGREEofPOLISH$str
+    SYS+param-TARGETname&%: SYS+class-DESCRIPTOR
+    SYS+param-NAME&%: descriptor-DEGREEofPOLISH$str
 - SYS+request_map-REQUEST^param:
     SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-    SYS+param-TARGETname&?: SYS+class-FEDERATOR
-    SYS+param-NAME&?: federator-A
+    SYS+param-TARGETname&%: SYS+class-FEDERATOR
+    SYS+param-NAME&%: federator-A
     SYS+param_map-DESCRIPTORS^descriptor:
-      SYS+descriptor_vec-FEDERATIONnames&?:
+      SYS+descriptor_vec-FEDERATIONnames&%:
       - simple-ALPHA
       - simple-BETA
       SYS+descriptor_vecmap-SCRIPT^request:
       - SYS+request_map-REQUEST^param:
           SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-          SYS+param-TARGETname&?: class-SIMPLE
-          SYS+param-NAME&?: simple-GAMMA
+          SYS+param-TARGETname&%: class-SIMPLE
+          SYS+param-NAME&%: simple-GAMMA
       - SYS+request_map-REQUEST^param:
           SYS+param-REQUESTID&requestid: SYS+requestid-ADDdescriptors
-          SYS+param-TARGETname&?: simple-ALPHA
+          SYS+param-TARGETname&%: simple-ALPHA
           SYS+param_map-DESCRIPTORS^descriptor:
             descriptor-DEGREEofPOLISH$str: MIDDLING
       - SYS+request_map-REQUEST^param:
           SYS+param-REQUESTID&requestid: SYS+requestid-ADDdescriptors
-          SYS+param-TARGETname&?: simple-GAMMA
+          SYS+param-TARGETname&%: simple-GAMMA
           SYS+param_map-DESCRIPTORS^descriptor:
             descriptor-DEGREEofPOLISH$str: MIDDLING
       - SYS+request_map-REQUEST^param:
           SYS+param-REQUESTID&requestid: SYS+requestid-ADDrelations
-          SYS+param-TARGETname&?: simple-GAMMA
-          SYS+param_map-relations^relation&?:
+          SYS+param-TARGETname&%: simple-GAMMA
+          SYS+param_map-relations^relation&%:
             relation_vec-BASIC:
             - simple-ALPHA
       - SYS+request_map-REQUEST^param:
           SYS+param-REQUESTID&requestid: SYS+requestid-ADDrelations
-          SYS+param-TARGETname&?: simple-BETA
-          SYS+param_map-relations^relation&?:
+          SYS+param-TARGETname&%: simple-BETA
+          SYS+param_map-relations^relation&%:
             relation_vec-BASIC:
             - simple-ALPHA
 - SYS+request_map-REQUEST^param:
     SYS+param-REQUESTID&requestid: SYS+requestid-RUNfederation
-    SYS+param-TARGETname&?: federator-A
+    SYS+param-TARGETname&%: federator-A

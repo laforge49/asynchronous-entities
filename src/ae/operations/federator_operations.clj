@@ -37,7 +37,7 @@
                     _ (k/request-exception-check (a/<! subrequest-return-port))
                     _ (a/>! context-request-port [env {"SYS+param-REQUESTID&requestid"                  "SYS+requestid-REGISTERentity"
                                                        "SYS+param-ENTITYpublicREQUESTPORT"    entity-public-request-port
-                                                       "SYS+param-NAME&?"                     (get snap "SYS+facet-NAME&?")
+                                                       "SYS+param-NAME&%"                     (get snap "SYS+facet-NAME&%")
                                                        "SYS+param_map-CLASSIFIERS^classifier" (get snap "SYS+facet_map-CLASSIFIERS^classifier")
                                                        "SYS+param-RETURN$chan"                subrequest-return-port}])
                     _ (k/request-exception-check (a/<! subrequest-return-port))
@@ -110,22 +110,22 @@
           (get params "SYS+param-OPERATIONreturnport")]
       (try
         (let [this-name
-              (get this-map "SYS+facet-NAME&?")
+              (get this-map "SYS+facet-NAME&%")
               descriptors
               (get this-map "SYS+facet_map-DESCRIPTORS^descriptor")
               federation-names
-              (get descriptors "SYS+descriptor_vec-FEDERATIONnames&?")
+              (get descriptors "SYS+descriptor_vec-FEDERATIONnames&%")
               env
               (assoc env "SYS+env-FEDERATORname&federator" this-name)
               acquire-port
               (federation-acquire federation-names env)
               _ (k/request-exception-check (a/<! acquire-port))
               env
-              (assoc env "SYS+env_volmap-CHILDREN&?" (volatile! {}))
+              (assoc env "SYS+env_volmap-CHILDREN&%" (volatile! {}))
               script
               (get descriptors "SYS+descriptor_vecmap-SCRIPT^request")
               this-name
-              (get this-map "SYS+facet-NAME&?")
+              (get this-map "SYS+facet-NAME&%")
               local-context
               (k/entityContextName this-name)
               _ (doseq [request script]
@@ -136,13 +136,13 @@
                     (k/routeFunction env this-map request-params)))
               [e]
               (a/<! (registerChildren env
-                                      @(get env "SYS+env_volmap-CHILDREN&?")))
+                                      @(get env "SYS+env_volmap-CHILDREN&%")))
               _ (if (some? e)
                   (throw e))
               env
               (assoc env "SYS+env-FEDERATORname&federator" nil)
               env
-              (assoc env "SYS+env_volmap-CHILDREN&?" nil)
+              (assoc env "SYS+env_volmap-CHILDREN&%" nil)
               sub-return-port
               (federation-release env federation-names)
               [e]

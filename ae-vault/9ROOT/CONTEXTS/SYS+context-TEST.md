@@ -1,7 +1,7 @@
 ---
 gem_map-FACETS^facet:
   facet-CONTENT$str: "this is a test same line \ndifferent line"
-  facet-NAME&?: context-TEST
+  facet-NAME&%: context-TEST
   facet_map-CLASSIFIERS^classifier:
     classifier-CLASS&class: class-CONTEXT
     classifier_vec-RESOURCES&context:
@@ -20,9 +20,9 @@ gem_map-FACETS^facet:
       - VALIDATE_SCRIPT_NAMESoperationid
     descriptor_vecmap-SCRIPT^request:
     - request_map-REQUEST^param:
-        param-NAME&?: TEST+class-SIMPLE
+        param-NAME&%: TEST+class-SIMPLE
         param-REQUESTID&requestid: requestid-INSTANTIATE
-        param-TARGETname&?: class-CLASS
+        param-TARGETname&%: class-CLASS
         param_map-DESCRIPTORS^descriptor:
           descriptor_map-INSTANCE^descriptor:
             descriptor_mapvec-REQUESTS^requestid$str:
@@ -33,60 +33,60 @@ gem_map-FACETS^facet:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
     - request_map-REQUEST^param:
-        param-NAME&?: TEST+simple-ALPHA
+        param-NAME&%: TEST+simple-ALPHA
         param-REQUESTID&requestid: requestid-INSTANTIATE
-        param-TARGETname&?: TEST+class-SIMPLE
+        param-TARGETname&%: TEST+class-SIMPLE
         param-content$str: "this is a test same line \ndifferent line"
     - request_map-REQUEST^param:
-        param-NAME&?: TEST+simple-BETA
+        param-NAME&%: TEST+simple-BETA
         param-REQUESTID&requestid: requestid-INSTANTIATE
-        param-TARGETname&?: TEST+class-SIMPLE
+        param-TARGETname&%: TEST+class-SIMPLE
     - request_map-REQUEST^param:
-        param-NAME&?: TEST+relation_vec-BASIC
+        param-NAME&%: TEST+relation_vec-BASIC
         param-REQUESTID&requestid: requestid-INSTANTIATE
-        param-TARGETname&?: class-RELATION
+        param-TARGETname&%: class-RELATION
     - request_map-REQUEST^param:
-        param-NAME&?: TEST+descriptor-DEGREEofPOLISH$str
+        param-NAME&%: TEST+descriptor-DEGREEofPOLISH$str
         param-REQUESTID&requestid: requestid-INSTANTIATE
-        param-TARGETname&?: class-DESCRIPTOR
+        param-TARGETname&%: class-DESCRIPTOR
     - request_map-REQUEST^param:
-        param-NAME&?: TEST+federator-A
+        param-NAME&%: TEST+federator-A
         param-REQUESTID&requestid: requestid-INSTANTIATE
-        param-TARGETname&?: class-FEDERATOR
+        param-TARGETname&%: class-FEDERATOR
         param_map-DESCRIPTORS^descriptor:
-          descriptor_vec-FEDERATIONnames&?:
+          descriptor_vec-FEDERATIONnames&%:
           - TEST+simple-ALPHA
           - TEST+simple-BETA
           descriptor_vecmap-SCRIPT^request:
           - request_map-REQUEST^param:
-              param-NAME&?: TEST+simple-GAMMA
+              param-NAME&%: TEST+simple-GAMMA
               param-REQUESTID&requestid: requestid-INSTANTIATE
-              param-TARGETname&?: TEST+class-SIMPLE
+              param-TARGETname&%: TEST+class-SIMPLE
           - request_map-REQUEST^param:
               param-REQUESTID&requestid: requestid-ADDdescriptors
-              param-TARGETname&?: TEST+simple-ALPHA
+              param-TARGETname&%: TEST+simple-ALPHA
               param_map-DESCRIPTORS^descriptor:
                 TEST+descriptor-DEGREEofPOLISH$str: MIDDLING
           - request_map-REQUEST^param:
               param-REQUESTID&requestid: requestid-ADDdescriptors
-              param-TARGETname&?: TEST+simple-GAMMA
+              param-TARGETname&%: TEST+simple-GAMMA
               param_map-DESCRIPTORS^descriptor:
                 TEST+descriptor-DEGREEofPOLISH$str: MIDDLING
           - request_map-REQUEST^param:
               param-REQUESTID&requestid: requestid-ADDrelations
-              param-TARGETname&?: TEST+simple-GAMMA
-              param_map-relations^relation&?:
+              param-TARGETname&%: TEST+simple-GAMMA
+              param_map-relations^relation&%:
                 TEST+relation_vec-BASIC:
                 - TEST+simple-ALPHA
           - request_map-REQUEST^param:
               param-REQUESTID&requestid: requestid-ADDrelations
-              param-TARGETname&?: TEST+simple-BETA
-              param_map-relations^relation&?:
+              param-TARGETname&%: TEST+simple-BETA
+              param_map-relations^relation&%:
                 TEST+relation_vec-BASIC:
                 - TEST+simple-ALPHA
     - request_map-REQUEST^param:
         param-REQUESTID&requestid: requestid-RUNfederation
-        param-TARGETname&?: TEST+federator-A
+        param-TARGETname&%: TEST+federator-A
   facet_vec-REQUESTportSTACK$chan:
   - clojure.core.async.chan
 ---

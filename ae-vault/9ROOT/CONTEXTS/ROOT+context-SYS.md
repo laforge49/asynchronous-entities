@@ -1,7 +1,7 @@
 ---
 SYS+gem_map-FACETS^facet:
   SYS+facet-CONTENT$str: ''
-  SYS+facet-NAME&?: context-SYS
+  SYS+facet-NAME&%: context-SYS
   SYS+facet_map-DESCRIPTORS^descriptor:
     SYS+descriptor_mapvec-REQUESTS^requestid$str:
       SYS+requestid-ENTITYreport:
@@ -16,9 +16,9 @@ SYS+gem_map-FACETS^facet:
       - VALIDATE_SCRIPT_NAMESoperationid
     SYS+descriptor_vecmap-SCRIPT^request:
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+class-CLASS
+        SYS+param-NAME&%: SYS+class-CLASS
         SYS+param-REQUESTID&requestid: SYS+requestid-REGISTERentity
-        SYS+param-TARGETname&?: context-SYS
+        SYS+param-TARGETname&%: context-SYS
         SYS+param_map-DESCRIPTORS^descriptor:
           SYS+descriptor-INVARIANT$bool: true
           SYS+descriptor_map-INSTANCE^descriptor:
@@ -34,9 +34,9 @@ SYS+gem_map-FACETS^facet:
             SYS+requestid-INSTANTIATE:
             - INSTANTIATEoperationid
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+class-PARAM
+        SYS+param-NAME&%: SYS+class-PARAM
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-CLASS
+        SYS+param-TARGETname&%: SYS+class-CLASS
         SYS+param_map-DESCRIPTORS^descriptor:
           SYS+descriptor_map-INSTANCE^descriptor:
             SYS+descriptor-INVARIANT$bool: true
@@ -44,17 +44,17 @@ SYS+gem_map-FACETS^facet:
               SYS+requestid-ENTITYreport:
               - ENTITY_REPORToperationid
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+param-REQUESTID&requestid
+        SYS+param-NAME&%: SYS+param-REQUESTID&requestid
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-PARAM
+        SYS+param-TARGETname&%: SYS+class-PARAM
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+param_map-DESCRIPTORS^descriptor
+        SYS+param-NAME&%: SYS+param_map-DESCRIPTORS^descriptor
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-PARAM
+        SYS+param-TARGETname&%: SYS+class-PARAM
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+class-REQUESTID
+        SYS+param-NAME&%: SYS+class-REQUESTID
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-CLASS
+        SYS+param-TARGETname&%: SYS+class-CLASS
         SYS+param_map-DESCRIPTORS^descriptor:
           SYS+descriptor_map-INSTANCE^descriptor:
             SYS+descriptor-INVARIANT$bool: true
@@ -62,31 +62,31 @@ SYS+gem_map-FACETS^facet:
               SYS+requestid-ENTITYreport:
               - ENTITY_REPORToperationid
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+requestid-ADDrelations
+        SYS+param-NAME&%: SYS+requestid-ADDrelations
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-REQUESTID
+        SYS+param-TARGETname&%: SYS+class-REQUESTID
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+requestid-ADDdescriptors
+        SYS+param-NAME&%: SYS+requestid-ADDdescriptors
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-REQUESTID
+        SYS+param-TARGETname&%: SYS+class-REQUESTID
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+requestid-INSTANTIATE
+        SYS+param-NAME&%: SYS+requestid-INSTANTIATE
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-REQUESTID
+        SYS+param-TARGETname&%: SYS+class-REQUESTID
         SYS+param_map-DESCRIPTORS^descriptor:
           SYS+descriptor-READonly$bool: true
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+requestid-REGISTERentity
+        SYS+param-NAME&%: SYS+requestid-REGISTERentity
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-REQUESTID
+        SYS+param-TARGETname&%: SYS+class-REQUESTID
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+requestid-RUNfederation
+        SYS+param-NAME&%: SYS+requestid-RUNfederation
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-REQUESTID
+        SYS+param-TARGETname&%: SYS+class-REQUESTID
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+class-DESCRIPTOR
+        SYS+param-NAME&%: SYS+class-DESCRIPTOR
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-CLASS
+        SYS+param-TARGETname&%: SYS+class-CLASS
         SYS+param_map-DESCRIPTORS^descriptor:
           SYS+descriptor_map-INSTANCE^descriptor:
             SYS+descriptor-INVARIANT$bool: true
@@ -94,29 +94,29 @@ SYS+gem_map-FACETS^facet:
               SYS+requestid-ENTITYreport:
               - ENTITY_REPORToperationid
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+descriptor-READonly$bool
+        SYS+param-NAME&%: SYS+descriptor-READonly$bool
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-DESCRIPTOR
+        SYS+param-TARGETname&%: SYS+class-DESCRIPTOR
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+descriptor_mapvec-REQUESTS^requestid$str
+        SYS+param-NAME&%: SYS+descriptor_mapvec-REQUESTS^requestid$str
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-DESCRIPTOR
+        SYS+param-TARGETname&%: SYS+class-DESCRIPTOR
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+descriptor-INVARIANT$bool
+        SYS+param-NAME&%: SYS+descriptor-INVARIANT$bool
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-DESCRIPTOR
+        SYS+param-TARGETname&%: SYS+class-DESCRIPTOR
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+descriptor_map-INSTANCE^descriptor
+        SYS+param-NAME&%: SYS+descriptor_map-INSTANCE^descriptor
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-DESCRIPTOR
+        SYS+param-TARGETname&%: SYS+class-DESCRIPTOR
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+descriptor_map-INSTANCE^classifier
+        SYS+param-NAME&%: SYS+descriptor_map-INSTANCE^classifier
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-DESCRIPTOR
+        SYS+param-TARGETname&%: SYS+class-DESCRIPTOR
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+class-CLASSIFIER
+        SYS+param-NAME&%: SYS+class-CLASSIFIER
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-CLASS
+        SYS+param-TARGETname&%: SYS+class-CLASS
         SYS+param_map-DESCRIPTORS^descriptor:
           SYS+descriptor_map-INSTANCE^descriptor:
             SYS+descriptor-INVARIANT$bool: true
@@ -124,9 +124,9 @@ SYS+gem_map-FACETS^facet:
               SYS+requestid-ENTITYreport:
               - ENTITY_REPORToperationid
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+class-RELATION
+        SYS+param-NAME&%: SYS+class-RELATION
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-CLASS
+        SYS+param-TARGETname&%: SYS+class-CLASS
         SYS+param_map-DESCRIPTORS^descriptor:
           SYS+descriptor_map-INSTANCE^descriptor:
             SYS+descriptor-INVARIANT$bool: true
@@ -134,9 +134,9 @@ SYS+gem_map-FACETS^facet:
               SYS+requestid-ENTITYreport:
               - ENTITY_REPORToperationid
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+class-CONTEXT
+        SYS+param-NAME&%: SYS+class-CONTEXT
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-CLASS
+        SYS+param-TARGETname&%: SYS+class-CLASS
         SYS+param_map-DESCRIPTORS^descriptor:
           SYS+descriptor_map-INSTANCE^descriptor:
             SYS+descriptor_mapvec-REQUESTS^requestid$str:
@@ -151,9 +151,9 @@ SYS+gem_map-FACETS^facet:
               SYS+requestid-VALIDATEscriptNAMES:
               - VALIDATE_SCRIPT_NAMESoperationid
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+class-FEDERATOR
+        SYS+param-NAME&%: SYS+class-FEDERATOR
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-CLASS
+        SYS+param-TARGETname&%: SYS+class-CLASS
         SYS+param_map-DESCRIPTORS^descriptor:
           SYS+descriptor_map-INSTANCE^descriptor:
             SYS+descriptor_mapvec-REQUESTS^requestid$str:
@@ -162,25 +162,25 @@ SYS+gem_map-FACETS^facet:
               SYS+requestid-RUNfederation:
               - RUN_FEDERATIONoperationid
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&?: SYS+context-TEST
+        SYS+param-NAME&%: SYS+context-TEST
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&?: SYS+class-CONTEXT
+        SYS+param-TARGETname&%: SYS+class-CONTEXT
         SYS+param-content$str: "this is a test same line \ndifferent line"
         SYS+param_map-CLASSIFIERS^classifier:
           SYS+classifier_vec-RESOURCES&context:
           - context-SYS
     - SYS+request_map-REQUEST^param:
         SYS+param-REQUESTID&requestid: SYS+requestid-LOADscript
-        SYS+param-TARGETname&?: SYS+context-TEST
+        SYS+param-TARGETname&%: SYS+context-TEST
     - SYS+request_map-REQUEST^param:
         SYS+param-REQUESTID&requestid: SYS+requestid-EVALscript
-        SYS+param-TARGETname&?: SYS+context-TEST
+        SYS+param-TARGETname&%: SYS+context-TEST
     - SYS+request_map-REQUEST^param:
         SYS+param-REQUESTID&requestid: SYS+requestid-VALIDATEscriptNAMES
-        SYS+param-TARGETname&?: SYS+context-TEST
+        SYS+param-TARGETname&%: SYS+context-TEST
     - SYS+request_map-REQUEST^param:
         SYS+param-REQUESTID&requestid: SYS+requestid-ENTITYreport
-        SYS+param-TARGETname&?: context-SYS
+        SYS+param-TARGETname&%: context-SYS
   SYS+facet_vec-REQUESTportSTACK$chan:
   - clojure.core.async.chan
 ---

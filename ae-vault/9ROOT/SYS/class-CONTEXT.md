@@ -1,7 +1,7 @@
 ---
 gem_map-FACETS^facet:
   facet-CONTENT$str: ''
-  facet-NAME&?: class-CONTEXT
+  facet-NAME&%: class-CONTEXT
   facet_map-CLASSIFIERS^classifier:
     classifier-CLASS&class: class-CLASS
   facet_map-DESCRIPTORS^descriptor:

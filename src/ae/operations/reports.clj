@@ -27,7 +27,7 @@
 (defn front-matter
   [this-map env]
   (let [this-name
-        (get this-map "SYS+facet-NAME&?")
+        (get this-map "SYS+facet-NAME&%")
         [name-kw context-base-name base-name]
         (kw/name-as-keyword this-name)
         _ (k/validate-names this-map "map" "facet" nil nil env)
