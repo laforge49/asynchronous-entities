@@ -75,13 +75,13 @@ gem_map-FACETS^facet:
           - request_map-REQUEST^param:
               param-REQUESTID&requestid: requestid-ADDrelations
               param-TARGETname&%: TEST+simple-GAMMA
-              param_map-relations^relation&%:
+              param_map-RELATIONS^relation&%:
                 TEST+relation_vec-BASIC:
                 - TEST+simple-ALPHA
           - request_map-REQUEST^param:
               param-REQUESTID&requestid: requestid-ADDrelations
               param-TARGETname&%: TEST+simple-BETA
-              param_map-relations^relation&%:
+              param_map-RELATIONS^relation&%:
                 TEST+relation_vec-BASIC:
                 - TEST+simple-ALPHA
     - request_map-REQUEST^param:

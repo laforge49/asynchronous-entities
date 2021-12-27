@@ -31,13 +31,13 @@ SYS+gem_map-FACETS^facet:
     - SYS+request_map-REQUEST^param:
         SYS+param-REQUESTID&requestid: SYS+requestid-ADDrelations
         SYS+param-TARGETname&%: simple-GAMMA
-        SYS+param_map-relations^relation&%:
+        SYS+param_map-RELATIONS^relation&%:
           relation_vec-BASIC:
           - simple-ALPHA
     - SYS+request_map-REQUEST^param:
         SYS+param-REQUESTID&requestid: SYS+requestid-ADDrelations
         SYS+param-TARGETname&%: simple-BETA
-        SYS+param_map-relations^relation&%:
+        SYS+param_map-RELATIONS^relation&%:
           relation_vec-BASIC:
           - simple-ALPHA
   SYS+facet_vec-REQUESTportSTACK$chan:

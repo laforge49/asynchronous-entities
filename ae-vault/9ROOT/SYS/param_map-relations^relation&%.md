@@ -1,7 +1,7 @@
 ---
 gem_map-FACETS^facet:
   facet-CONTENT$str: ''
-  facet-NAME&%: param_map-relations^relation&%
+  facet-NAME&%: param_map-RELATIONS^relation&%
   facet_map-CLASSIFIERS^classifier:
     classifier-CLASS&class: class-PARAMmap
   facet_map-DESCRIPTORS^descriptor:
@@ -12,5 +12,5 @@ gem_map-FACETS^facet:
   facet_vec-REQUESTportSTACK$chan:
   - clojure.core.async.chan
 ---
-# Entity SYS+param_map-relations^relation&%
+# Entity SYS+param_map-RELATIONS^relation&%
 

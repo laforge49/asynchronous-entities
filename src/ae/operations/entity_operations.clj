@@ -107,7 +107,7 @@
         [_ this-context _]
         (kw/name-as-keyword this-name)
         relations-map
-        (get params "SYS+param_map-relations^relation&%")
+        (get params "SYS+param_map-RELATIONS^relation&%")
         this-map
         (reduce
           (fn [this-map [relation new-relation-values]]
