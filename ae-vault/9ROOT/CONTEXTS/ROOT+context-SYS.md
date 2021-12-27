@@ -228,6 +228,12 @@ SYS+gem_map-FACETS^facet:
         SYS+param_map-DESCRIPTORS^descriptor:
           SYS+descriptor-READonly$bool: true
     - SYS+request_map-REQUEST^param:
+        SYS+param-NAME&%: SYS+requestid-LOADscript
+        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
+        SYS+param-TARGETname&%: SYS+class-REQUESTID
+        SYS+param_map-DESCRIPTORS^descriptor:
+          SYS+descriptor-READonly$bool: true
+    - SYS+request_map-REQUEST^param:
         SYS+param-NAME&%: SYS+requestid-REGISTERentity
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
         SYS+param-TARGETname&%: SYS+class-REQUESTID
@@ -359,6 +365,7 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+requestid-ADDrelations
     entity:      SYS+requestid-ENTITYreport
     entity:      SYS+requestid-INSTANTIATE
+    entity:      SYS+requestid-LOADscript
     entity:      SYS+requestid-REGISTERentity
     entity:      SYS+requestid-RUNfederation
   value:       SYS+class-REQUESTmap
