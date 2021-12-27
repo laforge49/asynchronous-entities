@@ -248,6 +248,12 @@ SYS+gem_map-FACETS^facet:
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
         SYS+param-TARGETname&%: SYS+class-REQUESTID
     - SYS+request_map-REQUEST^param:
+        SYS+param-NAME&%: SYS+requestid-VALIDATEscriptNAMES
+        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
+        SYS+param-TARGETname&%: SYS+class-REQUESTID
+        SYS+param_map-DESCRIPTORS^descriptor:
+          SYS+descriptor-READonly$bool: true
+    - SYS+request_map-REQUEST^param:
         SYS+param-NAME&%: SYS+class-CLASSIFIER
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
         SYS+param-TARGETname&%: SYS+class-CLASS
@@ -375,6 +381,7 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+requestid-LOADscript
     entity:      SYS+requestid-REGISTERentity
     entity:      SYS+requestid-RUNfederation
+    entity:      SYS+requestid-VALIDATEscriptNAMES
   value:       SYS+class-REQUESTmap
     entity:      SYS+request_map-REQUEST^param
 classifier:  SYS+classifier_vec-RESOURCES&context
