@@ -126,6 +126,20 @@ SYS+gem_map-FACETS^facet:
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
         SYS+param-TARGETname&%: SYS+class-FACET
     - SYS+request_map-REQUEST^param:
+        SYS+param-NAME&%: SYS+class-FACETmap
+        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
+        SYS+param-TARGETname&%: SYS+class-CLASS
+        SYS+param_map-DESCRIPTORS^descriptor:
+          SYS+descriptor_map-INSTANCE^descriptor:
+            SYS+descriptor-INVARIANT$bool: true
+            SYS+descriptor_mapvec-REQUESTS^requestid$str:
+              SYS+requestid-ENTITYreport:
+              - ENTITY_REPORToperationid
+    - SYS+request_map-REQUEST^param:
+        SYS+param-NAME&%: SYS+facet_map-DESCRIPTORS^descriptor
+        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
+        SYS+param-TARGETname&%: SYS+class-FACETmap
+    - SYS+request_map-REQUEST^param:
         SYS+param-NAME&%: SYS+class-PARAM
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
         SYS+param-TARGETname&%: SYS+class-CLASS
@@ -307,6 +321,7 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+class-DESCRIPTORvec
     entity:      SYS+class-DESCRIPTORvecmap
     entity:      SYS+class-FACET
+    entity:      SYS+class-FACETmap
     entity:      SYS+class-FEDERATOR
     entity:      SYS+class-PARAM
     entity:      SYS+class-PARAMmap
@@ -329,6 +344,8 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+descriptor_vecmap-SCRIPT^request
   value:       SYS+class-FACET
     entity:      SYS+facet-NAME&%
+  value:       SYS+class-FACETmap
+    entity:      SYS+facet_map-DESCRIPTORS^descriptor
   value:       SYS+class-PARAM
     entity:      SYS+param-CONTENT$str
     entity:      SYS+param-NAME&%
