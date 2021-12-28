@@ -126,6 +126,16 @@ SYS+gem_map-FACETS^facet:
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
         SYS+param-TARGETname&%: SYS+class-DESCRIPTORvec
     - SYS+request_map-REQUEST^param:
+        SYS+param-NAME&%: SYS+class-RELATION
+        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
+        SYS+param-TARGETname&%: SYS+class-CLASS
+        SYS+param_map-DESCRIPTORS^descriptor:
+          SYS+descriptor_map-INSTANCE^descriptor:
+            SYS+descriptor-INVARIANT$bool: true
+            SYS+descriptor_mapvec-REQUESTS^requestid$str:
+              SYS+requestid-ENTITYreport:
+              - ENTITY_REPORToperationid
+    - SYS+request_map-REQUEST^param:
         SYS+param-NAME&%: SYS+class-DESCRIPTORvecmap
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
         SYS+param-TARGETname&%: SYS+class-CLASS
@@ -315,16 +325,6 @@ SYS+gem_map-FACETS^facet:
         SYS+param-TARGETname&%: SYS+class-REQUESTID
         SYS+param_map-DESCRIPTORS^descriptor:
           SYS+descriptor-READonly$bool: true
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-RELATION
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor-INVARIANT$bool: true
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
-              - ENTITY_REPORToperationid
     - SYS+request_map-REQUEST^param:
         SYS+param-NAME&%: SYS+class-CONTEXT
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE

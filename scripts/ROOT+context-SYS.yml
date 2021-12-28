@@ -118,6 +118,17 @@
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-CLASS
+    param-NAME&%: class-RELATION
+    param_map-DESCRIPTORS^descriptor:
+      descriptor_map-INSTANCE^descriptor:
+        descriptor-INVARIANT$bool: true
+        descriptor_mapvec-REQUESTS^requestid$str:
+          requestid-ENTITYreport:
+            - ENTITY_REPORToperationid
+#
+- request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-INSTANTIATE
+    param-TARGETname&%: class-CLASS
     param-NAME&%: class-DESCRIPTORvecmap
     param_map-DESCRIPTORS^descriptor:
       descriptor_map-INSTANCE^descriptor:
@@ -316,16 +327,6 @@
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-CLASS
-    param-NAME&%: class-RELATION
-    param_map-DESCRIPTORS^descriptor:
-      descriptor_map-INSTANCE^descriptor:
-        descriptor-INVARIANT$bool: true
-        descriptor_mapvec-REQUESTS^requestid$str:
-          requestid-ENTITYreport:
-            - ENTITY_REPORToperationid
-- request_map-REQUEST^param:
-    param-REQUESTID&requestid: requestid-INSTANTIATE
-    param-TARGETname&%: class-CLASS
     param-NAME&%: class-CONTEXT
     param_map-DESCRIPTORS^descriptor:
       descriptor_map-INSTANCE^descriptor:
@@ -340,6 +341,7 @@
             - EVAL_SCRIPToperationid
           requestid-VALIDATEscriptNAMES:
             - VALIDATE_SCRIPT_NAMESoperationid
+#
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-CLASS
@@ -351,6 +353,7 @@
             - RUN_FEDERATIONoperationid
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
+#
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-CONTEXT
@@ -362,6 +365,7 @@
     param_map-CLASSIFIERS^classifier:
       classifier_vec-RESOURCES&context:
         - ROOT+context-SYS
+#
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-LOADscript
     param-TARGETname&%: context-TEST
