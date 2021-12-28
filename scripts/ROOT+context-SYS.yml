@@ -128,6 +128,10 @@
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-FACET
+    param-NAME&%: facet-CONTENT$str
+- request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-INSTANTIATE
+    param-TARGETname&%: class-FACET
     param-NAME&%: facet-NAME&%
 #
 - request_map-REQUEST^param:
