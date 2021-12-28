@@ -1,7 +1,7 @@
 ---
 gem_map-FACETS^facet:
   facet-CONTENT$str: ''
-  facet-NAME&%: class-CLASSIFIER
+  facet-NAME&%: class-CLASSIFIERvec
   facet_map-CLASSIFIERS^classifier:
     classifier-CLASS&class: class-CLASS
   facet_map-DESCRIPTORS^descriptor:
@@ -19,5 +19,5 @@ gem_map-FACETS^facet:
   facet_vec-REQUESTportSTACK$chan:
   - clojure.core.async.chan
 ---
-# Entity SYS+class-CLASSIFIER
+# Entity SYS+class-CLASSIFIERvec
 
