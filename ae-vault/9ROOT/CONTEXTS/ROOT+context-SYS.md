@@ -158,6 +158,10 @@ SYS+gem_map-FACETS^facet:
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
         SYS+param-TARGETname&%: SYS+class-FACETmap
     - SYS+request_map-REQUEST^param:
+        SYS+param-NAME&%: SYS+facet_map-RELATIONS^relation&%
+        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
+        SYS+param-TARGETname&%: SYS+class-FACETmap
+    - SYS+request_map-REQUEST^param:
         SYS+param-NAME&%: SYS+class-PARAM
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
         SYS+param-TARGETname&%: SYS+class-CLASS
@@ -379,6 +383,7 @@ classifier:  SYS+classifier-CLASS&class
   value:       SYS+class-FACETmap
     entity:      SYS+facet_map-CLASSIFIERS^classifier
     entity:      SYS+facet_map-DESCRIPTORS^descriptor
+    entity:      SYS+facet_map-RELATIONS^relation&%
   value:       SYS+class-PARAM
     entity:      SYS+param-CONTENT$str
     entity:      SYS+param-NAME&%
