@@ -740,15 +740,15 @@
 
 (defn bind-context
   [full-context-name edn styp ktyp ntyp dtyp env]
-  (let [resources-set
-        (get-resources-set full-context-name)
-        [_ _ base-name]
+  (let [[_ _ context-base-name]
         (kw/name-as-keyword full-context-name)
-        base-name
-        (if (s/starts-with? base-name "context-")
-          (subs base-name 8)
-          base-name)]
-    (bind-context- base-name resources-set edn styp ktyp ntyp dtyp env)))
+        short-context-name
+        (if (s/starts-with? context-base-name "context-")
+          (subs context-base-name 8)
+          context-base-name)
+        resources-set
+        (get-resources-set full-context-name)]
+    (bind-context- short-context-name resources-set edn styp ktyp ntyp dtyp env)))
 
 (defn parse-bind-script
   [yaml-script this-map env]
