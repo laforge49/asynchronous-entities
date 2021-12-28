@@ -80,6 +80,31 @@ SYS+gem_map-FACETS^facet:
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
         SYS+param-TARGETname&%: SYS+class-DESCRIPTOR
     - SYS+request_map-REQUEST^param:
+        SYS+param-NAME&%: SYS+class-CONTEXT
+        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
+        SYS+param-TARGETname&%: SYS+class-CLASS
+        SYS+param_map-DESCRIPTORS^descriptor:
+          SYS+descriptor_map-INSTANCE^descriptor:
+            SYS+descriptor_mapvec-REQUESTS^requestid$str:
+              SYS+requestid-ENTITYreport:
+              - CONTEXT_REPORToperationid
+              SYS+requestid-EVALscript:
+              - EVAL_SCRIPToperationid
+              SYS+requestid-LOADscript:
+              - LOAD_SCRIPToperationid
+              SYS+requestid-REGISTERentity:
+              - REGISTER_ENTITYoperationid
+              SYS+requestid-VALIDATEscriptNAMES:
+              - VALIDATE_SCRIPT_NAMESoperationid
+    - SYS+request_map-REQUEST^param:
+        SYS+param-CONTENT$str: "this is a test same line \ndifferent line"
+        SYS+param-NAME&%: SYS+context-TEST
+        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
+        SYS+param-TARGETname&%: SYS+class-CONTEXT
+        SYS+param_map-CLASSIFIERS^classifier:
+          SYS+classifier_vec-RESOURCES&context:
+          - context-SYS
+    - SYS+request_map-REQUEST^param:
         SYS+param-NAME&%: SYS+class-DESCRIPTORmap
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
         SYS+param-TARGETname&%: SYS+class-CLASS
@@ -326,23 +351,6 @@ SYS+gem_map-FACETS^facet:
         SYS+param_map-DESCRIPTORS^descriptor:
           SYS+descriptor-READonly$bool: true
     - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-CONTEXT
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
-              - CONTEXT_REPORToperationid
-              SYS+requestid-EVALscript:
-              - EVAL_SCRIPToperationid
-              SYS+requestid-LOADscript:
-              - LOAD_SCRIPToperationid
-              SYS+requestid-REGISTERentity:
-              - REGISTER_ENTITYoperationid
-              SYS+requestid-VALIDATEscriptNAMES:
-              - VALIDATE_SCRIPT_NAMESoperationid
-    - SYS+request_map-REQUEST^param:
         SYS+param-NAME&%: SYS+class-FEDERATOR
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
         SYS+param-TARGETname&%: SYS+class-CLASS
@@ -353,14 +361,6 @@ SYS+gem_map-FACETS^facet:
               - ENTITY_REPORToperationid
               SYS+requestid-RUNfederation:
               - RUN_FEDERATIONoperationid
-    - SYS+request_map-REQUEST^param:
-        SYS+param-CONTENT$str: "this is a test same line \ndifferent line"
-        SYS+param-NAME&%: SYS+context-TEST
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CONTEXT
-        SYS+param_map-CLASSIFIERS^classifier:
-          SYS+classifier_vec-RESOURCES&context:
-          - context-SYS
     - SYS+request_map-REQUEST^param:
         SYS+param-REQUESTID&requestid: SYS+requestid-LOADscript
         SYS+param-TARGETname&%: SYS+context-TEST
