@@ -180,6 +180,10 @@ SYS+gem_map-FACETS^facet:
               SYS+requestid-ENTITYreport:
               - ENTITY_REPORToperationid
     - SYS+request_map-REQUEST^param:
+        SYS+param-NAME&%: SYS+facet_vec-REQUESTportSTACK$chan
+        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
+        SYS+param-TARGETname&%: SYS+class-FACETvec
+    - SYS+request_map-REQUEST^param:
         SYS+param-NAME&%: SYS+class-PARAM
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
         SYS+param-TARGETname&%: SYS+class-CLASS
@@ -405,6 +409,8 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+facet_map-DESCRIPTORS^descriptor
     entity:      SYS+facet_map-INVERSErelations^relation&%
     entity:      SYS+facet_map-RELATIONS^relation&%
+  value:       SYS+class-FACETvec
+    entity:      SYS+facet_vec-REQUESTportSTACK$chan
   value:       SYS+class-PARAM
     entity:      SYS+param-CONTENT$str
     entity:      SYS+param-NAME&%

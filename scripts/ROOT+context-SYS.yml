@@ -171,6 +171,10 @@
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
+- request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-INSTANTIATE
+    param-TARGETname&%: class-FACETvec
+    param-NAME&%: facet_vec-REQUESTportSTACK$chan
 #
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
