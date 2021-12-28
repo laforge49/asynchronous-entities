@@ -164,6 +164,17 @@
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-CLASS
+    param-NAME&%: class-FACETvec
+    param_map-DESCRIPTORS^descriptor:
+      descriptor_map-INSTANCE^descriptor:
+        descriptor-INVARIANT$bool: true
+        descriptor_mapvec-REQUESTS^requestid$str:
+          requestid-ENTITYreport:
+            - ENTITY_REPORToperationid
+#
+- request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-INSTANTIATE
+    param-TARGETname&%: class-CLASS
     param-NAME&%: class-PARAM
     param_map-DESCRIPTORS^descriptor:
       descriptor_map-INSTANCE^descriptor:
