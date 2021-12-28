@@ -693,16 +693,33 @@
     (if (some? parent-dtyp)
       edn
       (let [ndx
-            (s/index-of edn "+")]
+            (s/index-of edn "+")
+            un-edn
+            (if (some? ndx)
+              (subs edn (inc ndx))
+              edn)
+            full-edn
+            (reduce
+              (fn [full-edn resource]
+                (if (some? full-edn)
+                  full-edn
+                  (let [full-edn
+                        (str resource "+" un-edn)]
+                    (if (some? (get-entity-map full-edn))
+                      full-edn
+                      nil))))
+              nil
+              resources-set)
+            full-edn
+            (if (some? full-edn)
+              full-edn
+              (if (= un-edn "context-SYS")
+                "ROOT+context-SYS"
+                (str local-context "+" un-edn)))]
         (if (some? ndx)
-          (let [ctx
-                (subs edn 0 ndx)]
-            (if (contains? resources-set ctx)
-              edn
-              (if (= edn "ROOT+context-SYS")
-                edn
-                (throw (Exception. (str "Undeclared resource used by " edn " in context " local-context))))))
-          (str local-context "+" edn))))
+          (if (not= edn full-edn)
+            (throw (Exception. (str edn " should have been " full-edn)))))
+        full-edn))
 
     (vector? edn)
     (let [styp
