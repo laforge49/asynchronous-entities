@@ -32,14 +32,11 @@
         (kw/name-as-keyword this-name)
         _ (k/validate-names this-map "map" "facet" nil nil env)
         facets
-        (k/unbind-context (str context-base-name "+")
-                          this-map
+        (k/unbind-context this-map
                           nil
                           env)
         fm
-        {(if (= context-base-name "SYS")
-           "gem_map-FACETS^facet"
-           "SYS+gem_map-FACETS^facet")
+        {"gem_map-FACETS^facet"
 
          facets}]
     (str "---\n"

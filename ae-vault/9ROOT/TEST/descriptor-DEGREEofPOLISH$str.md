@@ -1,15 +1,15 @@
 ---
-SYS+gem_map-FACETS^facet:
-  SYS+facet-CONTENT$str: ''
-  SYS+facet-NAME&%: descriptor-DEGREEofPOLISH$str
-  SYS+facet_map-CLASSIFIERS^classifier:
-    SYS+classifier-CLASS&class: SYS+class-DESCRIPTOR
-  SYS+facet_map-DESCRIPTORS^descriptor:
-    SYS+descriptor-INVARIANT$bool: true
-    SYS+descriptor_mapvec-REQUESTS^requestid$str:
-      SYS+requestid-ENTITYreport:
+gem_map-FACETS^facet:
+  facet-CONTENT$str: ''
+  facet-NAME&%: descriptor-DEGREEofPOLISH$str
+  facet_map-CLASSIFIERS^classifier:
+    classifier-CLASS&class: class-DESCRIPTOR
+  facet_map-DESCRIPTORS^descriptor:
+    descriptor-INVARIANT$bool: true
+    descriptor_mapvec-REQUESTS^requestid$str:
+      requestid-ENTITYreport:
       - ENTITY_REPORToperationid
-  SYS+facet_vec-REQUESTportSTACK$chan:
+  facet_vec-REQUESTportSTACK$chan:
   - clojure.core.async.chan
 ---
 # Entity TEST+descriptor-DEGREEofPOLISH$str

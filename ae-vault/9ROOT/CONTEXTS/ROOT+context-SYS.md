@@ -1,379 +1,379 @@
 ---
-SYS+gem_map-FACETS^facet:
-  SYS+facet-CONTENT$str: ''
-  SYS+facet-NAME&%: context-SYS
-  SYS+facet_map-DESCRIPTORS^descriptor:
-    SYS+descriptor_mapvec-REQUESTS^requestid$str:
-      SYS+requestid-ENTITYreport:
+gem_map-FACETS^facet:
+  facet-CONTENT$str: ''
+  facet-NAME&%: context-SYS
+  facet_map-DESCRIPTORS^descriptor:
+    descriptor_mapvec-REQUESTS^requestid$str:
+      requestid-ENTITYreport:
       - CONTEXT_REPORToperationid
-      SYS+requestid-EVALscript:
+      requestid-EVALscript:
       - EVAL_SCRIPToperationid
-      SYS+requestid-LOADscript:
+      requestid-LOADscript:
       - LOAD_SCRIPToperationid
-      SYS+requestid-REGISTERentity:
+      requestid-REGISTERentity:
       - REGISTER_ENTITYoperationid
-      SYS+requestid-VALIDATEscriptNAMES:
+      requestid-VALIDATEscriptNAMES:
       - VALIDATE_SCRIPT_NAMESoperationid
-    SYS+descriptor_vecmap-SCRIPT^request:
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-CLASS
-        SYS+param-REQUESTID&requestid: SYS+requestid-REGISTERentity
-        SYS+param-TARGETname&%: context-SYS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor-INVARIANT$bool: true
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor-INVARIANT$bool: true
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
+    descriptor_vecmap-SCRIPT^request:
+    - request_map-REQUEST^param:
+        param-NAME&%: class-CLASS
+        param-REQUESTID&requestid: requestid-REGISTERentity
+        param-TARGETname&%: context-SYS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor-INVARIANT$bool: true
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-              SYS+requestid-INSTANTIATE:
+              requestid-INSTANTIATE:
               - INSTANTIATEoperationid
-          SYS+descriptor_mapvec-REQUESTS^requestid$str:
-            SYS+requestid-ENTITYreport:
+          descriptor_mapvec-REQUESTS^requestid$str:
+            requestid-ENTITYreport:
             - ENTITY_REPORToperationid
-            SYS+requestid-INSTANTIATE:
+            requestid-INSTANTIATE:
             - INSTANTIATEoperationid
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-CLASSIFIER
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor-INVARIANT$bool: true
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
+    - request_map-REQUEST^param:
+        param-NAME&%: class-CLASSIFIER
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+classifier-CLASS&class
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASSIFIER
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-CLASSIFIERvec
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor-INVARIANT$bool: true
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
+    - request_map-REQUEST^param:
+        param-NAME&%: classifier-CLASS&class
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASSIFIER
+    - request_map-REQUEST^param:
+        param-NAME&%: class-CLASSIFIERvec
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+classifier_vec-RESOURCES&context
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASSIFIERvec
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-DESCRIPTOR
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor-INVARIANT$bool: true
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
+    - request_map-REQUEST^param:
+        param-NAME&%: classifier_vec-RESOURCES&context
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASSIFIERvec
+    - request_map-REQUEST^param:
+        param-NAME&%: class-DESCRIPTOR
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+descriptor-READonly$bool
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-DESCRIPTOR
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+descriptor-INVARIANT$bool
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-DESCRIPTOR
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-CONTEXT
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
+    - request_map-REQUEST^param:
+        param-NAME&%: descriptor-READonly$bool
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-DESCRIPTOR
+    - request_map-REQUEST^param:
+        param-NAME&%: descriptor-INVARIANT$bool
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-DESCRIPTOR
+    - request_map-REQUEST^param:
+        param-NAME&%: class-CONTEXT
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
               - CONTEXT_REPORToperationid
-              SYS+requestid-EVALscript:
+              requestid-EVALscript:
               - EVAL_SCRIPToperationid
-              SYS+requestid-LOADscript:
+              requestid-LOADscript:
               - LOAD_SCRIPToperationid
-              SYS+requestid-REGISTERentity:
+              requestid-REGISTERentity:
               - REGISTER_ENTITYoperationid
-              SYS+requestid-VALIDATEscriptNAMES:
+              requestid-VALIDATEscriptNAMES:
               - VALIDATE_SCRIPT_NAMESoperationid
-    - SYS+request_map-REQUEST^param:
-        SYS+param-CONTENT$str: "this is a test same line \ndifferent line"
-        SYS+param-NAME&%: SYS+context-TEST
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CONTEXT
-        SYS+param_map-CLASSIFIERS^classifier:
-          SYS+classifier_vec-RESOURCES&context:
+    - request_map-REQUEST^param:
+        param-CONTENT$str: "this is a test same line \ndifferent line"
+        param-NAME&%: context-TEST
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CONTEXT
+        param_map-CLASSIFIERS^classifier:
+          classifier_vec-RESOURCES&context:
           - context-SYS
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-DESCRIPTORmap
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor-INVARIANT$bool: true
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
+    - request_map-REQUEST^param:
+        param-NAME&%: class-DESCRIPTORmap
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+descriptor_map-INSTANCE^descriptor
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-DESCRIPTORmap
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+descriptor_map-INSTANCE^classifier
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-DESCRIPTORmap
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-DESCRIPTORmapvec
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor-INVARIANT$bool: true
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
+    - request_map-REQUEST^param:
+        param-NAME&%: descriptor_map-INSTANCE^descriptor
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-DESCRIPTORmap
+    - request_map-REQUEST^param:
+        param-NAME&%: descriptor_map-INSTANCE^classifier
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-DESCRIPTORmap
+    - request_map-REQUEST^param:
+        param-NAME&%: class-DESCRIPTORmapvec
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+descriptor_mapvec-REQUESTS^requestid$str
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-DESCRIPTORmapvec
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-DESCRIPTORvec
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor-INVARIANT$bool: true
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
+    - request_map-REQUEST^param:
+        param-NAME&%: descriptor_mapvec-REQUESTS^requestid$str
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-DESCRIPTORmapvec
+    - request_map-REQUEST^param:
+        param-NAME&%: class-DESCRIPTORvec
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+descriptor_vec-FEDERATIONnames&%
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-DESCRIPTORvec
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-RELATION
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor-INVARIANT$bool: true
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
+    - request_map-REQUEST^param:
+        param-NAME&%: descriptor_vec-FEDERATIONnames&%
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-DESCRIPTORvec
+    - request_map-REQUEST^param:
+        param-NAME&%: class-RELATION
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-DESCRIPTORvecmap
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor-INVARIANT$bool: true
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
+    - request_map-REQUEST^param:
+        param-NAME&%: class-DESCRIPTORvecmap
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+descriptor_vecmap-SCRIPT^request
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-DESCRIPTORvecmap
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-FACET
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor-INVARIANT$bool: true
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
+    - request_map-REQUEST^param:
+        param-NAME&%: descriptor_vecmap-SCRIPT^request
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-DESCRIPTORvecmap
+    - request_map-REQUEST^param:
+        param-NAME&%: class-FACET
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+facet-CONTENT$str
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-FACET
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+facet-NAME&%
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-FACET
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-FACETmap
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor-INVARIANT$bool: true
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
+    - request_map-REQUEST^param:
+        param-NAME&%: facet-CONTENT$str
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-FACET
+    - request_map-REQUEST^param:
+        param-NAME&%: facet-NAME&%
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-FACET
+    - request_map-REQUEST^param:
+        param-NAME&%: class-FACETmap
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+facet_map-CLASSIFIERS^classifier
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-FACETmap
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+facet_map-DESCRIPTORS^descriptor
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-FACETmap
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+facet_map-INVERSErelations^relation&%
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-FACETmap
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+facet_map-RELATIONS^relation&%
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-FACETmap
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-FACETvec
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor-INVARIANT$bool: true
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
+    - request_map-REQUEST^param:
+        param-NAME&%: facet_map-CLASSIFIERS^classifier
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-FACETmap
+    - request_map-REQUEST^param:
+        param-NAME&%: facet_map-DESCRIPTORS^descriptor
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-FACETmap
+    - request_map-REQUEST^param:
+        param-NAME&%: facet_map-INVERSErelations^relation&%
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-FACETmap
+    - request_map-REQUEST^param:
+        param-NAME&%: facet_map-RELATIONS^relation&%
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-FACETmap
+    - request_map-REQUEST^param:
+        param-NAME&%: class-FACETvec
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+facet_vec-REQUESTportSTACK$chan
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-FACETvec
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-FEDERATOR
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
+    - request_map-REQUEST^param:
+        param-NAME&%: facet_vec-REQUESTportSTACK$chan
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-FACETvec
+    - request_map-REQUEST^param:
+        param-NAME&%: class-FEDERATOR
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-              SYS+requestid-RUNfederation:
+              requestid-RUNfederation:
               - RUN_FEDERATIONoperationid
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-PARAM
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor-INVARIANT$bool: true
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
+    - request_map-REQUEST^param:
+        param-NAME&%: class-PARAM
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+param-CONTENT$str
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-PARAM
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+param-NAME&%
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-PARAM
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+param-REQUESTID&requestid
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-PARAM
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+param-TARGETname&%
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-PARAM
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-PARAMmap
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor-INVARIANT$bool: true
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
+    - request_map-REQUEST^param:
+        param-NAME&%: param-CONTENT$str
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-PARAM
+    - request_map-REQUEST^param:
+        param-NAME&%: param-NAME&%
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-PARAM
+    - request_map-REQUEST^param:
+        param-NAME&%: param-REQUESTID&requestid
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-PARAM
+    - request_map-REQUEST^param:
+        param-NAME&%: param-TARGETname&%
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-PARAM
+    - request_map-REQUEST^param:
+        param-NAME&%: class-PARAMmap
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+param_map-CLASSIFIERS^classifier
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-PARAMmap
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+param_map-DESCRIPTORS^descriptor
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-PARAMmap
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+param_map-RELATIONS^relation&%
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-PARAMmap
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-REQUESTmap
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor-INVARIANT$bool: true
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
+    - request_map-REQUEST^param:
+        param-NAME&%: param_map-CLASSIFIERS^classifier
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-PARAMmap
+    - request_map-REQUEST^param:
+        param-NAME&%: param_map-DESCRIPTORS^descriptor
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-PARAMmap
+    - request_map-REQUEST^param:
+        param-NAME&%: param_map-RELATIONS^relation&%
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-PARAMmap
+    - request_map-REQUEST^param:
+        param-NAME&%: class-REQUESTmap
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+request_map-REQUEST^param
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-REQUESTmap
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+class-REQUESTID
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-CLASS
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor_map-INSTANCE^descriptor:
-            SYS+descriptor-INVARIANT$bool: true
-            SYS+descriptor_mapvec-REQUESTS^requestid$str:
-              SYS+requestid-ENTITYreport:
+    - request_map-REQUEST^param:
+        param-NAME&%: request_map-REQUEST^param
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-REQUESTmap
+    - request_map-REQUEST^param:
+        param-NAME&%: class-REQUESTID
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+requestid-ADDrelations
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-REQUESTID
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+requestid-ADDdescriptors
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-REQUESTID
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+requestid-ENTITYreport
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-REQUESTID
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor-READonly$bool: true
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+requestid-EVALscript
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-REQUESTID
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor-READonly$bool: true
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+requestid-INSTANTIATE
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-REQUESTID
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor-READonly$bool: true
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+requestid-LOADscript
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-REQUESTID
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor-READonly$bool: true
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+requestid-REGISTERentity
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-REQUESTID
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+requestid-RUNfederation
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-REQUESTID
-    - SYS+request_map-REQUEST^param:
-        SYS+param-NAME&%: SYS+requestid-VALIDATEscriptNAMES
-        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
-        SYS+param-TARGETname&%: SYS+class-REQUESTID
-        SYS+param_map-DESCRIPTORS^descriptor:
-          SYS+descriptor-READonly$bool: true
-    - SYS+request_map-REQUEST^param:
-        SYS+param-REQUESTID&requestid: SYS+requestid-LOADscript
-        SYS+param-TARGETname&%: SYS+context-TEST
-    - SYS+request_map-REQUEST^param:
-        SYS+param-REQUESTID&requestid: SYS+requestid-EVALscript
-        SYS+param-TARGETname&%: SYS+context-TEST
-    - SYS+request_map-REQUEST^param:
-        SYS+param-REQUESTID&requestid: SYS+requestid-VALIDATEscriptNAMES
-        SYS+param-TARGETname&%: SYS+context-TEST
-    - SYS+request_map-REQUEST^param:
-        SYS+param-REQUESTID&requestid: SYS+requestid-ENTITYreport
-        SYS+param-TARGETname&%: context-SYS
-  SYS+facet_vec-REQUESTportSTACK$chan:
+    - request_map-REQUEST^param:
+        param-NAME&%: requestid-ADDrelations
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-REQUESTID
+    - request_map-REQUEST^param:
+        param-NAME&%: requestid-ADDdescriptors
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-REQUESTID
+    - request_map-REQUEST^param:
+        param-NAME&%: requestid-ENTITYreport
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-REQUESTID
+        param_map-DESCRIPTORS^descriptor:
+          descriptor-READonly$bool: true
+    - request_map-REQUEST^param:
+        param-NAME&%: requestid-EVALscript
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-REQUESTID
+        param_map-DESCRIPTORS^descriptor:
+          descriptor-READonly$bool: true
+    - request_map-REQUEST^param:
+        param-NAME&%: requestid-INSTANTIATE
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-REQUESTID
+        param_map-DESCRIPTORS^descriptor:
+          descriptor-READonly$bool: true
+    - request_map-REQUEST^param:
+        param-NAME&%: requestid-LOADscript
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-REQUESTID
+        param_map-DESCRIPTORS^descriptor:
+          descriptor-READonly$bool: true
+    - request_map-REQUEST^param:
+        param-NAME&%: requestid-REGISTERentity
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-REQUESTID
+    - request_map-REQUEST^param:
+        param-NAME&%: requestid-RUNfederation
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-REQUESTID
+    - request_map-REQUEST^param:
+        param-NAME&%: requestid-VALIDATEscriptNAMES
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-REQUESTID
+        param_map-DESCRIPTORS^descriptor:
+          descriptor-READonly$bool: true
+    - request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-LOADscript
+        param-TARGETname&%: context-TEST
+    - request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-EVALscript
+        param-TARGETname&%: context-TEST
+    - request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-VALIDATEscriptNAMES
+        param-TARGETname&%: context-TEST
+    - request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-ENTITYreport
+        param-TARGETname&%: context-SYS
+  facet_vec-REQUESTportSTACK$chan:
   - clojure.core.async.chan
 ---
 # Entity ROOT+context-SYS

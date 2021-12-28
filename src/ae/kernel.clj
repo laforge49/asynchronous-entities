@@ -643,19 +643,21 @@
 (def testChanClass (class (a/chan)))
 
 (defn unbind-context
-  [local-context-+ edn parent-dtyp env]
+  [edn parent-dtyp env]
   (cond
     (string? edn)
     (if (some? parent-dtyp)
       edn
-      (if (s/starts-with? edn local-context-+)
-        (subs edn (count local-context-+))
-        edn))
+      (let [ndx
+            (s/index-of edn "+")]
+        (if (nil? ndx)
+          (throw (Exception. (str "Expecting a + in name " edn)))
+          (subs edn (inc ndx)))))
 
     (vector? edn)
     (reduce
       (fn [v item]
-        (conj v (unbind-context local-context-+ item parent-dtyp env)))
+        (conj v (unbind-context item parent-dtyp env)))
       []
       edn)
 
@@ -672,8 +674,8 @@
                 (if (some? parent-dtyp)
                   parent-dtyp
                   dtyp)]
-            (assoc m (unbind-context local-context-+ k nil env)
-                     (unbind-context local-context-+ v dtyp env)))))
+            (assoc m (unbind-context k nil env)
+                     (unbind-context v dtyp env)))))
       (sorted-map)
       edn)
 
