@@ -93,7 +93,7 @@
       \ndifferent line"
     param_map-CLASSIFIERS^classifier:
       classifier_vec-RESOURCES&context:
-        - ROOT+context-SYS
+        - context-SYS
 #
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -306,7 +306,7 @@
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-REQUESTmap
-    param-NAME&%: SYS+request_map-REQUEST^param
+    param-NAME&%: request_map-REQUEST^param
 #
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -376,4 +376,4 @@
     param-TARGETname&%: context-TEST
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-ENTITYreport
-    param-TARGETname&%: ROOT+context-SYS
+    param-TARGETname&%: context-SYS
