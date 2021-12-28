@@ -34,6 +34,20 @@ SYS+gem_map-FACETS^facet:
             SYS+requestid-INSTANTIATE:
             - INSTANTIATEoperationid
     - SYS+request_map-REQUEST^param:
+        SYS+param-NAME&%: SYS+class-CLASSIFIER
+        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
+        SYS+param-TARGETname&%: SYS+class-CLASS
+        SYS+param_map-DESCRIPTORS^descriptor:
+          SYS+descriptor_map-INSTANCE^descriptor:
+            SYS+descriptor-INVARIANT$bool: true
+            SYS+descriptor_mapvec-REQUESTS^requestid$str:
+              SYS+requestid-ENTITYreport:
+              - ENTITY_REPORToperationid
+    - SYS+request_map-REQUEST^param:
+        SYS+param-NAME&%: SYS+classifier-CLASS&class
+        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
+        SYS+param-TARGETname&%: SYS+class-CLASSIFIER
+    - SYS+request_map-REQUEST^param:
         SYS+param-NAME&%: SYS+class-CLASSIFIERvec
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
         SYS+param-TARGETname&%: SYS+class-CLASS
@@ -369,6 +383,7 @@ SYS+gem_map-FACETS^facet:
 
 classifier:  SYS+classifier-CLASS&class
   value:       SYS+class-CLASS
+    entity:      SYS+class-CLASSIFIER
     entity:      SYS+class-CLASSIFIERvec
     entity:      SYS+class-CONTEXT
     entity:      SYS+class-DESCRIPTOR
@@ -385,6 +400,8 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+class-RELATION
     entity:      SYS+class-REQUESTID
     entity:      SYS+class-REQUESTmap
+  value:       SYS+class-CLASSIFIER
+    entity:      SYS+classifier-CLASS&class
   value:       SYS+class-CLASSIFIERvec
     entity:      SYS+classifier_vec-RESOURCES&context
   value:       SYS+class-CONTEXT
