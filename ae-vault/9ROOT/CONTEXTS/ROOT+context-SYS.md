@@ -150,6 +150,10 @@ SYS+gem_map-FACETS^facet:
               SYS+requestid-ENTITYreport:
               - ENTITY_REPORToperationid
     - SYS+request_map-REQUEST^param:
+        SYS+param-NAME&%: SYS+facet_map-CLASSIFIERS^classifier
+        SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
+        SYS+param-TARGETname&%: SYS+class-FACETmap
+    - SYS+request_map-REQUEST^param:
         SYS+param-NAME&%: SYS+facet_map-DESCRIPTORS^descriptor
         SYS+param-REQUESTID&requestid: SYS+requestid-INSTANTIATE
         SYS+param-TARGETname&%: SYS+class-FACETmap
@@ -373,6 +377,7 @@ classifier:  SYS+classifier-CLASS&class
   value:       SYS+class-FACET
     entity:      SYS+facet-NAME&%
   value:       SYS+class-FACETmap
+    entity:      SYS+facet_map-CLASSIFIERS^classifier
     entity:      SYS+facet_map-DESCRIPTORS^descriptor
   value:       SYS+class-PARAM
     entity:      SYS+param-CONTENT$str
