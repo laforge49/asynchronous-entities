@@ -13,9 +13,7 @@
 (defn validate-requests-
   [requests]
   (if (not (vector? requests))
-    (throw (Exception. (str "Requests is not a vector: " (prn-str requests)))))
-  (if (= (count requests) 0)
-    (throw (Exception. (str "Requests is empty: " (prn-str requests))))))
+    (throw (Exception. (str "Requests is not a vector: " (prn-str requests))))))
 
 (defn push-later
   [env requests]
