@@ -378,6 +378,9 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-VALIDATEscriptNAMES
         param-TARGETname&%: context-TEST
     - request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-LOADscript
+        param-TARGETname&%: context-UI
+    - request_map-REQUEST^param:
         param-REQUESTID&requestid: requestid-ENTITYreport
         param-TARGETname&%: context-SYS
   facet_vec-REQUESTportSTACK$chan:
