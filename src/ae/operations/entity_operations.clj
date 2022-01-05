@@ -54,6 +54,8 @@
         (get this-descriptors "SYS+descriptor_map-INSTANCE^descriptor")
         instantiation-descriptors
         (k/merge-maps instantiation-descriptors (get params "SYS+param_map-DESCRIPTORS^descriptor"))
+        ;instantiation-descriptors
+        ;(into instantiation-descriptors (get params "SYS+param_map-DESCRIPTORS^descriptor"))
         instantiation-classifiers
         (get this-descriptors "SYS+descriptor_map-INSTANCE^classifier")
         instantiation-classifiers
