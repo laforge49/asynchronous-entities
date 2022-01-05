@@ -101,10 +101,10 @@
 #    param_map-CLASSIFIERS^classifier:
 #      classifier_vec-RESOURCES&context:
 #        - context-SYS
-    #param_map-DESCRIPTORS^descriptor:
-    #  descriptor_mapvec-REQUESTS^requestid$str:
-    #    requestid-UIcreation:
-    #      - UI_CREATIONoperationid
+#    param_map-DESCRIPTORS^descriptor:
+#      descriptor_mapvec-REQUESTS^requestid$str:
+#        requestid-UIcreation:
+#          - UI_CREATIONoperationid
 #
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -369,6 +369,10 @@
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-REQUESTID
     param-NAME&%: requestid-RUNfederation
+- request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-INSTANTIATE
+    param-TARGETname&%: class-REQUESTID
+    param-NAME&%: requestid-UIcreation
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-REQUESTID

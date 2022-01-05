@@ -356,6 +356,10 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-REQUESTID
     - request_map-REQUEST^param:
+        param-NAME&%: requestid-UIcreation
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-REQUESTID
+    - request_map-REQUEST^param:
         param-NAME&%: requestid-VALIDATEscriptNAMES
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-REQUESTID
@@ -446,6 +450,7 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+requestid-LOADscript
     entity:      SYS+requestid-REGISTERentity
     entity:      SYS+requestid-RUNfederation
+    entity:      SYS+requestid-UIcreation
     entity:      SYS+requestid-VALIDATEscriptNAMES
   value:       SYS+class-REQUESTmap
     entity:      SYS+request_map-REQUEST^param
