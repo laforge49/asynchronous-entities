@@ -7,11 +7,11 @@
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
-(defn ui-goblock
+(defn ui-creation-goblock
   [env this-map params])
 
 (defn create-swing-operations
   [env]
-  (k/register-function env {:operationid "UIoperation"
-                            :goblock     ui-goblock})
+  (k/register-function env {:operationid "UI_CREATIONoperationid"
+                            :goblock     ui-creation-goblock})
   )
