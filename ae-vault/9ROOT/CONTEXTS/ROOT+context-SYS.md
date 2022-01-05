@@ -105,13 +105,6 @@ gem_map-FACETS^facet:
           classifier_vec-RESOURCES&context:
           - context-SYS
     - request_map-REQUEST^param:
-        param-NAME&%: context-UI
-        param-REQUESTID&requestid: requestid-INSTANTIATE
-        param-TARGETname&%: class-CONTEXT
-        param_map-CLASSIFIERS^classifier:
-          classifier_vec-RESOURCES&context:
-          - context-SYS
-    - request_map-REQUEST^param:
         param-NAME&%: class-DESCRIPTORmap
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -378,9 +371,6 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-VALIDATEscriptNAMES
         param-TARGETname&%: context-TEST
     - request_map-REQUEST^param:
-        param-REQUESTID&requestid: requestid-LOADscript
-        param-TARGETname&%: context-UI
-    - request_map-REQUEST^param:
         param-REQUESTID&requestid: requestid-ENTITYreport
         param-TARGETname&%: context-SYS
   facet_vec-REQUESTportSTACK$chan:
@@ -416,7 +406,6 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+classifier_vec-RESOURCES&context
   value:       SYS+class-CONTEXT
     entity:      SYS+context-TEST
-    entity:      SYS+context-UI
   value:       SYS+class-DESCRIPTOR
     entity:      SYS+descriptor-INVARIANT$bool
     entity:      SYS+descriptor-READonly$bool
@@ -463,7 +452,6 @@ classifier:  SYS+classifier-CLASS&class
 classifier:  SYS+classifier_vec-RESOURCES&context
   value:       ROOT+context-SYS
     entity:      SYS+context-TEST
-    entity:      SYS+context-UI
 
 Number of classifiers: 2
 
