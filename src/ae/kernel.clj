@@ -790,8 +790,10 @@
             (get base-map uk)]
         (if (nil? bv)
           (assoc base-map uk uv)
-          (if (not= (map? bv) (map? uv)
-                    (throw (Exception. (str "change of value type for " uk))))
+          (if (not= (map? bv) (map? uv))
+            (throw (Exception. (str "change of value type for " uk
+                                    "\n" :bv " " (map? bv) " " (prn-str bv)
+                                    :uv " " (map? uv) " " (prn-str uv))))
             (if (not (map? uv))
               (assoc base-map uk uv)
               (assoc base-map uk (merge-maps bv uv)))))))
