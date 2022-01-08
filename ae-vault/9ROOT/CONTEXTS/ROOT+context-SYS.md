@@ -395,11 +395,11 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-VALIDATEscriptNAMES
         param-TARGETname&%: context-UI
     - request_map-REQUEST^param:
-        param-REQUESTID&requestid: requestid-UIcreation
-        param-TARGETname&%: context-UI
-    - request_map-REQUEST^param:
         param-REQUESTID&requestid: requestid-ENTITYreport
         param-TARGETname&%: context-SYS
+    - request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-UIcreation
+        param-TARGETname&%: context-UI
   facet_vec-REQUESTportSTACK$chan:
   - clojure.core.async.chan
 ---
