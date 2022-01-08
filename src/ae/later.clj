@@ -17,14 +17,15 @@
 
 (defn push-later
   [env requests]
-  (validate-requests- requests)
-  (let [requestvecatom
-        (get env "SYS+env_atmvec-requestvecatom$?")]
-    (if (nil? requestvecatom)
-      (throw (Exception. (str "unable to locate SYS+env_atmvec-requestvecatom$?\n"
-                              (prn-str :env env)))))
-    (swap! requestvecatom (fn [[request-on-deck requestseq-stack]]
-                            [request-on-deck (conj requestseq-stack (seq requests))]))))
+  (when (not (empty? requests))
+    (validate-requests- requests)
+    (let [requestvecatom
+          (get env "SYS+env_atmvec-requestvecatom$?")]
+      (if (nil? requestvecatom)
+        (throw (Exception. (str "unable to locate SYS+env_atmvec-requestvecatom$?\n"
+                                (prn-str :env env)))))
+      (swap! requestvecatom (fn [[request-on-deck requestseq-stack]]
+                              [request-on-deck (conj requestseq-stack (seq requests))])))))
 
 (defn pop-request-
   [env]
