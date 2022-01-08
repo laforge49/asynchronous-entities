@@ -8,7 +8,15 @@
             [ae.keywords :as kw]))
 
 (defn ui-creation-goblock
-  [env this-map params])
+  [env this-map params]
+  (println :!!!!!!!!!!!!!)
+  (a/go
+    (let [operation-return-port
+          (get params "SYS+param-OPERATIONreturnport")]
+      (try
+        (a/>! operation-return-port [this-map nil])
+        (catch Exception e
+          (a/>! operation-return-port [this-map e]))))))
 
 (defn create-swing-operations
   [env]
