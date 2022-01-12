@@ -8,4 +8,5 @@
                  [tupelo "21.07.08"]]
   :main ^:skip-aot ae.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar {:aot :all
+                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}})
