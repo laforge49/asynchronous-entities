@@ -6,16 +6,21 @@
             [ae.later :as l]
             [ae.kernel :as k]
             [ae.keywords :as kw])
-  (:import (javax.swing SwingUtilities JFrame JLabel)))
+  (:import (javax.swing SwingUtilities JFrame JLabel JButton)
+           (java.awt Dimension)))
 
 (defn create-and-show-gui
   []
   (let [my-frame (doto (JFrame. "My Frame")
-                   (.setDefaultCloseOperation JFrame/EXIT_ON_CLOSE))
+                   (.setDefaultCloseOperation JFrame/EXIT_ON_CLOSE)
+                   (.setMinimumSize (Dimension. 400,600)))
         my-label (JLabel. "Hello UI")
+        button (JButton. "Press")
         content-pane (.getContentPane  my-frame)]
-
     (.add content-pane my-label)
+    (.setBounds my-label 50 50 50 50)
+    (.revalidate my-label)
+    ;(.add content-pane button)
     (.pack my-frame)
     (.setVisible my-frame true)))
 
