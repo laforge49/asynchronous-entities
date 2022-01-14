@@ -60,11 +60,15 @@
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-DESCRIPTOR
-    param-NAME&%: descriptor-READonly$bool
+    param-NAME&%: descriptor-ASYNC$bool
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-DESCRIPTOR
     param-NAME&%: descriptor-INVARIANT$bool
+- request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-INSTANTIATE
+    param-TARGETname&%: class-DESCRIPTOR
+    param-NAME&%: descriptor-READonly$bool
 #
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
