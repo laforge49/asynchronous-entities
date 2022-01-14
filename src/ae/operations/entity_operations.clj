@@ -36,7 +36,8 @@
         new-children-volatile
         (get env "SYS+env_volmap-CHILDREN&%")
         ]
-    ;todo What if not async???
+    (if (nil? new-entity-public-request-port)
+      (throw (Exception. (str "new GEM requires a public request port " name))))
     (vswap! new-children-volatile assoc name new-entity-public-request-port)
     [this-map this-map]))
 
