@@ -16,12 +16,10 @@
         _ (if (some? (get params "SYS+param-INITIALIZATIONport"))
             (throw (Exception. (str "An initialization port is not compatible with non-federated registration of entity "
                                     name))))
-        entity-public-request-port
-        (get params "SYS+param-ENTITYpublicREQUESTPORT")
-        entity-public-request-port
-        (if (some? entity-public-request-port)
-          entity-public-request-port
-          (first (k/create-entity env params)))
+        entity-map
+        (k/get-entity-map name)
+        _ (if (nil? entity-map)
+            (k/create-entity env params))
         classifiers
         (get params "SYS+param_map-CLASSIFIERS^classifier")]
     (if (some? classifiers)

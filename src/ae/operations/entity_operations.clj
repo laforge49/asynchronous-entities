@@ -36,7 +36,7 @@
         new-children-volatile
         (get env "SYS+env_volmap-CHILDREN&%")
         ]
-    (k/assoc-entity-map name snap)
+    ;todo What if not async???
     (vswap! new-children-volatile assoc name new-entity-public-request-port)
     [this-map this-map]))
 

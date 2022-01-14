@@ -442,7 +442,8 @@
          "SYS+facet_vec-REQUESTportSTACK$chan"       request-port-stack}
         ]
     (assoc-entity-map name new-entity-map)
-    (create-operation-dispatcher name)
+    (if async
+      (create-operation-dispatcher name))
     [new-public-request-port new-entity-map]))
 
 (defn entityContextName
