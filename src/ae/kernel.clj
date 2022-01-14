@@ -268,7 +268,8 @@
         (get-entity-map name)
         request-port-stack
         (get this-map "SYS+facet_vec-REQUESTportSTACK$chan")
-        ]
+        _ (if (nil? request-port-stack)
+          (throw (Exception. (str "Request port stack missing from GEM " name))))]
     (first request-port-stack)))
 
 (defn create-operation-dispatcher
@@ -401,10 +402,8 @@
 
 (defn create-entity
   [env params]
-  (let [new-public-request-port
-        (a/chan)
-        request-port-stack
-        [new-public-request-port]
+  (let [name
+        (get params "SYS+param-NAME&%")
         descriptors
         (get params "SYS+param_map-DESCRIPTORS^descriptor" (sorted-map))
         classifiers
@@ -413,14 +412,26 @@
         (get params "SYS+param-CONTENT$str" "")
         invariant
         (get descriptors "SYS+descriptor-INVARIANT$bool")
+        async
+        (get descriptors "SYS+descriptor-ASYNC$bool")
+        async
+        true
+        new-public-request-port
+        (if async
+          (a/chan)
+          nil)
+        request-port-stack
+        (if async
+          [new-public-request-port]
+          nil)
         initialization-port
         (get params "SYS+param-INITIALIZATIONport")
         request-port-stack
-        (if (or invariant (nil? initialization-port))
-          request-port-stack
-          (conj request-port-stack initialization-port))
-        name
-        (get params "SYS+param-NAME&%")
+        (if async
+          (if (or invariant (nil? initialization-port))
+            request-port-stack
+            (conj request-port-stack initialization-port))
+          nil)
         new-entity-map
         {"SYS+facet-NAME&%"                          name
          "SYS+facet_map-DESCRIPTORS^descriptor"      descriptors
