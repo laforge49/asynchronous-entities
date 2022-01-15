@@ -55,6 +55,7 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
         param_map-DESCRIPTORS^descriptor:
+          descriptor-ASYNC$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor-INVARIANT$bool: true
             descriptor_mapvec-REQUESTS^requestid$str:
@@ -69,6 +70,7 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
         param_map-DESCRIPTORS^descriptor:
+          descriptor-ASYNC$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor-INVARIANT$bool: true
             descriptor_mapvec-REQUESTS^requestid$str:
@@ -91,6 +93,7 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
         param_map-DESCRIPTORS^descriptor:
+          descriptor-ASYNC$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
@@ -127,6 +130,7 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
         param_map-DESCRIPTORS^descriptor:
+          descriptor-ASYNC$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor-INVARIANT$bool: true
             descriptor_mapvec-REQUESTS^requestid$str:
@@ -145,6 +149,7 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
         param_map-DESCRIPTORS^descriptor:
+          descriptor-ASYNC$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor-INVARIANT$bool: true
             descriptor_mapvec-REQUESTS^requestid$str:
@@ -159,6 +164,7 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
         param_map-DESCRIPTORS^descriptor:
+          descriptor-ASYNC$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor-INVARIANT$bool: true
             descriptor_mapvec-REQUESTS^requestid$str:
@@ -169,20 +175,11 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-DESCRIPTORvec
     - request_map-REQUEST^param:
-        param-NAME&%: class-RELATION
-        param-REQUESTID&requestid: requestid-INSTANTIATE
-        param-TARGETname&%: class-CLASS
-        param_map-DESCRIPTORS^descriptor:
-          descriptor_map-INSTANCE^descriptor:
-            descriptor-INVARIANT$bool: true
-            descriptor_mapvec-REQUESTS^requestid$str:
-              requestid-ENTITYreport:
-              - ENTITY_REPORToperationid
-    - request_map-REQUEST^param:
         param-NAME&%: class-DESCRIPTORvecmap
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
         param_map-DESCRIPTORS^descriptor:
+          descriptor-ASYNC$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor-INVARIANT$bool: true
             descriptor_mapvec-REQUESTS^requestid$str:
@@ -197,6 +194,7 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
         param_map-DESCRIPTORS^descriptor:
+          descriptor-ASYNC$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor-INVARIANT$bool: true
             descriptor_mapvec-REQUESTS^requestid$str:
@@ -309,6 +307,16 @@ gem_map-FACETS^facet:
         param-NAME&%: param_map-RELATIONS^relation&%
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-PARAMmap
+    - request_map-REQUEST^param:
+        param-NAME&%: class-RELATION
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
+              - ENTITY_REPORToperationid
     - request_map-REQUEST^param:
         param-NAME&%: class-REQUESTmap
         param-REQUESTID&requestid: requestid-INSTANTIATE
