@@ -443,8 +443,7 @@
         ]
     (assoc-entity-map name new-entity-map)
     (if async
-      (create-operation-dispatcher name))
-    [new-public-request-port new-entity-map]))
+      (create-operation-dispatcher name))))
 
 (defn entityContextName
   [entity-name]
