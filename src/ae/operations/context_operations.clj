@@ -68,8 +68,6 @@
                 context-base-name)
               context-prefix
               (str context-base-name "+")
-              entities-map
-              @k/entities-map-atom
               requests
               (reduce
                 (fn [requests entity-name]
@@ -79,7 +77,7 @@
                                      "SYS+param-TARGETname&%"        entity-name}})
                     requests))
                 []
-                (keys entities-map))]
+                (k/get-entity-names))]
           (io/make-parents file-name)
           (spit file-name report)
           (l/push-later env requests)

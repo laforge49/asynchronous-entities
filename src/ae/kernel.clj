@@ -12,13 +12,17 @@
   [name]
   (get @entities-map-atom name))
 
-(defn refresh-entity-map
-  [entity-map]
-  (get-entity-map (get entity-map "SYS+facet-NAME&%")))
+(defn get-entity-names
+  []
+  (keys @entities-map-atom))
 
 (defn assoc-entity-map
   [name entity-map]
   (swap! entities-map-atom assoc name entity-map))
+
+(defn refresh-entity-map
+  [entity-map]
+  (get-entity-map (get entity-map "SYS+facet-NAME&%")))
 
 (defn save-entity-map
   [entity-map]
