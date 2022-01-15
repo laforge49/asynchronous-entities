@@ -8,19 +8,19 @@
 
 (defn get-entity-names
   []
-  (keys @i/entities-map-atom))
+  (keys @i/gem-maps-atom))
 
 (defn entity-exists?
   [name]
-  (some? (i/get-entity-map name)))
+  (some? (i/get-gem-map name)))
 
 (defn refresh-entity-map
   [entity-map]
-  (i/get-entity-map (get entity-map "SYS+facet-NAME&%")))
+  (i/get-gem-map (get entity-map "SYS+facet-NAME&%")))
 
 (defn save-entity-map
   [entity-map]
-  (i/assoc-entity-map (get entity-map "SYS+facet-NAME&%") entity-map))
+  (i/assoc-gem-map (get entity-map "SYS+facet-NAME&%") entity-map))
 
 (def classifier-values-map-atom
   (atom {}))
@@ -58,12 +58,12 @@
 
 (defn get-request-port-stack
   [name]
-  (get (i/get-entity-map name) "SYS+facet_vec-REQUESTportSTACK$chan"))
+  (get (i/get-gem-map name) "SYS+facet_vec-REQUESTportSTACK$chan"))
 
 (defn get-invariant-map
   [name]
   (let [entity-map
-        (i/get-entity-map name)]
+        (i/get-gem-map name)]
     (if (get-in entity-map ["SYS+facet_map-DESCRIPTORS^descriptor" "SYS+descriptor-INVARIANT$bool"])
       entity-map
       nil)))
@@ -71,7 +71,7 @@
 (defn get-classifiers-map
   [entity-name]
   (let [entity-map
-        (i/get-entity-map entity-name)]
+        (i/get-gem-map entity-name)]
     (get entity-map "SYS+facet_map-CLASSIFIERS^classifier")))
 
 (defn get-classifier
@@ -105,7 +105,7 @@
 (defn get-child-map
   [entity-name env]
   (let [entity-map
-        (i/get-entity-map entity-name)
+        (i/get-gem-map entity-name)
         new-children-map
         @(get env "SYS+env_volmap-CHILDREN&%")]
     (if (nil? (get new-children-map entity-name))
@@ -117,7 +117,7 @@
   (let [env-federator-name
         (get env "SYS+env-FEDERATORname&federator")
         entity-map
-        (i/get-entity-map entity-name)
+        (i/get-gem-map entity-name)
         this-federator-name
         (get entity-map "SYS+facet-FEDERATORname&federator")]
     (if (= this-federator-name env-federator-name)
@@ -129,7 +129,7 @@
   (let [federated-map
         (get-federated-map name env)])
   (if (some? get-federated-map)
-    (i/assoc-entity-map name entity-map)
+    (i/assoc-gem-map name entity-map)
     (throw (Exception. (str "Not federated: " name)))))
 
 (defn get-invariant-descriptors
@@ -260,7 +260,7 @@
                 (fun env target-map params))))
           [target-map nil]
           operationids)]
-    (i/assoc-entity-map target-name target-map)
+    (i/assoc-gem-map target-name target-map)
     [(refresh-entity-map this-map) rv]))
 
 (defn targetOperationid
@@ -286,7 +286,7 @@
     (recur
       (try
         (let [this-map
-              (i/get-entity-map this-name)
+              (i/get-gem-map this-name)
               this-request-port-stack
               (get this-map "SYS+facet_vec-REQUESTportSTACK$chan")
               _ (if (nil? this-request-port-stack)
@@ -323,7 +323,7 @@
                                               (prn-str params)
                                               (prn-str this-map)))))
                   this-map
-                  (i/get-entity-map this-name)
+                  (i/get-gem-map this-name)
                   [this-map]
                   (case requestid
 
@@ -398,7 +398,7 @@
                         (throw e))
                       [this-map]
                       ))]
-              (i/assoc-entity-map this-name this-map)
+              (i/assoc-gem-map this-name this-map)
               (a/>! return-port [nil])
               this-name)
             (catch Exception e
@@ -451,7 +451,7 @@
          "SYS+facet-CONTENT$str"                     content
          "SYS+facet_vec-REQUESTportSTACK$chan"       request-port-stack}
         ]
-    (i/assoc-entity-map name new-entity-map)
+    (i/assoc-gem-map name new-entity-map)
     (if async
       (create-operation-dispatcher name))))
 

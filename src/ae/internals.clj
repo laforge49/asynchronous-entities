@@ -1,12 +1,12 @@
 (ns ae.internals)
 
-(def entities-map-atom
+(def gem-maps-atom
   (atom {}))
 
-(defn get-entity-map
+(defn get-gem-map
   [name]
-  (get @entities-map-atom name))
+  (get @gem-maps-atom name))
 
-(defn assoc-entity-map
-  [name entity-map]
-  (swap! entities-map-atom assoc name entity-map))
+(defn assoc-gem-map
+  [name gem-map]
+  (swap! gem-maps-atom assoc name gem-map))

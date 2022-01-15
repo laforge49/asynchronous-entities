@@ -126,7 +126,7 @@
                             obj-map
                             (k/get-federated-map new-value env)
                             _ (if (nil? obj-map)
-                                (throw (Exception. (str "Federation is required by addRelations for object " new-value))))
+                                (throw (Exception. (str "Federation is required by addRelations for object gem " new-value))))
                             relation-subjects
                             (get-in obj-map ["SYS+facet_map-INVERSErelations^relation&%" relation] [])
                             i
