@@ -27,9 +27,7 @@
           _ (k/create-entity env {"SYS+param-NAME&%"
                                   "ROOT+context-SYS"
                                   "SYS+param_map-DESCRIPTORS^descriptor"
-                                  {"SYS+descriptor-ASYNC$bool"
-                                   true
-                                   "SYS+descriptor_mapvec-REQUESTS^requestid$str"
+                                  {"SYS+descriptor_mapvec-REQUESTS^requestid$str"
                                    {"SYS+requestid-REGISTERentity"      ["REGISTER_ENTITYoperationid"]
                                     "SYS+requestid-ENTITYreport"        ["CONTEXT_REPORToperationid"]
                                     "SYS+requestid-LOADscript"          ["LOAD_SCRIPToperationid"]

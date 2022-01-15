@@ -3,7 +3,6 @@ gem_map-FACETS^facet:
   facet-CONTENT$str: ''
   facet-NAME&%: context-SYS
   facet_map-DESCRIPTORS^descriptor:
-    descriptor-ASYNC$bool: true
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
       - CONTEXT_REPORToperationid
@@ -21,7 +20,6 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-REGISTERentity
         param-TARGETname&%: context-SYS
         param_map-DESCRIPTORS^descriptor:
-          descriptor-ASYNC$bool: true
           descriptor-INVARIANT$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor-INVARIANT$bool: true
@@ -40,7 +38,6 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
         param_map-DESCRIPTORS^descriptor:
-          descriptor-ASYNC$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor-INVARIANT$bool: true
             descriptor_mapvec-REQUESTS^requestid$str:
@@ -55,7 +52,6 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
         param_map-DESCRIPTORS^descriptor:
-          descriptor-ASYNC$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor-INVARIANT$bool: true
             descriptor_mapvec-REQUESTS^requestid$str:
@@ -70,16 +66,11 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
         param_map-DESCRIPTORS^descriptor:
-          descriptor-ASYNC$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor-INVARIANT$bool: true
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - request_map-REQUEST^param:
-        param-NAME&%: descriptor-ASYNC$bool
-        param-REQUESTID&requestid: requestid-INSTANTIATE
-        param-TARGETname&%: class-DESCRIPTOR
     - request_map-REQUEST^param:
         param-NAME&%: descriptor-INVARIANT$bool
         param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -93,7 +84,6 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
         param_map-DESCRIPTORS^descriptor:
-          descriptor-ASYNC$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
@@ -130,7 +120,6 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
         param_map-DESCRIPTORS^descriptor:
-          descriptor-ASYNC$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor-INVARIANT$bool: true
             descriptor_mapvec-REQUESTS^requestid$str:
@@ -149,7 +138,6 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
         param_map-DESCRIPTORS^descriptor:
-          descriptor-ASYNC$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor-INVARIANT$bool: true
             descriptor_mapvec-REQUESTS^requestid$str:
@@ -164,7 +152,6 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
         param_map-DESCRIPTORS^descriptor:
-          descriptor-ASYNC$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor-INVARIANT$bool: true
             descriptor_mapvec-REQUESTS^requestid$str:
@@ -179,7 +166,6 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
         param_map-DESCRIPTORS^descriptor:
-          descriptor-ASYNC$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor-INVARIANT$bool: true
             descriptor_mapvec-REQUESTS^requestid$str:
@@ -194,7 +180,6 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
         param_map-DESCRIPTORS^descriptor:
-          descriptor-ASYNC$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor-INVARIANT$bool: true
             descriptor_mapvec-REQUESTS^requestid$str:
@@ -450,7 +435,6 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+context-TEST
     entity:      SYS+context-UI
   value:       SYS+class-DESCRIPTOR
-    entity:      SYS+descriptor-ASYNC$bool
     entity:      SYS+descriptor-INVARIANT$bool
     entity:      SYS+descriptor-READonly$bool
   value:       SYS+class-DESCRIPTORmap

@@ -426,25 +426,19 @@
         (get params "SYS+param-CONTENT$str" "")
         invariant
         (get descriptors "SYS+descriptor-INVARIANT$bool")
-        async
-        (get descriptors "SYS+descriptor-ASYNC$bool")
-
-        async
-        true
-
         new-public-request-port
-        (if async
+        (if true;todo (not invariant)
           (a/chan)
           nil)
         request-port-stack
-        (if async
+        (if true;todo (not invariant)
           [new-public-request-port]
           nil)
         initialization-port
         (get params "SYS+param-INITIALIZATIONport")
         request-port-stack
-        (if async
-          (if (or invariant (nil? initialization-port))
+        (if true;todo (not invariant)
+          (if (nil? initialization-port)
             request-port-stack
             (conj request-port-stack initialization-port))
           nil)
@@ -458,7 +452,7 @@
          "SYS+facet_vec-REQUESTportSTACK$chan"       request-port-stack}
         ]
     (i/assoc-gem-map name new-entity-map)
-    (if async
+    (if true;todo (not invariant)
       (create-operation-dispatcher name))))
 
 (defn entityContextName
