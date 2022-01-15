@@ -38,7 +38,7 @@
         ]
     (if (nil? new-entity-public-request-port)
       (throw (Exception. (str "new GEM requires a public request port " name))))
-    (vswap! new-children-volatile assoc name new-entity-public-request-port)
+    (vswap! new-children-volatile assoc name true)
     [this-map this-map]))
 
 (defn instantiateOperation
