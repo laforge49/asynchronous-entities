@@ -64,10 +64,14 @@
     (swap! classifier-values-map-atom add-classifier-values- context-kw entity-name classifier-name classifier-value)
     (swap! classifier-values-map-atom add-classifier-value- context-kw entity-name classifier-name classifier-value)))
 
+(defn get-request-port-stack
+  [name]
+  (get (get-entity-map name) "SYS+facet_vec-REQUESTportSTACK$chan"))
+
 (defn get-invariant-map
-  [entity-id]
+  [name]
   (let [entity-map
-        (get-entity-map entity-id)]
+        (get-entity-map name)]
     (if (get-in entity-map ["SYS+facet_map-DESCRIPTORS^descriptor" "SYS+descriptor-INVARIANT$bool"])
       entity-map
       nil)))

@@ -22,12 +22,8 @@
                     (k/entityContextName entity-name)
                     context-request-port
                     (k/get-public-request-port context-name)
-                    snap
-                    (k/get-entity-map entity-name)
-                    request-port-stack
-                    (get snap "SYS+facet_vec-REQUESTportSTACK$chan")
                     initialization-port
-                    (peek request-port-stack)
+                    (peek (k/get-request-port-stack entity-name))
                     subrequest-return-port
                     (a/chan)
                     _ (a/>! initialization-port [env {"SYS+param-REQUESTID&requestid" "RESET-REQUEST-PORT"
