@@ -103,10 +103,10 @@
   (let [this-name
         (get this-map "SYS+facet-NAME&%")
         _ (if (s/blank? this-name)
-            (throw (Exception. "ADD RELATIONS requires a name on the entities being assigned a classifier")))
+            (throw (Exception. "ADD RELATIONS requires a name on the entities being assigned relations")))
         [_ this-context _]
         (kw/name-as-keyword this-name)
-        relations-map
+        new-relations-map
         (get params "SYS+param_map-RELATIONS^relation&%")
         this-map
         (reduce
@@ -135,7 +135,7 @@
                             (if (= i -1)
                               (let [obj-map
                                     (assoc-in obj-map ["SYS+facet_map-INVERSErelations^relation&%" relation] (conj relation-subjects this-name))]
-                                (k/assoc-entity-map new-value obj-map)
+                                (k/assoc-federated-entity-map new-value obj-map env)
                                 (conj relation-values new-value))
                               relation-values)]
                         relation-values))
@@ -143,7 +143,7 @@
                     new-relation-values)]
               (assoc-in this-map ["SYS+facet_map-RELATIONS^relation&%" relation] relation-values)))
           this-map
-          relations-map)]
+          new-relations-map)]
     [this-map this-map]))
 
 (defn entity-report-goblock
