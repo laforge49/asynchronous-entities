@@ -21,6 +21,7 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-REGISTERentity
         param-TARGETname&%: context-SYS
         param_map-DESCRIPTORS^descriptor:
+          descriptor-ASYNC$bool: true
           descriptor-INVARIANT$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor-INVARIANT$bool: true
@@ -39,6 +40,7 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
         param_map-DESCRIPTORS^descriptor:
+          descriptor-ASYNC$bool: true
           descriptor_map-INSTANCE^descriptor:
             descriptor-INVARIANT$bool: true
             descriptor_mapvec-REQUESTS^requestid$str:

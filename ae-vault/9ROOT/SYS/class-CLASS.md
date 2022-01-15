@@ -3,6 +3,7 @@ gem_map-FACETS^facet:
   facet-CONTENT$str: ''
   facet-NAME&%: class-CLASS
   facet_map-DESCRIPTORS^descriptor:
+    descriptor-ASYNC$bool: true
     descriptor-INVARIANT$bool: true
     descriptor_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true

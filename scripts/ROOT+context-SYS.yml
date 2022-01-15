@@ -3,6 +3,7 @@
     param-TARGETname&%: ROOT+context-SYS
     param-NAME&%: class-CLASS
     param_map-DESCRIPTORS^descriptor:
+      descriptor-ASYNC$bool: true
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-INSTANTIATE:
@@ -22,6 +23,7 @@
     param-TARGETname&%: class-CLASS
     param-NAME&%: class-CLASSIFIER
     param_map-DESCRIPTORS^descriptor:
+      descriptor-ASYNC$bool: true
       descriptor_map-INSTANCE^descriptor:
         descriptor-INVARIANT$bool: true
         descriptor_mapvec-REQUESTS^requestid$str:

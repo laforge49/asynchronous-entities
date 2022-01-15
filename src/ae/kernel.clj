@@ -414,8 +414,10 @@
         (get descriptors "SYS+descriptor-INVARIANT$bool")
         async
         (get descriptors "SYS+descriptor-ASYNC$bool")
+
         async
         true
+
         new-public-request-port
         (if async
           (a/chan)
