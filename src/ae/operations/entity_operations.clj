@@ -31,13 +31,10 @@
         (into params {"SYS+param-INITIALIZATIONport"         initialization-port
                       "SYS+param_map-DESCRIPTORS^descriptor" instantiation-descriptors
                       "SYS+param_map-CLASSIFIERS^classifier" instantiation-classifiers})
-        [new-entity-public-request-port snap]
-        (k/create-entity env params)
+        _ (k/create-entity env params)
         new-children-volatile
         (get env "SYS+env_volmap-CHILDREN&%")
         ]
-    (if (nil? new-entity-public-request-port)
-      (throw (Exception. (str "new GEM requires a public request port " name))))
     (vswap! new-children-volatile assoc name true)
     [this-map this-map]))
 
