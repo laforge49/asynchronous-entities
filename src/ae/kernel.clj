@@ -728,7 +728,7 @@
                   full-edn
                   (let [full-edn
                         (str resource "+" un-edn)]
-                    (if (some? (get-entity-map full-edn))
+                    (if (entity-exists? full-edn)
                       full-edn
                       nil))))
               nil
