@@ -80,10 +80,8 @@
     (a/go
       (try
         (doseq [entity-name federation-names]
-          (let [entity-map
-                (k/get-entity-map entity-name)
-                request-port-stack
-                (get entity-map "SYS+facet_vec-REQUESTportSTACK$chan")
+          (let [request-port-stack
+                (k/get-request-port-stack entity-name)
                 request-port
                 (peek request-port-stack)
                 sub-return-port
