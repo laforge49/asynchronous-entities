@@ -14,14 +14,6 @@
   [name]
   (some? (i/get-gem-map name)))
 
-(defn refresh-entity-map
-  [entity-map]
-  (i/get-gem-map (get entity-map "SYS+facet-NAME&%")))
-
-(defn save-entity-map
-  [entity-map]
-  (i/assoc-gem-map (get entity-map "SYS+facet-NAME&%") entity-map))
-
 (def classifier-values-map-atom
   (atom {}))
 
@@ -60,13 +52,25 @@
   [name]
   (get (i/get-gem-map name) "SYS+facet_vec-REQUESTportSTACK$chan"))
 
+(defn invariant?
+  [gem-map]
+  (get-in gem-map ["SYS+facet_map-DESCRIPTORS^descriptor" "SYS+descriptor-INVARIANT$bool"]))
+
 (defn get-invariant-map
   [name]
   (let [entity-map
         (i/get-gem-map name)]
-    (if (get-in entity-map ["SYS+facet_map-DESCRIPTORS^descriptor" "SYS+descriptor-INVARIANT$bool"])
+    (if (invariant? entity-map)
       entity-map
       nil)))
+
+(defn refresh-entity-map
+  [entity-map]
+  (i/get-gem-map (get entity-map "SYS+facet-NAME&%")))
+
+(defn save-entity-map
+  [entity-map]
+  (i/assoc-gem-map (get entity-map "SYS+facet-NAME&%") entity-map))
 
 (defn get-classifiers-map
   [entity-name]
