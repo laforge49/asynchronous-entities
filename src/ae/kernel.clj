@@ -6,17 +6,13 @@
             [ae.keywords :as kw]
             [ae.internals :as i]))
 
-(defn get-entity-map
-  [name]
-  (get @i/entities-map-atom name))
-
 (defn get-entity-names
   []
   (keys @i/entities-map-atom))
 
 (defn entity-exists?
   [name]
-  (some? (get-entity-map name)))
+  (some? (i/get-entity-map name)))
 
 (defn assoc-entity-map
   [name entity-map]
@@ -24,7 +20,7 @@
 
 (defn refresh-entity-map
   [entity-map]
-  (get-entity-map (get entity-map "SYS+facet-NAME&%")))
+  (i/get-entity-map (get entity-map "SYS+facet-NAME&%")))
 
 (defn save-entity-map
   [entity-map]
@@ -66,12 +62,12 @@
 
 (defn get-request-port-stack
   [name]
-  (get (get-entity-map name) "SYS+facet_vec-REQUESTportSTACK$chan"))
+  (get (i/get-entity-map name) "SYS+facet_vec-REQUESTportSTACK$chan"))
 
 (defn get-invariant-map
   [name]
   (let [entity-map
-        (get-entity-map name)]
+        (i/get-entity-map name)]
     (if (get-in entity-map ["SYS+facet_map-DESCRIPTORS^descriptor" "SYS+descriptor-INVARIANT$bool"])
       entity-map
       nil)))
@@ -79,7 +75,7 @@
 (defn get-classifiers-map
   [entity-name]
   (let [entity-map
-        (get-entity-map entity-name)]
+        (i/get-entity-map entity-name)]
     (get entity-map "SYS+facet_map-CLASSIFIERS^classifier")))
 
 (defn get-classifier
@@ -113,7 +109,7 @@
 (defn get-child-map
   [entity-name env]
   (let [entity-map
-        (get-entity-map entity-name)
+        (i/get-entity-map entity-name)
         new-children-map
         @(get env "SYS+env_volmap-CHILDREN&%")]
     (if (nil? (get new-children-map entity-name))
@@ -125,7 +121,7 @@
   (let [env-federator-name
         (get env "SYS+env-FEDERATORname&federator")
         entity-map
-        (get-entity-map entity-name)
+        (i/get-entity-map entity-name)
         this-federator-name
         (get entity-map "SYS+facet-FEDERATORname&federator")]
     (if (= this-federator-name env-federator-name)
@@ -286,7 +282,7 @@
     (recur
       (try
         (let [this-map
-              (get-entity-map this-name)
+              (i/get-entity-map this-name)
               this-request-port-stack
               (get this-map "SYS+facet_vec-REQUESTportSTACK$chan")
               _ (if (nil? this-request-port-stack)
@@ -323,7 +319,7 @@
                                               (prn-str params)
                                               (prn-str this-map)))))
                   this-map
-                  (get-entity-map this-name)
+                  (i/get-entity-map this-name)
                   [this-map]
                   (case requestid
 
