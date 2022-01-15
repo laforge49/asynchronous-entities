@@ -69,8 +69,9 @@
   (i/get-gem-map (get entity-map "SYS+facet-NAME&%")))
 
 (defn save-entity-map
-  [entity-map]
-  (i/assoc-gem-map (get entity-map "SYS+facet-NAME&%") entity-map))
+  [gem-map]
+  (if (invariant? gem-map)
+    (i/assoc-gem-map (get gem-map "SYS+facet-NAME&%") gem-map)))
 
 (defn get-classifiers-map
   [entity-name]
