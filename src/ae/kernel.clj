@@ -260,7 +260,8 @@
                 (fun env target-map params))))
           [target-map nil]
           operationids)]
-    (i/assoc-gem-map target-name target-map)
+    (if (nil? (get-invariant-map target-name))
+      (i/assoc-gem-map target-name target-map))
     [(refresh-entity-map this-map) rv]))
 
 (defn targetOperationid
