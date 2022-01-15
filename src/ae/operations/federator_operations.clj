@@ -30,11 +30,11 @@
                     (peek request-port-stack)
                     subrequest-return-port
                     (a/chan)
-                    _ (a/>! initialization-port [env {"SYS+param-REQUESTID&requestid"   "RESET-REQUEST-PORT"
-                                                      "SYS+param-RETURN$chan" subrequest-return-port}])
+                    _ (a/>! initialization-port [env {"SYS+param-REQUESTID&requestid" "RESET-REQUEST-PORT"
+                                                      "SYS+param-RETURN$chan"         subrequest-return-port}])
                     _ (k/request-exception-check (a/<! subrequest-return-port))
-                    _ (a/>! context-request-port [env {"SYS+param-REQUESTID&requestid"                  "SYS+requestid-REGISTERentity"
-                                                       "SYS+param-NAME&%"                     (get snap "SYS+facet-NAME&%")
+                    _ (a/>! context-request-port [env {"SYS+param-REQUESTID&requestid"        "SYS+requestid-REGISTERentity"
+                                                       "SYS+param-NAME&%"                     entity-name
                                                        "SYS+param_map-CLASSIFIERS^classifier" (get snap "SYS+facet_map-CLASSIFIERS^classifier")
                                                        "SYS+param-RETURN$chan"                subrequest-return-port}])
                     _ (k/request-exception-check (a/<! subrequest-return-port))
@@ -66,9 +66,9 @@
                         (a/chan)
                         subrequest-return-port
                         (a/chan)
-                        _ (a/>! federation-request-port [env {"SYS+param-REQUESTID&requestid"      "PUSH-REQUEST-PORT"
-                                                              "SYS+param-NEWrequestport" new-request-port
-                                                              "SYS+param-RETURN$chan"    subrequest-return-port}])
+                        _ (a/>! federation-request-port [env {"SYS+param-REQUESTID&requestid" "PUSH-REQUEST-PORT"
+                                                              "SYS+param-NEWrequestport"      new-request-port
+                                                              "SYS+param-RETURN$chan"         subrequest-return-port}])
                         _ (k/request-exception-check (a/<! subrequest-return-port))]
                     federation-names-vec)
                   (catch Exception e
@@ -92,8 +92,8 @@
                 (peek request-port-stack)
                 sub-return-port
                 (a/chan)]
-            (a/>! request-port [env {"SYS+param-REQUESTID&requestid"   "RESET-REQUEST-PORT"
-                                     "SYS+param-RETURN$chan" sub-return-port}])
+            (a/>! request-port [env {"SYS+param-REQUESTID&requestid" "RESET-REQUEST-PORT"
+                                     "SYS+param-RETURN$chan"         sub-return-port}])
             (k/request-exception-check (a/<! sub-return-port))))
         (a/>! return-port [nil])
         (catch Exception e
