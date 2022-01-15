@@ -274,10 +274,8 @@
 
 (defn get-public-request-port
   [name]
-  (let [this-map
-        (get-entity-map name)
-        request-port-stack
-        (get this-map "SYS+facet_vec-REQUESTportSTACK$chan")
+  (let [request-port-stack
+        (get-request-port-stack name)
         _ (if (nil? request-port-stack)
           (throw (Exception. (str "Request port stack missing from GEM " name))))]
     (first request-port-stack)))
