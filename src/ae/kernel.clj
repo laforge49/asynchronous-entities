@@ -3,22 +3,24 @@
             [clojure.string :as s]
             [clojure.stacktrace :as stacktrace]
             [tupelo.parse.yaml :as yaml]
-            [ae.keywords :as kw]))
-
-(def entities-map-atom
-  (atom {}))
+            [ae.keywords :as kw]
+            [ae.internals :as i]))
 
 (defn get-entity-map
   [name]
-  (get @entities-map-atom name))
+  (get @i/entities-map-atom name))
 
 (defn get-entity-names
   []
-  (keys @entities-map-atom))
+  (keys @i/entities-map-atom))
+
+(defn entity-exists?
+  [name]
+  (some? (get-entity-map name)))
 
 (defn assoc-entity-map
   [name entity-map]
-  (swap! entities-map-atom assoc name entity-map))
+  (swap! i/entities-map-atom assoc name entity-map))
 
 (defn refresh-entity-map
   [entity-map]
