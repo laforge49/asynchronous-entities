@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "6blog/22/22-1 Q1/2202/2202.6 Saturday (week 02).01-15-2022.md",
+            "file": "6blog/22/22-1 Q1/2202/2202.7 Sunday (week 02), 01-16-2022.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6blog/22/22-1 Q1/2202/2202.6 Saturday (week 02).01-15-2022.md",
+                "file": "6blog/22/22-1 Q1/2202/2202.7 Sunday (week 02), 01-16-2022.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,7 +97,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "6blog/22/22-1 Q1/2202/2202.6 Saturday (week 02).01-15-2022.md",
+                "file": "6blog/22/22-1 Q1/2202/2202.7 Sunday (week 02), 01-16-2022.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -112,7 +112,8 @@
   },
   "active": "4331bf41315b1b1d",
   "lastOpenFiles": [
-    "6blog/22/22-1 Q1/2202/2202.6 Saturday (week 02).01-15-2022.md",
+    "6blog/22/22-1 Q1/2202/2202.7 Sunday (week 02), 01-16-2022.md",
+    "6blog/22/22-1 Q1/2202/2202.6 Saturday (week 02), 01-15-2022.md",
     "8activities/8039-asyncProcessing.md",
     "8activities/8040-functions.md",
     "8activities/8000-pendingActivities.md",
@@ -120,7 +121,6 @@
     "6blog/21/21-4 Q4/2152/2152.2 Tuesday (week 52), 12-28-2021.md",
     "8activities/8012-changeDescriptors.md",
     "6blog/21/21-4 Q4/2152/8037-reourceBinding.md",
-    "6blog/21/21-4 Q4/2152/8004-validation.md",
-    "6blog/21/21-4 Q4/2144/8030-requestParameters.md"
+    "6blog/21/21-4 Q4/2152/8004-validation.md"
   ]
 }
