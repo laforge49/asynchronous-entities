@@ -11,7 +11,7 @@ gem_map-FACETS^facet:
       requestid-LOADscript:
       - LOAD_SCRIPToperationid
       requestid-PRINTLN:
-      - UI_PRINTLNoperationid
+      - PRINTLNoperationid
       requestid-REGISTERentity:
       - REGISTER_ENTITYoperationid
       requestid-VALIDATEscriptNAMES:
@@ -273,6 +273,10 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-PARAM
     - request_map-REQUEST^param:
+        param-NAME&%: param-TEXT$str
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-PARAM
+    - request_map-REQUEST^param:
         param-NAME&%: class-PARAMmap
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -404,6 +408,10 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-ENTITYreport
         param-TARGETname&%: context-SYS
     - request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-PRINTLN
+        param-TARGETname&%: context-SYS
+        param-TEXT$str: Start UI
+    - request_map-REQUEST^param:
         param-REQUESTID&requestid: requestid-UIcreation
         param-TARGETname&%: context-UI
   facet_vec-REQUESTportSTACK$chan:
@@ -467,6 +475,7 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+param-NAME&%
     entity:      SYS+param-REQUESTID&requestid
     entity:      SYS+param-TARGETname&%
+    entity:      SYS+param-TEXT$str
   value:       SYS+class-PARAMmap
     entity:      SYS+param_map-CLASSIFIERS^classifier
     entity:      SYS+param_map-DESCRIPTORS^descriptor

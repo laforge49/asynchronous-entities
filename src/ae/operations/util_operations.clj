@@ -7,14 +7,14 @@
   (a/go
     (let [operation-return-port
           (get params "SYS+param-OPERATIONreturnport")]
-      ((try
-         (println (get params "SYS+param-TEXT$str"))
-         (a/>! operation-return-port [this-map nil])
-         (catch Exception e
-           (a/>! operation-return-port [this-map e])))))))
+      (try
+        (println (get params "SYS+param-TEXT$str"))
+        (a/>! operation-return-port [this-map nil])
+        (catch Exception e
+          (a/>! operation-return-port [this-map e]))))))
 
 (defn create-util-operations
   [env]
-  (k/register-function env {:operationid "UI_PRINTLNoperationid"
+  (k/register-function env {:operationid "PRINTLNoperationid"
                             :goblock     println-goblock})
   )
