@@ -7,7 +7,8 @@
             [ae.operations.context-operations :as co]
             [ae.operations.entity-operations :as eo]
             [ae.operations.federator-operations :as fo]
-            [ae.operations.swing-operations :as sw]))
+            [ae.operations.swing-operations :as sw]
+            [ae.operations.util-operations :as uo]))
 
 
 (defn create-operations
@@ -15,7 +16,9 @@
   (co/create-context-operations env)
   (eo/create-entity-operations env)
   (fo/create-federator-operations env)
-  (sw/create-swing-operations env))
+  (sw/create-swing-operations env)
+  (uo/create-util-operations env)
+  )
 
 (defn -main
   [& args]
