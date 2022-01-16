@@ -8,7 +8,7 @@
     (let [operation-return-port
           (get params "SYS+param-OPERATIONreturnport")]
       ((try
-         (println (get params "SYS+param-PRINTLN$str"))
+         (println (get params "SYS+param-TEXT$str"))
          (a/>! operation-return-port [this-map nil])
          (catch Exception e
            (a/>! operation-return-port [this-map e])))))))

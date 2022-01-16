@@ -10,6 +10,8 @@ gem_map-FACETS^facet:
       - EVAL_SCRIPToperationid
       requestid-LOADscript:
       - LOAD_SCRIPToperationid
+      requestid-PRINTLN:
+      - UI_PRINTLNoperationid
       requestid-REGISTERentity:
       - REGISTER_ENTITYoperationid
       requestid-VALIDATEscriptNAMES:
@@ -363,6 +365,10 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-REQUESTID
     - request_map-REQUEST^param:
+        param-NAME&%: requestid-PRINTLN
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-REQUESTID
+    - request_map-REQUEST^param:
         param-NAME&%: requestid-RUNfederation
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-REQUESTID
@@ -472,6 +478,7 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+requestid-EVALscript
     entity:      SYS+requestid-INSTANTIATE
     entity:      SYS+requestid-LOADscript
+    entity:      SYS+requestid-PRINTLN
     entity:      SYS+requestid-REGISTERentity
     entity:      SYS+requestid-RUNfederation
     entity:      SYS+requestid-UIcreation

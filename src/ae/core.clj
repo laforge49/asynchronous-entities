@@ -35,7 +35,8 @@
                                     "SYS+requestid-ENTITYreport"        ["CONTEXT_REPORToperationid"]
                                     "SYS+requestid-LOADscript"          ["LOAD_SCRIPToperationid"]
                                     "SYS+requestid-EVALscript"          ["EVAL_SCRIPToperationid"]
-                                    "SYS+requestid-VALIDATEscriptNAMES" ["VALIDATE_SCRIPT_NAMESoperationid"]}}})
+                                    "SYS+requestid-VALIDATEscriptNAMES" ["VALIDATE_SCRIPT_NAMESoperationid"]
+                                    "SYS+requestid-PRINTLN"             ["UI_PRINTLNoperationid"]}}})
           _ (l/go-later env [{"SYS+request_map-REQUEST^param" {"SYS+param-REQUESTID&requestid" "SYS+requestid-LOADscript"
                                                                "SYS+param-TARGETname&%"        "ROOT+context-SYS"}}
                              {"SYS+request_map-REQUEST^param" {"SYS+param-REQUESTID&requestid" "SYS+requestid-EVALscript"
