@@ -35,51 +35,56 @@
         (catch Exception e
           (a/>! operation-return-port [this-map e]))))))
 
+(defn context-report-function
+  [env this-map params]
+  (let [this-name
+        (get this-map "SYS+facet-NAME&%")
+        file-name
+        (str "ae-vault/9ROOT/CONTEXTS/" this-name ".md")
+        heading
+        (str "# Entity " this-name "\n\n")
+        content
+        (get this-map "SYS+facet-CONTENT$str")
+        content
+        (if (= (count content) 0)
+          ""
+          (str content "\n\n---\n"))
+        report
+        (str (r/front-matter this-map env)
+             heading
+             content
+             (r/context-classifier-values-report 1 this-name))
+        [_ _ context-base-name]
+        (kw/name-as-keyword this-name)
+        context-base-name
+        (if (s/starts-with? context-base-name "context-")
+          (subs context-base-name 8)
+          context-base-name)
+        context-prefix
+        (str context-base-name "+")
+        requests
+        (reduce
+          (fn [requests entity-name]
+            (if (s/starts-with? entity-name context-prefix)
+              (conj requests {"SYS+request_map-REQUEST^param"
+                              {"SYS+param-REQUESTID&requestid" "SYS+requestid-ENTITYreport"
+                               "SYS+param-TARGETname&%"        entity-name}})
+              requests))
+          []
+          (k/get-entity-names))]
+    (io/make-parents file-name)
+    (spit file-name report)
+    (l/push-later env requests)
+    [this-map nil]))
+
 (defn context-report-goblock
   [env this-map params]
   (a/go
     (let [operation-return-port
           (get params "SYS+param-OPERATIONreturnport")]
       (try
-        (let [this-name
-              (get this-map "SYS+facet-NAME&%")
-              file-name
-              (str "ae-vault/9ROOT/CONTEXTS/" this-name ".md")
-              heading
-              (str "# Entity " this-name "\n\n")
-              content
-              (get this-map "SYS+facet-CONTENT$str")
-              content
-              (if (= (count content) 0)
-                ""
-                (str content "\n\n---\n"))
-              report
-              (str (r/front-matter this-map env)
-                   heading
-                   content
-                   (r/context-classifier-values-report 1 this-name))
-              [_ _ context-base-name]
-              (kw/name-as-keyword this-name)
-              context-base-name
-              (if (s/starts-with? context-base-name "context-")
-                (subs context-base-name 8)
-                context-base-name)
-              context-prefix
-              (str context-base-name "+")
-              requests
-              (reduce
-                (fn [requests entity-name]
-                  (if (s/starts-with? entity-name context-prefix)
-                    (conj requests {"SYS+request_map-REQUEST^param"
-                                    {"SYS+param-REQUESTID&requestid" "SYS+requestid-ENTITYreport"
-                                     "SYS+param-TARGETname&%"        entity-name}})
-                    requests))
-                []
-                (k/get-entity-names))]
-          (io/make-parents file-name)
-          (spit file-name report)
-          (l/push-later env requests)
-          (a/>! operation-return-port [this-map nil]))
+        (context-report-function env this-map params)
+        (a/>! operation-return-port [this-map nil])
         (catch Exception e
           (a/>! operation-return-port [this-map e]))))))
 
@@ -142,6 +147,7 @@
   (k/register-function env {:operationid "REGISTER_ENTITYoperationid"
                             :goblock     register-entity-goblock})
   (k/register-function env {:operationid "CONTEXT_REPORToperationid"
+                            :function    context-report-function
                             :goblock     context-report-goblock})
   (k/register-function env {:operationid "LOAD_SCRIPToperationid"
                             :goblock     load-script-goblock})
