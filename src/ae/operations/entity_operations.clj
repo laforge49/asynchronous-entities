@@ -34,10 +34,10 @@
         new-children-volatile
         (get env "SYS+env_volmap-CHILDREN&%")
         ]
-    #_ (l/push-later env [{"SYS+request_map-REQUEST^param"
-                        {"SYS+param-REQUESTID&requestid" "SYS+requestid-PRINTLN"
-                         "SYS+param-TARGETname&%"        "ROOT+context-SYS"
-                         "SYS+param-TEXT$str"            (str "Instantiate " (get params "SYS+param-NAME&%"))}}])
+    #_(l/push-later env [{"SYS+request_map-REQUEST^param"
+                          {"SYS+param-REQUESTID&requestid" "SYS+requestid-PRINTLN"
+                           "SYS+param-TARGETname&%"        "ROOT+context-SYS"
+                           "SYS+param-TEXT$str"            (str "Instantiate " (get params "SYS+param-NAME&%"))}}])
     (k/create-entity env params)
     (vswap! new-children-volatile assoc name true)
     [this-map this-map]))
@@ -148,34 +148,40 @@
           new-relations-map)]
     [this-map this-map]))
 
+(defn entity-report-function
+  [env this-map params]
+  (let [this-name
+        (get this-map "SYS+facet-NAME&%")
+        [name-kw context-base-name base-name]
+        (kw/name-as-keyword this-name)
+        file-name
+        (if (= context-base-name "SYS")
+          (str "ae-vault/9ROOT/SYS/" base-name ".md")
+          (str "ae-vault/9ROOT/" context-base-name "/" base-name ".md"))
+        heading
+        (str "# Entity " this-name "\n\n")
+        content
+        (get this-map "SYS+facet-CONTENT$str")
+        content
+        (if (= (count content) 0)
+          ""
+          (str content "\n"))
+        report
+        (str (r/front-matter this-map env)
+             heading
+             content)]
+    (io/make-parents file-name)
+    (spit file-name report)
+    [this-map nil]))
+
 (defn entity-report-goblock
   [env this-map params]
   (a/go
     (let [operation-return-port
           (get params "SYS+param-OPERATIONreturnport")]
       (try
-        (let [this-name
-              (get this-map "SYS+facet-NAME&%")
-              [name-kw context-base-name base-name]
-              (kw/name-as-keyword this-name)
-              file-name
-              (if (= context-base-name "SYS")
-                (str "ae-vault/9ROOT/SYS/" base-name ".md")
-                (str "ae-vault/9ROOT/" context-base-name "/" base-name ".md"))
-              heading
-              (str "# Entity " this-name "\n\n")
-              content
-              (get this-map "SYS+facet-CONTENT$str")
-              content
-              (if (= (count content) 0)
-                ""
-                (str content "\n"))
-              report
-              (str (r/front-matter this-map env)
-                   heading
-                   content)]
-          (io/make-parents file-name)
-          (spit file-name report)
+        (let [[this-map rv]
+              (entity-report-function env this-map params)]
           (a/>! operation-return-port [this-map nil]))
         (catch Exception e
           (a/>! operation-return-port [this-map e]))))))
@@ -190,5 +196,6 @@
   (k/register-function env {:operationid "ADD_RELATIONSoperationid"
                             :function    addRelationsFunction})
   (k/register-function env {:operationid "ENTITY_REPORToperationid"
+                            :function    entity-report-function
                             :goblock     entity-report-goblock})
   )

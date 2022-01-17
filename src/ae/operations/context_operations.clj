@@ -83,8 +83,9 @@
     (let [operation-return-port
           (get params "SYS+param-OPERATIONreturnport")]
       (try
-        (context-report-function env this-map params)
-        (a/>! operation-return-port [this-map nil])
+        (let [[this-map rv]
+              (context-report-function env this-map params)]
+          (a/>! operation-return-port [this-map nil]))
         (catch Exception e
           (a/>! operation-return-port [this-map e]))))))
 
