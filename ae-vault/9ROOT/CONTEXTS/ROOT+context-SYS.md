@@ -365,11 +365,11 @@ gem_map-FACETS^facet:
         param_map-DESCRIPTORS^descriptor:
           descriptor-READonly$bool: true
     - request_map-REQUEST^param:
-        param-NAME&%: requestid-REGISTERentity
+        param-NAME&%: requestid-PRINTLN
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-REQUESTID
     - request_map-REQUEST^param:
-        param-NAME&%: requestid-PRINTLN
+        param-NAME&%: requestid-REGISTERentity
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-REQUESTID
     - request_map-REQUEST^param:
