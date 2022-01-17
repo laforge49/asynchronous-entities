@@ -225,9 +225,9 @@
                 true
                 (get request-descriptors "SYS+descriptor-READonly$bool"))]
           (if (not read-only)
-            (throw (Exception. (str "Can not apply " requestid " to invariant " (get target-map "SYS+facet-NAME&%")
-                                    (prn-str params)
-                                    (prn-str target-map))))))))
+            (throw (Exception. (str "Can not apply " requestid " to invariant " (get target-map "SYS+facet-NAME&%") "\n"
+                                    :params " " (prn-str params)
+                                    :this-map " " (prn-str target-map))))))))
     operationids))
 
 (defn routeFunction
@@ -247,8 +247,8 @@
           (get-invariant-map target-name))
         _ (if (nil? target-map)
             (throw (Exception. (str "Unreachable: " (prn-str target-name) "\n"
-                                    (prn-str params)
-                                    (prn-str this-map)))))
+                                    :params " " (prn-str params)
+                                    :this-map " " (prn-str this-map)))))
         operationids
         (targetOperationids env target-map params)
         [target-map rv]
