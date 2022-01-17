@@ -31,7 +31,6 @@
         (into params {"SYS+param-INITIALIZATIONport"         initialization-port
                       "SYS+param_map-DESCRIPTORS^descriptor" instantiation-descriptors
                       "SYS+param_map-CLASSIFIERS^classifier" instantiation-classifiers})
-        _ (k/create-entity env params)
         new-children-volatile
         (get env "SYS+env_volmap-CHILDREN&%")
         ]
@@ -39,6 +38,7 @@
                         {"SYS+param-REQUESTID&requestid" "SYS+requestid-PRINTLN"
                          "SYS+param-TARGETname&%"        "ROOT+context-SYS"
                          "SYS+param-TEXT$str"            (str "Instantiate " (get params "SYS+param-NAME&%"))}}])
+    (k/create-entity env params)
     (vswap! new-children-volatile assoc name true)
     [this-map this-map]))
 
@@ -56,8 +56,6 @@
         (get this-descriptors "SYS+descriptor_map-INSTANCE^descriptor")
         instantiation-descriptors
         (k/merge-maps instantiation-descriptors (get params "SYS+param_map-DESCRIPTORS^descriptor"))
-        ;instantiation-descriptors
-        ;(into instantiation-descriptors (get params "SYS+param_map-DESCRIPTORS^descriptor"))
         instantiation-classifiers
         (get this-descriptors "SYS+descriptor_map-INSTANCE^classifier")
         instantiation-classifiers
