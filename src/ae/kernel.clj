@@ -283,7 +283,7 @@
   (let [request-port-stack
         (get-request-port-stack name)
         _ (if (nil? request-port-stack)
-          (throw (Exception. (str "Request port stack missing from GEM " name))))]
+            (throw (Exception. (str "Request port stack missing from GEM " name))))]
     (first request-port-stack)))
 
 (defn create-operation-dispatcher
@@ -416,7 +416,9 @@
 
 (defn create-entity
   [env params]
-  (let [name
+  (let [federator-name
+        (get env "SYS+env-FEDERATORname&federator")
+        name
         (get params "SYS+param-NAME&%")
         descriptors
         (get params "SYS+param_map-DESCRIPTORS^descriptor" (sorted-map))
@@ -427,23 +429,24 @@
         invariant
         (get descriptors "SYS+descriptor-INVARIANT$bool")
         new-public-request-port
-        (if true;todo (not invariant)
+        (if true                                            ;todo (not invariant)
           (a/chan)
           nil)
         request-port-stack
-        (if true;todo (not invariant)
+        (if true                                            ;todo (not invariant)
           [new-public-request-port]
           nil)
         initialization-port
         (get params "SYS+param-INITIALIZATIONport")
         request-port-stack
-        (if true;todo (not invariant)
+        (if true                                            ;todo (not invariant)
           (if (nil? initialization-port)
             request-port-stack
             (conj request-port-stack initialization-port))
           nil)
         new-entity-map
         {"SYS+facet-NAME&%"                          name
+         "SYS+facet-FEDERATORname&federator"         federator-name
          "SYS+facet_map-DESCRIPTORS^descriptor"      descriptors
          "SYS+facet_map-CLASSIFIERS^classifier"      classifiers
          "SYS+facet_map-RELATIONS^relation&%"        (sorted-map)
@@ -452,7 +455,7 @@
          "SYS+facet_vec-REQUESTportSTACK$chan"       request-port-stack}
         ]
     (i/assoc-gem-map name new-entity-map)
-    (if true;todo (not invariant)
+    (if true                                                ;todo (not invariant)
       (create-operation-dispatcher name))))
 
 (defn entityContextName
