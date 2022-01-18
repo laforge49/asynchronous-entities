@@ -9,7 +9,9 @@
 
 (defn instantiateFunction
   [env this-map params]
-  (let [name
+  (let [federated?
+        (some? (get env "SYS+env-FEDERATORname&federator"))
+        name
         (get params "SYS+param-NAME&%")
         this-name
         (get this-map "SYS+facet-NAME&%")
