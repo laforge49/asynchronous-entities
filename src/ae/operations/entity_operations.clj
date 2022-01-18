@@ -28,16 +28,24 @@
         instantiation-classifiers
         (into instantiation-classifiers (get params "SYS+param_map-CLASSIFIERS^classifier"))
         initialization-port
-        (a/chan)
+        (if federated?
+          (a/chan)
+          nil)
         params
         (into params {"SYS+param-INITIALIZATIONport"         initialization-port
                       "SYS+param_map-DESCRIPTORS^descriptor" instantiation-descriptors
-                      "SYS+param_map-CLASSIFIERS^classifier" instantiation-classifiers})
-        new-children-volatile
-        (get env "SYS+env_volmap-CHILDREN&%")
-        ]
+                      "SYS+param_map-CLASSIFIERS^classifier" instantiation-classifiers})]
     (k/create-entity env params)
-    (vswap! new-children-volatile assoc name true)
+    (if federated?
+      (vswap! (get env "SYS+env_volmap-CHILDREN&%") assoc name true)
+      (let [target-name
+            (get params "SYS+param-TARGETname&%")
+            params
+            (into params {"SYS+param-REQUESTID&requestid" "SYS+requestid-REGISTERentity"
+                          "SYS+param-TARGETname&%"        (k/entityContextName target-name)})
+            requests
+            [{"SYS+request_map-REQUEST^param" params}]]
+        (l/push-later env requests)))
     [this-map this-map]))
 
 (defn instantiateOperation
