@@ -38,53 +38,13 @@
     (k/create-entity env params)
     (if federated?
       (vswap! (get env "SYS+env_volmap-CHILDREN&%") assoc name true)
-      (let [target-name
-            (get params "SYS+param-TARGETname&%")
-            params
+      (let [params
             (into params {"SYS+param-REQUESTID&requestid" "SYS+requestid-REGISTERentity"
-                          "SYS+param-TARGETname&%"        (k/entityContextName target-name)})
+                          "SYS+param-TARGETname&%"        (k/entityContextName name)})
             requests
             [{"SYS+request_map-REQUEST^param" params}]]
         (l/push-later env requests)))
     [this-map this-map]))
-
-(defn instantiateOperation
-  [env this-map params]
-  (let [context-name
-        (get params "SYS+param-NAME&%")
-        target-name
-        (k/entityContextName context-name)
-        this-name
-        (get this-map "SYS+facet-NAME&%")
-        this-descriptors
-        (get this-map "SYS+facet_map-DESCRIPTORS^descriptor")
-        instantiation-descriptors
-        (get this-descriptors "SYS+descriptor_map-INSTANCE^descriptor")
-        instantiation-descriptors
-        (k/merge-maps instantiation-descriptors (get params "SYS+param_map-DESCRIPTORS^descriptor"))
-        instantiation-classifiers
-        (get this-descriptors "SYS+descriptor_map-INSTANCE^classifier")
-        instantiation-classifiers
-        (assoc instantiation-classifiers "SYS+classifier-CLASS&class" this-name)
-        instantiation-classifiers
-        (into instantiation-classifiers (get params "SYS+param_map-CLASSIFIERS^classifier"))
-        ]
-    (into params {"SYS+param-REQUESTID&requestid"        "SYS+requestid-REGISTERentity"
-                  "SYS+param-TARGETname&%"               target-name
-                  "SYS+param_map-DESCRIPTORS^descriptor" instantiation-descriptors
-                  "SYS+param_map-CLASSIFIERS^classifier" instantiation-classifiers})))
-
-(defn instantiate-goblockx
-  [env this-map params]
-  (a/go
-    (let [operation-return-port
-          (get params "SYS+param-OPERATIONreturnport")]
-      (try
-        (let [[this-map rv]
-              (instantiateFunction env this-map params)]
-          (a/>! operation-return-port [this-map nil]))
-        (catch Exception e
-          (a/>! operation-return-port [this-map e]))))))
 
 (defn instantiate-goblock
   [env this-map params]
@@ -92,11 +52,8 @@
     (let [operation-return-port
           (get params "SYS+param-OPERATIONreturnport")]
       (try
-        (let [params
-              (instantiateOperation env this-map params)
-              requests
-              [{"SYS+request_map-REQUEST^param" params}]]
-          (l/push-later env requests)
+        (let [[this-map rv]
+              (instantiateFunction env this-map params)]
           (a/>! operation-return-port [this-map nil]))
         (catch Exception e
           (a/>! operation-return-port [this-map e]))))))
