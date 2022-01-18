@@ -14,4 +14,4 @@ Update [2203.1 Monday (week 03), 01-17-2022](../6blog/22/22-1%20Q1/2203/2203.1%2
 When later processes a request, if there is no go-block for that request and the gem is invariant, the function for that request is called instead.
 
 Update [2203.2 Tuesday (week 03), 01-18-2022](../6blog/22/22-1%20Q1/2203/2203.2%20Tuesday%20(week%2003),%2001-18-2022.md):
-Lets reverse that. Later should call route function which in turn invokes the go-block when it exists.
+Lets reverse that. Later should call route function which in turn invokes the go-block when it exists and the gem is not a member of an invoking federation.
