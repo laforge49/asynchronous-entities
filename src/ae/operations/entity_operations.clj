@@ -74,6 +74,18 @@
                   "SYS+param_map-DESCRIPTORS^descriptor" instantiation-descriptors
                   "SYS+param_map-CLASSIFIERS^classifier" instantiation-classifiers})))
 
+(defn instantiate-goblockx
+  [env this-map params]
+  (a/go
+    (let [operation-return-port
+          (get params "SYS+param-OPERATIONreturnport")]
+      (try
+        (let [[this-map rv]
+              (instantiateFunction env this-map params)]
+          (a/>! operation-return-port [this-map nil]))
+        (catch Exception e
+          (a/>! operation-return-port [this-map e]))))))
+
 (defn instantiate-goblock
   [env this-map params]
   (a/go
