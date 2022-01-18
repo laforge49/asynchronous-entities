@@ -24,7 +24,7 @@
         instantiation-classifiers
         (assoc instantiation-classifiers "SYS+classifier-CLASS&class" this-name)
         instantiation-classifiers
-        (into instantiation-classifiers (get params "SYS+param_map-SYS+facet-CLASSIFIERS^classifier"))
+        (into instantiation-classifiers (get params "SYS+param_map-CLASSIFIERS^classifier"))
         initialization-port
         (a/chan)
         params
@@ -34,10 +34,6 @@
         new-children-volatile
         (get env "SYS+env_volmap-CHILDREN&%")
         ]
-    #_(l/push-later env [{"SYS+request_map-REQUEST^param"
-                          {"SYS+param-REQUESTID&requestid" "SYS+requestid-PRINTLN"
-                           "SYS+param-TARGETname&%"        "ROOT+context-SYS"
-                           "SYS+param-TEXT$str"            (str "Instantiate " (get params "SYS+param-NAME&%"))}}])
     (k/create-entity env params)
     (vswap! new-children-volatile assoc name true)
     [this-map this-map]))
@@ -61,7 +57,8 @@
         instantiation-classifiers
         (assoc instantiation-classifiers "SYS+classifier-CLASS&class" this-name)
         instantiation-classifiers
-        (into instantiation-classifiers (get params "SYS+param_map-CLASSIFIERS^classifier"))]
+        (into instantiation-classifiers (get params "SYS+param_map-CLASSIFIERS^classifier"))
+        ]
     (into params {"SYS+param-REQUESTID&requestid"        "SYS+requestid-REGISTERentity"
                   "SYS+param-TARGETname&%"               target-name
                   "SYS+param_map-DESCRIPTORS^descriptor" instantiation-descriptors
