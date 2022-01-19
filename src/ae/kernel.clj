@@ -286,10 +286,10 @@
 (defn get-public-request-port
   [name]
   (let [request-port-stack
-        (get-request-port-stack name)
-        _ (if (nil? request-port-stack)
-            (throw (Exception. (str "Request port stack missing from GEM " name))))]
-    (first request-port-stack)))
+        (get-request-port-stack name)]
+    (if (nil? request-port-stack)
+      nil
+      (first request-port-stack))))
 
 (defn create-operation-dispatcher
   [this-name]

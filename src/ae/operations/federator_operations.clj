@@ -22,6 +22,8 @@
                     (k/entityContextName entity-name)
                     context-request-port
                     (k/get-public-request-port context-name)
+                    _ (if (nil? context-request-port)
+                        (throw (Exception. (str "Missing request port on " context-name))))
                     initialization-port
                     (peek (k/get-request-port-stack entity-name))
                     subrequest-return-port
@@ -54,6 +56,8 @@
                 (peek federation-names-vec)
                 federation-request-port
                 (k/get-public-request-port federation-name)
+                _ (if (nil? federation-request-port)
+                    (throw (Exception. (str "Missing request port while federating on gem " federation-name))))
                 federation-names-vec
                 (pop federation-names-vec)
                 federation-names-vec
