@@ -9,8 +9,6 @@ gem_map-FACETS^facet:
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
       - ENTITY_REPORToperationid
-  facet_vec-REQUESTportSTACK$chan:
-  - clojure.core.async.chan
 ---
 # Entity SYS+param_map-RELATIONS^relation&%
 

@@ -434,17 +434,17 @@
         invariant
         (get descriptors "SYS+descriptor-INVARIANT$bool")
         new-public-request-port
-        (if true                                            ;todo (not invariant)
+        (if (not invariant)
           (a/chan)
           nil)
         request-port-stack
-        (if true                                            ;todo (not invariant)
+        (if (not invariant)
           [new-public-request-port]
           nil)
         initialization-port
         (get params "SYS+param-INITIALIZATIONport")
         request-port-stack
-        (if true                                            ;todo (not invariant)
+        (if (not invariant)
           (if (nil? initialization-port)
             request-port-stack
             (conj request-port-stack initialization-port))
@@ -460,7 +460,7 @@
          "SYS+facet_vec-REQUESTportSTACK$chan"       request-port-stack}
         ]
     (i/assoc-gem-map name new-entity-map)
-    (if true                                                ;todo (not invariant)
+    (if (not invariant)
       (create-operation-dispatcher name))))
 
 (defn entityContextName

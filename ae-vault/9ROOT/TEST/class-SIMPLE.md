@@ -19,8 +19,6 @@ gem_map-FACETS^facet:
       - ENTITY_REPORToperationid
       requestid-INSTANTIATE:
       - INSTANTIATEoperationid
-  facet_vec-REQUESTportSTACK$chan:
-  - clojure.core.async.chan
 ---
 # Entity TEST+class-SIMPLE
 
