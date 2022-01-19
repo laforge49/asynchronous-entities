@@ -232,7 +232,8 @@
 
 (defn routeFunction
   [env this-map params]
-  (save-entity-map this-map)
+  (if (some? this-map)
+    (save-entity-map this-map))
   (let [target-name
         (get params "SYS+param-TARGETname&%")
         target-map
@@ -267,7 +268,11 @@
           operationids)]
     (if (nil? (get-invariant-map target-name))
       (i/assoc-gem-map target-name target-map))
-    [(refresh-entity-map this-map) rv]))
+    (let [this-map
+          (if (some? this-map)
+            (refresh-entity-map this-map)
+            nil)]
+      [this-map rv])))
 
 (defn targetOperationid
   [env target-map params]

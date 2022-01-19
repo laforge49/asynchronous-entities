@@ -83,15 +83,15 @@
                           (throw (Exception. (str "Missing SYS+param-TARGETname&%\n"
                                                   :params " " (prn-str params)))))
                       request-port
-                      (k/get-public-request-port target-name)
-                      subrequest-return-port
-                      (a/chan)
-                      params
-                      (assoc params "SYS+param-RETURN$chan" subrequest-return-port)]
+                      (k/get-public-request-port target-name)]
                   (if (nil? request-port)
-                    (throw (Exception. (str "Undefined target: " (prn-str target-name)))))
-                  (a/>! request-port [env params])
-                  (k/request-exception-check (a/<! subrequest-return-port)))
+                    (k/routeFunction env nil params)
+                    (let [subrequest-return-port
+                          (a/chan)
+                          params
+                          (assoc params "SYS+param-RETURN$chan" subrequest-return-port)]
+                      (a/>! request-port [env params])
+                      (k/request-exception-check (a/<! subrequest-return-port)))))
                 (catch Exception e
                   (a/>! exit-chan [e])
                   (reset! live-atom- false)))
