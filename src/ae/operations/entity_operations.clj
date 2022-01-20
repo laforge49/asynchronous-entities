@@ -46,18 +46,6 @@
         (l/push-later env requests)))
     [this-map this-map]))
 
-(defn instantiate-goblock
-  [env this-map params]
-  (a/go
-    (let [operation-return-port
-          (get params "SYS+param-OPERATIONreturnport")]
-      (try
-        (let [[this-map rv]
-              (instantiateFunction env this-map params)]
-          (a/>! operation-return-port [this-map nil]))
-        (catch Exception e
-          (a/>! operation-return-port [this-map e]))))))
-
 (defn addDescriptorsFunction
   [env this-map params]
   (let [descriptors-map
@@ -165,8 +153,7 @@
 (defn create-entity-operations
   [env]
   (k/register-function env {:operationid "INSTANTIATEoperationid"
-                            :function    instantiateFunction
-                            :goblock     instantiate-goblock})
+                            :function    instantiateFunction})
   (k/register-function env {:operationid "ADD_DESCRIPTORSoperationid"
                             :function    addDescriptorsFunction})
   (k/register-function env {:operationid "ADD_RELATIONSoperationid"
