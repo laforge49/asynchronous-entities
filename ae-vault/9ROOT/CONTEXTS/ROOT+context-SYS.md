@@ -376,6 +376,8 @@ gem_map-FACETS^facet:
         param-NAME&%: requestid-RUNfederation
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-REQUESTID
+        param_map-DESCRIPTORS^descriptor:
+          descriptor-READonly$bool: true
     - request_map-REQUEST^param:
         param-NAME&%: requestid-UIcreation
         param-REQUESTID&requestid: requestid-INSTANTIATE
