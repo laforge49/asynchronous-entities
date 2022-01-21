@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "8activities/8000-pendingActivities.md",
+            "file": "1wiki/1003-gems.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "8activities/8000-pendingActivities.md",
+                "file": "1wiki/1003-gems.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,7 +97,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "8activities/8000-pendingActivities.md",
+                "file": "1wiki/1003-gems.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -112,15 +112,15 @@
   },
   "active": "4331bf41315b1b1d",
   "lastOpenFiles": [
+    "1wiki/1003-gems.md",
+    "1wiki/1006-gemName.md",
+    "1wiki/1002-objective.md",
+    "1wiki/1000-wiki.md",
+    "0000-asynchronousEntities.md",
+    "6blog/6000-blog.md",
     "8activities/8000-pendingActivities.md",
     "6blog/22/22-1 Q1/2203/8039-asyncProcessing.md",
     "6blog/22/22-1 Q1/2203/2203.3 Wednesday (week 03), 01-19-2022.md",
-    "6blog/22/22-1 Q1/2203/2203.2 Tuesday (week 03), 01-18-2022.md",
-    "6blog/22/22-1 Q1/2203/8040-functions.md",
-    "6blog/22/22-1 Q1/2203/2203.1 Monday (week 03), 01-17-2022.md",
-    "6blog/22/22-1 Q1/2202/2202.7 Sunday (week 02), 01-16-2022.md",
-    "6blog/22/22-1 Q1/2202/2202.6 Saturday (week 02), 01-15-2022.md",
-    "6blog/22/22-1 Q1/2202/2202.5 Friday (week 02), 01-14-2022.md",
-    "6blog/21/21-4 Q4/2152/2152.2 Tuesday (week 52), 12-28-2021.md"
+    "6blog/22/22-1 Q1/2203/2203.2 Tuesday (week 03), 01-18-2022.md"
   ]
 }

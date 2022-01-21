@@ -1,4 +1,4 @@
-from [1003-entities](1003-entities.md)
+from [1003-gems](1003-gems.md)
 # 1005 Synchronous Mode
 - [1007-SYSTEMcontext+INVARIANTdescriptor](1007-SYSTEMcontext+INVARIANTdescriptor.md)
 
