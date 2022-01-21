@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "1wiki/1003-gems.md",
+            "file": "1wiki/12200-synchronousMode.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1wiki/1003-gems.md",
+                "file": "1wiki/12200-synchronousMode.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,7 +97,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "1wiki/1003-gems.md",
+                "file": "1wiki/12200-synchronousMode.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -112,15 +112,15 @@
   },
   "active": "4331bf41315b1b1d",
   "lastOpenFiles": [
-    "1wiki/1003-gems.md",
-    "1wiki/1006-gemName.md",
-    "1wiki/1002-objective.md",
-    "1wiki/1000-wiki.md",
-    "0000-asynchronousEntities.md",
-    "6blog/6000-blog.md",
-    "8activities/8000-pendingActivities.md",
-    "6blog/22/22-1 Q1/2203/8039-asyncProcessing.md",
-    "6blog/22/22-1 Q1/2203/2203.3 Wednesday (week 03), 01-19-2022.md",
-    "6blog/22/22-1 Q1/2203/2203.2 Tuesday (week 03), 01-18-2022.md"
+    "1wiki/12200-synchronousMode.md",
+    "1wiki/12100-asynchronousMode.md",
+    "1wiki/11160-REQUESTportSTACK.md",
+    "1wiki/11150-NAME.md",
+    "1wiki/11140-INVERSErelations.md",
+    "1wiki/11130-DESCRIPTORS.md",
+    "1wiki/11131-INVARIANT.md",
+    "1wiki/11120-CLASSIFIERS.md",
+    "1wiki/11110-CONTENTS.md",
+    "1wiki/11100-FACETS.md"
   ]
 }
