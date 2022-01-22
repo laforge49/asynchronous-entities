@@ -1,3 +1,4 @@
+from [11000-gems](11000-gems.md)
 11100 # gem_map-FACETS^facet
 
 The data held by a gem is organized as 6 facets:

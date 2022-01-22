@@ -1,5 +1,5 @@
-from [11000-gems](11000-gems.md)
-# 12200 Synchronous Mode
+from [11200-2operatingModes](11200-2operatingModes.md)
+# 11220 Synchronous Mode
 - [11131-INVARIANT](11131-INVARIANT.md)
 
 Synchronous mode provides interactions between entities via function calls. But this can only be done when the entities are part of the same federation. A federation is created/deleted on demand for a set of entities to run the provided script. When a federation is created, the entities are acquired, and always in the same order to prevent deadlock. Once execution of the script has stopped, the entities are released. 
