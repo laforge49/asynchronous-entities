@@ -481,7 +481,7 @@
 (def dtyp-set
   #{"bool" "str" "chan"})
 
-(defn parse-entity-name
+(defn parse-gem-name
   [s]
   (let [
         _ (if (some? (s/index-of s "."))
@@ -600,7 +600,7 @@
           (if (not= parent-dtyp "str")
             (throw (Exception. (str (pr-str edn) " is not of data type " (pr-str parent-dtyp)))))
           (let [[typ styp root ktyp ntyp dtyp]
-                (parse-entity-name edn)]
+                (parse-gem-name edn)]
             (if (nil? parent-ntyp)
               (throw (Exception. (str "There is no name type for " (pr-str edn)))))
             (if (and (not= parent-ntyp "%") (not= typ parent-ntyp))
@@ -622,7 +622,7 @@
     (doseq [[k v] edn]
       (if (some? v)
         (let [[typ styp root ktyp ntyp dtyp]
-              (parse-entity-name k)
+              (parse-gem-name k)
               styp
               (if (= parent-styp "mapmap")
                 "map"
@@ -698,7 +698,7 @@
                 (and (vector? v) (empty? v)))
           m
           (let [[typ styp root ktyp ntyp dtyp]
-                (parse-entity-name k)
+                (parse-gem-name k)
                 dtyp
                 (if (some? parent-dtyp)
                   parent-dtyp
@@ -767,7 +767,7 @@
     (reduce
       (fn [m [k v]]
         (let [[typ styp root ktyp ntyp dtyp]
-              (parse-entity-name k)
+              (parse-gem-name k)
               styp
               (if (= parent-styp "mapmap")
                 "map"
