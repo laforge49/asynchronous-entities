@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "1wiki/11150-NAME.md",
+            "file": "1wiki/11153-structure-type.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1wiki/11150-NAME.md",
+                "file": "1wiki/11153-structure-type.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,7 +97,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "1wiki/11150-NAME.md",
+                "file": "1wiki/11153-structure-type.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -112,11 +112,11 @@
   },
   "active": "4331bf41315b1b1d",
   "lastOpenFiles": [
-    "1wiki/11150-NAME.md",
     "1wiki/11153-structure-type.md",
-    "1wiki/11152-gem-type.md",
-    "1wiki/11100-FACETS.md",
     "1wiki/11151-context-prefix.md",
+    "1wiki/11152-gem-type.md",
+    "1wiki/11150-NAME.md",
+    "1wiki/11100-FACETS.md",
     "1wiki/11156-value-type.md",
     "1wiki/11155-keyword-type.md",
     "1wiki/11154-base-name.md",
