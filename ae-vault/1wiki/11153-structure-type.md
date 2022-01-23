@@ -10,3 +10,5 @@ The structure type determines the kind of structure that can be assigned as the 
 - vecmap.
 
 For example, when the structure type is mapvec, then the value assigned to the gem name when used as a key is a map whose values are vectors.
+
+The structure type is only present in gem names which are used as keys with values which are not simple scalars.
