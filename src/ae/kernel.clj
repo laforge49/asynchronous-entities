@@ -552,11 +552,13 @@
         root-end
         (if (some? c-ndx)
           c-ndx
-          (if (some? a-ndx)
-            a-ndx
-            (if (some? d-ndx)
-              d-ndx
-              (count s))))
+          (if (some? t-ndx)
+            t-ndx
+            (if (some? a-ndx)
+              a-ndx
+              (if (some? d-ndx)
+                d-ndx
+                (count s)))))
         _ (if (> h-ndx root-end)
             (throw (Exception. (str "Gem name " s " lacks a properly delineated base name"))))
         root
