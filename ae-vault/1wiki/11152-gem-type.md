@@ -1,4 +1,4 @@
-from [11150-NAME](11150-NAME.md)
+from [11150-gem-name](11150-gem-name.md)
 # 11152 Gem Type
 
 The gem type is determined by what a gem does:

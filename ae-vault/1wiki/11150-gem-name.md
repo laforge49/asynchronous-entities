@@ -5,7 +5,7 @@ Gem names, when they include a context prefix, are unique and used to access the
 
 Gem names are used both as keys and values in various structures.
 
-Gem names have several distinct parts which occur in a fixed order. These parts are delineated with the characters '+', '_', '-', '^', '%', '&' and '$'.
+Gem names have several distinct parts which occur in a fixed order. These parts are delineated with the characters +, \_, -, ^, @, & and $.
 
 A gem name has up to 6 parts:
 
@@ -13,5 +13,5 @@ A gem name has up to 6 parts:
 - [11152-gem-type](11152-gem-type.md)
 - [11153-structure-type](11153-structure-type.md)
 - [11154-base-name](11154-base-name.md)
-- [11155-keyword-type](11155-keyword-type.md)
+- [11155-key-type](11155-key-type.md)
 - [11156-value-type](11156-value-type.md)
