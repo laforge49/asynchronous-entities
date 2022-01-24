@@ -579,6 +579,20 @@
               (subs s (inc c-ndx)))))
         _ (if (and (some? c-ndx) (empty? ktyp))
             (throw (Exception. (str "Gem name " s " has a ^ but the key name type is empty"))))
+        ttyp
+        (if (nil? t-ndx)
+          nil
+          (if (some? a-ndx)
+            (if (> a-ndx t-ndx)
+              (subs s (inc t-ndx) a-ndx)
+              (throw (Exception. (str "Gem name " s " has an improperly delineated key data type"))))
+            (if (some? d-ndx)
+              (if (> d-ndx t-ndx)
+                (subs s (inc t-ndx) d-ndx)
+                (throw (Exception. (str "Gem name " s " has an improperly delineated key data type"))))
+              (subs s (inc t-ndx)))))
+        _ (if (and (some? t-ndx) (empty? ttyp))
+            (throw (Exception. (str "Gem name " s " has an @ but the key data type is empty"))))
         ntyp
         (if (nil? a-ndx)
           nil
