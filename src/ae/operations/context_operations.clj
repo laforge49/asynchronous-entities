@@ -13,15 +13,14 @@
     (let [operation-return-port
           (get params "SYS+param-OPERATIONreturnport")]
       (try
-        (let [this-name
+        (let [federated?
+              (some? (get env "SYS+env-FEDERATORname&federator"))
+              _ (if (not federated?)
+                  (k/create-entity env params))
+              this-name
               (get this-map "SYS+facet-NAME&%")
               name
               (get params "SYS+param-NAME&%")
-              _ (if (some? (get params "SYS+param-INITIALIZATIONport"))
-                  (throw (Exception. (str "An initialization port is not compatible with non-federated registration of entity "
-                                          name))))
-              _ (if (not (k/entity-exists? name))
-                  (k/create-entity env params))
               classifiers
               (get params "SYS+param_map-CLASSIFIERS^classifier")]
           (if (some? classifiers)
