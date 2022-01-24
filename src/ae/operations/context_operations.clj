@@ -7,31 +7,27 @@
             [ae.kernel :as k]
             [ae.keywords :as kw]))
 
-(defn registerEntityOperation
-  [env this-map params]
-  (let [this-name
-        (get this-map "SYS+facet-NAME&%")
-        name
-        (get params "SYS+param-NAME&%")
-        _ (if (some? (get params "SYS+param-INITIALIZATIONport"))
-            (throw (Exception. (str "An initialization port is not compatible with non-federated registration of entity "
-                                    name))))
-        _ (if (not (k/entity-exists? name))
-            (k/create-entity env params))
-        classifiers
-        (get params "SYS+param_map-CLASSIFIERS^classifier")]
-    (if (some? classifiers)
-      (doseq [[classifier-kw classifier-value-kw] classifiers]
-        (k/add-classifier-value this-name name classifier-kw classifier-value-kw)))
-    [this-map nil]))
-
 (defn register-entity-goblock
   [env this-map params]
   (a/go
     (let [operation-return-port
           (get params "SYS+param-OPERATIONreturnport")]
       (try
-        (a/>! operation-return-port (registerEntityOperation env this-map params))
+        (let [this-name
+              (get this-map "SYS+facet-NAME&%")
+              name
+              (get params "SYS+param-NAME&%")
+              _ (if (some? (get params "SYS+param-INITIALIZATIONport"))
+                  (throw (Exception. (str "An initialization port is not compatible with non-federated registration of entity "
+                                          name))))
+              _ (if (not (k/entity-exists? name))
+                  (k/create-entity env params))
+              classifiers
+              (get params "SYS+param_map-CLASSIFIERS^classifier")]
+          (if (some? classifiers)
+            (doseq [[classifier-kw classifier-value-kw] classifiers]
+              (k/add-classifier-value this-name name classifier-kw classifier-value-kw)))
+          (a/>! operation-return-port [this-map nil]))
         (catch Exception e
           (a/>! operation-return-port [this-map e]))))))
 
