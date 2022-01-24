@@ -500,10 +500,18 @@
         (s/index-of s "-")
         _ (if (not= h-ndx (s/last-index-of s "-"))
             (throw (Exception. (str "Name " s " should not contain two -'s"))))
+        _ (if (nil? h-ndx)
+            (throw (Exception. (str "Name " s " is missing a -"))))
         c-ndx
         (s/index-of s "^")
         _ (if (not= c-ndx (s/last-index-of s "^"))
             (throw (Exception. (str "Name " s " should not contain two ^'s"))))
+        t-ndx
+        (s/index-of s "@")
+        _ (if (not= t-ndx (s/last-index-of s "@"))
+            (throw (Exception. (str "Name " s " should not contain two @'s"))))
+        _ (if (and (some? c-ndx) (some? t-ndx))
+            (throw (Exception. (str "Name " s " can not have both ^ and @"))))
         a-ndx
         (s/index-of s "&")
         _ (if (not= a-ndx (s/last-index-of s "&"))
@@ -514,8 +522,6 @@
             (throw (Exception. (str "Name " s " should not contain two $'s"))))
         _ (if (and (some? a-ndx) (some? d-ndx))
             (throw (Exception. (str "Name " s " can not have both & and $"))))
-        _ (if (nil? h-ndx)
-            (throw (Exception. (str "Name " s " is missing a -"))))
         typ-start
         (if (some? p-ndx)
           (inc p-ndx)
