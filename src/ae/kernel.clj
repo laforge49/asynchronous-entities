@@ -607,6 +607,8 @@
             (throw (Exception. (str "Gem name " s " has a $ but the value data type is empty"))))]
     (if (and (some? styp) (not (contains? styp-set styp)))
       (throw (Exception. (str "Gem name " s " has an unknown structure type: " styp))))
+    (if (and (some? ttyp) (not (contains? dtyp-set ttyp)))
+      (throw (Exception. (str "Gem name " s " has an unknown key data type: " ttyp))))
     (if (and (some? dtyp) (not (contains? dtyp-set dtyp)))
       (throw (Exception. (str "Gem name " s " has an unknown value data type: " dtyp))))
     [typ styp root ktyp ntyp dtyp]))
