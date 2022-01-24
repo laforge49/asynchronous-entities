@@ -611,7 +611,7 @@
       (throw (Exception. (str "Gem name " s " has an unknown key data type: " ttyp))))
     (if (and (some? dtyp) (not (contains? dtyp-set dtyp)))
       (throw (Exception. (str "Gem name " s " has an unknown value data type: " dtyp))))
-    [typ styp root ktyp ntyp dtyp]))
+    [typ styp root ktyp ttyp ntyp dtyp]))
 
 (defn validate-names
   [edn parent-styp parent-ktyp parent-ntyp parent-dtyp env]
@@ -624,7 +624,7 @@
         (if (some? parent-dtyp)
           (if (not= parent-dtyp "str")
             (throw (Exception. (str (pr-str edn) " is not of data type " (pr-str parent-dtyp)))))
-          (let [[typ styp root ktyp ntyp dtyp]
+          (let [[typ styp root ktyp ttyp ntyp dtyp]
                 (parse-gem-name edn)]
             (if (nil? parent-ntyp)
               (throw (Exception. (str "There is no name type for " (pr-str edn)))))
@@ -646,7 +646,7 @@
     (map? edn)
     (doseq [[k v] edn]
       (if (some? v)
-        (let [[typ styp root ktyp ntyp dtyp]
+        (let [[typ styp root ktyp ttyp ntyp dtyp]
               (parse-gem-name k)
               styp
               (if (= parent-styp "mapmap")
@@ -722,7 +722,7 @@
                 (and (map? v) (empty? v))
                 (and (vector? v) (empty? v)))
           m
-          (let [[typ styp root ktyp ntyp dtyp]
+          (let [[typ styp root ktyp ttyp ntyp dtyp]
                 (parse-gem-name k)
                 dtyp
                 (if (some? parent-dtyp)
@@ -791,7 +791,7 @@
     (map? edn)
     (reduce
       (fn [m [k v]]
-        (let [[typ styp root ktyp ntyp dtyp]
+        (let [[typ styp root ktyp ttyp ntyp dtyp]
               (parse-gem-name k)
               styp
               (if (= parent-styp "mapmap")
