@@ -35,9 +35,10 @@
         (into params {"SYS+param-INITIALIZATIONport"         initialization-port
                       "SYS+param_map-DESCRIPTORS^descriptor" instantiation-descriptors
                       "SYS+param_map-CLASSIFIERS^classifier" instantiation-classifiers})]
-    (k/create-entity env params)
     (if federated?
-      (vswap! (get env "SYS+env_volmap-CHILDREN&%") assoc name true)
+      (do
+        (k/create-entity env params)
+        (vswap! (get env "SYS+env_volmap-CHILDREN&%") assoc name true))
       (let [params
             (into params {"SYS+param-REQUESTID&requestid" "SYS+requestid-REGISTERentity"
                           "SYS+param-TARGETname&%"        (k/entityContextName name)})
