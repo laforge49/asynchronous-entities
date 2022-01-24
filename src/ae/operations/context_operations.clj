@@ -133,7 +133,7 @@
                       ["SYS+facet_map-DESCRIPTORS^descriptor"
                        "SYS+descriptor_vecmap-SCRIPT^request"])]
           (doseq [request-map edn-script]
-            (k/validate-names request-map "map" "request" nil nil env))
+            (k/validate-names request-map "map" "request" nil nil nil env))
           (a/>! operation-return-port [this-map nil]))
         (catch Exception e
           (a/>! operation-return-port [this-map e]))))))

@@ -147,7 +147,7 @@
               _ (doseq [request script]
                   (let [request-params
                         (val (first request))]
-                    (k/validate-names request-params "map" "param" nil nil env)))
+                    (k/validate-names request-params "map" "param" nil nil nil env)))
               _ (a/>! operation-return-port [this-map
                                              nil])
               ])

@@ -614,7 +614,7 @@
     [typ styp root ktyp ttyp ntyp dtyp]))
 
 (defn validate-names
-  [edn parent-styp parent-ktyp parent-ntyp parent-dtyp env]
+  [edn parent-styp parent-ktyp parent-ttyp parent-ntyp parent-dtyp env]
   (cond
     (string? edn)
     (if (and (some? parent-styp) (not= parent-styp "%"))
@@ -641,7 +641,7 @@
               "map"
               nil)]
         (doseq [item edn]
-          (validate-names item styp parent-ktyp parent-ntyp parent-dtyp env))))
+          (validate-names item styp parent-ktyp parent-ktyp parent-ntyp parent-dtyp env))))
 
     (map? edn)
     (doseq [[k v] edn]
@@ -662,12 +662,16 @@
               (if (= parent-ktyp "%")
                 "%"
                 ktyp)
+              ttyp
+              (if (= parent-ttyp "%")
+                "%"
+                ttyp)
               [ntyp dtyp]
               (if (or (some? parent-ntyp) (some? parent-dtyp))
                 [parent-ntyp parent-dtyp]
                 [ntyp dtyp])]
-          (validate-names k nil nil "%" nil env)
-          (validate-names v styp ktyp ntyp dtyp env))))
+          (validate-names k nil nil nil "%" nil env)
+          (validate-names v styp ktyp ttyp ntyp dtyp env))))
 
     (boolean? edn)
     (if (and (some? parent-styp) (not= parent-styp "%"))
