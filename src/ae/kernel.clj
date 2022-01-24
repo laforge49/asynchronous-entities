@@ -546,8 +546,9 @@
             (throw (Exception. (str "Gem name " s " has a _ but the structure type is empty"))))
         _ (if (not= (and (some? styp)
                          (or (s/starts-with? styp "map") (s/ends-with? styp "map")))
-                    (some? c-ndx))
-            (throw (Exception. (str "Gem name " s " Can include a ^ if and only if the structure type contains a map"))))
+                    (or (some? c-ndx) (some? t-ndx)))
+            (throw (Exception.
+                     (str "Gem name " s " Can include a ^ or @ if and only if the structure type contains a map"))))
         root-end
         (if (some? c-ndx)
           c-ndx
