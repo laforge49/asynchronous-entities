@@ -659,14 +659,6 @@
               _ (if (and (not= parent-ktyp "%") (not= typ parent-ktyp))
                   (throw (Exception. (str (pr-str k) " is not the expected key type: " (pr-str parent-ktyp)))))
               ktyp
-              (if (= parent-ktyp "%")
-                "%"
-                ktyp)
-              ttyp
-              (if (= parent-ttyp "%")
-                "%"
-                ttyp)
-              ktyp
               (if (and (nil? ktyp) (nil? ttyp))
                 "%"
                 ktyp)
