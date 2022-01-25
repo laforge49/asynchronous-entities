@@ -479,7 +479,7 @@
   #{"map" "vec" "mapmap" "mapvec" "vecmap"})
 
 (def dtyp-set
-  #{"bool" "str" "chan"})
+  #{"bool" "str" "int" "chan"})
 
 (defn parse-gem-name
   [s]
@@ -676,6 +676,17 @@
         (throw (Exception. (str (pr-str edn) " is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
         (if (not= parent-dtyp "bool")
           (throw (Exception. (str (pr-str edn) "is boolean, not "
+                                  (if (nil? parent-dtyp)
+                                    "a name"
+                                    parent-dtyp)))))))
+
+    (int? edn)
+    (if (and (some? parent-styp) (not= parent-styp "%"))
+      (throw (Exception. (str (pr-str edn) " is a scalar, not structure typ " (pr-str parent-styp))))
+      (if (and (some? parent-ktyp) (not= parent-ktyp "%"))
+        (throw (Exception. (str (pr-str edn) " is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
+        (if (not= parent-dtyp "int")
+          (throw (Exception. (str (pr-str edn) "is integer, not "
                                   (if (nil? parent-dtyp)
                                     "a name"
                                     parent-dtyp)))))))
