@@ -641,7 +641,7 @@
               "map"
               nil)]
         (doseq [item edn]
-          (validate-names item styp parent-ktyp parent-ktyp parent-ntyp parent-dtyp env))))
+          (validate-names item styp parent-ktyp parent-ttyp parent-ntyp parent-dtyp env))))
 
     (map? edn)
     (doseq [[k v] edn]
