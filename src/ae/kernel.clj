@@ -666,12 +666,16 @@
               (if (= parent-ttyp "%")
                 "%"
                 ttyp)
+              ktyp
+              (if (and (nil? ktyp) (nil? ttyp))
+                "%"
+                ktyp)
               [ntyp dtyp]
               (if (or (some? parent-ntyp) (some? parent-dtyp))
                 [parent-ntyp parent-dtyp]
                 [ntyp dtyp])]
-          (validate-names k nil nil nil "%" nil env)
-          (validate-names v styp "%" nil ntyp dtyp env))))
+          (validate-names k nil nil nil parent-ktyp parent-ttyp env)
+          (validate-names v styp ktyp ttyp ntyp dtyp env))))
 
     (boolean? edn)
     (if (and (some? parent-styp) (not= parent-styp "%"))
