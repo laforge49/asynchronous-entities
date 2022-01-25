@@ -671,7 +671,7 @@
                 [parent-ntyp parent-dtyp]
                 [ntyp dtyp])]
           (validate-names k nil nil nil "%" nil env)
-          (validate-names v styp ktyp ttyp ntyp dtyp env))))
+          (validate-names v styp "%" nil ntyp dtyp env))))
 
     (boolean? edn)
     (if (and (some? parent-styp) (not= parent-styp "%"))
