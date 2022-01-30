@@ -9,7 +9,11 @@
           (s/index-of key " ")]
       (if (nil? i)
         key
-        (subs key (inc i))))))
+        (let [j
+              (s/last-index-of key " ")]
+          (if (not= i j)
+            (throw (Exception. (str "A key can have one space at most: " key))))
+          (subs key (inc i)))))))
 
 (defn keyword-encode-
   [s i d e]
