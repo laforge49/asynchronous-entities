@@ -1,6 +1,16 @@
 (ns ae.keywords
   (:require [clojure.string :as s]))
 
+(defn gem-name
+  [key]
+  (if (nil? key)
+    nil
+    (let [i
+          (s/index-of key " ")]
+      (if (nil? i)
+        key
+        (subs key (inc i))))))
+
 (defn keyword-encode-
   [s i d e]
   (let [j
@@ -20,7 +30,9 @@
 
 (defn name-as-keyword
   [name]
-  (let [plus-index
+  (let [name
+        (gem-name name)
+        plus-index
         (s/index-of name "+")
         base-name
         (if (nil? plus-index)
@@ -39,29 +51,29 @@
         ]
     [name-kw context-base-name base-name]))
 
-#_ (defn keyword-decode-
-  [s i e d]
-  (let [j
-        (s/index-of s e i)]
-    (if (nil? j)
-      s
-      (recur (str (subs s 0 j) d (subs s (+ j 3))) (inc j) e d))))
+#_(defn keyword-decode-
+    [s i e d]
+    (let [j
+          (s/index-of s e i)]
+      (if (nil? j)
+        s
+        (recur (str (subs s 0 j) d (subs s (+ j 3))) (inc j) e d))))
 
-#_ (defn keyword-as-name
-  [kw]
-  (let [context-base-name
-        (namespace kw)
-        base-name
-        (-> (name kw)
-            (keyword-decode- 0 "$$s" " ")
-            (keyword-decode- 0 "$$l" "(")
-            (keyword-decode- 0 "$$r" ")"))
-        name
-        (if (s/blank? context-base-name)
+#_(defn keyword-as-name
+    [kw]
+    (let [context-base-name
+          (namespace kw)
           base-name
-          (str context-base-name
-               "+"
-               base-name))
-        ]
-    [name context-base-name base-name]
-    ))
+          (-> (name kw)
+              (keyword-decode- 0 "$$s" " ")
+              (keyword-decode- 0 "$$l" "(")
+              (keyword-decode- 0 "$$r" ")"))
+          name
+          (if (s/blank? context-base-name)
+            base-name
+            (str context-base-name
+                 "+"
+                 base-name))
+          ]
+      [name context-base-name base-name]
+      ))
