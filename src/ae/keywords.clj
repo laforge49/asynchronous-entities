@@ -39,7 +39,7 @@
         ]
     [name-kw context-base-name base-name]))
 
-(defn keyword-decode-
+#_ (defn keyword-decode-
   [s i e d]
   (let [j
         (s/index-of s e i)]
@@ -47,7 +47,7 @@
       s
       (recur (str (subs s 0 j) d (subs s (+ j 3))) (inc j) e d))))
 
-(defn keyword-as-name
+#_ (defn keyword-as-name
   [kw]
   (let [context-base-name
         (namespace kw)
