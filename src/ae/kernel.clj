@@ -482,8 +482,9 @@
   #{"bool" "str" "int" "chan"})
 
 (defn parse-gem-name
-  [s]
-  (let [
+  [key]
+  (let [s
+        (kw/gem-name key)
         _ (if (some? (s/index-of s "."))
             (throw (Exception. (str "Gem name " s " should not contain a ."))))
         _ (if (some? (s/index-of s "/"))
@@ -617,21 +618,23 @@
   [edn parent-styp parent-ktyp parent-ttyp parent-ntyp parent-dtyp env]
   (cond
     (string? edn)
-    (if (and (some? parent-styp) (not= parent-styp "%"))
-      (throw (Exception. (str (pr-str edn) " is a scalar, not structure type " (pr-str parent-styp))))
-      (if (and (some? parent-ktyp) (not= parent-ktyp "%"))
-        (throw (Exception. (str (pr-str edn) " is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
-        (if (some? parent-dtyp)
-          (if (not= parent-dtyp "str")
-            (throw (Exception. (str (pr-str edn) " is not of data type " (pr-str parent-dtyp)))))
-          (let [[typ styp root ktyp ttyp ntyp dtyp]
-                (parse-gem-name edn)]
-            (if (nil? parent-ntyp)
-              (throw (Exception. (str "There is no name type for " (pr-str edn)))))
-            (if (and (not= parent-ntyp "%") (not= typ parent-ntyp))
-              (throw (Exception. (str (pr-str edn) " is not of name type " parent-ntyp))))
-            (if (not (entity-exists? edn))
-              (throw (Exception. (str "No such entity: " (pr-str edn)))))))))
+    (let [edn
+          (kw/gem-name edn)]
+      (if (and (some? parent-styp) (not= parent-styp "%"))
+        (throw (Exception. (str (pr-str edn) " is a scalar, not structure type " (pr-str parent-styp))))
+        (if (and (some? parent-ktyp) (not= parent-ktyp "%"))
+          (throw (Exception. (str (pr-str edn) " is a scalar, and does not accept a key type " (pr-str parent-ktyp))))
+          (if (some? parent-dtyp)
+            (if (not= parent-dtyp "str")
+              (throw (Exception. (str (pr-str edn) " is not of data type " (pr-str parent-dtyp)))))
+            (let [[typ styp root ktyp ttyp ntyp dtyp]
+                  (parse-gem-name edn)]
+              (if (nil? parent-ntyp)
+                (throw (Exception. (str "There is no name type for " (pr-str edn)))))
+              (if (and (not= parent-ntyp "%") (not= typ parent-ntyp))
+                (throw (Exception. (str (pr-str edn) " is not of name type " parent-ntyp))))
+              (if (not (entity-exists? edn))
+                (throw (Exception. (str "No such entity: " (pr-str edn))))))))))
 
     (vector? edn)
     (if (and (not (s/starts-with? parent-styp "vec")) (not= parent-styp "%"))
