@@ -117,6 +117,10 @@
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-FACETmap
+    param-NAME&%: facet_map-INVERSErelations^relation&%
+- request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-INSTANTIATE
+    param-TARGETname&%: class-FACETmap
     param-NAME&%: facet_map-RELATIONS^relation&%
 #
 - request_map-REQUEST^param:
