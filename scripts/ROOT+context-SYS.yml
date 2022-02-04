@@ -67,6 +67,21 @@
     param-NAME&%: descriptor_mapvec-REQUESTS^requestid$str
 #
 - request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-INSTANTIATE
+    param-TARGETname&%: class-CLASS
+    param-NAME&%: class-FACET
+    param_map-DESCRIPTORS^descriptor:
+      descriptor_map-INSTANCE^descriptor:
+        descriptor-INVARIANT$bool: true
+        descriptor_mapvec-REQUESTS^requestid$str:
+          requestid-ENTITYreport:
+            - ENTITY_REPORToperationid
+- request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-INSTANTIATE
+    param-TARGETname&%: class-FACET
+    param-NAME&%: facet-NAME&%
+#
+- request_map-REQUEST^param:
       param-REQUESTID&requestid: requestid-INSTANTIATE
       param-TARGETname&%: class-CLASS
       param-NAME&%: class-PARAM
@@ -145,3 +160,7 @@
       param-REQUESTID&requestid: requestid-INSTANTIATE
       param-TARGETname&%: class-REQUESTID
       param-NAME&%: requestid-REGISTERentity
+##
+- request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-ENTITYreport
+    param-TARGETname&%: context-SYS
