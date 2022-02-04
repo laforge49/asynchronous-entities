@@ -36,6 +36,20 @@ gem_map-FACETS^facet:
             requestid-INSTANTIATE:
             - INSTANTIATEoperationid
     - request_map-REQUEST^param:
+        param-NAME&%: class-CLASSIFIER
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
+              - ENTITY_REPORToperationid
+    - request_map-REQUEST^param:
+        param-NAME&%: classifier-CLASS&class
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASSIFIER
+    - request_map-REQUEST^param:
         param-NAME&%: class-DESCRIPTOR
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -264,6 +278,7 @@ gem_map-FACETS^facet:
 
 classifier:  SYS+classifier-CLASS&class
   value:       SYS+class-CLASS
+    entity:      SYS+class-CLASSIFIER
     entity:      SYS+class-DESCRIPTOR
     entity:      SYS+class-DESCRIPTORmap
     entity:      SYS+class-DESCRIPTORmapvec
@@ -275,6 +290,8 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+class-PARAMmap
     entity:      SYS+class-REQUESTID
     entity:      SYS+class-REQUESTmap
+  value:       SYS+class-CLASSIFIER
+    entity:      SYS+classifier-CLASS&class
   value:       SYS+class-DESCRIPTOR
     entity:      SYS+descriptor-INVARIANT$bool
     entity:      SYS+descriptor-READonly$bool
