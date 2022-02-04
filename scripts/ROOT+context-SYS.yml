@@ -184,6 +184,10 @@
     param_map-DESCRIPTORS^descriptor:
       descriptor-READonly$bool: true
 - request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-INSTANTIATE
+    param-TARGETname&%: class-REQUESTID
+    param-NAME&%: requestid-PRINTLN
+- request_map-REQUEST^param:
       param-REQUESTID&requestid: requestid-INSTANTIATE
       param-TARGETname&%: class-REQUESTID
       param-NAME&%: requestid-REGISTERentity
