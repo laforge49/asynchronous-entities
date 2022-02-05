@@ -454,8 +454,8 @@
          "SYS+facet-FEDERATORname&federator"         federator-name
          "SYS+facet_map-DESCRIPTORS^descriptor"      descriptors
          "SYS+facet_map-CLASSIFIERS^classifier"      classifiers
-         "SYS+facet_map-RELATIONS^relation&%"        (sorted-map)
-         "SYS+facet_map-INVERSErelations^relation&%" (sorted-map)
+         ;"SYS+facet_map-RELATIONS^relation&%"        (sorted-map)
+         ;"SYS+facet_map-INVERSErelations^relation&%" (sorted-map)
          "SYS+facet-CONTENT$str"                     content
          "SYS+facet_vec-REQUESTportSTACK$chan"       request-port-stack}
         ]

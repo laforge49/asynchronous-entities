@@ -146,14 +146,6 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-FACETmap
     - request_map-REQUEST^param:
-        param-NAME&%: facet_map-INVERSErelations^relation&%
-        param-REQUESTID&requestid: requestid-INSTANTIATE
-        param-TARGETname&%: class-FACETmap
-    - request_map-REQUEST^param:
-        param-NAME&%: facet_map-RELATIONS^relation&%
-        param-REQUESTID&requestid: requestid-INSTANTIATE
-        param-TARGETname&%: class-FACETmap
-    - request_map-REQUEST^param:
         param-NAME&%: class-FACETvec
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -307,8 +299,6 @@ classifier:  SYS+classifier-CLASS&class
   value:       SYS+class-FACETmap
     entity:      SYS+facet_map-CLASSIFIERS^classifier
     entity:      SYS+facet_map-DESCRIPTORS^descriptor
-    entity:      SYS+facet_map-INVERSErelations^relation&%
-    entity:      SYS+facet_map-RELATIONS^relation&%
   value:       SYS+class-FACETvec
     entity:      SYS+facet_vec-REQUESTportSTACK$chan
   value:       SYS+class-PARAM

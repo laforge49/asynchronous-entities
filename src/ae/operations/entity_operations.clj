@@ -101,7 +101,9 @@
                             relation-values
                             (if (= i -1)
                               (let [obj-map
-                                    (assoc-in obj-map ["SYS+facet_map-INVERSErelations^relation&%" relation] (conj relation-subjects this-name))]
+                                    (assoc-in obj-map
+                                              ["SYS+facet_map-INVERSErelations^relation&%" relation]
+                                              (conj relation-subjects this-name))]
                                 (k/assoc-federated-entity-map new-value obj-map env)
                                 (conj relation-values new-value))
                               relation-values)]
