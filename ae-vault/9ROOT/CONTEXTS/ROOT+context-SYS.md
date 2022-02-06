@@ -50,6 +50,45 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASSIFIER
     - request_map-REQUEST^param:
+        param-NAME&%: class-CLASSIFIERvec
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
+              - ENTITY_REPORToperationid
+    - request_map-REQUEST^param:
+        param-NAME&%: classifier_vec-RESOURCES&context
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASSIFIERvec
+    - request_map-REQUEST^param:
+        param-NAME&%: class-CONTEXT
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
+              - CONTEXT_REPORToperationid
+              requestid-EVALscript:
+              - EVAL_SCRIPToperationid
+              requestid-LOADscript:
+              - LOAD_SCRIPToperationid
+              requestid-REGISTERentity:
+              - REGISTER_ENTITYoperationid
+              requestid-VALIDATEscriptNAMES:
+              - VALIDATE_SCRIPT_NAMESoperationid
+    - request_map-REQUEST^param:
+        param-CONTENT$str: "this is a test same line \ndifferent line"
+        param-NAME&%: context-SYSTEST
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CONTEXT
+        param_map-CLASSIFIERS^classifier:
+          classifier_vec-RESOURCES&context:
+          - context-SYS
+    - request_map-REQUEST^param:
         param-NAME&%: class-DESCRIPTOR
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -170,6 +209,10 @@ gem_map-FACETS^facet:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
     - request_map-REQUEST^param:
+        param-NAME&%: param-CONTENT$str
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-PARAM
+    - request_map-REQUEST^param:
         param-NAME&%: param-NAME&%
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-PARAM
@@ -191,6 +234,10 @@ gem_map-FACETS^facet:
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
+    - request_map-REQUEST^param:
+        param-NAME&%: param_map-CLASSIFIERS^classifier
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-PARAMmap
     - request_map-REQUEST^param:
         param-NAME&%: param_map-DESCRIPTORS^descriptor
         param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -271,6 +318,8 @@ gem_map-FACETS^facet:
 classifier:  SYS+classifier-CLASS&class
   value:       SYS+class-CLASS
     entity:      SYS+class-CLASSIFIER
+    entity:      SYS+class-CLASSIFIERvec
+    entity:      SYS+class-CONTEXT
     entity:      SYS+class-DESCRIPTOR
     entity:      SYS+class-DESCRIPTORmap
     entity:      SYS+class-DESCRIPTORmapvec
@@ -284,6 +333,10 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+class-REQUESTmap
   value:       SYS+class-CLASSIFIER
     entity:      SYS+classifier-CLASS&class
+  value:       SYS+class-CLASSIFIERvec
+    entity:      SYS+classifier_vec-RESOURCES&context
+  value:       SYS+class-CONTEXT
+    entity:      SYS+context-SYSTEST
   value:       SYS+class-DESCRIPTOR
     entity:      SYS+descriptor-INVARIANT$bool
     entity:      SYS+descriptor-READonly$bool
@@ -302,10 +355,12 @@ classifier:  SYS+classifier-CLASS&class
   value:       SYS+class-FACETvec
     entity:      SYS+facet_vec-REQUESTportSTACK$chan
   value:       SYS+class-PARAM
+    entity:      SYS+param-CONTENT$str
     entity:      SYS+param-NAME&%
     entity:      SYS+param-REQUESTID&requestid
     entity:      SYS+param-TARGETname&%
   value:       SYS+class-PARAMmap
+    entity:      SYS+param_map-CLASSIFIERS^classifier
     entity:      SYS+param_map-DESCRIPTORS^descriptor
   value:       SYS+class-REQUESTID
     entity:      SYS+requestid-ENTITYreport
@@ -317,6 +372,9 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+requestid-VALIDATEscriptNAMES
   value:       SYS+class-REQUESTmap
     entity:      SYS+request_map-REQUEST^param
+classifier:  SYS+classifier_vec-RESOURCES&context
+  value:       ROOT+context-SYS
+    entity:      SYS+context-SYSTEST
 
-Number of classifiers: 1
+Number of classifiers: 2
 

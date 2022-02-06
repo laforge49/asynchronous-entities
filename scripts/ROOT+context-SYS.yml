@@ -33,6 +33,50 @@
     param-NAME&%: classifier-CLASS&class
 #
 - request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-INSTANTIATE
+    param-TARGETname&%: class-CLASS
+    param-NAME&%: class-CLASSIFIERvec
+    param_map-DESCRIPTORS^descriptor:
+      descriptor_map-INSTANCE^descriptor:
+        descriptor-INVARIANT$bool: true
+        descriptor_mapvec-REQUESTS^requestid$str:
+          requestid-ENTITYreport:
+            - ENTITY_REPORToperationid
+- request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-INSTANTIATE
+    param-TARGETname&%: class-CLASSIFIERvec
+    param-NAME&%: classifier_vec-RESOURCES&context
+#
+- request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-INSTANTIATE
+    param-TARGETname&%: class-CLASS
+    param-NAME&%: class-CONTEXT
+    param_map-DESCRIPTORS^descriptor:
+      descriptor_map-INSTANCE^descriptor:
+        descriptor_mapvec-REQUESTS^requestid$str:
+          requestid-REGISTERentity:
+            - REGISTER_ENTITYoperationid
+          requestid-ENTITYreport:
+            - CONTEXT_REPORToperationid
+          requestid-LOADscript:
+            - LOAD_SCRIPToperationid
+          requestid-EVALscript:
+            - EVAL_SCRIPToperationid
+          requestid-VALIDATEscriptNAMES:
+            - VALIDATE_SCRIPT_NAMESoperationid
+- request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-INSTANTIATE
+    param-TARGETname&%: class-CONTEXT
+    param-NAME&%: context-SYSTEST
+    param-CONTENT$str:
+      "this is a test
+      same line
+      \ndifferent line"
+    param_map-CLASSIFIERS^classifier:
+      classifier_vec-RESOURCES&context:
+        - context-SYS
+#
+- request_map-REQUEST^param:
       param-REQUESTID&requestid: requestid-INSTANTIATE
       param-TARGETname&%: class-CLASS
       param-NAME&%: class-DESCRIPTOR
@@ -160,6 +204,10 @@
                   requestid-ENTITYreport:
                       - ENTITY_REPORToperationid
 - request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-INSTANTIATE
+    param-TARGETname&%: class-PARAM
+    param-NAME&%: param-CONTENT$str
+- request_map-REQUEST^param:
       param-REQUESTID&requestid: requestid-INSTANTIATE
       param-TARGETname&%: class-PARAM
       param-NAME&%: param-NAME&%
@@ -182,6 +230,10 @@
               descriptor_mapvec-REQUESTS^requestid$str:
                   requestid-ENTITYreport:
                       - ENTITY_REPORToperationid
+- request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-INSTANTIATE
+    param-TARGETname&%: class-PARAMmap
+    param-NAME&%: param_map-CLASSIFIERS^classifier
 - request_map-REQUEST^param:
       param-REQUESTID&requestid: requestid-INSTANTIATE
       param-TARGETname&%: class-PARAMmap
