@@ -73,7 +73,7 @@
             (do
               (try
                 (let [params
-                      (get request "SYS+request_map-REQUEST^param")
+                      (val (first request))
                       _ (if (nil? params)
                           (throw (Exception. (str "Missing SYS+request_map-REQUEST^param\n"
                                                   :request " " (prn-str request)))))

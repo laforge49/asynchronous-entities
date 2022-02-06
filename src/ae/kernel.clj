@@ -760,7 +760,13 @@
     (string? edn)
     (if (some? parent-dtyp)
       edn
-      (let [ndx
+      (let [sndx
+            (s/index-of edn " ")
+            [order edn]
+            (if (nil? sndx)
+              [nil edn]
+              [(subs edn 0 sndx) (subs edn (inc sndx))])
+            ndx
             (s/index-of edn "+")
             un-edn
             (if (some? ndx)
@@ -787,7 +793,9 @@
         (if (some? ndx)
           (if (not= edn full-edn)
             (throw (Exception. (str edn " should have been " full-edn)))))
-        full-edn))
+        (if (nil? order)
+          full-edn
+          (str order " " full-edn))))
 
     (vector? edn)
     (let [styp
