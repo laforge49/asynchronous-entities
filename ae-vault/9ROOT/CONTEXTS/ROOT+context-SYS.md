@@ -225,6 +225,10 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-PARAM
     - request_map-REQUEST^param:
+        param-NAME&%: param-TEXT$str
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-PARAM
+    - request_map-REQUEST^param:
         param-NAME&%: class-PARAMmap
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -316,6 +320,10 @@ gem_map-FACETS^facet:
     - request_map-REQUEST^param:
         param-REQUESTID&requestid: requestid-ENTITYreport
         param-TARGETname&%: context-SYS
+    - request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-PRINTLN
+        param-TARGETname&%: context-SYS
+        param-TEXT$str: Finished SYS
   facet_vec-REQUESTportSTACK$chan:
   - clojure.core.async.chan
 ---
@@ -368,6 +376,7 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+param-NAME&%
     entity:      SYS+param-REQUESTID&requestid
     entity:      SYS+param-TARGETname&%
+    entity:      SYS+param-TEXT$str
   value:       SYS+class-PARAMmap
     entity:      SYS+param_map-CLASSIFIERS^classifier
     entity:      SYS+param_map-DESCRIPTORS^descriptor

@@ -219,6 +219,10 @@
       param-REQUESTID&requestid: requestid-INSTANTIATE
       param-TARGETname&%: class-PARAM
       param-NAME&%: param-TARGETname&%
+- request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-INSTANTIATE
+    param-TARGETname&%: class-PARAM
+    param-NAME&%: param-TEXT$str
 #
 - request_map-REQUEST^param:
       param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -316,3 +320,8 @@
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-ENTITYreport
     param-TARGETname&%: context-SYS
+##
+- request_map-REQUEST^param:
+    param-REQUESTID&requestid: requestid-PRINTLN
+    param-TARGETname&%: context-SYS
+    param-TEXT$str: Finished SYS
