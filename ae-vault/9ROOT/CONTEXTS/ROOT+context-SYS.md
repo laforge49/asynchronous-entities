@@ -305,6 +305,15 @@ gem_map-FACETS^facet:
         param_map-DESCRIPTORS^descriptor:
           descriptor-READonly$bool: true
     - request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-LOADscript
+        param-TARGETname&%: context-SYSTEST
+    - request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-EVALscript
+        param-TARGETname&%: context-SYSTEST
+    - request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-VALIDATEscriptNAMES
+        param-TARGETname&%: context-SYSTEST
+    - request_map-REQUEST^param:
         param-REQUESTID&requestid: requestid-ENTITYreport
         param-TARGETname&%: context-SYS
   facet_vec-REQUESTportSTACK$chan:
