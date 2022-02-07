@@ -17,7 +17,7 @@ gem_map-FACETS^facet:
       requestid-VALIDATEscriptNAMES:
       - VALIDATE_SCRIPT_NAMESoperationid
     descriptor_vecmap-SCRIPT^request:
-    - request_map-REQUEST^param:
+    - 00000010 request_map-REQUEST^param:
         param-NAME&%: class-CLASS
         param-REQUESTID&requestid: requestid-REGISTERentity
         param-TARGETname&%: context-SYS
@@ -35,7 +35,7 @@ gem_map-FACETS^facet:
             - ENTITY_REPORToperationid
             requestid-INSTANTIATE:
             - INSTANTIATEoperationid
-    - request_map-REQUEST^param:
+    - 00010000 request_map-REQUEST^param:
         param-NAME&%: class-CLASSIFIER
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -45,7 +45,7 @@ gem_map-FACETS^facet:
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - request_map-REQUEST^param:
+    - 00010010 request_map-REQUEST^param:
         param-NAME&%: classifier-CLASS&class
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASSIFIER

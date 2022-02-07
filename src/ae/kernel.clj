@@ -450,14 +450,14 @@
             (conj request-port-stack initialization-port))
           nil)
         new-entity-map
-        {"SYS+facet-NAME&%"                          name
-         "SYS+facet-FEDERATORname&federator"         federator-name
-         "SYS+facet_map-DESCRIPTORS^descriptor"      descriptors
-         "SYS+facet_map-CLASSIFIERS^classifier"      classifiers
+        {"SYS+facet-NAME&%"                     name
+         "SYS+facet-FEDERATORname&federator"    federator-name
+         "SYS+facet_map-DESCRIPTORS^descriptor" descriptors
+         "SYS+facet_map-CLASSIFIERS^classifier" classifiers
          ;"SYS+facet_map-RELATIONS^relation&%"        (sorted-map)
          ;"SYS+facet_map-INVERSErelations^relation&%" (sorted-map)
-         "SYS+facet-CONTENT$str"                     content
-         "SYS+facet_vec-REQUESTportSTACK$chan"       request-port-stack}
+         "SYS+facet-CONTENT$str"                content
+         "SYS+facet_vec-REQUESTportSTACK$chan"  request-port-stack}
         ]
     (i/assoc-gem-map name new-entity-map)
     (if (not invariant)
@@ -714,11 +714,23 @@
     (string? edn)
     (if (some? parent-dtyp)
       edn
-      (let [ndx
-            (s/index-of edn "+")]
-        (if (nil? ndx)
-          (throw (Exception. (str "Expecting a + in name " edn)))
-          (subs edn (inc ndx)))))
+      (let [sndx
+            (s/index-of edn " ")
+            [order edn]
+            (if (nil? sndx)
+              [nil edn]
+              [(subs edn 0 sndx) (subs edn (inc sndx))])
+            ndx
+            (s/index-of edn "+")
+            _ (if (nil? ndx)
+                (throw (Exception. (str "Expecting a + in name " edn))))
+            edn
+            (subs edn (inc ndx))
+            edn
+            (if (nil? order)
+              edn
+              (str order " " edn))]
+        edn))
 
     (vector? edn)
     (reduce
