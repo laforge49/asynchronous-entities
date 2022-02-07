@@ -860,13 +860,10 @@
   (let [full-local-context
         (get this-map "SYS+facet-NAME&%")
         edn-script
-        (yaml/parse-raw yaml-script)]
-    (reduce
-      (fn [edn-script request-map]
-        (conj edn-script
-              (bind-context full-local-context request-map "map" "request" nil nil env)))
-      []
-      edn-script)))
+        (yaml/parse-raw yaml-script)
+        edn-script
+        (bind-context full-local-context edn-script "map" "request" nil nil env)]
+    edn-script))
 
 (defn merge-maps
   [base-map update-map]

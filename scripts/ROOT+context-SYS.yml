@@ -321,9 +321,9 @@
   param-REQUESTID&requestid: requestid-VALIDATEscriptNAMES
   param-TARGETname&%: context-SYSTEST
 ##
-#0400010 request_map-REQUEST^param:
-#    param-REQUESTID&requestid: requestid-ENTITYreport
-#    param-TARGETname&%: context-SYS
+0400010 request_map-REQUEST^param:
+  param-REQUESTID&requestid: requestid-ENTITYreport
+  param-TARGETname&%: context-SYS
 ##
 0500010 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-PRINTLN

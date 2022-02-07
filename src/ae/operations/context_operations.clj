@@ -101,7 +101,7 @@
               this-map
               (assoc-in this-map
                         ["SYS+facet_map-DESCRIPTORS^descriptor"
-                         "SYS+descriptor_vecmap-SCRIPT^request"]
+                         "SYS+descriptor_map-SCRIPT^request"]
                         edn-script)]
           (a/>! operation-return-port [this-map nil]))
         (catch Exception e
@@ -116,8 +116,15 @@
         (let [edn-script
               (get-in this-map
                       ["SYS+facet_map-DESCRIPTORS^descriptor"
-                       "SYS+descriptor_vecmap-SCRIPT^request"])]
-          (l/push-later env edn-script)
+                       "SYS+descriptor_map-SCRIPT^request"])
+              requests
+              (reduce
+                (fn [requests [k v]]
+                  (conj requests {k v}))
+                []
+                edn-script)]
+          ;(println :requests (prn-str requests))
+          (l/push-later env requests)
           (a/>! operation-return-port [this-map nil]))
         (catch Exception e
           (a/>! operation-return-port [this-map e]))))))
