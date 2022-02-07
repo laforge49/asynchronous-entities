@@ -106,7 +106,7 @@ gem_map-FACETS^facet:
         param-NAME&%: descriptor-READonly$bool
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-DESCRIPTOR
-    - request_map-REQUEST^param:
+    - 0050000 request_map-REQUEST^param:
         param-NAME&%: class-DESCRIPTORmap
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -116,11 +116,11 @@ gem_map-FACETS^facet:
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - request_map-REQUEST^param:
+    - 0050010 request_map-REQUEST^param:
         param-NAME&%: descriptor_map-INSTANCE^descriptor
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-DESCRIPTORmap
-    - request_map-REQUEST^param:
+    - 0060000 request_map-REQUEST^param:
         param-NAME&%: class-DESCRIPTORmapvec
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -130,11 +130,11 @@ gem_map-FACETS^facet:
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - request_map-REQUEST^param:
+    - 0060010 request_map-REQUEST^param:
         param-NAME&%: descriptor_mapvec-REQUESTS^requestid$str
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-DESCRIPTORmapvec
-    - request_map-REQUEST^param:
+    - 0070000 request_map-REQUEST^param:
         param-NAME&%: class-DESCRIPTORvecmap
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -144,11 +144,11 @@ gem_map-FACETS^facet:
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - request_map-REQUEST^param:
+    - 0070010 request_map-REQUEST^param:
         param-NAME&%: descriptor_vecmap-SCRIPT^request
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-DESCRIPTORvecmap
-    - request_map-REQUEST^param:
+    - 0080000 request_map-REQUEST^param:
         param-NAME&%: class-FACET
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -158,15 +158,15 @@ gem_map-FACETS^facet:
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - request_map-REQUEST^param:
+    - 0080010 request_map-REQUEST^param:
         param-NAME&%: facet-CONTENT$str
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-FACET
-    - request_map-REQUEST^param:
+    - 0080020 request_map-REQUEST^param:
         param-NAME&%: facet-NAME&%
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-FACET
-    - request_map-REQUEST^param:
+    - 0090000 request_map-REQUEST^param:
         param-NAME&%: class-FACETmap
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -176,11 +176,11 @@ gem_map-FACETS^facet:
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - request_map-REQUEST^param:
+    - 0090010 request_map-REQUEST^param:
         param-NAME&%: facet_map-CLASSIFIERS^classifier
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-FACETmap
-    - request_map-REQUEST^param:
+    - 0090020 request_map-REQUEST^param:
         param-NAME&%: facet_map-DESCRIPTORS^descriptor
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-FACETmap

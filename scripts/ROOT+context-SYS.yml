@@ -95,7 +95,7 @@
     param-TARGETname&%: class-DESCRIPTOR
     param-NAME&%: descriptor-READonly$bool
 #
-- request_map-REQUEST^param:
+- 0050000 request_map-REQUEST^param:
       param-REQUESTID&requestid: requestid-INSTANTIATE
       param-TARGETname&%: class-CLASS
       param-NAME&%: class-DESCRIPTORmap
@@ -105,12 +105,12 @@
               descriptor_mapvec-REQUESTS^requestid$str:
                   requestid-ENTITYreport:
                       - ENTITY_REPORToperationid
-- request_map-REQUEST^param:
+- 0050010 request_map-REQUEST^param:
       param-REQUESTID&requestid: requestid-INSTANTIATE
       param-TARGETname&%: class-DESCRIPTORmap
       param-NAME&%: descriptor_map-INSTANCE^descriptor
 #
-- request_map-REQUEST^param:
+- 0060000 request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-CLASS
     param-NAME&%: class-DESCRIPTORmapvec
@@ -120,12 +120,12 @@
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
-- request_map-REQUEST^param:
+- 0060010 request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-DESCRIPTORmapvec
     param-NAME&%: descriptor_mapvec-REQUESTS^requestid$str
 #
-- request_map-REQUEST^param:
+- 0070000 request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-CLASS
     param-NAME&%: class-DESCRIPTORvecmap
@@ -135,12 +135,12 @@
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
-- request_map-REQUEST^param:
+- 0070010 request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-DESCRIPTORvecmap
     param-NAME&%: descriptor_vecmap-SCRIPT^request
 #
-- request_map-REQUEST^param:
+- 0080000 request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-CLASS
     param-NAME&%: class-FACET
@@ -150,16 +150,16 @@
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
-- request_map-REQUEST^param:
+- 0080010 request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-FACET
     param-NAME&%: facet-CONTENT$str
-- request_map-REQUEST^param:
+- 0080020 request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-FACET
     param-NAME&%: facet-NAME&%
 #
-- request_map-REQUEST^param:
+- 0090000 request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-CLASS
     param-NAME&%: class-FACETmap
@@ -169,11 +169,11 @@
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
-- request_map-REQUEST^param:
+- 0090010 request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-FACETmap
     param-NAME&%: facet_map-CLASSIFIERS^classifier
-- request_map-REQUEST^param:
+- 0090020 request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-FACETmap
     param-NAME&%: facet_map-DESCRIPTORS^descriptor
