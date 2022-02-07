@@ -17,7 +17,7 @@ gem_map-FACETS^facet:
       requestid-VALIDATEscriptNAMES:
       - VALIDATE_SCRIPT_NAMESoperationid
     descriptor_vecmap-SCRIPT^request:
-    - 00000010 request_map-REQUEST^param:
+    - 0000010 request_map-REQUEST^param:
         param-NAME&%: class-CLASS
         param-REQUESTID&requestid: requestid-REGISTERentity
         param-TARGETname&%: context-SYS
@@ -35,7 +35,7 @@ gem_map-FACETS^facet:
             - ENTITY_REPORToperationid
             requestid-INSTANTIATE:
             - INSTANTIATEoperationid
-    - 00010000 request_map-REQUEST^param:
+    - 0010000 request_map-REQUEST^param:
         param-NAME&%: class-CLASSIFIER
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -45,11 +45,11 @@ gem_map-FACETS^facet:
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - 00010010 request_map-REQUEST^param:
+    - 0010010 request_map-REQUEST^param:
         param-NAME&%: classifier-CLASS&class
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASSIFIER
-    - request_map-REQUEST^param:
+    - 0020000 request_map-REQUEST^param:
         param-NAME&%: class-CLASSIFIERvec
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -59,11 +59,11 @@ gem_map-FACETS^facet:
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - request_map-REQUEST^param:
+    - 0020010 request_map-REQUEST^param:
         param-NAME&%: classifier_vec-RESOURCES&context
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASSIFIERvec
-    - request_map-REQUEST^param:
+    - 0030000 request_map-REQUEST^param:
         param-NAME&%: class-CONTEXT
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -80,7 +80,7 @@ gem_map-FACETS^facet:
               - REGISTER_ENTITYoperationid
               requestid-VALIDATEscriptNAMES:
               - VALIDATE_SCRIPT_NAMESoperationid
-    - request_map-REQUEST^param:
+    - 0030010 request_map-REQUEST^param:
         param-CONTENT$str: "this is a test same line \ndifferent line"
         param-NAME&%: context-SYSTEST
         param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -88,7 +88,7 @@ gem_map-FACETS^facet:
         param_map-CLASSIFIERS^classifier:
           classifier_vec-RESOURCES&context:
           - context-SYS
-    - request_map-REQUEST^param:
+    - 0040000 request_map-REQUEST^param:
         param-NAME&%: class-DESCRIPTOR
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -98,11 +98,11 @@ gem_map-FACETS^facet:
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-    - request_map-REQUEST^param:
+    - 0040010 request_map-REQUEST^param:
         param-NAME&%: descriptor-INVARIANT$bool
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-DESCRIPTOR
-    - request_map-REQUEST^param:
+    - 0040020 request_map-REQUEST^param:
         param-NAME&%: descriptor-READonly$bool
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-DESCRIPTOR

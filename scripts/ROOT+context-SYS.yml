@@ -1,4 +1,4 @@
-- 00000010 request_map-REQUEST^param:
+- 0000010 request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-REGISTERentity
     param-TARGETname&%: ROOT+context-SYS
     param-NAME&%: class-CLASS
@@ -17,7 +17,7 @@
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
 ##
-- 00010000 request_map-REQUEST^param:
+- 0010000 request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-CLASS
     param-NAME&%: class-CLASSIFIER
@@ -27,12 +27,12 @@
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
-- 00010010 request_map-REQUEST^param:
+- 0010010 request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-CLASSIFIER
     param-NAME&%: classifier-CLASS&class
 #
-- request_map-REQUEST^param:
+- 0020000 request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-CLASS
     param-NAME&%: class-CLASSIFIERvec
@@ -42,12 +42,12 @@
         descriptor_mapvec-REQUESTS^requestid$str:
           requestid-ENTITYreport:
             - ENTITY_REPORToperationid
-- request_map-REQUEST^param:
+- 0020010 request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-CLASSIFIERvec
     param-NAME&%: classifier_vec-RESOURCES&context
 #
-- request_map-REQUEST^param:
+- 0030000 request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-CLASS
     param-NAME&%: class-CONTEXT
@@ -64,7 +64,7 @@
             - EVAL_SCRIPToperationid
           requestid-VALIDATEscriptNAMES:
             - VALIDATE_SCRIPT_NAMESoperationid
-- request_map-REQUEST^param:
+- 0030010 request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-CONTEXT
     param-NAME&%: context-SYSTEST
@@ -76,7 +76,7 @@
       classifier_vec-RESOURCES&context:
         - context-SYS
 #
-- request_map-REQUEST^param:
+- 0040000 request_map-REQUEST^param:
       param-REQUESTID&requestid: requestid-INSTANTIATE
       param-TARGETname&%: class-CLASS
       param-NAME&%: class-DESCRIPTOR
@@ -86,11 +86,11 @@
               descriptor_mapvec-REQUESTS^requestid$str:
                   requestid-ENTITYreport:
                       - ENTITY_REPORToperationid
-- request_map-REQUEST^param:
+- 0040010 request_map-REQUEST^param:
       param-REQUESTID&requestid: requestid-INSTANTIATE
       param-TARGETname&%: class-DESCRIPTOR
       param-NAME&%: descriptor-INVARIANT$bool
-- request_map-REQUEST^param:
+- 0040020 request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-DESCRIPTOR
     param-NAME&%: descriptor-READonly$bool
