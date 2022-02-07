@@ -120,6 +120,10 @@ gem_map-FACETS^facet:
         param-NAME&%: descriptor_map-INSTANCE^descriptor
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-DESCRIPTORmap
+    - 0050020 request_map-REQUEST^param:
+        param-NAME&%: descriptor_map-SCRIPT^request
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-DESCRIPTORmap
     - 0060000 request_map-REQUEST^param:
         param-NAME&%: class-DESCRIPTORmapvec
         param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -359,6 +363,7 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+descriptor-READonly$bool
   value:       SYS+class-DESCRIPTORmap
     entity:      SYS+descriptor_map-INSTANCE^descriptor
+    entity:      SYS+descriptor_map-SCRIPT^request
   value:       SYS+class-DESCRIPTORmapvec
     entity:      SYS+descriptor_mapvec-REQUESTS^requestid$str
   value:       SYS+class-DESCRIPTORvecmap
