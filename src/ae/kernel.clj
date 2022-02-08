@@ -740,21 +740,23 @@
       edn)
 
     (map? edn)
-    (reduce
-      (fn [m [k v]]
-        (if (or (nil? v)
-                (and (map? v) (empty? v))
-                (and (vector? v) (empty? v)))
-          m
-          (let [[typ styp root ktyp ttyp ntyp dtyp]
-                (parse-gem-name k)
-                dtyp
-                (if (some? parent-dtyp)
-                  parent-dtyp
-                  dtyp)]
-            (assoc m (unbind-context k nil env)
-                     (unbind-context v dtyp env)))))
-      (sorted-map)
+    (let [edn
+          (reduce
+            (fn [m [k v]]
+              (if (or (nil? v)
+                      (and (map? v) (empty? v))
+                      (and (vector? v) (empty? v)))
+                m
+                (let [[typ styp root ktyp ttyp ntyp dtyp]
+                      (parse-gem-name k)
+                      dtyp
+                      (if (some? parent-dtyp)
+                        parent-dtyp
+                        dtyp)]
+                  (assoc m (unbind-context k nil env)
+                           (unbind-context v dtyp env)))))
+            (sorted-map)
+            edn)]
       edn)
 
     (boolean? edn)
