@@ -7,6 +7,11 @@ gem_map-FACETS^facet:
     classifier_vec-RESOURCES&context:
     - context-SYS
   facet_map-DESCRIPTORS^descriptor:
+    descriptor_map-SCRIPT^request:
+      0500010 request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-PRINTLN
+        param-TARGETname&%: context-SYS
+        param-TEXT$str: Finished SYSTEST
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
       - CONTEXT_REPORToperationid
