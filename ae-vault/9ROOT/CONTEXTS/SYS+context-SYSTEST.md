@@ -1,6 +1,6 @@
 ---
 gem_map-FACETS^facet:
-  facet-CONTENT$str: "this is a test same line \ndifferent line"
+  facet-CONTENT$str: "This is a system test. Same line. \nDifferent line."
   facet-NAME&%: context-SYSTEST
   facet_map-CLASSIFIERS^classifier:
     classifier-CLASS&class: class-CONTEXT
@@ -28,8 +28,8 @@ gem_map-FACETS^facet:
 ---
 # Entity SYS+context-SYSTEST
 
-this is a test same line 
-different line
+This is a system test. Same line. 
+Different line.
 
 ---
 1. Classifier Values of context SYS+context-SYSTEST

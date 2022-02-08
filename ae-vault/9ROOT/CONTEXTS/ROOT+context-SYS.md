@@ -274,7 +274,7 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-PARAM
       0030010 request_map-REQUEST^param:
-        param-CONTENT$str: "this is a test same line \ndifferent line"
+        param-CONTENT$str: "This is a system test. Same line. \nDifferent line."
         param-NAME&%: context-SYSTEST
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CONTEXT
