@@ -75,6 +75,15 @@
   param_map-CLASSIFIERS^classifier:
     classifier_vec-RESOURCES&context:
       - context-SYS
+0030020 request_map-REQUEST^param:
+  param-REQUESTID&requestid: requestid-INSTANTIATE
+  param-TARGETname&%: class-CONTEXT
+  param-NAME&%: context-FED
+  param-CONTENT$str:
+    "This is context FED."
+  param_map-CLASSIFIERS^classifier:
+    classifier_vec-RESOURCES&context:
+      - context-SYS
 #
 0040000 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -311,15 +320,25 @@
   param_map-DESCRIPTORS^descriptor:
     descriptor-READonly$bool: true
 ##
-0200010 request_map-REQUEST^param:
+0200110 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-LOADscript
   param-TARGETname&%: context-SYSTEST
-0200020 request_map-REQUEST^param:
+0200120 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-EVALscript
   param-TARGETname&%: context-SYSTEST
-0200030 request_map-REQUEST^param:
+0200130 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-VALIDATEscriptNAMES
   param-TARGETname&%: context-SYSTEST
+##
+0200210 request_map-REQUEST^param:
+  param-REQUESTID&requestid: requestid-LOADscript
+  param-TARGETname&%: context-FED
+0200220 request_map-REQUEST^param:
+  param-REQUESTID&requestid: requestid-EVALscript
+  param-TARGETname&%: context-FED
+0200230 request_map-REQUEST^param:
+  param-REQUESTID&requestid: requestid-VALIDATEscriptNAMES
+  param-TARGETname&%: context-FED
 ##
 0400010 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-ENTITYreport

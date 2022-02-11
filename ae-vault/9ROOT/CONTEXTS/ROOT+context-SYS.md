@@ -4,6 +4,9 @@ gem_map-FACETS^facet:
   facet-NAME&%: context-SYS
   facet_map-DESCRIPTORS^descriptor:
     descriptor_map-SCRIPT^request:
+      0200110 request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-LOADscript
+        param-TARGETname&%: context-SYSTEST
       0140050 request_map-REQUEST^param:
         param-NAME&%: requestid-PRINTLN
         param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -51,6 +54,9 @@ gem_map-FACETS^facet:
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
+      0200230 request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-VALIDATEscriptNAMES
+        param-TARGETname&%: context-FED
       0120020 request_map-REQUEST^param:
         param-NAME&%: param_map-DESCRIPTORS^descriptor
         param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -83,16 +89,13 @@ gem_map-FACETS^facet:
         param-TARGETname&%: class-REQUESTID
         param_map-DESCRIPTORS^descriptor:
           descriptor-READonly$bool: true
-      0200020 request_map-REQUEST^param:
+      0200120 request_map-REQUEST^param:
         param-REQUESTID&requestid: requestid-EVALscript
         param-TARGETname&%: context-SYSTEST
       0020010 request_map-REQUEST^param:
         param-NAME&%: classifier_vec-RESOURCES&context
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASSIFIERvec
-      0200010 request_map-REQUEST^param:
-        param-REQUESTID&requestid: requestid-LOADscript
-        param-TARGETname&%: context-SYSTEST
       0070010 request_map-REQUEST^param:
         param-NAME&%: descriptor_vecmap-SCRIPT^request
         param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -111,6 +114,12 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-PRINTLN
         param-TARGETname&%: context-SYS
         param-TEXT$str: Finished SYS
+      0200220 request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-EVALscript
+        param-TARGETname&%: context-FED
+      0200130 request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-VALIDATEscriptNAMES
+        param-TARGETname&%: context-SYSTEST
       0060000 request_map-REQUEST^param:
         param-NAME&%: class-DESCRIPTORmapvec
         param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -176,9 +185,9 @@ gem_map-FACETS^facet:
               - REGISTER_ENTITYoperationid
               requestid-VALIDATEscriptNAMES:
               - VALIDATE_SCRIPT_NAMESoperationid
-      0200030 request_map-REQUEST^param:
-        param-REQUESTID&requestid: requestid-VALIDATEscriptNAMES
-        param-TARGETname&%: context-SYSTEST
+      0200210 request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-LOADscript
+        param-TARGETname&%: context-FED
       0100000 request_map-REQUEST^param:
         param-NAME&%: class-FACETvec
         param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -189,6 +198,14 @@ gem_map-FACETS^facet:
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
+      0030020 request_map-REQUEST^param:
+        param-CONTENT$str: This is context FED.
+        param-NAME&%: context-FED
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CONTEXT
+        param_map-CLASSIFIERS^classifier:
+          classifier_vec-RESOURCES&context:
+          - context-SYS
       0040000 request_map-REQUEST^param:
         param-NAME&%: class-DESCRIPTOR
         param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -357,6 +374,7 @@ classifier:  SYS+classifier-CLASS&class
   value:       SYS+class-CLASSIFIERvec
     entity:      SYS+classifier_vec-RESOURCES&context
   value:       SYS+class-CONTEXT
+    entity:      SYS+context-FED
     entity:      SYS+context-SYSTEST
   value:       SYS+class-DESCRIPTOR
     entity:      SYS+descriptor-INVARIANT$bool
@@ -397,6 +415,7 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+request_map-REQUEST^param
 classifier:  SYS+classifier_vec-RESOURCES&context
   value:       ROOT+context-SYS
+    entity:      SYS+context-FED
     entity:      SYS+context-SYSTEST
 
 Number of classifiers: 2
