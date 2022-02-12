@@ -8,6 +8,15 @@ gem_map-FACETS^facet:
     - context-SYS
   facet_map-DESCRIPTORS^descriptor:
     descriptor_map-SCRIPT^request:
+      0030010 request_map-REQUEST^param:
+        param-CONTENT$str: This is a federation test.
+        param-NAME&%: context-FEDTEST
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CONTEXT
+        param_map-CLASSIFIERS^classifier:
+          classifier_vec-RESOURCES&context:
+          - context-SYS
+          - context-FED
       0500010 request_map-REQUEST^param:
         param-REQUESTID&requestid: requestid-PRINTLN
         param-TARGETname&%: context-SYS
@@ -34,6 +43,14 @@ This is context FED.
 1. Classifier Values of context SYS+context-FED
 (Default context is context-FED.)
 
+classifier:  SYS+classifier-CLASS&class
+  value:       SYS+class-CONTEXT
+    entity:      FED+context-FEDTEST
+classifier:  SYS+classifier_vec-RESOURCES&context
+  value:       ROOT+context-SYS
+    entity:      FED+context-FEDTEST
+  value:       SYS+context-FED
+    entity:      FED+context-FEDTEST
 
-Number of classifiers: 0
+Number of classifiers: 2
 
