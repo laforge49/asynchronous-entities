@@ -17,6 +17,15 @@ gem_map-FACETS^facet:
           classifier_vec-RESOURCES&context:
           - context-SYS
           - context-FED
+      0200110 request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-LOADscript
+        param-TARGETname&%: context-FEDTEST
+      0200120 request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-EVALscript
+        param-TARGETname&%: context-FEDTEST
+      0200130 request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-VALIDATEscriptNAMES
+        param-TARGETname&%: context-FEDTEST
       0500010 request_map-REQUEST^param:
         param-REQUESTID&requestid: requestid-PRINTLN
         param-TARGETname&%: context-SYS
