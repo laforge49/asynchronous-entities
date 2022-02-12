@@ -8,9 +8,11 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-LOADscript
         param-TARGETname&%: context-SYSTEST
       0140050 request_map-REQUEST^param:
-        param-NAME&%: requestid-PRINTLN
+        param-NAME&%: requestid-LOADscript
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-REQUESTID
+        param_map-DESCRIPTORS^descriptor:
+          descriptor-READonly$bool: true
       0400010 request_map-REQUEST^param:
         param-REQUESTID&requestid: requestid-ENTITYreport
         param-TARGETname&%: context-SYS
@@ -19,7 +21,7 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-FACETmap
       0140030 request_map-REQUEST^param:
-        param-NAME&%: requestid-INSTANTIATE
+        param-NAME&%: requestid-EVALscript
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-REQUESTID
         param_map-DESCRIPTORS^descriptor:
@@ -84,7 +86,7 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-REQUESTmap
       0140020 request_map-REQUEST^param:
-        param-NAME&%: requestid-EVALscript
+        param-NAME&%: requestid-ENTITYreport
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-REQUESTID
         param_map-DESCRIPTORS^descriptor:
@@ -141,7 +143,7 @@ gem_map-FACETS^facet:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
       0140040 request_map-REQUEST^param:
-        param-NAME&%: requestid-LOADscript
+        param-NAME&%: requestid-INSTANTIATE
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-REQUESTID
         param_map-DESCRIPTORS^descriptor:
@@ -199,8 +201,8 @@ gem_map-FACETS^facet:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
       0030020 request_map-REQUEST^param:
-        param-CONTENT$str: This is context FED.
-        param-NAME&%: context-FED
+        param-CONTENT$str: "This is a system test. Same line. \nDifferent line."
+        param-NAME&%: context-SYSTEST
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CONTEXT
         param_map-CLASSIFIERS^classifier:
@@ -247,15 +249,19 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-DESCRIPTOR
       0140010 request_map-REQUEST^param:
-        param-NAME&%: requestid-ENTITYreport
+        param-NAME&%: requestid-ADDdescriptors
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-REQUESTID
-        param_map-DESCRIPTORS^descriptor:
-          descriptor-READonly$bool: true
       0120010 request_map-REQUEST^param:
         param-NAME&%: param_map-CLASSIFIERS^classifier
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-PARAMmap
+      0140080 request_map-REQUEST^param:
+        param-NAME&%: requestid-VALIDATEscriptNAMES
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-REQUESTID
+        param_map-DESCRIPTORS^descriptor:
+          descriptor-READonly$bool: true
       0000010 request_map-REQUEST^param:
         param-NAME&%: class-CLASS
         param-REQUESTID&requestid: requestid-REGISTERentity
@@ -290,14 +296,15 @@ gem_map-FACETS^facet:
         param-NAME&%: param-TARGETname&%
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-PARAM
-      0030010 request_map-REQUEST^param:
-        param-CONTENT$str: "This is a system test. Same line. \nDifferent line."
-        param-NAME&%: context-SYSTEST
+      0030040 request_map-REQUEST^param:
+        param-CONTENT$str: This is a federation test.
+        param-NAME&%: context-FEDTEST
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CONTEXT
         param_map-CLASSIFIERS^classifier:
           classifier_vec-RESOURCES&context:
           - context-SYS
+          - context-FED
       0010000 request_map-REQUEST^param:
         param-NAME&%: class-CLASSIFIER
         param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -309,11 +316,9 @@ gem_map-FACETS^facet:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
       0140070 request_map-REQUEST^param:
-        param-NAME&%: requestid-VALIDATEscriptNAMES
+        param-NAME&%: requestid-REGISTERentity
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-REQUESTID
-        param_map-DESCRIPTORS^descriptor:
-          descriptor-READonly$bool: true
       0140000 request_map-REQUEST^param:
         param-NAME&%: class-REQUESTID
         param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -329,9 +334,17 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-DESCRIPTOR
       0140060 request_map-REQUEST^param:
-        param-NAME&%: requestid-REGISTERentity
+        param-NAME&%: requestid-PRINTLN
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-REQUESTID
+      0030030 request_map-REQUEST^param:
+        param-CONTENT$str: This is context FED.
+        param-NAME&%: context-FED
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CONTEXT
+        param_map-CLASSIFIERS^classifier:
+          classifier_vec-RESOURCES&context:
+          - context-SYS
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
       - CONTEXT_REPORToperationid
@@ -375,6 +388,7 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+classifier_vec-RESOURCES&context
   value:       SYS+class-CONTEXT
     entity:      SYS+context-FED
+    entity:      SYS+context-FEDTEST
     entity:      SYS+context-SYSTEST
   value:       SYS+class-DESCRIPTOR
     entity:      SYS+descriptor-INVARIANT$bool
@@ -404,6 +418,7 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+param_map-CLASSIFIERS^classifier
     entity:      SYS+param_map-DESCRIPTORS^descriptor
   value:       SYS+class-REQUESTID
+    entity:      SYS+requestid-ADDdescriptors
     entity:      SYS+requestid-ENTITYreport
     entity:      SYS+requestid-EVALscript
     entity:      SYS+requestid-INSTANTIATE
@@ -416,7 +431,10 @@ classifier:  SYS+classifier-CLASS&class
 classifier:  SYS+classifier_vec-RESOURCES&context
   value:       ROOT+context-SYS
     entity:      SYS+context-FED
+    entity:      SYS+context-FEDTEST
     entity:      SYS+context-SYSTEST
+  value:       SYS+context-FED
+    entity:      SYS+context-FEDTEST
 
 Number of classifiers: 2
 

@@ -109,10 +109,15 @@
 
 (defn get-child-map
   [entity-name env]
+  #_ (println :get-child-map :env-keys (prn-str (keys env)))
   (let [entity-map
         (i/get-gem-map entity-name)
+        new-children-volmap
+        (get env "SYS+env_volmap-CHILDREN&%")
         new-children-map
-        @(get env "SYS+env_volmap-CHILDREN&%")]
+        (if (nil? new-children-volmap)
+          nil
+          @new-children-volmap)]
     (if (nil? (get new-children-map entity-name))
       nil
       entity-map)))
@@ -232,6 +237,7 @@
 
 (defn routeFunction
   [env this-map params]
+  #_ (println :routeFunction :params (prn-str params))
   (if (some? this-map)
     (save-entity-map this-map))
   (let [target-name
@@ -469,6 +475,7 @@
         (if (s/blank? entity-name)
           [nil nil nil]
           (kw/name-as-keyword entity-name))]
+    #_ (println :entityContextName entity-name entity-context-base-name)
     (if (s/blank? entity-name)
       "ROOT+context-SYS"
       (if (= entity-context-base-name "SYS")

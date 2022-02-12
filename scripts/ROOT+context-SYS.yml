@@ -64,7 +64,7 @@
           - EVAL_SCRIPToperationid
         requestid-VALIDATEscriptNAMES:
           - VALIDATE_SCRIPT_NAMESoperationid
-0030010 request_map-REQUEST^param:
+0030020 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CONTEXT
   param-NAME&%: context-SYSTEST
@@ -75,7 +75,7 @@
   param_map-CLASSIFIERS^classifier:
     classifier_vec-RESOURCES&context:
       - context-SYS
-0030020 request_map-REQUEST^param:
+0030030 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CONTEXT
   param-NAME&%: context-FED
@@ -84,6 +84,16 @@
   param_map-CLASSIFIERS^classifier:
     classifier_vec-RESOURCES&context:
       - context-SYS
+0030040 request_map-REQUEST^param:
+  param-REQUESTID&requestid: requestid-INSTANTIATE
+  param-TARGETname&%: class-CONTEXT
+  param-NAME&%: context-FEDTEST
+  param-CONTENT$str:
+    "This is a federation test."
+  param_map-CLASSIFIERS^classifier:
+    classifier_vec-RESOURCES&context:
+      - context-SYS
+      - context-FED
 #
 0040000 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -284,36 +294,40 @@
 0140010 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
-  param-NAME&%: requestid-ENTITYreport
-  param_map-DESCRIPTORS^descriptor:
-    descriptor-READonly$bool: true
+  param-NAME&%: requestid-ADDdescriptors
 0140020 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
-  param-NAME&%: requestid-EVALscript
+  param-NAME&%: requestid-ENTITYreport
   param_map-DESCRIPTORS^descriptor:
     descriptor-READonly$bool: true
 0140030 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
-  param-NAME&%: requestid-INSTANTIATE
+  param-NAME&%: requestid-EVALscript
   param_map-DESCRIPTORS^descriptor:
     descriptor-READonly$bool: true
 0140040 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
-  param-NAME&%: requestid-LOADscript
+  param-NAME&%: requestid-INSTANTIATE
   param_map-DESCRIPTORS^descriptor:
     descriptor-READonly$bool: true
 0140050 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
-  param-NAME&%: requestid-PRINTLN
+  param-NAME&%: requestid-LOADscript
+  param_map-DESCRIPTORS^descriptor:
+    descriptor-READonly$bool: true
 0140060 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
-  param-NAME&%: requestid-REGISTERentity
+  param-NAME&%: requestid-PRINTLN
 0140070 request_map-REQUEST^param:
+  param-REQUESTID&requestid: requestid-INSTANTIATE
+  param-TARGETname&%: class-REQUESTID
+  param-NAME&%: requestid-REGISTERentity
+0140080 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
   param-NAME&%: requestid-VALIDATEscriptNAMES

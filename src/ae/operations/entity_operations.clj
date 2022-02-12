@@ -42,6 +42,7 @@
       (let [params
             (into params {"SYS+param-REQUESTID&requestid" "SYS+requestid-REGISTERentity"
                           "SYS+param-TARGETname&%"        (k/entityContextName name)})
+            #_ (println :register-name name this-name)
             requests
             [{"SYS+request_map-REQUEST^param" params}]]
         (l/push-later env requests)))
