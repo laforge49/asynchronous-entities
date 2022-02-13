@@ -1,4 +1,4 @@
-0000010 request_map-REQUEST^param:
+0010000 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-SIMPLE
@@ -11,6 +11,14 @@
           - ADD_RELATIONSoperationid
         requestid-ENTITYreport:
           - ENTITY_REPORToperationid
+0010010 request_map-REQUEST^param:
+      param-REQUESTID&requestid: requestid-INSTANTIATE
+      param-TARGETname&%: class-SIMPLE
+      param-NAME&%: simple-ALPHA
+      param-CONTENT$str:
+        "this is a test
+      same line
+      \ndifferent line"
 ##
 0500010 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-PRINTLN
