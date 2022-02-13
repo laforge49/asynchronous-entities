@@ -1,4 +1,9 @@
-0010000 request_map-REQUEST^param:
+0010010 request_map-REQUEST^param:
+  param-REQUESTID&requestid: requestid-INSTANTIATE
+  param-TARGETname&%: class-RELATION
+  param-NAME&%: relation_vec-BASIC
+#
+0020000 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-SIMPLE
@@ -11,7 +16,7 @@
           - ADD_RELATIONSoperationid
         requestid-ENTITYreport:
           - ENTITY_REPORToperationid
-0010010 request_map-REQUEST^param:
+0020010 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-SIMPLE
   param-NAME&%: simple-ALPHA
@@ -19,7 +24,7 @@
     "this is a test
       same line
       \ndifferent line"
-0010020 request_map-REQUEST^param:
+0020020 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-SIMPLE
   param-NAME&%: simple-BETA
