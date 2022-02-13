@@ -12,13 +12,17 @@
         requestid-ENTITYreport:
           - ENTITY_REPORToperationid
 0010010 request_map-REQUEST^param:
-      param-REQUESTID&requestid: requestid-INSTANTIATE
-      param-TARGETname&%: class-SIMPLE
-      param-NAME&%: simple-ALPHA
-      param-CONTENT$str:
-        "this is a test
+  param-REQUESTID&requestid: requestid-INSTANTIATE
+  param-TARGETname&%: class-SIMPLE
+  param-NAME&%: simple-ALPHA
+  param-CONTENT$str:
+    "this is a test
       same line
       \ndifferent line"
+0010020 request_map-REQUEST^param:
+  param-REQUESTID&requestid: requestid-INSTANTIATE
+  param-TARGETname&%: class-SIMPLE
+  param-NAME&%: simple-BETA
 ##
 0500010 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-PRINTLN

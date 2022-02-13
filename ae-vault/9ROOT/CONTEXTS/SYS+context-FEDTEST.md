@@ -27,6 +27,10 @@ gem_map-FACETS^facet:
         param-NAME&%: simple-ALPHA
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-SIMPLE
+      0010020 request_map-REQUEST^param:
+        param-NAME&%: simple-BETA
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-SIMPLE
       0500010 request_map-REQUEST^param:
         param-REQUESTID&requestid: requestid-PRINTLN
         param-TARGETname&%: context-SYS
@@ -56,6 +60,7 @@ This is a federation test.
 classifier:  SYS+classifier-CLASS&class
   value:       FEDTEST+class-SIMPLE
     entity:      FEDTEST+simple-ALPHA
+    entity:      FEDTEST+simple-BETA
   value:       SYS+class-CLASS
     entity:      FEDTEST+class-SIMPLE
 
