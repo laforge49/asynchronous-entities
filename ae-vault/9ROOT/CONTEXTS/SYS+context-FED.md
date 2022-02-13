@@ -8,6 +8,16 @@ gem_map-FACETS^facet:
     - context-SYS
   facet_map-DESCRIPTORS^descriptor:
     descriptor_map-SCRIPT^request:
+      0100000 request_map-REQUEST^param:
+        param-NAME&%: class-RELATION
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor-INVARIANT$bool: true
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
+              - ENTITY_REPORToperationid
       0140010 request_map-REQUEST^param:
         param-NAME&%: requestid-ADDrelations
         param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -48,6 +58,8 @@ This is context FED.
 (Default context is context-FED.)
 
 classifier:  SYS+classifier-CLASS&class
+  value:       SYS+class-CLASS
+    entity:      FED+class-RELATION
   value:       SYS+class-REQUESTID
     entity:      FED+requestid-ADDrelations
 
