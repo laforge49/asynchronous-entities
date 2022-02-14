@@ -40,6 +40,14 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-SIMPLE
       0500010 request_map-REQUEST^param:
+        param-NAME&%: federator-A
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-FEDERATOR
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_vec-FEDERATIONnames&%:
+          - simple-ALPHA
+          - simple-BETA
+      0500020 request_map-REQUEST^param:
         param-REQUESTID&requestid: requestid-PRINTLN
         param-TARGETname&%: context-SYS
         param-TEXT$str: Finished FEDTEST
@@ -66,6 +74,8 @@ This is a federation test.
 (Default context is context-FEDTEST.)
 
 classifier:  SYS+classifier-CLASS&class
+  value:       FED+class-FEDERATOR
+    entity:      FEDTEST+federator-A
   value:       FED+class-RELATION
     entity:      FEDTEST+relation_vec-BASIC
   value:       FEDTEST+class-SIMPLE

@@ -8,7 +8,20 @@ gem_map-FACETS^facet:
     - context-SYS
   facet_map-DESCRIPTORS^descriptor:
     descriptor_map-SCRIPT^request:
-      0010000 request_map-REQUEST^param:
+      0200110 request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-LOADscript
+        param-TARGETname&%: context-FEDTEST
+      0200120 request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-EVALscript
+        param-TARGETname&%: context-FEDTEST
+      0500010 request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-PRINTLN
+        param-TARGETname&%: context-SYS
+        param-TEXT$str: Finished FED
+      0200130 request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-VALIDATEscriptNAMES
+        param-TARGETname&%: context-FEDTEST
+      0020000 request_map-REQUEST^param:
         param-NAME&%: class-FEDERATOR
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -19,7 +32,7 @@ gem_map-FACETS^facet:
               - ENTITY_REPORToperationid
               requestid-RUNfederation:
               - RUN_FEDERATIONoperationid
-      0020000 request_map-REQUEST^param:
+      0030000 request_map-REQUEST^param:
         param-NAME&%: class-RELATION
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -29,29 +42,20 @@ gem_map-FACETS^facet:
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-      0030010 request_map-REQUEST^param:
+      0010010 request_map-REQUEST^param:
+        param-NAME&%: descriptor_vec-FEDERATIONnames&%
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-DESCRIPTORvec
+      0040010 request_map-REQUEST^param:
         param-NAME&%: requestid-ADDrelations
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-REQUESTID
-      0030020 request_map-REQUEST^param:
+      0040020 request_map-REQUEST^param:
         param-NAME&%: requestid-RUNfederation
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-REQUESTID
         param_map-DESCRIPTORS^descriptor:
           descriptor-READonly$bool: true
-      0200110 request_map-REQUEST^param:
-        param-REQUESTID&requestid: requestid-LOADscript
-        param-TARGETname&%: context-FEDTEST
-      0200120 request_map-REQUEST^param:
-        param-REQUESTID&requestid: requestid-EVALscript
-        param-TARGETname&%: context-FEDTEST
-      0200130 request_map-REQUEST^param:
-        param-REQUESTID&requestid: requestid-VALIDATEscriptNAMES
-        param-TARGETname&%: context-FEDTEST
-      0500010 request_map-REQUEST^param:
-        param-REQUESTID&requestid: requestid-PRINTLN
-        param-TARGETname&%: context-SYS
-        param-TEXT$str: Finished FED
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
       - CONTEXT_REPORToperationid
@@ -78,6 +82,8 @@ classifier:  SYS+classifier-CLASS&class
   value:       SYS+class-CLASS
     entity:      FED+class-FEDERATOR
     entity:      FED+class-RELATION
+  value:       SYS+class-DESCRIPTORvec
+    entity:      FED+descriptor_vec-FEDERATIONnames&%
   value:       SYS+class-REQUESTID
     entity:      FED+requestid-ADDrelations
     entity:      FED+requestid-RUNfederation
