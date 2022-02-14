@@ -10,10 +10,14 @@ gem_map-FACETS^facet:
   facet_map-DESCRIPTORS^descriptor:
     descriptor_map-SCRIPT^request:
       0010010 request_map-REQUEST^param:
+        param-NAME&%: descriptor-DEGREEofPOLISH$str
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-DESCRIPTOR
+      0020010 request_map-REQUEST^param:
         param-NAME&%: relation_vec-BASIC
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-RELATION
-      0020000 request_map-REQUEST^param:
+      0030000 request_map-REQUEST^param:
         param-NAME&%: class-SIMPLE
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -26,12 +30,12 @@ gem_map-FACETS^facet:
               - ADD_RELATIONSoperationid
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-      0020010 request_map-REQUEST^param:
+      0040010 request_map-REQUEST^param:
         param-CONTENT$str: "this is a test same line \ndifferent line"
         param-NAME&%: simple-ALPHA
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-SIMPLE
-      0020020 request_map-REQUEST^param:
+      0040020 request_map-REQUEST^param:
         param-NAME&%: simple-BETA
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-SIMPLE
@@ -69,6 +73,8 @@ classifier:  SYS+classifier-CLASS&class
     entity:      FEDTEST+simple-BETA
   value:       SYS+class-CLASS
     entity:      FEDTEST+class-SIMPLE
+  value:       SYS+class-DESCRIPTOR
+    entity:      FEDTEST+descriptor-DEGREEofPOLISH$str
 
 Number of classifiers: 1
 
