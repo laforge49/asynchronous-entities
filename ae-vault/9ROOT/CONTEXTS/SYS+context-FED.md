@@ -8,7 +8,18 @@ gem_map-FACETS^facet:
     - context-SYS
   facet_map-DESCRIPTORS^descriptor:
     descriptor_map-SCRIPT^request:
-      0100000 request_map-REQUEST^param:
+      0010000 request_map-REQUEST^param:
+        param-NAME&%: class-FEDERATOR
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-CLASS
+        param_map-DESCRIPTORS^descriptor:
+          descriptor_map-INSTANCE^descriptor:
+            descriptor_mapvec-REQUESTS^requestid$str:
+              requestid-ENTITYreport:
+              - ENTITY_REPORToperationid
+              requestid-RUNfederation:
+              - RUN_FEDERATIONoperationid
+      0020000 request_map-REQUEST^param:
         param-NAME&%: class-RELATION
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-CLASS
@@ -18,10 +29,16 @@ gem_map-FACETS^facet:
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-      0140010 request_map-REQUEST^param:
+      0030010 request_map-REQUEST^param:
         param-NAME&%: requestid-ADDrelations
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-REQUESTID
+      0030020 request_map-REQUEST^param:
+        param-NAME&%: requestid-RUNfederation
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-REQUESTID
+        param_map-DESCRIPTORS^descriptor:
+          descriptor-READonly$bool: true
       0200110 request_map-REQUEST^param:
         param-REQUESTID&requestid: requestid-LOADscript
         param-TARGETname&%: context-FEDTEST
@@ -59,9 +76,11 @@ This is context FED.
 
 classifier:  SYS+classifier-CLASS&class
   value:       SYS+class-CLASS
+    entity:      FED+class-FEDERATOR
     entity:      FED+class-RELATION
   value:       SYS+class-REQUESTID
     entity:      FED+requestid-ADDrelations
+    entity:      FED+requestid-RUNfederation
 
 Number of classifiers: 1
 
