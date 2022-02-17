@@ -118,14 +118,14 @@
               env
               (assoc env "SYS+env_volmap-CHILDREN&%" (volatile! {}))
               script
-              (get descriptors "SYS+descriptor_vecmap-SCRIPT^request")
+              (get descriptors "SYS+descriptor_map-SCRIPT^request")
               this-name
               (get this-map "SYS+facet-NAME&%")
               local-context
               (k/entityContextName this-name)
               _ (doseq [request script]
                   (let [request-params
-                        (val (first request))
+                        (val request)
                         request-params
                         (k/bind-context local-context request-params "map" "param" nil nil env)]
                     (k/routeFunction env this-map request-params)))
@@ -146,7 +146,7 @@
                   (throw e))
               _ (doseq [request script]
                   (let [request-params
-                        (val (first request))]
+                        (val request)]
                     (k/validate-names request-params "map" "param" nil nil nil env)))
               _ (a/>! operation-return-port [this-map
                                              nil])

@@ -5,6 +5,11 @@ gem_map-FACETS^facet:
   facet_map-CLASSIFIERS^classifier:
     classifier-CLASS&class: class-FEDERATOR
   facet_map-DESCRIPTORS^descriptor:
+    descriptor_map-SCRIPT^request:
+      0000010 request_map-REQUEST^param:
+        param-NAME&%: simple-GAMMA
+        param-REQUESTID&requestid: requestid-INSTANTIATE
+        param-TARGETname&%: class-SIMPLE
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
       - ENTITY_REPORToperationid

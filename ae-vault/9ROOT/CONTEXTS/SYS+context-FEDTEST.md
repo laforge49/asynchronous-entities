@@ -44,10 +44,18 @@ gem_map-FACETS^facet:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-FEDERATOR
         param_map-DESCRIPTORS^descriptor:
+          descriptor_map-SCRIPT^request:
+            0000010 request_map-REQUEST^param:
+              param-NAME&%: simple-GAMMA
+              param-REQUESTID&requestid: requestid-INSTANTIATE
+              param-TARGETname&%: class-SIMPLE
           descriptor_vec-FEDERATIONnames&%:
           - simple-ALPHA
           - simple-BETA
       0500020 request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-RUNfederation
+        param-TARGETname&%: federator-A
+      0500030 request_map-REQUEST^param:
         param-REQUESTID&requestid: requestid-PRINTLN
         param-TARGETname&%: context-SYS
         param-TEXT$str: Finished FEDTEST
@@ -81,6 +89,7 @@ classifier:  SYS+classifier-CLASS&class
   value:       FEDTEST+class-SIMPLE
     entity:      FEDTEST+simple-ALPHA
     entity:      FEDTEST+simple-BETA
+    entity:      FEDTEST+simple-GAMMA
   value:       SYS+class-CLASS
     entity:      FEDTEST+class-SIMPLE
   value:       SYS+class-DESCRIPTOR
