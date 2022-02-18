@@ -398,6 +398,17 @@
     edn-script))
 
 (defn edn-to-yaml
-  [fm]
-  (yaml/edn->yaml fm))
+  ([edn]
+   (edn-to-yaml edn 0))
+  ([edn off]
+  (cond
+    (map? edn)
+    (do
+      (println :edn (prn-str edn))
+      (yaml/edn->yaml edn))
+
+    true
+    (do
+      (println :? (prn-str edn))
+      (yaml/edn->yaml edn)))))
 
