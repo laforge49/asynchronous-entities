@@ -127,7 +127,7 @@
           (str "ae-vault/9ROOT/SYS/" base-name ".md")
           (str "ae-vault/9ROOT/" context-base-name "/" base-name ".md"))
         heading
-        (str "# Entity " this-name "\n\n")
+        (str "# Gem " this-name "\n\n")
         content
         (get this-map "SYS+facet-CONTENT$str")
         content

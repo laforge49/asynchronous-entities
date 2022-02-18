@@ -38,7 +38,7 @@
         file-name
         (str "ae-vault/9ROOT/CONTEXTS/" this-name ".md")
         heading
-        (str "# Entity " this-name "\n\n")
+        (str "# Gem " this-name "\n\n")
         content
         (get this-map "SYS+facet-CONTENT$str")
         content

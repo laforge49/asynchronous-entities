@@ -1,14 +1,18 @@
 ---
 gem_map-FACETS^facet:
-  facet-CONTENT$str: ''
-  facet-NAME&%: requestid-REGISTERentity
+  facet-CONTENT$str:
+    ''
+  facet-NAME&%:
+    requestid-REGISTERentity
   facet_map-CLASSIFIERS^classifier:
-    classifier-CLASS&class: class-REQUESTID
+    classifier-CLASS&class:
+      class-REQUESTID
   facet_map-DESCRIPTORS^descriptor:
-    descriptor-INVARIANT$bool: true
+    descriptor-INVARIANT$bool:
+      true
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
-      - ENTITY_REPORToperationid
+        - ENTITY_REPORToperationid
 ---
-# Entity SYS+requestid-REGISTERentity
+# Gem SYS+requestid-REGISTERentity
 

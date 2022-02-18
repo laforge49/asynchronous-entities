@@ -1,21 +1,24 @@
 ---
 gem_map-FACETS^facet:
-  facet-CONTENT$str: "this is a test same line \ndifferent line"
-  facet-NAME&%: simple-ALPHA
+  facet-CONTENT$str:
+    "this is a test same line \ndifferent line"
+  facet-NAME&%:
+    simple-ALPHA
   facet_map-CLASSIFIERS^classifier:
-    classifier-CLASS&class: class-SIMPLE
+    classifier-CLASS&class:
+      class-SIMPLE
   facet_map-DESCRIPTORS^descriptor:
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ADDdescriptors:
-      - ADD_DESCRIPTORSoperationid
+        - ADD_DESCRIPTORSoperationid
       requestid-ADDrelations:
-      - ADD_RELATIONSoperationid
+        - ADD_RELATIONSoperationid
       requestid-ENTITYreport:
-      - ENTITY_REPORToperationid
+        - ENTITY_REPORToperationid
   facet_vec-REQUESTportSTACK$chan:
-  - clojure.core.async.chan
+    - clojure.core.async.chan
 ---
-# Entity FEDTEST+simple-ALPHA
+# Gem FEDTEST+simple-ALPHA
 
 this is a test same line 
 different line

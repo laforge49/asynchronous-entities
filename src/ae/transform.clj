@@ -403,14 +403,21 @@
   ([edn off sv]
    (cond
      (map? edn)
-     (do
-       (println :edn (prn-str edn))
-       (conj (into sv (repeat off " "))
-               (yaml/edn->yaml edn)))
+     (reduce
+       (fn [sv [k v]]
+         (let [sv
+               (into sv (repeat off " "))
+               sv
+               (conj sv k ":\n")
+               sv
+               (edn-to-yaml v (+ off 2) sv)]
+           sv))
+       sv
+       edn)
 
      true
      (do
-       (println :? (prn-str edn))
+       #_ (println :? (prn-str edn))
        (conj (into sv (repeat off " "))
              (yaml/edn->yaml edn))))))
 
