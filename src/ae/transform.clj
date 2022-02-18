@@ -399,16 +399,18 @@
 
 (defn edn-to-yaml
   ([edn]
-   (edn-to-yaml edn 0))
-  ([edn off]
-  (cond
-    (map? edn)
-    (do
-      (println :edn (prn-str edn))
-      (yaml/edn->yaml edn))
+   (apply str (edn-to-yaml edn 0 [])))
+  ([edn off sv]
+   (cond
+     (map? edn)
+     (do
+       (println :edn (prn-str edn))
+       (conj (into sv (repeat off " "))
+               (yaml/edn->yaml edn)))
 
-    true
-    (do
-      (println :? (prn-str edn))
-      (yaml/edn->yaml edn)))))
+     true
+     (do
+       (println :? (prn-str edn))
+       (conj (into sv (repeat off " "))
+             (yaml/edn->yaml edn))))))
 
