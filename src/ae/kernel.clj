@@ -864,16 +864,6 @@
         (get-resources-set full-context-name)]
     (bind-context- short-context-name resources-set edn styp ktyp ntyp dtyp env)))
 
-(defn parse-bind-script
-  [yaml-script this-map env]
-  (let [full-local-context
-        (get this-map "SYS+facet-NAME&%")
-        edn-script
-        (yaml/parse-raw yaml-script)
-        edn-script
-        (bind-context full-local-context edn-script "map" "request" nil nil env)]
-    edn-script))
-
 (defn merge-maps
   [base-map update-map]
   (reduce
@@ -891,3 +881,13 @@
               (assoc base-map uk (merge-maps bv uv)))))))
     base-map
     update-map))
+
+(defn parse-bind-script
+  [yaml-script this-map env]
+  (let [full-local-context
+        (get this-map "SYS+facet-NAME&%")
+        edn-script
+        (yaml/parse-raw yaml-script)
+        edn-script
+        (bind-context full-local-context edn-script "map" "request" nil nil env)]
+    edn-script))
