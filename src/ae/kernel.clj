@@ -852,18 +852,6 @@
     true
     edn))
 
-(defn bind-context
-  [full-context-name edn styp ktyp ntyp dtyp env]
-  (let [[_ _ context-base-name]
-        (kw/name-as-keyword full-context-name)
-        short-context-name
-        (if (s/starts-with? context-base-name "context-")
-          (subs context-base-name 8)
-          context-base-name)
-        resources-set
-        (get-resources-set full-context-name)]
-    (bind-context- short-context-name resources-set edn styp ktyp ntyp dtyp env)))
-
 (defn merge-maps
   [base-map update-map]
   (reduce
@@ -881,6 +869,18 @@
               (assoc base-map uk (merge-maps bv uv)))))))
     base-map
     update-map))
+
+(defn bind-context
+  [full-context-name edn styp ktyp ntyp dtyp env]
+  (let [[_ _ context-base-name]
+        (kw/name-as-keyword full-context-name)
+        short-context-name
+        (if (s/starts-with? context-base-name "context-")
+          (subs context-base-name 8)
+          context-base-name)
+        resources-set
+        (get-resources-set full-context-name)]
+    (bind-context- short-context-name resources-set edn styp ktyp ntyp dtyp env)))
 
 (defn parse-bind-script
   [yaml-script this-map env]
