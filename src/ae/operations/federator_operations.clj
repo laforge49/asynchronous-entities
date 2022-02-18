@@ -135,16 +135,11 @@
               sub-return-port
               (federation-release env federation-names)
               [e]
-              (a/<! sub-return-port)
-              _ (if (some? e)
-                  (throw e))
-              _ (doseq [request script]
-                  (let [request-params
-                        (val request)]
-                    (t/validate-names request-params "map" "param" nil nil nil env)))
-              _ (a/>! operation-return-port [this-map
-                                             nil])
-              ])
+              (a/<! sub-return-port)]
+          (if (some? e)
+            (throw e))
+          (t/validate-names script "map" "request" nil nil nil env)
+          (a/>! operation-return-port [this-map nil]))
         (catch Exception e
           (a/>! operation-return-port [this-map e]))))))
 

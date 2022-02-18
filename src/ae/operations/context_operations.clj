@@ -140,7 +140,7 @@
               (get-in this-map
                       ["SYS+facet_map-DESCRIPTORS^descriptor"
                        "SYS+descriptor_map-SCRIPT^request"])]
-          (t/validate-names edn-script "mapmap" "request" nil nil nil env)
+          (t/validate-names edn-script "map" "request" nil nil nil env)
           (a/>! operation-return-port [this-map nil]))
         (catch Exception e
           (a/>! operation-return-port [this-map e]))))))
