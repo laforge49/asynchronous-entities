@@ -775,6 +775,24 @@
     true
     (pr-str (class edn))))
 
+(defn merge-maps
+  [base-map update-map]
+  (reduce
+    (fn [base-map [uk uv]]
+      (let [bv
+            (get base-map uk)]
+        (if (nil? bv)
+          (assoc base-map uk uv)
+          (if (not= (map? bv) (map? uv))
+            (throw (Exception. (str "change of value type for " uk
+                                    "\n" :bv " " (map? bv) " " (prn-str bv)
+                                    :uv " " (map? uv) " " (prn-str uv))))
+            (if (not (map? uv))
+              (assoc base-map uk uv)
+              (assoc base-map uk (merge-maps bv uv)))))))
+    base-map
+    update-map))
+
 (defn bind-context-
   [local-context resources-set edn parent-styp parent-ktyp parent-ntyp parent-dtyp env]
   (cond
@@ -851,24 +869,6 @@
 
     true
     edn))
-
-(defn merge-maps
-  [base-map update-map]
-  (reduce
-    (fn [base-map [uk uv]]
-      (let [bv
-            (get base-map uk)]
-        (if (nil? bv)
-          (assoc base-map uk uv)
-          (if (not= (map? bv) (map? uv))
-            (throw (Exception. (str "change of value type for " uk
-                                    "\n" :bv " " (map? bv) " " (prn-str bv)
-                                    :uv " " (map? uv) " " (prn-str uv))))
-            (if (not (map? uv))
-              (assoc base-map uk uv)
-              (assoc base-map uk (merge-maps bv uv)))))))
-    base-map
-    update-map))
 
 (defn bind-context
   [full-context-name edn styp ktyp ntyp dtyp env]
