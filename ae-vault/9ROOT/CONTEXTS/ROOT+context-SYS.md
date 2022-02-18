@@ -218,16 +218,6 @@ gem_map-FACETS^facet:
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
               - ENTITY_REPORToperationid
-      0080000 request_map-REQUEST^param:
-        param-NAME&%: class-DESCRIPTORvecmap
-        param-REQUESTID&requestid: requestid-INSTANTIATE
-        param-TARGETname&%: class-CLASS
-        param_map-DESCRIPTORS^descriptor:
-          descriptor_map-INSTANCE^descriptor:
-            descriptor-INVARIANT$bool: true
-            descriptor_mapvec-REQUESTS^requestid$str:
-              requestid-ENTITYreport:
-              - ENTITY_REPORToperationid
       0060010 request_map-REQUEST^param:
         param-NAME&%: descriptor_mapvec-REQUESTS^requestid$str
         param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -381,7 +371,6 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+class-DESCRIPTORmap
     entity:      SYS+class-DESCRIPTORmapvec
     entity:      SYS+class-DESCRIPTORvec
-    entity:      SYS+class-DESCRIPTORvecmap
     entity:      SYS+class-FACET
     entity:      SYS+class-FACETmap
     entity:      SYS+class-FACETvec
