@@ -33,7 +33,7 @@
         (kw/name-as-keyword this-name)
         _ (t/validate-names this-map "map" "facet" nil nil nil env)
         facets
-        (k/unbind-context this-map
+        (t/unbind-context this-map
                           nil
                           env)
         fm
