@@ -40,7 +40,7 @@
         (sorted-map "gem_map-FACETS^facet"
          facets)]
     (str "---\n"
-         (yaml/edn->yaml fm)
+         (t/edn-to-yaml fm)
          "---\n")))
 
 (defn context-classifier-values-report

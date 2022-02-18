@@ -396,3 +396,8 @@
         edn-script
         (bind-context full-local-context edn-script "map" "request" nil nil env)]
     edn-script))
+
+(defn edn-to-yaml
+  [fm]
+  (yaml/edn->yaml fm))
+
