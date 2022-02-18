@@ -2,7 +2,8 @@
   (:require [clojure.string :as s]
             [tupelo.parse.yaml :as yaml]
             [ae.kernel :as k]
-            [ae.keywords :as kw]))
+            [ae.keywords :as kw]
+            [ae.transform :as t]))
 
 (defn short-names
   [names default-context-name]
@@ -30,7 +31,7 @@
         (get this-map "SYS+facet-NAME&%")
         [name-kw context-base-name base-name]
         (kw/name-as-keyword this-name)
-        _ (k/validate-names this-map "map" "facet" nil nil nil env)
+        _ (t/validate-names this-map "map" "facet" nil nil nil env)
         facets
         (k/unbind-context this-map
                           nil
