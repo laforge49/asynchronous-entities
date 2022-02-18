@@ -2,7 +2,7 @@
   (:require [clojure.core.async :as a]
             [clojure.string :as s]
             [ae.kernel :as k]
-            [ae.keywords :as kw]))
+            [ae.transform :as t]))
 
 (defn registerChildren
   [env new-children]
@@ -147,7 +147,7 @@
               _ (doseq [request script]
                   (let [request-params
                         (val request)]
-                    (k/validate-names request-params "map" "param" nil nil nil env)))
+                    (t/validate-names request-params "map" "param" nil nil nil env)))
               _ (a/>! operation-return-port [this-map
                                              nil])
               ])
