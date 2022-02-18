@@ -98,7 +98,7 @@
               yaml-script
               (slurp script-path)
               edn-script
-              (k/parse-bind-script yaml-script this-map env)
+              (t/parse-bind-script yaml-script this-map env)
               this-map
               (assoc-in this-map
                         ["SYS+facet_map-DESCRIPTORS^descriptor"
