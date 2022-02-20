@@ -8,7 +8,7 @@
 (def testChanClass (class (a/chan)))
 
 (def styp-set
-  #{"map" "vec" "mapmap" "mapvec" "vecmap"})
+  #{"map" "vec" "mapmap" "mapvec"})
 
 (def dtyp-set
   #{"bool" "str" "int" "chan"})
@@ -170,9 +170,7 @@
     (if (and (not (s/starts-with? parent-styp "vec")) (not= parent-styp "%"))
       (throw (Exception. (str (pr-str edn) " is a vector, not structure typ " (pr-str parent-styp))))
       (let [styp
-            (if (= parent-styp "vecmap")
-              "map"
-              nil)]
+            nil]
         (doseq [item edn]
           (validate-names item styp parent-ktyp parent-ttyp parent-ntyp parent-dtyp env))))
 
@@ -343,9 +341,7 @@
 
     (vector? edn)
     (let [styp
-          (if (= parent-styp "vecmap")
-            "map"
-            nil)]
+          nil]
       (reduce
         (fn [v item]
           (conj v (bind-context- local-context resources-set item styp parent-ktyp parent-ntyp parent-dtyp env)))
