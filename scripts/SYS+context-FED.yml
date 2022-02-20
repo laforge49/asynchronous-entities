@@ -12,7 +12,7 @@
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-RUNfederation:
           - RUN_FEDERATIONoperationid
-        requestid-ENTITYreport:
+        requestid-GEMreport:
           - GEM_REPORToperationid
 #
 0030000 request_map-REQUEST^param:
@@ -23,7 +23,7 @@
     descriptor_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
-        requestid-ENTITYreport:
+        requestid-GEMreport:
           - GEM_REPORToperationid
 #
 0040010 request_map-REQUEST^param:

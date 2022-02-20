@@ -32,7 +32,7 @@
                                   "SYS+param_map-DESCRIPTORS^descriptor"
                                   {"SYS+descriptor_mapvec-REQUESTS^requestid$str"
                                    {"SYS+requestid-REGISTERentity"      ["REGISTER_ENTITYoperationid"]
-                                    "SYS+requestid-ENTITYreport"        ["CONTEXT_REPORToperationid"]
+                                    "SYS+requestid-GEMreport"        ["CONTEXT_REPORToperationid"]
                                     "SYS+requestid-LOADscript"          ["LOAD_SCRIPToperationid"]
                                     "SYS+requestid-EVALscript"          ["EVAL_SCRIPToperationid"]
                                     "SYS+requestid-VALIDATEscriptNAMES" ["VALIDATE_SCRIPT_NAMESoperationid"]

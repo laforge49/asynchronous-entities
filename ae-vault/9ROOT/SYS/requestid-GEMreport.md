@@ -3,16 +3,18 @@ gem_map-FACETS^facet:
   facet-CONTENT$str:
     ''
   facet-NAME&%:
-    descriptor-INVARIANT$bool
+    requestid-GEMreport
   facet_map-CLASSIFIERS^classifier:
     classifier-CLASS&class:
-      class-DESCRIPTOR
+      class-REQUESTID
   facet_map-DESCRIPTORS^descriptor:
     descriptor-INVARIANT$bool:
+      true
+    descriptor-READonly$bool:
       true
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-GEMreport:
         - GEM_REPORToperationid
 ---
-# Gem SYS+descriptor-INVARIANT$bool
+# Gem SYS+requestid-GEMreport
 

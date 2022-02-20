@@ -13,7 +13,7 @@ gem_map-FACETS^facet:
     descriptor-READonly$bool:
       true
     descriptor_mapvec-REQUESTS^requestid$str:
-      requestid-ENTITYreport:
+      requestid-GEMreport:
         - GEM_REPORToperationid
 ---
 # Gem SYS+requestid-EVALscript

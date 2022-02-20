@@ -28,7 +28,7 @@ gem_map-FACETS^facet:
         param_map-DESCRIPTORS^descriptor:
           descriptor_map-INSTANCE^descriptor:
             descriptor_mapvec-REQUESTS^requestid$str:
-              requestid-ENTITYreport:
+              requestid-GEMreport:
                 - GEM_REPORToperationid
               requestid-RUNfederation:
                 - RUN_FEDERATIONoperationid
@@ -44,7 +44,7 @@ gem_map-FACETS^facet:
             descriptor-INVARIANT$bool:
               true
             descriptor_mapvec-REQUESTS^requestid$str:
-              requestid-ENTITYreport:
+              requestid-GEMreport:
                 - GEM_REPORToperationid
       0040010 request_map-REQUEST^param:
         param-NAME&%:
@@ -86,10 +86,10 @@ gem_map-FACETS^facet:
         param-TEXT$str:
           Finished FED
     descriptor_mapvec-REQUESTS^requestid$str:
-      requestid-ENTITYreport:
-        - CONTEXT_REPORToperationid
       requestid-EVALscript:
         - EVAL_SCRIPToperationid
+      requestid-GEMreport:
+        - CONTEXT_REPORToperationid
       requestid-LOADscript:
         - LOAD_SCRIPToperationid
       requestid-REGISTERentity:

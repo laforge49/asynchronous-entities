@@ -12,10 +12,10 @@ gem_map-FACETS^facet:
       true
     descriptor_map-INSTANCE^descriptor:
       descriptor_mapvec-REQUESTS^requestid$str:
-        requestid-ENTITYreport:
-          - CONTEXT_REPORToperationid
         requestid-EVALscript:
           - EVAL_SCRIPToperationid
+        requestid-GEMreport:
+          - CONTEXT_REPORToperationid
         requestid-LOADscript:
           - LOAD_SCRIPToperationid
         requestid-REGISTERentity:
@@ -23,7 +23,7 @@ gem_map-FACETS^facet:
         requestid-VALIDATEscriptNAMES:
           - VALIDATE_SCRIPT_NAMESoperationid
     descriptor_mapvec-REQUESTS^requestid$str:
-      requestid-ENTITYreport:
+      requestid-GEMreport:
         - GEM_REPORToperationid
       requestid-INSTANTIATE:
         - INSTANTIATEoperationid

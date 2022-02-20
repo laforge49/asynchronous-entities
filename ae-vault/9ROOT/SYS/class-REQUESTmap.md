@@ -14,10 +14,10 @@ gem_map-FACETS^facet:
       descriptor-INVARIANT$bool:
         true
       descriptor_mapvec-REQUESTS^requestid$str:
-        requestid-ENTITYreport:
+        requestid-GEMreport:
           - GEM_REPORToperationid
     descriptor_mapvec-REQUESTS^requestid$str:
-      requestid-ENTITYreport:
+      requestid-GEMreport:
         - GEM_REPORToperationid
       requestid-INSTANTIATE:
         - INSTANTIATEoperationid

@@ -40,7 +40,7 @@ gem_map-FACETS^facet:
                 - ADD_DESCRIPTORSoperationid
               requestid-ADDrelations:
                 - ADD_RELATIONSoperationid
-              requestid-ENTITYreport:
+              requestid-GEMreport:
                 - GEM_REPORToperationid
       0040010 request_map-REQUEST^param:
         param-CONTENT$str:
@@ -90,10 +90,10 @@ gem_map-FACETS^facet:
         param-TEXT$str:
           Finished FEDTEST
     descriptor_mapvec-REQUESTS^requestid$str:
-      requestid-ENTITYreport:
-        - CONTEXT_REPORToperationid
       requestid-EVALscript:
         - EVAL_SCRIPToperationid
+      requestid-GEMreport:
+        - CONTEXT_REPORToperationid
       requestid-LOADscript:
         - LOAD_SCRIPToperationid
       requestid-REGISTERentity:

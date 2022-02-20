@@ -19,10 +19,10 @@ gem_map-FACETS^facet:
         param-TEXT$str:
           Finished SYSTEST
     descriptor_mapvec-REQUESTS^requestid$str:
-      requestid-ENTITYreport:
-        - CONTEXT_REPORToperationid
       requestid-EVALscript:
         - EVAL_SCRIPToperationid
+      requestid-GEMreport:
+        - CONTEXT_REPORToperationid
       requestid-LOADscript:
         - LOAD_SCRIPToperationid
       requestid-REGISTERentity:
