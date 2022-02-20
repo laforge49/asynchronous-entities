@@ -18,7 +18,7 @@ gem_map-FACETS^facet:
           class-SIMPLE
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
-        - ENTITY_REPORToperationid
+        - GEM_REPORToperationid
       requestid-RUNfederation:
         - RUN_FEDERATIONoperationid
     descriptor_vec-FEDERATIONnames&%:

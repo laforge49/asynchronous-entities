@@ -41,7 +41,7 @@ gem_map-FACETS^facet:
               requestid-ADDrelations:
                 - ADD_RELATIONSoperationid
               requestid-ENTITYreport:
-                - ENTITY_REPORToperationid
+                - GEM_REPORToperationid
       0040010 request_map-REQUEST^param:
         param-CONTENT$str:
           "this is a test same line \ndifferent line"

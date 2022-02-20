@@ -14,7 +14,7 @@ gem_map-FACETS^facet:
       requestid-ADDrelations:
         - ADD_RELATIONSoperationid
       requestid-ENTITYreport:
-        - ENTITY_REPORToperationid
+        - GEM_REPORToperationid
   facet_vec-REQUESTportSTACK$chan:
     - clojure.core.async.chan
 ---

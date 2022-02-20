@@ -21,12 +21,12 @@ gem_map-FACETS^facet:
               true
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
-                - ENTITY_REPORToperationid
+                - GEM_REPORToperationid
               requestid-INSTANTIATE:
                 - INSTANTIATEoperationid
           descriptor_mapvec-REQUESTS^requestid$str:
             requestid-ENTITYreport:
-              - ENTITY_REPORToperationid
+              - GEM_REPORToperationid
             requestid-INSTANTIATE:
               - INSTANTIATEoperationid
       0010000 request_map-REQUEST^param:
@@ -42,7 +42,7 @@ gem_map-FACETS^facet:
               true
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
-                - ENTITY_REPORToperationid
+                - GEM_REPORToperationid
       0010010 request_map-REQUEST^param:
         param-NAME&%:
           classifier-CLASS&class
@@ -63,7 +63,7 @@ gem_map-FACETS^facet:
               true
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
-                - ENTITY_REPORToperationid
+                - GEM_REPORToperationid
       0020010 request_map-REQUEST^param:
         param-NAME&%:
           classifier_vec-RESOURCES&context
@@ -141,7 +141,7 @@ gem_map-FACETS^facet:
               true
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
-                - ENTITY_REPORToperationid
+                - GEM_REPORToperationid
       0040010 request_map-REQUEST^param:
         param-NAME&%:
           descriptor-INVARIANT$bool
@@ -169,7 +169,7 @@ gem_map-FACETS^facet:
               true
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
-                - ENTITY_REPORToperationid
+                - GEM_REPORToperationid
       0050010 request_map-REQUEST^param:
         param-NAME&%:
           descriptor_map-INSTANCE^descriptor
@@ -197,7 +197,7 @@ gem_map-FACETS^facet:
               true
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
-                - ENTITY_REPORToperationid
+                - GEM_REPORToperationid
       0060010 request_map-REQUEST^param:
         param-NAME&%:
           descriptor_mapvec-REQUESTS^requestid$str
@@ -218,7 +218,7 @@ gem_map-FACETS^facet:
               true
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
-                - ENTITY_REPORToperationid
+                - GEM_REPORToperationid
       0090000 request_map-REQUEST^param:
         param-NAME&%:
           class-FACET
@@ -232,7 +232,7 @@ gem_map-FACETS^facet:
               true
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
-                - ENTITY_REPORToperationid
+                - GEM_REPORToperationid
       0090010 request_map-REQUEST^param:
         param-NAME&%:
           facet-CONTENT$str
@@ -260,7 +260,7 @@ gem_map-FACETS^facet:
               true
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
-                - ENTITY_REPORToperationid
+                - GEM_REPORToperationid
       0100010 request_map-REQUEST^param:
         param-NAME&%:
           facet_map-CLASSIFIERS^classifier
@@ -288,7 +288,7 @@ gem_map-FACETS^facet:
               true
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
-                - ENTITY_REPORToperationid
+                - GEM_REPORToperationid
       0110010 request_map-REQUEST^param:
         param-NAME&%:
           facet_vec-REQUESTportSTACK$chan
@@ -309,7 +309,7 @@ gem_map-FACETS^facet:
               true
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
-                - ENTITY_REPORToperationid
+                - GEM_REPORToperationid
       0120010 request_map-REQUEST^param:
         param-NAME&%:
           param-CONTENT$str
@@ -358,7 +358,7 @@ gem_map-FACETS^facet:
               true
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
-                - ENTITY_REPORToperationid
+                - GEM_REPORToperationid
       0130010 request_map-REQUEST^param:
         param-NAME&%:
           param_map-CLASSIFIERS^classifier
@@ -386,7 +386,7 @@ gem_map-FACETS^facet:
               true
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
-                - ENTITY_REPORToperationid
+                - GEM_REPORToperationid
       0140010 request_map-REQUEST^param:
         param-NAME&%:
           request_map-REQUEST^param
@@ -407,7 +407,7 @@ gem_map-FACETS^facet:
               true
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
-                - ENTITY_REPORToperationid
+                - GEM_REPORToperationid
       0150010 request_map-REQUEST^param:
         param-NAME&%:
           requestid-ADDdescriptors

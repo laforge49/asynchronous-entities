@@ -24,7 +24,7 @@ gem_map-FACETS^facet:
           - VALIDATE_SCRIPT_NAMESoperationid
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
-        - ENTITY_REPORToperationid
+        - GEM_REPORToperationid
       requestid-INSTANTIATE:
         - INSTANTIATEoperationid
 ---

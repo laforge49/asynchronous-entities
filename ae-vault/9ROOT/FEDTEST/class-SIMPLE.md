@@ -17,10 +17,10 @@ gem_map-FACETS^facet:
         requestid-ADDrelations:
           - ADD_RELATIONSoperationid
         requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+          - GEM_REPORToperationid
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
-        - ENTITY_REPORToperationid
+        - GEM_REPORToperationid
       requestid-INSTANTIATE:
         - INSTANTIATEoperationid
 ---

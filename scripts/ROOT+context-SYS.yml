@@ -8,14 +8,14 @@
       requestid-INSTANTIATE:
         - INSTANTIATEoperationid
       requestid-ENTITYreport:
-        - ENTITY_REPORToperationid
+        - GEM_REPORToperationid
     descriptor_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-INSTANTIATE:
           - INSTANTIATEoperationid
         requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+          - GEM_REPORToperationid
 ##
 0010000 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -26,7 +26,7 @@
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+          - GEM_REPORToperationid
 0010010 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASSIFIER
@@ -41,7 +41,7 @@
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+          - GEM_REPORToperationid
 0020010 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASSIFIERvec
@@ -104,7 +104,7 @@
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+          - GEM_REPORToperationid
 0040010 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-DESCRIPTOR
@@ -123,7 +123,7 @@
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+          - GEM_REPORToperationid
 0050010 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-DESCRIPTORmap
@@ -142,7 +142,7 @@
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+          - GEM_REPORToperationid
 0060010 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-DESCRIPTORmapvec
@@ -157,7 +157,7 @@
           descriptor-INVARIANT$bool: true
           descriptor_mapvec-REQUESTS^requestid$str:
             requestid-ENTITYreport:
-              - ENTITY_REPORToperationid
+              - GEM_REPORToperationid
 #
 0090000 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -168,7 +168,7 @@
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+          - GEM_REPORToperationid
 0090010 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-FACET
@@ -187,7 +187,7 @@
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+          - GEM_REPORToperationid
 0100010 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-FACETmap
@@ -206,7 +206,7 @@
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+          - GEM_REPORToperationid
 0110010 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-FACETvec
@@ -221,7 +221,7 @@
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+          - GEM_REPORToperationid
 0120010 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-PARAM
@@ -252,7 +252,7 @@
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+          - GEM_REPORToperationid
 0130010 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-PARAMmap
@@ -271,7 +271,7 @@
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+          - GEM_REPORToperationid
 0140010 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTmap
@@ -286,7 +286,7 @@
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+          - GEM_REPORToperationid
 0150010 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID

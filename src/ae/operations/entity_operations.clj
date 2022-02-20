@@ -162,7 +162,7 @@
                             :function    addDescriptorsFunction})
   (k/register-function env {:operationid "ADD_RELATIONSoperationid"
                             :function    addRelationsFunction})
-  (k/register-function env {:operationid "ENTITY_REPORToperationid"
+  (k/register-function env {:operationid "GEM_REPORToperationid"
                             :function    entity-report-function
                             :goblock     entity-report-goblock})
   )

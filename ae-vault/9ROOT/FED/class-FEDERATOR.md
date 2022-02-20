@@ -13,12 +13,12 @@ gem_map-FACETS^facet:
     descriptor_map-INSTANCE^descriptor:
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-ENTITYreport:
-          - ENTITY_REPORToperationid
+          - GEM_REPORToperationid
         requestid-RUNfederation:
           - RUN_FEDERATIONoperationid
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-ENTITYreport:
-        - ENTITY_REPORToperationid
+        - GEM_REPORToperationid
       requestid-INSTANTIATE:
         - INSTANTIATEoperationid
 ---

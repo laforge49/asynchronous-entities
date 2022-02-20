@@ -29,7 +29,7 @@ gem_map-FACETS^facet:
           descriptor_map-INSTANCE^descriptor:
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
-                - ENTITY_REPORToperationid
+                - GEM_REPORToperationid
               requestid-RUNfederation:
                 - RUN_FEDERATIONoperationid
       0030000 request_map-REQUEST^param:
@@ -45,7 +45,7 @@ gem_map-FACETS^facet:
               true
             descriptor_mapvec-REQUESTS^requestid$str:
               requestid-ENTITYreport:
-                - ENTITY_REPORToperationid
+                - GEM_REPORToperationid
       0040010 request_map-REQUEST^param:
         param-NAME&%:
           requestid-ADDrelations
