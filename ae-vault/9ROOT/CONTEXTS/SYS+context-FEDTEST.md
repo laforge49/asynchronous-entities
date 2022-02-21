@@ -9,7 +9,7 @@ gem_map-FACETS^facet:
       class-CONTEXT
     SYS+classifier_vec-RESOURCES&context:
       - context-SYS
-- context-FED
+      - context-FED
   SYS+facet_map-DESCRIPTORS^descriptor:
     SYS+descriptor_map-SCRIPT^request:
       0010010 SYS+request_map-REQUEST^param:
@@ -68,7 +68,7 @@ gem_map-FACETS^facet:
         SYS+param_map-DESCRIPTORS^descriptor:
           FED+descriptor_vec-FEDERATIONnames&%:
             - simple-ALPHA
-- simple-BETA
+            - simple-BETA
           SYS+descriptor_map-SCRIPT^request:
             0000010 SYS+request_map-REQUEST^param:
               SYS+param-NAME&%:

@@ -127,7 +127,7 @@ gem_map-FACETS^facet:
         SYS+param_map-CLASSIFIERS^classifier:
           SYS+classifier_vec-RESOURCES&context:
             - context-SYS
-- context-FED
+            - context-FED
       0040000 SYS+request_map-REQUEST^param:
         SYS+param-NAME&%:
           class-DESCRIPTOR

@@ -401,9 +401,7 @@
      (reduce
        (fn [sv [k v]]
          (let [sv
-               (into sv (repeat off " "))
-               sv
-               (conj sv k ":\n")
+               (conj sv (str (apply str (repeat off " ")) k ":\n"))
                sv
                (edn-to-yaml v (+ off 2) sv)]
            sv))
@@ -411,8 +409,6 @@
        edn)
 
      true
-     (do
-       #_ (println :? (prn-str edn))
-       (conj (into sv (repeat off " "))
-             (yaml/edn->yaml edn))))))
-
+     (let [sep
+           (str (apply str (repeat off " ")))]
+       (conj sv (str sep (s/join (str "\n" sep) (s/split (yaml/edn->yaml edn) #"\n")) "\n"))))))

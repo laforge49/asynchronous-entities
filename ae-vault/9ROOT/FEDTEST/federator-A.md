@@ -10,7 +10,7 @@ gem_map-FACETS^facet:
   SYS+facet_map-DESCRIPTORS^descriptor:
     FED+descriptor_vec-FEDERATIONnames&%:
       - simple-ALPHA
-- simple-BETA
+      - simple-BETA
     SYS+descriptor_map-SCRIPT^request:
       0000010 SYS+request_map-REQUEST^param:
         SYS+param-NAME&%:
