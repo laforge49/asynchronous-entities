@@ -281,8 +281,7 @@
                       (if (some? parent-dtyp)
                         parent-dtyp
                         dtyp)]
-                  (assoc m (unbind-context k nil env)
-                           (unbind-context v dtyp env)))))
+                  (assoc m k (unbind-context v dtyp env)))))
             (sorted-map)
             edn)]
       edn)

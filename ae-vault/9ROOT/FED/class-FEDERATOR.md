@@ -1,25 +1,25 @@
 ---
 gem_map-FACETS^facet:
-  facet-CONTENT$str:
+  SYS+facet-CONTENT$str:
     ''
-  facet-NAME&%:
+  SYS+facet-NAME&%:
     class-FEDERATOR
-  facet_map-CLASSIFIERS^classifier:
-    classifier-CLASS&class:
+  SYS+facet_map-CLASSIFIERS^classifier:
+    SYS+classifier-CLASS&class:
       class-CLASS
-  facet_map-DESCRIPTORS^descriptor:
-    descriptor-INVARIANT$bool:
+  SYS+facet_map-DESCRIPTORS^descriptor:
+    SYS+descriptor-INVARIANT$bool:
       true
-    descriptor_map-INSTANCE^descriptor:
-      descriptor_mapvec-REQUESTS^requestid$str:
-        requestid-GEMreport:
-          - GEM_REPORToperationid
-        requestid-RUNfederation:
+    SYS+descriptor_map-INSTANCE^descriptor:
+      SYS+descriptor_mapvec-REQUESTS^requestid$str:
+        FED+requestid-RUNfederation:
           - RUN_FEDERATIONoperationid
-    descriptor_mapvec-REQUESTS^requestid$str:
-      requestid-GEMreport:
+        SYS+requestid-GEMreport:
+          - GEM_REPORToperationid
+    SYS+descriptor_mapvec-REQUESTS^requestid$str:
+      SYS+requestid-GEMreport:
         - GEM_REPORToperationid
-      requestid-INSTANTIATE:
+      SYS+requestid-INSTANTIATE:
         - INSTANTIATEoperationid
 ---
 # Gem FED+class-FEDERATOR

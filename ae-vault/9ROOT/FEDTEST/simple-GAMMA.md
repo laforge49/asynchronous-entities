@@ -1,21 +1,21 @@
 ---
 gem_map-FACETS^facet:
-  facet-CONTENT$str:
+  SYS+facet-CONTENT$str:
     ''
-  facet-NAME&%:
+  SYS+facet-NAME&%:
     simple-GAMMA
-  facet_map-CLASSIFIERS^classifier:
-    classifier-CLASS&class:
+  SYS+facet_map-CLASSIFIERS^classifier:
+    SYS+classifier-CLASS&class:
       class-SIMPLE
-  facet_map-DESCRIPTORS^descriptor:
-    descriptor_mapvec-REQUESTS^requestid$str:
-      requestid-ADDdescriptors:
-        - ADD_DESCRIPTORSoperationid
-      requestid-ADDrelations:
+  SYS+facet_map-DESCRIPTORS^descriptor:
+    SYS+descriptor_mapvec-REQUESTS^requestid$str:
+      FED+requestid-ADDrelations:
         - ADD_RELATIONSoperationid
-      requestid-GEMreport:
+      SYS+requestid-ADDdescriptors:
+        - ADD_DESCRIPTORSoperationid
+      SYS+requestid-GEMreport:
         - GEM_REPORToperationid
-  facet_vec-REQUESTportSTACK$chan:
+  SYS+facet_vec-REQUESTportSTACK$chan:
     - clojure.core.async.chan
 ---
 # Gem FEDTEST+simple-GAMMA
