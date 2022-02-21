@@ -97,6 +97,8 @@
               (str "scripts/" this-name ".yml")
               yaml-script
               (slurp script-path)
+              _ (if (= yaml-script "")
+                (throw (Exception. (str script-path " is an empty file"))))
               edn-script
               (t/parse-bind-script yaml-script this-map env)
               this-map
