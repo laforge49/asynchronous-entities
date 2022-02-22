@@ -128,6 +128,7 @@
         (get env "SYS+env-FEDERATORname&federator")
         entity-map
         (i/get-gem-map entity-name)
+        #_ (println "\n" :target-map entity-name " - " (prn-str entity-map) "\n")
         this-federator-name
         (get entity-map "SYS+facet-FEDERATORname&federator")]
     (if (= this-federator-name env-federator-name)
@@ -254,8 +255,9 @@
           (get-invariant-map target-name))
         _ (if (nil? target-map)
             (throw (Exception. (str "Unreachable: " (prn-str target-name) "\n"
-                                    :params " " (prn-str params)
-                                    :this-map " " (prn-str this-map)))))
+                                    :params " - " (prn-str params) "\n"
+                                    :this-map " - " (prn-str this-map) "\n"
+                                    :env " - " env "\n"))))
         operationids
         (targetOperationids env target-map params)
         [target-map rv]

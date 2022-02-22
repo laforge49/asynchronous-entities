@@ -8,6 +8,8 @@ gem_map-FACETS^facet:
     SYS+classifier-CLASS&class:
       class-SIMPLE
   SYS+facet_map-DESCRIPTORS^descriptor:
+    FEDTEST+descriptor-DEGREEofPOLISH$str:
+      MIDDLING
     SYS+descriptor_mapvec-REQUESTS^requestid$str:
       FED+requestid-ADDrelations:
         - ADD_RELATIONSoperationid
