@@ -40,7 +40,7 @@
         (k/create-entity env params)
         (vswap! (get env "SYS+env_volmap-CHILDREN&%") assoc name true))
       (let [params
-            (into params {"SYS+param-REQUESTID&requestid" "SYS+requestid-REGISTERentity"
+            (into params {"SYS+param-REQUESTID&requestid" "SYS+requestid-REGISTERgem"
                           "SYS+param-TARGETname&%"        (k/entityContextName name)})
             #_ (println :register-name name this-name)
             requests

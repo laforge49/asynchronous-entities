@@ -1,5 +1,5 @@
 0000010 request_map-REQUEST^param:
-  param-REQUESTID&requestid: requestid-REGISTERentity
+  param-REQUESTID&requestid: requestid-REGISTERgem
   param-TARGETname&%: ROOT+context-SYS
   param-NAME&%: class-CLASS
   param_map-DESCRIPTORS^descriptor:
@@ -54,7 +54,7 @@
   param_map-DESCRIPTORS^descriptor:
     descriptor_map-INSTANCE^descriptor:
       descriptor_mapvec-REQUESTS^requestid$str:
-        requestid-REGISTERentity:
+        requestid-REGISTERgem:
           - REGISTER_ENTITYoperationid
         requestid-GEMreport:
           - CONTEXT_REPORToperationid
@@ -322,7 +322,7 @@
 0150070 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
-  param-NAME&%: requestid-REGISTERentity
+  param-NAME&%: requestid-REGISTERgem
 0150080 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID

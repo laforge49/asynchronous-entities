@@ -96,7 +96,7 @@ gem_map-FACETS^facet:
         - CONTEXT_REPORToperationid
       SYS+requestid-LOADscript:
         - LOAD_SCRIPToperationid
-      SYS+requestid-REGISTERentity:
+      SYS+requestid-REGISTERgem:
         - REGISTER_ENTITYoperationid
       SYS+requestid-VALIDATEscriptNAMES:
         - VALIDATE_SCRIPT_NAMESoperationid

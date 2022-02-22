@@ -10,7 +10,7 @@ gem_map-FACETS^facet:
         SYS+param-NAME&%:
           class-CLASS
         SYS+param-REQUESTID&requestid:
-          requestid-REGISTERentity
+          requestid-REGISTERgem
         SYS+param-TARGETname&%:
           context-SYS
         SYS+param_map-DESCRIPTORS^descriptor:
@@ -87,7 +87,7 @@ gem_map-FACETS^facet:
                 - CONTEXT_REPORToperationid
               SYS+requestid-LOADscript:
                 - LOAD_SCRIPToperationid
-              SYS+requestid-REGISTERentity:
+              SYS+requestid-REGISTERgem:
                 - REGISTER_ENTITYoperationid
               SYS+requestid-VALIDATEscriptNAMES:
                 - VALIDATE_SCRIPT_NAMESoperationid
@@ -464,7 +464,7 @@ gem_map-FACETS^facet:
           class-REQUESTID
       0150070 SYS+request_map-REQUEST^param:
         SYS+param-NAME&%:
-          requestid-REGISTERentity
+          requestid-REGISTERgem
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
@@ -530,7 +530,7 @@ gem_map-FACETS^facet:
         - LOAD_SCRIPToperationid
       SYS+requestid-PRINTLN:
         - PRINTLNoperationid
-      SYS+requestid-REGISTERentity:
+      SYS+requestid-REGISTERgem:
         - REGISTER_ENTITYoperationid
       SYS+requestid-VALIDATEscriptNAMES:
         - VALIDATE_SCRIPT_NAMESoperationid
@@ -598,7 +598,7 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+requestid-INSTANTIATE
     entity:      SYS+requestid-LOADscript
     entity:      SYS+requestid-PRINTLN
-    entity:      SYS+requestid-REGISTERentity
+    entity:      SYS+requestid-REGISTERgem
     entity:      SYS+requestid-VALIDATEscriptNAMES
   value:       SYS+class-REQUESTmap
     entity:      SYS+request_map-REQUEST^param
