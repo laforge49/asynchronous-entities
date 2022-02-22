@@ -9,7 +9,7 @@
             - ADD_DESCRIPTORSoperationid
           requestid-ADDrelations:
             - ADD_RELATIONSoperationid
-          requestid-ENTITYreport:
+          requestid-GEMreport:
             - ENTITY_REPORToperationid
 - request_map-REQUEST^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
