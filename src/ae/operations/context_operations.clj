@@ -149,7 +149,7 @@
 
 (defn create-context-operations
   [env]
-  (k/register-function env {:operationid "REGISTER_ENTITYoperationid"
+  (k/register-function env {:operationid "REGISTER_GEMoperationid"
                             :goblock     register-entity-goblock})
   (k/register-function env {:operationid "CONTEXT_REPORToperationid"
                             :function    context-report-function

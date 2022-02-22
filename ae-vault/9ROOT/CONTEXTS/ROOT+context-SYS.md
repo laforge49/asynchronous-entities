@@ -88,7 +88,7 @@ gem_map-FACETS^facet:
               SYS+requestid-LOADscript:
                 - LOAD_SCRIPToperationid
               SYS+requestid-REGISTERgem:
-                - REGISTER_ENTITYoperationid
+                - REGISTER_GEMoperationid
               SYS+requestid-VALIDATEscriptNAMES:
                 - VALIDATE_SCRIPT_NAMESoperationid
       0030020 SYS+request_map-REQUEST^param:
@@ -531,7 +531,7 @@ gem_map-FACETS^facet:
       SYS+requestid-PRINTLN:
         - PRINTLNoperationid
       SYS+requestid-REGISTERgem:
-        - REGISTER_ENTITYoperationid
+        - REGISTER_GEMoperationid
       SYS+requestid-VALIDATEscriptNAMES:
         - VALIDATE_SCRIPT_NAMESoperationid
   SYS+facet_vec-REQUESTportSTACK$chan:

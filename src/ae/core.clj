@@ -31,7 +31,7 @@
                                   "ROOT+context-SYS"
                                   "SYS+param_map-DESCRIPTORS^descriptor"
                                   {"SYS+descriptor_mapvec-REQUESTS^requestid$str"
-                                   {"SYS+requestid-REGISTERgem"      ["REGISTER_ENTITYoperationid"]
+                                   {"SYS+requestid-REGISTERgem"      ["REGISTER_GEMoperationid"]
                                     "SYS+requestid-GEMreport"        ["CONTEXT_REPORToperationid"]
                                     "SYS+requestid-LOADscript"          ["LOAD_SCRIPToperationid"]
                                     "SYS+requestid-EVALscript"          ["EVAL_SCRIPToperationid"]

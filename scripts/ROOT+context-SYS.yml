@@ -55,7 +55,7 @@
     descriptor_map-INSTANCE^descriptor:
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-REGISTERgem:
-          - REGISTER_ENTITYoperationid
+          - REGISTER_GEMoperationid
         requestid-GEMreport:
           - CONTEXT_REPORToperationid
         requestid-LOADscript:
