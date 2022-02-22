@@ -52,6 +52,11 @@
         param-TARGETname&%: simple-ALPHA
         param_map-DESCRIPTORS^descriptor:
           descriptor-DEGREEofPOLISH$str: MIDDLING
+      0000030 request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-ADDdescriptors
+        param-TARGETname&%: simple-GAMMA
+        param_map-DESCRIPTORS^descriptor:
+          descriptor-DEGREEofPOLISH$str: MIDDLING
 ##
 0500020 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-RUNfederation

@@ -27,6 +27,14 @@ gem_map-FACETS^facet:
         SYS+param_map-DESCRIPTORS^descriptor:
           FEDTEST+descriptor-DEGREEofPOLISH$str:
             MIDDLING
+      0000030 SYS+request_map-REQUEST^param:
+        SYS+param-REQUESTID&requestid:
+          requestid-ADDdescriptors
+        SYS+param-TARGETname&%:
+          simple-GAMMA
+        SYS+param_map-DESCRIPTORS^descriptor:
+          FEDTEST+descriptor-DEGREEofPOLISH$str:
+            MIDDLING
     SYS+descriptor_mapvec-REQUESTS^requestid$str:
       FED+requestid-RUNfederation:
         - RUN_FEDERATIONoperationid
