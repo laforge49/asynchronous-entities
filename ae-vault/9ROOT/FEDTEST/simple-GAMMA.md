@@ -1,5 +1,8 @@
 ---
 gem_map-FACETS^facet:
+  FED+facet_map-RELATIONS^relation&%:
+    FEDTEST+relation_vec-BASIC:
+      - simple-ALPHA
   SYS+facet-CONTENT$str:
     ''
   SYS+facet-NAME&%:

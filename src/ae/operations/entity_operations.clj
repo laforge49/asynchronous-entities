@@ -75,14 +75,14 @@
         [_ this-context _]
         (kw/name-as-keyword this-name)
         new-relations-map
-        (get params "SYS+param_map-RELATIONS^relation&%")
+        (get params "FED+param_map-RELATIONS^relation&%")
         this-map
         (reduce
           (fn [this-map [relation new-relation-values]]
             (if (not (vector? new-relation-values))
               (throw (Exception. (str "ADD RELATIONS given a non-vector value for relation " relation ": " (prn-str new-relation-values)))))
             (let [relation-values
-                  (get-in this-map ["SYS+facet_map-RELATIONS^relation&%" relation] [])
+                  (get-in this-map ["FED+facet_map-RELATIONS^relation&%" relation] [])
                   relation-values
                   (reduce
                     (fn [relation-values new-value]
@@ -96,14 +96,14 @@
                             _ (if (nil? obj-map)
                                 (throw (Exception. (str "Federation is required by addRelations for object gem " new-value))))
                             relation-subjects
-                            (get-in obj-map ["SYS+facet_map-INVERSErelations^relation&%" relation] [])
+                            (get-in obj-map ["FED+facet_map-INVERSErelations^relation&%" relation] [])
                             i
                             (.indexOf relation-values new-value)
                             relation-values
                             (if (= i -1)
                               (let [obj-map
                                     (assoc-in obj-map
-                                              ["SYS+facet_map-INVERSErelations^relation&%" relation]
+                                              ["FED+facet_map-INVERSErelations^relation&%" relation]
                                               (conj relation-subjects this-name))]
                                 (k/assoc-federated-entity-map new-value obj-map env)
                                 (conj relation-values new-value))
@@ -111,7 +111,7 @@
                         relation-values))
                     relation-values
                     new-relation-values)]
-              (assoc-in this-map ["SYS+facet_map-RELATIONS^relation&%" relation] relation-values)))
+              (assoc-in this-map ["FED+facet_map-RELATIONS^relation&%" relation] relation-values)))
           this-map
           new-relations-map)]
     [this-map this-map]))

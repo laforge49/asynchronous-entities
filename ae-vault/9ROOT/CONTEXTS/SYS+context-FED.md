@@ -18,7 +18,21 @@ gem_map-FACETS^facet:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-DESCRIPTORvec
-      0020000 SYS+request_map-REQUEST^param:
+      0020010 SYS+request_map-REQUEST^param:
+        SYS+param-NAME&%:
+          facet_map-INVERSErelations^relation&%
+        SYS+param-REQUESTID&requestid:
+          requestid-INSTANTIATE
+        SYS+param-TARGETname&%:
+          class-FACETmap
+      0030010 SYS+request_map-REQUEST^param:
+        SYS+param-NAME&%:
+          facet_map-RELATIONS^relation&%
+        SYS+param-REQUESTID&requestid:
+          requestid-INSTANTIATE
+        SYS+param-TARGETname&%:
+          class-FACETmap
+      0040000 SYS+request_map-REQUEST^param:
         SYS+param-NAME&%:
           class-FEDERATOR
         SYS+param-REQUESTID&requestid:
@@ -32,7 +46,7 @@ gem_map-FACETS^facet:
                 - RUN_FEDERATIONoperationid
               SYS+requestid-GEMreport:
                 - GEM_REPORToperationid
-      0030000 SYS+request_map-REQUEST^param:
+      0050000 SYS+request_map-REQUEST^param:
         SYS+param-NAME&%:
           class-RELATION
         SYS+param-REQUESTID&requestid:
@@ -46,14 +60,21 @@ gem_map-FACETS^facet:
             SYS+descriptor_mapvec-REQUESTS^requestid$str:
               SYS+requestid-GEMreport:
                 - GEM_REPORToperationid
-      0040010 SYS+request_map-REQUEST^param:
+      0060010 SYS+request_map-REQUEST^param:
+        SYS+param-NAME&%:
+          param_map-RELATIONS^relation&%
+        SYS+param-REQUESTID&requestid:
+          requestid-INSTANTIATE
+        SYS+param-TARGETname&%:
+          class-PARAMmap
+      0070010 SYS+request_map-REQUEST^param:
         SYS+param-NAME&%:
           requestid-ADDrelations
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-REQUESTID
-      0040020 SYS+request_map-REQUEST^param:
+      0070020 SYS+request_map-REQUEST^param:
         SYS+param-NAME&%:
           requestid-RUNfederation
         SYS+param-REQUESTID&requestid:
@@ -113,6 +134,11 @@ classifier:  SYS+classifier-CLASS&class
     entity:      FED+class-RELATION
   value:       SYS+class-DESCRIPTORvec
     entity:      FED+descriptor_vec-FEDERATIONnames&%
+  value:       SYS+class-FACETmap
+    entity:      FED+facet_map-INVERSErelations^relation&%
+    entity:      FED+facet_map-RELATIONS^relation&%
+  value:       SYS+class-PARAMmap
+    entity:      FED+param_map-RELATIONS^relation&%
   value:       SYS+class-REQUESTID
     entity:      FED+requestid-ADDrelations
     entity:      FED+requestid-RUNfederation

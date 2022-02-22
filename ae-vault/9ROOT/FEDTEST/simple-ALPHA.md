@@ -1,5 +1,9 @@
 ---
 gem_map-FACETS^facet:
+  FED+facet_map-INVERSErelations^relation&%:
+    FEDTEST+relation_vec-BASIC:
+      - simple-GAMMA
+      - simple-BETA
   SYS+facet-CONTENT$str:
     "this is a test same line \ndifferent line"
   SYS+facet-NAME&%:

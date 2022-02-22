@@ -93,6 +93,22 @@ gem_map-FACETS^facet:
               SYS+param_map-DESCRIPTORS^descriptor:
                 FEDTEST+descriptor-DEGREEofPOLISH$str:
                   MIDDLING
+            0000040 SYS+request_map-REQUEST^param:
+              FED+param_map-RELATIONS^relation&%:
+                FEDTEST+relation_vec-BASIC:
+                  - simple-ALPHA
+              SYS+param-REQUESTID&requestid:
+                requestid-ADDrelations
+              SYS+param-TARGETname&%:
+                simple-GAMMA
+            0000050 SYS+request_map-REQUEST^param:
+              FED+param_map-RELATIONS^relation&%:
+                FEDTEST+relation_vec-BASIC:
+                  - simple-ALPHA
+              SYS+param-REQUESTID&requestid:
+                requestid-ADDrelations
+              SYS+param-TARGETname&%:
+                simple-BETA
       0500020 SYS+request_map-REQUEST^param:
         SYS+param-REQUESTID&requestid:
           requestid-RUNfederation

@@ -57,6 +57,18 @@
         param-TARGETname&%: simple-GAMMA
         param_map-DESCRIPTORS^descriptor:
           descriptor-DEGREEofPOLISH$str: MIDDLING
+      0000040 request_map-REQUEST^param:
+        param-REQUESTID&requestid: requestid-ADDrelations
+        param-TARGETname&%: simple-GAMMA
+        param_map-RELATIONS^relation&%:
+          relation_vec-BASIC:
+            - simple-ALPHA
+      0000050 request_map-REQUEST^param:
+              param-REQUESTID&requestid: requestid-ADDrelations
+              param-TARGETname&%: simple-BETA
+              param_map-RELATIONS^relation&%:
+                relation_vec-BASIC:
+                  - simple-ALPHA
 ##
 0500020 request_map-REQUEST^param:
   param-REQUESTID&requestid: requestid-RUNfederation
