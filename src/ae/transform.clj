@@ -233,7 +233,7 @@
 
 (defn bind-context
   [full-context-name edn styp ktyp ntyp dtyp env]
-  (let [[_ _ context-base-name]
+  (let [[_ context-base-name]
         (n/parse-into-2 full-context-name)
         short-context-name
         (if (s/starts-with? context-base-name "context-")

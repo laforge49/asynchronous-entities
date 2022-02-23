@@ -29,7 +29,7 @@
         (if (nil? plus-index)
           "SYS"
           (subs name 0 plus-index))]
-    [nil context-base-name base-name]))
+    [context-base-name base-name]))
 
 (def styp-set
   #{"map" "vec" "mapmap" "mapvec"})

@@ -72,7 +72,7 @@
         (get this-map "SYS+facet-NAME&%")
         _ (if (s/blank? this-name)
             (throw (Exception. "ADD RELATIONS requires a name on the entities being assigned relations")))
-        [_ this-context _]
+        [this-context _]
         (n/parse-into-2 this-name)
         new-relations-map
         (get params "FED+param_map-RELATIONS^relation&%")
@@ -86,7 +86,7 @@
                   relation-values
                   (reduce
                     (fn [relation-values new-value]
-                      (let [[_ value-context _]
+                      (let [[value-context _]
                             (n/parse-into-2 new-value)
                             _ (if (not= this-context value-context)
                                 (throw (Exception. (str "Relation subject and object must have same context: "
@@ -120,7 +120,7 @@
   [env this-map params]
   (let [this-name
         (get this-map "SYS+facet-NAME&%")
-        [name-kw context-base-name base-name]
+        [context-base-name base-name]
         (n/parse-into-2 this-name)
         file-name
         (if (= context-base-name "SYS")

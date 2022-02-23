@@ -9,7 +9,7 @@
   [names default-context-name]
   (reduce
     (fn [sorted-names name-or-kw]
-      (let [[name-kw context-base-name base-name]
+      (let [[context-base-name base-name]
             (n/parse-into-2 name-or-kw)
             +pos
             (s/index-of name-or-kw "+")
@@ -29,7 +29,7 @@
   [this-map env]
   (let [this-name
         (get this-map "SYS+facet-NAME&%")
-        [name-kw context-base-name base-name]
+        [context-base-name base-name]
         (n/parse-into-2 this-name)
         _ (t/validate-names this-map "map" "facet" nil nil nil env)
         facets
@@ -45,7 +45,7 @@
 
 (defn context-classifier-values-report
   [n this-name]
-  (let [[this-name-kw this-context-base-name this-base-name]
+  (let [[_ this-base-name]
         (n/parse-into-2 this-name)
         classifier-registry
         (k/get-classifier-values-map this-name)

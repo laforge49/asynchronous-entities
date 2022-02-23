@@ -50,7 +50,7 @@
              heading
              content
              (r/context-classifier-values-report 1 this-name))
-        [_ _ context-base-name]
+        [_ context-base-name]
         (n/parse-into-2 this-name)
         context-base-name
         (if (s/starts-with? context-base-name "context-")

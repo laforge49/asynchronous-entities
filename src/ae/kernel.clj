@@ -87,7 +87,7 @@
   [local-context-name]
   (let [resources-vec
         (get-classifier local-context-name "SYS+classifier_vec-RESOURCES&context")
-        [_ _ entity-base-name]
+        [_ entity-base-name]
         (n/parse-into-2 local-context-name)
         short-context-name
         (if (s/starts-with? entity-base-name "context-")
@@ -96,7 +96,7 @@
         resources-set
         (reduce
           (fn [contexts-set context-name]
-            (let [[_ _ context-base-name]
+            (let [[_ context-base-name]
                   (n/parse-into-2 context-name)
                   context-base-name
                   (if (s/starts-with? context-base-name "context-")
@@ -473,9 +473,9 @@
 
 (defn entityContextName
   [entity-name]
-  (let [[_ entity-context-base-name _]
+  (let [[entity-context-base-name _]
         (if (s/blank? entity-name)
-          [nil nil nil]
+          [nil nil]
           (n/parse-into-2 entity-name))]
     #_ (println :entityContextName entity-name entity-context-base-name)
     (if (s/blank? entity-name)
