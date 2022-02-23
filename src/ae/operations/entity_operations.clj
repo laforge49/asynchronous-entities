@@ -18,7 +18,7 @@
         this-descriptors
         (get this-map "SYS+facet_map-DESCRIPTORS^descriptor")
         instantiation-descriptors
-        (get this-descriptors "SYS+descriptor_map-INSTANCE^descriptor")
+        (get this-descriptors "SYS+descriptor-INSTANCE_map^descriptor")
         instantiation-descriptors
         (k/merge-maps instantiation-descriptors (get params "SYS+param-DESCRIPTORS_map^descriptor"))
         instantiation-classifiers

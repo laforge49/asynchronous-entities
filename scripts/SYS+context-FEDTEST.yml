@@ -13,7 +13,7 @@
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-SIMPLE
   param-DESCRIPTORS_map^descriptor:
-    descriptor_map-INSTANCE^descriptor:
+    descriptor-INSTANCE_map^descriptor:
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-ADDdescriptors:
           - ADD_DESCRIPTORSoperationid
