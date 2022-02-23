@@ -1,19 +1,19 @@
-0010010 request_map-REQUEST^param:
+0010010 request-REQUEST_map^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
     param-TARGETname&%: class-DESCRIPTORvec
     param-NAME&%: descriptor_vec-FEDERATIONnames&%
 #
-0020010 request_map-REQUEST^param:
+0020010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-FACETmap
   param-NAME&%: facet_map-INVERSErelations^relation&%
 #
-0030010 request_map-REQUEST^param:
+0030010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-FACETmap
   param-NAME&%: facet_map-RELATIONS^relation&%
 #
-0040000 request_map-REQUEST^param:
+0040000 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-FEDERATOR
@@ -25,7 +25,7 @@
         requestid-GEMreport:
           - GEM_REPORToperationid
 #
-0050000 request_map-REQUEST^param:
+0050000 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-RELATION
@@ -36,33 +36,33 @@
         requestid-GEMreport:
           - GEM_REPORToperationid
 #
-0060010 request_map-REQUEST^param:
+0060010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-PARAMmap
   param-NAME&%: param_map-RELATIONS^relation&%
 #
-0070010 request_map-REQUEST^param:
+0070010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
   param-NAME&%: requestid-ADDrelations
-0070020 request_map-REQUEST^param:
+0070020 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
   param-NAME&%: requestid-RUNfederation
   param_map-DESCRIPTORS^descriptor:
     descriptor-READonly$bool: true
 ##
-0200110 request_map-REQUEST^param:
+0200110 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-LOADscript
   param-TARGETname&%: context-FEDTEST
-0200120 request_map-REQUEST^param:
+0200120 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-EVALscript
   param-TARGETname&%: context-FEDTEST
-0200130 request_map-REQUEST^param:
+0200130 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-VALIDATEscriptNAMES
   param-TARGETname&%: context-FEDTEST
 ##
-0500010 request_map-REQUEST^param:
+0500010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-PRINTLN
   param-TARGETname&%: context-SYS
   param-TEXT$str: Finished FED

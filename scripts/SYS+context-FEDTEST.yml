@@ -1,14 +1,14 @@
-0010010 request_map-REQUEST^param:
+0010010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-DESCRIPTOR
   param-NAME&%: descriptor-DEGREEofPOLISH$str
 #
-0020010 request_map-REQUEST^param:
+0020010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-RELATION
   param-NAME&%: relation_vec-BASIC
 #
-0030000 request_map-REQUEST^param:
+0030000 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-SIMPLE
@@ -21,7 +21,7 @@
           - ADD_RELATIONSoperationid
         requestid-GEMreport:
           - GEM_REPORToperationid
-0040010 request_map-REQUEST^param:
+0040010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-SIMPLE
   param-NAME&%: simple-ALPHA
@@ -29,12 +29,12 @@
     "this is a test
       same line
       \ndifferent line"
-0040020 request_map-REQUEST^param:
+0040020 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-SIMPLE
   param-NAME&%: simple-BETA
 ##
-0500010 request_map-REQUEST^param:
+0500010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-FEDERATOR
   param-NAME&%: federator-A
@@ -43,38 +43,38 @@
       - simple-ALPHA
       - simple-BETA
     descriptor_map-SCRIPT^request:
-      0000010 request_map-REQUEST^param:
+      0000010 request-REQUEST_map^param:
         param-REQUESTID&requestid: requestid-INSTANTIATE
         param-TARGETname&%: class-SIMPLE
         param-NAME&%: simple-GAMMA
-      0000020 request_map-REQUEST^param:
+      0000020 request-REQUEST_map^param:
         param-REQUESTID&requestid: requestid-ADDdescriptors
         param-TARGETname&%: simple-ALPHA
         param_map-DESCRIPTORS^descriptor:
           descriptor-DEGREEofPOLISH$str: MIDDLING
-      0000030 request_map-REQUEST^param:
+      0000030 request-REQUEST_map^param:
         param-REQUESTID&requestid: requestid-ADDdescriptors
         param-TARGETname&%: simple-GAMMA
         param_map-DESCRIPTORS^descriptor:
           descriptor-DEGREEofPOLISH$str: MIDDLING
-      0000040 request_map-REQUEST^param:
+      0000040 request-REQUEST_map^param:
         param-REQUESTID&requestid: requestid-ADDrelations
         param-TARGETname&%: simple-GAMMA
         param_map-RELATIONS^relation&%:
           relation_vec-BASIC:
             - simple-ALPHA
-      0000050 request_map-REQUEST^param:
+      0000050 request-REQUEST_map^param:
               param-REQUESTID&requestid: requestid-ADDrelations
               param-TARGETname&%: simple-BETA
               param_map-RELATIONS^relation&%:
                 relation_vec-BASIC:
                   - simple-ALPHA
 ##
-0500020 request_map-REQUEST^param:
+0500020 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-RUNfederation
   param-TARGETname&%: federator-A
 ##
-0500030 request_map-REQUEST^param:
+0500030 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-PRINTLN
   param-TARGETname&%: context-SYS
   param-TEXT$str: Finished FEDTEST

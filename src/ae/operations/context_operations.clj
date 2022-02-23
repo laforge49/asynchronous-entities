@@ -62,7 +62,7 @@
         (reduce
           (fn [requests entity-name]
             (if (s/starts-with? entity-name context-prefix)
-              (conj requests {"SYS+request_map-REQUEST^param"
+              (conj requests {"SYS+request-REQUEST_map^param"
                               {"SYS+param-REQUESTID&requestid" "SYS+requestid-GEMreport"
                                "SYS+param-TARGETname&%"        entity-name}})
               requests))

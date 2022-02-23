@@ -1,4 +1,4 @@
-0500010 request_map-REQUEST^param:
+0500010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-PRINTLN
   param-TARGETname&%: context-SYS
   param-TEXT$str: Finished SYSTEST

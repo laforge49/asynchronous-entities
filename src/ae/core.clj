@@ -37,11 +37,11 @@
                                     "SYS+requestid-EVALscript"          ["EVAL_SCRIPToperationid"]
                                     "SYS+requestid-VALIDATEscriptNAMES" ["VALIDATE_SCRIPT_NAMESoperationid"]
                                     "SYS+requestid-PRINTLN"             ["PRINTLNoperationid"]}}})
-          _ (l/go-later env [{"SYS+request_map-REQUEST^param" {"SYS+param-REQUESTID&requestid" "SYS+requestid-LOADscript"
+          _ (l/go-later env [{"SYS+request-REQUEST_map^param" {"SYS+param-REQUESTID&requestid" "SYS+requestid-LOADscript"
                                                                "SYS+param-TARGETname&%"        "ROOT+context-SYS"}}
-                             {"SYS+request_map-REQUEST^param" {"SYS+param-REQUESTID&requestid" "SYS+requestid-EVALscript"
+                             {"SYS+request-REQUEST_map^param" {"SYS+param-REQUESTID&requestid" "SYS+requestid-EVALscript"
                                                                "SYS+param-TARGETname&%"        "ROOT+context-SYS"}}
-                             {"SYS+request_map-REQUEST^param" {"SYS+param-REQUESTID&requestid" "SYS+requestid-VALIDATEscriptNAMES"
+                             {"SYS+request-REQUEST_map^param" {"SYS+param-REQUESTID&requestid" "SYS+requestid-VALIDATEscriptNAMES"
                                                                "SYS+param-TARGETname&%"        "ROOT+context-SYS"}}])
           e
           (first (a/<!! l/exit-chan))

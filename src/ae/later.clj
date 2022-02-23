@@ -75,7 +75,7 @@
                 (let [params
                       (val (first request))
                       _ (if (nil? params)
-                          (throw (Exception. (str "Missing SYS+request_map-REQUEST^param\n"
+                          (throw (Exception. (str "Missing SYS+request-REQUEST_map^param\n"
                                                   :request " " (prn-str request)))))
                       target-name
                       (get params "SYS+param-TARGETname&%")
