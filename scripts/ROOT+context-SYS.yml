@@ -2,7 +2,7 @@
   param-REQUESTID&requestid: requestid-REGISTERgem
   param-TARGETname&%: context-SYS
   param-NAME&%: class-CLASS
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor-INVARIANT$bool: true
     descriptor_mapvec-REQUESTS^requestid$str:
       requestid-INSTANTIATE:
@@ -21,7 +21,7 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-CLASSIFIER
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
@@ -36,7 +36,7 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-CLASSIFIERvec
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
@@ -51,7 +51,7 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-CONTEXT
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor_map-INSTANCE^descriptor:
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-REGISTERgem:
@@ -99,7 +99,7 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-DESCRIPTOR
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
@@ -118,7 +118,7 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-DESCRIPTORmap
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
@@ -137,7 +137,7 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-DESCRIPTORmapvec
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
@@ -152,7 +152,7 @@
       param-REQUESTID&requestid: requestid-INSTANTIATE
       param-TARGETname&%: class-CLASS
       param-NAME&%: class-DESCRIPTORvec
-      param_map-DESCRIPTORS^descriptor:
+      param-DESCRIPTORS_map^descriptor:
         descriptor_map-INSTANCE^descriptor:
           descriptor-INVARIANT$bool: true
           descriptor_mapvec-REQUESTS^requestid$str:
@@ -163,7 +163,7 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-FACET
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
@@ -182,7 +182,7 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-FACETmap
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
@@ -201,7 +201,7 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-FACETvec
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
@@ -216,7 +216,7 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-PARAM
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
@@ -247,7 +247,7 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-PARAMmap
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
@@ -260,13 +260,13 @@
 0130020 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-PARAMmap
-  param-NAME&%: param_map-DESCRIPTORS^descriptor
+  param-NAME&%: param-DESCRIPTORS_map^descriptor
 #
 0140000 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-REQUESTmap
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
@@ -281,7 +281,7 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-REQUESTID
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
@@ -295,25 +295,25 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
   param-NAME&%: requestid-GEMreport
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor-READonly$bool: true
 0150030 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
   param-NAME&%: requestid-EVALscript
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor-READonly$bool: true
 0150040 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
   param-NAME&%: requestid-INSTANTIATE
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor-READonly$bool: true
 0150050 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
   param-NAME&%: requestid-LOADscript
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor-READonly$bool: true
 0150060 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -327,7 +327,7 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
   param-NAME&%: requestid-VALIDATEscriptNAMES
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor-READonly$bool: true
 ##
 0200110 request-REQUEST_map^param:

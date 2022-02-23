@@ -17,7 +17,7 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-FEDERATOR
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor_map-INSTANCE^descriptor:
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-RUNfederation:
@@ -29,7 +29,7 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-RELATION
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor_map-INSTANCE^descriptor:
       descriptor-INVARIANT$bool: true
       descriptor_mapvec-REQUESTS^requestid$str:
@@ -49,7 +49,7 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
   param-NAME&%: requestid-RUNfederation
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor-READonly$bool: true
 ##
 0200110 request-REQUEST_map^param:

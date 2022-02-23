@@ -434,7 +434,7 @@
         name
         (get params "SYS+param-NAME&%")
         descriptors
-        (get params "SYS+param_map-DESCRIPTORS^descriptor" (sorted-map))
+        (get params "SYS+param-DESCRIPTORS_map^descriptor" (sorted-map))
         classifiers
         (get params "SYS+param_map-CLASSIFIERS^classifier" (sorted-map))
         content

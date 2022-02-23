@@ -12,7 +12,7 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-SIMPLE
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor_map-INSTANCE^descriptor:
       descriptor_mapvec-REQUESTS^requestid$str:
         requestid-ADDdescriptors:
@@ -38,7 +38,7 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-FEDERATOR
   param-NAME&%: federator-A
-  param_map-DESCRIPTORS^descriptor:
+  param-DESCRIPTORS_map^descriptor:
     descriptor_vec-FEDERATIONnames&%:
       - simple-ALPHA
       - simple-BETA
@@ -50,12 +50,12 @@
       0000020 request-REQUEST_map^param:
         param-REQUESTID&requestid: requestid-ADDdescriptors
         param-TARGETname&%: simple-ALPHA
-        param_map-DESCRIPTORS^descriptor:
+        param-DESCRIPTORS_map^descriptor:
           descriptor-DEGREEofPOLISH$str: MIDDLING
       0000030 request-REQUEST_map^param:
         param-REQUESTID&requestid: requestid-ADDdescriptors
         param-TARGETname&%: simple-GAMMA
-        param_map-DESCRIPTORS^descriptor:
+        param-DESCRIPTORS_map^descriptor:
           descriptor-DEGREEofPOLISH$str: MIDDLING
       0000040 request-REQUEST_map^param:
         param-REQUESTID&requestid: requestid-ADDrelations

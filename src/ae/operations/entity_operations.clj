@@ -20,7 +20,7 @@
         instantiation-descriptors
         (get this-descriptors "SYS+descriptor_map-INSTANCE^descriptor")
         instantiation-descriptors
-        (k/merge-maps instantiation-descriptors (get params "SYS+param_map-DESCRIPTORS^descriptor"))
+        (k/merge-maps instantiation-descriptors (get params "SYS+param-DESCRIPTORS_map^descriptor"))
         instantiation-classifiers
         (get this-descriptors "SYS+descriptor_map-INSTANCE^classifier")
         instantiation-classifiers
@@ -33,7 +33,7 @@
           nil)
         params
         (into params {"SYS+param-INITIALIZATIONport"         initialization-port
-                      "SYS+param_map-DESCRIPTORS^descriptor" instantiation-descriptors
+                      "SYS+param-DESCRIPTORS_map^descriptor" instantiation-descriptors
                       "SYS+param_map-CLASSIFIERS^classifier" instantiation-classifiers})]
     (if federated?
       (do
@@ -51,7 +51,7 @@
 (defn addDescriptorsFunction
   [env this-map params]
   (let [descriptors-map
-        (get params "SYS+param_map-DESCRIPTORS^descriptor")
+        (get params "SYS+param-DESCRIPTORS_map^descriptor")
         this-map
         (reduce
           (fn [this-map [descriptor descriptor-value]]
