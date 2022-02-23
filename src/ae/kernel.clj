@@ -3,7 +3,7 @@
             [clojure.string :as s]
             [clojure.stacktrace :as stacktrace]
             [tupelo.parse.yaml :as yaml]
-            [ae.keywords :as kw]
+            [ae.names :as n]
             [ae.internals :as i]))
 
 (defn get-entity-names
@@ -88,7 +88,7 @@
   (let [resources-vec
         (get-classifier local-context-name "SYS+classifier_vec-RESOURCES&context")
         [_ _ entity-base-name]
-        (kw/name-as-keyword local-context-name)
+        (n/name-as-keyword local-context-name)
         short-context-name
         (if (s/starts-with? entity-base-name "context-")
           (subs entity-base-name 8)
@@ -97,7 +97,7 @@
         (reduce
           (fn [contexts-set context-name]
             (let [[_ _ context-base-name]
-                  (kw/name-as-keyword context-name)
+                  (n/name-as-keyword context-name)
                   context-base-name
                   (if (s/starts-with? context-base-name "context-")
                     (subs context-base-name 8)
@@ -476,7 +476,7 @@
   (let [[_ entity-context-base-name _]
         (if (s/blank? entity-name)
           [nil nil nil]
-          (kw/name-as-keyword entity-name))]
+          (n/name-as-keyword entity-name))]
     #_ (println :entityContextName entity-name entity-context-base-name)
     (if (s/blank? entity-name)
       "ROOT+context-SYS"

@@ -5,7 +5,7 @@
             [ae.operations.reports :as r]
             [ae.kernel :as k]
             [ae.later :as l]
-            [ae.keywords :as kw]))
+            [ae.names :as n]))
 
 (defn instantiateFunction
   [env this-map params]
@@ -73,7 +73,7 @@
         _ (if (s/blank? this-name)
             (throw (Exception. "ADD RELATIONS requires a name on the entities being assigned relations")))
         [_ this-context _]
-        (kw/name-as-keyword this-name)
+        (n/name-as-keyword this-name)
         new-relations-map
         (get params "FED+param_map-RELATIONS^relation&%")
         this-map
@@ -87,7 +87,7 @@
                   (reduce
                     (fn [relation-values new-value]
                       (let [[_ value-context _]
-                            (kw/name-as-keyword new-value)
+                            (n/name-as-keyword new-value)
                             _ (if (not= this-context value-context)
                                 (throw (Exception. (str "Relation subject and object must have same context: "
                                                         this-name " " value-context))))
@@ -121,7 +121,7 @@
   (let [this-name
         (get this-map "SYS+facet-NAME&%")
         [name-kw context-base-name base-name]
-        (kw/name-as-keyword this-name)
+        (n/name-as-keyword this-name)
         file-name
         (if (= context-base-name "SYS")
           (str "ae-vault/9ROOT/SYS/" base-name ".md")

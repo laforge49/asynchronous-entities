@@ -1,4 +1,4 @@
-(ns ae.keywords
+(ns ae.names
   (:require [clojure.string :as s]))
 
 (defn gem-name

@@ -2,7 +2,7 @@
   (:require [clojure.string :as s]
             [tupelo.parse.yaml :as yaml]
             [ae.kernel :as k]
-            [ae.keywords :as kw]
+            [ae.names :as n]
             [ae.transform :as t]))
 
 (defn short-names
@@ -10,7 +10,7 @@
   (reduce
     (fn [sorted-names name-or-kw]
       (let [[name-kw context-base-name base-name]
-            (kw/name-as-keyword name-or-kw)
+            (n/name-as-keyword name-or-kw)
             +pos
             (s/index-of name-or-kw "+")
             name2
@@ -30,7 +30,7 @@
   (let [this-name
         (get this-map "SYS+facet-NAME&%")
         [name-kw context-base-name base-name]
-        (kw/name-as-keyword this-name)
+        (n/name-as-keyword this-name)
         _ (t/validate-names this-map "map" "facet" nil nil nil env)
         facets
         (t/unbind-context this-map
@@ -46,7 +46,7 @@
 (defn context-classifier-values-report
   [n this-name]
   (let [[this-name-kw this-context-base-name this-base-name]
-        (kw/name-as-keyword this-name)
+        (n/name-as-keyword this-name)
         classifier-registry
         (k/get-classifier-values-map this-name)
         classifier-names

@@ -2,7 +2,7 @@
   (:require [clojure.core.async :as a]
             [clojure.string :as s]
             [tupelo.parse.yaml :as yaml]
-            [ae.keywords :as kw]
+            [ae.names :as n]
             [ae.kernel :as k]))
 
 (def testChanClass (class (a/chan)))
@@ -19,7 +19,7 @@
           (if (not= parent-dtyp "str")
             (throw (Exception. (str (pr-str edn) " is not of data type " (pr-str parent-dtyp)))))
           (let [[typ styp root ktyp ttyp ntyp dtyp]
-                (kw/parse-gem-name edn)]
+                (n/parse-gem-name edn)]
             (if (nil? parent-ntyp)
               (throw (Exception. (str "There is no name type for " (pr-str edn)))))
             (if (and (not= parent-ntyp "%") (not= typ parent-ntyp))
@@ -39,7 +39,7 @@
     (doseq [[k v] edn]
       (if (some? v)
         (let [[typ styp root ktyp ttyp ntyp dtyp]
-              (kw/parse-gem-name k)
+              (n/parse-gem-name k)
               styp
               (if (= parent-styp "mapmap")
                 "map"
@@ -137,7 +137,7 @@
                       (and (vector? v) (empty? v)))
                 m
                 (let [[typ styp root ktyp ttyp ntyp dtyp]
-                      (kw/parse-gem-name k)
+                      (n/parse-gem-name k)
                       dtyp
                       (if (some? parent-dtyp)
                         parent-dtyp
@@ -212,7 +212,7 @@
     (reduce
       (fn [m [k v]]
         (let [[typ styp root ktyp ttyp ntyp dtyp]
-              (kw/parse-gem-name k)
+              (n/parse-gem-name k)
               styp
               (if (= parent-styp "mapmap")
                 "map"
@@ -234,7 +234,7 @@
 (defn bind-context
   [full-context-name edn styp ktyp ntyp dtyp env]
   (let [[_ _ context-base-name]
-        (kw/name-as-keyword full-context-name)
+        (n/name-as-keyword full-context-name)
         short-context-name
         (if (s/starts-with? context-base-name "context-")
           (subs context-base-name 8)

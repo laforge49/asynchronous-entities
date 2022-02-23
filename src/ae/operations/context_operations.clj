@@ -5,7 +5,7 @@
             [ae.operations.reports :as r]
             [ae.later :as l]
             [ae.kernel :as k]
-            [ae.keywords :as kw]
+            [ae.names :as n]
             [ae.transform :as t]))
 
 (defn register-entity-goblock
@@ -51,7 +51,7 @@
              content
              (r/context-classifier-values-report 1 this-name))
         [_ _ context-base-name]
-        (kw/name-as-keyword this-name)
+        (n/name-as-keyword this-name)
         context-base-name
         (if (s/starts-with? context-base-name "context-")
           (subs context-base-name 8)
