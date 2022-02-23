@@ -1,7 +1,7 @@
 (ns ae.names
   (:require [clojure.string :as s]))
 
-(defn gem-name
+(defn gem-name-sans-order
   [key]
   (if (nil? key)
     nil
@@ -18,7 +18,7 @@
 (defn parse-into-2
   [name]
   (let [name
-        (gem-name name)
+        (gem-name-sans-order name)
         plus-index
         (s/index-of name "+")
         base-name
@@ -40,7 +40,7 @@
 (defn parse-gem-name
   [key]
   (let [s
-        (gem-name key)
+        (gem-name-sans-order key)
         _ (if (some? (s/index-of s "."))
             (throw (Exception. (str "Gem name " s " should not contain a ."))))
         _ (if (some? (s/index-of s "/"))
