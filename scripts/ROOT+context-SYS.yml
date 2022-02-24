@@ -4,14 +4,14 @@
   param-NAME&%: class-CLASS
   param-DESCRIPTORS_map^descriptor:
     descriptor-INVARIANT$bool: true
-    descriptor_mapvec-REQUESTS^requestid$str:
+    descriptor-REQUESTS_mapvec^requestid$str:
       requestid-INSTANTIATE:
         - INSTANTIATEoperationid
       requestid-GEMreport:
         - GEM_REPORToperationid
     descriptor-INSTANCE_map^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_mapvec-REQUESTS^requestid$str:
+      descriptor-REQUESTS_mapvec^requestid$str:
         requestid-INSTANTIATE:
           - INSTANTIATEoperationid
         requestid-GEMreport:
@@ -24,7 +24,7 @@
   param-DESCRIPTORS_map^descriptor:
     descriptor-INSTANCE_map^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_mapvec-REQUESTS^requestid$str:
+      descriptor-REQUESTS_mapvec^requestid$str:
         requestid-GEMreport:
           - GEM_REPORToperationid
 0010010 request-REQUEST_map^param:
@@ -39,7 +39,7 @@
   param-DESCRIPTORS_map^descriptor:
     descriptor-INSTANCE_map^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_mapvec-REQUESTS^requestid$str:
+      descriptor-REQUESTS_mapvec^requestid$str:
         requestid-GEMreport:
           - GEM_REPORToperationid
 0020010 request-REQUEST_map^param:
@@ -53,7 +53,7 @@
   param-NAME&%: class-CONTEXT
   param-DESCRIPTORS_map^descriptor:
     descriptor-INSTANCE_map^descriptor:
-      descriptor_mapvec-REQUESTS^requestid$str:
+      descriptor-REQUESTS_mapvec^requestid$str:
         requestid-REGISTERgem:
           - REGISTER_GEMoperationid
         requestid-GEMreport:
@@ -102,7 +102,7 @@
   param-DESCRIPTORS_map^descriptor:
     descriptor-INSTANCE_map^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_mapvec-REQUESTS^requestid$str:
+      descriptor-REQUESTS_mapvec^requestid$str:
         requestid-GEMreport:
           - GEM_REPORToperationid
 0040010 request-REQUEST_map^param:
@@ -121,7 +121,7 @@
   param-DESCRIPTORS_map^descriptor:
     descriptor-INSTANCE_map^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_mapvec-REQUESTS^requestid$str:
+      descriptor-REQUESTS_mapvec^requestid$str:
         requestid-GEMreport:
           - GEM_REPORToperationid
 0050010 request-REQUEST_map^param:
@@ -140,13 +140,13 @@
   param-DESCRIPTORS_map^descriptor:
     descriptor-INSTANCE_map^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_mapvec-REQUESTS^requestid$str:
+      descriptor-REQUESTS_mapvec^requestid$str:
         requestid-GEMreport:
           - GEM_REPORToperationid
 0060010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-DESCRIPTORmapvec
-  param-NAME&%: descriptor_mapvec-REQUESTS^requestid$str
+  param-NAME&%: descriptor-REQUESTS_mapvec^requestid$str
 #
 0070000 request-REQUEST_map^param:
       param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -155,7 +155,7 @@
       param-DESCRIPTORS_map^descriptor:
         descriptor-INSTANCE_map^descriptor:
           descriptor-INVARIANT$bool: true
-          descriptor_mapvec-REQUESTS^requestid$str:
+          descriptor-REQUESTS_mapvec^requestid$str:
             requestid-GEMreport:
               - GEM_REPORToperationid
 #
@@ -166,7 +166,7 @@
   param-DESCRIPTORS_map^descriptor:
     descriptor-INSTANCE_map^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_mapvec-REQUESTS^requestid$str:
+      descriptor-REQUESTS_mapvec^requestid$str:
         requestid-GEMreport:
           - GEM_REPORToperationid
 0090010 request-REQUEST_map^param:
@@ -185,7 +185,7 @@
   param-DESCRIPTORS_map^descriptor:
     descriptor-INSTANCE_map^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_mapvec-REQUESTS^requestid$str:
+      descriptor-REQUESTS_mapvec^requestid$str:
         requestid-GEMreport:
           - GEM_REPORToperationid
 0100010 request-REQUEST_map^param:
@@ -204,7 +204,7 @@
   param-DESCRIPTORS_map^descriptor:
     descriptor-INSTANCE_map^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_mapvec-REQUESTS^requestid$str:
+      descriptor-REQUESTS_mapvec^requestid$str:
         requestid-GEMreport:
           - GEM_REPORToperationid
 0110010 request-REQUEST_map^param:
@@ -219,7 +219,7 @@
   param-DESCRIPTORS_map^descriptor:
     descriptor-INSTANCE_map^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_mapvec-REQUESTS^requestid$str:
+      descriptor-REQUESTS_mapvec^requestid$str:
         requestid-GEMreport:
           - GEM_REPORToperationid
 0120010 request-REQUEST_map^param:
@@ -250,7 +250,7 @@
   param-DESCRIPTORS_map^descriptor:
     descriptor-INSTANCE_map^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_mapvec-REQUESTS^requestid$str:
+      descriptor-REQUESTS_mapvec^requestid$str:
         requestid-GEMreport:
           - GEM_REPORToperationid
 0130010 request-REQUEST_map^param:
@@ -269,7 +269,7 @@
   param-DESCRIPTORS_map^descriptor:
     descriptor-INSTANCE_map^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_mapvec-REQUESTS^requestid$str:
+      descriptor-REQUESTS_mapvec^requestid$str:
         requestid-GEMreport:
           - GEM_REPORToperationid
 0140010 request-REQUEST_map^param:
@@ -284,7 +284,7 @@
   param-DESCRIPTORS_map^descriptor:
     descriptor-INSTANCE_map^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_mapvec-REQUESTS^requestid$str:
+      descriptor-REQUESTS_mapvec^requestid$str:
         requestid-GEMreport:
           - GEM_REPORToperationid
 0150010 request-REQUEST_map^param:

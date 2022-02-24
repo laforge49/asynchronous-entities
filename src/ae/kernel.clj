@@ -203,7 +203,7 @@
         this-descriptors
         (thisDescriptors target-map params)
         this-requestid-map
-        (get this-descriptors "SYS+descriptor_mapvec-REQUESTS^requestid$str")
+        (get this-descriptors "SYS+descriptor-REQUESTS_mapvec^requestid$str")
         _ (if (nil? this-requestid-map)
             (throw (Exception. (str "Requestid map is nil\n"
                                     (prn-str params)

@@ -30,7 +30,7 @@
           _ (k/create-entity env {"SYS+param-NAME&%"
                                   "ROOT+context-SYS"
                                   "SYS+param-DESCRIPTORS_map^descriptor"
-                                  {"SYS+descriptor_mapvec-REQUESTS^requestid$str"
+                                  {"SYS+descriptor-REQUESTS_mapvec^requestid$str"
                                    {"SYS+requestid-REGISTERgem"      ["REGISTER_GEMoperationid"]
                                     "SYS+requestid-GEMreport"        ["CONTEXT_REPORToperationid"]
                                     "SYS+requestid-LOADscript"          ["LOAD_SCRIPToperationid"]

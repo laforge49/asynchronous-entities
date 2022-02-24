@@ -19,7 +19,7 @@
   param-NAME&%: class-FEDERATOR
   param-DESCRIPTORS_map^descriptor:
     descriptor-INSTANCE_map^descriptor:
-      descriptor_mapvec-REQUESTS^requestid$str:
+      descriptor-REQUESTS_mapvec^requestid$str:
         requestid-RUNfederation:
           - RUN_FEDERATIONoperationid
         requestid-GEMreport:
@@ -32,7 +32,7 @@
   param-DESCRIPTORS_map^descriptor:
     descriptor-INSTANCE_map^descriptor:
       descriptor-INVARIANT$bool: true
-      descriptor_mapvec-REQUESTS^requestid$str:
+      descriptor-REQUESTS_mapvec^requestid$str:
         requestid-GEMreport:
           - GEM_REPORToperationid
 #

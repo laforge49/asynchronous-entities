@@ -14,7 +14,7 @@
   param-NAME&%: class-SIMPLE
   param-DESCRIPTORS_map^descriptor:
     descriptor-INSTANCE_map^descriptor:
-      descriptor_mapvec-REQUESTS^requestid$str:
+      descriptor-REQUESTS_mapvec^requestid$str:
         requestid-ADDdescriptors:
           - ADD_DESCRIPTORSoperationid
         requestid-ADDrelations:
