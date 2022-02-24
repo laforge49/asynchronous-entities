@@ -436,7 +436,7 @@
         descriptors
         (get params "SYS+param-DESCRIPTORS_map^descriptor" (sorted-map))
         classifiers
-        (get params "SYS+param_map-CLASSIFIERS^classifier" (sorted-map))
+        (get params "SYS+param-CLASSIFIERS_map^classifier" (sorted-map))
         content
         (get params "SYS+param-CONTENT$str" "")
         invariant

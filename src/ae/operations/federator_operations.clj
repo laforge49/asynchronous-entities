@@ -33,7 +33,7 @@
                     _ (k/request-exception-check (a/<! subrequest-return-port))
                     _ (a/>! context-request-port [env {"SYS+param-REQUESTID&requestid"        "SYS+requestid-REGISTERgem"
                                                        "SYS+param-NAME&%"                     entity-name
-                                                       "SYS+param_map-CLASSIFIERS^classifier" (k/get-classifiers-map entity-name)
+                                                       "SYS+param-CLASSIFIERS_map^classifier" (k/get-classifiers-map entity-name)
                                                        "SYS+param-RETURN$chan"                subrequest-return-port}])
                     _ (k/request-exception-check (a/<! subrequest-return-port))
                     new-children

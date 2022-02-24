@@ -23,7 +23,7 @@
               name
               (get params "SYS+param-NAME&%")
               classifiers
-              (get params "SYS+param_map-CLASSIFIERS^classifier")]
+              (get params "SYS+param-CLASSIFIERS_map^classifier")]
           (if (some? classifiers)
             (doseq [[classifier-kw classifier-value-kw] classifiers]
               (k/add-classifier-value this-name name classifier-kw classifier-value-kw)))

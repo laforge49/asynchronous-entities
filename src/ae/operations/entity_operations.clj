@@ -26,7 +26,7 @@
         instantiation-classifiers
         (assoc instantiation-classifiers "SYS+classifier-CLASS&class" this-name)
         instantiation-classifiers
-        (into instantiation-classifiers (get params "SYS+param_map-CLASSIFIERS^classifier"))
+        (into instantiation-classifiers (get params "SYS+param-CLASSIFIERS_map^classifier"))
         initialization-port
         (if federated?
           (a/chan)
@@ -34,7 +34,7 @@
         params
         (into params {"SYS+param-INITIALIZATIONport"         initialization-port
                       "SYS+param-DESCRIPTORS_map^descriptor" instantiation-descriptors
-                      "SYS+param_map-CLASSIFIERS^classifier" instantiation-classifiers})]
+                      "SYS+param-CLASSIFIERS_map^classifier" instantiation-classifiers})]
     (if federated?
       (do
         (k/create-entity env params)

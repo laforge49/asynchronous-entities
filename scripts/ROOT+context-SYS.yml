@@ -72,7 +72,7 @@
     "This is a system test.
       Same line.
       \nDifferent line."
-  param_map-CLASSIFIERS^classifier:
+  param-CLASSIFIERS_map^classifier:
     classifier_vec-RESOURCES&context:
       - context-SYS
 0030030 request-REQUEST_map^param:
@@ -81,7 +81,7 @@
   param-NAME&%: context-FED
   param-CONTENT$str:
     "This is context FED."
-  param_map-CLASSIFIERS^classifier:
+  param-CLASSIFIERS_map^classifier:
     classifier_vec-RESOURCES&context:
       - context-SYS
 0030040 request-REQUEST_map^param:
@@ -90,7 +90,7 @@
   param-NAME&%: context-FEDTEST
   param-CONTENT$str:
     "This is a federation test."
-  param_map-CLASSIFIERS^classifier:
+  param-CLASSIFIERS_map^classifier:
     classifier_vec-RESOURCES&context:
       - context-SYS
       - context-FED
@@ -256,7 +256,7 @@
 0130010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-PARAMmap
-  param-NAME&%: param_map-CLASSIFIERS^classifier
+  param-NAME&%: param-CLASSIFIERS_map^classifier
 0130020 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-PARAMmap
