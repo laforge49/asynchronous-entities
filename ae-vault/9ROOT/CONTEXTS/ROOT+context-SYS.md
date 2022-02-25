@@ -316,46 +316,11 @@ SYS+gem-FACETS_map^facet:
               SYS+requestid-GEMreport:
                 - GEM_REPORToperationid
         SYS+param-NAME&%:
-          class-PARAM
+          class-GEM
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-CLASS
-      0120010 SYS+request-REQUEST_map^param:
-        SYS+param-NAME&%:
-          param-CONTENT$str
-        SYS+param-REQUESTID&requestid:
-          requestid-INSTANTIATE
-        SYS+param-TARGETname&%:
-          class-PARAM
-      0120020 SYS+request-REQUEST_map^param:
-        SYS+param-NAME&%:
-          param-NAME&%
-        SYS+param-REQUESTID&requestid:
-          requestid-INSTANTIATE
-        SYS+param-TARGETname&%:
-          class-PARAM
-      0120030 SYS+request-REQUEST_map^param:
-        SYS+param-NAME&%:
-          param-REQUESTID&requestid
-        SYS+param-REQUESTID&requestid:
-          requestid-INSTANTIATE
-        SYS+param-TARGETname&%:
-          class-PARAM
-      0120040 SYS+request-REQUEST_map^param:
-        SYS+param-NAME&%:
-          param-TARGETname&%
-        SYS+param-REQUESTID&requestid:
-          requestid-INSTANTIATE
-        SYS+param-TARGETname&%:
-          class-PARAM
-      0120050 SYS+request-REQUEST_map^param:
-        SYS+param-NAME&%:
-          param-TEXT$str
-        SYS+param-REQUESTID&requestid:
-          requestid-INSTANTIATE
-        SYS+param-TARGETname&%:
-          class-PARAM
       0130000 SYS+request-REQUEST_map^param:
         SYS+param-DESCRIPTORS_map^descriptor:
           SYS+descriptor-INSTANCE_map^descriptor:
@@ -365,25 +330,46 @@ SYS+gem-FACETS_map^facet:
               SYS+requestid-GEMreport:
                 - GEM_REPORToperationid
         SYS+param-NAME&%:
-          class-PARAMmap
+          class-PARAM
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-CLASS
       0130010 SYS+request-REQUEST_map^param:
         SYS+param-NAME&%:
-          param-CLASSIFIERS_map^classifier
+          param-CONTENT$str
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
-          class-PARAMmap
+          class-PARAM
       0130020 SYS+request-REQUEST_map^param:
         SYS+param-NAME&%:
-          param-DESCRIPTORS_map^descriptor
+          param-NAME&%
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
-          class-PARAMmap
+          class-PARAM
+      0130030 SYS+request-REQUEST_map^param:
+        SYS+param-NAME&%:
+          param-REQUESTID&requestid
+        SYS+param-REQUESTID&requestid:
+          requestid-INSTANTIATE
+        SYS+param-TARGETname&%:
+          class-PARAM
+      0130040 SYS+request-REQUEST_map^param:
+        SYS+param-NAME&%:
+          param-TARGETname&%
+        SYS+param-REQUESTID&requestid:
+          requestid-INSTANTIATE
+        SYS+param-TARGETname&%:
+          class-PARAM
+      0130050 SYS+request-REQUEST_map^param:
+        SYS+param-NAME&%:
+          param-TEXT$str
+        SYS+param-REQUESTID&requestid:
+          requestid-INSTANTIATE
+        SYS+param-TARGETname&%:
+          class-PARAM
       0140000 SYS+request-REQUEST_map^param:
         SYS+param-DESCRIPTORS_map^descriptor:
           SYS+descriptor-INSTANCE_map^descriptor:
@@ -393,19 +379,47 @@ SYS+gem-FACETS_map^facet:
               SYS+requestid-GEMreport:
                 - GEM_REPORToperationid
         SYS+param-NAME&%:
-          class-REQUESTmap
+          class-PARAMmap
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-CLASS
       0140010 SYS+request-REQUEST_map^param:
         SYS+param-NAME&%:
+          param-CLASSIFIERS_map^classifier
+        SYS+param-REQUESTID&requestid:
+          requestid-INSTANTIATE
+        SYS+param-TARGETname&%:
+          class-PARAMmap
+      0140020 SYS+request-REQUEST_map^param:
+        SYS+param-NAME&%:
+          param-DESCRIPTORS_map^descriptor
+        SYS+param-REQUESTID&requestid:
+          requestid-INSTANTIATE
+        SYS+param-TARGETname&%:
+          class-PARAMmap
+      0150000 SYS+request-REQUEST_map^param:
+        SYS+param-DESCRIPTORS_map^descriptor:
+          SYS+descriptor-INSTANCE_map^descriptor:
+            SYS+descriptor-INVARIANT$bool:
+              true
+            SYS+descriptor-REQUESTS_mapvec^requestid$str:
+              SYS+requestid-GEMreport:
+                - GEM_REPORToperationid
+        SYS+param-NAME&%:
+          class-REQUESTmap
+        SYS+param-REQUESTID&requestid:
+          requestid-INSTANTIATE
+        SYS+param-TARGETname&%:
+          class-CLASS
+      0150010 SYS+request-REQUEST_map^param:
+        SYS+param-NAME&%:
           request-REQUEST_map^param
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-REQUESTmap
-      0150000 SYS+request-REQUEST_map^param:
+      0160000 SYS+request-REQUEST_map^param:
         SYS+param-DESCRIPTORS_map^descriptor:
           SYS+descriptor-INSTANCE_map^descriptor:
             SYS+descriptor-INVARIANT$bool:
@@ -419,14 +433,14 @@ SYS+gem-FACETS_map^facet:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-CLASS
-      0150010 SYS+request-REQUEST_map^param:
+      0160010 SYS+request-REQUEST_map^param:
         SYS+param-NAME&%:
           requestid-ADDdescriptors
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-REQUESTID
-      0150020 SYS+request-REQUEST_map^param:
+      0160020 SYS+request-REQUEST_map^param:
         SYS+param-DESCRIPTORS_map^descriptor:
           SYS+descriptor-READonly$bool:
             true
@@ -436,7 +450,7 @@ SYS+gem-FACETS_map^facet:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-REQUESTID
-      0150030 SYS+request-REQUEST_map^param:
+      0160030 SYS+request-REQUEST_map^param:
         SYS+param-DESCRIPTORS_map^descriptor:
           SYS+descriptor-READonly$bool:
             true
@@ -446,7 +460,7 @@ SYS+gem-FACETS_map^facet:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-REQUESTID
-      0150040 SYS+request-REQUEST_map^param:
+      0160040 SYS+request-REQUEST_map^param:
         SYS+param-DESCRIPTORS_map^descriptor:
           SYS+descriptor-READonly$bool:
             true
@@ -456,7 +470,7 @@ SYS+gem-FACETS_map^facet:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-REQUESTID
-      0150050 SYS+request-REQUEST_map^param:
+      0160050 SYS+request-REQUEST_map^param:
         SYS+param-DESCRIPTORS_map^descriptor:
           SYS+descriptor-READonly$bool:
             true
@@ -466,21 +480,21 @@ SYS+gem-FACETS_map^facet:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-REQUESTID
-      0150060 SYS+request-REQUEST_map^param:
+      0160060 SYS+request-REQUEST_map^param:
         SYS+param-NAME&%:
           requestid-PRINTLN
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-REQUESTID
-      0150070 SYS+request-REQUEST_map^param:
+      0160070 SYS+request-REQUEST_map^param:
         SYS+param-NAME&%:
           requestid-REGISTERgem
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-REQUESTID
-      0150080 SYS+request-REQUEST_map^param:
+      0160080 SYS+request-REQUEST_map^param:
         SYS+param-DESCRIPTORS_map^descriptor:
           SYS+descriptor-READonly$bool:
             true
@@ -554,6 +568,7 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+class-FACET
     entity:      SYS+class-FACETmap
     entity:      SYS+class-FACETvec
+    entity:      SYS+class-GEM
     entity:      SYS+class-PARAM
     entity:      SYS+class-PARAMmap
     entity:      SYS+class-REQUESTID

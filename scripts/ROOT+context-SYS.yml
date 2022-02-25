@@ -215,6 +215,17 @@
 0120000 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
+  param-NAME&%: class-GEM
+  param-DESCRIPTORS_map^descriptor:
+    descriptor-INSTANCE_map^descriptor:
+      descriptor-INVARIANT$bool: true
+      descriptor-REQUESTS_mapvec^requestid$str:
+        requestid-GEMreport:
+          - GEM_REPORToperationid
+#
+0130000 request-REQUEST_map^param:
+  param-REQUESTID&requestid: requestid-INSTANTIATE
+  param-TARGETname&%: class-CLASS
   param-NAME&%: class-PARAM
   param-DESCRIPTORS_map^descriptor:
     descriptor-INSTANCE_map^descriptor:
@@ -222,28 +233,28 @@
       descriptor-REQUESTS_mapvec^requestid$str:
         requestid-GEMreport:
           - GEM_REPORToperationid
-0120010 request-REQUEST_map^param:
+0130010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-PARAM
   param-NAME&%: param-CONTENT$str
-0120020 request-REQUEST_map^param:
+0130020 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-PARAM
   param-NAME&%: param-NAME&%
-0120030 request-REQUEST_map^param:
+0130030 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-PARAM
   param-NAME&%: param-REQUESTID&requestid
-0120040 request-REQUEST_map^param:
+0130040 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-PARAM
   param-NAME&%: param-TARGETname&%
-0120050 request-REQUEST_map^param:
+0130050 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-PARAM
   param-NAME&%: param-TEXT$str
 #
-0130000 request-REQUEST_map^param:
+0140000 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-PARAMmap
@@ -253,16 +264,16 @@
       descriptor-REQUESTS_mapvec^requestid$str:
         requestid-GEMreport:
           - GEM_REPORToperationid
-0130010 request-REQUEST_map^param:
+0140010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-PARAMmap
   param-NAME&%: param-CLASSIFIERS_map^classifier
-0130020 request-REQUEST_map^param:
+0140020 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-PARAMmap
   param-NAME&%: param-DESCRIPTORS_map^descriptor
 #
-0140000 request-REQUEST_map^param:
+0150000 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-REQUESTmap
@@ -272,12 +283,12 @@
       descriptor-REQUESTS_mapvec^requestid$str:
         requestid-GEMreport:
           - GEM_REPORToperationid
-0140010 request-REQUEST_map^param:
+0150010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTmap
   param-NAME&%: request-REQUEST_map^param
 #
-0150000 request-REQUEST_map^param:
+0160000 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS
   param-NAME&%: class-REQUESTID
@@ -287,43 +298,43 @@
       descriptor-REQUESTS_mapvec^requestid$str:
         requestid-GEMreport:
           - GEM_REPORToperationid
-0150010 request-REQUEST_map^param:
+0160010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
   param-NAME&%: requestid-ADDdescriptors
-0150020 request-REQUEST_map^param:
+0160020 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
   param-NAME&%: requestid-GEMreport
   param-DESCRIPTORS_map^descriptor:
     descriptor-READonly$bool: true
-0150030 request-REQUEST_map^param:
+0160030 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
   param-NAME&%: requestid-EVALscript
   param-DESCRIPTORS_map^descriptor:
     descriptor-READonly$bool: true
-0150040 request-REQUEST_map^param:
+0160040 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
   param-NAME&%: requestid-INSTANTIATE
   param-DESCRIPTORS_map^descriptor:
     descriptor-READonly$bool: true
-0150050 request-REQUEST_map^param:
+0160050 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
   param-NAME&%: requestid-LOADscript
   param-DESCRIPTORS_map^descriptor:
     descriptor-READonly$bool: true
-0150060 request-REQUEST_map^param:
+0160060 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
   param-NAME&%: requestid-PRINTLN
-0150070 request-REQUEST_map^param:
+0160070 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
   param-NAME&%: requestid-REGISTERgem
-0150080 request-REQUEST_map^param:
+0160080 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-REQUESTID
   param-NAME&%: requestid-VALIDATEscriptNAMES
