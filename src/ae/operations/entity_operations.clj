@@ -96,14 +96,14 @@
                             _ (if (nil? obj-map)
                                 (throw (Exception. (str "Federation is required by addRelations for object gem " new-value))))
                             relation-subjects
-                            (get-in obj-map ["FED+facet_map-INVERSErelations^relation&%" relation] [])
+                            (get-in obj-map ["FED+facet-INVERSErelations_map^relation&%" relation] [])
                             i
                             (.indexOf relation-values new-value)
                             relation-values
                             (if (= i -1)
                               (let [obj-map
                                     (assoc-in obj-map
-                                              ["FED+facet_map-INVERSErelations^relation&%" relation]
+                                              ["FED+facet-INVERSErelations_map^relation&%" relation]
                                               (conj relation-subjects this-name))]
                                 (k/assoc-federated-entity-map new-value obj-map env)
                                 (conj relation-values new-value))
