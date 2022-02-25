@@ -77,7 +77,7 @@
   [entity-name]
   (let [entity-map
         (i/get-gem-map entity-name)]
-    (get entity-map "SYS+facet_map-CLASSIFIERS^classifier")))
+    (get entity-map "SYS+facet-CLASSIFIERS_map^classifier")))
 
 (defn get-classifier
   [entity-name classifier-name]
@@ -461,7 +461,7 @@
         {"SYS+facet-NAME&%"                     name
          "SYS+facet-FEDERATORname&federator"    federator-name
          "SYS+facet-DESCRIPTORS_map^descriptor" descriptors
-         "SYS+facet_map-CLASSIFIERS^classifier" classifiers
+         "SYS+facet-CLASSIFIERS_map^classifier" classifiers
          ;"FED+facet-RELATIONS_map^relation&%"        (sorted-map)
          ;"FED+facet-INVERSErelations_map^relation&%" (sorted-map)
          "SYS+facet-CONTENT$str"                content

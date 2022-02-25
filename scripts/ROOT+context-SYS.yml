@@ -191,7 +191,7 @@
 0100010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-FACETmap
-  param-NAME&%: facet_map-CLASSIFIERS^classifier
+  param-NAME&%: facet-CLASSIFIERS_map^classifier
 0100020 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-FACETmap
