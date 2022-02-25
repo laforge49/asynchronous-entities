@@ -75,7 +75,7 @@
         [this-context _]
         (n/parse-into-2 this-name)
         new-relations-map
-        (get params "FED+param_map-RELATIONS^relation&%")
+        (get params "FED+param-RELATIONS_map^relation&%")
         this-map
         (reduce
           (fn [this-map [relation new-relation-values]]

@@ -39,7 +39,7 @@
 0060010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-PARAMmap
-  param-NAME&%: param_map-RELATIONS^relation&%
+  param-NAME&%: param-RELATIONS_map^relation&%
 #
 0070010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
