@@ -37,7 +37,7 @@
                           nil
                           env)
         fm
-        (sorted-map "gem_map-FACETS^facet"
+        (sorted-map "gem-FACETS_map^facet"
          facets)]
     (str "---\n"
          (t/edn-to-yaml fm)
