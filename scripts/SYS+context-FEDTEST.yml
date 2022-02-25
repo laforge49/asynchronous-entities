@@ -39,7 +39,7 @@
   param-TARGETname&%: class-FEDERATOR
   param-NAME&%: federator-A
   param-DESCRIPTORS_map^descriptor:
-    descriptor_vec-FEDERATIONnames&%:
+    descriptor-FEDERATIONnames_vec&%:
       - simple-ALPHA
       - simple-BETA
     descriptor_map-SCRIPT^request:

@@ -109,7 +109,7 @@
               descriptors
               (get this-map "SYS+facet_map-DESCRIPTORS^descriptor")
               federation-names
-              (get descriptors "FED+descriptor_vec-FEDERATIONnames&%")
+              (get descriptors "FED+descriptor-FEDERATIONnames_vec&%")
               env
               (assoc env "SYS+env-FEDERATORname&federator" this-name)
               acquire-port
