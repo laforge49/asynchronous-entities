@@ -6,7 +6,7 @@
 0020010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-RELATION
-  param-NAME&%: relation_vec-BASIC
+  param-NAME&%: relation-BASIC_vec
 #
 0030000 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -61,13 +61,13 @@
         param-REQUESTID&requestid: requestid-ADDrelations
         param-TARGETname&%: simple-GAMMA
         param-RELATIONS_map^relation&%:
-          relation_vec-BASIC:
+          relation-BASIC_vec:
             - simple-ALPHA
       0000050 request-REQUEST_map^param:
               param-REQUESTID&requestid: requestid-ADDrelations
               param-TARGETname&%: simple-BETA
               param-RELATIONS_map^relation&%:
-                relation_vec-BASIC:
+                relation-BASIC_vec:
                   - simple-ALPHA
 ##
 0500020 request-REQUEST_map^param:
