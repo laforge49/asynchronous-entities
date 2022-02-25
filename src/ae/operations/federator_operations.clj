@@ -118,7 +118,7 @@
               env
               (assoc env "SYS+env_volmap-CHILDREN&%" (volatile! {}))
               script
-              (get descriptors "SYS+descriptor_map-SCRIPT^request")
+              (get descriptors "SYS+descriptor-SCRIPT_map^request")
               _ (doseq [request script]
                   (let [request-params
                         (val request)]

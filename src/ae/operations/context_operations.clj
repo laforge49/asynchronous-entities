@@ -104,7 +104,7 @@
               this-map
               (assoc-in this-map
                         ["SYS+facet_map-DESCRIPTORS^descriptor"
-                         "SYS+descriptor_map-SCRIPT^request"]
+                         "SYS+descriptor-SCRIPT_map^request"]
                         edn-script)]
           (a/>! operation-return-port [this-map nil]))
         (catch Exception e
@@ -119,7 +119,7 @@
         (let [edn-script
               (get-in this-map
                       ["SYS+facet_map-DESCRIPTORS^descriptor"
-                       "SYS+descriptor_map-SCRIPT^request"])
+                       "SYS+descriptor-SCRIPT_map^request"])
               requests
               (reduce
                 (fn [requests [k v]]
@@ -141,7 +141,7 @@
         (let [edn-script
               (get-in this-map
                       ["SYS+facet_map-DESCRIPTORS^descriptor"
-                       "SYS+descriptor_map-SCRIPT^request"])]
+                       "SYS+descriptor-SCRIPT_map^request"])]
           (t/validate-names edn-script "map" "request" nil nil nil env)
           (a/>! operation-return-port [this-map nil]))
         (catch Exception e
