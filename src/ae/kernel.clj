@@ -86,7 +86,7 @@
 (defn get-resources-set
   [local-context-name]
   (let [resources-vec
-        (get-classifier local-context-name "SYS+classifier_vec-RESOURCES&context")
+        (get-classifier local-context-name "SYS+classifier-RESOURCES_vec&context")
         [_ entity-base-name]
         (n/parse-into-2 local-context-name)
         short-context-name

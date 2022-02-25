@@ -45,7 +45,7 @@
 0020010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASSIFIERvec
-  param-NAME&%: classifier_vec-RESOURCES&context
+  param-NAME&%: classifier-RESOURCES_vec&context
 #
 0030000 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -73,7 +73,7 @@
       Same line.
       \nDifferent line."
   param-CLASSIFIERS_map^classifier:
-    classifier_vec-RESOURCES&context:
+    classifier-RESOURCES_vec&context:
       - context-SYS
 0030030 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -82,7 +82,7 @@
   param-CONTENT$str:
     "This is context FED."
   param-CLASSIFIERS_map^classifier:
-    classifier_vec-RESOURCES&context:
+    classifier-RESOURCES_vec&context:
       - context-SYS
 0030040 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
@@ -91,7 +91,7 @@
   param-CONTENT$str:
     "This is a federation test."
   param-CLASSIFIERS_map^classifier:
-    classifier_vec-RESOURCES&context:
+    classifier-RESOURCES_vec&context:
       - context-SYS
       - context-FED
 #
