@@ -107,7 +107,7 @@
         (let [this-name
               (get this-map "SYS+facet-NAME&%")
               descriptors
-              (get this-map "SYS+facet_map-DESCRIPTORS^descriptor")
+              (get this-map "SYS+facet-DESCRIPTORS_map^descriptor")
               federation-names
               (get descriptors "FED+descriptor-FEDERATIONnames_vec&%")
               env

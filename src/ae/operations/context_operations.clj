@@ -103,7 +103,7 @@
               (t/parse-bind-script yaml-script this-map env)
               this-map
               (assoc-in this-map
-                        ["SYS+facet_map-DESCRIPTORS^descriptor"
+                        ["SYS+facet-DESCRIPTORS_map^descriptor"
                          "SYS+descriptor-SCRIPT_map^request"]
                         edn-script)]
           (a/>! operation-return-port [this-map nil]))
@@ -118,7 +118,7 @@
       (try
         (let [edn-script
               (get-in this-map
-                      ["SYS+facet_map-DESCRIPTORS^descriptor"
+                      ["SYS+facet-DESCRIPTORS_map^descriptor"
                        "SYS+descriptor-SCRIPT_map^request"])
               requests
               (reduce
@@ -140,7 +140,7 @@
       (try
         (let [edn-script
               (get-in this-map
-                      ["SYS+facet_map-DESCRIPTORS^descriptor"
+                      ["SYS+facet-DESCRIPTORS_map^descriptor"
                        "SYS+descriptor-SCRIPT_map^request"])]
           (t/validate-names edn-script "map" "request" nil nil nil env)
           (a/>! operation-return-port [this-map nil]))

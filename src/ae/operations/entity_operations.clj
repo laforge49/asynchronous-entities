@@ -16,7 +16,7 @@
         this-name
         (get this-map "SYS+facet-NAME&%")
         this-descriptors
-        (get this-map "SYS+facet_map-DESCRIPTORS^descriptor")
+        (get this-map "SYS+facet-DESCRIPTORS_map^descriptor")
         instantiation-descriptors
         (get this-descriptors "SYS+descriptor-INSTANCE_map^descriptor")
         instantiation-descriptors
@@ -56,11 +56,11 @@
         (reduce
           (fn [this-map [descriptor descriptor-value]]
             (let [old-descriptor-value
-                  (get-in this-map ["SYS+facet_map-DESCRIPTORS^descriptor" descriptor])
+                  (get-in this-map ["SYS+facet-DESCRIPTORS_map^descriptor" descriptor])
                   _ (if (some? old-descriptor-value)
                       (throw (Exception. (str "ADD DESCRIPTOR encountered a pre-existing value: " old-descriptor-value))))
                   this-map
-                  (assoc-in this-map ["SYS+facet_map-DESCRIPTORS^descriptor" descriptor] descriptor-value)]
+                  (assoc-in this-map ["SYS+facet-DESCRIPTORS_map^descriptor" descriptor] descriptor-value)]
               this-map))
           this-map
           descriptors-map)]

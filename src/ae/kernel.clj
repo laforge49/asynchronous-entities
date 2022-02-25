@@ -54,7 +54,7 @@
 
 (defn invariant?
   [gem-map]
-  (get-in gem-map ["SYS+facet_map-DESCRIPTORS^descriptor" "SYS+descriptor-INVARIANT$bool"]))
+  (get-in gem-map ["SYS+facet-DESCRIPTORS_map^descriptor" "SYS+descriptor-INVARIANT$bool"]))
 
 (defn get-invariant-map
   [name]
@@ -149,7 +149,7 @@
         (get-invariant-map entity-kw)]
     (if (nil? this-map)
       nil
-      (get this-map "SYS+facet_map-DESCRIPTORS^descriptor"))))
+      (get this-map "SYS+facet-DESCRIPTORS_map^descriptor"))))
 
 (def operationid-map-atom
   (atom {}))
@@ -185,7 +185,7 @@
 (defn thisDescriptors
   [this-map params]
   (let [this-descriptors
-        (get this-map "SYS+facet_map-DESCRIPTORS^descriptor")]
+        (get this-map "SYS+facet-DESCRIPTORS_map^descriptor")]
     (if (nil? this-descriptors)
       (throw (Exception. (str "Descriptors is nil\n"
                               (prn-str params)
@@ -223,7 +223,7 @@
         (throw (Exception. (str "Operationid is nil\n"
                                 (prn-str params)
                                 (prn-str target-map)))))
-      (if (= (get-in target-map ["SYS+facet_map-DESCRIPTORS^descriptor" "SYS+descriptor-INVARIANT$bool"]) true)
+      (if (= (get-in target-map ["SYS+facet-DESCRIPTORS_map^descriptor" "SYS+descriptor-INVARIANT$bool"]) true)
         (let [request-descriptors
               (get-invariant-descriptors requestid)
               read-only
@@ -460,7 +460,7 @@
         new-entity-map
         {"SYS+facet-NAME&%"                     name
          "SYS+facet-FEDERATORname&federator"    federator-name
-         "SYS+facet_map-DESCRIPTORS^descriptor" descriptors
+         "SYS+facet-DESCRIPTORS_map^descriptor" descriptors
          "SYS+facet_map-CLASSIFIERS^classifier" classifiers
          ;"FED+facet-RELATIONS_map^relation&%"        (sorted-map)
          ;"FED+facet-INVERSErelations_map^relation&%" (sorted-map)
