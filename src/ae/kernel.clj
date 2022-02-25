@@ -50,7 +50,7 @@
 
 (defn get-request-port-stack
   [name]
-  (get (i/get-gem-map name) "SYS+facet_vec-REQUESTportSTACK$chan"))
+  (get (i/get-gem-map name) "SYS+facet-REQUESTportSTACK_vec$chan"))
 
 (defn invariant?
   [gem-map]
@@ -179,7 +179,7 @@
 (defn federated?
   [this-map]
   (let [this-request-port-stack
-        (get this-map "SYS+facet_vec-REQUESTportSTACK$chan")]
+        (get this-map "SYS+facet-REQUESTportSTACK_vec$chan")]
     (> (count this-request-port-stack) 1)))
 
 (defn thisDescriptors
@@ -307,7 +307,7 @@
         (let [this-map
               (i/get-gem-map this-name)
               this-request-port-stack
-              (get this-map "SYS+facet_vec-REQUESTportSTACK$chan")
+              (get this-map "SYS+facet-REQUESTportSTACK_vec$chan")
               _ (if (nil? this-request-port-stack)
                   (throw (Exception. (str "This request port stack is nil\n"
                                           (prn-str this-map)))))
@@ -364,7 +364,7 @@
                         (let [new-request-port
                               (get params "SYS+param-NEWrequestport")
                               this-map
-                              (assoc this-map "SYS+facet_vec-REQUESTportSTACK$chan" (conj this-request-port-stack new-request-port))
+                              (assoc this-map "SYS+facet-REQUESTportSTACK_vec$chan" (conj this-request-port-stack new-request-port))
                               federator-name
                               (get env "SYS+env-FEDERATORname&federator")
                               this-map
@@ -373,7 +373,7 @@
 
                     "RESET-REQUEST-PORT"
                     (let [this-map
-                          (assoc this-map "SYS+facet_vec-REQUESTportSTACK$chan" (pop this-request-port-stack))
+                          (assoc this-map "SYS+facet-REQUESTportSTACK_vec$chan" (pop this-request-port-stack))
                           this-map
                           (assoc this-map "SYS+facet-FEDERATORname&federator" nil)]
                       [this-map])
@@ -465,7 +465,7 @@
          ;"FED+facet-RELATIONS_map^relation&%"        (sorted-map)
          ;"FED+facet-INVERSErelations_map^relation&%" (sorted-map)
          "SYS+facet-CONTENT$str"                content
-         "SYS+facet_vec-REQUESTportSTACK$chan"  request-port-stack}
+         "SYS+facet-REQUESTportSTACK_vec$chan"  request-port-stack}
         ]
     (i/assoc-gem-map name new-entity-map)
     (if (not invariant)

@@ -210,7 +210,7 @@
 0110010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-FACETvec
-  param-NAME&%: facet_vec-REQUESTportSTACK$chan
+  param-NAME&%: facet-REQUESTportSTACK_vec$chan
 #
 0120000 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
