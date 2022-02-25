@@ -321,6 +321,13 @@ SYS+gem-FACETS_map^facet:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-CLASS
+      0120010 SYS+request-REQUEST_map^param:
+        SYS+param-NAME&%:
+          gem-FACETS_map^facet
+        SYS+param-REQUESTID&requestid:
+          requestid-INSTANTIATE
+        SYS+param-TARGETname&%:
+          class-GEM
       0130000 SYS+request-REQUEST_map^param:
         SYS+param-DESCRIPTORS_map^descriptor:
           SYS+descriptor-INSTANCE_map^descriptor:
@@ -597,6 +604,8 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+facet-DESCRIPTORS_map^descriptor
   value:       SYS+class-FACETvec
     entity:      SYS+facet-REQUESTportSTACK_vec$chan
+  value:       SYS+class-GEM
+    entity:      SYS+gem-FACETS_map^facet
   value:       SYS+class-PARAM
     entity:      SYS+param-CONTENT$str
     entity:      SYS+param-NAME&%
