@@ -1,5 +1,5 @@
 ---
-gem_map-FACETS^facet:
+SYS+gem-FACETS_map^facet:
   SYS+facet-CLASSIFIERS_map^classifier:
     SYS+classifier-CLASS&class:
       class-PARAM

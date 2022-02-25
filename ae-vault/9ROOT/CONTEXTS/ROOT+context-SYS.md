@@ -1,5 +1,5 @@
 ---
-gem_map-FACETS^facet:
+SYS+gem-FACETS_map^facet:
   SYS+facet-CONTENT$str:
     ''
   SYS+facet-DESCRIPTORS_map^descriptor:
