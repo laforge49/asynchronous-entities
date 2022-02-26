@@ -179,3 +179,11 @@
     (if (and (some? dtyp) (not (contains? dtyp-set dtyp)))
       (throw (Exception. (str "Gem name " s " has an unknown value data type: " dtyp))))
     [typ styp root ktyp ttyp ntyp dtyp]))
+
+(defn gem-identity
+  [full-name]
+  (let [[context-base-name base-name]
+        (parse-into-2 full-name)
+        [typ styp root ktyp ttyp ntyp dtyp]
+        (parse-gem-name base-name)]
+    (str context-base-name "+" typ "-" root)))
