@@ -174,20 +174,6 @@ SYS+gem-FACETS_map^facet:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-DESCRIPTOR
-      0070000 SYS+request-REQUEST_map^param:
-        SYS+param-DESCRIPTORS_map^descriptor:
-          SYS+descriptor-INSTANCE_map^descriptor:
-            SYS+descriptor-INVARIANT$bool:
-              true
-            SYS+descriptor-REQUESTS_mapvec^requestid$str:
-              SYS+requestid-GEMreport:
-                - GEM_REPORToperationid
-        SYS+param-NAME&%:
-          class-DESCRIPTORvec
-        SYS+param-REQUESTID&requestid:
-          requestid-INSTANTIATE
-        SYS+param-TARGETname&%:
-          class-CLASS
       0090000 SYS+request-REQUEST_map^param:
         SYS+param-DESCRIPTORS_map^descriptor:
           SYS+descriptor-INSTANCE_map^descriptor:
@@ -526,7 +512,6 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+class-CLASSIFIER
     entity:      SYS+class-CONTEXT
     entity:      SYS+class-DESCRIPTOR
-    entity:      SYS+class-DESCRIPTORvec
     entity:      SYS+class-FACET
     entity:      SYS+class-FACETmap
     entity:      SYS+class-FACETvec

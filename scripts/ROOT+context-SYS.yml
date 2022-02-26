@@ -115,17 +115,6 @@
   param-TARGETname&%: class-DESCRIPTOR
   param-NAME&%: descriptor-REQUESTS
 #
-0070000 request-REQUEST_map^param:
-      param-REQUESTID&requestid: requestid-INSTANTIATE
-      param-TARGETname&%: class-CLASS
-      param-NAME&%: class-DESCRIPTORvec
-      param-DESCRIPTORS_map^descriptor:
-        descriptor-INSTANCE_map^descriptor:
-          descriptor-INVARIANT$bool: true
-          descriptor-REQUESTS_mapvec^requestid$str:
-            requestid-GEMreport:
-              - GEM_REPORToperationid
-#
 0090000 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASS

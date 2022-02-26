@@ -22,11 +22,11 @@ SYS+gem-FACETS_map^facet:
     SYS+descriptor-SCRIPT_map^request:
       0010010 SYS+request-REQUEST_map^param:
         SYS+param-NAME&%:
-          descriptor-FEDERATIONnames_vec&%
+          descriptor-FEDERATIONnames
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
-          class-DESCRIPTORvec
+          class-DESCRIPTOR
       0020010 SYS+request-REQUEST_map^param:
         SYS+param-NAME&%:
           facet-INVERSErelations_map^relation&%
@@ -132,8 +132,8 @@ classifier:  SYS+classifier-CLASS&class
   value:       SYS+class-CLASS
     entity:      FED+class-FEDERATOR
     entity:      FED+class-RELATION
-  value:       SYS+class-DESCRIPTORvec
-    entity:      FED+descriptor-FEDERATIONnames_vec&%
+  value:       SYS+class-DESCRIPTOR
+    entity:      FED+descriptor-FEDERATIONnames
   value:       SYS+class-FACETmap
     entity:      FED+facet-INVERSErelations_map^relation&%
     entity:      FED+facet-RELATIONS_map^relation&%

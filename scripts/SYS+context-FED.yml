@@ -1,7 +1,7 @@
 0010010 request-REQUEST_map^param:
     param-REQUESTID&requestid: requestid-INSTANTIATE
-    param-TARGETname&%: class-DESCRIPTORvec
-    param-NAME&%: descriptor-FEDERATIONnames_vec&%
+    param-TARGETname&%: class-DESCRIPTOR
+    param-NAME&%: descriptor-FEDERATIONnames
 #
 0020010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
