@@ -6,8 +6,8 @@
 
 (defn get-gem-map
   [key]
-  (get @gem-maps-atom (n/gem-name-sans-order key)))
+  (get @gem-maps-atom (n/gem-identity key)))
 
 (defn assoc-gem-map
   [key gem-map]
-  (swap! gem-maps-atom assoc (n/gem-name-sans-order key) gem-map))
+  (swap! gem-maps-atom assoc (n/gem-identity key) gem-map))
