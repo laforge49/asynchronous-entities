@@ -63,7 +63,7 @@ SYS+gem-FACETS_map^facet:
           class-CLASSIFIER
       0010020 SYS+request-REQUEST_map^param:
         SYS+param-NAME&%:
-          classifier-RESOURCES_vec&context
+          classifier-RESOURCES
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
@@ -567,7 +567,7 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+class-REQUESTmap
   value:       SYS+class-CLASSIFIER
     entity:      SYS+classifier-CLASS&class
-    entity:      SYS+classifier-RESOURCES_vec&context
+    entity:      SYS+classifier-RESOURCES
   value:       SYS+class-CONTEXT
     entity:      SYS+context-FED
     entity:      SYS+context-FEDTEST
