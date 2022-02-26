@@ -61,27 +61,13 @@ SYS+gem-FACETS_map^facet:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-CLASSIFIER
-      0020000 SYS+request-REQUEST_map^param:
-        SYS+param-DESCRIPTORS_map^descriptor:
-          SYS+descriptor-INSTANCE_map^descriptor:
-            SYS+descriptor-INVARIANT$bool:
-              true
-            SYS+descriptor-REQUESTS_mapvec^requestid$str:
-              SYS+requestid-GEMreport:
-                - GEM_REPORToperationid
-        SYS+param-NAME&%:
-          class-CLASSIFIERvec
-        SYS+param-REQUESTID&requestid:
-          requestid-INSTANTIATE
-        SYS+param-TARGETname&%:
-          class-CLASS
-      0020010 SYS+request-REQUEST_map^param:
+      0010020 SYS+request-REQUEST_map^param:
         SYS+param-NAME&%:
           classifier-RESOURCES_vec&context
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
-          class-CLASSIFIERvec
+          class-CLASSIFIER
       0030000 SYS+request-REQUEST_map^param:
         SYS+param-DESCRIPTORS_map^descriptor:
           SYS+descriptor-INSTANCE_map^descriptor:
@@ -566,7 +552,6 @@ SYS+gem-FACETS_map^facet:
 classifier:  SYS+classifier-CLASS&class
   value:       SYS+class-CLASS
     entity:      SYS+class-CLASSIFIER
-    entity:      SYS+class-CLASSIFIERvec
     entity:      SYS+class-CONTEXT
     entity:      SYS+class-DESCRIPTOR
     entity:      SYS+class-DESCRIPTORmap
@@ -582,7 +567,6 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+class-REQUESTmap
   value:       SYS+class-CLASSIFIER
     entity:      SYS+classifier-CLASS&class
-  value:       SYS+class-CLASSIFIERvec
     entity:      SYS+classifier-RESOURCES_vec&context
   value:       SYS+class-CONTEXT
     entity:      SYS+context-FED
