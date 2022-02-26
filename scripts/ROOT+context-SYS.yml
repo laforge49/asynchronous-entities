@@ -102,25 +102,14 @@
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-DESCRIPTOR
   param-NAME&%: descriptor-READonly$bool
-#
-0050000 request-REQUEST_map^param:
+0040030 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
-  param-TARGETname&%: class-CLASS
-  param-NAME&%: class-DESCRIPTORmap
-  param-DESCRIPTORS_map^descriptor:
-    descriptor-INSTANCE_map^descriptor:
-      descriptor-INVARIANT$bool: true
-      descriptor-REQUESTS_mapvec^requestid$str:
-        requestid-GEMreport:
-          - GEM_REPORToperationid
-0050010 request-REQUEST_map^param:
+  param-TARGETname&%: class-DESCRIPTOR
+  param-NAME&%: descriptor-INSTANCE
+0040040 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
-  param-TARGETname&%: class-DESCRIPTORmap
-  param-NAME&%: descriptor-INSTANCE_map^descriptor
-0050020 request-REQUEST_map^param:
-  param-REQUESTID&requestid: requestid-INSTANTIATE
-  param-TARGETname&%: class-DESCRIPTORmap
-  param-NAME&%: descriptor-SCRIPT_map^request
+  param-TARGETname&%: class-DESCRIPTOR
+  param-NAME&%: descriptor-SCRIPT
 #
 0060000 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE

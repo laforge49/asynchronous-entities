@@ -153,34 +153,20 @@ SYS+gem-FACETS_map^facet:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-DESCRIPTOR
-      0050000 SYS+request-REQUEST_map^param:
-        SYS+param-DESCRIPTORS_map^descriptor:
-          SYS+descriptor-INSTANCE_map^descriptor:
-            SYS+descriptor-INVARIANT$bool:
-              true
-            SYS+descriptor-REQUESTS_mapvec^requestid$str:
-              SYS+requestid-GEMreport:
-                - GEM_REPORToperationid
+      0040030 SYS+request-REQUEST_map^param:
         SYS+param-NAME&%:
-          class-DESCRIPTORmap
+          descriptor-INSTANCE
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
-          class-CLASS
-      0050010 SYS+request-REQUEST_map^param:
+          class-DESCRIPTOR
+      0040040 SYS+request-REQUEST_map^param:
         SYS+param-NAME&%:
-          descriptor-INSTANCE_map^descriptor
+          descriptor-SCRIPT
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
-          class-DESCRIPTORmap
-      0050020 SYS+request-REQUEST_map^param:
-        SYS+param-NAME&%:
-          descriptor-SCRIPT_map^request
-        SYS+param-REQUESTID&requestid:
-          requestid-INSTANTIATE
-        SYS+param-TARGETname&%:
-          class-DESCRIPTORmap
+          class-DESCRIPTOR
       0060000 SYS+request-REQUEST_map^param:
         SYS+param-DESCRIPTORS_map^descriptor:
           SYS+descriptor-INSTANCE_map^descriptor:
@@ -554,7 +540,6 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+class-CLASSIFIER
     entity:      SYS+class-CONTEXT
     entity:      SYS+class-DESCRIPTOR
-    entity:      SYS+class-DESCRIPTORmap
     entity:      SYS+class-DESCRIPTORmapvec
     entity:      SYS+class-DESCRIPTORvec
     entity:      SYS+class-FACET
@@ -573,11 +558,10 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+context-FEDTEST
     entity:      SYS+context-SYSTEST
   value:       SYS+class-DESCRIPTOR
+    entity:      SYS+descriptor-INSTANCE
     entity:      SYS+descriptor-INVARIANT$bool
     entity:      SYS+descriptor-READonly$bool
-  value:       SYS+class-DESCRIPTORmap
-    entity:      SYS+descriptor-INSTANCE_map^descriptor
-    entity:      SYS+descriptor-SCRIPT_map^request
+    entity:      SYS+descriptor-SCRIPT
   value:       SYS+class-DESCRIPTORmapvec
     entity:      SYS+descriptor-REQUESTS_mapvec^requestid$str
   value:       SYS+class-FACET
