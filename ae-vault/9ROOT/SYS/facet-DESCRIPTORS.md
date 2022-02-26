@@ -2,7 +2,7 @@
 SYS+gem-FACETS_map^facet:
   SYS+facet-CLASSIFIERS_map^classifier:
     SYS+classifier-CLASS&class:
-      class-DESCRIPTOR
+      class-FACETmap
   SYS+facet-CONTENT$str:
     ''
   SYS+facet-DESCRIPTORS_map^descriptor:
@@ -12,7 +12,7 @@ SYS+gem-FACETS_map^facet:
       SYS+requestid-GEMreport:
         - GEM_REPORToperationid
   SYS+facet-NAME&%:
-    descriptor-READonly$bool
+    facet-DESCRIPTORS
 ---
-# Gem SYS+descriptor-READonly$bool
+# Gem SYS+facet-DESCRIPTORS
 

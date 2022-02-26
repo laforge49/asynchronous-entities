@@ -433,6 +433,8 @@
         (get env "SYS+env-FEDERATORname&federator")
         name
         (get params "SYS+param-NAME&%")
+        identity
+        (n/gem-identity name)
         descriptors
         (get params "SYS+param-DESCRIPTORS_map^descriptor" (sorted-map))
         classifiers
@@ -458,7 +460,7 @@
             (conj request-port-stack initialization-port))
           nil)
         new-entity-map
-        {"SYS+facet-NAME&%"                     name
+        {"SYS+facet-NAME&%"                     identity
          "SYS+facet-FEDERATORname&federator"    federator-name
          "SYS+facet-DESCRIPTORS_map^descriptor" descriptors
          "SYS+facet-CLASSIFIERS_map^classifier" classifiers

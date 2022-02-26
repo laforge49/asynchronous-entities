@@ -12,7 +12,7 @@ SYS+gem-FACETS_map^facet:
       SYS+requestid-GEMreport:
         - GEM_REPORToperationid
   SYS+facet-NAME&%:
-    param-TARGETname&%
+    param-TEXT
 ---
-# Gem SYS+param-TARGETname&%
+# Gem SYS+param-TEXT
 

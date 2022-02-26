@@ -12,7 +12,7 @@ SYS+gem-FACETS_map^facet:
       SYS+requestid-GEMreport:
         - GEM_REPORToperationid
   SYS+facet-NAME&%:
-    facet-DESCRIPTORS_map^descriptor
+    facet-CLASSIFIERS
 ---
-# Gem SYS+facet-DESCRIPTORS_map^descriptor
+# Gem SYS+facet-CLASSIFIERS
 

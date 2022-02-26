@@ -2,7 +2,7 @@
 SYS+gem-FACETS_map^facet:
   SYS+facet-CLASSIFIERS_map^classifier:
     SYS+classifier-CLASS&class:
-      class-RELATION
+      class-DESCRIPTORmap
   SYS+facet-CONTENT$str:
     ''
   SYS+facet-DESCRIPTORS_map^descriptor:
@@ -12,7 +12,7 @@ SYS+gem-FACETS_map^facet:
       SYS+requestid-GEMreport:
         - GEM_REPORToperationid
   SYS+facet-NAME&%:
-    relation-BASIC_vec
+    descriptor-SCRIPT
 ---
-# Gem FEDTEST+relation-BASIC_vec
+# Gem SYS+descriptor-SCRIPT
 

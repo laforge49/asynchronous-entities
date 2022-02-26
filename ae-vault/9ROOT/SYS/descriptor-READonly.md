@@ -12,7 +12,7 @@ SYS+gem-FACETS_map^facet:
       SYS+requestid-GEMreport:
         - GEM_REPORToperationid
   SYS+facet-NAME&%:
-    descriptor-DEGREEofPOLISH$str
+    descriptor-READonly
 ---
-# Gem FEDTEST+descriptor-DEGREEofPOLISH$str
+# Gem SYS+descriptor-READonly
 
