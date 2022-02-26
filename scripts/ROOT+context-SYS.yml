@@ -30,7 +30,7 @@
 0010010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASSIFIER
-  param-NAME&%: classifier-CLASS&class
+  param-NAME&%: classifier-CLASS
 0010020 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-CLASSIFIER
@@ -97,11 +97,11 @@
 0040010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-DESCRIPTOR
-  param-NAME&%: descriptor-INVARIANT$bool
+  param-NAME&%: descriptor-INVARIANT
 0040020 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-DESCRIPTOR
-  param-NAME&%: descriptor-READonly$bool
+  param-NAME&%: descriptor-READonly
 0040030 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-DESCRIPTOR

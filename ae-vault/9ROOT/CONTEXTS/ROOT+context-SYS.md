@@ -56,7 +56,7 @@ SYS+gem-FACETS_map^facet:
           class-CLASS
       0010010 SYS+request-REQUEST_map^param:
         SYS+param-NAME&%:
-          classifier-CLASS&class
+          classifier-CLASS
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
@@ -141,14 +141,14 @@ SYS+gem-FACETS_map^facet:
           class-CLASS
       0040010 SYS+request-REQUEST_map^param:
         SYS+param-NAME&%:
-          descriptor-INVARIANT$bool
+          descriptor-INVARIANT
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-DESCRIPTOR
       0040020 SYS+request-REQUEST_map^param:
         SYS+param-NAME&%:
-          descriptor-READonly$bool
+          descriptor-READonly
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
@@ -536,7 +536,7 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+class-REQUESTID
     entity:      SYS+class-REQUESTmap
   value:       SYS+class-CLASSIFIER
-    entity:      SYS+classifier-CLASS&class
+    entity:      SYS+classifier-CLASS
     entity:      SYS+classifier-RESOURCES
   value:       SYS+class-CONTEXT
     entity:      SYS+context-FED
@@ -544,8 +544,8 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+context-SYSTEST
   value:       SYS+class-DESCRIPTOR
     entity:      SYS+descriptor-INSTANCE
-    entity:      SYS+descriptor-INVARIANT$bool
-    entity:      SYS+descriptor-READonly$bool
+    entity:      SYS+descriptor-INVARIANT
+    entity:      SYS+descriptor-READonly
     entity:      SYS+descriptor-REQUESTS
     entity:      SYS+descriptor-SCRIPT
   value:       SYS+class-FACET
