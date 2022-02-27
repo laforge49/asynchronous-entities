@@ -190,14 +190,14 @@ SYS+gem-FACETS_map^facet:
           class-CLASS
       0090010 SYS+request-REQUEST_map^param:
         SYS+param-NAME&%:
-          facet-CONTENT$str
+          facet-CONTENT
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
           class-FACET
       0090020 SYS+request-REQUEST_map^param:
         SYS+param-NAME&%:
-          facet-NAME&%
+          facet-NAME
         SYS+param-REQUESTID&requestid:
           requestid-INSTANTIATE
         SYS+param-TARGETname&%:
@@ -534,8 +534,8 @@ classifier:  SYS+classifier-CLASS&class
     entity:      SYS+descriptor-REQUESTS
     entity:      SYS+descriptor-SCRIPT
   value:       SYS+class-FACET
-    entity:      SYS+facet-CONTENT$str
-    entity:      SYS+facet-NAME&%
+    entity:      SYS+facet-CONTENT
+    entity:      SYS+facet-NAME
   value:       SYS+class-FACETmap
     entity:      SYS+facet-CLASSIFIERS_map^classifier
     entity:      SYS+facet-DESCRIPTORS_map^descriptor

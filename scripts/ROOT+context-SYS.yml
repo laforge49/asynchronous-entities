@@ -128,11 +128,11 @@
 0090010 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-FACET
-  param-NAME&%: facet-CONTENT$str
+  param-NAME&%: facet-CONTENT
 0090020 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
   param-TARGETname&%: class-FACET
-  param-NAME&%: facet-NAME&%
+  param-NAME&%: facet-NAME
 #
 0100000 request-REQUEST_map^param:
   param-REQUESTID&requestid: requestid-INSTANTIATE
